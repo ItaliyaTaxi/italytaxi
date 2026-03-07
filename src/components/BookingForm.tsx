@@ -107,6 +107,12 @@ export default function BookingForm() {
                         </TaxiButton>
                     </div>
 
+                    {state.message && !state.success && (
+                        <p className="mt-4 text-center text-sm text-red-400 font-mono">
+                            {state.message}
+                        </p>
+                    )}
+
                     <p className="signup-link mt-6 text-center text-xs text-gray-400 font-mono tracking-wider">
                         Need immediate help? <a href="tel:+39061234567" className="text-gold hover:underline">Call Us 24/7</a>
                     </p>
