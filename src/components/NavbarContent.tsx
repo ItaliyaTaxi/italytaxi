@@ -126,7 +126,7 @@ export default function Navbar() {
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                             </svg>
                         </button>
-                        <div className="lg:hidden absolute right-0 top-1/2 -translate-y-1/2 flex items-center gap-1 scale-75 origin-right animate-slide-left [animation-delay:0.4s]">
+                        <div className="lg:hidden absolute right-0 top-1/2 -translate-y-1/2 scale-75 origin-right animate-slide-left [animation-delay:0.4s]">
                             <a
                                 href="https://wa.me/923148932631"
                                 target="_blank"
@@ -142,9 +142,6 @@ export default function Navbar() {
                                     <i className="point"></i>
                                 </div>
                             </a>
-                            <TaxiButton href="/book-now/">
-                                Book Now
-                            </TaxiButton>
                         </div>
                     </div>
 
