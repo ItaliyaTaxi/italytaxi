@@ -77,6 +77,15 @@ export default function Navbar() {
         { name: 'Dolomites Tour', path: '/tour/dolomites' },
     ];
 
+    const borders = [
+        { name: 'Italy → Switzerland', path: '/border/italy-to-switzerland/' },
+        { name: 'Italy → France', path: '/border/italy-to-france/' },
+        { name: 'Italy → Austria', path: '/border/italy-to-austria/' },
+        { name: 'Italy → Germany', path: '/border/italy-to-germany/' },
+        { name: 'Italy → Slovenia', path: '/border/italy-to-slovenia/' },
+        { name: 'Italy → Croatia', path: '/border/italy-to-croatia/' },
+    ];
+
     return (
         <>
             <nav className={`fixed w-full z-50 transition-all duration-500 ${isScrolled ? 'bg-[#0F1C2E]/95 py-3 shadow-xl backdrop-blur-md' : 'bg-transparent py-5'}`}>
@@ -239,7 +248,26 @@ export default function Navbar() {
                             </div>
                         </div>
 
-                        {/* 7. About Us */}
+                        {/* 7. Borders Dropdown */}
+                        <div className="relative group dropdown-trigger">
+                            <button className="text-white group-hover:text-[#F4C430] transition-colors text-xs font-bold uppercase tracking-widest flex items-center gap-1">
+                                Borders
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 transition-transform group-hover:rotate-180">
+                                    <path fillRule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clipRule="evenodd" />
+                                </svg>
+                            </button>
+                            <div className="absolute top-full left-0 w-64 pt-4 dropdown-menu pointer-events-none group-hover:pointer-events-auto">
+                                <div className="bg-[#0F1C2E] border-t-2 border-[#F4C430] shadow-2xl py-2">
+                                    {borders.map((item) => (
+                                        <Link key={item.name} href={item.path} className="block px-6 py-3 text-[11px] text-white hover:bg-[#F4C430]/10 hover:text-[#F4C430] transition-colors uppercase tracking-widest font-bold border-b border-white/5 last:border-0">
+                                            {item.name}
+                                        </Link>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* 8. About Us */}
                         <Link href="/about-us/" className="text-white hover:text-[#F4C430] transition-colors text-xs font-bold uppercase tracking-widest relative group">
                             About
                             <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#F4C430] transition-all duration-300 group-hover:w-full"></span>
@@ -296,6 +324,16 @@ export default function Navbar() {
                                 <div className="flex flex-col gap-4 pl-4">
                                     {cities.map(s => (
                                         <Link key={s.name} href={s.path} onClick={() => setIsMobileMenuOpen(false)} className="text-white/80 text-sm uppercase tracking-widest">{s.name}</Link>
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* Borders Mobile */}
+                            <div className="border-t border-white/10 pt-4">
+                                <p className="text-[#F4C430] text-xs font-bold uppercase tracking-widest mb-4">Borders</p>
+                                <div className="flex flex-col gap-4 pl-4">
+                                    {borders.map(b => (
+                                        <Link key={b.name} href={b.path} onClick={() => setIsMobileMenuOpen(false)} className="text-white/80 text-sm uppercase tracking-widest">{b.name}</Link>
                                     ))}
                                 </div>
                             </div>
