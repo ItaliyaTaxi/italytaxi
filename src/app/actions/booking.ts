@@ -38,22 +38,28 @@ export async function submitBooking(prevState: any, formData: FormData) {
 
         if (dbError) throw dbError;
 
-        await transporter.sendMail({
-            from: `"Italy Taxi Service" <${process.env.SMTP_USER}>`,
-            to: 'booking@italytaxiservice.com',
-            subject: `New Booking Request from ${name}`,
-            html: `
-                <h2>New Booking Request</h2>
-                <table style="border-collapse:collapse;width:100%">
-                    <tr><td style="padding:8px;border:1px solid #ddd"><strong>Name</strong></td><td style="padding:8px;border:1px solid #ddd">${name}</td></tr>
-                    <tr><td style="padding:8px;border:1px solid #ddd"><strong>Email</strong></td><td style="padding:8px;border:1px solid #ddd">${email}</td></tr>
-                    <tr><td style="padding:8px;border:1px solid #ddd"><strong>Phone</strong></td><td style="padding:8px;border:1px solid #ddd">${phone}</td></tr>
-                    <tr><td style="padding:8px;border:1px solid #ddd"><strong>Pickup</strong></td><td style="padding:8px;border:1px solid #ddd">${pickup}</td></tr>
-                    <tr><td style="padding:8px;border:1px solid #ddd"><strong>Dropoff</strong></td><td style="padding:8px;border:1px solid #ddd">${dropoff}</td></tr>
-                    <tr><td style="padding:8px;border:1px solid #ddd"><strong>Date & Time</strong></td><td style="padding:8px;border:1px solid #ddd">${datetime}</td></tr>
-                </table>
-            `,
-        });
+        if (process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS) {
+            try {
+                await transporter.sendMail({
+                    from: `"Italy Taxi Service" <${process.env.SMTP_USER}>`,
+                    to: 'booking@italytaxiservice.com',
+                    subject: `New Booking Request from ${name}`,
+                    html: `
+                        <h2>New Booking Request</h2>
+                        <table style="border-collapse:collapse;width:100%">
+                            <tr><td style="padding:8px;border:1px solid #ddd"><strong>Name</strong></td><td style="padding:8px;border:1px solid #ddd">${name}</td></tr>
+                            <tr><td style="padding:8px;border:1px solid #ddd"><strong>Email</strong></td><td style="padding:8px;border:1px solid #ddd">${email}</td></tr>
+                            <tr><td style="padding:8px;border:1px solid #ddd"><strong>Phone</strong></td><td style="padding:8px;border:1px solid #ddd">${phone}</td></tr>
+                            <tr><td style="padding:8px;border:1px solid #ddd"><strong>Pickup</strong></td><td style="padding:8px;border:1px solid #ddd">${pickup}</td></tr>
+                            <tr><td style="padding:8px;border:1px solid #ddd"><strong>Dropoff</strong></td><td style="padding:8px;border:1px solid #ddd">${dropoff}</td></tr>
+                            <tr><td style="padding:8px;border:1px solid #ddd"><strong>Date & Time</strong></td><td style="padding:8px;border:1px solid #ddd">${datetime}</td></tr>
+                        </table>
+                    `,
+                });
+            } catch (emailError) {
+                console.error('Email notification failed:', emailError);
+            }
+        }
 
         return {
             success: true,
