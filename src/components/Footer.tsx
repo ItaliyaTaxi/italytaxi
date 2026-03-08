@@ -55,11 +55,17 @@ export default function Footer() {
                         </p>
                         <ul className="space-y-6 text-sm text-gold">
                             <li className="flex items-start gap-4">
-                                <Mail className="w-5 h-5 shrink-0" />
+                                <Mail className="w-5 h-5 shrink-0 mt-0.5" />
                                 <div>
-                                    <p className="text-gray-300 block mb-1">Email</p>
-                                    <a href="mailto: italytaxiservicee@gmail.com" className="hover:text-white transition-colors"> italytaxiservicee@gmail.com
-                                    </a>
+                                    <p className="text-gray-300 block mb-1">Bookings</p>
+                                    <a href="mailto:booking@italytaxiservice.com" className="hover:text-white transition-colors">booking@italytaxiservice.com</a>
+                                </div>
+                            </li>
+                            <li className="flex items-start gap-4">
+                                <Mail className="w-5 h-5 shrink-0 mt-0.5" />
+                                <div>
+                                    <p className="text-gray-300 block mb-1">General Enquiries</p>
+                                    <a href="mailto:info@italytaxiservice.com" className="hover:text-white transition-colors">info@italytaxiservice.com</a>
                                 </div>
                             </li>
                         </ul>

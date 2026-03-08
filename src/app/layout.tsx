@@ -24,6 +24,11 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: "ItaliaRide | Italian Taxi Service",
   description: "Experience the finest travel in Italy. Professional drivers and vehicle fleet for airport transfers and city tours.",
+  icons: {
+    icon: '/images/logo.png',
+    shortcut: '/images/logo.png',
+    apple: '/images/logo.png',
+  },
 };
 
 export default function RootLayout({
