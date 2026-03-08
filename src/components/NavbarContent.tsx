@@ -95,8 +95,23 @@ export default function Navbar() {
                             />
                         </Link>
 
-                        {/* DESKTOP ONLY: Book Now - Upper Right */}
-                        <div className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 animate-slide-left [animation-delay:0.4s]">
+                        {/* DESKTOP ONLY: Text Now + Book Now - Upper Right */}
+                        <div className="hidden lg:flex items-center gap-3 absolute right-0 top-1/2 -translate-y-1/2 animate-slide-left [animation-delay:0.4s]">
+                            <a
+                                href="https://wa.me/923148932631"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="taxi-button"
+                            >
+                                <div className="inner">Text Now</div>
+                                <div className="fold"></div>
+                                <div className="points_wrapper">
+                                    <i className="point"></i><i className="point"></i><i className="point"></i>
+                                    <i className="point"></i><i className="point"></i><i className="point"></i>
+                                    <i className="point"></i><i className="point"></i><i className="point"></i>
+                                    <i className="point"></i>
+                                </div>
+                            </a>
                             <TaxiButton href="/book-now/">
                                 Book Now
                             </TaxiButton>
@@ -111,7 +126,22 @@ export default function Navbar() {
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                             </svg>
                         </button>
-                        <div className="lg:hidden absolute right-0 top-1/2 -translate-y-1/2 scale-75 origin-right animate-slide-left [animation-delay:0.4s]">
+                        <div className="lg:hidden absolute right-0 top-1/2 -translate-y-1/2 flex items-center gap-1 scale-75 origin-right animate-slide-left [animation-delay:0.4s]">
+                            <a
+                                href="https://wa.me/923148932631"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="taxi-button"
+                            >
+                                <div className="inner">Text Now</div>
+                                <div className="fold"></div>
+                                <div className="points_wrapper">
+                                    <i className="point"></i><i className="point"></i><i className="point"></i>
+                                    <i className="point"></i><i className="point"></i><i className="point"></i>
+                                    <i className="point"></i><i className="point"></i><i className="point"></i>
+                                    <i className="point"></i>
+                                </div>
+                            </a>
                             <TaxiButton href="/book-now/">
                                 Book Now
                             </TaxiButton>
@@ -275,6 +305,22 @@ export default function Navbar() {
 
                             <Link href="/about-us/" onClick={() => setIsMobileMenuOpen(false)} className="text-white text-lg font-bold uppercase tracking-widest border-t border-white/10 pt-4">About</Link>
                             <Link href="/contact/" onClick={() => setIsMobileMenuOpen(false)} className="text-white text-lg font-bold uppercase tracking-widest border-t border-white/10 pt-4">Contact</Link>
+                            <a
+                                href="https://wa.me/923148932631"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="taxi-button w-full mt-4"
+                                onClick={() => setIsMobileMenuOpen(false)}
+                            >
+                                <div className="inner">Text Now</div>
+                                <div className="fold"></div>
+                                <div className="points_wrapper">
+                                    <i className="point"></i><i className="point"></i><i className="point"></i>
+                                    <i className="point"></i><i className="point"></i><i className="point"></i>
+                                    <i className="point"></i><i className="point"></i><i className="point"></i>
+                                    <i className="point"></i>
+                                </div>
+                            </a>
                             <TaxiButton href="/book-now/" className="w-full mt-4" onClick={() => setIsMobileMenuOpen(false)}>
                                 Book Now
                             </TaxiButton>

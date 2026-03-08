@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Phone, Mail, MapPin, Instagram, Facebook, Twitter } from 'lucide-react';
+import { Mail, Instagram, Facebook, Twitter } from 'lucide-react';
 import TaxiButton from './TaxiButton';
 
 export default function Footer() {
@@ -54,13 +54,6 @@ export default function Footer() {
                             <span className="absolute -bottom-2 left-0 w-8 h-1 bg-gold" />
                         </p>
                         <ul className="space-y-6 text-sm text-gold">
-                            <li className="flex items-start gap-4">
-                                <Phone className="w-5 h-5 shrink-0" />
-                                <div>
-                                    <p className="text-gray-300 block mb-1">Phone</p>
-                                    <a href="tel:+39061234567" className="hover:text-white transition-colors">+39 06 123 4567</a>
-                                </div>
-                            </li>
                             <li className="flex items-start gap-4">
                                 <Mail className="w-5 h-5 shrink-0" />
                                 <div>

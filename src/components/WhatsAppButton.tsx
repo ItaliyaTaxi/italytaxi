@@ -1,7 +1,7 @@
 "use client";
 
 export default function WhatsAppButton() {
-    const phoneNumber = "+390000000000"; // Replace with actual number
+    const phoneNumber = "923148932631";
     const message = "Hello, I would like to inquire about a transfer service.";
 
     return (
