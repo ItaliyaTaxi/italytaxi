@@ -22,12 +22,12 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "ItaliaRide | Italian Taxi Service",
+  title: "Italy Taxi Service | Private Transfers Italy",
   description: "Experience the finest travel in Italy. Professional drivers and vehicle fleet for airport transfers and city tours.",
   icons: {
-    icon: '/images/logo.png',
-    shortcut: '/images/logo.png',
-    apple: '/images/logo.png',
+    icon: '/images/icon.png',
+    shortcut: '/images/icon.png',
+    apple: '/images/icon.png',
   },
 };
 

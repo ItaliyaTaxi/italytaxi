@@ -1,9 +1,17 @@
 'use server';
 
 import { supabase } from '@/lib/supabase/client';
-import { Resend } from 'resend';
+import nodemailer from 'nodemailer';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const transporter = nodemailer.createTransport({
+    host: process.env.SMTP_HOST,
+    port: Number(process.env.SMTP_PORT) || 587,
+    secure: process.env.SMTP_SECURE === 'true',
+    auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
+    },
+});
 
 export async function submitBooking(prevState: any, formData: FormData) {
     const name = formData.get('name') as string;
@@ -30,8 +38,8 @@ export async function submitBooking(prevState: any, formData: FormData) {
 
         if (dbError) throw dbError;
 
-        await resend.emails.send({
-            from: 'Italy Taxi Service <booking@italytaxiservice.com>',
+        await transporter.sendMail({
+            from: `"Italy Taxi Service" <${process.env.SMTP_USER}>`,
             to: 'booking@italytaxiservice.com',
             subject: `New Booking Request from ${name}`,
             html: `
