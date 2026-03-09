@@ -3,10 +3,9 @@ import nodemailer from 'nodemailer';
 function createTransporter(user: string, pass: string) {
     return nodemailer.createTransport({
         host: process.env.SMTP_HOST || 'smtp.improvmx.com',
-        port: Number(process.env.SMTP_PORT) || 587,
-        secure: false,
+        port: Number(process.env.SMTP_PORT) || 465,
+        secure: true, // SSL on port 465 — not blocked by ISPs or Vercel
         auth: { user, pass },
-        requireTLS: true,
     });
 }
 
