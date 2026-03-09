@@ -29,11 +29,13 @@ export async function submitBooking(_prevState: any, formData: FormData) {
         if (dbError) throw dbError;
 
         try {
+            // Admin notification
             await sendEmail({
                 to: 'booking@italytaxiservice.com',
                 subject: `New Booking Request from ${name}`,
+                fromAccount: 'booking',
                 html: `
-                    <h2>New Booking Request</h2>
+                    <h2 style="color:#0F1C2E">New Booking Request</h2>
                     <table style="border-collapse:collapse;width:100%;font-family:Arial,sans-serif">
                         <tr><td style="padding:10px;border:1px solid #ddd;background:#f9f9f9"><strong>Name</strong></td><td style="padding:10px;border:1px solid #ddd">${name}</td></tr>
                         <tr><td style="padding:10px;border:1px solid #ddd;background:#f9f9f9"><strong>Email</strong></td><td style="padding:10px;border:1px solid #ddd">${email}</td></tr>
@@ -42,6 +44,26 @@ export async function submitBooking(_prevState: any, formData: FormData) {
                         <tr><td style="padding:10px;border:1px solid #ddd;background:#f9f9f9"><strong>Dropoff</strong></td><td style="padding:10px;border:1px solid #ddd">${dropoff}</td></tr>
                         <tr><td style="padding:10px;border:1px solid #ddd;background:#f9f9f9"><strong>Date & Time</strong></td><td style="padding:10px;border:1px solid #ddd">${datetime}</td></tr>
                     </table>
+                `,
+            });
+
+            // Customer confirmation
+            await sendEmail({
+                to: email,
+                subject: `Booking Confirmed — Italy Taxi Service`,
+                fromAccount: 'booking',
+                html: `
+                    <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto">
+                        <h2 style="color:#0F1C2E">Thank you, ${name}!</h2>
+                        <p style="color:#555">We have received your booking request. Our team will contact you shortly to confirm the details.</p>
+                        <table style="border-collapse:collapse;width:100%;margin:20px 0">
+                            <tr><td style="padding:10px;border:1px solid #ddd;background:#f9f9f9"><strong>Pickup</strong></td><td style="padding:10px;border:1px solid #ddd">${pickup}</td></tr>
+                            <tr><td style="padding:10px;border:1px solid #ddd;background:#f9f9f9"><strong>Dropoff</strong></td><td style="padding:10px;border:1px solid #ddd">${dropoff}</td></tr>
+                            <tr><td style="padding:10px;border:1px solid #ddd;background:#f9f9f9"><strong>Date & Time</strong></td><td style="padding:10px;border:1px solid #ddd">${datetime}</td></tr>
+                        </table>
+                        <p style="color:#555">For any queries, contact us at <a href="mailto:booking@italytaxiservice.com">booking@italytaxiservice.com</a></p>
+                        <p style="color:#999;font-size:12px">Italy Taxi Service — Premium Transfers Across Italy</p>
+                    </div>
                 `,
             });
         } catch (emailError) {

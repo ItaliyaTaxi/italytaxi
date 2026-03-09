@@ -1,31 +1,41 @@
 import nodemailer from 'nodemailer';
 
-const transporter = nodemailer.createTransport({
-    host: process.env.SMTP_HOST || 'smtp.improvmx.com',
-    port: Number(process.env.SMTP_PORT) || 587,
-    secure: false, // STARTTLS on port 587
-    auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-    },
-    requireTLS: true,
-});
+function createTransporter(user: string, pass: string) {
+    return nodemailer.createTransport({
+        host: process.env.SMTP_HOST || 'smtp.improvmx.com',
+        port: Number(process.env.SMTP_PORT) || 587,
+        secure: false,
+        auth: { user, pass },
+        requireTLS: true,
+    });
+}
 
 interface SendEmailOptions {
     to: string;
     subject: string;
     text?: string;
     html?: string;
+    fromAccount?: 'booking' | 'info';
 }
 
-export async function sendEmail({ to, subject, text, html }: SendEmailOptions) {
-    if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
-        console.warn('SMTP credentials not configured — email skipped');
+export async function sendEmail({ to, subject, text, html, fromAccount = 'booking' }: SendEmailOptions) {
+    const user = fromAccount === 'info'
+        ? process.env.INFO_SMTP_USER
+        : process.env.BOOKING_SMTP_USER;
+
+    const pass = fromAccount === 'info'
+        ? process.env.INFO_SMTP_PASS
+        : process.env.BOOKING_SMTP_PASS;
+
+    if (!user || !pass) {
+        console.warn(`SMTP credentials not configured for "${fromAccount}" — email skipped`);
         return;
     }
 
+    const transporter = createTransporter(user.trim(), pass.trim());
+
     await transporter.sendMail({
-        from: process.env.EMAIL_FROM || `"Italy Taxi Service" <${process.env.SMTP_USER}>`,
+        from: `"Italy Taxi Service" <${user.trim()}>`,
         to,
         subject,
         text,
