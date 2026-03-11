@@ -26,6 +26,10 @@ export async function sendEmail({ to, subject, text, html, fromAccount = 'bookin
         ? process.env.INFO_SMTP_PASS
         : process.env.BOOKING_SMTP_PASS;
 
+    const fromEmail = fromAccount === 'info'
+        ? process.env.INFO_EMAIL
+        : process.env.BOOKING_EMAIL;
+
     if (!user || !pass) {
         console.warn(`SMTP credentials not configured for "${fromAccount}" — email skipped`);
         return;
@@ -34,7 +38,7 @@ export async function sendEmail({ to, subject, text, html, fromAccount = 'bookin
     const transporter = createTransporter(user.trim(), pass.trim());
 
     await transporter.sendMail({
-        from: `"Italy Taxi Service" <${user.trim()}>`,
+        from: `"Italy Taxi Service" <${(fromEmail || user).trim()}>`,
         to,
         subject,
         text,
