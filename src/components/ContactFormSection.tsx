@@ -5,7 +5,7 @@ import TaxiButton from './TaxiButton';
 import Image from 'next/image';
 
 export default function ContactFormSection() {
-    const [form, setForm] = useState({ name: '', email: '', phone: '', date: '', pickup: '', dropoff: '', message: '' });
+    const [form, setForm] = useState({ name: '', email: '', phone: '', subject: '', message: '' });
     const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
     const [responseMsg, setResponseMsg] = useState('');
 
@@ -28,7 +28,7 @@ export default function ContactFormSection() {
             if (data.success) {
                 setStatus('success');
                 setResponseMsg(data.message);
-                setForm({ name: '', email: '', phone: '', date: '', pickup: '', dropoff: '', message: '' });
+                setForm({ name: '', email: '', phone: '', subject: '', message: '' });
             } else {
                 setStatus('error');
                 setResponseMsg(data.error || 'Something went wrong.');
@@ -54,8 +54,8 @@ export default function ContactFormSection() {
 
                         <div className="relative z-10">
                             <header className="mb-10 text-center">
-                                <p className="form-flicker-title">Send Us a <span>Request</span></p>
-                                <h3 className="form-main-title">GET A QUOTE</h3>
+                                <p className="form-flicker-title">Send Us a <span>Message</span></p>
+                                <h3 className="form-main-title">CONTACT US</h3>
                             </header>
 
                             {status === 'success' && (
@@ -83,25 +83,17 @@ export default function ContactFormSection() {
                                     <input name="phone" type="tel" placeholder="+39 XXX XXX XXXX" value={form.phone} onChange={handleChange} className="taxi-form-input" />
                                 </div>
                                 <div className="space-y-1">
-                                    <label className="taxi-form-label">Date of Service</label>
-                                    <input name="date" type="date" value={form.date} onChange={handleChange} className="taxi-form-input" />
+                                    <label className="taxi-form-label">Subject</label>
+                                    <input name="subject" type="text" placeholder="How can we help?" value={form.subject} onChange={handleChange} required className="taxi-form-input" />
                                 </div>
-                                <div className="space-y-1">
-                                    <label className="taxi-form-label">Pickup Location</label>
-                                    <input name="pickup" type="text" placeholder="e.g., FCO Airport" value={form.pickup} onChange={handleChange} className="taxi-form-input" />
+                                <div className="md:col-span-2 space-y-1">
+                                    <label className="taxi-form-label">Message</label>
+                                    <textarea name="message" rows={4} placeholder="Write your message here..." value={form.message} onChange={handleChange} required className="taxi-form-input resize-none h-32" />
                                 </div>
-                                <div className="space-y-1">
-                                    <label className="taxi-form-label">Drop-off Location</label>
-                                    <input name="dropoff" type="text" placeholder="e.g., Rome Center" value={form.dropoff} onChange={handleChange} className="taxi-form-input" />
-                                </div>
-                                <div className="md:col-span-2 space-y-1 mt-4">
-                                    <label className="taxi-form-label">Special Requirements / Message</label>
-                                    <textarea name="message" rows={4} placeholder="Tell us more about your trip..." value={form.message} onChange={handleChange} required className="taxi-form-input resize-none h-32" />
-                                </div>
-                                <div className="md:col-span-2 mt-8">
+                                <div className="md:col-span-2 mt-4">
                                     <TaxiButton type="submit" disabled={status === 'loading'} className="w-full py-5 text-base relative overflow-hidden group">
                                         <span className="relative z-10">
-                                            {status === 'loading' ? 'Sending...' : 'Send Booking Request'}
+                                            {status === 'loading' ? 'Sending...' : 'Send Message'}
                                         </span>
                                         <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 skew-x-[-20deg]"></div>
                                     </TaxiButton>

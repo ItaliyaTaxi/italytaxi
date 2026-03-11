@@ -56,7 +56,7 @@ export default function BookingForm() {
             <div className="relative z-10">
                 <header className="mb-10 text-center">
                     <p className="form-flicker-title">Secure Your <span>Transfer</span></p>
-                    <h3 className="form-main-title uppercase">BOOK NOW</h3>
+                    <h3 className="form-main-title uppercase">GET QUOTE</h3>
                 </header>
 
                 <form action={formAction} className="space-y-6">
@@ -82,14 +82,30 @@ export default function BookingForm() {
                         </div>
                     </div>
 
-                    <div className="space-y-1">
-                        <label className="taxi-form-label">Pickup Location</label>
-                        <input name="pickup" type="text" required placeholder="e.g., FCO Airport / Hotel Address" className="taxi-form-input" />
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="space-y-1">
+                            <label className="taxi-form-label">Pickup Location</label>
+                            <input name="pickup" type="text" required placeholder="e.g., FCO Airport / Hotel Address" className="taxi-form-input" />
+                        </div>
+                        <div className="space-y-1">
+                            <label className="taxi-form-label">Drop-off Location</label>
+                            <input name="dropoff" type="text" required placeholder="e.g., Rome Center / Destination Address" className="taxi-form-input" />
+                        </div>
                     </div>
 
                     <div className="space-y-1">
-                        <label className="taxi-form-label">Drop-off Location</label>
-                        <input name="dropoff" type="text" required placeholder="e.g., Rome Center / Destination Address" className="taxi-form-input" />
+                        <label className="taxi-form-label">Number of Passengers</label>
+                        <select name="passengers" required className="taxi-form-input [&>option]:text-black">
+                            <option value="">Select passengers</option>
+                            <option value="1">1 Passenger</option>
+                            <option value="2">2 Passengers</option>
+                            <option value="3">3 Passengers</option>
+                            <option value="4">4 Passengers</option>
+                            <option value="5">5 Passengers</option>
+                            <option value="6">6 Passengers</option>
+                            <option value="7">7 Passengers</option>
+                            <option value="8">8 Passengers</option>
+                        </select>
                     </div>
 
                     <div className="mt-8">
@@ -121,4 +137,3 @@ export default function BookingForm() {
         </div>
     );
 }
-

@@ -10,6 +10,7 @@ export async function submitBooking(_prevState: any, formData: FormData) {
     const pickup = formData.get('pickup') as string;
     const dropoff = formData.get('dropoff') as string;
     const datetime = formData.get('datetime') as string;
+    const passengers = Number(formData.get('passengers')) || 1;
 
     try {
         const { error: dbError } = await supabase
@@ -22,6 +23,7 @@ export async function submitBooking(_prevState: any, formData: FormData) {
                     pickup_location: pickup,
                     dropoff_location: dropoff,
                     booking_datetime: datetime,
+                    passengers,
                     status: 'pending'
                 }
             ]);
@@ -60,6 +62,7 @@ export async function submitBooking(_prevState: any, formData: FormData) {
                             <tr><td style="padding:10px;border:1px solid #ddd;background:#f9f9f9"><strong>Pickup</strong></td><td style="padding:10px;border:1px solid #ddd">${pickup}</td></tr>
                             <tr><td style="padding:10px;border:1px solid #ddd;background:#f9f9f9"><strong>Dropoff</strong></td><td style="padding:10px;border:1px solid #ddd">${dropoff}</td></tr>
                             <tr><td style="padding:10px;border:1px solid #ddd;background:#f9f9f9"><strong>Date & Time</strong></td><td style="padding:10px;border:1px solid #ddd">${datetime}</td></tr>
+                            <tr><td style="padding:10px;border:1px solid #ddd;background:#f9f9f9"><strong>Passengers</strong></td><td style="padding:10px;border:1px solid #ddd">${passengers}</td></tr>
                         </table>
                         <p style="color:#555">For any queries, contact us at <a href="mailto:booking@italytaxiservice.com">booking@italytaxiservice.com</a></p>
                         <p style="color:#999;font-size:12px">Italy Taxi Service — Premium Transfers Across Italy</p>
