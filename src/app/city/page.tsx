@@ -7,10 +7,10 @@ import { MapPin, ChevronRight } from 'lucide-react';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: "Cities | Italian Taxi Service",
+    title: "Cities We Cover in Italy | Italian Taxi Service",
     description: "Point-to-point transfers and city taxi services across Italy. Travel between major cities in comfort and luxury with our professional drivers.",
     alternates: {
-        canonical: "https://italiaride.it/city/",
+        canonical: "https://www.italytaxiservice.com/city",
     }
 };
 

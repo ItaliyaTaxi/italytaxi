@@ -41,9 +41,9 @@ export default function Footer() {
                         </p>
                         <ul className="space-y-4 text-sm">
                             <li><Link href="/" className="hover:text-gold transition-colors">Home</Link></li>
-                            <li><Link href="/services/" className="hover:text-gold transition-colors">Services</Link></li>
-                            <li><Link href="/book-now/" className="hover:text-gold transition-colors">Book Now</Link></li>
-                            <li><Link href="/faq/" className="hover:text-gold transition-colors">FAQ</Link></li>
+                            <li><Link href="/services" className="hover:text-gold transition-colors">Services</Link></li>
+                            <li><Link href="/book-now" className="hover:text-gold transition-colors">Book Now</Link></li>
+                            <li><Link href="/faq" className="hover:text-gold transition-colors">FAQ</Link></li>
                         </ul>
                     </div>
 

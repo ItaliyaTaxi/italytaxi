@@ -8,10 +8,10 @@ import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: "Wedding & Events Taxi | Italian Taxi Service",
+    title: "Wedding & Event Transfers | Italian Taxi Service",
     description: "Elegant transportation for weddings and special events in Italy. High-quality taxi service to ensure your guests arrive in style and comfort.",
     alternates: {
-        canonical: "https://italiaride.it/services/wedding-events/",
+        canonical: "https://www.italytaxiservice.com/services/wedding-events",
     }
 };
 

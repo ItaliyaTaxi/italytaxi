@@ -4,10 +4,10 @@ import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Terms and Conditions | ItaliaRide",
+  title: "Terms and Conditions | Italian Taxi Service",
   description: "Read the terms and conditions for booking our taxi services in Italy. Information on pricing, cancellations, and service agreements.",
   alternates: {
-    canonical: "https://italiaride.it/terms-and-conditions/",
+    canonical: "https://www.italytaxiservice.com/terms-and-conditions",
   }
 };
 

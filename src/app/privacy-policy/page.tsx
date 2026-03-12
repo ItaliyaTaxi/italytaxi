@@ -4,10 +4,10 @@ import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | ItaliaRide",
+  title: "Privacy Policy | Italian Taxi Service",
   description: "Learn how ItaliaRide protects your personal data and ensures your privacy when booking our taxi services in Italy.",
   alternates: {
-    canonical: "https://italiaride.it/privacy-policy/",
+    canonical: "https://www.italytaxiservice.com/privacy-policy",
   }
 };
 

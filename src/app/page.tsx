@@ -11,10 +11,10 @@ import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "ItaliaRide | Italian Taxi Service",
+  title: "Private Taxi Transfers in Italy | Italian Taxi Service",
   description: "Experience the finest travel in Italy. Professional drivers and vehicle fleet for airport transfers and city tours. Book your taxi today!",
   alternates: {
-    canonical: "https://italiaride.it/",
+    canonical: "https://www.italytaxiservice.com",
   }
 };
 

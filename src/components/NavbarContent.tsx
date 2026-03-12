@@ -18,13 +18,13 @@ export default function Navbar() {
     }, []);
 
     const services = [
-        { name: 'Airport Transfers', path: '/services/airport-transfers/' },
-        { name: 'City to City Transfers', path: '/services/city-to-city/' },
-        { name: 'Hotel Transfers', path: '/services/hotel-transfers/' },
-        { name: 'Business / Corporate', path: '/services/business-taxi/' },
-        { name: 'Hourly Taxi', path: '/services/hourly-taxi/' },
-        { name: 'Wedding & Events', path: '/services/wedding-events/' },
-        { name: 'City Taxi', path: '/city/' },
+        { name: 'Airport Transfers', path: '/services/airport-transfers' },
+        { name: 'City to City Transfers', path: '/services/city-to-city' },
+        { name: 'Hotel Transfers', path: '/services/hotel-transfers' },
+        { name: 'Business / Corporate', path: '/services/business-taxi' },
+        { name: 'Hourly Taxi', path: '/services/hourly-taxi' },
+        { name: 'Wedding & Events', path: '/services/wedding-events' },
+        { name: 'City Taxi', path: '/city' },
     ];
 
     const airports = [
@@ -78,12 +78,12 @@ export default function Navbar() {
     ];
 
     const borders = [
-        { name: 'Italy → Switzerland', path: '/border/italy-to-switzerland/' },
-        { name: 'Italy → France', path: '/border/italy-to-france/' },
-        { name: 'Italy → Austria', path: '/border/italy-to-austria/' },
-        { name: 'Italy → Germany', path: '/border/italy-to-germany/' },
-        { name: 'Italy → Slovenia', path: '/border/italy-to-slovenia/' },
-        { name: 'Italy → Croatia', path: '/border/italy-to-croatia/' },
+        { name: 'Italy → Switzerland', path: '/border/italy-to-switzerland' },
+        { name: 'Italy → France', path: '/border/italy-to-france' },
+        { name: 'Italy → Austria', path: '/border/italy-to-austria' },
+        { name: 'Italy → Germany', path: '/border/italy-to-germany' },
+        { name: 'Italy → Slovenia', path: '/border/italy-to-slovenia' },
+        { name: 'Italy → Croatia', path: '/border/italy-to-croatia' },
     ];
 
     return (
@@ -117,7 +117,7 @@ export default function Navbar() {
 
                         {/* DESKTOP ONLY: Get Quote - Upper Right */}
                         <div className="hidden lg:flex items-center gap-3 absolute right-0 top-1/2 -translate-y-1/2 animate-slide-left [animation-delay:0.4s]">
-                            <TaxiButton href="/book-now/">
+                            <TaxiButton href="/book-now">
                                 Get Quote
                             </TaxiButton>
                         </div>
@@ -132,7 +132,7 @@ export default function Navbar() {
                             </svg>
                         </button>
                         <div className="lg:hidden absolute right-0 top-1/2 -translate-y-1/2 scale-75 origin-right animate-slide-left [animation-delay:0.4s]">
-                            <TaxiButton href="/book-now/">
+                            <TaxiButton href="/book-now">
                                 Get Quote
                             </TaxiButton>
                         </div>
@@ -183,7 +183,7 @@ export default function Navbar() {
                                                 {item.name}
                                             </Link>
                                         ))}
-                                        <Link href="/airport/" className="text-[#F4C430] hover:underline transition-colors text-[11px] uppercase tracking-widest font-bold mt-2 col-span-2">View All Airports →</Link>
+                                        <Link href="/airport" className="text-[#F4C430] hover:underline transition-colors text-[11px] uppercase tracking-widest font-bold mt-2 col-span-2">View All Airports →</Link>
                                     </div>
                                 </div>
                             </div>
@@ -208,7 +208,7 @@ export default function Navbar() {
                                             </Link>
                                         ))}
                                     </div>
-                                    <Link href="/city/" className="text-[#F4C430] hover:underline transition-colors text-[11px] uppercase tracking-widest font-bold mt-6 inline-block">View All 100+ Cities →</Link>
+                                    <Link href="/city" className="text-[#F4C430] hover:underline transition-colors text-[11px] uppercase tracking-widest font-bold mt-6 inline-block">View All 100+ Cities →</Link>
                                 </div>
                             </div>
                         </div>
@@ -252,13 +252,13 @@ export default function Navbar() {
                         </div>
 
                         {/* 8. About Us */}
-                        <Link href="/about-us/" className="text-white hover:text-[#F4C430] transition-colors text-xs font-bold uppercase tracking-widest relative group">
+                        <Link href="/about-us" className="text-white hover:text-[#F4C430] transition-colors text-xs font-bold uppercase tracking-widest relative group">
                             About
                             <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#F4C430] transition-all duration-300 group-hover:w-full"></span>
                         </Link>
 
                         {/* 8. Contact */}
-                        <Link href="/contact/" className="text-white hover:text-[#F4C430] transition-colors text-xs font-bold uppercase tracking-widest relative group">
+                        <Link href="/contact" className="text-white hover:text-[#F4C430] transition-colors text-xs font-bold uppercase tracking-widest relative group">
                             Contact
                             <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#F4C430] transition-all duration-300 group-hover:w-full"></span>
                         </Link>

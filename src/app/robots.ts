@@ -5,8 +5,13 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: ['/crm/', '/crm/login/'],
+      disallow: [
+        '/crm/', 
+        '/crm/login/',
+        '/_next/static/', // Prevent crawling of font files and other static assets
+        '/favicon.ico',   // Prevent crawling of favicon with query params
+      ],
     },
-    sitemap: 'https://italytaxiservice.com/sitemap.xml',
+    sitemap: 'https://www.italytaxiservice.com/sitemap.xml',
   };
 }

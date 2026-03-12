@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 import { airports, cities, tours } from '@/lib/page-data';
 
-const BASE_URL = 'https://italytaxiservice.com';
+const BASE_URL = 'https://www.italytaxiservice.com';
 
 const staticPages = [
   '',

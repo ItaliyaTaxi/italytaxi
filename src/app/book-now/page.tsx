@@ -5,10 +5,10 @@ import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Book Now | Italian Taxi Service",
+  title: "Book Your Private Taxi | Italian Taxi Service",
   description: "Secure your private taxi transfer in Italy with our easy-to-use booking system. Instant quotes and confirmation for airport and city transfers.",
   alternates: {
-    canonical: "https://italiaride.it/book-now/",
+    canonical: "https://www.italytaxiservice.com/book-now",
   }
 };
 

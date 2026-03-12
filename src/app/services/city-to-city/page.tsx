@@ -8,10 +8,10 @@ import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "City to City Transfers | Italian Taxi Service",
+  title: "Taxi from City to City | Italian Taxi Service",
   description: "Travel between Italian cities in comfort and luxury. Door-to-door point-point-transfers with professional drivers. Rome, Florence, Milan, and more.",
   alternates: {
-    canonical: "https://italiaride.it/services/city-to-city/",
+    canonical: "https://www.italytaxiservice.com/services/city-to-city",
   }
 };
 

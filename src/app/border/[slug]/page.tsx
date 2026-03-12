@@ -182,7 +182,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         title: `Italy to ${transfer.to} Private Taxi Transfer | ItaliaRide`,
         description: transfer.intro.slice(0, 155),
         alternates: {
-            canonical: `https://italiaride.it/border/${slug}/`,
+            canonical: `https://www.italytaxiservice.com/border/${slug}`,
         },
     };
 }

@@ -8,10 +8,10 @@ import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Hourly Taxi Service | Italian Taxi Service",
+  title: "By the Hour Taxi Service | Italian Taxi Service",
   description: "Personal taxi service by the hour in Italy. Enjoy flexibility with a professional driver at your disposal for sightseeing, business, or events.",
   alternates: {
-    canonical: "https://italiaride.it/services/hourly-taxi/",
+    canonical: "https://www.italytaxiservice.com/services/hourly-taxi",
   }
 };
 

@@ -8,10 +8,10 @@ import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Business Corporate Taxi | Italian Taxi Service",
+  title: "Business & Corporate Taxi | Italian Taxi Service",
   description: "Professional executive taxi services for business meetings, conferences and VIP guests in Italy. On-time, reliable transportation for your corporate needs.",
   alternates: {
-    canonical: "https://italiaride.it/services/business-taxi/",
+    canonical: "https://www.italytaxiservice.com/services/business-taxi",
   }
 };
 

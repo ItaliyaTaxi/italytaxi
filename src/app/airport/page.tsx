@@ -7,10 +7,10 @@ import { Plane, ChevronRight } from 'lucide-react';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: "Airports | Italian Taxi Service",
+    title: "Airports We Cover in Italy | Italian Taxi Service",
     description: "Private airport taxi transfers across all major Italian airports. Reliable, punctual, and comfortable rides with professional English-speaking drivers.",
     alternates: {
-        canonical: "https://italiaride.it/airport/",
+        canonical: "https://www.italytaxiservice.com/airport",
     }
 };
 

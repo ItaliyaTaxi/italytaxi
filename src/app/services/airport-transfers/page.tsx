@@ -8,10 +8,10 @@ import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Airport Transfers | Italian Taxi Service",
+  title: "Private Airport Transfers | Italian Taxi Service",
   description: "Reliable airport transfers across Italy. Book your private taxi to or from Rome, Milan, Venice and more with professional English-speaking drivers.",
   alternates: {
-    canonical: "https://italiaride.it/services/airport-transfers/",
+    canonical: "https://www.italytaxiservice.com/services/airport-transfers",
   }
 };
 

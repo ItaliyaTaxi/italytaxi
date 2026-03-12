@@ -2,6 +2,15 @@ import Navbar from '@/components/Navbar';
 import PageHero from '@/components/PageHero';
 import FAQSection from '@/components/FAQSection';
 import Footer from '@/components/Footer';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Taxi Service FAQ | Italian Taxi Service",
+  description: "Everything you need to know about our premium taxi services, booking process, and airport transfers in Italy.",
+  alternates: {
+    canonical: "https://www.italytaxiservice.com/faq",
+  }
+};
 
 export default function FaqPage() {
   return (
@@ -20,4 +29,3 @@ export default function FaqPage() {
     </main>
   );
 }
-
