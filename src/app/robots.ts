@@ -8,7 +8,6 @@ export default function robots(): MetadataRoute.Robots {
       disallow: [
         '/crm/', 
         '/crm/login/',
-        '/_next/static/', // Prevent crawling of font files and other static assets
         '/favicon.ico',   // Prevent crawling of favicon with query params
       ],
     },

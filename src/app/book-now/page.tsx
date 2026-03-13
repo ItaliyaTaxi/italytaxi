@@ -21,6 +21,14 @@ export default function BookNowPage() {
         <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(#F4C430 0.5px, transparent 0.5px)', backgroundSize: '24px 24px' }} />
 
         <div className="container mx-auto px-6 relative z-10">
+          <div className="max-w-4xl mx-auto text-center mb-12">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              Book Your <span className="text-[#F4C430]">Private Taxi</span>
+            </h1>
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+              Professional transfer services across Italy. Fill out the form below for an instant quote and booking.
+            </p>
+          </div>
           <div className="max-w-4xl mx-auto">
             <BookingForm />
           </div>

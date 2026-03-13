@@ -21,13 +21,13 @@ export default function Footer() {
                             taxi Italian taxi service providing taxi transfers across the peninsula. Experience the finest travel in Rome, Milan, Florence, and beyond.
                         </p>
                         <div className="flex gap-4">
-                            <Link href="#" className="w-10 h-10 rounded-full bg-navy flex items-center justify-center hover:bg-gold hover:text-white transition-all">
+                            <Link href="#" aria-label="Follow us on Facebook" className="w-10 h-10 rounded-full bg-navy flex items-center justify-center hover:bg-gold hover:text-white transition-all">
                                 <Facebook className="w-5 h-5" />
                             </Link>
-                            <Link href="#" className="w-10 h-10 rounded-full bg-navy flex items-center justify-center hover:bg-gold hover:text-white transition-all">
+                            <Link href="#" aria-label="Follow us on Instagram" className="w-10 h-10 rounded-full bg-navy flex items-center justify-center hover:bg-gold hover:text-white transition-all">
                                 <Instagram className="w-5 h-5" />
                             </Link>
-                            <Link href="#" className="w-10 h-10 rounded-full bg-navy flex items-center justify-center hover:bg-gold hover:text-white transition-all">
+                            <Link href="#" aria-label="Follow us on Twitter" className="w-10 h-10 rounded-full bg-navy flex items-center justify-center hover:bg-gold hover:text-white transition-all">
                                 <Twitter className="w-5 h-5" />
                             </Link>
                         </div>

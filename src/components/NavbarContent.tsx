@@ -126,6 +126,7 @@ export default function Navbar() {
                         <button
                             className="lg:hidden absolute left-0 top-1/2 -translate-y-1/2 text-white p-2 animate-slide-left [animation-delay:0.4s]"
                             onClick={() => setIsMobileMenuOpen(true)}
+                            aria-label="Open mobile menu"
                         >
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
@@ -161,6 +162,9 @@ export default function Navbar() {
                                             {item.name}
                                         </Link>
                                     ))}
+                                    <Link href="/services" className="block px-6 py-3 text-[11px] text-[#F4C430] hover:bg-[#F4C430]/10 transition-colors uppercase tracking-widest font-bold border-t border-white/10">
+                                        View All Services →
+                                    </Link>
                                 </div>
                             </div>
                         </div>
@@ -289,6 +293,7 @@ export default function Navbar() {
                                     {services.map(s => (
                                         <Link key={s.name} href={s.path} onClick={() => setIsMobileMenuOpen(false)} className="text-white/80 text-sm uppercase tracking-widest">{s.name}</Link>
                                     ))}
+                                    <Link href="/services" onClick={() => setIsMobileMenuOpen(false)} className="text-[#F4C430] text-sm uppercase tracking-widest font-bold mt-2">View All Services →</Link>
                                 </div>
                             </div>
 
@@ -299,6 +304,7 @@ export default function Navbar() {
                                     {airports.map(s => (
                                         <Link key={s.name} href={s.path} onClick={() => setIsMobileMenuOpen(false)} className="text-white/80 text-sm uppercase tracking-widest">{s.name}</Link>
                                     ))}
+                                    <Link href="/airport" onClick={() => setIsMobileMenuOpen(false)} className="text-[#F4C430] text-sm uppercase tracking-widest font-bold mt-2">View All Airports →</Link>
                                 </div>
                             </div>
 
@@ -309,6 +315,7 @@ export default function Navbar() {
                                     {cities.map(s => (
                                         <Link key={s.name} href={s.path} onClick={() => setIsMobileMenuOpen(false)} className="text-white/80 text-sm uppercase tracking-widest">{s.name}</Link>
                                     ))}
+                                    <Link href="/city" onClick={() => setIsMobileMenuOpen(false)} className="text-[#F4C430] text-sm uppercase tracking-widest font-bold mt-2">View All Cities →</Link>
                                 </div>
                             </div>
 
