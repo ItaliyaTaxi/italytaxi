@@ -1,57 +1,58 @@
+"use client";
+
 import { MapPin, Plane, Car } from 'lucide-react';
-import Image from 'next/image';
+import { useLanguage } from '@/context/LanguageContext';
+
+const locationData = [
+    { name: "Rome", types: ["airports", "city", "ports"] as const },
+    { name: "Milan", types: ["airports", "city"] as const },
+    { name: "Venice", types: ["airports", "city", "ports"] as const },
+    { name: "Florence", types: ["airports", "city"] as const },
+    { name: "Naples", types: ["airports", "city", "ports"] as const },
+    { name: "Amalfi Coast", types: ["city"] as const },
+    { name: "Lake Como", types: ["city"] as const },
+    { name: "Sicily", types: ["airports", "city"] as const },
+];
 
 export default function Coverage() {
-    const locations = [
-        { name: "Rome", types: ["Airports", "City", "Ports"] },
-        { name: "Milan", types: ["Airports", "City"] },
-        { name: "Venice", types: ["Airports", "City", "Ports"] },
-        { name: "Florence", types: ["Airports", "City"] },
-        { name: "Naples", types: ["Airports", "City", "Ports"] },
-        { name: "Amalfi Coast", types: ["City"] },
-        { name: "Lake Como", types: ["City"] },
-        { name: "Sicily", types: ["Airports", "City"] }
-    ];
+    const { t } = useLanguage();
 
     return (
-        <section className="py-24 bg-navy relative overflow-hidden font-inter">
-            {/* Background Map Overlay (Optional placeholder) */}
-            <div className="absolute inset-0 opacity-5 pointer-events-none">
-                {/* Map-style background could be an image */}
-            </div>
+        <section className="py-24 bg-navy relative overflow-hidden font-inter cv-section">
+            <div className="absolute inset-0 opacity-5 pointer-events-none"></div>
 
             <div className="container mx-auto px-6 relative z-10">
                 <div className="flex flex-col lg:flex-row items-center justify-between gap-16">
                     <div className="w-full lg:w-1/2">
-                        <p className="text-gold text-sm font-bold uppercase tracking-[0.4em] mb-4">Widespread Coverage</p>
-                        <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">Serving All Major <br />Airports & Cities</h2>
+                        <p className="text-gold text-sm font-bold uppercase tracking-[0.4em] mb-4">{t.coverage.badge}</p>
+                        <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">{t.coverage.heading} <br />{t.coverage.headingLine2}</h2>
                         <p className="text-gray-400 text-lg leading-relaxed mb-12 max-w-xl">
-                            Our taxi taxi network spans across the entire Italian peninsula. From the busy streets of Rome to the serene shores of Lake Como, we ensure you travel in absolute comfort.
+                            {t.coverage.description}
                         </p>
 
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                             <div className="text-center p-6 bg-white/5 rounded-2xl border border-white/10">
                                 <Plane className="w-8 h-8 text-gold mx-auto mb-4" />
-                                <h3 className="text-white font-bold text-xs uppercase tracking-widest">30+ Airports</h3>
+                                <h3 className="text-white font-bold text-xs uppercase tracking-widest">{t.coverage.airports}</h3>
                             </div>
                             <div className="text-center p-6 bg-white/5 rounded-2xl border border-white/10">
                                 <MapPin className="w-8 h-8 text-gold mx-auto mb-4" />
-                                <h3 className="text-white font-bold text-xs uppercase tracking-widest">100+ Cities</h3>
+                                <h3 className="text-white font-bold text-xs uppercase tracking-widest">{t.coverage.cities}</h3>
                             </div>
                             <div className="text-center p-6 bg-white/5 rounded-2xl border border-white/10">
                                 <Car className="w-8 h-8 text-gold mx-auto mb-4" />
-                                <h3 className="text-white font-bold text-xs uppercase tracking-widest">500+ Drivers</h3>
+                                <h3 className="text-white font-bold text-xs uppercase tracking-widest">{t.coverage.drivers}</h3>
                             </div>
                             <div className="text-center p-6 bg-white/5 rounded-2xl border border-white/10">
                                 <Car className="w-8 h-8 text-gold mx-auto mb-4" />
-                                <h3 className="text-white font-bold text-xs uppercase tracking-widest">24/7 Support</h3>
+                                <h3 className="text-white font-bold text-xs uppercase tracking-widest">{t.coverage.support}</h3>
                             </div>
                         </div>
                     </div>
 
                     <div className="w-full lg:w-1/2 p-4 md:p-10 bg-white/5 rounded-[40px] border border-white/10 backdrop-blur-sm">
                         <div className="grid grid-cols-2 md:grid-cols-2 gap-4">
-                            {locations.map((loc, index) => (
+                            {locationData.map((loc, index) => (
                                 <div
                                     key={index}
                                     className="p-6 bg-navy/80 border border-white/5 rounded-2xl hover:border-gold/50 transition-all duration-300 animate-slide-left"
@@ -59,9 +60,9 @@ export default function Coverage() {
                                 >
                                     <h4 className="text-white font-bold text-lg mb-2">{loc.name}</h4>
                                     <div className="flex flex-wrap gap-2">
-                                        {loc.types.map(t => (
-                                            <span key={t} className="text-[10px] text-gold font-bold uppercase tracking-widest bg-gold/10 px-2 py-0.5 rounded">
-                                                {t}
+                                        {loc.types.map(type => (
+                                            <span key={type} className="text-[10px] text-gold font-bold uppercase tracking-widest bg-gold/10 px-2 py-0.5 rounded">
+                                                {t.coverage.types[type]}
                                             </span>
                                         ))}
                                     </div>

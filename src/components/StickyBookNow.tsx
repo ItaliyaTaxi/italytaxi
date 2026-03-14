@@ -2,13 +2,14 @@
 
 import TaxiButton from './TaxiButton';
 import { useState, useEffect } from 'react';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function StickyBookNow() {
     const [isVisible, setIsVisible] = useState(false);
+    const { t } = useLanguage();
 
     useEffect(() => {
         const handleScroll = () => {
-            // Show only on mobile and only after scrolling down a bit
             const mobile = window.innerWidth < 1024;
             const scrolled = window.scrollY > 300;
             setIsVisible(mobile && scrolled);
@@ -17,7 +18,6 @@ export default function StickyBookNow() {
         window.addEventListener('scroll', handleScroll);
         window.addEventListener('resize', handleScroll);
 
-        // Initial check
         handleScroll();
 
         return () => {
@@ -34,7 +34,7 @@ export default function StickyBookNow() {
                 href="/book-now/"
                 className="w-full"
             >
-                Book Now
+                {t.sticky.bookNow}
             </TaxiButton>
         </div>
     );

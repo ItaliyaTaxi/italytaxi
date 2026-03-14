@@ -1,29 +1,19 @@
+"use client";
+
 import Image from 'next/image';
 import { ShieldCheck, Clock, UserCheck, MapPin } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
+
+const icons = [
+    <ShieldCheck key="shield" className="w-8 h-8 text-[#F4C430]" />,
+    <Clock key="clock" className="w-8 h-8 text-[#F4C430]" />,
+    <UserCheck key="user" className="w-8 h-8 text-[#F4C430]" />,
+    <MapPin key="map" className="w-8 h-8 text-[#F4C430]" />,
+];
 
 export default function WhyChooseUs() {
-    const features = [
-        {
-            title: "Licensed & Professional Drivers",
-            desc: "All our drivers are fully licensed, English-speaking, and trained to provide taxi service.",
-            icon: <ShieldCheck className="w-8 h-8 text-[#F4C430]" />
-        },
-        {
-            title: "24/7 Availability",
-            desc: "Airport pickups and city transfers available anytime, day or night.",
-            icon: <Clock className="w-8 h-8 text-[#F4C430]" />
-        },
-        {
-            title: "Meet & Greet Service",
-            desc: "Your driver will wait with your name sign at the airport arrivals hall.",
-            icon: <UserCheck className="w-8 h-8 text-[#F4C430]" />
-        },
-        {
-            title: "Coverage Across Italy",
-            desc: "From Rome to Milan, Venice to Florence — we cover all major cities and airports.",
-            icon: <MapPin className="w-8 h-8 text-[#F4C430]" />
-        }
-    ];
+    const { t } = useLanguage();
+    const features = t.whyChooseUs.features.map((f, i) => ({ ...f, icon: icons[i] }));
 
     return (
         <section className="relative py-24 font-inter overflow-hidden min-h-screen flex items-center">
@@ -40,14 +30,14 @@ export default function WhyChooseUs() {
                 <div className="text-center mb-20 max-w-3xl mx-auto">
                     <div className="flex items-center justify-center gap-4 mb-4 animate-slide-left [animation-delay:0.1s]">
                         <div className="w-8 h-[2px] bg-[#F4C430]" />
-                        <p className="text-[#F4C430] text-sm font-bold uppercase tracking-[0.4em]">The ItaliaRide Edge</p>
+                        <p className="text-[#F4C430] text-sm font-bold uppercase tracking-[0.4em]">{t.whyChooseUs.badge}</p>
                         <div className="w-8 h-[2px] bg-[#F4C430]" />
                     </div>
                     <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-6 animate-slide-left [animation-delay:0.2s]">
-                        Why Choose Our <span className="text-[#F4C430]">Private Transfers</span> in Italy
+                        {t.whyChooseUs.heading} <span className="text-[#F4C430]">{t.whyChooseUs.headingHighlight}</span> {t.whyChooseUs.headingEnd}
                     </h2>
                     <p className="text-gray-300 text-lg leading-relaxed animate-slide-left [animation-delay:0.3s]">
-                        Experience reliable, taxi airport and city transfers across Italy with professional drivers and fixed pricing.
+                        {t.whyChooseUs.description}
                     </p>
                 </div>
 

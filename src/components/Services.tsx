@@ -1,52 +1,41 @@
+"use client";
+
 import { Plane, Briefcase, Camera, MapPin, Anchor, Clock } from 'lucide-react';
 import TaxiButton from './TaxiButton';
+import { useLanguage } from '@/context/LanguageContext';
+
+const serviceLinks = [
+    "/services/airport-transfers/",
+    "/services/city-to-city/",
+    "/services/hotel-transfers/",
+    "/services/business-taxi/",
+    "/services/hourly-taxi/",
+    "/services/wedding-events/",
+];
+
+const serviceIcons = [
+    <Plane key="plane" className="w-10 h-10 text-gold group-hover:scale-110 transition-transform duration-300" />,
+    <MapPin key="mappin" className="w-10 h-10 text-gold group-hover:scale-110 transition-transform duration-300" />,
+    <Anchor key="anchor" className="w-10 h-10 text-gold group-hover:scale-110 transition-transform duration-300" />,
+    <Briefcase key="briefcase" className="w-10 h-10 text-gold group-hover:scale-110 transition-transform duration-300" />,
+    <Clock key="clock" className="w-10 h-10 text-gold group-hover:scale-110 transition-transform duration-300" />,
+    <Camera key="camera" className="w-10 h-10 text-gold group-hover:scale-110 transition-transform duration-300" />,
+];
 
 export default function Services() {
-    const services = [
-        {
-            title: "Airport Transfers",
-            icon: <Plane className="w-10 h-10 text-gold group-hover:scale-110 transition-transform duration-300" />,
-            description: "Reliable transfers to and from all major Italian airports with meet & greet service.",
-            link: "/services/airport-transfers/"
-        },
-        {
-            title: "City to City Transfers",
-            icon: <MapPin className="w-10 h-10 text-gold group-hover:scale-110 transition-transform duration-300" />,
-            description: "Seamless point-to-point travel between Italy's most famous cities in professional cabs.",
-            link: "/services/city-to-city/"
-        },
-        {
-            title: "Hotel Transfers",
-            icon: <Anchor className="w-10 h-10 text-gold group-hover:scale-110 transition-transform duration-300" />,
-            description: "Pickup and drop-off from any hotel, Airbnb, or resort across the Italian peninsula.",
-            link: "/services/hotel-transfers/"
-        },
-        {
-            title: "Business / Corporate",
-            icon: <Briefcase className="w-10 h-10 text-gold group-hover:scale-110 transition-transform duration-300" />,
-            description: "Executive-class taxi services tailored for corporate meetings and important events.",
-            link: "/services/business-taxi/"
-        },
-        {
-            title: "Hourly Taxi Service",
-            icon: <Clock className="w-10 h-10 text-gold group-hover:scale-110 transition-transform duration-300" />,
-            description: "Enjoy complete flexibility with a private driver at your disposal for several hours.",
-            link: "/services/hourly-taxi/"
-        },
-        {
-            title: "Wedding & Events",
-            icon: <Camera className="w-10 h-10 text-gold group-hover:scale-110 transition-transform duration-300" />,
-            description: "Make your special day more elegant with our high-quality taxi transport solutions.",
-            link: "/services/wedding-events/"
-        }
-    ];
+    const { t } = useLanguage();
+    const services = t.services.items.map((item, i) => ({
+        ...item,
+        icon: serviceIcons[i],
+        link: serviceLinks[i],
+    }));
 
     return (
-        <section className="py-24 bg-white font-inter">
+        <section className="py-24 bg-white font-inter cv-section">
             <div className="container mx-auto px-6">
                 <div className="text-center mb-20">
-                    <p className="text-[#F4C430] text-sm font-bold uppercase tracking-[0.4em] mb-4">What We Offer</p>
-                    <h2 className="text-4xl md:text-5xl font-bold text-[#0F1C2E]">Our Services</h2>
+                    <p className="text-[#F4C430] text-sm font-bold uppercase tracking-[0.4em] mb-4">{t.services.badge}</p>
+                    <h2 className="text-4xl md:text-5xl font-bold text-[#0F1C2E]">{t.services.heading}</h2>
                     <div className="w-20 h-1 bg-[#F4C430] mx-auto mt-6" />
                 </div>
 
@@ -66,7 +55,7 @@ export default function Services() {
                                     {service.description}
                                 </p>
                                 <TaxiButton href={service.link} className="scale-90 mt-auto">
-                                    Learn more about {service.title}
+                                    {t.services.learnMore} {service.title}
                                 </TaxiButton>
                             </div>
                         </div>

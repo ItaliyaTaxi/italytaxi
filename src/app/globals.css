@@ -659,3 +659,90 @@ h6 {
   animation-delay: 1.6s;
   animation-duration: 1.8s;
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   PERFORMANCE OPTIMIZATIONS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── GPU compositing hints ──────────────────────────────────────────────────
+   will-change tells the browser to promote these elements to their own
+   compositor layer BEFORE the animation starts, eliminating per-frame
+   repaints and dramatically reducing jank on mobile GPUs.               */
+
+/* Rotating border gradient on cards — heaviest animation on the page */
+.uiverse-card::before {
+  will-change: transform;
+}
+
+/* Star field scrolling animations */
+#stars,
+#stars2,
+#stars3 {
+  will-change: transform;
+}
+
+/* Icon spin on hover */
+.feature-icon-container {
+  will-change: transform;
+}
+
+/* Floating button particles */
+.points_wrapper .point {
+  will-change: transform, opacity;
+}
+
+/* ── Paint containment ──────────────────────────────────────────────────────
+   contain: layout paint style limits browser recalc/repaint to the
+   element boundary — especially valuable for the many cards and the
+   star-field section.                                                    */
+
+.uiverse-card {
+  contain: layout paint style;
+}
+
+.stars-container {
+  contain: strict;
+}
+
+/* ── Passive scroll optimisation ────────────────────────────────────────────
+   The navbar's scroll listener is set to { passive: true } in JS.
+   This hint keeps the scroll-linked style change cheap.                  */
+nav {
+  will-change: background-color, padding, box-shadow;
+}
+
+/* ── Reduced-motion support ─────────────────────────────────────────────────
+   Respects the OS/browser "Reduce Motion" setting.
+   Benefits:
+     • Accessibility — removes distraction for vestibular/motion disorders
+     • Performance   — many devices enable this automatically in battery-saver
+                       mode, so removing animations speeds up those sessions   */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Reveal slide-in elements immediately so they're not stuck invisible */
+  .animate-slide-left,
+  .animate-fade-in,
+  .animate-slide-up {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+}
+
+/* ── Lazy-render below-fold sections ────────────────────────────────────────
+   content-visibility: auto skips rendering off-screen sections entirely
+   until they approach the viewport, reducing initial paint work.
+   contain-intrinsic-size provides a stable estimated height so the
+   browser can still compute scroll position without layout shifts.       */
+.cv-section {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 600px;
+}

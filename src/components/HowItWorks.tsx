@@ -1,33 +1,27 @@
+"use client";
+
 import { MousePointer2, UserCheck, Car } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
+
+const stepIcons = [
+    <MousePointer2 key="mouse" className="w-10 h-10 text-gold" />,
+    <UserCheck key="user" className="w-10 h-10 text-gold" />,
+    <Car key="car" className="w-10 h-10 text-gold" />,
+];
 
 export default function HowItWorks() {
-    const steps = [
-        {
-            title: "Book Online",
-            desc: "Choose your destination and vehicle type. Get instant fixed pricing with no hidden fees.",
-            icon: <MousePointer2 className="w-10 h-10 text-gold" />
-        },
-        {
-            title: "Meet Your Driver",
-            desc: "Your professional driver will meet you with a name sign at the designated pickup spot.",
-            icon: <UserCheck className="w-10 h-10 text-gold" />
-        },
-        {
-            title: "Enjoy Your Ride",
-            desc: "Relax in comfort as we take you to your destination safely, comfortably and on time.",
-            icon: <Car className="w-10 h-10 text-gold" />
-        }
-    ];
+    const { t } = useLanguage();
+    const steps = t.howItWorks.steps.map((step, i) => ({ ...step, icon: stepIcons[i] }));
 
     return (
-        <section className="py-24 bg-navy relative overflow-hidden font-inter">
+        <section className="py-24 bg-navy relative overflow-hidden font-inter cv-section">
             {/* Pattern Overlay */}
             <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(#F4C430 0.5px, transparent 0.5px)', backgroundSize: '24px 24px' }} />
 
             <div className="container mx-auto px-6 relative z-10">
                 <div className="text-center mb-20">
-                    <p className="text-gold text-sm font-bold uppercase tracking-[0.4em] mb-4">The Process</p>
-                    <h2 className="text-4xl md:text-5xl font-bold text-white">How It Works</h2>
+                    <p className="text-gold text-sm font-bold uppercase tracking-[0.4em] mb-4">{t.howItWorks.badge}</p>
+                    <h2 className="text-4xl md:text-5xl font-bold text-white">{t.howItWorks.heading}</h2>
                     <div className="w-20 h-1 bg-gold mx-auto mt-6" />
                 </div>
 
