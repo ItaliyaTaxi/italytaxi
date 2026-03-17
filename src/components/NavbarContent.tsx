@@ -43,53 +43,54 @@ export default function Navbar() {
     const services = [
         { name: 'Airport Transfers', path: '/services/airport-transfers' },
         { name: 'City to City Transfers', path: '/services/city-to-city' },
+        { name: 'Cruise Port Transfers', path: '/services/cruise-port-transfers' },
         { name: 'Hotel Transfers', path: '/services/hotel-transfers' },
         { name: 'Business / Corporate', path: '/services/business-taxi' },
         { name: 'Hourly Taxi', path: '/services/hourly-taxi' },
-        { name: 'Wedding & Events', path: '/services/wedding-events' },
+        { name: 'Wedding Transfers', path: '/services/wedding-transfers' },
         { name: 'City Taxi', path: '/city' },
     ];
 
     const airports = [
-        { name: 'Rome Fiumicino', path: '/airport/rome-fiumicino-airport-taxi' },
-        { name: 'Rome Ciampino', path: '/airport/rome-ciampino-airport-taxi' },
-        { name: 'Milan Malpensa', path: '/airport/milan-malpensa-airport-taxi' },
-        { name: 'Milan Linate', path: '/airport/milan-linate-airport-taxi' },
-        { name: 'Venice Marco Polo', path: '/airport/venice-marco-polo-airport-taxi' },
-        { name: 'Naples Airport', path: '/airport/naples-airport-taxi' },
-        { name: 'Florence Airport', path: '/airport/florence-airport-taxi' },
-        { name: 'Bologna Marconi', path: '/airport/bologna-marconi-airport-taxi' },
-        { name: 'Pisa Airport', path: '/airport/pisa-airport-taxi' },
-        { name: 'Verona Airport', path: '/airport/verona-airport-taxi' },
-        { name: 'Palermo Airport', path: '/airport/palermo-airport-taxi' },
-        { name: 'Catania Airport', path: '/airport/catania-fontanarossa-airport-taxi' },
-        { name: 'Bari Airport', path: '/airport/bari-airport-taxi' },
-        { name: 'Genoa Airport', path: '/airport/genoa-airport-taxi' },
+        { name: 'Rome Fiumicino', path: '/airport/rome-fiumicino' },
+        { name: 'Rome Ciampino', path: '/airport/rome-ciampino' },
+        { name: 'Milan Malpensa', path: '/airport/milan-malpensa' },
+        { name: 'Milan Linate', path: '/airport/milan-linate' },
+        { name: 'Venice Marco Polo', path: '/airport/venice' },
+        { name: 'Naples Airport', path: '/airport/naples' },
+        { name: 'Florence Airport', path: '/airport/florence' },
+        { name: 'Bologna Marconi', path: '/airport/bologna-marconi' },
+        { name: 'Pisa Airport', path: '/airport/pisa' },
+        { name: 'Verona Airport', path: '/airport/verona' },
+        { name: 'Palermo Airport', path: '/airport/palermo' },
+        { name: 'Catania Airport', path: '/airport/catania-fontanarossa' },
+        { name: 'Bari Airport', path: '/airport/bari' },
+        { name: 'Genoa Airport', path: '/airport/genoa' },
     ];
 
     const cities = [
-        { name: 'Rome', path: '/city/rome-taxi-service' },
-        { name: 'Milan', path: '/city/milan-taxi-service' },
-        { name: 'Venice', path: '/city/venice-taxi-service' },
-        { name: 'Florence', path: '/city/florence-taxi-service' },
-        { name: 'Naples', path: '/city/naples-taxi-service' },
-        { name: 'Amalfi', path: '/city/amalfi-taxi-service' },
-        { name: 'Positano', path: '/city/positano-taxi-service' },
-        { name: 'Ravello', path: '/city/ravello-taxi-service' },
-        { name: 'Sorrento', path: '/city/sorrento-taxi-service' },
-        { name: 'Portofino', path: '/city/portofino-taxi-service' },
-        { name: 'Lake Como', path: '/city/como-taxi-service' },
-        { name: 'Taormina', path: '/city/taormina-taxi-service' },
-        { name: 'Bologna', path: '/city/bologna-taxi-service' },
-        { name: 'Bari', path: '/city/bari-taxi-service' },
-        { name: 'Palermo', path: '/city/palermo-taxi-service' },
-        { name: 'Siena', path: '/city/siena-taxi-service' },
-        { name: 'Pisa', path: '/city/pisa-taxi-service' },
-        { name: 'Lucca', path: '/city/lucca-taxi-service' },
-        { name: 'San Gimignano', path: '/city/san-gimignano-taxi-service' },
-        { name: 'Cinque Terre', path: '/city/riomaggiore-taxi-service' },
-        { name: 'Agrigento', path: '/city/agrigento-taxi-service' },
-        { name: 'Alberobello', path: '/city/alberobello-taxi-service' },
+        { name: 'Rome', path: '/city/rome' },
+        { name: 'Milan', path: '/city/milan' },
+        { name: 'Venice', path: '/city/venice' },
+        { name: 'Florence', path: '/city/florence' },
+        { name: 'Naples', path: '/city/naples' },
+        { name: 'Amalfi', path: '/city/amalfi' },
+        { name: 'Positano', path: '/city/positano' },
+        { name: 'Ravello', path: '/city/ravello' },
+        { name: 'Sorrento', path: '/city/sorrento' },
+        { name: 'Portofino', path: '/city/portofino' },
+        { name: 'Lake Como', path: '/city/como' },
+        { name: 'Taormina', path: '/city/taormina' },
+        { name: 'Bologna', path: '/city/bologna' },
+        { name: 'Bari', path: '/city/bari' },
+        { name: 'Palermo', path: '/city/palermo' },
+        { name: 'Siena', path: '/city/siena' },
+        { name: 'Pisa', path: '/city/pisa' },
+        { name: 'Lucca', path: '/city/lucca' },
+        { name: 'San Gimignano', path: '/city/san-gimignano' },
+        { name: 'Cinque Terre', path: '/city/cinque-terre' },
+        { name: 'Agrigento', path: '/city/agrigento' },
+        { name: 'Alberobello', path: '/city/alberobello' },
     ];
 
     const tours = [
@@ -322,6 +323,12 @@ export default function Navbar() {
                             </div>
                         </div>
 
+                        {/* Blog */}
+                        <Link href="/blog" className="text-white hover:text-[#F4C430] transition-colors text-xs font-bold uppercase tracking-widest relative group">
+                            {t.nav.blog}
+                            <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#F4C430] transition-all duration-300 group-hover:w-full"></span>
+                        </Link>
+
                         {/* About Us */}
                         <Link href="/about-us" className="text-white hover:text-[#F4C430] transition-colors text-xs font-bold uppercase tracking-widest relative group">
                             {t.nav.about}
@@ -413,6 +420,7 @@ export default function Navbar() {
                                 </div>
                             </div>
 
+                            <Link href="/blog" onClick={() => setIsMobileMenuOpen(false)} className="text-white text-lg font-bold uppercase tracking-widest border-t border-white/10 pt-4">{t.nav.blog}</Link>
                             <Link href="/about-us/" onClick={() => setIsMobileMenuOpen(false)} className="text-white text-lg font-bold uppercase tracking-widest border-t border-white/10 pt-4">{t.nav.about}</Link>
                             <Link href="/contact/" onClick={() => setIsMobileMenuOpen(false)} className="text-white text-lg font-bold uppercase tracking-widest border-t border-white/10 pt-4">{t.nav.contact}</Link>
                             <TaxiButton href="/book-now/" className="w-full mt-4" onClick={() => setIsMobileMenuOpen(false)}>

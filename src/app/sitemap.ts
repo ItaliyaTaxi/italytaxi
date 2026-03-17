@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next';
 import { airports, cities, tours } from '@/lib/page-data';
+import { supabase } from '@/lib/supabase/client';
 
 const BASE_URL = 'https://www.italytaxiservice.com';
 
@@ -18,6 +19,9 @@ const staticPages = [
   '/city',
   '/airport-transfer',
   '/services',
+];
+
+const servicePages = [
   '/services/airport-transfers',
   '/services/city-to-city',
   '/services/private-tours',
@@ -27,56 +31,62 @@ const staticPages = [
   '/services/wedding-transfers',
   '/services/wedding-events',
   '/services/cruise-port-transfers',
-  '/attraction-transfer/amalfi-coast-taxi-transfer',
-  '/attraction-transfer/arena-di-verona-taxi-transfer',
-  '/attraction-transfer/capri-island-taxi-transfer',
-  '/attraction-transfer/castel-dell-ovo-taxi-transfer',
-  '/attraction-transfer/cinque-terre-taxi-transfer',
-  '/attraction-transfer/colosseum-taxi-transfer',
-  '/attraction-transfer/costa-smeralda-taxi-transfer',
-  '/attraction-transfer/dolomites-taxi-transfer',
-  '/attraction-transfer/elba-island-taxi-transfer',
-  '/attraction-transfer/florence-cathedral-taxi-transfer',
-  '/attraction-transfer/lake-como-taxi-transfer',
-  '/attraction-transfer/lake-garda-taxi-transfer',
-  '/attraction-transfer/lake-maggiore-taxi-transfer',
-  '/attraction-transfer/leaning-tower-of-pisa-taxi-transfer',
-  '/attraction-transfer/mole-antonelliana-taxi-transfer',
-  '/attraction-transfer/mount-etna-taxi-transfer',
-  '/attraction-transfer/paestum-temples-taxi-transfer',
-  '/attraction-transfer/pantheon-taxi-transfer',
-  '/attraction-transfer/piazza-del-campo-taxi-transfer',
-  '/attraction-transfer/pompeii-taxi-transfer',
-  '/attraction-transfer/rialto-bridge-taxi-transfer',
-  '/attraction-transfer/royal-palace-caserta-taxi-transfer',
-  '/attraction-transfer/san-gimignano-taxi-transfer',
-  '/attraction-transfer/sassi-matera-taxi-transfer',
-  '/attraction-transfer/st-marks-basilica-taxi-transfer',
-  '/attraction-transfer/trevi-fountain-taxi-transfer',
-  '/attraction-transfer/trulli-alberobello-taxi-transfer',
-  '/attraction-transfer/uffizi-gallery-taxi-transfer',
-  '/attraction-transfer/valley-of-the-temples-taxi-transfer',
-  '/attraction-transfer/vatican-museums-taxi-transfer',
-  '/beach-transfer/amalfi-coast-taxi',
-  '/beach-transfer/cala-luna-beach-transfer',
-  '/beach-transfer/camogli-taxi-transfer',
-  '/beach-transfer/capri-island-taxi',
-  '/beach-transfer/conero-beach-taxi',
-  '/beach-transfer/costa-smeralda-taxi',
-  '/beach-transfer/elba-beach-taxi',
-  '/beach-transfer/ischia-beach-taxi',
-  '/beach-transfer/lido-venezia-beach-taxi',
-  '/beach-transfer/otranto-beach-taxi',
-  '/beach-transfer/polignano-a-mare-beach-taxi',
-  '/beach-transfer/portofino-taxi-transfer',
-  '/beach-transfer/positano-beach-taxi',
-  '/beach-transfer/rimini-beach-taxi',
-  '/beach-transfer/san-vito-lo-capo-taxi',
-  '/beach-transfer/sardinia-beach-transfers',
-  '/beach-transfer/sirolo-beach-taxi',
-  '/beach-transfer/sperlonga-taxi-transfer',
-  '/beach-transfer/taormina-beach-transfer',
-  '/beach-transfer/tropea-beach-taxi',
+];
+
+const attractionTransfers = [
+  'amalfi-coast-taxi-transfer',
+  'arena-di-verona-taxi-transfer',
+  'capri-island-taxi-transfer',
+  'castel-dell-ovo-taxi-transfer',
+  'cinque-terre-taxi-transfer',
+  'colosseum-taxi-transfer',
+  'costa-smeralda-taxi-transfer',
+  'dolomites-taxi-transfer',
+  'elba-island-taxi-transfer',
+  'florence-cathedral-taxi-transfer',
+  'lake-como-taxi-transfer',
+  'lake-garda-taxi-transfer',
+  'lake-maggiore-taxi-transfer',
+  'leaning-tower-of-pisa-taxi-transfer',
+  'mole-antonelliana-taxi-transfer',
+  'mount-etna-taxi-transfer',
+  'paestum-temples-taxi-transfer',
+  'pantheon-taxi-transfer',
+  'piazza-del-campo-taxi-transfer',
+  'pompeii-taxi-transfer',
+  'rialto-bridge-taxi-transfer',
+  'royal-palace-caserta-taxi-transfer',
+  'san-gimignano-taxi-transfer',
+  'sassi-matera-taxi-transfer',
+  'st-marks-basilica-taxi-transfer',
+  'trevi-fountain-taxi-transfer',
+  'trulli-alberobello-taxi-transfer',
+  'uffizi-gallery-taxi-transfer',
+  'valley-of-the-temples-taxi-transfer',
+  'vatican-museums-taxi-transfer',
+];
+
+const beachTransfers = [
+  'amalfi-coast-taxi',
+  'cala-luna-beach-transfer',
+  'camogli-taxi-transfer',
+  'capri-island-taxi',
+  'conero-beach-taxi',
+  'costa-smeralda-taxi',
+  'elba-beach-taxi',
+  'ischia-beach-taxi',
+  'lido-venezia-beach-taxi',
+  'otranto-beach-taxi',
+  'polignano-a-mare-beach-taxi',
+  'portofino-taxi-transfer',
+  'positano-beach-taxi',
+  'rimini-beach-taxi',
+  'san-vito-lo-capo-taxi',
+  'sardinia-beach-transfers',
+  'sirolo-beach-taxi',
+  'sperlonga-taxi-transfer',
+  'taormina-beach-transfer',
+  'tropea-beach-taxi',
 ];
 
 const borderSlugs = [
@@ -88,10 +98,10 @@ const borderSlugs = [
   'italy-to-croatia',
 ];
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
 
-  const staticEntries: MetadataRoute.Sitemap = staticPages.map((path) => ({
+  const staticEntries: MetadataRoute.Sitemap = [...staticPages, ...servicePages].map((path) => ({
     url: `${BASE_URL}${path}`,
     lastModified: now,
     changeFrequency: path === '' ? 'daily' : 'weekly',
@@ -126,11 +136,47 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
+  const attractionEntries: MetadataRoute.Sitemap = attractionTransfers.map((slug) => ({
+    url: `${BASE_URL}/attraction-transfer/${slug}`,
+    lastModified: now,
+    changeFrequency: 'monthly',
+    priority: 0.7,
+  }));
+
+  const beachEntries: MetadataRoute.Sitemap = beachTransfers.map((slug) => ({
+    url: `${BASE_URL}/beach-transfer/${slug}`,
+    lastModified: now,
+    changeFrequency: 'monthly',
+    priority: 0.7,
+  }));
+
+  let blogEntries: MetadataRoute.Sitemap = [];
+  try {
+    const { data: blogs, error } = await supabase
+      .from('blogs')
+      .select('slug, updated_at')
+      .eq('status', 'published');
+      
+    if (!error && blogs) {
+      blogEntries = blogs.map((blog) => ({
+        url: `${BASE_URL}/blog/${blog.slug}`,
+        lastModified: blog.updated_at ? new Date(blog.updated_at) : now,
+        changeFrequency: 'weekly',
+        priority: 0.8,
+      }));
+    }
+  } catch (err) {
+    console.error('Error fetching blogs for sitemap:', err);
+  }
+
   return [
     ...staticEntries,
     ...airportEntries,
     ...cityEntries,
     ...tourEntries,
     ...borderEntries,
+    ...attractionEntries,
+    ...beachEntries,
+    ...blogEntries,
   ];
 }

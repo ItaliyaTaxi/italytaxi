@@ -6,6 +6,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import PageHero from '@/components/PageHero';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export async function generateStaticParams() {
     return cities.map((city) => ({
@@ -36,14 +37,6 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
         description: "Explore this beautiful Italian destination with our premium taxi services. Professional drivers and luxury vehicles at your service.",
         popular_tours: ["City Center Tour", "Historical Landmarks", "Local Food Tasting"]
     };
-
-    const services = [
-        { title: "Airport Transfers", icon: <Plane />, desc: "Reliable airport pickups & drop-offs." },
-        { title: "Hourly Chauffeur", icon: <Clock />, desc: "Personal driver for as long as you need." },
-        { title: "City-to-city Rides", icon: <MapPin />, desc: "Travel between Italian cities in comfort." },
-        { title: "Private Tours", icon: <Camera />, desc: "Explore landmarks and hidden gems." }
-    ];
-
     return (
         <main className="font-inter bg-white">
             <Navbar />
@@ -109,10 +102,16 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
 
                 <div className="container mx-auto px-6">
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                        {services.map((service, index) => (
-                            <div
+                        {[
+                            { title: "Airport Transfers", icon: <Plane />, desc: "Reliable airport pickups & drop-offs.", path: "/services/airport-transfers" },
+                            { title: "Hourly Chauffeur", icon: <Clock />, desc: "Personal driver for as long as you need.", path: "/services/hourly-taxi" },
+                            { title: "City-to-city Rides", icon: <MapPin />, desc: "Travel between Italian cities in comfort.", path: "/services/city-to-city" },
+                            { title: "Private Tours", icon: <Camera />, desc: "Explore landmarks and hidden gems.", path: "/services/private-tours" }
+                        ].map((service, index) => (
+                            <Link
                                 key={index}
-                                className="uiverse-card p-10 group animate-slide-left min-h-[300px]"
+                                href={service.path}
+                                className="uiverse-card p-10 group animate-slide-left min-h-[300px] block"
                                 style={{ animationDelay: `${index * 0.1}s` }}
                             >
                                 <div className="flex flex-col items-center text-center w-full h-full">
@@ -126,7 +125,7 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
                                         {service.desc}
                                     </p>
                                 </div>
-                            </div>
+                            </Link>
                         ))}
                     </div>
                 </div>

@@ -7,7 +7,7 @@ import { useLanguage } from '@/context/LanguageContext';
 
 const destinationData = [
     { name: "Rome", image: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?q=80&w=1996&auto=format&fit=crop", link: "/city/rome-taxi-service" },
-    { name: "Milan", image: "https://images.unsplash.com/photo-1520986606214-8b456906c813?q=80&w=2070&auto=format&fit=crop", link: "/city/milan-taxi-service" },
+    { name: "Milan", image: "https://images.unsplash.com/photo-1513581166391-887a96ddeafd?q=80&w=2070&auto=format&fit=crop", link: "/city/milan-taxi-service" },
     { name: "Florence", image: "/images/florence airport.jpg", link: "/city/florence-taxi-service" },
     { name: "Venice", image: "/images/venice.webp", link: "/city/venice-taxi-service" },
     { name: "Naples", image: "/images/naples.jpg", link: "/city/naples-taxi-service" },

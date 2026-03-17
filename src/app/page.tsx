@@ -15,6 +15,7 @@ const PopularDestinations = dynamic(() => import('@/components/PopularDestinatio
 const HowItWorks = dynamic(() => import('@/components/HowItWorks'));
 const Testimonials = dynamic(() => import('@/components/Testimonials'));
 const Coverage = dynamic(() => import('@/components/Coverage'));
+const KnowledgeHubSection = dynamic(() => import('@/components/KnowledgeHubSection'));
 const CTA = dynamic(() => import('@/components/CTA'));
 const Footer = dynamic(() => import('@/components/Footer'));
 
@@ -58,6 +59,10 @@ export default function Home() {
 
       <Suspense fallback={<SectionFallback />}>
         <Testimonials />
+      </Suspense>
+
+      <Suspense fallback={<SectionFallback />}>
+        <KnowledgeHubSection />
       </Suspense>
 
       <Suspense fallback={<SectionFallback />}>

@@ -16,21 +16,21 @@ export const metadata: Metadata = {
 
 export default function AirportTransfersPage() {
     const airports = [
-        { name: "Rome Fiumicino", link: "/airport/rome-fiumicino-airport-taxi" },
-        { name: "Rome Ciampino", link: "/airport/rome-ciampino-airport-taxi" },
-        { name: "Milan Malpensa", link: "/airport/milan-malpensa-airport-taxi" },
-        { name: "Milan Linate", link: "/airport/milan-linate-airport-taxi" },
-        { name: "Venice Marco Polo", link: "/airport/venice-marco-polo-airport-taxi" },
-        { name: "Naples International", link: "/airport/naples-airport-taxi" },
-        { name: "Florence Peretola", link: "/airport/florence-airport-taxi" },
-        { name: "Bologna Marconi", link: "/airport/bologna-marconi-airport-taxi" },
-        { name: "Pisa Airport", link: "/airport/pisa-airport-taxi" },
-        { name: "Verona Airport", link: "/airport/verona-airport-taxi" },
-        { name: "Palermo Airport", link: "/airport/palermo-airport-taxi" },
-        { name: "Catania Airport", link: "/airport/catania-fontanarossa-airport-taxi" },
-        { name: "Bari Airport", link: "/airport/bari-airport-taxi" },
-        { name: "Genoa Airport", link: "/airport/genoa-airport-taxi" },
-        { name: "Turin Airport", link: "/airport/turin-airport-taxi" }
+        { name: "Rome Fiumicino", link: "/airport/rome-fiumicino" },
+        { name: "Rome Ciampino", link: "/airport/rome-ciampino" },
+        { name: "Milan Malpensa", link: "/airport/milan-malpensa" },
+        { name: "Milan Linate", link: "/airport/milan-linate" },
+        { name: "Venice Marco Polo", link: "/airport/venice" },
+        { name: "Naples International", link: "/airport/naples" },
+        { name: "Florence Peretola", link: "/airport/florence" },
+        { name: "Bologna Marconi", link: "/airport/bologna-marconi" },
+        { name: "Pisa Airport", link: "/airport/pisa" },
+        { name: "Verona Airport", link: "/airport/verona" },
+        { name: "Palermo Airport", link: "/airport/palermo" },
+        { name: "Catania Airport", link: "/airport/catania-fontanarossa" },
+        { name: "Bari Airport", link: "/airport/bari" },
+        { name: "Genoa Airport", link: "/airport/genoa" },
+        { name: "Turin Airport", link: "/airport/turin" }
     ];
 
     return (

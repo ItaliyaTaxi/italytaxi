@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import PageHero from '@/components/PageHero';
 import ServiceIntro, { ServiceFeatures } from '@/components/ServiceDetails';
@@ -46,6 +47,29 @@ export default function PrivateToursPage() {
                 features={features}
                 bg="bg-[#F8F9FA]"
             />
+
+            <section className="py-20 bg-white">
+                <div className="container mx-auto px-6 text-center">
+                    <h2 className="text-3xl font-bold text-navy mb-12">Popular Sightseeing Routes</h2>
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {[
+                            { name: "Vatican Museums Tour", path: "/tour/vatican" },
+                            { name: "Lake Como Experience", path: "/tour/lake-como" },
+                            { name: "Amalfi Coast Drive", path: "/tour/amalfi-coast" },
+                            { name: "Tuscany Wine Region", path: "/tour/tuscany-wine-tour" },
+                            { name: "Dolomites Peaks", path: "/tour/dolomites" }
+                        ].map((tour, i) => (
+                            <Link 
+                                key={i} 
+                                href={tour.path}
+                                className="p-6 rounded-2xl border border-gray-100 hover:border-gold hover:shadow-xl transition-all font-bold text-navy block"
+                            >
+                                {tour.name}
+                            </Link>
+                        ))}
+                    </div>
+                </div>
+            </section>
 
             <HowItWorks />
             <FAQSection />

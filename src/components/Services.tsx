@@ -1,6 +1,6 @@
 "use client";
 
-import { Plane, Briefcase, Camera, MapPin, Anchor, Clock } from 'lucide-react';
+import { Plane, Briefcase, MapPin, Anchor, Clock, Heart } from 'lucide-react';
 import TaxiButton from './TaxiButton';
 import { useLanguage } from '@/context/LanguageContext';
 
@@ -10,16 +10,18 @@ const serviceLinks = [
     "/services/hotel-transfers/",
     "/services/business-taxi/",
     "/services/hourly-taxi/",
-    "/services/wedding-events/",
+    "/services/wedding-transfers/",
+    "/services/cruise-port-transfers/",
 ];
 
 const serviceIcons = [
     <Plane key="plane" className="w-10 h-10 text-gold group-hover:scale-110 transition-transform duration-300" />,
     <MapPin key="mappin" className="w-10 h-10 text-gold group-hover:scale-110 transition-transform duration-300" />,
-    <Anchor key="anchor" className="w-10 h-10 text-gold group-hover:scale-110 transition-transform duration-300" />,
+    <MapPin key="mappin2" className="w-10 h-10 text-gold group-hover:scale-110 transition-transform duration-300" />, // Hotel
     <Briefcase key="briefcase" className="w-10 h-10 text-gold group-hover:scale-110 transition-transform duration-300" />,
     <Clock key="clock" className="w-10 h-10 text-gold group-hover:scale-110 transition-transform duration-300" />,
-    <Camera key="camera" className="w-10 h-10 text-gold group-hover:scale-110 transition-transform duration-300" />,
+    <Heart key="heart" className="w-10 h-10 text-gold group-hover:scale-110 transition-transform duration-300" />,
+    <Anchor key="anchor" className="w-10 h-10 text-gold group-hover:scale-110 transition-transform duration-300" />,
 ];
 
 export default function Services() {

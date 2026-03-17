@@ -6,12 +6,12 @@ import { Plane, ChevronRight } from 'lucide-react';
 
 export default function AirportTransfersPage() {
     const airports = [
-        { name: "Rome Fiumicino (FCO)", link: "/airport-transfer/rome-fiumicino-airport-taxi" },
-        { name: "Milan Malpensa (MXP)", link: "/airport-transfer/milan-malpensa-airport-taxi" },
-        { name: "Venice Marco Polo (VCE)", link: "/airport-transfer/venice-marco-polo-airport-taxi" },
-        { name: "Naples International (NAP)", link: "/airport-transfer/naples-airport-taxi" },
-        { name: "Florence Peretola (FLR)", link: "/airport-transfer/florence-airport-taxi" },
-        { name: "Milan Linate (LIN)", link: "/airport-transfer/milan-linate-airport-taxi" }
+        { name: "Rome Fiumicino (FCO)", link: "/airport/rome-fiumicino" },
+        { name: "Milan Malpensa (MXP)", link: "/airport/milan-malpensa" },
+        { name: "Venice Marco Polo (VCE)", link: "/airport/venice" },
+        { name: "Naples International (NAP)", link: "/airport/naples" },
+        { name: "Florence Peretola (FLR)", link: "/airport/florence" },
+        { name: "Milan Linate (LIN)", link: "/airport/milan-linate" }
     ];
 
     return (

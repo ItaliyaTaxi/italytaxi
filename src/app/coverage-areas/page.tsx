@@ -2,6 +2,7 @@ import Navbar from '@/components/Navbar';
 import PageHero from '@/components/PageHero';
 import Footer from '@/components/Footer';
 import Coverage from '@/components/Coverage';
+import CoverageDirectory from '@/components/CoverageDirectory';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -25,6 +26,7 @@ export default function CoverageAreasPage() {
       <div className="py-20">
         <Coverage />
       </div>
+      <CoverageDirectory />
       <Footer />
     </main>
   );

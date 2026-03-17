@@ -2,17 +2,7 @@
 
 import { MapPin, Plane, Car } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
-
-const locationData = [
-    { name: "Rome", types: ["airports", "city", "ports"] as const },
-    { name: "Milan", types: ["airports", "city"] as const },
-    { name: "Venice", types: ["airports", "city", "ports"] as const },
-    { name: "Florence", types: ["airports", "city"] as const },
-    { name: "Naples", types: ["airports", "city", "ports"] as const },
-    { name: "Amalfi Coast", types: ["city"] as const },
-    { name: "Lake Como", types: ["city"] as const },
-    { name: "Sicily", types: ["airports", "city"] as const },
-];
+import Link from 'next/link';
 
 export default function Coverage() {
     const { t } = useLanguage();
@@ -52,13 +42,23 @@ export default function Coverage() {
 
                     <div className="w-full lg:w-1/2 p-4 md:p-10 bg-white/5 rounded-[40px] border border-white/10 backdrop-blur-sm">
                         <div className="grid grid-cols-2 md:grid-cols-2 gap-4">
-                            {locationData.map((loc, index) => (
-                                <div
+                            {[
+                                { name: "Rome", path: "/city/rome-taxi-service", types: ["airports", "city", "ports"] as const },
+                                { name: "Milan", path: "/city/milan-taxi-service", types: ["airports", "city"] as const },
+                                { name: "Venice", path: "/city/venice-taxi-service", types: ["airports", "city", "ports"] as const },
+                                { name: "Florence", path: "/city/florence-taxi-service", types: ["airports", "city"] as const },
+                                { name: "Naples", path: "/city/naples-taxi-service", types: ["airports", "city", "ports"] as const },
+                                { name: "Amalfi Coast", path: "/city/amalfi-taxi-service", types: ["city"] as const },
+                                { name: "Lake Como", path: "/city/como-taxi-service", types: ["city"] as const },
+                                { name: "Sicily", path: "/city/palermo-taxi-service", types: ["airports", "city"] as const },
+                            ].map((loc, index) => (
+                                <Link
                                     key={index}
-                                    className="p-6 bg-navy/80 border border-white/5 rounded-2xl hover:border-gold/50 transition-all duration-300 animate-slide-left"
+                                    href={loc.path}
+                                    className="p-6 bg-navy/80 border border-white/5 rounded-2xl hover:border-gold/50 hover:bg-white/5 transition-all duration-300 animate-slide-left group"
                                     style={{ animationDelay: `${0.4 + index * 0.1}s` }}
                                 >
-                                    <h4 className="text-white font-bold text-lg mb-2">{loc.name}</h4>
+                                    <h4 className="text-white font-bold text-lg mb-2 group-hover:text-gold transition-colors">{loc.name}</h4>
                                     <div className="flex flex-wrap gap-2">
                                         {loc.types.map(type => (
                                             <span key={type} className="text-[10px] text-gold font-bold uppercase tracking-widest bg-gold/10 px-2 py-0.5 rounded">
@@ -66,7 +66,7 @@ export default function Coverage() {
                                             </span>
                                         ))}
                                     </div>
-                                </div>
+                                </Link>
                             ))}
                         </div>
                     </div>

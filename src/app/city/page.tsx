@@ -16,21 +16,21 @@ export const metadata: Metadata = {
 
 export default function CityTransfersPage() {
     const cities = [
-        { name: "Rome", link: "/city/rome-taxi-service" },
-        { name: "Milan", link: "/city/milan-taxi-service" },
-        { name: "Venice", link: "/city/venice-taxi-service" },
-        { name: "Florence", link: "/city/florence-taxi-service" },
-        { name: "Naples", link: "/city/naples-taxi-service" },
-        { name: "Bologna", link: "/city/bologna-taxi-service" },
-        { name: "Bari", link: "/city/bari-taxi-service" },
-        { name: "Palermo", link: "/city/palermo-taxi-service" },
-        { name: "Amalfi", link: "/city/amalfi-taxi-service" },
-        { name: "Portofino", link: "/city/portofino-taxi-service" },
-        { name: "Lake Como", link: "/city/como-taxi-service" },
-        { name: "Positano", link: "/city/positano-taxi-service" },
-        { name: "Ravello", link: "/city/ravello-taxi-service" },
-        { name: "Taormina", link: "/city/taormina-taxi-service" },
-        { name: "Sorrento", link: "/city/sorrento-taxi-service" }
+        { name: "Rome", link: "/city/rome" },
+        { name: "Milan", link: "/city/milan" },
+        { name: "Venice", link: "/city/venice" },
+        { name: "Florence", link: "/city/florence" },
+        { name: "Naples", link: "/city/naples" },
+        { name: "Bologna", link: "/city/bologna" },
+        { name: "Bari", link: "/city/bari" },
+        { name: "Palermo", link: "/city/palermo" },
+        { name: "Amalfi", link: "/city/amalfi" },
+        { name: "Portofino", link: "/city/portofino" },
+        { name: "Lake Como", link: "/city/como" },
+        { name: "Positano", link: "/city/positano" },
+        { name: "Ravello", link: "/city/ravello" },
+        { name: "Taormina", link: "/city/taormina" },
+        { name: "Sorrento", link: "/city/sorrento" }
     ];
 
     return (
