@@ -33,10 +33,10 @@ export default function Footer() {
                             </li>
                         </ul>
                         <div className="flex gap-4">
-                            <Link href="https://www.facebook.com/italytaxiservice" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-navy flex items-center justify-center hover:bg-gold hover:text-white transition-all">
+                            <Link href="https://www.facebook.com/italytaxiservice" target="_blank" rel="nofollow noopener noreferrer" className="w-8 h-8 rounded-full bg-navy flex items-center justify-center hover:bg-gold hover:text-white transition-all">
                                 <Facebook className="w-4 h-4" />
                             </Link>
-                            <Link href="https://www.instagram.com/italytaxiservice" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-navy flex items-center justify-center hover:bg-gold hover:text-white transition-all">
+                            <Link href="https://www.instagram.com/italytaxiservice" target="_blank" rel="nofollow noopener noreferrer" className="w-8 h-8 rounded-full bg-navy flex items-center justify-center hover:bg-gold hover:text-white transition-all">
                                 <Instagram className="w-4 h-4" />
                             </Link>
                         </div>
