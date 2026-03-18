@@ -5,6 +5,7 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import { cache } from 'react';
 
 interface BlogPageProps {
   params: {
@@ -12,14 +13,20 @@ interface BlogPageProps {
   };
 }
 
+const getBlog = cache(async (slug: string) => {
+  const { data } = await supabase
+    .from('blogs')
+    .select('*, bloggers(*)')
+    .eq('slug', slug)
+    .eq('status', 'published')
+    .single();
+  return data;
+});
+
 // Generate metadata for SEO
 export async function generateMetadata({ params }: any): Promise<Metadata> {
   const { slug } = await params;
-  const { data: blog } = await supabase
-    .from('blogs')
-    .select('*')
-    .eq('slug', slug)
-    .single();
+  const blog = await getBlog(slug);
 
   if (!blog) {
     return {
@@ -28,7 +35,7 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
   }
 
   return {
-    title: `${blog.seo_title || blog.title} | Italian Taxi Service`,
+    title: blog.seo_title || blog.title,
     description: blog.seo_description || blog.excerpt,
     alternates: {
       canonical: `/blog/${slug}`,
@@ -45,15 +52,10 @@ export const revalidate = 60;
 
 export default async function BlogPostPage({ params }: any) {
   const { slug } = await params;
-  
-  const { data: blog, error } = await supabase
-    .from('blogs')
-    .select('*, bloggers(*)')
-    .eq('slug', slug)
-    .eq('status', 'published')
-    .single();
 
-  if (error || !blog) {
+  const blog = await getBlog(slug);
+
+  if (!blog) {
     notFound();
   }
 

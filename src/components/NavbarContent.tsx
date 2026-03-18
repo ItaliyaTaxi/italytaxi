@@ -340,6 +340,12 @@ export default function Navbar() {
                             {t.nav.about}
                             <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#F4C430] transition-all duration-300 group-hover:w-full"></span>
                         </Link>
+                        
+                        {/* Drivers */}
+                        <Link href="/drivers" className="text-white hover:text-[#F4C430] transition-colors text-xs font-bold uppercase tracking-widest relative group">
+                            Our Drivers
+                            <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#F4C430] transition-all duration-300 group-hover:w-full"></span>
+                        </Link>
 
                         {/* Contact */}
                         <Link href="/contact" className="text-white hover:text-[#F4C430] transition-colors text-xs font-bold uppercase tracking-widest relative group">
@@ -428,6 +434,7 @@ export default function Navbar() {
 
                             <Link href="/blog" onClick={() => setIsMobileMenuOpen(false)} className="text-white text-lg font-bold uppercase tracking-widest border-t border-white/10 pt-4">{t.nav.blog}</Link>
                             <Link href="/about-us/" onClick={() => setIsMobileMenuOpen(false)} className="text-white text-lg font-bold uppercase tracking-widest border-t border-white/10 pt-4">{t.nav.about}</Link>
+                            <Link href="/drivers/" onClick={() => setIsMobileMenuOpen(false)} className="text-white text-lg font-bold uppercase tracking-widest border-t border-white/10 pt-4">Our Drivers</Link>
                             <Link href="/contact/" onClick={() => setIsMobileMenuOpen(false)} className="text-white text-lg font-bold uppercase tracking-widest border-t border-white/10 pt-4">{t.nav.contact}</Link>
                             <TaxiButton href="/book-now/" className="w-full mt-4" onClick={() => setIsMobileMenuOpen(false)}>
                                 {t.nav.getQuote}

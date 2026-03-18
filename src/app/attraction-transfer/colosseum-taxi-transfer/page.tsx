@@ -4,7 +4,7 @@ import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Private Transfer to Colosseum | Italian Taxi Service",
+  title: "Colosseum Rome | Private Taxi Transfer",
   description: "Book a professional private transfer to Colosseum. Avoid the crowds of public transport and enjoy a comfortable ride directly to one of Italy's most iconic locations.",
   alternates: {
     canonical: "/attraction-transfer/colosseum-taxi-transfer",

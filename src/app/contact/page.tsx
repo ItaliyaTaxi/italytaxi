@@ -8,7 +8,7 @@ import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Contact Us for Taxi Bookings | Italian Taxi Service",
+  title: "Book a Taxi | Contact Italy Taxi Service",
   description: "Get in touch with ItaliaRide for custom taxi quotes, booking assistance, or any inquiries about our airport and city transfer services in Italy.",
   alternates: {
     canonical: "/contact",

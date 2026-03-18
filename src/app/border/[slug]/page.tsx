@@ -179,7 +179,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     if (!transfer) return {};
 
     return {
-        title: `Italy to ${transfer.to} Private Taxi Transfer | ItaliaRide`,
+        title: `Italy to ${transfer.to} | Cross-Border Taxi Transfer`,
         description: transfer.intro.slice(0, 155),
         alternates: {
             canonical: `/border/${slug}`,

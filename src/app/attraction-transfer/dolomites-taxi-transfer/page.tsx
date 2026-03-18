@@ -4,7 +4,7 @@ import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Private Transfer to Dolomites | Italian Taxi Service",
+  title: "Dolomites Italy | Private Taxi Transfer",
   description: "Book a professional private transfer to Dolomites. Avoid the crowds of public transport and enjoy a comfortable ride directly to one of Italy's most iconic locations.",
   alternates: {
     canonical: "/attraction-transfer/dolomites-taxi-transfer",

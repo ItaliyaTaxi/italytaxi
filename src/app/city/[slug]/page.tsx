@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     const cityName = city ? city.name : slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
 
     return {
-        title: `${cityName} | Private Taxi Transfers & City Tours`,
+        title: `${cityName} Taxi | Private City Transfers`,
         description: `Explore ${cityName} with our professional taxi service. Premium airport transfers, city tours, and point-to-point transfers with English-speaking drivers.`,
         alternates: {
             canonical: `/city/${slug}`,
@@ -78,7 +78,7 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
                             <div className="relative h-[550px] rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white">
                                 <Image
                                     src={city.hero_image}
-                                    alt={`${city.name} Skyline`}
+                                    alt={`Private taxi transfer in ${city.name} - Italy Taxi Service`}
                                     fill
                                     className="object-cover"
                                 />

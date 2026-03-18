@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     const airportName = airport ? airport.name : slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
 
     return {
-        title: `${airportName} | Private Airport Taxi Transfers`,
+        title: `${airportName.replace(/ Airport$/, '')} | Private Airport Transfer`,
         description: `Book your private taxi transfer to or from ${airportName}. Professional drivers, fixed pricing, and premium fleet for a stress-free travel in Italy.`,
         alternates: {
             canonical: `/airport/${slug}`,

@@ -7,7 +7,7 @@ import { attractionTransfers } from '@/lib/page-data';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: "Sightseeing Attraction Taxi Transfers in Italy | Italian Taxi Service",
+    title: "Italy Attraction Transfers | Book a Sightseeing Taxi",
     description: "Point-to-point transfers to Italy's most iconic attractions. From the Colosseum and Pompeii to Mount Etna and the Dolomites.",
     alternates: {
         canonical: "/attraction-transfer",

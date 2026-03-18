@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import TaxiButton from './TaxiButton';
 
 interface PageHeroProps {
@@ -21,12 +22,15 @@ export default function PageHero({
     return (
         <section className="relative h-screen w-full flex items-center overflow-hidden font-inter">
             {/* Background with darker gradient overlay */}
-            <div
-                className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-                style={{
-                    backgroundImage: `url("${backgroundImage}")`,
-                }}
-            >
+            <div className="absolute inset-0">
+                <Image
+                    src={backgroundImage}
+                    alt={`${titleTop} ${titleBottom}`}
+                    fill
+                    priority
+                    className="object-cover object-center"
+                    sizes="100vw"
+                />
                 <div className="absolute inset-0 bg-gradient-to-r from-[#0F1C2E]/90 via-[#0F1C2E]/60 to-transparent" />
             </div>
 

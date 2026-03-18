@@ -4,7 +4,7 @@ import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Private Transfer to Otranto Beach Taxi | Italian Taxi Service",
+  title: "Otranto Beach | Private Taxi Transfer",
   description: "Book a professional private transfer to Otranto Beach Taxi. Avoid the crowds of public transport and enjoy a comfortable ride directly to one of Italy's most iconic locations.",
   alternates: {
     canonical: "/beach-transfer/otranto-beach-taxi",

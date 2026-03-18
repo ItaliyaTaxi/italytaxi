@@ -18,6 +18,8 @@ const staticPages = [
   '/airport',
   '/city',
   '/services',
+  '/border',
+  '/tour',
 ];
 
 const servicePages = [

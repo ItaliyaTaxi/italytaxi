@@ -4,7 +4,7 @@ import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Private Transfer to Sirolo Beach Taxi | Italian Taxi Service",
+  title: "Sirolo Beach | Private Taxi Transfer",
   description: "Book a professional private transfer to Sirolo Beach Taxi. Avoid the crowds of public transport and enjoy a comfortable ride directly to one of Italy's most iconic locations.",
   alternates: {
     canonical: "/beach-transfer/sirolo-beach-taxi",

@@ -7,7 +7,7 @@ import { tours } from '@/lib/page-data';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: "Private Sightseeing Tours in Italy | Italian Taxi Service",
+    title: "Private Tours Italy | Book a Sightseeing Taxi",
     description: "Discover Italy's most beautiful highlights with our private sightseeing tours. From the Amalfi Coast and Tuscany to the Dolomites and Lake Como.",
     alternates: {
         canonical: "/tour",
@@ -39,7 +39,7 @@ export default function ToursHubPage() {
                             <div className="relative h-64 overflow-hidden">
                                 <img
                                     src={tour.hero_image}
-                                    alt={tour.name}
+                                    alt={tour.alt_text}
                                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />

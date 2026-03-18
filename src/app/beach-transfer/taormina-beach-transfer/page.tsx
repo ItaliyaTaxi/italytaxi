@@ -4,7 +4,7 @@ import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Private Transfer to Taormina Beach | Italian Taxi Service",
+  title: "Taormina Beach | Private Taxi Transfer",
   description: "Book a professional private transfer to Taormina Beach. Avoid the crowds of public transport and enjoy a comfortable ride directly to one of Italy's most iconic locations.",
   alternates: {
     canonical: "/beach-transfer/taormina-beach-transfer",

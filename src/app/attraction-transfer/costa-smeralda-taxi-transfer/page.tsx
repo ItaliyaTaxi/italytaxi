@@ -4,7 +4,7 @@ import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Private Transfer to Costa Smeralda | Italian Taxi Service",
+  title: "Costa Smeralda | Private Taxi Transfer",
   description: "Book a professional private transfer to Costa Smeralda. Avoid the crowds of public transport and enjoy a comfortable ride directly to one of Italy's most iconic locations.",
   alternates: {
     canonical: "/attraction-transfer/costa-smeralda-taxi-transfer",

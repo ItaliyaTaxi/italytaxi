@@ -7,7 +7,7 @@ import { beachTransfers } from '@/lib/page-data';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: "Luxury Beach Taxi Transfers in Italy | Italian Taxi Service",
+    title: "Beach Taxi Transfers Italy | Book Your Ride",
     description: "Point-to-point beach transfers across Italy's most beautiful coastlines. From Sardinia and Puglia to the Amalfi Coast and Sicily.",
     alternates: {
         canonical: "/beach-transfer",

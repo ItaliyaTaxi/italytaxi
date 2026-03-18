@@ -7,7 +7,7 @@ import { borderSlugs } from '@/lib/page-data';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: "International Border Transfers from Italy | Italian Taxi Service",
+    title: "Italy Border Transfers | Book Cross-Border Taxi",
     description: "Private taxi transfers from Italy to Switzerland, France, Austria, Germany, Slovenia, and Croatia. Comfortable long-distance international travel.",
     alternates: {
         canonical: "/border",
