@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Private Transfer to Camogli | Italian Taxi Service",
   description: "Book a professional private transfer to Camogli. Avoid the crowds of public transport and enjoy a comfortable ride directly to one of Italy's most iconic locations.",
   alternates: {
-    canonical: "https://www.italytaxiservice.com/beach-transfer/camogli-taxi-transfer",
+    canonical: "/beach-transfer/camogli-taxi-transfer",
   }
 };
 

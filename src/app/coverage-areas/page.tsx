@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "Italy Coverage Areas | Italian Taxi Service",
   description: "Explore the wide range of cities and regions covered by our taxi service in Italy. From Rome and Florence to the Amalfi Coast and Lake Como.",
   alternates: {
-    canonical: "https://www.italytaxiservice.com/coverage-areas",
+    canonical: "/coverage-areas",
   }
 };
 

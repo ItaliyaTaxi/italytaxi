@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: "Taxi from City to City | Italian Taxi Service",
   description: "Travel between Italian cities in comfort and luxury. Door-to-door point-point-transfers with professional drivers. Rome, Florence, Milan, and more.",
   alternates: {
-    canonical: "https://www.italytaxiservice.com/services/city-to-city",
+    canonical: "/services/city-to-city",
   }
 };
 

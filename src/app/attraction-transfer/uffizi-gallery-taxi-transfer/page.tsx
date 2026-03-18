@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Private Transfer to Uffizi Gallery | Italian Taxi Service",
   description: "Book a professional private transfer to Uffizi Gallery. Avoid the crowds of public transport and enjoy a comfortable ride directly to one of Italy's most iconic locations.",
   alternates: {
-    canonical: "https://www.italytaxiservice.com/attraction-transfer/uffizi-gallery-taxi-transfer",
+    canonical: "/attraction-transfer/uffizi-gallery-taxi-transfer",
   }
 };
 

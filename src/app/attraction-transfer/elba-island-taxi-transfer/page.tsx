@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Private Transfer to Elba Island | Italian Taxi Service",
   description: "Book a professional private transfer to Elba Island. Avoid the crowds of public transport and enjoy a comfortable ride directly to one of Italy's most iconic locations.",
   alternates: {
-    canonical: "https://www.italytaxiservice.com/attraction-transfer/elba-island-taxi-transfer",
+    canonical: "/attraction-transfer/elba-island-taxi-transfer",
   }
 };
 

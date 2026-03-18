@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: "Italy Travel Blog | Italian Taxi Service",
   description: "Travel tips, destination guides, and the latest news about taxi transfers in Italy. Plan your perfect Italian journey with our expert blog.",
   alternates: {
-    canonical: "https://www.italytaxiservice.com/blog",
+    canonical: "/blog",
   }
 };
 

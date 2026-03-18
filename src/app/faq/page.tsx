@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: "Taxi Service FAQ | Italian Taxi Service",
   description: "Everything you need to know about our premium taxi services, booking process, and airport transfers in Italy.",
   alternates: {
-    canonical: "https://www.italytaxiservice.com/faq",
+    canonical: "/faq",
   }
 };
 

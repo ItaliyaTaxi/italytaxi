@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Privacy Policy | Italian Taxi Service",
   description: "Learn how ItaliaRide protects your personal data and ensures your privacy when booking our taxi services in Italy.",
   alternates: {
-    canonical: "https://www.italytaxiservice.com/privacy-policy",
+    canonical: "/privacy-policy",
   }
 };
 

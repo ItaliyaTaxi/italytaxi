@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: "By the Hour Taxi Service | Italian Taxi Service",
   description: "Personal taxi service by the hour in Italy. Enjoy flexibility with a professional driver at your disposal for sightseeing, business, or events.",
   alternates: {
-    canonical: "https://www.italytaxiservice.com/services/hourly-taxi",
+    canonical: "/services/hourly-taxi",
   }
 };
 

@@ -8,10 +8,10 @@ import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Private Hotel Transfers | Italian Taxi Service",
+  title: "Hotel Transfers | Italian Taxi Service",
   description: "Private hotel door-to-door transportation in Italy. Professional taxi service from airports and stations directly to your hotel or Airbnb.",
   alternates: {
-    canonical: "https://www.italytaxiservice.com/services/hotel-transfers",
+    canonical: "/services/hotel-transfers",
   }
 };
 

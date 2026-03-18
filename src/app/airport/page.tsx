@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: "Airports We Cover in Italy | Italian Taxi Service",
     description: "Private airport taxi transfers across all major Italian airports. Reliable, punctual, and comfortable rides with professional English-speaking drivers.",
     alternates: {
-        canonical: "https://www.italytaxiservice.com/airport",
+        canonical: "/airport",
     }
 };
 

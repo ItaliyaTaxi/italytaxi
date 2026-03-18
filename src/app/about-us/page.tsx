@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: "About Our Private Transfers | Italian Taxi Service",
   description: "Learn about ItaliaRide, Italy's premier taxi transfer service. Our mission is to provide professional, reliable, and comfortable transportation for every traveler.",
   alternates: {
-    canonical: "https://www.italytaxiservice.com/about-us",
+    canonical: "/about-us",
   }
 };
 

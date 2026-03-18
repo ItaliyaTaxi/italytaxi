@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
     title: `${blog.seo_title || blog.title} | Italian Taxi Service`,
     description: blog.seo_description || blog.excerpt,
     alternates: {
-      canonical: `https://www.italytaxiservice.com/blog/${slug}`,
+      canonical: `/blog/${slug}`,
     },
     openGraph: {
       title: blog.title,

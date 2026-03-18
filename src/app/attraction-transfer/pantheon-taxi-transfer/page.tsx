@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Private Transfer to Pantheon | Italian Taxi Service",
   description: "Book a professional private transfer to Pantheon. Avoid the crowds of public transport and enjoy a comfortable ride directly to one of Italy's most iconic locations.",
   alternates: {
-    canonical: "https://www.italytaxiservice.com/attraction-transfer/pantheon-taxi-transfer",
+    canonical: "/attraction-transfer/pantheon-taxi-transfer",
   }
 };
 

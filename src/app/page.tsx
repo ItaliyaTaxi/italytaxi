@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   title: "Private Taxi Transfers in Italy | Italian Taxi Service",
   description: "Experience the finest travel in Italy. Professional drivers and vehicle fleet for airport transfers and city tours. Book your taxi today!",
   alternates: {
-    canonical: "https://www.italytaxiservice.com",
+    canonical: "/",
   }
 };
 

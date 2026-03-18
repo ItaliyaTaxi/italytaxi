@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Our Professional Drivers | Italian Taxi Service",
   description: "Meet our fleet of professional, English-speaking drivers in Italy. Licensed, experienced, and dedicated to providing world-class taxi service.",
   alternates: {
-    canonical: "https://www.italytaxiservice.com/drivers",
+    canonical: "/drivers",
   }
 };
 

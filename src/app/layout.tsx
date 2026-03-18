@@ -38,7 +38,8 @@ export const metadata: Metadata = {
   description: "Experience the finest travel in Italy. Professional drivers and vehicle fleet for airport transfers and city tours.",
   keywords: ["Italy Taxi", "Airport Transfers Italy", "Private Driver Italy", "Luxury Taxi Italy", "Rome Airport Taxi", "Milan Transfer"],
   alternates: {
-    canonical: "/",
+    // We remove the root canonical from here to prevent subpages from inheriting it.
+    // Each page should ideally define its own canonical to avoid duplicate content issues.
   },
   other: {
     "msvalidate.01": "855d7a6f206b4d3cb0f5120fa3e5bd86", // Bing Validation

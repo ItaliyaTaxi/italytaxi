@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Terms and Conditions | Italian Taxi Service",
   description: "Read the terms and conditions for booking our taxi services in Italy. Information on pricing, cancellations, and service agreements.",
   alternates: {
-    canonical: "https://www.italytaxiservice.com/terms-and-conditions",
+    canonical: "/terms-and-conditions",
   }
 };
 

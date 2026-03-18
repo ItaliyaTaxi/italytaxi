@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     title: "Private Sightseeing Tours | Italian Taxi Service",
     description: "Discover Italy with our premium private taxi tours. Expert chauffeurs take you to the Colosseum, Tuscany, Amalfi Coast and more on your own schedule.",
     alternates: {
-        canonical: "https://www.italytaxiservice.com/services/private-tours",
+        canonical: "/services/private-tours",
     }
 };
 

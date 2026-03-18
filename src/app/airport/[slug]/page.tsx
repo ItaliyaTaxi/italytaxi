@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         title: `${airportName} | Private Airport Taxi Transfers`,
         description: `Book your private taxi transfer to or from ${airportName}. Professional drivers, fixed pricing, and premium fleet for a stress-free travel in Italy.`,
         alternates: {
-            canonical: `https://www.italytaxiservice.com/airport/${slug}`,
+            canonical: `/airport/${slug}`,
         }
     };
 }

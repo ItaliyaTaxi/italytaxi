@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: "Contact Us for Taxi Bookings | Italian Taxi Service",
   description: "Get in touch with ItaliaRide for custom taxi quotes, booking assistance, or any inquiries about our airport and city transfer services in Italy.",
   alternates: {
-    canonical: "https://www.italytaxiservice.com/contact",
+    canonical: "/contact",
   }
 };
 

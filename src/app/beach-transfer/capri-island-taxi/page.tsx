@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Private Transfer to Capri Island Taxi | Italian Taxi Service",
   description: "Book a professional private transfer to Capri Island Taxi. Avoid the crowds of public transport and enjoy a comfortable ride directly to one of Italy's most iconic locations.",
   alternates: {
-    canonical: "https://www.italytaxiservice.com/beach-transfer/capri-island-taxi",
+    canonical: "/beach-transfer/capri-island-taxi",
   }
 };
 

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: "Cruise Port Taxi Transfers | Italian Taxi Service",
     description: "Reliable private taxi transfers from all major Italian cruise ports including Civitavecchia, Venice, Naples, and Livorno. Seamless pier-to-airport or city transfers.",
     alternates: {
-        canonical: "https://www.italytaxiservice.com/services/cruise-port-transfers",
+        canonical: "/services/cruise-port-transfers",
     }
 };
 

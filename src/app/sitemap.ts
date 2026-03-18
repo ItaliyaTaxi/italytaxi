@@ -5,7 +5,7 @@ import { supabase } from '@/lib/supabase/client';
 const BASE_URL = 'https://www.italytaxiservice.com';
 
 const staticPages = [
-  '',
+  '/',
   '/about-us',
   '/contact',
   '/book-now',

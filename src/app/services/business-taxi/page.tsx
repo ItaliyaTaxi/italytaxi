@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: "Business & Corporate Taxi | Italian Taxi Service",
   description: "Professional executive taxi services for business meetings, conferences and VIP guests in Italy. On-time, reliable transportation for your corporate needs.",
   alternates: {
-    canonical: "https://www.italytaxiservice.com/services/business-taxi",
+    canonical: "/services/business-taxi",
   }
 };
 

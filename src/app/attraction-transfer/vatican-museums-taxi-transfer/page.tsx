@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Private Transfer to Vatican Museums | Italian Taxi Service",
   description: "Book a professional private transfer to Vatican Museums. Avoid the crowds of public transport and enjoy a comfortable ride directly to one of Italy's most iconic locations.",
   alternates: {
-    canonical: "https://www.italytaxiservice.com/attraction-transfer/vatican-museums-taxi-transfer",
+    canonical: "/attraction-transfer/vatican-museums-taxi-transfer",
   }
 };
 

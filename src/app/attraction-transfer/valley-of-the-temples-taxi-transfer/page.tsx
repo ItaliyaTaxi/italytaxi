@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Private Transfer to Valley of the Temples | Italian Taxi Service",
   description: "Book a professional private transfer to Valley of the Temples. Avoid the crowds of public transport and enjoy a comfortable ride directly to one of Italy's most iconic locations.",
   alternates: {
-    canonical: "https://www.italytaxiservice.com/attraction-transfer/valley-of-the-temples-taxi-transfer",
+    canonical: "/attraction-transfer/valley-of-the-temples-taxi-transfer",
   }
 };
 

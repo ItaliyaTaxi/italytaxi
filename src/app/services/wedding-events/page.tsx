@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: "Wedding & Event Transfers | Italian Taxi Service",
     description: "Elegant transportation for weddings and special events in Italy. High-quality taxi service to ensure your guests arrive in style and comfort.",
     alternates: {
-        canonical: "https://www.italytaxiservice.com/services/wedding-events",
+        canonical: "/services/wedding-events",
     }
 };
 

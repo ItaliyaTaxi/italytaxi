@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: "Private Airport Transfers | Italian Taxi Service",
   description: "Reliable airport transfers across Italy. Book your private taxi to or from Rome, Milan, Venice and more with professional English-speaking drivers.",
   alternates: {
-    canonical: "https://www.italytaxiservice.com/services/airport-transfers",
+    canonical: "/services/airport-transfers",
   }
 };
 

@@ -1,8 +1,17 @@
+import { Metadata } from 'next';
 import Navbar from '@/components/Navbar';
 import PageHero from '@/components/PageHero';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
 import { Plane, ChevronRight } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: "Airport Transfers in Italy | Private Taxi Service",
+  description: "Book professional private taxi transfers to and from all major Italian airports. Reliable, fixed-price airport shuttle service across Italy.",
+  alternates: {
+    canonical: "/airport",
+  }
+};
 
 export default function AirportTransfersPage() {
     const airports = [

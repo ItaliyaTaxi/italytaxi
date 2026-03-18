@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Private Transfer to Cinque Terre | Italian Taxi Service",
   description: "Book a professional private transfer to Cinque Terre. Avoid the crowds of public transport and enjoy a comfortable ride directly to one of Italy's most iconic locations.",
   alternates: {
-    canonical: "https://www.italytaxiservice.com/attraction-transfer/cinque-terre-taxi-transfer",
+    canonical: "/attraction-transfer/cinque-terre-taxi-transfer",
   }
 };
 

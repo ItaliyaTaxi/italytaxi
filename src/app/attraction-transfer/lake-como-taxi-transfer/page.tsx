@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Private Transfer to Lake Como | Italian Taxi Service",
   description: "Book a professional private transfer to Lake Como. Avoid the crowds of public transport and enjoy a comfortable ride directly to one of Italy's most iconic locations.",
   alternates: {
-    canonical: "https://www.italytaxiservice.com/attraction-transfer/lake-como-taxi-transfer",
+    canonical: "/attraction-transfer/lake-como-taxi-transfer",
   }
 };
 
