@@ -4,10 +4,9 @@ export default function ContactInfoCards() {
     const cards = [
         {
             title: "Phone Support",
-            info: "+39 06 123 4567",
             sub: "Available 24/7",
             icon: <Phone className="w-8 h-8 text-gold" />,
-            link: "tel:+39061234567"
+            link: "tel:+923148932631"
         },
         {
             title: "Email Us",
@@ -18,10 +17,9 @@ export default function ContactInfoCards() {
         },
         {
             title: "WhatsApp",
-            info: "+39 333 444 5555",
             sub: "Fastest response",
             icon: <MessageCircle className="w-8 h-8 text-gold" />,
-            link: "https://wa.me/393334445555"
+            link: "https://wa.me/+923148932631"
         },
         {
             title: "Registered Office",
