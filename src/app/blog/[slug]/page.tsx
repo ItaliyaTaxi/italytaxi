@@ -103,7 +103,7 @@ export default async function BlogPostPage({ params }: any) {
               <div className="mt-16 p-8 bg-slate-50 rounded-3xl flex flex-col md:flex-row items-center md:items-start gap-8">
                 <div className="relative w-24 h-24 rounded-full overflow-hidden flex-shrink-0">
                   <Image 
-                    src={blog.bloggers.avatar_url || '/images/team/member1.png'} 
+                    src={blog.bloggers.avatar_url || 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200'} 
                     alt={blog.bloggers.full_name}
                     fill
                     className="object-cover"

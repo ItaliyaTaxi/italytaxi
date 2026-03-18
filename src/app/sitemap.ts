@@ -17,7 +17,6 @@ const staticPages = [
   '/terms-and-conditions',
   '/airport',
   '/city',
-  '/airport-transfer',
   '/services',
 ];
 

@@ -46,9 +46,9 @@ export default function Navbar() {
         { name: 'Cruise Port Transfers', path: '/services/cruise-port-transfers' },
         { name: 'Hotel Transfers', path: '/services/hotel-transfers' },
         { name: 'Business / Corporate', path: '/services/business-taxi' },
-        { name: 'Hourly Taxi', path: '/services/hourly-taxi' },
-        { name: 'Wedding Transfers', path: '/services/wedding-transfers' },
-        { name: 'City Taxi', path: '/city' },
+        { name: 'Wedding & Event Transfers', path: '/services/wedding-events' },
+        { name: 'Beach Transfers', path: '/beach-transfer' },
+        { name: 'Attraction Transfers', path: '/attraction-transfer' },
     ];
 
     const airports = [
@@ -295,11 +295,14 @@ export default function Navbar() {
                             </button>
                             <div className="absolute top-full left-0 w-64 pt-4 dropdown-menu pointer-events-none group-hover:pointer-events-auto">
                                 <div className="bg-[#0F1C2E] border-t-2 border-[#F4C430] shadow-2xl py-2">
-                                    {tours.map((item) => (
-                                        <Link key={item.name} href={item.path} className="block px-6 py-3 text-[11px] text-white hover:bg-[#F4C430]/10 hover:text-[#F4C430] transition-colors uppercase tracking-widest font-bold border-b border-white/5 last:border-0">
-                                            {item.name}
-                                        </Link>
-                                    ))}
+                                     {tours.map((item) => (
+                                         <Link key={item.name} href={item.path} className="block px-6 py-3 text-[11px] text-white hover:bg-[#F4C430]/10 hover:text-[#F4C430] transition-colors uppercase tracking-widest font-bold border-b border-white/5 last:border-0">
+                                             {item.name}
+                                         </Link>
+                                     ))}
+                                     <Link href="/tour" className="block px-6 py-3 text-[11px] text-[#F4C430] hover:bg-[#F4C430]/10 transition-colors uppercase tracking-widest font-bold border-t border-white/10">
+                                         View All Tours
+                                     </Link>
                                 </div>
                             </div>
                         </div>
@@ -314,11 +317,14 @@ export default function Navbar() {
                             </button>
                             <div className="absolute top-full left-0 w-64 pt-4 dropdown-menu pointer-events-none group-hover:pointer-events-auto">
                                 <div className="bg-[#0F1C2E] border-t-2 border-[#F4C430] shadow-2xl py-2">
-                                    {borders.map((item) => (
-                                        <Link key={item.name} href={item.path} className="block px-6 py-3 text-[11px] text-white hover:bg-[#F4C430]/10 hover:text-[#F4C430] transition-colors uppercase tracking-widest font-bold border-b border-white/5 last:border-0">
-                                            {item.name}
-                                        </Link>
-                                    ))}
+                                     {borders.map((item) => (
+                                         <Link key={item.name} href={item.path} className="block px-6 py-3 text-[11px] text-white hover:bg-[#F4C430]/10 hover:text-[#F4C430] transition-colors uppercase tracking-widest font-bold border-b border-white/5 last:border-0">
+                                             {item.name}
+                                         </Link>
+                                     ))}
+                                     <Link href="/border" className="block px-6 py-3 text-[11px] text-[#F4C430] hover:bg-[#F4C430]/10 transition-colors uppercase tracking-widest font-bold border-t border-white/10">
+                                         View All Borders
+                                     </Link>
                                 </div>
                             </div>
                         </div>

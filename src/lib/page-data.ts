@@ -107,7 +107,7 @@ export const cities: CityData[] = [
     {
         slug: "rome",
         name: "Rome",
-        hero_image: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&q=80&w=1996",
+        hero_image: "https://images.unsplash.com/photo-1529260830199-42c24126f198?auto=format&fit=crop&q=80&w=2070",
         description: "Explore Rome in comfort with our professional drivers. From city landmarks like the Colosseum to hidden gems, travel at your own pace.",
         popular_tours: ["Rome Night Tour", "Vatican City Tour", "Tivoli Gardens"]
     },
@@ -121,7 +121,7 @@ export const cities: CityData[] = [
     {
         slug: "florence",
         name: "Florence",
-        hero_image: "/images/florence.jfif",
+        hero_image: "https://images.unsplash.com/photo-1543429776-2782fc8e1acd?auto=format&fit=crop&q=80&w=2070",
         description: "The cradle of the Renaissance. Travel between museums and piazzas in total elegance.",
         popular_tours: ["Uffizi Gallery Tour", "Wine Tasting in Chianti", "Pisa Half-Day Trip"]
     },
@@ -149,14 +149,14 @@ export const cities: CityData[] = [
     {
         slug: "bari",
         name: "Bari",
-        hero_image: "https://images.unsplash.com/photo-1512411012351-4091a13e2f75?auto=format&fit=crop&q=80&w=2070",
+        hero_image: "https://images.unsplash.com/photo-1543831828-93664d6db875?auto=format&fit=crop&q=80&w=2070",
         description: "Explore the pearl of the Adriatic with our professional chauffeurs.",
         popular_tours: ["Polignano a Mare Tour", "Alberobello Day Trip", "Bari Vecchia Walking Tour"]
     },
     {
         slug: "palermo",
         name: "Palermo",
-        hero_image: "https://images.unsplash.com/photo-1541190356041-356e87a2fb0e?auto=format&fit=crop&q=80&w=2070",
+        hero_image: "https://images.unsplash.com/photo-1584065243328-97e0c451528f?auto=format&fit=crop&q=80&w=2070",
         description: "Experience the crossroads of Mediterranean history in the comfort of a luxury SUV.",
         popular_tours: ["Mondello Beach Visit", "Palatine Chapel Tour", "Sicilian Street Food"]
     }
@@ -197,7 +197,7 @@ export const tours: TourData[] = [
         slug: "vatican",
         name: "Vatican Tour",
         city: "Rome",
-        hero_image: "https://images.unsplash.com/photo-1531572753322-ad063cecc140?auto=format&fit=crop&q=80&w=2070",
+        hero_image: "https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&q=80&w=2070",
         highlights: ["Vatican Museums", "St. Peters Basilica", "Sistine Chapel", "Skip-the-line tips"],
         description: "See the artistic wonders of the Vatican with a comfortable private transfer."
     },

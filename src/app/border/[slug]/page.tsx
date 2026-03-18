@@ -124,7 +124,7 @@ const borderTransfers: BorderTransfer[] = [
     {
         slug: "italy-to-slovenia",
         to: "Slovenia",
-        hero_image: "https://images.unsplash.com/photo-1555990538-c4b9a7e4d97d?auto=format&fit=crop&q=80&w=2070",
+        hero_image: "https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&q=80&w=2070",
         intro: "Travel easily between Italy and Slovenia with our professional private transfer service. We provide comfortable vehicles and experienced drivers for cross-border journeys.",
         popular_routes: [
             { from: "Venice", to: "Ljubljana", time: "2h 30min", distance: "~250 km" },
