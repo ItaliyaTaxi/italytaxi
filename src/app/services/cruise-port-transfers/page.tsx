@@ -32,7 +32,7 @@ export default function CruisePortTransfersPage() {
                 titleTop="Private Cruise Port"
                 titleBottom="Transfers in Italy"
                 description="Hassle-free transportation from the pier to your hotel or airport. Experience the most reliable port transfers in Italy."
-                backgroundImage="https://images.unsplash.com/photo-1548543604-a87c9909afce?q=80&w=2070&auto=format&fit=crop"
+                backgroundImage="/images/cruise-port-transfer.webp"
                 buttonText="Book Port Transfer"
             />
 

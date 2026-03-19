@@ -119,7 +119,7 @@ export default function Navbar() {
                     <div className="w-full relative flex justify-center items-center mb-6">
                         <Link href="/" className="transition-transform duration-300 hover:scale-105 block animate-slide-left [animation-delay:0.2s]">
                             <Image
-                                src="/images/logo.png"
+                                src="/images/logo.webp"
                                 alt="ItaliaRide"
                                 width={180}
                                 height={60}
@@ -361,7 +361,7 @@ export default function Navbar() {
                 <div className="absolute inset-0 bg-[#0F1C2E]/95 backdrop-blur-lg">
                     <div className="flex flex-col h-full p-8">
                         <div className="flex justify-between items-center mb-8">
-                            <Image src="/images/logo.png" alt="ItaliaRide" width={140} height={40} className="h-10 w-auto" />
+                            <Image src="/images/logo.webp" alt="ItaliaRide" width={140} height={40} className="h-10 w-auto" />
                             <div className="flex items-center gap-3">
                                 {/* Language Toggle in Mobile Drawer */}
                                 <div className="flex items-center bg-white/10 rounded-full p-0.5 border border-white/20">
