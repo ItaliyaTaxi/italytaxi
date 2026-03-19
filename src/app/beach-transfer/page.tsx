@@ -27,7 +27,7 @@ export default function BeachTransfersPage() {
                 titleTop="Explore the Beauty of"
                 titleBottom="Italian Beach Transfers"
                 description="Experience Italy's most pristine beaches in absolute comfort with our professional private drivers. From major resorts to hidden coves."
-                backgroundImage="https://media.licdn.com/dms/image/v2/D4D12AQHlO-CIDaoLpw/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1675860130639?e=2147483647&v=beta&t=1e16vgb5s7K6-hSi25JIlcZjYo67-0ru3HJ5FxuPVc8"
+                backgroundImage="/images/beach-transfer.webp"
             />
 
             <div className="container mx-auto py-24 px-6">
