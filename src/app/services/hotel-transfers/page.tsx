@@ -25,6 +25,25 @@ export default function HotelTransfersPage() {
     "Direct hotel-to-hub routes"
   ];
 
+  const hotelFaqs = [
+    {
+      q: "Will the driver meet me at the hotel lobby?",
+      a: "Yes, for hotel pickups, our drivers will meet you at the reception or concierge desk in the main lobby."
+    },
+    {
+      q: "Do you provide transfers to Airbnbs and private villas?",
+      a: "Absolutely! We specialize in door-to-door service to any address, including private apartments, Airbnb rentals, and luxury villas across Italy."
+    },
+    {
+      q: "Can you help with heavy luggage?",
+      a: "Our drivers are happy to assist with your luggage from the hotel lobby to the vehicle and vice versa."
+    },
+    {
+      q: "Do you provide child seats for hotel transfers?",
+      a: "Yes, we can provide child seats or boosters upon request at the time of booking to ensure a safe journey for your family."
+    }
+  ];
+
   return (
     <main className="min-h-screen">
       <Navbar />
@@ -50,7 +69,11 @@ export default function HotelTransfersPage() {
 
       <HowItWorks />
 
-      <FAQSection />
+      <FAQSection 
+        faqs={hotelFaqs}
+        title="Hotel Transfer FAQs"
+        badge="Service Specifics"
+      />
 
       <CTA />
 

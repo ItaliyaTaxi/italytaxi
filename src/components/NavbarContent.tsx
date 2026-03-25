@@ -433,10 +433,10 @@ export default function Navbar() {
                             </div>
 
                             <Link href="/blog" onClick={() => setIsMobileMenuOpen(false)} className="text-white text-lg font-bold uppercase tracking-widest border-t border-white/10 pt-4">{t.nav.blog}</Link>
-                            <Link href="/about-us/" onClick={() => setIsMobileMenuOpen(false)} className="text-white text-lg font-bold uppercase tracking-widest border-t border-white/10 pt-4">{t.nav.about}</Link>
-                            <Link href="/drivers/" onClick={() => setIsMobileMenuOpen(false)} className="text-white text-lg font-bold uppercase tracking-widest border-t border-white/10 pt-4">Our Drivers</Link>
-                            <Link href="/contact/" onClick={() => setIsMobileMenuOpen(false)} className="text-white text-lg font-bold uppercase tracking-widest border-t border-white/10 pt-4">{t.nav.contact}</Link>
-                            <TaxiButton href="/book-now/" className="w-full mt-4" onClick={() => setIsMobileMenuOpen(false)}>
+                            <Link href="/about-us" onClick={() => setIsMobileMenuOpen(false)} className="text-white text-lg font-bold uppercase tracking-widest border-t border-white/10 pt-4">{t.nav.about}</Link>
+                            <Link href="/drivers" onClick={() => setIsMobileMenuOpen(false)} className="text-white text-lg font-bold uppercase tracking-widest border-t border-white/10 pt-4">Our Drivers</Link>
+                            <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="text-white text-lg font-bold uppercase tracking-widest border-t border-white/10 pt-4">{t.nav.contact}</Link>
+                            <TaxiButton href="/book-now" className="w-full mt-4" onClick={() => setIsMobileMenuOpen(false)}>
                                 {t.nav.getQuote}
                             </TaxiButton>
                         </div>

@@ -1,6 +1,20 @@
-export default function FAQSection() {
-    const faqs = [
+interface FAQ {
+    q: string;
+    a: string;
+}
 
+interface FAQSectionProps {
+    faqs?: FAQ[];
+    title?: string;
+    badge?: string;
+}
+
+export default function FAQSection({
+    faqs: customFaqs,
+    title = "Travel Frequently Asked Questions",
+    badge = "Common Questions"
+}: FAQSectionProps) {
+    const defaultFaqs = [
         {
             q: "Do you track flight delays?",
             a: "Yes, we monitor all flights in real-time. If your flight is delayed or arrives early, your driver will adjust the pickup time accordingly at no extra cost."
@@ -19,6 +33,8 @@ export default function FAQSection() {
         }
     ];
 
+    const faqs = customFaqs || defaultFaqs;
+
     return (
         <section className="py-24 bg-navy relative overflow-hidden font-inter">
             {/* Pattern Overlay */}
@@ -26,8 +42,8 @@ export default function FAQSection() {
 
             <div className="container mx-auto px-6 relative z-10">
                 <div className="text-center mb-16">
-                    <p className="text-gold text-sm font-bold uppercase tracking-[0.4em] mb-4">Common Questions</p>
-                    <h2 className="text-4xl md:text-5xl font-bold text-white">Travel Frequently Asked Questions</h2>
+                    <p className="text-gold text-sm font-bold uppercase tracking-[0.4em] mb-4">{badge}</p>
+                    <h2 className="text-4xl md:text-5xl font-bold text-white">{title}</h2>
                     <div className="w-20 h-1 bg-gold mx-auto mt-6" />
                 </div>
 

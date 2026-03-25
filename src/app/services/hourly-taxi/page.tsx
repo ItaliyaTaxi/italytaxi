@@ -25,6 +25,25 @@ export default function HourlytaxiPage() {
     "Fixed hourly rates"
   ];
 
+  const hourlyFaqs = [
+    {
+      q: "Is there a minimum number of hours for booking?",
+      a: "Yes, our hourly service usually starts at a minimum of 3 or 4 hours, depending on the destination and vehicle type."
+    },
+    {
+      q: "Can I change my destination during the service?",
+      a: "Absolutely! The beauty of hourly service is total flexibility. You can direct your driver to any location within the booked time frame."
+    },
+    {
+      q: "Are the hours consecutive?",
+      a: "Yes, once the service starts, the hours are counted consecutively until the end of the booking duration."
+    },
+    {
+      q: "What happens if I go over the booked time?",
+      a: "If you need more time, you can usually extend by paying the additional hourly rate, subject to the driver's availability."
+    }
+  ];
+
   return (
     <main className="min-h-screen">
       <Navbar />
@@ -50,7 +69,11 @@ export default function HourlytaxiPage() {
 
       <HowItWorks />
 
-      <FAQSection />
+      <FAQSection 
+        faqs={hourlyFaqs}
+        title="Hourly Service FAQs"
+        badge="Booking Flexibility"
+      />
 
       <CTA />
 

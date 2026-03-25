@@ -5,13 +5,13 @@ import TaxiButton from './TaxiButton';
 import { useLanguage } from '@/context/LanguageContext';
 
 const serviceLinks = [
-    "/services/airport-transfers/",
-    "/services/city-to-city/",
-    "/services/hotel-transfers/",
-    "/services/business-taxi/",
-    "/services/hourly-taxi/",
-    "/services/wedding-transfers/",
-    "/services/cruise-port-transfers/",
+    "/services/airport-transfers",
+    "/services/city-to-city",
+    "/services/hotel-transfers",
+    "/services/business-taxi",
+    "/services/hourly-taxi",
+    "/services/wedding-transfers",
+    "/services/cruise-port-transfers",
 ];
 
 const serviceIcons = [
