@@ -18,87 +18,17 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
-  const localBusinessSchema = {
+  const contactSchema = {
     "@context": "https://schema.org",
-    "@type": "TaxiService",
+    "@type": "Organization",
     "@id": "https://www.italytaxiservice.com/#organization",
-    "name": "Italy Taxi Service",
-    "image": "https://www.italytaxiservice.com/images/hero.png",
-    "url": "https://www.italytaxiservice.com",
-    "telephone": "+923148932631",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Via del Corso",
-      "addressLocality": "Rome",
-      "addressRegion": "RM",
-      "postalCode": "00186",
-      "addressCountry": "IT"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 41.8902,
-      "longitude": 12.4922
-    },
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-        "Sunday"
-      ],
-      "opens": "00:00",
-      "closes": "23:59"
-    },
     "contactPoint": {
       "@type": "ContactPoint",
       "telephone": "+923148932631",
       "contactType": "customer service",
       "areaServed": "IT",
       "availableLanguage": ["English", "Italian"]
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "reviewCount": "128",
-      "bestRating": "5",
-      "worstRating": "1"
-    },
-    "review": [
-      {
-        "@type": "Review",
-        "author": {
-          "@type": "Person",
-          "name": "James Wilson"
-        },
-        "datePublished": "2024-01-01",
-        "reviewBody": "Exceptional service from Fiumicino to our hotel. The driver was waiting for us with a clear sign, the Mercedes S-Class was spotless, and the ride was perfectly smooth. Highly recommended!",
-        "reviewRating": {
-          "@type": "Rating",
-          "ratingValue": "5",
-          "bestRating": "5",
-          "worstRating": "1"
-        }
-      },
-      {
-        "@type": "Review",
-        "author": {
-          "@type": "Person",
-          "name": "Sarah Jenkins"
-        },
-        "datePublished": "2024-02-15",
-        "reviewBody": "Professional and punctual. We used ItaliaRide for our wedding group transport and they were flawless. The minivans were very comfortable.",
-        "reviewRating": {
-          "@type": "Rating",
-          "ratingValue": "5",
-          "bestRating": "5",
-          "worstRating": "1"
-        }
-      }
-    ]
+    }
   };
 
   const contactFaqs = [
@@ -128,7 +58,7 @@ export default function ContactPage() {
     <main className="min-h-screen">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactSchema) }}
       />
       <Navbar />
 
