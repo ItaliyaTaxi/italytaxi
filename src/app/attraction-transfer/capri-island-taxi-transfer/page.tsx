@@ -1,56 +1,94 @@
-import Link from 'next/link';
 import Navbar from '@/components/Navbar';
+import PageHero from '@/components/PageHero';
+import ServiceIntro, { ServiceFeatures } from '@/components/ServiceDetails';
+import HowItWorks from '@/components/HowItWorks';
+import FAQSection from '@/components/FAQSection';
+import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Capri Island | Private Taxi Transfer",
-  description: "Book a professional private transfer to Capri Island. Avoid the crowds of public transport and enjoy a comfortable ride directly to one of Italy's most iconic locations.",
+  title: "Capri Island Private Taxi | Port & Island Transfers",
+  description: "Luxury private transfers to and around Capri Island. Skip the long lines for the funicular and arrive at your hotel in one of Capri's iconic open-top taxis or premium vans.",
   alternates: {
     canonical: "/attraction-transfer/capri-island-taxi-transfer",
   }
 };
 
-export default function Page() {
+export default function CapriIslandPage() {
+  const features = [
+    "Seamless port-to-hotel transfers",
+    "Iconic open-top Capri taxis available",
+    "Professional English-speaking drivers",
+    "Luggage handling from the ferry terminal",
+    "Fixed transparent island rates",
+    "Tour options around the island"
+  ];
+
+  const capriFaqs = [
+    {
+      q: "How do I find my taxi at Capri Port (Marina Grande)?",
+      a: "Your driver will meet you directly at the ferry or hydrofoil arrival pier, holding a sign with your name. We monitor ferry arrival times to ensure no delays."
+    },
+    {
+      q: "Can you provide transfers from Naples to Capri?",
+      a: "Yes! We offer a full 'door-to-door' service where a taxi picks you up in Naples, drives you to the port, assists with ferry boarding, and another taxi meets you on the island."
+    },
+    {
+      q: "Is it better to take the funicular or a taxi in Capri?",
+      a: "The funicular is cheaper but often has very long lines and no space for luggage. A private taxi is much faster and brings you directly to your hotel entrance."
+    },
+    {
+      q: "Can we book a taxi for a round-island tour?",
+      a: "Absolutely. We offer customized island tours (2, 3, or 4 hours) covering Capri town, Anacapri, and the Faro lighthouse."
+    }
+  ];
+
   return (
     <main className="min-h-screen">
       <Navbar />
-      <div className="container mx-auto py-24 px-6 md:px-32">
-        <h1 className="text-4xl md:text-6xl font-bold text-navy mb-12">Private Transfer to Capri Island</h1>
-        
-        <section className="mb-12">
-          <h2 className="text-2xl font-semibold text-navy mb-6">Visit Capri Island with Ease</h2>
-          <p className="text-gray-600 text-lg leading-relaxed">Book a professional private transfer to Capri Island. Avoid the crowds of public transport and enjoy a comfortable ride directly to one of Italy's most iconic locations.</p>
-        </section>
+      <PageHero
+        titleTop="Private Taxi Transfers on the"
+        titleBottom="Glamorous Capri Island"
+        description="Arrive in style on Italy's most famous island. Professional door-to-door service from Marina Grande to Capri and Anacapri."
+        backgroundImage="https://images.unsplash.com/photo-1548545814-15967f620f4c?q=80&w=2070&auto=format&fit=crop"
+        buttonText="Book Capri Transfer"
+      />
 
-        <section className="mb-12 p-8 bg-gray-50 border border-gold/10 rounded-[2.5rem] shadow-sm">
-          <h2 className="text-2xl font-semibold text-navy mb-6">Transfer Services to Capri Island</h2>
-          <ul className="grid md:grid-cols-2 gap-4 list-none">
-            <li className="flex items-center gap-3 font-medium text-navy">
-               <span className="text-gold">✅</span> Door-to-door service
-            </li>
-            <li className="flex items-center gap-3 font-medium text-navy">
-               <span className="text-gold">✅</span> Professional English-speaking drivers
-            </li>
-            <li className="flex items-center gap-3 font-medium text-navy">
-               <span className="text-gold">✅</span> Fixed rates, no hidden fees
-            </li>
-            <li className="flex items-center gap-3 font-medium text-navy">
-               <span className="text-gold">✅</span> Comfortable, air-conditioned vehicles
-            </li>
-          </ul>
-        </section>
+      <ServiceIntro
+        title="Luxury Mobility on the Isle of Dreams"
+        content="Capri is synonymous with elegance, and your arrival should be no different. Whether you are landing at Marina Grande with heavy luggage or heading to a sunset dinner in Anacapri, our private taxi service provides the most comfortable and efficient way to navigate the island's narrow, winding roads. Experience the true 'Dolce Vita' with our fleet of premium vehicles and professional local drivers."
+      />
 
-        <section className="mb-12">
-          <h2 className="text-2xl font-semibold text-navy mb-6">Plan Your Trip</h2>
-          <p className="text-gray-600 text-lg leading-relaxed">Our drivers are locals who know the best routes and can provide tips for your visit to Capri Island. Whether you're traveling solo or in a group, we have the right vehicle for your needs.</p>
-        </section>
+      <ServiceFeatures
+        title="Capri Transfer Excellence"
+        features={features}
+        bg="bg-[#F8F9FA]"
+      />
 
-        <section className="mt-16 pt-16 border-t border-gray-100">
-          <h2 className="text-2xl font-semibold text-navy mb-6">Nearby City Services</h2>
-          <p className="text-gray-600">Explore more in the area: <Link href="/city/" className="text-gold font-bold hover:underline">Taxi Services in Italy</Link>.</p>
-        </section>
+      <div className="py-20 bg-white">
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold text-navy mb-8 text-center">Stress-Free Island Arrival</h2>
+            <p className="text-gray-600 text-lg leading-relaxed mb-6">
+              The transition from the ferry to the island can be chaotic, especially during the height of summer. Our 'Meet & Greet' service at the port ensures you skip the long taxi queues and the crowded funicular. We handle your bags from the pier to the vehicle, so you can enjoy the view immediately.
+            </p>
+            <p className="text-gray-600 text-lg leading-relaxed">
+              For those staying in Anacapri or high-altitude villas, our drivers are experts in the island's unique geography, ensuring a smooth and safe ride to even the most secluded locations.
+            </p>
+          </div>
+        </div>
       </div>
+
+      <HowItWorks />
+
+      <FAQSection 
+        faqs={capriFaqs}
+        title="Capri Island Service FAQs"
+        badge="Island Mobility"
+      />
+
+      <CTA />
       <Footer />
     </main>
   );

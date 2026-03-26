@@ -1,56 +1,94 @@
-import Link from 'next/link';
 import Navbar from '@/components/Navbar';
+import PageHero from '@/components/PageHero';
+import ServiceIntro, { ServiceFeatures } from '@/components/ServiceDetails';
+import HowItWorks from '@/components/HowItWorks';
+import FAQSection from '@/components/FAQSection';
+import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "San Gimignano | Private Taxi Transfer",
-  description: "Book a professional private transfer to San Gimignano Towers. Avoid the crowds of public transport and enjoy a comfortable ride directly to one of Italy's most iconic locations.",
+  title: "San Gimignano Private Taxi | Tuscany Hilltop Transfers",
+  description: "Arrive at the medieval Manhattan of Tuscany in style. Private taxi transfers to San Gimignano from Florence, Siena, or Pisa. Expert local drivers.",
   alternates: {
     canonical: "/attraction-transfer/san-gimignano-taxi-transfer",
   }
 };
 
-export default function Page() {
+export default function SanGimignanoPage() {
+  const features = [
+    "Door-to-door service to the historic center",
+    "Expert drivers for winding Tuscan roads",
+    "Fixed transparent pricing for all routes",
+    "Luxury sedans and spacious minivans",
+    "Assistance with luggage and local tips",
+    "Flexible stops for vineyard photos"
+  ];
+
+  const gimignanoFaqs = [
+    {
+      q: "Can the taxi drive inside the walls of San Gimignano?",
+      a: "Yes, our licensed taxis have special permits to enter the ZTL (Restricted Traffic Zone) and drop you off directly at your hotel or the main plazas."
+    },
+    {
+      q: "What is the best airport for San Gimignano?",
+      a: "Florence (FLR) and Pisa (PSA) are the closest, both approximately 1 hour and 15 minutes away by private taxi."
+    },
+    {
+      q: "Do you offer wine tours from San Gimignano?",
+      a: "Yes, we can arrange private drivers for half-day or full-day tours of the nearby Vernaccia vineyards and Chianti wineries."
+    },
+    {
+      q: "Can we visit San Gimignano on a day trip from Florence?",
+      a: "Absolutely. This is one of our most popular services. We take you there, wait while you explore, and bring you back in the evening."
+    }
+  ];
+
   return (
     <main className="min-h-screen">
       <Navbar />
-      <div className="container mx-auto py-24 px-6 md:px-32">
-        <h1 className="text-4xl md:text-6xl font-bold text-navy mb-12">Private Transfer to San Gimignano Towers</h1>
-        
-        <section className="mb-12">
-          <h2 className="text-2xl font-semibold text-navy mb-6">Visit San Gimignano Towers with Ease</h2>
-          <p className="text-gray-600 text-lg leading-relaxed">Book a professional private transfer to San Gimignano Towers. Avoid the crowds of public transport and enjoy a comfortable ride directly to one of Italy's most iconic locations.</p>
-        </section>
+      <PageHero
+        titleTop="Private Taxi Transfers to the"
+        titleBottom="Medieval San Gimignano"
+        description="Experience the towers of Tuscany's most beautiful hilltop town. Professional door-to-door service for a seamless journey."
+        backgroundImage="https://images.unsplash.com/photo-1599818451336-6e7ec500742d?q=80&w=2070&auto=format&fit=crop"
+        buttonText="Book San Gimignano Taxi"
+      />
 
-        <section className="mb-12 p-8 bg-gray-50 border border-gold/10 rounded-[2.5rem] shadow-sm">
-          <h2 className="text-2xl font-semibold text-navy mb-6">Transfer Services to San Gimignano Towers</h2>
-          <ul className="grid md:grid-cols-2 gap-4 list-none">
-            <li className="flex items-center gap-3 font-medium text-navy">
-               <span className="text-gold">✅</span> Door-to-door service
-            </li>
-            <li className="flex items-center gap-3 font-medium text-navy">
-               <span className="text-gold">✅</span> Professional English-speaking drivers
-            </li>
-            <li className="flex items-center gap-3 font-medium text-navy">
-               <span className="text-gold">✅</span> Fixed rates, no hidden fees
-            </li>
-            <li className="flex items-center gap-3 font-medium text-navy">
-               <span className="text-gold">✅</span> Comfortable, air-conditioned vehicles
-            </li>
-          </ul>
-        </section>
+      <ServiceIntro
+        title="Your Comfortable Journey to the Town of Fine Towers"
+        content="San Gimignano is a medieval jewel, famous for its skyline of ancient towers and its world-class white wine, Vernaccia. Perched on a hill in the heart of the Tuscan countryside, reaching it by public transport can involve multiple changes and long waits. Our private taxi service offers a premium alternative, providing a scenic and comfortable ride directly to the town's historic gates or your villa's doorstep."
+      />
 
-        <section className="mb-12">
-          <h2 className="text-2xl font-semibold text-navy mb-6">Plan Your Trip</h2>
-          <p className="text-gray-600 text-lg leading-relaxed">Our drivers are locals who know the best routes and can provide tips for your visit to San Gimignano Towers. Whether you're traveling solo or in a group, we have the right vehicle for your needs.</p>
-        </section>
+      <ServiceFeatures
+        title="San Gimignano Transfer Excellence"
+        features={features}
+        bg="bg-[#F8F9FA]"
+      />
 
-        <section className="mt-16 pt-16 border-t border-gray-100">
-          <h2 className="text-2xl font-semibold text-navy mb-6">Nearby City Services</h2>
-          <p className="text-gray-600">Explore more in the area: <Link href="/city/" className="text-gold font-bold hover:underline">Taxi Services in Italy</Link>.</p>
-        </section>
+      <div className="py-20 bg-white">
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold text-navy mb-8 text-center">The Beauty of the Tuscan Landscape</h2>
+            <p className="text-gray-600 text-lg leading-relaxed mb-6">
+              The drive to San Gimignano is just as beautiful as the destination itself. Our professional drivers take the most scenic routes through cypress-lined roads and rolling vineyards, allowing you to experience the true essence of Tuscany before you even arrive.
+            </p>
+            <p className="text-gray-600 text-lg leading-relaxed">
+              If you are traveling with a group or have significant luggage, our fleet of Mercedes-Benz minivans provides the perfect combination of space and luxury. We ensure your journey is smooth, safe, and tailored to your schedule.
+            </p>
+          </div>
+        </div>
       </div>
+
+      <HowItWorks />
+
+      <FAQSection 
+        faqs={gimignanoFaqs}
+        title="San Gimignano Service FAQs"
+        badge="Hilltop Transfer"
+      />
+
+      <CTA />
       <Footer />
     </main>
   );
