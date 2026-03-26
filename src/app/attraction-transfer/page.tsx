@@ -1,7 +1,6 @@
 import Navbar from '@/components/Navbar';
 import PageHero from '@/components/PageHero';
 import FAQSection from '@/components/FAQSection';
-import Breadcrumb from '@/components/Breadcrumb';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
 import { ChevronRight, Landmark } from 'lucide-react';
@@ -48,19 +47,12 @@ export default function AttractionTransfersPage() {
         <main className="min-h-screen bg-gray-50 font-inter text-navy-rich">
             <Navbar />
 
-            <div className="container mx-auto px-6 pt-10">
-                <Breadcrumb 
-                    items={[
-                        { name: "Attraction Transfers", item: "/attraction-transfer" }
-                    ]} 
-                />
-            </div>
-
             <PageHero
                 titleTop="Explore the Beauty of"
                 titleBottom="Italian Iconic Attractions"
                 description="Experience Italy's most famous landmarks and museums in absolute comfort with our professional private drivers."
                 backgroundImage="https://images.unsplash.com/photo-1529260830199-42c24126f198?auto=format&fit=crop&q=80&w=2070"
+                breadcrumbs={[{ name: "Attraction Transfers", item: "/attraction-transfer" }]}
             />
 
             <div className="container mx-auto py-24 px-6">

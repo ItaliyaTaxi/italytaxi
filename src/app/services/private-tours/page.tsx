@@ -6,7 +6,6 @@ import HowItWorks from '@/components/HowItWorks';
 import FAQSection from '@/components/FAQSection';
 import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
-import Breadcrumb from '@/components/Breadcrumb';
 import ServiceSchema from '@/components/ServiceSchema';
 import { Metadata } from 'next';
 
@@ -61,21 +60,16 @@ export default function PrivateToursPage() {
             />
             <Navbar />
 
-            <div className="container mx-auto px-6 pt-10">
-                <Breadcrumb 
-                    items={[
-                        { name: "Services", item: "/services" },
-                        { name: "Private Tours", item: "/services/private-tours" }
-                    ]} 
-                />
-            </div>
-
             <PageHero
                 titleTop="Explore Italy with"
                 titleBottom="Private Taxi Tours"
                 description="Experience the beauty of Italy on your terms. Our professional drivers show you the best landmarks and hidden gems."
                 backgroundImage="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?q=80&w=2070&auto=format&fit=crop"
                 buttonText="Plan Your Custom Tour"
+                breadcrumbs={[
+                    { name: "Services", item: "/services" },
+                    { name: "Private Tours", item: "/services/private-tours" }
+                ]}
             />
 
             <ServiceIntro

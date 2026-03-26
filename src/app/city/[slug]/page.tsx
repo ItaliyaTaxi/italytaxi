@@ -2,11 +2,11 @@ import { notFound } from 'next/navigation';
 import { cities } from '@/lib/page-data';
 import BookingForm from '@/components/BookingForm';
 import FAQSection from '@/components/FAQSection';
-import Breadcrumb from '@/components/Breadcrumb';
 import { Plane, Clock, MapPin, Camera, Star, ChevronRight } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import PageHero from '@/components/PageHero';
+import ServiceSchema from '@/components/ServiceSchema';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -65,16 +65,13 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
 
     return (
         <main className="font-inter bg-white text-navy-rich">
+            <ServiceSchema 
+                name={`Private Taxi Service in ${city.name}`} 
+                description={`Premium private taxi transfers, airport rides, and city tours in ${city.name}, Italy.`} 
+                url={`https://www.italytaxiservice.com/city/${slug}`} 
+                image={city.hero_image}
+            />
             <Navbar />
-
-            <div className="container mx-auto px-6 pt-10">
-                <Breadcrumb 
-                    items={[
-                        { name: "Destinations", item: "/services" },
-                        { name: city.name, item: `/city/${slug}` }
-                    ]} 
-                />
-            </div>
 
             <PageHero
                 titleTop={`Luxury Transfer in`}
@@ -82,6 +79,10 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
                 description={`Premium airport transfers, city-to-city rides, and hourly chauffeur service across ${city.name} with local experts.`}
                 backgroundImage={city.hero_image}
                 buttonText={`Book Your ${city.name} Ride Now`}
+                breadcrumbs={[
+                    { name: "Destinations", item: "/services" },
+                    { name: city.name, item: `/city/${slug}` }
+                ]}
             />
 
             {/* City Highlights Section */}

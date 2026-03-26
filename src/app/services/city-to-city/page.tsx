@@ -5,7 +5,6 @@ import HowItWorks from '@/components/HowItWorks';
 import FAQSection from '@/components/FAQSection';
 import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
-import Breadcrumb from '@/components/Breadcrumb';
 import ServiceSchema from '@/components/ServiceSchema';
 import { Metadata } from 'next';
 
@@ -60,21 +59,16 @@ export default function CityToCityPage() {
       />
       <Navbar />
 
-      <div className="container mx-auto px-6 pt-10">
-        <Breadcrumb 
-          items={[
-            { name: "Services", item: "/services" },
-            { name: "City to City", item: "/services/city-to-city" }
-          ]} 
-        />
-      </div>
-
       <PageHero
         titleTop="Comfortable City-to-City"
         titleBottom="Transfers in Italy"
         description="Travel between major cities like Rome, Milan, Florence, and Venice in absolute comfort and luxury style."
         backgroundImage="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=2017&auto=format&fit=crop"
         buttonText="Book Intercity Transfer"
+        breadcrumbs={[
+          { name: "Services", item: "/services" },
+          { name: "City to City", item: "/services/city-to-city" }
+        ]}
       />
 
       <ServiceIntro

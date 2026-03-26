@@ -5,7 +5,6 @@ import HowItWorks from '@/components/HowItWorks';
 import FAQSection from '@/components/FAQSection';
 import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
-import Breadcrumb from '@/components/Breadcrumb';
 import ServiceSchema from '@/components/ServiceSchema';
 import { Metadata } from 'next';
 
@@ -60,21 +59,16 @@ export default function WeddingEventsPage() {
             />
             <Navbar />
 
-            <div className="container mx-auto px-6 pt-10">
-                <Breadcrumb 
-                    items={[
-                        { name: "Services", item: "/services" },
-                        { name: "Wedding & Events", item: "/services/wedding-events" }
-                    ]} 
-                />
-            </div>
-
             <PageHero
                 titleTop="Luxury Event &"
                 titleBottom="Wedding Transportation"
                 description="Make your special day more elegant with premium transportation solutions across Italy."
                 backgroundImage="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=2069&auto=format&fit=crop"
                 buttonText="Plan Your Event Travel"
+                breadcrumbs={[
+                    { name: "Services", item: "/services" },
+                    { name: "Wedding & Events", item: "/services/wedding-events" }
+                ]}
             />
 
             <ServiceIntro

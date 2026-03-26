@@ -2,7 +2,6 @@ import Navbar from '@/components/Navbar';
 import PageHero from '@/components/PageHero';
 import Footer from '@/components/Footer';
 import FAQSection from '@/components/FAQSection';
-import Breadcrumb from '@/components/Breadcrumb';
 import { Metadata } from 'next';
 import { supabase } from '@/lib/supabase/client';
 import Link from 'next/link';
@@ -52,19 +51,12 @@ export default async function BlogPage() {
     <main className="min-h-screen bg-slate-50 font-inter text-navy-rich">
       <Navbar />
 
-      <div className="container mx-auto px-6 pt-10">
-        <Breadcrumb 
-          items={[
-            { name: "Blog", item: "/blog" }
-          ]} 
-        />
-      </div>
-
       <PageHero
         titleTop="Italian Travel"
         titleBottom="Insights & Knowledge"
         description="Expert tips, local guides, and transportation stories to help you navigate Italy in comfort and style."
         backgroundImage="/images/hero.png"
+        breadcrumbs={[{ name: "Blog", item: "/blog" }]}
       />
       
       <div className="container mx-auto py-24 px-6">

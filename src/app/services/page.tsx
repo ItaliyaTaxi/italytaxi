@@ -2,7 +2,6 @@ import Navbar from '@/components/Navbar';
 import PageHero from '@/components/PageHero';
 import Services from '@/components/Services';
 import FAQSection from '@/components/FAQSection';
-import Breadcrumb from '@/components/Breadcrumb';
 import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
@@ -42,19 +41,12 @@ export default function ServicesPage() {
     <main className="min-h-screen">
       <Navbar />
 
-      <div className="container mx-auto px-6 pt-10">
-        <Breadcrumb 
-          items={[
-            { name: "Services", item: "/services" }
-          ]} 
-        />
-      </div>
-
       <PageHero
         titleTop="Private & Reliable"
         titleBottom="Professional Services"
         description="From airport pickups to luxury city tours, we provide the highest standard of taxi services across Italy."
         backgroundImage="/images/hero.png"
+        breadcrumbs={[{ name: "Services", item: "/services" }]}
       />
       
       <div className="py-20">

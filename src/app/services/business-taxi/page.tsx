@@ -5,7 +5,6 @@ import HowItWorks from '@/components/HowItWorks';
 import FAQSection from '@/components/FAQSection';
 import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
-import Breadcrumb from '@/components/Breadcrumb';
 import ServiceSchema from '@/components/ServiceSchema';
 import { Metadata } from 'next';
 
@@ -37,21 +36,16 @@ export default function BusinessCorporatePage() {
       />
       <Navbar />
 
-      <div className="container mx-auto px-6 pt-10">
-        <Breadcrumb 
-          items={[
-            { name: "Services", item: "/services" },
-            { name: "Business Taxi", item: "/services/business-taxi" }
-          ]} 
-        />
-      </div>
-
       <PageHero
         titleTop="Executive Corporate"
         titleBottom="Taxi Services in Italy"
         description="Professional transport solutions for business meetings, conferences, and VIP guests. Arrive with prestige."
         backgroundImage="/images/taxis-1.jpg"
         buttonText="Register Corporate Account"
+        breadcrumbs={[
+          { name: "Services", item: "/services" },
+          { name: "Business Taxi", item: "/services/business-taxi" }
+        ]}
       />
 
       <ServiceIntro

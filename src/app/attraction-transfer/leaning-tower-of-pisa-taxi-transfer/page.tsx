@@ -53,6 +53,10 @@ export default function LeaningTowerPisaPage() {
         description="Visit Italy's most famous architectural wonder without the stress. Comfortable, reliable, and professional door-to-door service."
         backgroundImage="https://images.unsplash.com/photo-1543429776-2782fc8e1acd?q=80&w=2070&auto=format&fit=crop"
         buttonText="Book Pisa Transfer"
+        breadcrumbs={[
+          { name: "Attraction Transfers", item: "/attraction-transfer" },
+            { name: "Leaning Tower", item: "/attraction-transfer/leaning-tower-of-pisa-taxi-transfer" }
+        ]}
       />
 
       <ServiceIntro

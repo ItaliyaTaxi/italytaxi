@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import TaxiButton from './TaxiButton';
+import Breadcrumb from './Breadcrumb';
 
 interface PageHeroProps {
     titleTop: string;
@@ -9,6 +10,7 @@ interface PageHeroProps {
     backgroundImage: string;
     buttonText?: string;
     buttonLink?: string;
+    breadcrumbs?: { name: string; item: string }[];
 }
 
 export default function PageHero({
@@ -17,8 +19,10 @@ export default function PageHero({
     description,
     backgroundImage,
     buttonText = "RESERVE YOUR RIDE",
-    buttonLink = "/book-now/"
+    buttonLink = "/book-now/",
+    breadcrumbs
 }: PageHeroProps) {
+
     return (
         <section className="relative h-screen w-full flex items-center overflow-hidden font-inter">
             {/* Background with darker gradient overlay */}
@@ -36,7 +40,8 @@ export default function PageHero({
 
             {/* Content Area */}
             <div className="relative z-10 container mx-auto px-6">
-                <div className="max-w-4xl pt-20">
+                <div className="max-w-4xl pt-24">
+                    {breadcrumbs && <Breadcrumb items={breadcrumbs} variant="light" />}
                     <h1 className="text-white font-montserrat font-semibold leading-[1.1] mb-6">
                         <span className="text-5xl md:text-6xl block mb-2 animate-slide-left [animation-delay:0.2s]">
                             {titleTop}

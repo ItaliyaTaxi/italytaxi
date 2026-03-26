@@ -5,7 +5,6 @@ import HowItWorks from '@/components/HowItWorks';
 import FAQSection from '@/components/FAQSection';
 import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
-import Breadcrumb from '@/components/Breadcrumb';
 import ServiceSchema from '@/components/ServiceSchema';
 import { Metadata } from 'next';
 
@@ -60,21 +59,16 @@ export default function AirportTransfersPage() {
       />
       <Navbar />
       
-      <div className="container mx-auto px-6 pt-10">
-        <Breadcrumb 
-          items={[
-            { name: "Services", item: "/services" },
-            { name: "Airport Transfers", item: "/services/airport-transfers" }
-          ]} 
-        />
-      </div>
-
       <PageHero
         titleTop="Reliable Airport"
         titleBottom="Transfers Across Italy"
         description="Private, comfortable, and on-time airport transfer service from all major airports including Rome, Milan, Venice, and more."
         backgroundImage="https://images.unsplash.com/photo-1542296332-2e4473faf563?q=80&w=2070&auto=format&fit=crop"
         buttonText="Book Airport Transfer Now"
+        breadcrumbs={[
+          { name: "Services", item: "/services" },
+          { name: "Airport Transfers", item: "/services/airport-transfers" }
+        ]}
       />
 
       <ServiceIntro

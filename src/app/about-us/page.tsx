@@ -4,7 +4,6 @@ import StorySection from '@/components/StorySection';
 import MissionValues from '@/components/MissionValues';
 import StatsSection from '@/components/StatsSection';
 import FAQSection from '@/components/FAQSection';
-import Breadcrumb from '@/components/Breadcrumb';
 import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
 import { Metadata } from 'next';
@@ -45,19 +44,12 @@ export default function AboutUsPage() {
     <main className="min-h-screen text-navy-rich font-inter">
       <Navbar />
 
-      <div className="container mx-auto px-6 pt-10">
-        <Breadcrumb 
-          items={[
-            { name: "About Us", item: "/about-us" }
-          ]} 
-        />
-      </div>
-
       <PageHero
         titleTop="About Our Private"
         titleBottom="Transfer Service"
         description="Premium airport and city transfers across Italy with licensed professional drivers. Born from a passion for excellence and local hospitality."
         backgroundImage="/images/hero.png"
+        breadcrumbs={[{ name: "About Us", item: "/about-us" }]}
       />
 
       <StorySection />

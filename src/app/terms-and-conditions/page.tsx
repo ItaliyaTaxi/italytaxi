@@ -20,6 +20,7 @@ export default function TermsAndConditionsPage() {
         titleBottom="Service"
         description="The legal guidelines and conditions for booking and traveling with our premium taxi service fleet."
         backgroundImage="/images/hero.png"
+        breadcrumbs={[{ name: "Terms & Conditions", item: "/terms-and-conditions" }]}
       />
       <div className="container mx-auto py-24 px-6 prose max-w-4xl">
         <h2 className="text-3xl font-bold text-navy mb-6">Service Agreement</h2>

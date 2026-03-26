@@ -53,6 +53,10 @@ export default function AmalfiCoastPage() {
         description="Relax as you navigate the world's most beautiful coastline. Professional, stress-free transport to Positano, Amalfi, and beyond."
         backgroundImage="/images/almafi.webp"
         buttonText="Book Amalfi Transfer"
+        breadcrumbs={[
+          { name: "Attraction Transfers", item: "/attraction-transfer" },
+          { name: "Amalfi Coast", item: "/attraction-transfer/amalfi-coast-taxi-transfer" }
+        ]}
       />
 
       <ServiceIntro

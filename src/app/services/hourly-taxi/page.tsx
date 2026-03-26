@@ -5,7 +5,6 @@ import HowItWorks from '@/components/HowItWorks';
 import FAQSection from '@/components/FAQSection';
 import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
-import Breadcrumb from '@/components/Breadcrumb';
 import ServiceSchema from '@/components/ServiceSchema';
 import { Metadata } from 'next';
 
@@ -60,21 +59,16 @@ export default function HourlytaxiPage() {
       />
       <Navbar />
 
-      <div className="container mx-auto px-6 pt-10">
-        <Breadcrumb 
-          items={[
-            { name: "Services", item: "/services" },
-            { name: "Hourly Taxi", item: "/services/hourly-taxi" }
-          ]} 
-        />
-      </div>
-
       <PageHero
         titleTop="Private & Flexible"
         titleBottom="Service by the Hour"
         description="Luxe, private transport tailored specifically to your schedule and personal requirements."
         backgroundImage="/images/Taxis.webp"
         buttonText="Book Hourly Service"
+        breadcrumbs={[
+          { name: "Services", item: "/services" },
+          { name: "Hourly Taxi", item: "/services/hourly-taxi" }
+        ]}
       />
 
       <ServiceIntro

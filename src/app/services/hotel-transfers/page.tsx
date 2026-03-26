@@ -5,7 +5,6 @@ import HowItWorks from '@/components/HowItWorks';
 import FAQSection from '@/components/FAQSection';
 import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
-import Breadcrumb from '@/components/Breadcrumb';
 import ServiceSchema from '@/components/ServiceSchema';
 import { Metadata } from 'next';
 
@@ -60,21 +59,16 @@ export default function HotelTransfersPage() {
       />
       <Navbar />
 
-      <div className="container mx-auto px-6 pt-10">
-        <Breadcrumb 
-          items={[
-            { name: "Services", item: "/services" },
-            { name: "Hotel Transfers", item: "/services/hotel-transfers" }
-          ]} 
-        />
-      </div>
-
       <PageHero
         titleTop="Private Hotel"
         titleBottom="Transfers Across Italy"
         description="Pickup & drop-off from any hotel, Airbnb, or premium resort. Seamless connections for your vacation."
         backgroundImage="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop"
         buttonText="Book Hotel Transfer"
+        breadcrumbs={[
+          { name: "Services", item: "/services" },
+          { name: "Hotel Transfers", item: "/services/hotel-transfers" }
+        ]}
       />
 
       <ServiceIntro

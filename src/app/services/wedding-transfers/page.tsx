@@ -5,7 +5,6 @@ import HowItWorks from '@/components/HowItWorks';
 import FAQSection from '@/components/FAQSection';
 import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
-import Breadcrumb from '@/components/Breadcrumb';
 import ServiceSchema from '@/components/ServiceSchema';
 import { Metadata } from 'next';
 
@@ -60,21 +59,16 @@ export default function WeddingTransfersPage() {
             />
             <Navbar />
 
-            <div className="container mx-auto px-6 pt-10">
-                <Breadcrumb 
-                    items={[
-                        { name: "Services", item: "/services" },
-                        { name: "Wedding Transfers", item: "/services/wedding-transfers" }
-                    ]} 
-                />
-            </div>
-
             <PageHero
                 titleTop="Elegant Wedding & Guest"
                 titleBottom="Taxi Transfers in Italy"
                 description="Ensuring your guests arrive in style and on time. Professional transportation for the most important day of your life."
                 backgroundImage="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070&auto=format&fit=crop"
                 buttonText="Plan Wedding Transport"
+                breadcrumbs={[
+                    { name: "Services", item: "/services" },
+                    { name: "Wedding Transfers", item: "/services/wedding-transfers" }
+                ]}
             />
 
             <ServiceIntro

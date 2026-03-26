@@ -5,7 +5,6 @@ import HowItWorks from '@/components/HowItWorks';
 import FAQSection from '@/components/FAQSection';
 import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
-import Breadcrumb from '@/components/Breadcrumb';
 import ServiceSchema from '@/components/ServiceSchema';
 import { Metadata } from 'next';
 
@@ -60,21 +59,16 @@ export default function CruisePortTransfersPage() {
             />
             <Navbar />
 
-            <div className="container mx-auto px-6 pt-10">
-                <Breadcrumb 
-                    items={[
-                        { name: "Services", item: "/services" },
-                        { name: "Cruise Port Transfers", item: "/services/cruise-port-transfers" }
-                    ]} 
-                />
-            </div>
-
             <PageHero
                 titleTop="Private Cruise Port"
                 titleBottom="Transfers in Italy"
                 description="Hassle-free transportation from the pier to your hotel or airport. Experience the most reliable port transfers in Italy."
                 backgroundImage="/images/cruise-port-transfer.webp"
                 buttonText="Book Port Transfer"
+                breadcrumbs={[
+                    { name: "Services", item: "/services" },
+                    { name: "Cruise Port Transfers", item: "/services/cruise-port-transfers" }
+                ]}
             />
 
             <ServiceIntro

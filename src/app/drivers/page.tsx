@@ -1,7 +1,6 @@
 import Navbar from '@/components/Navbar';
 import PageHero from '@/components/PageHero';
 import FAQSection from '@/components/FAQSection';
-import Breadcrumb from '@/components/Breadcrumb';
 import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
@@ -41,19 +40,12 @@ export default function DriversPage() {
     <main className="min-h-screen text-navy-rich font-inter">
       <Navbar />
 
-      <div className="container mx-auto px-6 pt-10">
-        <Breadcrumb 
-          items={[
-            { name: "Our Drivers", item: "/drivers" }
-          ]} 
-        />
-      </div>
-
       <PageHero
         titleTop="Our Licensed"
         titleBottom="Professional Drivers"
         description="Every driver in our fleet is fully licensed, background-checked, and committed to your safety, comfort, and local insight across Italy."
         backgroundImage="/images/hero.png"
+        breadcrumbs={[{ name: "Our Drivers", item: "/drivers" }]}
       />
 
       <div className="container mx-auto py-24 px-6 text-center">

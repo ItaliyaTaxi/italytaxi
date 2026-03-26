@@ -1,7 +1,6 @@
 import Navbar from '@/components/Navbar';
 import PageHero from '@/components/PageHero';
 import FAQSection from '@/components/FAQSection';
-import Breadcrumb from '@/components/Breadcrumb';
 import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
@@ -53,19 +52,12 @@ export default function FaqPage() {
     <main className="min-h-screen text-navy-rich font-inter">
       <Navbar />
 
-      <div className="container mx-auto px-6 pt-10">
-        <Breadcrumb 
-          items={[
-            { name: "FAQ", item: "/faq" }
-          ]} 
-        />
-      </div>
-
       <PageHero
         titleTop="Frequently Asked"
         titleBottom="Questions Hub"
         description="Everything you need to know about our premium private transfers, booking process, and airport transportation in Italy."
         backgroundImage="/images/hero.png"
+        breadcrumbs={[{ name: "FAQ", item: "/faq" }]}
       />
       
       <div className="py-20">

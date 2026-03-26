@@ -5,7 +5,6 @@ import ContactFormSection from '@/components/ContactFormSection';
 import FAQSection from '@/components/FAQSection';
 import CTA from '@/components/CTA';
 import MapEmbed from '@/components/MapEmbed';
-import Breadcrumb from '@/components/Breadcrumb';
 import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
@@ -20,11 +19,37 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   const contactSchema = {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "@id": "https://www.italytaxiservice.com/#organization",
+    "@type": "LocalBusiness",
+    "@id": "https://www.italytaxiservice.com/#localbusiness",
+    "name": "ItaliaRide - Italy Taxi Service",
+    "image": "https://www.italytaxiservice.com/images/hero.png",
+    "telephone": "+919779313437",
+    "email": "booking@italytaxiservice.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Via dell'Aeroporto, s/n",
+      "addressLocality": "Fiumicino",
+      "addressRegion": "RM",
+      "postalCode": "00054",
+      "addressCountry": "IT"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 41.7999,
+      "longitude": 12.2462
+    },
+    "url": "https://www.italytaxiservice.com",
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
+      ],
+      "opens": "00:00",
+      "closes": "23:59"
+    },
     "contactPoint": {
       "@type": "ContactPoint",
-      "telephone": "+923148932631",
+      "telephone": "+91 97793 13437",
       "contactType": "customer service",
       "areaServed": "IT",
       "availableLanguage": ["English", "Italian"]
@@ -62,19 +87,12 @@ export default function ContactPage() {
       />
       <Navbar />
 
-      <div className="container mx-auto px-6 pt-10">
-        <Breadcrumb 
-          items={[
-            { name: "Contact", item: "/contact" }
-          ]} 
-        />
-      </div>
-
       <PageHero
         titleTop="Get in Touch With"
         titleBottom="Our Professional Team"
         description="Available 24/7 for airport transfers and city rides across Italy. We ensure that every traveler's request is handled with world-class precision."
         backgroundImage="/images/hero.png"
+        breadcrumbs={[{ name: "Contact", item: "/contact" }]}
       />
 
       <div className="bg-[#F8F9FA]">

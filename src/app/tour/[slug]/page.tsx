@@ -3,11 +3,11 @@ import { tours } from '@/lib/page-data';
 import BookingForm from '@/components/BookingForm';
 import TaxiButton from '@/components/TaxiButton';
 import FAQSection from '@/components/FAQSection';
-import Breadcrumb from '@/components/Breadcrumb';
 import { ShieldCheck, Heart, Zap, UserCheck, Star, Camera, Clock } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import PageHero from '@/components/PageHero';
+import ServiceSchema from '@/components/ServiceSchema';
 import Image from 'next/image';
 
 export async function generateStaticParams() {
@@ -63,17 +63,13 @@ export default async function TourPage({ params }: { params: Promise<{ slug: str
 
     return (
         <main className="font-inter bg-white text-navy-rich">
+            <ServiceSchema 
+                name={`${tour.name} Private Tour`} 
+                description={`Explore the wonders of ${tour.name} with our professional private taxi tours and excursions.`} 
+                url={`https://www.italytaxiservice.com/tour/${slug}`} 
+                image={tour.hero_image}
+            />
             <Navbar />
-
-            <div className="container mx-auto px-6 pt-10">
-                <Breadcrumb 
-                    items={[
-                        { name: "Services", item: "/services" },
-                        { name: "Private Tours", item: "/services/private-tours" },
-                        { name: tour.name, item: `/tour/${slug}` }
-                    ]} 
-                />
-            </div>
 
             <PageHero
                 titleTop={`${tour.name}`}
@@ -81,6 +77,11 @@ export default async function TourPage({ params }: { params: Promise<{ slug: str
                 description={`Experience the wonders of ${tour.name} with luxury private transportation and professional local drivers.`}
                 backgroundImage={tour.hero_image}
                 buttonText={`Book Your ${tour.name} Now`}
+                breadcrumbs={[
+                    { name: "Services", item: "/services" },
+                    { name: "Private Tours", item: "/services/private-tours" },
+                    { name: tour.name, item: `/tour/${slug}` }
+                ]}
             />
 
             {/* Tour Description Section */}

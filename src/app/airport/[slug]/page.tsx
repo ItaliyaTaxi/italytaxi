@@ -2,11 +2,11 @@ import { notFound } from 'next/navigation';
 import { airports } from '@/lib/page-data';
 import BookingForm from '@/components/BookingForm';
 import FAQSection from '@/components/FAQSection';
-import Breadcrumb from '@/components/Breadcrumb';
 import { ShieldCheck, Clock, UserCheck, Plane, MousePointer2 } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import PageHero from '@/components/PageHero';
+import ServiceSchema from '@/components/ServiceSchema';
 import Image from 'next/image';
 
 export async function generateStaticParams() {
@@ -67,16 +67,13 @@ export default async function AirportPage({ params }: { params: Promise<{ slug: 
 
     return (
         <main className="font-inter bg-white text-navy-rich">
+            <ServiceSchema 
+                name={`Private Transfer to ${airport.name}`} 
+                description={`Reliable private taxi transfer and meet & greet service to or from ${airport.name}.`} 
+                url={`https://www.italytaxiservice.com/airport/${slug}`} 
+                image={airport.hero_image}
+            />
             <Navbar />
-
-            <div className="container mx-auto px-6 pt-10">
-                <Breadcrumb 
-                    items={[
-                        { name: "Airport Transfers", item: "/services/airport-transfers" },
-                        { name: airport.name, item: `/airport/${slug}` }
-                    ]} 
-                />
-            </div>
 
             <PageHero
                 titleTop="Private Airport"
@@ -84,6 +81,10 @@ export default async function AirportPage({ params }: { params: Promise<{ slug: 
                 description={`Reliable, luxury transfer service to and from ${airport.name} with professional English-speaking drivers.`}
                 backgroundImage={airport.hero_image}
                 buttonText="Book Your Airport Transfer"
+                breadcrumbs={[
+                    { name: "Airport Transfers", item: "/services/airport-transfers" },
+                    { name: airport.name, item: `/airport/${slug}` }
+                ]}
             />
 
             {/* Introduction Section */}

@@ -53,6 +53,10 @@ export default function VaticanMuseumsPage() {
         description="Start your art pilgrimage in comfort. Professional door-to-door service to the treasures of the Vatican City."
         backgroundImage="https://images.unsplash.com/photo-1594841763073-496541a384f6?q=80&w=2070&auto=format&fit=crop"
         buttonText="Book Vatican Transfer"
+        breadcrumbs={[
+          { name: "Attraction Transfers", item: "/attraction-transfer" },
+            { name: "Vatican Museums", item: "/attraction-transfer/vatican-museums-taxi-transfer" }
+        ]}
       />
 
       <ServiceIntro

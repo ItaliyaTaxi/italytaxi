@@ -20,6 +20,7 @@ export default function PrivacyPolicyPage() {
         titleBottom="Privacy Policy"
         description="We are committed to protecting your personal data and ensuring your privacy while using our taxi services."
         backgroundImage="/images/hero.png"
+        breadcrumbs={[{ name: "Privacy Policy", item: "/privacy-policy" }]}
       />
       <div className="container mx-auto py-24 px-6 prose max-w-4xl">
         <h2 className="text-3xl font-bold text-navy mb-6">Data Protection</h2>

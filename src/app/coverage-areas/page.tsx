@@ -22,6 +22,7 @@ export default function CoverageAreasPage() {
         titleBottom="Destinations in Italy"
         description="Our premium taxi network covers the entire peninsula, ensuring you have a reliable ride wherever you land in Italy."
         backgroundImage="/images/hero.png"
+        breadcrumbs={[{ name: "Coverage Areas", item: "/coverage-areas" }]}
       />
       <div className="py-20">
         <Coverage />

@@ -1,5 +1,3 @@
-"use client";
-
 import Link from 'next/link';
 import { ChevronRight, Home } from 'lucide-react';
 
@@ -9,10 +7,13 @@ interface BreadcrumbItem {
 }
 
 interface BreadcrumbProps {
-    items: BreadcrumbItem[];
+    items: { name: string; item: string }[];
+    variant?: 'default' | 'light';
 }
 
-export default function Breadcrumb({ items }: BreadcrumbProps) {
+export default function Breadcrumb({ items, variant = 'default' }: BreadcrumbProps) {
+    const isLight = variant === 'light';
+    
     const breadcrumbSchema = {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
@@ -33,14 +34,17 @@ export default function Breadcrumb({ items }: BreadcrumbProps) {
     };
 
     return (
-        <nav className="flex mb-8" aria-label="Breadcrumb">
+        <nav className={`flex ${isLight ? 'mb-4' : 'mb-8'}`} aria-label="Breadcrumb">
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
             />
             <ol className="inline-flex items-center space-x-1 md:space-x-3">
                 <li className="inline-flex items-center">
-                    <Link href="/" className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gold transition-colors">
+                    <Link 
+                        href="/" 
+                        className={`inline-flex items-center text-sm font-medium transition-colors ${isLight ? 'text-white/80 hover:text-gold' : 'text-gray-700 hover:text-gold'}`}
+                    >
                         <Home className="w-4 h-4 mr-2" />
                         Home
                     </Link>
@@ -48,15 +52,15 @@ export default function Breadcrumb({ items }: BreadcrumbProps) {
                 {items.map((item, index) => (
                     <li key={index}>
                         <div className="flex items-center">
-                            <ChevronRight className="w-4 h-4 text-gray-400 mx-1" />
+                            <ChevronRight className={`w-4 h-4 mx-1 ${isLight ? 'text-white/40' : 'text-gray-400'}`} />
                             {index === items.length - 1 ? (
-                                <span className="ml-1 text-sm font-bold text-navy md:ml-2">
+                                <span className={`ml-1 text-sm font-bold md:ml-2 ${isLight ? 'text-gold' : 'text-navy'}`}>
                                     {item.name}
                                 </span>
                             ) : (
                                 <Link 
                                     href={item.item} 
-                                    className="ml-1 text-sm font-medium text-gray-700 hover:text-gold md:ml-2 transition-colors"
+                                    className={`ml-1 text-sm font-medium transition-colors md:ml-2 ${isLight ? 'text-white/80 hover:text-gold' : 'text-gray-700 hover:text-gold'}`}
                                 >
                                     {item.name}
                                 </Link>
@@ -68,3 +72,4 @@ export default function Breadcrumb({ items }: BreadcrumbProps) {
         </nav>
     );
 }
+
