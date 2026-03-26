@@ -4,6 +4,7 @@ import ContactInfoCards from '@/components/ContactInfoCards';
 import ContactFormSection from '@/components/ContactFormSection';
 import FAQSection from '@/components/FAQSection';
 import CTA from '@/components/CTA';
+import MapEmbed from '@/components/MapEmbed';
 import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
@@ -16,15 +17,47 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
-  const contactPageSchema = {
+  const localBusinessSchema = {
     "@context": "https://schema.org",
-    "@type": "ContactPage",
-    "@id": "https://www.italytaxiservice.com/contact/#contactpage",
-    "url": "https://www.italytaxiservice.com/contact",
-    "name": "Contact Italy Taxi Service",
-    "description": "Get in touch for custom taxi quotes and booking assistance in Italy.",
-    "mainEntity": {
-      "@id": "https://www.italytaxiservice.com/#organization"
+    "@type": "TaxiService",
+    "@id": "https://www.italytaxiservice.com/#organization",
+    "name": "Italy Taxi Service",
+    "image": "https://www.italytaxiservice.com/images/hero.png",
+    "url": "https://www.italytaxiservice.com",
+    "telephone": "+923148932631",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Via del Corso",
+      "addressLocality": "Rome",
+      "addressRegion": "RM",
+      "postalCode": "00186",
+      "addressCountry": "IT"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 41.8902,
+      "longitude": 12.4922
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
+      "opens": "00:00",
+      "closes": "23:59"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+923148932631",
+      "contactType": "customer service",
+      "areaServed": "IT",
+      "availableLanguage": ["English", "Italian"]
     }
   };
 
@@ -32,7 +65,7 @@ export default function ContactPage() {
     <main className="min-h-screen">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPageSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
       />
       <Navbar />
       <PageHero
@@ -47,6 +80,8 @@ export default function ContactPage() {
       </div>
 
       <ContactFormSection />
+
+      <MapEmbed />
 
       <FAQSection />
 

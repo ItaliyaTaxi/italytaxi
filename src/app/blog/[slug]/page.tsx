@@ -6,6 +6,8 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { cache } from 'react';
+import Breadcrumb from '@/components/Breadcrumb';
+import TableOfContents from '@/components/TableOfContents';
 
 interface BlogPageProps {
   params: {
@@ -62,13 +64,18 @@ export default async function BlogPostPage({ params }: any) {
   const blogSchema = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://www.italytaxiservice.com/blog/${slug}`
+    },
     "headline": blog.title,
-    "image": blog.featured_image_url || 'https://www.italytaxiservice.com/images/hero.png',
+    "image": [blog.featured_image_url || 'https://www.italytaxiservice.com/images/hero.png'],
     "datePublished": blog.published_at,
     "dateModified": blog.updated_at || blog.published_at,
     "author": {
       "@type": "Person",
-      "name": blog.bloggers?.full_name || 'Italy Taxi Service Team'
+      "name": blog.bloggers?.full_name || 'Italy Taxi Service Team',
+      "url": `https://www.italytaxiservice.com/bloggers/${blog.bloggers?.id || 'main'}`
     },
     "publisher": {
       "@type": "Organization",
@@ -117,10 +124,18 @@ export default async function BlogPostPage({ params }: any) {
         </div>
       </div>
 
-      <div className="container mx-auto py-20 px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+      <div className="container mx-auto py-10 px-6">
+        <Breadcrumb 
+          items={[
+            { name: 'Blog', item: '/blog' },
+            { name: blog.title, item: `/blog/${slug}` }
+          ]} 
+        />
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mt-10">
           {/* Post Content */}
           <article className="lg:col-span-8">
+            <TableOfContents content={blog.content} />
             <div 
               className="prose prose-lg max-w-none prose-slate prose-headings:text-navy prose-a:text-gold prose-strong:text-navy"
               dangerouslySetInnerHTML={{ __html: blog.content }}

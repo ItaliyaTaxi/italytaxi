@@ -19,7 +19,7 @@ export default function Hero() {
             <div className="absolute inset-0">
                 <Image
                     src="/images/hero.png"
-                    alt=""
+                    alt="Luxury Private Taxi Service in Italy - Professional Drivers and Transfers"
                     fill
                     priority
                     quality={80}

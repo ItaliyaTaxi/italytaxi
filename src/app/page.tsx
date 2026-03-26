@@ -16,6 +16,7 @@ const HowItWorks = dynamic(() => import('@/components/HowItWorks'));
 const Testimonials = dynamic(() => import('@/components/Testimonials'));
 const Coverage = dynamic(() => import('@/components/Coverage'));
 const KnowledgeHubSection = dynamic(() => import('@/components/KnowledgeHubSection'));
+const FAQSection = dynamic(() => import('@/components/FAQSection'));
 const CTA = dynamic(() => import('@/components/CTA'));
 const Footer = dynamic(() => import('@/components/Footer'));
 
@@ -69,6 +70,10 @@ export default function Home() {
         <Coverage />
       </Suspense>
 
+      <Suspense fallback={<SectionFallback />}>
+        <FAQSection />
+      </Suspense>
+
       <Suspense fallback={<SectionFallback minHeight="min-h-[300px]" />}>
         <CTA />
       </Suspense>
@@ -79,3 +84,4 @@ export default function Home() {
     </main>
   );
 }
+

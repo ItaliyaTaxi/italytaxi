@@ -5,6 +5,8 @@ import HowItWorks from '@/components/HowItWorks';
 import FAQSection from '@/components/FAQSection';
 import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
+import Breadcrumb from '@/components/Breadcrumb';
+import ServiceSchema from '@/components/ServiceSchema';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -16,6 +18,7 @@ export const metadata: Metadata = {
 };
 
 export default function AirportTransfersPage() {
+  const url = "https://www.italytaxiservice.com/services/airport-transfers";
   const features = [
     "Flight tracking & monitoring",
     "Meet & greet service",
@@ -27,7 +30,22 @@ export default function AirportTransfersPage() {
 
   return (
     <main className="min-h-screen">
+      <ServiceSchema 
+        name="Private Airport Transfers Italy" 
+        description="Reliable airport transfers across Italy. Private taxi from Rome, Milan, Venice and more." 
+        url={url} 
+      />
       <Navbar />
+      
+      <div className="container mx-auto px-6 pt-10">
+        <Breadcrumb 
+          items={[
+            { name: "Services", item: "/services" },
+            { name: "Airport Transfers", item: "/services/airport-transfers" }
+          ]} 
+        />
+      </div>
+
       <PageHero
         titleTop="Reliable Airport"
         titleBottom="Transfers Across Italy"
