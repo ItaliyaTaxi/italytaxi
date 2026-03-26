@@ -4,6 +4,7 @@ const JsonLd = () => {
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
+    "@id": "https://www.italytaxiservice.com/#organization",
     "name": "Italy Taxi Service",
     "url": "https://www.italytaxiservice.com",
     "logo": "https://www.italytaxiservice.com/icon.svg",
@@ -21,13 +22,47 @@ const JsonLd = () => {
     ]
   };
 
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://www.italytaxiservice.com/#website",
+    "url": "https://www.italytaxiservice.com",
+    "name": "Italy Taxi Service",
+    "description": "Premium private taxi and transfer services across Italy",
+    "publisher": {
+      "@id": "https://www.italytaxiservice.com/#organization"
+    },
+    "potentialAction": [{
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://www.italytaxiservice.com/search?q={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    }]
+  };
+
+  const webpageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://www.italytaxiservice.com/#webpage",
+    "url": "https://www.italytaxiservice.com",
+    "name": "Italy Taxi Service | Private transfers and airport taxis",
+    "description": "Book a premium private taxi service in Italy. We provide airport transfers, city tours, and point-to-point transportation.",
+    "isPartOf": {
+      "@id": "https://www.italytaxiservice.com/#website"
+    },
+    "about": {
+      "@id": "https://www.italytaxiservice.com/#organization"
+    }
+  };
+
   const serviceSchema = {
     "@context": "https://schema.org",
-    "@type": "TaxiService",
+    "@type": "Service",
     "name": "Private Taxi Transfers in Italy",
     "provider": {
-      "@type": "Organization",
-      "name": "Italy Taxi Service"
+      "@id": "https://www.italytaxiservice.com/#organization"
     },
     "areaServed": {
       "@type": "Country",
@@ -45,6 +80,14 @@ const JsonLd = () => {
       />
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webpageSchema) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
     </>
@@ -52,3 +95,4 @@ const JsonLd = () => {
 };
 
 export default JsonLd;
+

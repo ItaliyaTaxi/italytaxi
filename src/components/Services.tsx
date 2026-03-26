@@ -32,8 +32,24 @@ export default function Services() {
         link: serviceLinks[i],
     }));
 
+    const itemListSchema = {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": t.services.heading,
+        "itemListElement": services.map((service, index) => ({
+            "@type": "ListItem",
+            "position": index + 1,
+            "name": service.title,
+            "url": `https://www.italytaxiservice.com${service.link}`
+        }))
+    };
+
     return (
         <section className="py-24 bg-white font-inter cv-section">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
+            />
             <div className="container mx-auto px-6">
                 <div className="text-center mb-20">
                     <p className="text-[#F4C430] text-sm font-bold uppercase tracking-[0.4em] mb-4">{t.services.badge}</p>

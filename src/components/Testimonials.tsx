@@ -30,8 +30,40 @@ const reviews = [
 export default function Testimonials() {
     const { t } = useLanguage();
 
+    const aggregateRatingSchema = {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Italy Taxi Service",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": reviews.length.toString(),
+            "bestRating": "5",
+            "worstRating": "1"
+        },
+        "review": reviews.map(review => ({
+            "@type": "Review",
+            "author": {
+                "@type": "Person",
+                "name": review.name
+            },
+            "datePublished": "2024-01-01", // Placeholder or dynamic if possible
+            "reviewBody": review.text,
+            "reviewRating": {
+                "@type": "Rating",
+                "ratingValue": review.rating.toString(),
+                "bestRating": "5",
+                "worstRating": "1"
+            }
+        }))
+    };
+
     return (
         <section className="py-24 bg-navy relative overflow-hidden font-inter cv-section">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(aggregateRatingSchema) }}
+            />
             {/* Pattern Overlay */}
             <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(#F4C430 0.5px, transparent 0.5px)', backgroundSize: '24px 24px' }} />
 

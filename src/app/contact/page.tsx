@@ -16,8 +16,24 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
+  const contactPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "@id": "https://www.italytaxiservice.com/contact/#contactpage",
+    "url": "https://www.italytaxiservice.com/contact",
+    "name": "Contact Italy Taxi Service",
+    "description": "Get in touch for custom taxi quotes and booking assistance in Italy.",
+    "mainEntity": {
+      "@id": "https://www.italytaxiservice.com/#organization"
+    }
+  };
+
   return (
     <main className="min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPageSchema) }}
+      />
       <Navbar />
       <PageHero
         titleTop="Get in Touch With"

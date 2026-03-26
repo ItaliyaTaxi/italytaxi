@@ -59,8 +59,34 @@ export default async function BlogPostPage({ params }: any) {
     notFound();
   }
 
+  const blogSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": blog.title,
+    "image": blog.featured_image_url || 'https://www.italytaxiservice.com/images/hero.png',
+    "datePublished": blog.published_at,
+    "dateModified": blog.updated_at || blog.published_at,
+    "author": {
+      "@type": "Person",
+      "name": blog.bloggers?.full_name || 'Italy Taxi Service Team'
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Italy Taxi Service",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.italytaxiservice.com/icon.svg"
+      }
+    },
+    "description": blog.excerpt || blog.seo_description
+  };
+
   return (
     <main className="min-h-screen bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }}
+      />
       <Navbar />
       
       {/* Blog Header */}
