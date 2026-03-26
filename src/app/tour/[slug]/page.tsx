@@ -2,6 +2,8 @@ import { notFound } from 'next/navigation';
 import { tours } from '@/lib/page-data';
 import BookingForm from '@/components/BookingForm';
 import TaxiButton from '@/components/TaxiButton';
+import FAQSection from '@/components/FAQSection';
+import Breadcrumb from '@/components/Breadcrumb';
 import { ShieldCheck, Heart, Zap, UserCheck, Star, Camera, Clock } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -20,7 +22,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     const tourName = tour ? tour.name : slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
 
     return {
-        title: `${tourName} | Private Taxi Tours Italy`,
+        title: `${tourName} Italy | Private Taxi Tour & Chauffeur`,
         description: `Experience ${tourName} with our professional private taxi tours. Luxury transportation, English-speaking chauffeurs, and flexible itineraries across Italy.`,
         alternates: {
             canonical: `/tour/${slug}`,
@@ -34,33 +36,67 @@ export default async function TourPage({ params }: { params: Promise<{ slug: str
 
     if (!tour) notFound();
 
+    const tourFaqs = [
+      {
+        q: `Is the ${tour.name} tour entirely private?`,
+        a: "Yes, all our tours are 100% private. The vehicle and driver are exclusively for your group, ensuring a personalized and intimate experience."
+      },
+      {
+        q: "Can we customize the pickup time and location?",
+        a: "Absolutely. We can pick you up from any hotel, Airbnb, or cruise port at the time that best suits your schedule."
+      },
+      {
+        q: "Do your tour drivers speak English?",
+        a: "Yes, we provide professional, English-speaking chauffeurs who are knowledgeable about the local history and culture of the region."
+      },
+      {
+        q: "Will we have enough time for lunch or shopping during the tour?",
+        a: "Yes! Your driver will recommend the best local spots and ensure you have ample time to enjoy authentic Italian cuisine and browse local shops at your own pace."
+      },
+      {
+        q: "Does the price for this tour include hidden fees or tolls?",
+        a: "Our pricing is fixed and transparent. All fuel, highway tolls, and parking fees are included in the quote we provide upfront."
+      }
+    ];
+
     const iconSet = [<Zap key="1" />, <Heart key="2" />, <ShieldCheck key="3" />, <Camera key="4" />, <UserCheck key="5" />];
 
     return (
-        <main className="font-inter bg-white">
+        <main className="font-inter bg-white text-navy-rich">
             <Navbar />
+
+            <div className="container mx-auto px-6 pt-10">
+                <Breadcrumb 
+                    items={[
+                        { name: "Services", item: "/services" },
+                        { name: "Private Tours", item: "/services/private-tours" },
+                        { name: tour.name, item: `/tour/${slug}` }
+                    ]} 
+                />
+            </div>
+
             <PageHero
                 titleTop={`${tour.name}`}
-                titleBottom="in Italy"
-                description={`Experience ${tour.name} with luxury private transportation and professional drivers.`}
+                titleBottom="Private Excursion"
+                description={`Experience the wonders of ${tour.name} with luxury private transportation and professional local drivers.`}
                 backgroundImage={tour.hero_image}
                 buttonText={`Book Your ${tour.name} Now`}
             />
 
             {/* Tour Description Section */}
             <section className="py-24 bg-white relative">
-                <div className="container mx-auto px-6">
+                <div className="container mx-auto px-6 text-center">
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
                         <div className="relative animate-fade-in [animation-delay:0.2s]">
                             <div className="relative h-[600px] rounded-[3rem] overflow-hidden shadow-2xl border-gradient-gold p-1">
                                 <Image
                                     src={tour.hero_image}
-                                    alt={`${tour.name} Experience`}
+                                    alt={`${tour.name} private tour experience`}
                                     fill
                                     className="object-cover"
                                 />
                             </div>
-                            <div className="absolute top-10 -right-10 bg-white p-8 rounded-[2rem] shadow-2xl animate-slide-up max-w-[250px] border border-gray-100">
+                            <div className="absolute top-10 -right-10 bg-white p-8 rounded-[2rem] shadow-2xl max-w-[250px] border border-gray-100 animate-slide-up">
                                 <div className="flex text-gold mb-2">
                                     {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
                                 </div>
@@ -69,7 +105,7 @@ export default async function TourPage({ params }: { params: Promise<{ slug: str
                             </div>
                         </div>
 
-                        <div className="animate-slide-left [animation-delay:0.4s]">
+                        <div className="animate-slide-left [animation-delay:0.4s] text-left">
                             <p className="text-gold text-sm font-bold uppercase tracking-[0.4em] mb-4">Journey Into History</p>
                             <h2 className="text-3xl md:text-5xl font-bold text-navy mb-10 leading-tight">About The Tour</h2>
                             <p className="text-gray-600 text-lg leading-relaxed mb-10">
@@ -141,6 +177,8 @@ export default async function TourPage({ params }: { params: Promise<{ slug: str
                 </div>
             </section>
 
+            <FAQSection faqs={tourFaqs} title={`${tour.name} Tour FAQ`} />
+
             {/* Tour Booking CTA Section */}
             <section className="py-24 bg-[#0F1C2E] relative overflow-hidden">
                 <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(#F4C430 0.5px, transparent 0.5px)', backgroundSize: '24px 24px' }} />
@@ -162,11 +200,11 @@ export default async function TourPage({ params }: { params: Promise<{ slug: str
                             <div className="flex items-center gap-10 border-t border-white/5 pt-10">
                                 <div className="group cursor-pointer">
                                     <p className="text-white font-bold text-sm mb-1 group-hover:text-gold transition-colors">Instant Booking</p>
-                                    <p className="text-gray-500 text-[10px] uppercase tracking-widest font-bold">24/7 Availability</p>
+                                    <p className="text-gray-500 text-[10px] uppercase tracking-widest font-bold text-center">24/7 Availability</p>
                                 </div>
                                 <div className="group cursor-pointer">
                                     <p className="text-white font-bold text-sm mb-1 group-hover:text-gold transition-colors">Fixed Pricing</p>
-                                    <p className="text-gray-500 text-[10px] uppercase tracking-widest font-bold">No Hidden Fees</p>
+                                    <p className="text-gray-500 text-[10px] uppercase tracking-widest font-bold text-center">No Hidden Fees</p>
                                 </div>
                             </div>
                         </div>
@@ -181,3 +219,4 @@ export default async function TourPage({ params }: { params: Promise<{ slug: str
         </main>
     );
 }
+

@@ -5,10 +5,12 @@ import HowItWorks from '@/components/HowItWorks';
 import FAQSection from '@/components/FAQSection';
 import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
+import Breadcrumb from '@/components/Breadcrumb';
+import ServiceSchema from '@/components/ServiceSchema';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: "Wedding & Event Transfers | Italian Taxi Service",
+    title: "Wedding & Event Transfers Italy | Luxury Event Taxi",
     description: "Elegant transportation for weddings and special events in Italy. High-quality taxi service to ensure your guests arrive in style and comfort.",
     alternates: {
         canonical: "/services/wedding-events",
@@ -16,22 +18,61 @@ export const metadata: Metadata = {
 };
 
 export default function WeddingEventsPage() {
+    const url = "https://www.italytaxiservice.com/services/wedding-events";
     const features = [
         "Elegant wedding vehicles",
         "Decorated cars upon request",
-        "Professional taxi service",
+        "Professional chauffeur service",
         "Coordination for guests",
-        "taxi late-model fleet",
+        "Premium late-model fleet",
         "Punctual and refined"
+    ];
+
+    const eventFaqs = [
+        {
+            q: "Can we book transportation for our entire wedding party?",
+            a: "Yes, we can organize a fleet of luxury sedans and vans to transport the bride, groom, family, and guests seamlessly between venues."
+        },
+        {
+            q: "Do you offer decorations for wedding cars?",
+            a: "We can provide simple, elegant ribbon decorations upon request. For more elaborate floral arrangements, we can coordinate with your florist."
+        },
+        {
+            q: "What kind of events do you cover besides weddings?",
+            a: "We provide luxury transfers for gala dinners, fashion shows, corporate events, private parties, and anniversary celebrations across Italy."
+        },
+        {
+            q: "Are the drivers familiar with remote wedding villas?",
+            a: "Yes, our drivers are highly experienced and use advanced navigation to reach even the most exclusive and remote villas in Tuscany and the Amalfi Coast."
+        },
+        {
+            q: "Is there a standby service available during the event?",
+            a: "Absolutely. We offer 'at disposal' hourly services where the driver remains on-site to assist guests with departures throughout the event."
+        }
     ];
 
     return (
         <main className="min-h-screen">
+            <ServiceSchema 
+                name="Private Wedding & Event Transfers Italy" 
+                description="Luxury private taxi and chauffeur services for weddings and high-end events across Italy." 
+                url={url} 
+            />
             <Navbar />
+
+            <div className="container mx-auto px-6 pt-10">
+                <Breadcrumb 
+                    items={[
+                        { name: "Services", item: "/services" },
+                        { name: "Wedding & Events", item: "/services/wedding-events" }
+                    ]} 
+                />
+            </div>
+
             <PageHero
-                titleTop="taxi Event &"
+                titleTop="Luxury Event &"
                 titleBottom="Wedding Transportation"
-                description="Make your special day more elegant with taxi transportation solutions across Italy."
+                description="Make your special day more elegant with premium transportation solutions across Italy."
                 backgroundImage="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=2069&auto=format&fit=crop"
                 buttonText="Plan Your Event Travel"
             />
@@ -47,10 +88,9 @@ export default function WeddingEventsPage() {
                 bg="bg-[#F8F9FA]"
             />
 
-
             <HowItWorks />
 
-            <FAQSection />
+            <FAQSection faqs={eventFaqs} title="Event Transport FAQs" />
 
             <CTA />
 
@@ -58,3 +98,4 @@ export default function WeddingEventsPage() {
         </main>
     );
 }
+

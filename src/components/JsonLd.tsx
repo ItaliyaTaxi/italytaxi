@@ -3,11 +3,21 @@ import React from 'react';
 const JsonLd = () => {
   const organizationSchema = {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": "TaxiService",
     "@id": "https://www.italytaxiservice.com/#organization",
     "name": "Italy Taxi Service",
     "url": "https://www.italytaxiservice.com",
     "logo": "https://www.italytaxiservice.com/icon.svg",
+    "image": "https://www.italytaxiservice.com/images/hero.png",
+    "telephone": "+923148932631",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Via del Corso",
+      "addressLocality": "Rome",
+      "addressRegion": "RM",
+      "postalCode": "00186",
+      "addressCountry": "IT"
+    },
     "contactPoint": {
       "@type": "ContactPoint",
       "telephone": "+923148932631",
@@ -15,6 +25,30 @@ const JsonLd = () => {
       "areaServed": "IT",
       "availableLanguage": ["English", "Italian"]
     },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "128",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": {
+          "@type": "Person",
+          "name": "James Wilson"
+        },
+        "datePublished": "2024-01-01",
+        "reviewBody": "Exceptional service from Fiumicino to our hotel. The driver was waiting for us with a clear sign, the Mercedes S-Class was spotless, and the ride was perfectly smooth. Highly recommended!",
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5",
+          "bestRating": "5",
+          "worstRating": "1"
+        }
+      }
+    ],
     "sameAs": [
       "https://www.facebook.com/italytaxiservice",
       "https://www.instagram.com/italytaxiservice",

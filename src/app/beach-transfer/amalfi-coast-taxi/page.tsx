@@ -3,12 +3,13 @@ import PageHero from '@/components/PageHero';
 import ServiceIntro, { ServiceFeatures } from '@/components/ServiceDetails';
 import HowItWorks from '@/components/HowItWorks';
 import FAQSection from '@/components/FAQSection';
+import Breadcrumb from '@/components/Breadcrumb';
 import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Amalfi Coast Beach Transfers | Italian Taxi Service",
+  title: "Amalfi Coast Transfer | Private Taxi & Chauffeur",
   description: "Book a professional private transfer to the Amalfi Coast. Enjoy a comfortable, direct ride to Positano, Amalfi, or Ravello with our expert drivers.",
   alternates: {
     canonical: "/beach-transfer/amalfi-coast-taxi",
@@ -45,12 +46,22 @@ export default function AmalfiBeachPage() {
   ];
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen text-navy-rich font-inter">
       <Navbar />
+
+      <div className="container mx-auto px-6 pt-10">
+        <Breadcrumb 
+          items={[
+            { name: "Beach Transfers", item: "/beach-transfer" },
+            { name: "Amalfi Coast", item: "/beach-transfer/amalfi-coast-taxi" }
+          ]} 
+        />
+      </div>
+
       <PageHero
         titleTop="Coastal Luxury"
         titleBottom="Amalfi Coast Transfers"
-        description="Experience the breathtaking beauty of the Amalfi Coast with a stress-free private taxi transfer. Direct service to your seaside destination."
+        description="Experience the breathtaking beauty of the Amalfi Coast with a stress-free private transfer service. Direct transportation to your seaside destination."
         backgroundImage="/images/almafi.webp"
         buttonText="Book Amalfi Transfer"
       />
@@ -80,3 +91,4 @@ export default function AmalfiBeachPage() {
     </main>
   );
 }
+

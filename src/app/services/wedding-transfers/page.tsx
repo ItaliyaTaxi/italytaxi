@@ -5,10 +5,12 @@ import HowItWorks from '@/components/HowItWorks';
 import FAQSection from '@/components/FAQSection';
 import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
+import Breadcrumb from '@/components/Breadcrumb';
+import ServiceSchema from '@/components/ServiceSchema';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: "Wedding Guest Transfers Italy | Elegant Taxi Solutions",
+    title: "Wedding Guest Transfers Italy | Private Event Taxi",
     description: "Reliable and elegant wedding taxi transfers in Italy. Professional guest transportation for weddings in Tuscany, Amalfi Coast, Lake Como, and beyond.",
     alternates: {
         canonical: "/services/wedding-transfers",
@@ -16,6 +18,7 @@ export const metadata: Metadata = {
 };
 
 export default function WeddingTransfersPage() {
+    const url = "https://www.italytaxiservice.com/services/wedding-transfers";
     const features = [
         "Punctual guest shuttle services",
         "Luxury Mercedes sedans & vans",
@@ -26,6 +29,10 @@ export default function WeddingTransfersPage() {
     ];
 
     const weddingFaqs = [
+        {
+            q: "Do you provide luxury cars for weddings in Italy?",
+            a: "Yes, we offer a high-end fleet of Mercedes E-Class, S-Class, and V-Class vans, perfect for weddings and VIP event transportation."
+        },
         {
             q: "Do you provide shuttles for large groups of guests?",
             a: "Yes, we have a fleet of Mercedes V-Class and Sprinter vans that can accommodate groups of 7 to 20+ guests comfortably."
@@ -39,14 +46,29 @@ export default function WeddingTransfersPage() {
             a: "For weddings, we recommend booking at least 3-6 months in advance, especially for peak season (May-September)."
         },
         {
-            q: "Do the drivers speak English?",
-            a: "Yes, all our wedding service drivers are professional, English-speaking, and experienced in high-end event logistics."
+            q: "Do the drivers dress formally for the event?",
+            a: "Yes, our wedding chauffeurs maintain a professional, suited appearance to match the elegance of your special day."
         }
     ];
 
     return (
         <main className="min-h-screen">
+            <ServiceSchema 
+                name="Private Wedding Transfers Italy" 
+                description="Elegant and professional private taxi transfers for wedding guests across Italy's most beautiful venues." 
+                url={url} 
+            />
             <Navbar />
+
+            <div className="container mx-auto px-6 pt-10">
+                <Breadcrumb 
+                    items={[
+                        { name: "Services", item: "/services" },
+                        { name: "Wedding Transfers", item: "/services/wedding-transfers" }
+                    ]} 
+                />
+            </div>
+
             <PageHero
                 titleTop="Elegant Wedding & Guest"
                 titleBottom="Taxi Transfers in Italy"
@@ -99,7 +121,7 @@ export default function WeddingTransfersPage() {
                         <div className="relative h-[400px] rounded-[2.5rem] overflow-hidden shadow-2xl">
                             <img 
                                 src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop" 
-                                alt="Italian Wedding Venue" 
+                                alt="Professional Italian Wedding Guest Transportation" 
                                 className="object-cover w-full h-full"
                             />
                         </div>
@@ -120,3 +142,4 @@ export default function WeddingTransfersPage() {
         </main>
     );
 }
+

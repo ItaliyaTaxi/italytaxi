@@ -35,8 +35,31 @@ function SectionFallback({ minHeight = 'min-h-[400px]' }: { minHeight?: string }
 }
 
 export default function Home() {
+  const homeFaqs = [
+    {
+      q: "Why choose your private transfer over a standard Italian taxi?",
+      a: "Our service offers fixed, transparent pricing with no hidden fees, professional multi-lingual drivers, and pre-booked guaranteed pickups. Unlike standard taxis, we provide a premium 'Meet & Greet' service and luxury vehicles suited for comfort."
+    },
+    {
+      q: "Do you provide airport transfers from any city in Italy?",
+      a: "Yes, we offer nationwide coverage across Italy. Whether you need a transfer from Rome, Milan, Venice, or a remote village in Tuscany, our network of professional drivers is available 24/7."
+    },
+    {
+      q: "What types of vehicles are available in your fleet?",
+      a: "We offer a range of luxury vehicles including Mercedes E-Class/S-Class sedans for up to 3 passengers, V-Class minivans for up to 8 passengers, and larger Sprinter buses for group travel."
+    },
+    {
+      q: "Are your drivers licensed to enter restricted traffic zones (ZTL)?",
+      a: "Yes, all our drivers are professionally licensed (N.C.C.) which allows them to enter restricted city centers (ZTL) and bus/taxi lanes, ensuring a direct and efficient door-to-door service."
+    },
+    {
+      q: "How far in advance should I book my Italian transfer?",
+      a: "We recommend booking at least 24 hours in advance to guarantee availability. For last-minute requests, you can contact our 24/7 WhatsApp support team for immediate assistance."
+    }
+  ];
+
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen text-navy-rich font-inter">
       {/* Above-fold: loaded eagerly, critical for FCP + LCP */}
       <Navbar />
       <Hero />
@@ -71,7 +94,7 @@ export default function Home() {
       </Suspense>
 
       <Suspense fallback={<SectionFallback />}>
-        <FAQSection />
+        <FAQSection faqs={homeFaqs} title="Italy Travel & Transfer FAQ" />
       </Suspense>
 
       <Suspense fallback={<SectionFallback minHeight="min-h-[300px]" />}>
@@ -84,4 +107,5 @@ export default function Home() {
     </main>
   );
 }
+
 

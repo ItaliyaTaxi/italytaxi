@@ -1,13 +1,15 @@
 import Navbar from '@/components/Navbar';
 import PageHero from '@/components/PageHero';
 import Footer from '@/components/Footer';
+import FAQSection from '@/components/FAQSection';
+import Breadcrumb from '@/components/Breadcrumb';
 import { Metadata } from 'next';
 import { supabase } from '@/lib/supabase/client';
 import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
-  title: "Italy Travel Blog | Italian Taxi Service",
+  title: "Italy Travel Blog | Guides & Taxi Tips | ItaliaRide",
   description: "Travel tips, destination guides, and the latest news about taxi transfers in Italy. Plan your perfect Italian journey with our expert blog.",
   alternates: {
     canonical: "/blog",
@@ -23,20 +25,57 @@ export default async function BlogPage() {
     .eq('status', 'published')
     .order('published_at', { ascending: false });
 
+  const blogFaqs = [
+    {
+      q: "What kind of travel tips do you share on your Italy blog?",
+      a: "Our blog covers everything from navigating Italian airports and railway stations to hidden gems in Tuscany, the Amalfi Coast, and major cities like Rome and Milan."
+    },
+    {
+      q: "How often is the Italy travel blog updated?",
+      a: "We update our blog weekly with fresh content, including seasonal travel advice, new transportation regulations, and updated destination guides."
+    },
+    {
+      q: "Do you provide transportation guides for all Italian regions?",
+      a: "Yes, we strive to cover all 20 regions of Italy, providing specific advice on private transfers, local taxi services, and regional travel logistics."
+    },
+    {
+      q: "Can I find information on Italian festival and holiday travel?",
+      a: "Absolutely! We create special guides for holidays like Easter and Christmas, as well as major events like the Venice Carnival and Milan Fashion Week."
+    },
+    {
+      q: "Is the information on your blog verified by locals?",
+      a: "Yes, our content is written and reviewed by Italian travel experts and professional drivers who have first-hand knowledge of the roads and destinations."
+    }
+  ];
+
   return (
-    <main className="min-h-screen bg-slate-50">
+    <main className="min-h-screen bg-slate-50 font-inter text-navy-rich">
       <Navbar />
+
+      <div className="container mx-auto px-6 pt-10">
+        <Breadcrumb 
+          items={[
+            { name: "Blog", item: "/blog" }
+          ]} 
+        />
+      </div>
+
       <PageHero
         titleTop="Italian Travel"
-        titleBottom="Insights & Blog"
+        titleBottom="Insights & Knowledge"
         description="Expert tips, local guides, and transportation stories to help you navigate Italy in comfort and style."
         backgroundImage="/images/hero.png"
       />
       
       <div className="container mx-auto py-24 px-6">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold text-navy">Latest From the Hub</h2>
+          <div className="w-20 h-1 bg-gold mx-auto mt-6" />
+        </div>
+
         {error || !blogs || blogs.length === 0 ? (
           <div className="text-center py-20">
-            <h2 className="text-3xl font-bold text-navy mb-4">No Articles Found</h2>
+            <h2 className="text-2xl font-bold text-navy mb-4">No Articles Found</h2>
             <p className="text-gray-600">We are currently updating our knowledge hub. Please check back shortly.</p>
           </div>
         ) : (
@@ -46,7 +85,7 @@ export default async function BlogPage() {
                 <div className="relative h-64 overflow-hidden">
                   <Image 
                     src={blog.featured_image_url || '/images/hero.png'} 
-                    alt={blog.title} 
+                    alt={`Cover image for ${blog.title}`} 
                     fill 
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
@@ -85,8 +124,11 @@ export default async function BlogPage() {
           </div>
         )}
       </div>
+
+      <FAQSection faqs={blogFaqs} title="Travel Hub FAQs" />
       
       <Footer />
     </main>
   );
 }
+

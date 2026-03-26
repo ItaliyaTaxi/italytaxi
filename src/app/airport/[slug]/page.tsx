@@ -1,6 +1,8 @@
 import { notFound } from 'next/navigation';
 import { airports } from '@/lib/page-data';
 import BookingForm from '@/components/BookingForm';
+import FAQSection from '@/components/FAQSection';
+import Breadcrumb from '@/components/Breadcrumb';
 import { ShieldCheck, Clock, UserCheck, Plane, MousePointer2 } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -19,7 +21,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     const airportName = airport ? airport.name : slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
 
     return {
-        title: `${airportName.replace(/ Airport$/, '')} | Private Airport Transfer`,
+        title: `${airportName.replace(/ Airport$/, '')} Airport Transfer | Private Taxi`,
         description: `Book your private taxi transfer to or from ${airportName}. Professional drivers, fixed pricing, and premium fleet for a stress-free travel in Italy.`,
         alternates: {
             canonical: `/airport/${slug}`,
@@ -34,18 +36,52 @@ export default async function AirportPage({ params }: { params: Promise<{ slug: 
         name: slug.split('-').filter(w => w !== 'airport' && w !== 'taxi').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ') + ' Airport',
         hero_image: "/images/hero.png",
         description: "Professional airport transfer service. Reliable, punctual, and comfortable rides to and from the airport.",
-        features: ["Flight tracking", "Meet & greet service", "Fixed pricing", "24/7 availability", "Premium fleet"]
+        features: ["Flight tracking", "Meet & greet service", "Fixed pricing", "24/7 availability", "Premium fleet"],
+        city: slug.split('-')[0]
     };
+
+    const airportFaqs = [
+      {
+        q: `Where do I meet my driver at ${airport.name}?`,
+        a: "Your driver will be waiting in the arrivals hall, right after you pass through customs and collect your luggage. They will hold a sign with your name clearly visible."
+      },
+      {
+        q: `Does the price for a transfer from ${airport.name} include parking?`,
+        a: "Yes, our prices are all-inclusive. All airport parking fees, fuel, and highway tolls are covered in the fixed price we quote you."
+      },
+      {
+        q: "What if I can't find my driver at the airport?",
+        a: "Don't worry. You will receive the driver's phone number via WhatsApp or email before your arrival. You can also contact our 24/7 support line for immediate assistance."
+      },
+      {
+        q: "How early should I book my transfer to the airport?",
+        a: "We recommend booking at least 24 hours in advance. However, if you have a last-minute flight, contact us via WhatsApp and we will do our best to accommodate you."
+      },
+      {
+        q: "Can the driver wait if I have a delay at baggage claim?",
+        a: "We include 60 minutes of free waiting time from the moment your flight lands. If you encounter significant delays (like lost luggage), please call the driver to let them know."
+      }
+    ];
 
     const icons = [<Plane key="1" />, <ShieldCheck key="2" />, <UserCheck key="3" />, <Clock key="4" />, <MousePointer2 key="5" />];
 
     return (
-        <main className="font-inter bg-white">
+        <main className="font-inter bg-white text-navy-rich">
             <Navbar />
+
+            <div className="container mx-auto px-6 pt-10">
+                <Breadcrumb 
+                    items={[
+                        { name: "Airport Transfers", item: "/services/airport-transfers" },
+                        { name: airport.name, item: `/airport/${slug}` }
+                    ]} 
+                />
+            </div>
+
             <PageHero
-                titleTop="Private Airport Transfers from"
+                titleTop="Private Airport"
                 titleBottom={airport.name}
-                description={`Reliable, luxury taxi service to and from ${airport.name} with professional English-speaking drivers.`}
+                description={`Reliable, luxury transfer service to and from ${airport.name} with professional English-speaking drivers.`}
                 backgroundImage={airport.hero_image}
                 buttonText="Book Your Airport Transfer"
             />
@@ -75,7 +111,7 @@ export default async function AirportPage({ params }: { params: Promise<{ slug: 
                         <div className="relative h-[450px] rounded-[3rem] overflow-hidden shadow-2xl animate-fade-in [animation-delay:0.4s]">
                             <Image
                                 src={airport.hero_image}
-                                alt={airport.name}
+                                alt={`Luxury car waiting at ${airport.name}`}
                                 fill
                                 className="object-cover"
                             />
@@ -85,8 +121,8 @@ export default async function AirportPage({ params }: { params: Promise<{ slug: 
             </section>
 
             {/* Why Choose Section */}
-            <section className="py-24 bg-gray-50 overflow-hidden">
-                <div className="container mx-auto px-6 text-center mb-16">
+            <section className="py-24 bg-gray-50 overflow-hidden text-center">
+                <div className="container mx-auto px-6 mb-16">
                     <p className="text-gold text-sm font-bold uppercase tracking-[0.4em] mb-4">Our Excellence</p>
                     <h2 className="text-4xl md:text-5xl font-bold text-navy">Why Choose This Airport Service</h2>
                     <div className="w-20 h-1 bg-gold mx-auto mt-6" />
@@ -115,6 +151,8 @@ export default async function AirportPage({ params }: { params: Promise<{ slug: 
                 </div>
             </section>
 
+            <FAQSection faqs={airportFaqs} title={`${airport.name.split(' ')[0]} Airport FAQ`} />
+
             {/* Booking & CTA Section */}
             <section className="py-24 bg-[#0F1C2E] relative overflow-hidden">
                 {/* Pattern Overlay */}
@@ -128,14 +166,14 @@ export default async function AirportPage({ params }: { params: Promise<{ slug: 
                                 Book your <span className="text-gold">{airport.name}</span> transfer today!
                             </h2>
                             <p className="text-gray-400 text-lg leading-relaxed mb-10 max-w-xl">
-                                Secure your luxury airport taxi in less than 2 minutes. Get instant confirmation and travel with peace of mind.
+                                Secure your luxury airport transfer in less than 2 minutes. Get instant confirmation and travel with peace of mind.
                             </p>
                             <div className="space-y-6">
                                 <div className="flex items-center gap-4 group">
                                     <div className="w-12 h-12 rounded-full border border-gold/20 flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-navy transition-all">
                                         <Clock className="w-5 h-5" />
                                     </div>
-                                    <div>
+                                    <div className="text-left">
                                         <p className="text-white font-bold text-sm">Real-time Flight Tracking</p>
                                         <p className="text-gray-500 text-xs">We wait even if your flight is delayed</p>
                                     </div>
@@ -144,7 +182,7 @@ export default async function AirportPage({ params }: { params: Promise<{ slug: 
                                     <div className="w-12 h-12 rounded-full border border-gold/20 flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-navy transition-all">
                                         <ShieldCheck className="w-5 h-5" />
                                     </div>
-                                    <div>
+                                    <div className="text-left">
                                         <p className="text-white font-bold text-sm">Secure Booking</p>
                                         <p className="text-gray-500 text-xs">SSL Encrypted processing</p>
                                     </div>
@@ -162,3 +200,4 @@ export default async function AirportPage({ params }: { params: Promise<{ slug: 
         </main>
     );
 }
+

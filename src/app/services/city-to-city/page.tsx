@@ -5,10 +5,12 @@ import HowItWorks from '@/components/HowItWorks';
 import FAQSection from '@/components/FAQSection';
 import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
+import Breadcrumb from '@/components/Breadcrumb';
+import ServiceSchema from '@/components/ServiceSchema';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Taxi from City to City | Italian Taxi Service",
+  title: "City to City Transfers Italy | Private Intercity Taxi",
   description: "Travel between Italian cities in comfort and luxury. Door-to-door point-point-transfers with professional drivers. Rome, Florence, Milan, and more.",
   alternates: {
     canonical: "/services/city-to-city",
@@ -16,22 +18,61 @@ export const metadata: Metadata = {
 };
 
 export default function CityToCityPage() {
+  const url = "https://www.italytaxiservice.com/services/city-to-city";
   const features = [
     "Direct door-to-door service",
     "Fixed & transparent pricing",
     "Spacious luggage capacity",
-    "taxi taxi fleet",
+    "Premium vehicle fleet",
     "Safe long-distance travel",
     "Stops upon request"
   ];
 
+  const faqs = [
+    {
+        q: "How can I book a taxi from one city to another?",
+        a: "You can book easily via our online form or WhatsApp. Simply provide your pickup city, destination, and preferred time."
+    },
+    {
+        q: "Can I request scenic stops during long-distance transfers?",
+        a: "Yes, we allow custom stops for sightseeing or breaks. Please mention this during booking so we can plan the best route."
+    },
+    {
+        q: "Is the price fixed for intercity transfers?",
+        a: "Absolutely. We provide a fixed quote upfront that includes tolls, fuel, and wait time. No hidden costs."
+    },
+    {
+        q: "What cities in Italy do you cover?",
+        a: "We cover all major cities including Rome, Milan, Florence, Venice, Naples, and business hubs like Bologna."
+    },
+    {
+        q: "Is luggage space sufficient for families?",
+        a: "Yes, our fleet includes Vans and SUVs with ample luggage space. Let us know your bag count for the right vehicle."
+    }
+  ];
+
   return (
     <main className="min-h-screen">
+      <ServiceSchema 
+        name="Private City to City Transfers Italy" 
+        description="Premium private intercity taxi service across Italy. Safe and comfortable door-to-door travel." 
+        url={url} 
+      />
       <Navbar />
+
+      <div className="container mx-auto px-6 pt-10">
+        <Breadcrumb 
+          items={[
+            { name: "Services", item: "/services" },
+            { name: "City to City", item: "/services/city-to-city" }
+          ]} 
+        />
+      </div>
+
       <PageHero
         titleTop="Comfortable City-to-City"
         titleBottom="Transfers in Italy"
-        description="Travel between major cities like Rome, Milan, Florence, and Venice in absolute comfort and taxi style."
+        description="Travel between major cities like Rome, Milan, Florence, and Venice in absolute comfort and luxury style."
         backgroundImage="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=2017&auto=format&fit=crop"
         buttonText="Book Intercity Transfer"
       />
@@ -47,10 +88,9 @@ export default function CityToCityPage() {
         bg="bg-[#F8F9FA]"
       />
 
-
       <HowItWorks />
 
-      <FAQSection />
+      <FAQSection faqs={faqs} title="City Transfer FAQs" />
 
       <CTA />
 
@@ -58,3 +98,4 @@ export default function CityToCityPage() {
     </main>
   );
 }
+

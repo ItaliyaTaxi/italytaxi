@@ -6,10 +6,12 @@ import HowItWorks from '@/components/HowItWorks';
 import FAQSection from '@/components/FAQSection';
 import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
+import Breadcrumb from '@/components/Breadcrumb';
+import ServiceSchema from '@/components/ServiceSchema';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: "Private Sightseeing Tours | Italian Taxi Service",
+    title: "Private Sightseeing Tours Italy | Custom Taxi Excursions",
     description: "Discover Italy with our premium private taxi tours. Expert chauffeurs take you to the Colosseum, Tuscany, Amalfi Coast and more on your own schedule.",
     alternates: {
         canonical: "/services/private-tours",
@@ -17,6 +19,7 @@ export const metadata: Metadata = {
 };
 
 export default function PrivateToursPage() {
+    const url = "https://www.italytaxiservice.com/services/private-tours";
     const features = [
         "Fully customizable itineraries",
         "Expert local chauffeurs",
@@ -26,9 +29,47 @@ export default function PrivateToursPage() {
         "Stops for photos & dining"
     ];
 
+    const tourFaqs = [
+        {
+            q: "How can I customize my private tour of Italy?",
+            a: "Simply contact us with your preferred destinations. We can tailor the route, duration, and stops to match your interests, whether it's wine, history, or coastal views."
+        },
+        {
+            q: "Do tours include official museum guides?",
+            a: "Our chauffeurs are knowledgeable local drivers. For in-depth historical walkthroughs inside monuments like the Vatican, we can help you book a licensed professional tour guide."
+        },
+        {
+            q: "What is the best way to see the Amalfi Coast or Tuscany?",
+            a: "A private taxi tour is the best way to handle the winding roads of Amalfi or the remote vineyards of Tuscany without the stress of driving yourself."
+        },
+        {
+            q: "Can I book a tour directly from my hotel or cruise port?",
+            a: "Yes! We offer convenient door-to-door tours starting and ending at your hotel, Airbnb, or directly from any major Italian cruise ship pier."
+        },
+        {
+            q: "Are the tour prices fixed or per person?",
+            a: "Our tours are priced per vehicle (sedan or van), not per person, making it an excellent value for families and small groups."
+        }
+    ];
+
     return (
         <main className="min-h-screen">
+            <ServiceSchema 
+                name="Private Sightseeing Tours Italy" 
+                description="Premium customizable private taxi tours and excursions across Italy's most iconic landmarks." 
+                url={url} 
+            />
             <Navbar />
+
+            <div className="container mx-auto px-6 pt-10">
+                <Breadcrumb 
+                    items={[
+                        { name: "Services", item: "/services" },
+                        { name: "Private Tours", item: "/services/private-tours" }
+                    ]} 
+                />
+            </div>
+
             <PageHero
                 titleTop="Explore Italy with"
                 titleBottom="Private Taxi Tours"
@@ -62,7 +103,7 @@ export default function PrivateToursPage() {
                             <Link 
                                 key={i} 
                                 href={tour.path}
-                                className="p-6 rounded-2xl border border-gray-100 hover:border-gold hover:shadow-xl transition-all font-bold text-navy block"
+                                className="p-6 rounded-2xl border border-gray-100 font-bold text-navy block hover:border-gold hover:text-gold hover:shadow-xl transition-all"
                             >
                                 {tour.name}
                             </Link>
@@ -72,9 +113,10 @@ export default function PrivateToursPage() {
             </section>
 
             <HowItWorks />
-            <FAQSection />
+            <FAQSection faqs={tourFaqs} title="Private Tour FAQs" />
             <CTA />
             <Footer />
         </main>
     );
 }
+
