@@ -1,3 +1,8 @@
+"use client";
+
+import { useState } from 'react';
+import { ChevronDown } from 'lucide-react';
+
 interface FAQ {
     q: string;
     a: string;
@@ -34,6 +39,7 @@ export default function FAQSection({
     ];
 
     const faqs = customFaqs || defaultFaqs;
+    const [openIndex, setOpenIndex] = useState<number | null>(null);
 
     const faqSchema = {
         "@context": "https://schema.org",
@@ -64,21 +70,42 @@ export default function FAQSection({
                     <div className="w-20 h-1 bg-gold mx-auto mt-6" />
                 </div>
 
-                <div className="max-w-4xl mx-auto grid gap-6">
-                    {faqs.map((faq, index) => (
-                        <div
-                            key={index}
-                            className="uiverse-card p-10 group animate-slide-left cursor-pointer transition-all w-full text-left"
-                            style={{ animationDelay: `${index * 0.1}s` }}
-                        >
-                            <div className="w-full">
-                                <h3 className="text-xl font-bold text-white mb-4 group-hover:text-gold transition-colors">{faq.q}</h3>
-                                <p className="text-gray-400 leading-relaxed text-sm">
-                                    {faq.a}
-                                </p>
+                <div className="max-w-4xl mx-auto grid gap-4">
+                    {faqs.map((faq, index) => {
+                        const isOpen = openIndex === index;
+                        return (
+                            <div
+                                key={index}
+                                className="uiverse-card group animate-slide-left transition-all w-full text-left overflow-hidden"
+                                style={{ animationDelay: `${index * 0.1}s`, flexDirection: 'column', alignItems: 'stretch' }}
+                            >
+                                {/* Question row — single line with chevron always on the right */}
+                                <button
+                                    className="w-full flex items-center justify-between gap-4 text-left focus:outline-none px-8 py-6"
+                                    onClick={() => setOpenIndex(isOpen ? null : index)}
+                                    aria-expanded={isOpen}
+                                >
+                                    <span className={`font-bold text-base md:text-lg leading-snug transition-colors flex-1 ${isOpen ? 'text-gold' : 'text-white group-hover:text-gold'}`}>
+                                        {faq.q}
+                                    </span>
+                                    <div className={`shrink-0 w-8 h-8 rounded-full border flex items-center justify-center transition-all ${isOpen ? 'bg-gold text-navy border-gold' : 'border-white/20 text-white group-hover:border-gold group-hover:text-gold'}`}>
+                                        <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
+                                    </div>
+                                </button>
+
+                                {/* Answer — appears below on expand */}
+                                <div
+                                    className={`grid transition-all duration-300 ease-in-out ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
+                                >
+                                    <div className="overflow-hidden">
+                                        <p className="text-gray-400 leading-relaxed text-sm px-8 pb-6 pt-0">
+                                            {faq.a}
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    ))}
+                        );
+                    })}
                 </div>
             </div>
         </section>

@@ -3,7 +3,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { Mail, Instagram, Facebook } from 'lucide-react';
+import { Mail, Instagram, Facebook, MapPin, Phone } from 'lucide-react';
 import TaxiButton from './TaxiButton';
 import { useLanguage } from '@/context/LanguageContext';
 
@@ -28,7 +28,15 @@ export default function Footer() {
                         </p>
                         <ul className="space-y-4 text-xs mb-8">
                             <li className="flex items-center gap-3">
-                                <Mail className="w-4 h-4 text-gold" />
+                                <MapPin className="w-4 h-4 text-gold shrink-0" />
+                                <span>Via della Conciliazione, 1, 00193 Roma RM, Italy</span>
+                            </li>
+                            <li className="flex items-center gap-3">
+                                <Phone className="w-4 h-4 text-gold shrink-0" />
+                                <a href="https://wa.me/923148932631" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors">0314-8932631 (WhatsApp)</a>
+                            </li>
+                            <li className="flex items-center gap-3">
+                                <Mail className="w-4 h-4 text-gold shrink-0" />
                                 <a href="mailto:booking@italytaxiservice.com" className="hover:text-gold transition-colors">booking@italytaxiservice.com</a>
                             </li>
                         </ul>
