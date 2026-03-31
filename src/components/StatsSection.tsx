@@ -1,44 +1,76 @@
 import { Award, Users, MapPin, Star } from 'lucide-react';
 
-export default function StatsSection() {
-    const stats = [
-        { label: "Rides Completed", value: "10,000+", icon: <Award className="w-8 h-8" /> },
-        { label: "Happy Travelers", value: "25,000+", icon: <Users className="w-8 h-8" /> },
-        { label: "Cities Served", value: "30+", icon: <MapPin className="w-8 h-8" /> },
-        { label: "Service Rating", value: "5.0", icon: <Star className="w-8 h-8" /> },
-    ];
+const stats = [
+    {
+        value: "10,000+",
+        label: "Transfers Completed",
+        context: "Across airports, cities, cruise ports & wedding venues throughout Italy since 2013.",
+        icon: <Award className="w-8 h-8" />,
+    },
+    {
+        value: "25,000+",
+        label: "Passengers Served",
+        context: "From solo business travellers to families of eight — every passenger arrives safely and on time.",
+        icon: <Users className="w-8 h-8" />,
+    },
+    {
+        value: "30+",
+        label: "Cities & Airports",
+        context: "Full coverage from the Alps to Sicily — every major Italian city, airport, and cruise port.",
+        icon: <MapPin className="w-8 h-8" />,
+    },
+    {
+        value: "4.9 ★",
+        label: "Average Rating",
+        context: "Verified across Google, TripAdvisor, and direct feedback — 500+ five-star reviews.",
+        icon: <Star className="w-8 h-8" />,
+    },
+];
 
+interface StatsSectionProps {
+    variant?: 'dark' | 'light';
+}
+
+export default function StatsSection({ variant = 'dark' }: StatsSectionProps) {
+    const isDark = variant === 'dark';
     return (
-        <section className="py-24 bg-navy relative overflow-hidden">
-            <div className="container mx-auto px-6 relative z-10">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <section className={`py-24 ${isDark ? 'bg-navy' : 'bg-[#F8F9FA]'} relative overflow-hidden font-inter`}>
+            {/* Pattern Overlay */}
+            <div className={`absolute inset-0 ${isDark ? 'opacity-5' : 'opacity-[0.03]'} pointer-events-none`}
+                style={{ backgroundImage: `radial-gradient(circle, ${isDark ? '#F4C430' : '#0F1C2E'} 1px, transparent 1px)`, backgroundSize: '40px 40px' }} />
+
+            <div className="container mx-auto px-6 relative z-10 max-w-6xl">
+                <div className="text-center mb-14">
+                    <p className="text-gold text-sm font-bold uppercase tracking-[0.4em] mb-4">By the Numbers</p>
+                    <h2 className={`text-4xl md:text-5xl font-extrabold ${isDark ? 'text-white' : 'text-navy'} leading-tight`}>
+                        A Decade of Private Taxi Service in Italy
+                    </h2>
+                    <div className="w-20 h-1 bg-gold mx-auto mt-6" />
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {stats.map((stat, index) => (
                         <div
                             key={index}
-                            className="uiverse-card p-10 group animate-slide-left min-h-[220px]"
-                            style={{ animationDelay: `${index * 0.1}s` }}
+                            className={`${isDark ? 'uiverse-card' : 'bg-white border border-gray-100 shadow-sm'} p-8 group animate-slide-left rounded-2xl`}
+                            style={{ animationDelay: `${index * 0.1}s`, flexDirection: 'column', alignItems: 'stretch' }}
                         >
-                            <div className="flex flex-col items-center text-center w-full">
-                                <div className="inline-flex items-center justify-center p-5 rounded-2xl bg-white/5 border border-white/10 text-gold mb-6 group-hover:scale-110 group-hover:bg-gold group-hover:text-navy transition-all duration-500 shadow-lg">
+                            <div className="flex flex-col items-center text-center w-full gap-4">
+                                <div className={`inline-flex items-center justify-center p-4 rounded-2xl ${isDark ? 'bg-white/5 border border-white/10 text-gold' : 'bg-gold/10 text-navy'} group-hover:scale-110 group-hover:bg-gold group-hover:text-navy transition-all duration-500 shadow-lg`}>
                                     {stat.icon}
                                 </div>
-                                <div className="text-4xl md:text-5xl font-extrabold text-white mb-2 tracking-tight">{stat.value}</div>
-                                <div className="text-gold/80 text-[10px] font-bold uppercase tracking-[0.3em]">{stat.label}</div>
+                                <div>
+                                    <div className={`text-4xl md:text-5xl font-extrabold ${isDark ? 'text-white' : 'text-navy'} tracking-tight`}>{stat.value}</div>
+                                    <div className="text-gold text-[10px] font-bold uppercase tracking-[0.3em] mt-1">{stat.label}</div>
+                                </div>
+                                <p className={`${isDark ? 'text-gray-400 border-white/10' : 'text-gray-500 border-gray-100'} text-xs leading-relaxed text-center border-t pt-4 w-full`}>
+                                    {stat.context}
+                                </p>
                             </div>
                         </div>
                     ))}
                 </div>
-
-                <div className="mt-20 text-center max-w-3xl mx-auto">
-                    <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">Built on Trust and Excellence</h2>
-                    <p className="text-gray-400">
-                        Our growth is a testament to our commitment to quality and safety. We don't just provide rides; we provide peace of mind in every Italian mile.
-                    </p>
-                </div>
             </div>
-
-            {/* Pattern Overlay */}
-            <div className="absolute inset-0 opacity-5 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, #F4C430 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
         </section>
     );
 }
