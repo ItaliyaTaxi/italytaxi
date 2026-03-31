@@ -33,11 +33,11 @@ export default function Footer() {
                             </li>
                             <li className="flex items-center gap-3">
                                 <Phone className="w-4 h-4 text-gold shrink-0" />
-                                <a href="https://wa.me/923148932631" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors">0314-8932631 (WhatsApp)</a>
+                                <a href="https://wa.me/923148932631" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors">WhatsApp Chat</a>
                             </li>
                             <li className="flex items-center gap-3">
                                 <Mail className="w-4 h-4 text-gold shrink-0" />
-                                <a href="mailto:booking@italytaxiservice.com" className="hover:text-gold transition-colors">booking@italytaxiservice.com</a>
+                                <a href="mailto:info@italytaxiservice.com" className="hover:text-gold transition-colors">info@italytaxiservice.com</a>
                             </li>
                         </ul>
                         <div className="flex gap-4">

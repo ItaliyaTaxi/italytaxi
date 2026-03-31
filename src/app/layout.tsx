@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Montserrat, Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
-import WhatsAppButton from "@/components/WhatsAppButton";
+import FloatingContact from "@/components/FloatingContact";
+import LanguageModal from "@/components/LanguageModal";
 import { LanguageProvider } from "@/context/LanguageContext";
 import Script from "next/script";
 import JsonLd from "@/components/JsonLd";
@@ -101,7 +102,8 @@ export default function RootLayout({
 
         <LanguageProvider>
           {children}
-          <WhatsAppButton />
+          <FloatingContact />
+          <LanguageModal />
         </LanguageProvider>
       </body>
     </html>
