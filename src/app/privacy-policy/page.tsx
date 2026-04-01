@@ -205,7 +205,7 @@ export default function PrivacyPolicyPage() {
                     { right: "Right to Data Portability", desc: "Receive your data in a structured, machine-readable format for transfer to another provider." },
                     { right: "Right to Object", desc: "Object to processing based on legitimate interests, including direct marketing." },
                     { right: "Right to Withdraw Consent", desc: "Withdraw consent for marketing communications at any time without affecting prior processing." },
-                    { right: "Right to Lodge a Complaint", desc: "File a complaint with the Italian Data Protection Authority (Garante): www.garanteprivacy.it" },
+                    { right: "Right to Lodge a Complaint", desc: "File a complaint with the Italian Data Protection Authority (Garante)." },
                   ].map((item, i) => (
                     <div key={i} className="p-5 rounded-2xl border border-gray-100 bg-white shadow-sm hover:border-gold transition-all">
                       <p className="font-bold text-navy text-sm mb-2">{item.right}</p>
@@ -262,8 +262,7 @@ export default function PrivacyPolicyPage() {
                     <p>📍 Via della Conciliazione, 1, 00193 Roma RM, Italy</p>
                   </div>
                   <p className="mt-6 text-xs text-gray-500">
-                    If you are not satisfied with our response, you have the right to lodge a complaint with the Italian Data Protection Authority (Garante per la protezione dei dati personali) at{' '}
-                    <a href="https://www.garanteprivacy.it" target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">www.garanteprivacy.it</a>.
+                    If you are not satisfied with our response, you have the right to lodge a complaint with the Italian Data Protection Authority (Garante per la protezione dei dati personali).
                   </p>
                 </div>
               </section>

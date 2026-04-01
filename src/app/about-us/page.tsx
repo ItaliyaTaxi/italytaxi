@@ -17,7 +17,7 @@ import TaxiButton from '@/components/TaxiButton';
 
 export const metadata: Metadata = {
     title: "About Italy Taxi Service | Professional Private Taxi & Transfers Across Italy",
-    description: "Italy Taxi Service — Italy's premier private taxi and transfer company since 2013. NCC-licensed drivers, fixed prices, 10,000+ rides across Rome, Milan, Florence, Venice & 30+ cities.",
+    description: "Italy Taxi Service — Italy's private taxi and transfer company since 2013. NCC-licensed drivers, fixed prices, 10,000+ rides across Rome, Milan, Florence, Venice & 30+ cities.",
     alternates: { canonical: "/about-us" }
 };
 
@@ -116,7 +116,7 @@ export default function AboutUsPage() {
             <Navbar />
 
             <PageHero
-                titleTop="Italy's Premier Private"
+                titleTop="About Italy"
                 titleBottom="Taxi & Transfer Service"
                 description="NCC-licensed drivers, fixed prices, and nationwide coverage — trusted by thousands of travellers across Rome, Milan, Florence, Venice, and beyond since 2013."
                 backgroundImage="/images/hero.png"
