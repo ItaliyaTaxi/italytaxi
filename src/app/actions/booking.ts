@@ -30,8 +30,8 @@ export async function submitBooking(_prevState: any, formData: FormData) {
 
         if (dbError) throw dbError;
 
+        // 1. Admin notification
         try {
-            // Admin notification
             await sendEmail({
                 to: 'booking@italytaxiservice.com',
                 subject: `New Booking Request from ${name}`,
@@ -48,8 +48,12 @@ export async function submitBooking(_prevState: any, formData: FormData) {
                     </table>
                 `,
             });
+        } catch (adminEmailError) {
+            console.error('[BOOKING] Admin email notification failed:', adminEmailError);
+        }
 
-            // Customer confirmation
+        // 2. Customer confirmation
+        try {
             await sendEmail({
                 to: email,
                 subject: `Booking Confirmed — Italy Taxi Service`,
@@ -69,8 +73,8 @@ export async function submitBooking(_prevState: any, formData: FormData) {
                     </div>
                 `,
             });
-        } catch (emailError) {
-            console.error('Email notification failed:', emailError);
+        } catch (customerEmailError) {
+            console.error('[BOOKING] Customer email confirmation failed:', customerEmailError);
         }
 
         return {

@@ -51,7 +51,7 @@ export default function LakeGardaPage() {
         titleTop="Private Taxi Transfers to"
         titleBottom="The Beautiful Lake Garda"
         description="Relax as you travel to Italy's largest lake. Comfortable, reliable, and professional transport from any major airport or city."
-        backgroundImage="https://images.unsplash.com/photo-1544015759-137fdf556bf1?q=80&w=2070&auto=format&fit=crop"
+        backgroundImage="https://images.unsplash.com/photo-1463130456064-07f0bb814fb9?q=80&w=2070&auto=format&fit=crop"
         buttonText="Book Lake Garda Taxi"
       />
 

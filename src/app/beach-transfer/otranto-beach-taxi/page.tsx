@@ -51,7 +51,7 @@ export default function OtrantoBeachPage() {
         titleTop="Private Taxi Transfers to"
         titleBottom="The Pristine Otranto Beaches"
         description="Discover the turquoise waters of Salento. Comfortable, reliable, and professional transport to Italy's most eastern shores."
-        backgroundImage="https://images.unsplash.com/photo-1516938933201-3837497645f7?q=80&w=2070&auto=format&fit=crop"
+        backgroundImage="https://images.unsplash.com/photo-1533682805518-48d1f5e8cd3e?q=80&w=2070&auto=format&fit=crop"
         buttonText="Book Otranto Taxi"
       />
 

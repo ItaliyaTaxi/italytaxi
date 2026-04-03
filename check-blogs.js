@@ -15,11 +15,11 @@ const supabase = createClient(
 );
 
 async function check() {
-  const { data: selectData, error: selectError } = await supabase.from('blogs').select('*').limit(1);
-  if (selectError) {
-    console.error('Select failed', selectError);
+  const { data: countData, error: countError, count } = await supabase.from('blogs').select('*', { count: 'exact', head: true }).eq('status', 'published');
+  if (countError) {
+    console.error('Count failed', countError);
   } else {
-    console.log('Sample row:', selectData);
+    console.log('Total published blogs:', count);
   }
 }
 check();

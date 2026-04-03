@@ -51,7 +51,7 @@ export default function CostaSmeraldaBeachPage() {
         titleTop="Premium Private Taxi to the"
         titleBottom="Exclusive Costa Smeralda"
         description="Luxury travel on the Emerald Coast. Professional, discreet, and reliable transport to Sardinia's most prestigious destination."
-        backgroundImage="https://images.unsplash.com/photo-1544333323-5773634020a0?q=80&w=2070&auto=format&fit=crop"
+        backgroundImage="https://images.unsplash.com/photo-1515542622106-78b28af7815d?q=80&w=2070&auto=format&fit=crop"
         buttonText="Book Costa Smeralda Taxi"
       />
 

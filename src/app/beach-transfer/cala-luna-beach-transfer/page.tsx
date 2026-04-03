@@ -51,7 +51,7 @@ export default function CalaLunaBeachPage() {
         titleTop="Private Taxi Transfers to"
         titleBottom="The Paradise of Cala Luna"
         description="Your gateway to the Gulf of Orosei. Comfortable, reliable transport to the boat departures for Sardinia's most famous beach."
-        backgroundImage="https://images.unsplash.com/photo-1516483642781-7144edd95b64?q=80&w=2070&auto=format&fit=crop"
+        backgroundImage="https://images.unsplash.com/photo-1555881400-61b4718dc602?q=80&w=2070&auto=format&fit=crop"
         buttonText="Book Cala Luna Transfer"
       />
 

@@ -51,7 +51,7 @@ export default function SardiniaBeachPage() {
         titleTop="Private Taxi Transfers to"
         titleBottom="Sardinia's World-Class Beaches"
         description="Experience the Mediterranean's most beautiful island in absolute comfort. Professional door-to-door service to every coastal paradise."
-        backgroundImage="https://images.unsplash.com/photo-1544333323-5773634020a0?q=80&w=2070&auto=format&fit=crop"
+        backgroundImage="https://images.unsplash.com/photo-1515542622106-78b28af7815d?q=80&w=2070&auto=format&fit=crop"
         buttonText="Book Sardinia Transfer"
       />
 

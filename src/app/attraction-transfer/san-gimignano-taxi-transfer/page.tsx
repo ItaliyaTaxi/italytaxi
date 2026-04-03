@@ -51,7 +51,7 @@ export default function SanGimignanoPage() {
         titleTop="Private Taxi Transfers to the"
         titleBottom="Medieval San Gimignano"
         description="Experience the towers of Tuscany's most beautiful hilltop town. Professional door-to-door service for a seamless journey."
-        backgroundImage="https://images.unsplash.com/photo-1599818451336-6e7ec500742d?q=80&w=2070&auto=format&fit=crop"
+        backgroundImage="https://images.unsplash.com/photo-1463130456064-07f0bb814fb9?q=80&w=2070&auto=format&fit=crop"
         buttonText="Book San Gimignano Taxi"
       />
 

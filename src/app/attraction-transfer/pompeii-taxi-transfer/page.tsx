@@ -37,7 +37,7 @@ export default function PompeiiPage() {
         titleTop="Private Taxi Transfer to the"
         titleBottom="Ancient Ruins of Pompeii"
         description="Step back in time without the hassle. Arrive at the gates of the world's most famous archaeological site in comfort and style."
-        backgroundImage="https://images.unsplash.com/photo-1596627003813-f938d9758e57?q=80&w=2070&auto=format&fit=crop"
+        backgroundImage="https://images.unsplash.com/photo-1543429776-278263256e29?q=80&w=2070&auto=format&fit=crop"
         breadcrumbs={[
           { name: "Attraction Transfers", item: "/attraction-transfer" },
             { name: "Pompeii", item: "/attraction-transfer/pompeii-taxi-transfer" }

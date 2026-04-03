@@ -1,11 +1,13 @@
 import nodemailer from 'nodemailer';
 
 function createTransporter(user: string, pass: string) {
+    const port = Number(process.env.SMTP_PORT) || 465;
     return nodemailer.createTransport({
         host: process.env.SMTP_HOST || 'smtp.improvmx.com',
-        port: Number(process.env.SMTP_PORT) || 465,
-        secure: true, // SSL on port 465 — not blocked by ISPs or Vercel
+        port,
+        secure: port === 465, // SSL on port 465, STARTTLS on 587
         auth: { user, pass },
+        tls: { rejectUnauthorized: false } // Helps with testing and temporary SSL mismatches
     });
 }
 
@@ -37,11 +39,18 @@ export async function sendEmail({ to, subject, text, html, fromAccount = 'bookin
 
     const transporter = createTransporter(user.trim(), pass.trim());
 
-    await transporter.sendMail({
-        from: `"Italy Taxi Service" <${(fromEmail || user).trim()}>`,
-        to,
-        subject,
-        text,
-        html,
-    });
+    try {
+        await transporter.sendMail({
+            from: `"Italy Taxi Service" <${(fromEmail || user).trim()}>`,
+            to,
+            subject,
+            text,
+            html,
+            replyTo: (fromEmail || user).trim(),
+        });
+        console.log(`[MAILER] Successfully sent email to ${to} via ${user.trim()}`);
+    } catch (error) {
+        console.error(`[MAILER] Error sending email to ${to}:`, error);
+        throw error;
+    }
 }

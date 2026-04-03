@@ -51,7 +51,7 @@ export default function PiazzaDelCampoPage() {
         titleTop="Private Taxi Transfers to"
         titleBottom="Siena's Piazza del Campo"
         description="Experience the medieval heart of Tuscany. Premium door-to-door service to one of Europe's greatest medieval squares."
-        backgroundImage="https://images.unsplash.com/photo-1541542684-21017ab49320?q=80&w=2070&auto=format&fit=crop"
+        backgroundImage="https://images.unsplash.com/photo-1543429776-278263256e29?q=80&w=2070&auto=format&fit=crop"
         buttonText="Book Siena Transfer"
       />
 

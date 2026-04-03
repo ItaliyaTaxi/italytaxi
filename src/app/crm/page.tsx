@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabase/client';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { deleteBookingAction, deleteContactAction } from '@/app/actions/crm';
 
 export default function CRMPage() {
     const [bookings, setBookings] = useState<any[]>([]);
@@ -50,14 +51,22 @@ export default function CRMPage() {
 
     async function deleteBooking(id: string) {
         if (!confirm('Delete this booking? This cannot be undone.')) return;
-        const { error } = await supabase.from('bookings').delete().eq('id', id);
-        if (!error) setBookings(bookings.filter(b => b.id !== id));
+        try {
+            await deleteBookingAction(id);
+            setBookings(bookings.filter(b => b.id !== id));
+        } catch (error: any) {
+            alert('Error: Could not delete booking. ' + error.message);
+        }
     }
 
     async function deleteContact(id: string) {
         if (!confirm('Delete this contact message? This cannot be undone.')) return;
-        const { error } = await supabase.from('contacts').delete().eq('id', id);
-        if (!error) setContacts(contacts.filter(c => c.id !== id));
+        try {
+            await deleteContactAction(id);
+            setContacts(contacts.filter(c => c.id !== id));
+        } catch (error: any) {
+            alert('Error: Could not delete contact message. ' + error.message);
+        }
     }
 
     if (!user && !loading) return null;
