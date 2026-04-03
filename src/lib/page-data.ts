@@ -350,6 +350,13 @@ export const cities: CityData[] = [
         popular_tours: ["Positano Day Trip", "Ravello Gardens", "Amalfi Cathedral Visit"]
     },
     {
+        slug: "amalfi-coast",
+        name: "Amalfi Coast",
+        hero_image: "/images/almafi.webp",
+        description: "Discover the UNESCO-listed Amalfi Coast in absolute comfort. Professional door-to-door taxi service between Positano, Ravello, Amalfi, Praiano and the surrounding villages.",
+        popular_tours: ["Positano Day Trip", "Ravello Gardens", "Amalfi Cathedral Visit"]
+    },
+    {
         slug: "como",
         name: "Como",
         hero_image: "/images/Lake Como.avif",

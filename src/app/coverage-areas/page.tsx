@@ -40,10 +40,10 @@ const airports = [
   { name: "Rome Ciampino (CIA)", href: "/airport/rome-ciampino" },
   { name: "Milan Malpensa (MXP)", href: "/airport/milan-malpensa" },
   { name: "Milan Linate (LIN)", href: "/airport/milan-linate" },
-  { name: "Venice Marco Polo (VCE)", href: "/airport/venice-marco-polo" },
-  { name: "Florence Peretola (FLR)", href: "/airport/florence-peretola" },
-  { name: "Naples Capodichino (NAP)", href: "/airport/naples-capodichino" },
-  { name: "Catania Fontanarossa (CTA)", href: "/airport/catania" },
+  { name: "Venice Marco Polo (VCE)", href: "/airport/venice" },
+  { name: "Florence Peretola (FLR)", href: "/airport/florence" },
+  { name: "Naples Capodichino (NAP)", href: "/airport/naples" },
+  { name: "Catania Fontanarossa (CTA)", href: "/airport/catania-fontanarossa" },
 ];
 
 export default function CoverageAreasPage() {

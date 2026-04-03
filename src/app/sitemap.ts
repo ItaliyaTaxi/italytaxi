@@ -1,183 +1,134 @@
 import { MetadataRoute } from 'next';
-import { airports, cities, tours } from '@/lib/page-data';
 import { supabase } from '@/lib/supabase/client';
+import fs from 'fs';
+import path from 'path';
 
 const BASE_URL = 'https://www.italytaxiservice.com';
 
-const staticPages = [
-  '/',
-  '/about-us',
-  '/contact',
-  '/book-now',
-  '/faq',
-  '/drivers',
-  '/coverage-areas',
-  '/blog',
-  '/privacy-policy',
-  '/terms-and-conditions',
-  '/airport',
-  '/city',
-  '/services',
-  '/border',
-  '/tour',
-];
+// Routes to exclude from the sitemap (admin, api, auth, internal)
+const EXCLUDED_SEGMENTS = new Set([
+  'crm', 'api', '_next', 'admin', 'auth',
+  '(auth)', '(admin)', '(protected)',
+]);
 
-const servicePages = [
-  '/services/airport-transfers',
-  '/services/city-to-city',
-  '/services/private-tours',
-  '/services/hotel-transfers',
-  '/services/business-taxi',
-  '/services/hourly-taxi',
-  '/services/wedding-transfers',
-  '/services/wedding-events',
-  '/services/cruise-port-transfers',
-];
+// Priority/frequency config per route pattern
+function routeConfig(urlPath: string) {
+  if (urlPath === '/') return { priority: 1.0, changeFrequency: 'daily' as const };
+  if (['/book-now', '/contact', '/services'].includes(urlPath)) return { priority: 0.9, changeFrequency: 'weekly' as const };
+  if (urlPath.startsWith('/airport/') || urlPath.startsWith('/city/')) return { priority: 0.9, changeFrequency: 'weekly' as const };
+  if (urlPath.startsWith('/services/') || urlPath.startsWith('/tour/')) return { priority: 0.8, changeFrequency: 'weekly' as const };
+  if (urlPath.startsWith('/blog/')) return { priority: 0.8, changeFrequency: 'weekly' as const };
+  if (urlPath.startsWith('/attraction-transfer/') || urlPath.startsWith('/beach-transfer/')) return { priority: 0.7, changeFrequency: 'monthly' as const };
+  if (urlPath.startsWith('/border/')) return { priority: 0.7, changeFrequency: 'monthly' as const };
+  return { priority: 0.6, changeFrequency: 'monthly' as const };
+}
 
-const attractionTransfers = [
-  'amalfi-coast-taxi-transfer',
-  'arena-di-verona-taxi-transfer',
-  'capri-island-taxi-transfer',
-  'castel-dell-ovo-taxi-transfer',
-  'cinque-terre-taxi-transfer',
-  'colosseum-taxi-transfer',
-  'costa-smeralda-taxi-transfer',
-  'dolomites-taxi-transfer',
-  'elba-island-taxi-transfer',
-  'florence-cathedral-taxi-transfer',
-  'lake-como-taxi-transfer',
-  'lake-garda-taxi-transfer',
-  'lake-maggiore-taxi-transfer',
-  'leaning-tower-of-pisa-taxi-transfer',
-  'mole-antonelliana-taxi-transfer',
-  'mount-etna-taxi-transfer',
-  'paestum-temples-taxi-transfer',
-  'pantheon-taxi-transfer',
-  'piazza-del-campo-taxi-transfer',
-  'pompeii-taxi-transfer',
-  'rialto-bridge-taxi-transfer',
-  'royal-palace-caserta-taxi-transfer',
-  'san-gimignano-taxi-transfer',
-  'sassi-matera-taxi-transfer',
-  'st-marks-basilica-taxi-transfer',
-  'trevi-fountain-taxi-transfer',
-  'trulli-alberobello-taxi-transfer',
-  'uffizi-gallery-taxi-transfer',
-  'valley-of-the-temples-taxi-transfer',
-  'vatican-museums-taxi-transfer',
-];
+/**
+ * Recursively walk the Next.js app directory and collect all routable paths.
+ * - Skips excluded segments, files, and dynamic [slug] directories (handled separately).
+ * - Returns URL paths like ['/', '/about-us', '/services/airport-transfers', ...]
+ */
+function discoverStaticRoutes(appDir: string): string[] {
+  const routes: string[] = [];
 
-const beachTransfers = [
-  'amalfi-coast-taxi',
-  'cala-luna-beach-transfer',
-  'camogli-taxi-transfer',
-  'capri-island-taxi',
-  'conero-beach-taxi',
-  'costa-smeralda-taxi',
-  'elba-beach-taxi',
-  'ischia-beach-taxi',
-  'lido-venezia-beach-taxi',
-  'otranto-beach-taxi',
-  'polignano-a-mare-beach-taxi',
-  'portofino-taxi-transfer',
-  'positano-beach-taxi',
-  'rimini-beach-taxi',
-  'san-vito-lo-capo-taxi',
-  'sardinia-beach-transfers',
-  'sirolo-beach-taxi',
-  'sperlonga-taxi-transfer',
-  'taormina-beach-transfer',
-  'tropea-beach-taxi',
-];
+  function walk(dir: string, urlParts: string[]) {
+    const entries = fs.readdirSync(dir, { withFileTypes: true });
+    const hasPage = entries.some(
+      (e) => e.isFile() && (e.name === 'page.tsx' || e.name === 'page.ts')
+    );
 
-const borderSlugs = [
-  'italy-to-switzerland',
-  'italy-to-france',
-  'italy-to-austria',
-  'italy-to-germany',
-  'italy-to-slovenia',
-  'italy-to-croatia',
-];
+    if (hasPage) {
+      routes.push('/' + urlParts.join('/'));
+    }
+
+    for (const entry of entries) {
+      if (!entry.isDirectory()) continue;
+      const name = entry.name;
+      // Skip excluded, special Next.js folders, and dynamic segments
+      if (
+        EXCLUDED_SEGMENTS.has(name) ||
+        name.startsWith('_') ||
+        name.startsWith('(') ||
+        name.startsWith('[') // dynamic — handled separately
+      ) continue;
+
+      walk(path.join(dir, name), [...urlParts, name]);
+    }
+  }
+
+  walk(appDir, []);
+  return routes;
+}
+
+/**
+ * For a dynamic [slug] route (e.g. /beach-transfer/[slug]),
+ * read all subdirectory names as slugs directly from the filesystem.
+ */
+function discoverDynamicSlugs(appDir: string, routeSegment: string): string[] {
+  const routeDir = path.join(appDir, routeSegment);
+  if (!fs.existsSync(routeDir)) return [];
+  return fs
+    .readdirSync(routeDir, { withFileTypes: true })
+    .filter((e) => e.isDirectory() && !e.name.startsWith('[') && !e.name.startsWith('_'))
+    .map((e) => e.name);
+}
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
+  const appDir = path.join(process.cwd(), 'src', 'app');
 
-  const staticEntries: MetadataRoute.Sitemap = [...staticPages, ...servicePages].map((path) => ({
-    url: `${BASE_URL}${path}`,
+  // ── 1. Static pages auto-discovered from filesystem ──────────────────────
+  const staticRoutes = discoverStaticRoutes(appDir);
+  const staticEntries: MetadataRoute.Sitemap = staticRoutes.map((urlPath) => ({
+    url: `${BASE_URL}${urlPath === '/' ? '' : urlPath}`,
     lastModified: now,
-    changeFrequency: path === '' ? 'daily' : 'weekly',
-    priority: path === '' ? 1 : 0.8,
+    ...routeConfig(urlPath),
   }));
 
-  const airportEntries: MetadataRoute.Sitemap = airports.map((a) => ({
-    url: `${BASE_URL}/airport/${a.slug}`,
-    lastModified: now,
-    changeFrequency: 'weekly',
-    priority: 0.9,
-  }));
+  // ── 2. Dynamic [slug] routes discovered from filesystem subdirectories ────
+  const dynamicSegments = [
+    'airport',
+    'city',
+    'tour',
+    'border',
+    'attraction-transfer',
+    'beach-transfer',
+  ];
 
-  const cityEntries: MetadataRoute.Sitemap = cities.map((c) => ({
-    url: `${BASE_URL}/city/${c.slug}`,
-    lastModified: now,
-    changeFrequency: 'weekly',
-    priority: 0.9,
-  }));
+  const dynamicEntries: MetadataRoute.Sitemap = dynamicSegments.flatMap((segment) => {
+    const slugs = discoverDynamicSlugs(appDir, segment);
+    return slugs.map((slug) => {
+      const urlPath = `/${segment}/${slug}`;
+      return {
+        url: `${BASE_URL}${urlPath}`,
+        lastModified: now,
+        ...routeConfig(urlPath),
+      };
+    });
+  });
 
-  const tourEntries: MetadataRoute.Sitemap = tours.map((t) => ({
-    url: `${BASE_URL}/tour/${t.slug}`,
-    lastModified: now,
-    changeFrequency: 'weekly',
-    priority: 0.8,
-  }));
-
-  const borderEntries: MetadataRoute.Sitemap = borderSlugs.map((slug) => ({
-    url: `${BASE_URL}/border/${slug}`,
-    lastModified: now,
-    changeFrequency: 'weekly',
-    priority: 0.8,
-  }));
-
-  const attractionEntries: MetadataRoute.Sitemap = attractionTransfers.map((slug) => ({
-    url: `${BASE_URL}/attraction-transfer/${slug}`,
-    lastModified: now,
-    changeFrequency: 'monthly',
-    priority: 0.7,
-  }));
-
-  const beachEntries: MetadataRoute.Sitemap = beachTransfers.map((slug) => ({
-    url: `${BASE_URL}/beach-transfer/${slug}`,
-    lastModified: now,
-    changeFrequency: 'monthly',
-    priority: 0.7,
-  }));
-
+  // ── 3. Blog posts from Supabase ───────────────────────────────────────────
   let blogEntries: MetadataRoute.Sitemap = [];
   try {
     const { data: blogs, error } = await supabase
       .from('blogs')
       .select('slug, updated_at')
       .eq('status', 'published');
-      
+
     if (!error && blogs) {
       blogEntries = blogs.map((blog) => ({
         url: `${BASE_URL}/blog/${blog.slug}`,
         lastModified: blog.updated_at ? new Date(blog.updated_at) : now,
-        changeFrequency: 'weekly',
-        priority: 0.8,
+        ...routeConfig('/blog/'),
       }));
     }
   } catch (err) {
-    console.error('Error fetching blogs for sitemap:', err);
+    console.error('Sitemap: error fetching blogs from Supabase:', err);
   }
 
   return [
     ...staticEntries,
-    ...airportEntries,
-    ...cityEntries,
-    ...tourEntries,
-    ...borderEntries,
-    ...attractionEntries,
-    ...beachEntries,
+    ...dynamicEntries,
     ...blogEntries,
   ];
 }
