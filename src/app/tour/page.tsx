@@ -39,7 +39,7 @@ export default function ToursHubPage() {
         titleTop="Private Sightseeing Tours"
         titleBottom="Across Beautiful Italy"
         description="Explore Italy's most breathtaking landscapes and historic landmarks with a professional private driver. Custom itineraries, flexible pace, fixed prices."
-        backgroundImage="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&q=80&w=2070"
+        backgroundImage="https://aprilmunday.wordpress.com/wp-content/uploads/2018/09/bodiam_castle_through_the_trees.jpg?w=500"
         buttonText="Browse All Tours"
         breadcrumbs={[{ name: "Private Tours", item: "/tour" }]}
       />

@@ -51,7 +51,7 @@ export default function LakeGardaPage() {
         titleTop="Private Taxi Transfers to"
         titleBottom="The Beautiful Lake Garda"
         description="Relax as you travel to Italy's largest lake. Comfortable, reliable, and professional transport from any major airport or city."
-        backgroundImage="https://images.unsplash.com/photo-1463130456064-07f0bb814fb9?q=80&w=2070&auto=format&fit=crop"
+        backgroundImage="https://cdn.mos.cms.futurecdn.net/9KRcyeyTjZ25RfMUmNg8fk.png"
         buttonText="Book Lake Garda Taxi"
       />
 
@@ -71,7 +71,7 @@ export default function LakeGardaPage() {
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-navy mb-8 text-center">Seamless Travel Around the Lake</h2>
             <p className="text-gray-600 text-lg leading-relaxed mb-6">
-              Navigating the lakeside roads can be challenging, especially during the peak summer months. Our drivers are local experts who know the best routes to avoid traffic and get you to your destination efficiently. 
+              Navigating the lakeside roads can be challenging, especially during the peak summer months. Our drivers are local experts who know the best routes to avoid traffic and get you to your destination efficiently.
             </p>
             <p className="text-gray-600 text-lg leading-relaxed">
               We specialize in providing transfers for families, couples, and outdoor enthusiasts. If you are bringing bicycles or sailing equipment, please let us know in advance so we can provide the appropriate vehicle.
@@ -82,7 +82,7 @@ export default function LakeGardaPage() {
 
       <HowItWorks />
 
-      <FAQSection 
+      <FAQSection
         faqs={gardaFaqs}
         title="Lake Garda Service FAQs"
         badge="Lakeside Travel"

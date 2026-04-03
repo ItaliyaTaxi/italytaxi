@@ -60,7 +60,7 @@ export default function BorderTransfersPage() {
                 titleTop="International Long-Distance"
                 titleBottom="Border Crossings"
                 description="Cross European borders in absolute comfort. We provide reliable private transfers from major Italian cities to neighboring countries."
-                backgroundImage="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=2070"
+                backgroundImage="https://aprilmunday.wordpress.com/wp-content/uploads/2018/09/bodiam_castle_through_the_trees.jpg?w=500"
             />
 
             <div className="container mx-auto py-24 px-6">

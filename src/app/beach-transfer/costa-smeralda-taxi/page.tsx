@@ -51,7 +51,7 @@ export default function CostaSmeraldaBeachPage() {
         titleTop="Premium Private Taxi to the"
         titleBottom="Exclusive Costa Smeralda"
         description="Luxury travel on the Emerald Coast. Professional, discreet, and reliable transport to Sardinia's most prestigious destination."
-        backgroundImage="https://images.unsplash.com/photo-1515542622106-78b28af7815d?q=80&w=2070&auto=format&fit=crop"
+        backgroundImage="https://a.storyblok.com/f/306333/1920x1080/6d1b795a3d/costasmeralda.jpg/m/1920x1080/filters:format(webp):quality(70)"
         buttonText="Book Costa Smeralda Taxi"
       />
 
@@ -71,7 +71,7 @@ export default function CostaSmeraldaBeachPage() {
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-navy mb-8 text-center">Seamless Transfers for Every Occasion</h2>
             <p className="text-gray-600 text-lg leading-relaxed mb-6">
-              Costa Smeralda is more than just beaches; it's a lifestyle. We provide tailored transportation for every aspect of your stay, from high-end airport transfers to reliable transport for dinners at Michelin-starred restaurants or nights out at exclusive clubs. 
+              Costa Smeralda is more than just beaches; it's a lifestyle. We provide tailored transportation for every aspect of your stay, from high-end airport transfers to reliable transport for dinners at Michelin-starred restaurants or nights out at exclusive clubs.
             </p>
             <p className="text-gray-600 text-lg leading-relaxed">
               Our drivers are not just transporters; they are local ambassadors who can provide recommendations and ensure you navigate the coast with ease. We prioritize punctuality, discretion, and your absolute comfort.
@@ -82,7 +82,7 @@ export default function CostaSmeraldaBeachPage() {
 
       <HowItWorks />
 
-      <FAQSection 
+      <FAQSection
         faqs={smeraldaFaqs}
         title="Costa Smeralda Service FAQs"
         badge="Luxury Travel"

@@ -51,7 +51,7 @@ export default function CalaLunaBeachPage() {
         titleTop="Private Taxi Transfers to"
         titleBottom="The Paradise of Cala Luna"
         description="Your gateway to the Gulf of Orosei. Comfortable, reliable transport to the boat departures for Sardinia's most famous beach."
-        backgroundImage="https://images.unsplash.com/photo-1555881400-61b4718dc602?q=80&w=2070&auto=format&fit=crop"
+        backgroundImage="https://www.sardegnaturismo.it/sites/default/files/galleria/003_cala_luna_13_tn.jpg"
         buttonText="Book Cala Luna Transfer"
       />
 
@@ -82,7 +82,7 @@ export default function CalaLunaBeachPage() {
 
       <HowItWorks />
 
-      <FAQSection 
+      <FAQSection
         faqs={calaLunaFaqs}
         title="Cala Luna Service FAQs"
         badge="Beach Access"

@@ -51,7 +51,7 @@ export default function LeaningTowerPisaPage() {
         titleTop="Private Taxi Transfers to the"
         titleBottom="Iconic Leaning Tower of Pisa"
         description="Visit Italy's most famous architectural wonder without the stress. Comfortable, reliable, and professional door-to-door service."
-        backgroundImage="https://images.unsplash.com/photo-1543429776-2782fc8e1acd?q=80&w=2070&auto=format&fit=crop"
+        backgroundImage="https://aprilmunday.wordpress.com/wp-content/uploads/2018/09/bodiam_castle_through_the_trees.jpg?w=500"
         buttonText="Book Pisa Transfer"
         breadcrumbs={[
           { name: "Attraction Transfers", item: "/attraction-transfer" },

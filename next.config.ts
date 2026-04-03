@@ -23,7 +23,7 @@ const nextConfig: NextConfig = {
     // Cache optimized images for 1 year
     minimumCacheTTL: 31536000,
 
-    // Remote domains for Unsplash images
+    // Remote domains for Unsplash and Custom Images
     remotePatterns: [
       {
         protocol: 'https',
@@ -35,6 +35,30 @@ const nextConfig: NextConfig = {
         hostname: '*.supabase.co',
         pathname: '/storage/v1/object/public/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'en.kampaoh.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.italia.it',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.sardegnaturismo.it',
+      },
+      {
+        protocol: 'https',
+        hostname: 'a.storyblok.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.mos.cms.futurecdn.net',
+      },
+      {
+        protocol: 'https',
+        hostname: 'aprilmunday.wordpress.com',
+      }
     ],
   },
 

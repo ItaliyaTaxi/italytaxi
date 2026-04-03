@@ -51,7 +51,7 @@ export default function CastelDellOvoPage() {
         titleTop="Private Taxi Transfers to the"
         titleBottom="Historic Castel dell'Ovo"
         description="Visit the oldest castle in Naples. Professional, reliable door-to-door service to the city's iconic waterfront landmark."
-        backgroundImage="https://images.unsplash.com/photo-1552832230-c0197dd311b5?q=80&w=2070&auto=format&fit=crop"
+        backgroundImage="https://aprilmunday.wordpress.com/wp-content/uploads/2018/09/bodiam_castle_through_the_trees.jpg?w=500"
         buttonText="Book Naples Transfer"
       />
 
@@ -82,7 +82,7 @@ export default function CastelDellOvoPage() {
 
       <HowItWorks />
 
-      <FAQSection 
+      <FAQSection
         faqs={naplesFaqs}
         title="Naples Service FAQs"
         badge="City Landmark"

@@ -79,7 +79,7 @@ export default function PrivateToursPage() {
         titleTop="Explore Italy with"
         titleBottom="Private Taxi Tours"
         description="Customised private tours across Italy's most iconic destinations. Amalfi Coast, Tuscany, Rome, Vatican, and more — on your schedule, at your pace."
-        backgroundImage="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?q=80&w=2070&auto=format&fit=crop"
+        backgroundImage="https://aprilmunday.wordpress.com/wp-content/uploads/2018/09/bodiam_castle_through_the_trees.jpg?w=500"
         buttonText="Design Your Private Tour"
         breadcrumbs={[
           { name: "Services", item: "/services" },

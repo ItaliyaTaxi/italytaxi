@@ -51,7 +51,7 @@ export default function CinqueTerrePage() {
         titleTop="Private Taxi to the"
         titleBottom="Stunning Cinque Terre"
         description="The easiest way to reach Italy's most colorful coastline. Door-to-door service to Riomaggiore, Manarola, and beyond."
-        backgroundImage="https://images.unsplash.com/photo-1460627390041-532a28402358?q=80&w=2070&auto=format&fit=crop"
+        backgroundImage="https://aprilmunday.wordpress.com/wp-content/uploads/2018/09/bodiam_castle_through_the_trees.jpg?w=500"
         buttonText="Book Cinque Terre Transfer"
       />
 
