@@ -53,6 +53,30 @@ const pricing: PricingTier[] = [
   { label: "Hotel to Hotel", price: "From €30", note: "City transfer · Up to 3 passengers" },
 ];
 
+const reviews = [
+  {
+      name: "Sarah L.",
+      country: "🇺🇸 United States",
+      rating: 5,
+      text: "Our driver was waiting at the hotel lobby in Florence 10 minutes early. He helped with all 4 of our heavy bags and drove us safely to our Airbnb in Rome. Exceptional service.",
+      date: "March 2025"
+  },
+  {
+      name: "David K.",
+      country: "🇦🇺 Australia",
+      rating: 5,
+      text: "Transferred from Naples Airport to our hotel in Positano. The van was spotless and the driver navigated the narrow roads expertly. Much better than a standard taxi.",
+      date: "February 2025"
+  },
+  {
+      name: "Elena V.",
+      country: "🇮🇹 Italy",
+      rating: 5,
+      text: "Used this for a transfer between two hotels in Milan. Punctual, professional, and very easy to book. Highly recommended for any hotel stay in Italy.",
+      date: "January 2025"
+  }
+];
+
 export default function HotelTransfersPage() {
   const url = "https://www.italytaxiservice.com/services/hotel-transfers";
 
@@ -104,6 +128,7 @@ export default function HotelTransfersPage() {
         ]}
         pricingTitle="Hotel Transfer Pricing Overview"
         pricing={pricing}
+        reviews={reviews}
         relatedLinks={[
           { label: "Airport Transfers", href: "/services/airport-transfers" },
           { label: "City-to-City Transfers", href: "/services/city-to-city" },

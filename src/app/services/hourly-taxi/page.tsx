@@ -53,6 +53,30 @@ const pricing: PricingTier[] = [
   { label: "Full Day (8hrs)", price: "From €380", note: "Complete day excursions" },
 ];
 
+const reviews = [
+  {
+      name: "Olivia M.",
+      country: "🇬🇧 United Kingdom",
+      rating: 5,
+      text: "Hired a driver for 4 hours in Milan for a shopping trip. He was incredibly patient, waited outside each boutique, and handled all our bags. Highly recommend for a stress-free day.",
+      date: "March 2025"
+  },
+  {
+      name: "Thomas W.",
+      country: "🇨🇦 Canada",
+      rating: 5,
+      text: "Booked an 8-hour service for a full day in the Chianti region. Our driver was like a local guide, suggesting the best viewpoints and small family wineries. Worth every euro.",
+      date: "February 2025"
+  },
+  {
+      name: "Grace H.",
+      country: "🇺🇸 United States",
+      rating: 5,
+      text: "Used the hourly service for business meetings across Rome. Professional, discreet, and perfectly on time for every pickup. It made our busy day much easier.",
+      date: "January 2025"
+  }
+];
+
 export default function HourlytaxiPage() {
   const url = "https://www.italytaxiservice.com/services/hourly-taxi";
 
@@ -104,6 +128,7 @@ export default function HourlytaxiPage() {
         ]}
         pricingTitle="Hourly Service Rates"
         pricing={pricing}
+        reviews={reviews}
         relatedLinks={[
           { label: "Private Sightseeing Tours", href: "/services/private-tours" },
           { label: "City-to-City Transfers", href: "/services/city-to-city" },

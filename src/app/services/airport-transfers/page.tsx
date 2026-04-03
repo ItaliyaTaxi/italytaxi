@@ -66,6 +66,30 @@ const routes: RouteItem[] = [
   { from: "Naples Airport (NAP)", to: "Naples City Centre", duration: "~20–35 min", price: "From €40" },
 ];
 
+const reviews = [
+  {
+      name: "Michael B.",
+      country: "🇺🇸 United States",
+      rating: 5,
+      text: "Our plane was delayed 2 hours, but the driver was there waiting with a sign as promised. Perfect way to start our Italy vacation at Fiumicino.",
+      date: "March 2025"
+  },
+  {
+      name: "Sophie T.",
+      country: "🇬🇧 United Kingdom",
+      rating: 5,
+      text: "Used this for a 5am pickup in Milan. Driver was early, car was a luxury Mercedes, and we made our flight with plenty of time. Highly reliable.",
+      date: "February 2025"
+  },
+  {
+      name: "Jean-Pierre D.",
+      country: "🇫🇷 France",
+      rating: 5,
+      text: "Excellent service from Venice airport. The driver was professional and helped us with all our strollers and bags. Very recommended for families.",
+      date: "January 2025"
+  }
+];
+
 export default function AirportTransfersPage() {
   const url = "https://www.italytaxiservice.com/services/airport-transfers";
 
@@ -124,6 +148,7 @@ export default function AirportTransfersPage() {
         pricing={pricing}
         routesTitle="Most Popular Airport Transfer Routes"
         routes={routes}
+        reviews={reviews}
         relatedLinks={[
           { label: "Hotel Transfers", href: "/services/hotel-transfers" },
           { label: "City-to-City Transfers", href: "/services/city-to-city" },

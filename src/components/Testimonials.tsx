@@ -3,7 +3,15 @@
 import { Star, Quote } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 
-const reviews = [
+export interface Review {
+    name: string;
+    location: string;
+    text: string;
+    rating: number;
+    date: string;
+}
+
+const defaultReviews: Review[] = [
     {
         name: "James Wilson",
         location: "London, UK",
@@ -27,7 +35,7 @@ const reviews = [
     }
 ];
 
-export default function Testimonials() {
+export default function Testimonials({ reviews = defaultReviews }: { reviews?: Review[] }) {
     const { t } = useLanguage();
 
     return (
