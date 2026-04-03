@@ -226,21 +226,21 @@ export const cities: CityData[] = [
     {
         slug: "rome",
         name: "Rome",
-        hero_image: "https://images.unsplash.com/photo-1529260830199-42c24126f198?auto=format&fit=crop&q=80&w=2070",
+        hero_image: "https://images.unsplash.com/photo-1529260830199-42c24126f198?auto=format&fit=crop&q=60&w=1200",
         description: "Explore Rome in comfort with our professional drivers. From city landmarks like the Colosseum to hidden gems, travel at your own pace.",
         popular_tours: ["Rome Night Tour", "Vatican City Tour", "Tivoli Gardens"]
     },
     {
         slug: "milan",
         name: "Milan",
-        hero_image: "https://images.unsplash.com/photo-1520986606214-8b456906c813?auto=format&fit=crop&q=80&w=2070",
+        hero_image: "https://images.unsplash.com/photo-1520986606214-8b456906c813?auto=format&fit=crop&q=60&w=1200",
         description: "Discover Milan's fashion, history, and business districts with our premium taxi services.",
         popular_tours: ["Milan Duomo Tour", "Lake Como Day Trip", "Last Supper Visit"]
     },
     {
         slug: "florence",
         name: "Florence",
-        hero_image: "https://images.unsplash.com/photo-1543429776-2782fc8e1acd?auto=format&fit=crop&q=80&w=2070",
+        hero_image: "https://images.unsplash.com/photo-1543429776-2782fc8e1acd?auto=format&fit=crop&q=60&w=1200",
         description: "The cradle of the Renaissance. Travel between museums and piazzas in total elegance.",
         popular_tours: ["Uffizi Gallery Tour", "Wine Tasting in Chianti", "Pisa Half-Day Trip"]
     },
@@ -282,21 +282,21 @@ export const cities: CityData[] = [
     {
         slug: "rome-taxi-service",
         name: "Rome",
-        hero_image: "https://images.unsplash.com/photo-1529260830199-42c24126f198?auto=format&fit=crop&q=80&w=2070",
+        hero_image: "https://images.unsplash.com/photo-1529260830199-42c24126f198?auto=format&fit=crop&q=60&w=1200",
         description: "Explore Rome in comfort with our professional drivers. From city landmarks like the Colosseum to hidden gems, travel at your own pace.",
         popular_tours: ["Rome Night Tour", "Vatican City Tour", "Tivoli Gardens"]
     },
     {
         slug: "milan-taxi-service",
         name: "Milan",
-        hero_image: "https://images.unsplash.com/photo-1520986606214-8b456906c813?auto=format&fit=crop&q=80&w=2070",
+        hero_image: "https://images.unsplash.com/photo-1520986606214-8b456906c813?auto=format&fit=crop&q=60&w=1200",
         description: "Discover Milan's fashion, history, and business districts with our premium taxi services.",
         popular_tours: ["Milan Duomo Tour", "Lake Como Day Trip", "Last Supper Visit"]
     },
     {
         slug: "florence-taxi-service",
         name: "Florence",
-        hero_image: "https://images.unsplash.com/photo-1543429776-2782fc8e1acd?auto=format&fit=crop&q=80&w=2070",
+        hero_image: "https://images.unsplash.com/photo-1543429776-2782fc8e1acd?auto=format&fit=crop&q=60&w=1200",
         description: "The cradle of the Renaissance. Travel between museums and piazzas in total elegance.",
         popular_tours: ["Uffizi Gallery Tour", "Wine Tasting in Chianti", "Pisa Half-Day Trip"]
     },
@@ -366,35 +366,35 @@ export const cities: CityData[] = [
     {
         slug: "ravello",
         name: "Ravello",
-        hero_image: "https://images.unsplash.com/photo-1542281286-9e0a16bb7366?auto=format&fit=crop&q=80&w=2070",
+        hero_image: "https://images.unsplash.com/photo-1542281286-9e0a16bb7366?auto=format&fit=crop&q=60&w=1200",
         description: "Discover the hilltop jewel of the Amalfi Coast with panoramic views and elegant villas.",
         popular_tours: ["Villa Rufolo Gardens", "Villa Cimbrone Visit", "Amalfi Day Trip"]
     },
     {
         slug: "portofino",
         name: "Portofino",
-        hero_image: "https://images.unsplash.com/photo-1542281286-9e0a16bb7366?auto=format&fit=crop&q=80&w=2070",
+        hero_image: "https://images.unsplash.com/photo-1542281286-9e0a16bb7366?auto=format&fit=crop&q=60&w=1200",
         description: "Arrive in style at one of Italy's most glamorous harbour villages.",
         popular_tours: ["Santa Margherita Tour", "Cinque Terre Day Trip", "Liguria Coastal Drive"]
     },
     {
         slug: "taormina",
         name: "Taormina",
-        hero_image: "https://images.unsplash.com/photo-1542281286-9e0a16bb7366?auto=format&fit=crop&q=80&w=2070",
+        hero_image: "https://images.unsplash.com/photo-1542281286-9e0a16bb7366?auto=format&fit=crop&q=60&w=1200",
         description: "Experience Sicily's crown jewel perched above the Ionian Sea with our premium transfer service.",
         popular_tours: ["Greek Theatre Visit", "Mount Etna Day Trip", "Isola Bella Beach"]
     },
     {
         slug: "positano",
         name: "Positano",
-        hero_image: "https://images.unsplash.com/photo-1542281286-9e0a16bb7366?auto=format&fit=crop&q=80&w=2070",
+        hero_image: "https://images.unsplash.com/photo-1542281286-9e0a16bb7366?auto=format&fit=crop&q=60&w=1200",
         description: "Reach Positano's iconic cliffside village with ease aboard our luxury vehicles.",
         popular_tours: ["Amalfi Drive", "Capri Day Trip", "Praiano Sunset Tour"]
     },
     {
         slug: "sorrento",
         name: "Sorrento",
-        hero_image: "https://images.unsplash.com/photo-1542281286-9e0a16bb7366?auto=format&fit=crop&q=80&w=2070",
+        hero_image: "https://images.unsplash.com/photo-1542281286-9e0a16bb7366?auto=format&fit=crop&q=60&w=1200",
         description: "The perfect base for the Amalfi Coast — transfer to Sorrento in comfort and style.",
         popular_tours: ["Pompeii Day Trip", "Capri Ferry Transfer", "Naples City Tour"]
     }
@@ -438,7 +438,7 @@ export const tours: TourData[] = [
         slug: "vatican",
         name: "Vatican Tour",
         city: "Rome",
-        hero_image: "https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&q=80&w=2070",
+        hero_image: "https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&q=60&w=1200",
         alt_text: "St. Peter's Basilica at the Vatican City in Rome",
         highlights: ["Vatican Museums", "St. Peters Basilica", "Sistine Chapel", "Skip-the-line tips"],
         description: "See the artistic wonders of the Vatican with a comfortable private transfer."
@@ -447,7 +447,7 @@ export const tours: TourData[] = [
         slug: "dolomites",
         name: "Dolomites Tour",
         city: "Venice",
-        hero_image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=2070",
+        hero_image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=60&w=1200",
         alt_text: "Majestic snow-capped peaks of the Italian Dolomites mountains",
         highlights: ["Alpine peaks", "Lake Braies", "Mountain drives", "Private SUV"],
         description: "Experience the majestic Italian Alps with our luxury mountain-ready fleet."

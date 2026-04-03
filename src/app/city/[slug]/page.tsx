@@ -35,7 +35,7 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
     const city = cities.find((c) => c.slug === slug) || {
         slug: slug,
         name: slug.split('-').filter(w => w !== 'taxi' && w !== 'service').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' '),
-        hero_image: "https://images.unsplash.com/photo-1542281286-9e0a16bb7366",
+        hero_image: "https://images.unsplash.com/photo-1542281286-9e0a16bb7366?auto=format&fit=crop&q=60&w=1200",
         description: "Explore this beautiful Italian destination with our premium private transfer services. Professional drivers and luxury vehicles at your service.",
         popular_tours: ["City Center Tour", "Historical Landmarks", "Local Food Tasting"]
     };
@@ -267,7 +267,7 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
                         </div>
                         <div className="w-full lg:w-1/2 relative h-[500px] hidden lg:block rounded-[3rem] overflow-hidden shadow-2xl animate-fade-in">
                             <Image
-                                src="https://images.unsplash.com/photo-1542281286-9e0a16bb7366?auto=format&fit=crop&q=80&w=2070"
+                                src="https://images.unsplash.com/photo-1542281286-9e0a16bb7366?auto=format&fit=crop&q=60&w=1200"
                                 alt={`Luxury transfer service in ${city.name}`}
                                 fill
                                 className="object-cover"
