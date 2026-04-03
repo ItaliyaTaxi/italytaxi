@@ -59,12 +59,12 @@ const pricing: PricingTier[] = [
 ];
 
 const popularTours = [
-  { name: "Rome Colosseum & Vatican Day Tour", path: "/tour/vatican" },
-  { name: "Amalfi Coast Scenic Drive", path: "/tour/amalfi-coast" },
-  { name: "Tuscany Wine & Countryside", path: "/tour/tuscany-wine-tour" },
-  { name: "Lake Como & Bellagio Day Trip", path: "/tour/lake-como" },
-  { name: "Pompeii & Herculaneum from Naples", path: "/tour/pompeii" },
-  { name: "Dolomites Mountain Excursion", path: "/tour/dolomites" },
+  { name: "Rome Colosseum & Vatican Day Tour", path: "/attraction-transfer/vatican-museums-taxi-transfer" },
+  { name: "Amalfi Coast Scenic Drive", path: "/attraction-transfer/amalfi-coast-taxi-transfer" },
+  { name: "Tuscany Wine & Countryside", path: "/city/florence" },
+  { name: "Lake Como & Bellagio Day Trip", path: "/attraction-transfer/lake-como-taxi-transfer" },
+  { name: "Pompeii & Herculaneum from Naples", path: "/attraction-transfer/pompeii-taxi-transfer" },
+  { name: "Dolomites Mountain Excursion", path: "/attraction-transfer/dolomites-taxi-transfer" },
 ];
 
 export default function PrivateToursPage() {

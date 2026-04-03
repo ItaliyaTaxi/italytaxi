@@ -270,7 +270,7 @@ export default function ContactPage() {
           <div className="flex flex-wrap justify-center gap-4 mb-10">
             {[
               { label: "Airport Transfers", href: "/services/airport-transfers" },
-              { label: "City-to-City", href: "/services/city-transfer" },
+              { label: "City-to-City", href: "/services/city-to-city" },
               { label: "Coverage Areas", href: "/coverage-areas" },
             ].map((l, i) => (
               <Link key={i} href={l.href} className="px-6 py-3 rounded-full border border-white/20 text-white font-medium text-sm hover:bg-gold hover:text-navy hover:border-gold transition-all duration-300">
