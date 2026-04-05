@@ -1,4 +1,3 @@
-import { Metadata } from 'next';
 'use client';
 
 import { useState } from 'react';
@@ -101,6 +100,3 @@ export default function CRMLogin() {
     );
 }
 
-export const metadata: Metadata = {
-    alternates: { canonical: "/crm/login" }
-};

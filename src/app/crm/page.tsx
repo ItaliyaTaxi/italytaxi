@@ -1,4 +1,3 @@
-import { Metadata } from 'next';
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -360,6 +359,3 @@ export default function CRMPage() {
     );
 }
 
-export const metadata: Metadata = {
-    alternates: { canonical: "/crm" }
-};

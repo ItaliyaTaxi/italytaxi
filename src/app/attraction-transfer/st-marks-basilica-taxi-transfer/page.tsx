@@ -8,7 +8,7 @@ import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Taxi for St Marks Basilica Visits"s Basilica Private Transfer | Venice City Access",
+  title: "St Marks Basilica Private Transfer | Venice City Access",
   description: "Book a professional private transfer to Venice. We provide land taxi services to Piazzale Roma or the Cruise Port, with optional water taxi coordination to St. Mark's Square.",
   alternates: {
     canonical: "/attraction-transfer/st-marks-basilica-taxi-transfer",
