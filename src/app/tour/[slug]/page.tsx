@@ -22,8 +22,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     const tourName = tour ? tour.name : slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
 
     return {
-        title: `${tourName} Italy | Private Taxi Tour & Chauffeur`,
-        description: `Experience ${tourName} with our professional private taxi tours. Luxury transportation, English-speaking chauffeurs, and flexible itineraries across Italy.`,
+        title: `${tourName} Tour | Private Taxi`,
+        description: `Experience ${tourName} with our professional private taxi tours. Luxury transportation, English-speaking taxi drivers, and flexible itineraries across Italy.`,
         alternates: {
             canonical: `/tour/${slug}`,
         }
@@ -47,7 +47,7 @@ export default async function TourPage({ params }: { params: Promise<{ slug: str
       },
       {
         q: "Do your tour drivers speak English?",
-        a: "Yes, we provide professional, English-speaking chauffeurs who are knowledgeable about the local history and culture of the region."
+        a: "Yes, we provide professional, English-speaking taxi drivers who are knowledgeable about the local history and culture of the region."
       },
       {
         q: "Will we have enough time for lunch or shopping during the tour?",
@@ -119,7 +119,7 @@ export default async function TourPage({ params }: { params: Promise<{ slug: str
                                     <div className="w-8 h-8 rounded-full bg-gold/5 flex items-center justify-center text-gold border border-gold/10">
                                         <ShieldCheck className="w-4 h-4" />
                                     </div>
-                                    Licensed Chauffeur
+                                    Licensed Taxi
                                 </li>
                                 <li className="flex items-center gap-3 text-navy font-bold text-sm tracking-wide">
                                     <div className="w-8 h-8 rounded-full bg-gold/5 flex items-center justify-center text-gold border border-gold/10">

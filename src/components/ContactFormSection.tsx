@@ -105,7 +105,7 @@ export default function ContactFormSection() {
                     {/* Image / Stats Side */}
                     <div className="w-full lg:w-2/5 flex flex-col gap-8 animate-slide-left [animation-delay:0.3s]">
                         <div className="relative h-[350px] rounded-[2.5rem] overflow-hidden shadow-2xl">
-                            <Image src="/images/hero.png" alt="taxi Ride" fill className="object-cover" />
+                            <Image src="/images/hero.png" alt="taxi Ride in Italy" fill className="object-cover" />
                             <div className="absolute inset-0 bg-navy/40 flex items-center justify-center">
                                 <div className="text-center p-8">
                                     <div className="text-5xl font-extrabold text-gold mb-2">24/7</div>

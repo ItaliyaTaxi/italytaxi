@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     const cityName = city ? city.name : slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
 
     return {
-        title: `Best Private Taxi in ${cityName} | Cheap & Reliable Transfer Service`,
+        title: `Taxi Service in ${cityName} | Private Transfers`,
         description: `Book the #1 top-rated private taxi transfer in ${cityName}. 24/7 service, English-speaking drivers, and fixed pricing for airport and city rides.`,
         alternates: {
             canonical: `/city/${slug}`,
@@ -54,7 +54,7 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
         a: `Yes, our drivers are local experts who know the best routes and can provide interesting insights into the history and culture of ${city.name} during your journey.`
       },
       {
-        q: `Can I hire a private chauffeur in ${city.name} by the hour?`,
+        q: `Can I hire a private taxi in ${city.name} by the hour?`,
         a: "Yes, we offer flexible hourly disposal services. This is perfect for business meetings, shopping trips, or multi-stop sightseeing tours within the city."
       },
       {
@@ -62,8 +62,8 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
         a: "For groups of 4 to 8 people, we recommend our luxury Mercedes V-Class minivans. They offer ample space for both passengers and luggage, ensuring a comfortable ride for everyone."
       },
       {
-        q: `What if my schedule changes while I have a chauffeur in ${city.name}?`,
-        a: "We offer maximum flexibility. If you've booked our hourly disposition service, you can direct your chauffeur to change paths or wait as needed without any strict itineraries."
+        q: `What if my schedule changes while I have a taxi in ${city.name}?`,
+        a: "We offer maximum flexibility. If you've booked our hourly disposition service, you can direct your taxi to change paths or wait as needed without any strict itineraries."
       },
       {
         q: `Are the vehicles equipped with Wi-Fi and air conditioning?`,
@@ -84,7 +84,7 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
             <PageHero
                 titleTop={`Luxury Transfer in`}
                 titleBottom={city.name}
-                description={`Premium airport transfers, city-to-city rides, and hourly chauffeur service across ${city.name} with local experts.`}
+                description={`Premium airport transfers, city-to-city rides, and hourly taxi service across ${city.name} with local experts.`}
                 backgroundImage={city.hero_image}
                 buttonText={`Book Your ${city.name} Ride Now`}
                 breadcrumbs={[
@@ -123,7 +123,7 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
                             <div className="relative h-[550px] rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white">
                                 <Image
                                     src={city.hero_image}
-                                    alt={`Private chauffeur service in ${city.name} - Italy Taxi Service`}
+                                    alt={`Private taxi service in ${city.name} - Italy Taxi Service`}
                                     fill
                                     className="object-cover"
                                 />
@@ -179,7 +179,7 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                         {[
                             { title: "Airport Transfers", icon: <Plane />, desc: "Reliable airport pickups & drop-offs.", path: "/services/airport-transfers" },
-                            { title: "Hourly Chauffeur", icon: <Clock />, desc: "Personal driver for as long as you need.", path: "/services/hourly-taxi" },
+                            { title: "Hourly Taxi", icon: <Clock />, desc: "Personal driver for as long as you need.", path: "/services/hourly-taxi" },
                             { title: "City-to-city Rides", icon: <MapPin />, desc: "Travel between Italian cities in comfort.", path: "/services/city-to-city" },
                             { title: "Private Tours", icon: <Camera />, desc: "Explore landmarks and hidden gems.", path: "/services/private-tours" }
                         ].map((service, index) => (
@@ -235,6 +235,23 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
             </section>
 
             <FAQSection faqs={cityFaqs} title={`${city.name} Service FAQ`} />
+
+            {/* Popular City Connections (Location Based Linking) */}
+            <section className="py-16 bg-[#F8F9FA] font-inter border-y border-gray-100">
+                <div className="container mx-auto px-6 max-w-5xl">
+                    <div className="text-center mb-10">
+                        <p className="text-gold text-sm font-bold uppercase tracking-[0.4em] mb-3">Coverage Areas</p>
+                        <h2 className="text-3xl font-bold text-navy">Popular Italy Taxi Destinations from {city.name}</h2>
+                    </div>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                        {cities.filter(c => c.slug !== city.slug).slice(0, 8).map((otherCity, idx) => (
+                            <Link key={idx} href={`/city/${otherCity.slug}`} className="block p-4 bg-white rounded-xl shadow-sm border border-gray-100 hover:border-gold hover:shadow-md transition-all group">
+                                <span className="font-semibold text-navy group-hover:text-gold transition-colors">Taxi in {otherCity.name}</span>
+                            </Link>
+                        ))}
+                    </div>
+                </div>
+            </section>
 
             {/* CTA Section */}
             <section className="py-24 bg-[#0F1C2E] relative overflow-hidden">

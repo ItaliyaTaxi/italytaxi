@@ -9,8 +9,8 @@ import type { PricingTier } from '@/components/ServicePageContent';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Wedding Guest Transfers Italy | Luxury Event Taxi for Tuscany, Amalfi & Lake Como",
-  description: "Professional wedding guest transportation across Italy. Elegant cars, suited chauffeurs, multi-vehicle coordination, and airport transfers for destination weddings in Tuscany, Amalfi Coast, and Lake Como.",
+  title: "Wedding Guest Taxi in Italy | Private Transfer",
+  description: "Professional wedding guest transportation across Italy. Elegant cars, suited taxi drivers, multi-vehicle coordination, and airport transfers for destination weddings in Tuscany, Amalfi Coast, and Lake Como.",
   alternates: {
     canonical: "/services/wedding-transfers",
   }
@@ -34,8 +34,8 @@ const faqs = [
     a: "Yes. Many Italian wedding venues are inside historic city centres with traffic restriction (ZTL) zones. Our licensed drivers hold the appropriate permits and are experienced in accessing these areas to deposit guests as close to the venue entrance as possible."
   },
   {
-    q: "Do wedding chauffeurs dress formally?",
-    a: "Yes. Our wedding chauffeurs wear a dark suit and tie as standard for all wedding bookings. For specific uniform requests — such as matching a particular colour scheme — please contact us and we will accommodate where possible."
+    q: "Do wedding taxi drivers dress formally?",
+    a: "Yes. Our wedding taxi drivers wear a dark suit and tie as standard for all wedding bookings. For specific uniform requests — such as matching a particular colour scheme — please contact us and we will accommodate where possible."
   },
   {
     q: "Do you provide transfers for the welcome dinner and post-wedding events?",
@@ -64,7 +64,7 @@ export default function WeddingTransfersPage() {
       <PageHero
         titleTop="Elegant Wedding & Event"
         titleBottom="Transfers in Italy"
-        description="Professional guest transportation for destination weddings in Tuscany, Lake Como, Amalfi Coast, and beyond. Suited chauffeurs, luxury vehicles, and seamless event logistics."
+        description="Professional guest transportation for destination weddings in Tuscany, Lake Como, Amalfi Coast, and beyond. Suited taxi drivers, luxury vehicles, and seamless event logistics."
         backgroundImage="https://aprilmunday.wordpress.com/wp-content/uploads/2018/09/bodiam_castle_through_the_trees.jpg?w=500"
         buttonText="Plan Wedding Transport"
         breadcrumbs={[
@@ -92,7 +92,7 @@ export default function WeddingTransfersPage() {
           "Dedicated wedding logistics coordinator for your event",
           "Multi-vehicle management for simultaneous guest transfers",
           "Luxury Mercedes fleet — sedans, V-Class, and minivans",
-          "Formally suited chauffeurs for all wedding bookings",
+          "Formally suited taxi drivers for all wedding bookings",
           "ZTL-permitted access to historic and restricted venues",
           "International guest airport meet-and-greet included",
           "Day-before and day-after events covered",
@@ -107,7 +107,7 @@ export default function WeddingTransfersPage() {
         relatedLinks={[
           { label: "Airport Transfers for Guests", href: "/services/airport-transfers" },
           { label: "Business & VIP Taxi", href: "/services/business-taxi" },
-          { label: "Hourly Chauffeur Service", href: "/services/hourly-taxi" },
+          { label: "Hourly Taxi Service", href: "/services/hourly-taxi" },
           { label: "Tuscany Wedding Transfers", href: "/city/florence" },
           { label: "Amalfi Coast Wedding Transfers", href: "/city/amalfi-coast" },
           { label: "Lake Como Wedding Transfers", href: "/city/como" },

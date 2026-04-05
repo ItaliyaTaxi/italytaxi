@@ -4,7 +4,7 @@ import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Sperlonga | Private Beach Taxi Transfer",
+  title: "Private Taxi to Sperlonga | Italy",
   description: "Book a professional private transfer to Sperlonga. Avoid the crowds of public transport and enjoy a comfortable ride directly to one of Italy's most iconic locations.",
   alternates: {
     canonical: "/beach-transfer/sperlonga-taxi-transfer",

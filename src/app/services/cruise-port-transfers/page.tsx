@@ -9,7 +9,7 @@ import type { PricingTier, RouteItem } from '@/components/ServicePageContent';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Cruise Port Transfers Italy | Civitavecchia, Naples, Venice & Livorno",
+  title: "Cruise Port Transfers in Italy",
   description: "Private taxi transfers from all Italian cruise ports. Civitavecchia to Rome, Livorno to Florence, Naples port, Venice port and more. Fixed prices, pier pickup, luggage assistance.",
   alternates: {
     canonical: "/services/cruise-port-transfers",

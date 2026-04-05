@@ -8,7 +8,7 @@ import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Vatican Museums Private Taxi | Skip the Transit Hassle",
+  title: "Taxi for Vatican Museums Visits",
   description: "Book a professional private taxi to the Vatican Museums and St. Peter's Basilica. Direct, air-conditioned transfers from your Rome hotel or Fiumicino Airport.",
   alternates: {
     canonical: "/attraction-transfer/vatican-museums-taxi-transfer",

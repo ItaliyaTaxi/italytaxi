@@ -4,7 +4,7 @@ import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Italy Taxi Service",
+  title: "Privacy Policy | Private Taxi Service",
   description: "Learn how Italy Taxi Service collects, uses, and protects your personal data in compliance with GDPR and Italian privacy law. Your data rights explained.",
   alternates: {
     canonical: "/privacy-policy",
@@ -76,7 +76,7 @@ export default function PrivacyPolicyPage() {
               {/* Section 1 */}
               <section id="intro" className="mb-12 scroll-mt-8">
                 <h2 className="text-2xl font-extrabold text-navy border-b border-gray-100 pb-3 mb-6">1. Introduction</h2>
-                <p>Italy Taxi Service operates private ground transportation services across Italy, including airport transfers, city-to-city transfers, hourly chauffeur hire, private sightseeing tours, and wedding and event transportation.</p>
+                <p>Italy Taxi Service operates private ground transportation services across Italy, including airport transfers, city-to-city transfers, hourly taxi hire, private sightseeing tours, and wedding and event transportation.</p>
                 <p>In order to provide these services, we necessarily process personal data belonging to our customers, including contact details, travel information, and payment references. We take this responsibility seriously and are committed to handling your data with care, transparency, and in full compliance with applicable law.</p>
                 <p>This policy applies to all data collected through our website at <strong>www.italytaxiservice.com</strong>, through our email correspondence, through WhatsApp, and through any other channel through which you contact or book with us.</p>
               </section>

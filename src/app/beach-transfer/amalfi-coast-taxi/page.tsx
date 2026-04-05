@@ -10,7 +10,7 @@ import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Amalfi Coast Beach Transfers | Premium Shore Excursions Taxi",
+  title: "Private Taxi to Amalfi Coast | Italy",
   description: "Direct private taxi transfers to the best beaches on the Amalfi Coast. Door-to-door service to Positano, Amalfi, and hidden coves with professional local drivers.",
   alternates: {
     canonical: "/beach-transfer/amalfi-coast-taxi",

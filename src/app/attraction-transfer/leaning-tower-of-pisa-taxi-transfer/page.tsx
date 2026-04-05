@@ -8,7 +8,7 @@ import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Leaning Tower of Pisa Private Taxi | Premium Transfers",
+  title: "Taxi for Leaning Tower Of Pisa Visits",
   description: "Arrive at the Piazza dei Miracoli in comfort. Private taxi transfers to the Leaning Tower of Pisa from Florence, Livorno Port, or Pisa Airport.",
   alternates: {
     canonical: "/attraction-transfer/leaning-tower-of-pisa-taxi-transfer",

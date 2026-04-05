@@ -71,7 +71,7 @@ export default function KnowledgeHubSection() {
                             <div className="relative h-64 overflow-hidden">
                                 <Image 
                                     src={blog.featured_image_url || '/images/hero.png'} 
-                                    alt={blog.title} 
+                                    alt={`${blog.title} in Italy`} 
                                     fill 
                                     className="object-cover group-hover:scale-110 transition-transform duration-700"
                                 />

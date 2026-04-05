@@ -8,7 +8,7 @@ import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Castel dell'Ovo Private Taxi | Naples Waterfront Transfers",
+  title: "Taxi for Castel Dell Ovo Visits"Ovo Private Taxi | Naples Waterfront Transfers",
   description: "Visit the historic Castel dell'Ovo in Naples with ease. Private taxi transfers from Naples Airport, Central Station, or the Cruise Port. Professional local drivers.",
   alternates: {
     canonical: "/attraction-transfer/castel-dell-ovo-taxi-transfer",

@@ -9,8 +9,8 @@ import type { PricingTier } from '@/components/ServicePageContent';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Executive Business Taxi Italy | Corporate Chauffeur Service",
-  description: "Professional corporate taxi and chauffeur service across Italy. Priority booking, executive vehicles, discreet drivers, and invoicing for business accounts.",
+  title: "Executive Business Taxi in Italy",
+  description: "Professional corporate taxi and taxi service across Italy. Priority booking, executive vehicles, discreet drivers, and invoicing for business accounts.",
   alternates: {
     canonical: "/services/business-taxi",
   }
@@ -58,7 +58,7 @@ export default function BusinessCorporatePage() {
 
   return (
     <main className="min-h-screen font-inter">
-      <ServiceSchema name="Executive Business Taxi Italy" description="Professional executive taxi and corporate chauffeur service across Italy for business meetings, conferences, and VIP travel." url={url} />
+      <ServiceSchema name="Executive Business Taxi Italy" description="Professional executive taxi and corporate taxi service across Italy for business meetings, conferences, and VIP travel." url={url} />
       <Navbar />
 
       <PageHero
@@ -74,7 +74,7 @@ export default function BusinessCorporatePage() {
       />
 
       <ServicePageContent
-        introTitle="Italy's Premier Executive Chauffeur Service"
+        introTitle="Italy's Premier Executive Taxi Service"
         introParagraphs={[
           "Business travel demands a higher standard of reliability, discretion, and professionalism. Italy Taxi Service provides dedicated corporate transportation solutions that meet the needs of executives, client-facing professionals, conference delegates, and VIP visitors across Italy.",
           "From a single airport pickup for a managing director to a multi-city roadshow covering Rome, Milan, and Bologna over three days, our business travel division handles every detail — so your team can focus entirely on the work at hand.",
@@ -106,7 +106,7 @@ export default function BusinessCorporatePage() {
         pricing={pricing}
         relatedLinks={[
           { label: "Airport Transfers", href: "/services/airport-transfers" },
-          { label: "Hourly Chauffeur", href: "/services/hourly-taxi" },
+          { label: "Hourly Taxi", href: "/services/hourly-taxi" },
           { label: "City-to-City Transfers", href: "/services/city-to-city" },
           { label: "Milan Taxi Service", href: "/city/milan" },
           { label: "Rome Business District", href: "/city/rome" },

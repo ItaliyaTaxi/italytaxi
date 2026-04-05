@@ -4,7 +4,7 @@ import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Trulli of Alberobello | Taxi Transfer",
+  title: "Taxi for Trulli Alberobello Visits",
   description: "Book a professional private transfer to Trulli of Alberobello. Avoid the crowds of public transport and enjoy a comfortable ride directly to one of Italy's most iconic locations.",
   alternates: {
     canonical: "/attraction-transfer/trulli-alberobello-taxi-transfer",

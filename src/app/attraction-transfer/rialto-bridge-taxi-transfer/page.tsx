@@ -4,7 +4,7 @@ import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Rialto Bridge Venice | Taxi Transfer",
+  title: "Taxi for Rialto Bridge Visits",
   description: "Book a professional private transfer to Rialto Bridge. Avoid the crowds of public transport and enjoy a comfortable ride directly to one of Italy's most iconic locations.",
   alternates: {
     canonical: "/attraction-transfer/rialto-bridge-taxi-transfer",

@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { Plane, ChevronRight } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: "Airport Transfers in Italy | Private Taxi Service",
+  title: "Airport Transfers in Italy",
   description: "Book professional private taxi transfers to and from all major Italian airports. Reliable, fixed-price airport shuttle service across Italy.",
   alternates: {
     canonical: "/airport",

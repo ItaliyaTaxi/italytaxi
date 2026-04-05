@@ -18,7 +18,7 @@ export default function Footer() {
                     <div className="col-span-1">
                         <Image
                             src="/images/logo.png"
-                            alt="ItaliaRide Logo"
+                            alt="ItaliaRide Logo in Italy"
                             width={180}
                             height={60}
                             className="mb-6 opacity-90"
@@ -59,12 +59,14 @@ export default function Footer() {
                         <ul className="space-y-3 text-sm">
                             <li><Link href="/" className="hover:text-gold transition-colors">{t.footer.home}</Link></li>
                             <li><Link href="/services" className="hover:text-gold transition-colors">{t.footer.services}</Link></li>
-                            <li><Link href="/coverage-areas" className="hover:text-gold transition-colors">Coverage Areas</Link></li>
+                            <li><Link href="/coverage-areas" className="hover:text-gold transition-colors">Service Areas</Link></li>
                             <li><Link href="/airport" className="hover:text-gold transition-colors">Airports</Link></li>
                             <li><Link href="/city" className="hover:text-gold transition-colors">Cities</Link></li>
                             <li><Link href="/blog" className="hover:text-gold transition-colors">Blog</Link></li>
                             <li><Link href="/about-us" className="hover:text-gold transition-colors">About Us</Link></li>
                             <li><Link href="/drivers" className="hover:text-gold transition-colors">Our Drivers</Link></li>
+                            <li><Link href="/contact" className="hover:text-gold transition-colors">Contact Us</Link></li>
+                            <li><Link href="/book-now" className="hover:text-gold transition-colors">Instant Booking Page</Link></li>
                         </ul>
                     </div>
 

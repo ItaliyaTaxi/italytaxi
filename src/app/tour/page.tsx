@@ -9,7 +9,7 @@ import TaxiButton from '@/components/TaxiButton';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Private Sightseeing Tours Italy | Amalfi, Tuscany, Rome, Venice",
+  title: "Private Sightseeing Tours in Italy",
   description: "Book private taxi tours across Italy's most iconic destinations. Expert local drivers, flexible itineraries, fixed prices. Amalfi Coast, Tuscany, Vatican, Lake Como and more.",
   alternates: { canonical: "/tour" }
 };
@@ -89,7 +89,7 @@ export default function ToursHubPage() {
                 <div className="relative h-64 overflow-hidden">
                   <img
                     src={tour.hero_image}
-                    alt={tour.alt_text}
+                    alt={`${tour.alt_text} in Italy`}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
@@ -182,7 +182,7 @@ export default function ToursHubPage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <TaxiButton href="/contact" className="md:scale-110">Request Custom Tour</TaxiButton>
             <Link href="/services/private-tours" className="flex items-center gap-2 px-8 py-4 rounded-full border border-white/30 text-white font-bold hover:border-gold hover:text-gold transition-all">
-              <Clock className="w-5 h-5" /> Hourly Chauffeur Option
+              <Clock className="w-5 h-5" /> Hourly Taxi Option
             </Link>
           </div>
         </div>

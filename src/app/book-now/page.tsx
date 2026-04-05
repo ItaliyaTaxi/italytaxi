@@ -7,7 +7,7 @@ import { Metadata } from 'next';
 import { CheckCircle, Shield, Clock, CreditCard, Star, ChevronRight } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: "Book Your Private Taxi in Italy | Instant Confirmation | Italy Taxi Service",
+  title: "Book Your Private Taxi in Italy | Instant Confirmation",
   description: "Book a private taxi transfer in Italy in under 2 minutes. Fixed prices, instant confirmation, professional English-speaking drivers. Airport, hotel, city-to-city and tours.",
   alternates: { canonical: "/book-now" }
 };

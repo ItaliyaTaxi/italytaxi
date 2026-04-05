@@ -8,15 +8,15 @@ export default function Hero() {
     const { t } = useLanguage();
 
     return (
-        <section className="relative h-screen w-full flex items-center overflow-hidden font-inter">
+        <section suppressHydrationWarning className="relative h-screen w-full flex items-center overflow-hidden font-inter">
             {/* ── Hero background ────────────────────────────────────────────────
-                Using Next.js <Image fill priority> instead of CSS background-image so that:
+                Using Next.js <Image alt="Taxi service vehicle in Italy" fill priority> instead of CSS background-image so that:
                   • Next.js serves AVIF/WebP (hero.png ~3 MB → ~400-600 KB)
                   • Browser receives an early <link rel="preload"> hint (LCP fix)
                   • fetchPriority="high" tells the browser to fetch this before
                     other images and non-critical resources
             ──────────────────────────────────────────────────────────────────── */}
-            <div className="absolute inset-0">
+            <div className="absolute inset-0" suppressHydrationWarning>
                 <Image
                     src="/images/hero.png"
                     alt="Luxury Private Taxi Service in Italy - Professional Drivers and Transfers"
@@ -34,7 +34,7 @@ export default function Hero() {
             </div>
 
             {/* Content Area */}
-            <div className="relative z-10 container mx-auto px-6">
+            <div suppressHydrationWarning className="relative z-10 container mx-auto px-6">
                 <div className="max-w-4xl pt-20">
                     <h1 className="text-white font-montserrat font-semibold leading-[1.1] mb-6">
                         <span className="text-5xl md:text-6xl block mb-2 animate-slide-left [animation-delay:0.2s]">{t.hero.line1}</span>

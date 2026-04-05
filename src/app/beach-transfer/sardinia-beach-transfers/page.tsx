@@ -8,7 +8,7 @@ import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Sardinia Beach Transfers | Emerald Coast & Beyond",
+  title: "Taxi to Sardinia Beach Transfers",
   description: "Book professional beach transfers across Sardinia. Luxury taxi services to Costa Smeralda, Villasimius, and Alghero from all major airports.",
   alternates: {
     canonical: "/beach-transfer/sardinia-beach-transfers",

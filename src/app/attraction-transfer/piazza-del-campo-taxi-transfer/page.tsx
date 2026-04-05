@@ -8,7 +8,7 @@ import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Piazza del Campo Private Taxi | Siena City Transfers",
+  title: "Taxi for Piazza Del Campo Visits",
   description: "Arrive at the heart of Siena in style. Private taxi transfers to Piazza del Campo from Florence, Pisa, or Rome. Expert drivers with ZTL permits.",
   alternates: {
     canonical: "/attraction-transfer/piazza-del-campo-taxi-transfer",
@@ -19,7 +19,7 @@ export default function PiazzaDelCampoPage() {
   const features = [
     "Authorized access to Siena's ZTL (Restricted Zone)",
     "Direct drop-off at your hotel or the Piazza",
-    "English-speaking professional chauffeurs",
+    "English-speaking professional taxi drivers",
     "Fixed competitive rates for all routes",
     "Luxury vehicles for a smooth Tuscan journey",
     "Baggage assistance and child seats available"

@@ -9,7 +9,7 @@ import type { PricingTier } from '@/components/ServicePageContent';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Hotel Transfers Italy | Private Taxi to Any Hotel or Airbnb",
+  title: "Hotel Transfers in Italy",
   description: "Private door-to-door hotel transfer service across Italy. Airport to hotel, station to resort, hotel to hotel. All addresses covered, fixed prices, luggage assistance.",
   alternates: {
     canonical: "/services/hotel-transfers",

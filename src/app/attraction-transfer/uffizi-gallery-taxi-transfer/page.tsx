@@ -8,7 +8,7 @@ import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Uffizi Gallery Private Taxi | Florence Art Transfers",
+  title: "Taxi for Uffizi Gallery Visits",
   description: "Book a professional private taxi to the Uffizi Gallery. Direct access to Florence's historic center with professional English-speaking drivers.",
   alternates: {
     canonical: "/attraction-transfer/uffizi-gallery-taxi-transfer",

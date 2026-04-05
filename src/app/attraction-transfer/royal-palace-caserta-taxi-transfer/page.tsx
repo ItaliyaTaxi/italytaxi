@@ -8,7 +8,7 @@ import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Caserta Royal Palace Private Taxi | Premium Transfers",
+  title: "Taxi for Royal Palace Caserta Visits",
   description: "Arrive at the world's largest palace in style. Luxury private taxi transfers to Reggia di Caserta from Naples, Rome, or any Italian city.",
   alternates: {
     canonical: "/attraction-transfer/royal-palace-caserta-taxi-transfer",

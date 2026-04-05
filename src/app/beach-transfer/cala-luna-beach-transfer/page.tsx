@@ -8,7 +8,7 @@ import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Cala Luna Beach Taxi | Orosei Gulf Transfers",
+  title: "Taxi to Cala Luna Beach Transfer",
   description: "Reach the paradise of Cala Luna in Sardinia. Private taxi transfers to Cala Gonone and Orosei for your boat departure to Cala Luna. Professional and reliable.",
   alternates: {
     canonical: "/beach-transfer/cala-luna-beach-transfer",

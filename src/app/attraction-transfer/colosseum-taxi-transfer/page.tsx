@@ -6,7 +6,7 @@ import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Colosseum Rome | Private Taxi Transfer | ItaliaRide",
+  title: "Private Taxi to Colosseum | Italy",
   description: "Book a professional private transfer to the Colosseum. Avoid the crowds and enjoy a comfortable ride directly to Rome's most iconic location.",
   alternates: {
     canonical: "/attraction-transfer/colosseum-taxi-transfer",
@@ -36,7 +36,7 @@ export default function ColosseumPage() {
       <PageHero
         titleTop="Private Taxi Transfer to the"
         titleBottom="Iconic Rome Colosseum"
-        description="Avoid the heat and the crowds. Arrive at the gates of the Flavian Amphitheatre in comfort with our professional English-speaking chauffeurs."
+        description="Avoid the heat and the crowds. Arrive at the gates of the Flavian Amphitheatre in comfort with our professional English-speaking taxi drivers."
         backgroundImage="https://aprilmunday.wordpress.com/wp-content/uploads/2018/09/bodiam_castle_through_the_trees.jpg?w=500"
         breadcrumbs={[
           { name: "Attraction Transfers", item: "/attraction-transfer" },

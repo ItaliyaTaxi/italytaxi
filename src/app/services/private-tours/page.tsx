@@ -10,7 +10,7 @@ import type { PricingTier } from '@/components/ServicePageContent';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Private Sightseeing Tours Italy | Custom Day Trips by Taxi",
+  title: "Private Sightseeing Tours in Italy",
   description: "Discover Italy with expert private taxi tours. Amalfi Coast, Tuscany, Vatican, Colosseum, Lake Como and more. Custom itineraries, fixed prices, hotel pickup included.",
   alternates: {
     canonical: "/services/private-tours",
@@ -24,7 +24,7 @@ const faqs = [
   },
   {
     q: "Do your drivers serve as tour guides?",
-    a: "Our chauffeurs are experienced locals with deep knowledge of Italy's regions, history, and best-kept secrets. For guided museum visits inside monuments like the Vatican or Colosseum, we can help you pre-book a licensed professional guide to join your tour."
+    a: "Our taxi drivers are experienced locals with deep knowledge of Italy's regions, history, and best-kept secrets. For guided museum visits inside monuments like the Vatican or Colosseum, we can help you pre-book a licensed professional guide to join your tour."
   },
   {
     q: "What is the best private tour for first-time visitors to Italy?",
@@ -91,14 +91,14 @@ export default function PrivateToursPage() {
         introTitle="Your Personal Journey Through Italy — Your Way"
         introParagraphs={[
           "Italy has so many extraordinary destinations packed into a relatively compact country that it can be genuinely difficult to choose what to see and how to get there efficiently. Group tours rush you past the things you care about. Public transport can't reach the Amalfi Coast's clifftop villages or Tuscany's remote vineyard estates.",
-          "Our private taxi tours solve all of this. You tell us what you want to see, we design the perfect route, your expert chauffeur picks you up from your hotel, and you spend your day discovering Italy at exactly the pace that suits you.",
+          "Our private taxi tours solve all of this. You tell us what you want to see, we design the perfect route, your expert taxi picks you up from your hotel, and you spend your day discovering Italy at exactly the pace that suits you.",
           "From a half-day exploration of Rome's ancient ruins to a five-day grand tour taking in Milan, Lake Como, Venice, Florence, and the Amalfi Coast, we craft experiences around what matters most to you — not a packaged itinerary."
         ]}
         detailTitle="What Makes Our Private Tours Different"
         detailParagraphs={[
           "The fundamental difference between a private taxi tour and a group excursion is the absence of compromise. On a group tour, you visit what the majority voted for, move when the guide says, and spend your time in the company of people who may not share your interests. On a private tour, every decision is yours.",
           "Want to spend two hours at a single Tuscan winery rather than rushing through three? Done. Want to stop at a viewpoint that isn't on any standard itinerary because you spotted it in a magazine? Absolutely. Want to skip the crowded sections of Pompeii and focus exclusively on the lesser-visited thermal baths? Your driver will know exactly where to go.",
-          "Our chauffeurs are not passive drivers — they are engaged, knowledgeable companions who love sharing their knowledge of Italy. They know which viewpoints are best in the morning light, which restaurants are genuinely local, and which visits are best timed to avoid the worst crowds.",
+          "Our taxi drivers are not passive drivers — they are engaged, knowledgeable companions who love sharing their knowledge of Italy. They know which viewpoints are best in the morning light, which restaurants are genuinely local, and which visits are best timed to avoid the worst crowds.",
           "Cruise port excursions are one of our most requested specialties. We collect you from the dock at Civitavecchia, Livorno, Naples, or Venice and build your entire day around your ship's all-aboard time — with a guaranteed return that gives you a comfortable margin before departure.",
           "For families, our tours remove all the logistical pressure that comes with travelling with children. There's no luggage to wrestle through metro stations, no missing a bus connection, and no rushing pace. Children enjoy the journey, parents enjoy the experience."
         ]}
@@ -119,7 +119,7 @@ export default function PrivateToursPage() {
         pricingTitle="Private Tour Pricing"
         pricing={pricing}
         relatedLinks={[
-          { label: "Hourly Chauffeur Service", href: "/services/hourly-taxi" },
+          { label: "Hourly Taxi Service", href: "/services/hourly-taxi" },
           { label: "City-to-City Transfers", href: "/services/city-to-city" },
           { label: "Cruise Port Transfers", href: "/services/cruise-port-transfers" },
           { label: "Amalfi Coast Guide", href: "/city/amalfi-coast" },

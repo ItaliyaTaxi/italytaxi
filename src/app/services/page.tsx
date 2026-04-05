@@ -6,8 +6,8 @@ import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Private Taxi Services Italy | All Transfer Solutions",
-  description: "Comprehensive taxi services across Italy. From airport transfers and city-to-city transfers to hourly chauffeur and wedding transportation.",
+  title: "Private Taxi Services in Italy | All Transfer Solutions",
+  description: "Comprehensive taxi services across Italy. From airport transfers and city-to-city transfers to hourly taxi and wedding transportation.",
   alternates: {
     canonical: "/services",
   }
@@ -17,7 +17,7 @@ export default function ServicesPage() {
   const hubFaqs = [
     {
       q: "What types of taxi services do you offer in Italy?",
-      a: "We offer airport transfers, city-to-city private travel, hourly chauffeur services, wedding transportation, and customizable private tours across all major Italian destinations."
+      a: "We offer airport transfers, city-to-city private travel, hourly taxi services, wedding transportation, and customizable private tours across all major Italian destinations."
     },
     {
       q: "How can I get an instant quote for my transfer?",

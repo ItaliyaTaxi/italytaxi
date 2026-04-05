@@ -8,7 +8,7 @@ import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Otranto Beach Taxi | Premium Salento Transfers",
+  title: "Taxi for Otranto Beach Visits",
   description: "Reach the stunning beaches of Otranto and Salento in comfort. Private taxi transfers to Otranto, Baia dei Turchi, and Porto Badisco from Brindisi or Bari.",
   alternates: {
     canonical: "/beach-transfer/otranto-beach-taxi",

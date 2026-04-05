@@ -5,7 +5,7 @@ import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Our Drivers | Italy Private Taxi | Professional Chauffeurs",
+  title: "Our Professional Drivers in Italy | Private Taxi",
   description: "Meet our fleet of professional, English-speaking drivers in Italy. Licensed, experienced, and dedicated to providing world-class private transportation.",
   alternates: {
     canonical: "/drivers",
@@ -52,7 +52,7 @@ export default function DriversPage() {
         <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl font-bold text-navy mb-8">Excellence Behind the Wheel</h2>
             <p className="text-lg text-gray-600 leading-relaxed mb-12">
-                Our drivers are more than just chauffeurs; they are local ambassadors who take pride in providing seamless travel experiences. From airport meet-and-greets to long-distance city transfers, you can rely on their professionalism and deep local knowledge.
+                Our drivers are more than just taxi drivers; they are local ambassadors who take pride in providing seamless travel experiences. From airport meet-and-greets to long-distance city transfers, you can rely on their professionalism and deep local knowledge.
             </p>
         </div>
       </div>

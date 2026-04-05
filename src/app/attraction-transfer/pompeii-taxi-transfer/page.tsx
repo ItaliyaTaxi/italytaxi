@@ -6,7 +6,7 @@ import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Pompeii Ruins Private Taxi | Naples & Sorrento Transfers",
+  title: "Private Taxi to Pompeii | Italy",
   description: "Book a professional private transfer to the Pompeii Archaeological Park. Comfortable, direct taxi service from Naples, Sorrento, or Rome with local experts.",
   alternates: {
     canonical: "/attraction-transfer/pompeii-taxi-transfer",

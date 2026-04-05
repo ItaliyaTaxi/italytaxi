@@ -9,7 +9,7 @@ import type { PricingTier, RouteItem } from '@/components/ServicePageContent';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Private Airport Transfers Italy | Best Prices, Meet & Greet",
+  title: "Airport Transfers in Italy | Private Taxi Service",
   description: "Book reliable, fixed-price private airport transfers across Italy. Professional English-speaking drivers for Rome FCO, Milan MXP, Venice VCE and 30+ airports. 24/7 service.",
   alternates: {
     canonical: "/services/airport-transfers",

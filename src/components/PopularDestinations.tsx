@@ -37,7 +37,7 @@ export default function PopularDestinations() {
                             <div className="absolute inset-[2px] rounded-[18px] overflow-hidden z-10">
                                 <Image
                                     src={city.image}
-                                    alt={city.name}
+                                    alt={`${city.name} in Italy`}
                                     fill
                                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                                 />

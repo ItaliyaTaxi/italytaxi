@@ -172,7 +172,7 @@ export const airports: AirportData[] = [
         code: "BRI",
         city: "Bari",
         hero_image: "/images/bari-taxi.webp",
-        description: "Travel from Bari Airport to Puglia and beyond with our professional chauffeur service.",
+        description: "Travel from Bari Airport to Puglia and beyond with our professional taxi service.",
         features: ["Flight tracking & delay monitoring", "Meet & greet service", "Fixed pricing", "24/7 availability", "Premium fleet"]
     },
     {
@@ -269,7 +269,7 @@ export const cities: CityData[] = [
         slug: "bari",
         name: "Bari",
         hero_image: "/images/bari-taxi.webp",
-        description: "Explore the pearl of the Adriatic with our professional chauffeurs.",
+        description: "Explore the pearl of the Adriatic with our professional taxi drivers.",
         popular_tours: ["Polignano a Mare Tour", "Alberobello Day Trip", "Bari Vecchia Walking Tour"]
     },
     {
@@ -421,8 +421,8 @@ export const tours: TourData[] = [
         name: "Amalfi Coast Tour",
         city: "Naples",
         hero_image: "/images/almafi.webp",
-        alt_text: "Scenic coastal view of Positano on the Amalfi Coast with a private chauffeur Mercedes parked",
-        highlights: ["Positano visit", "Ravello views", "Licensed Chauffeur", "Flexible route"],
+        alt_text: "Scenic coastal view of Positano on the Amalfi Coast with a private taxi Mercedes parked",
+        highlights: ["Positano visit", "Ravello views", "Licensed Taxi", "Flexible route"],
         description: "Explore Positano, Amalfi, and Ravello in a single day with our professional drivers."
     },
     {

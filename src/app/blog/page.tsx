@@ -8,7 +8,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
-  title: "Italy Travel Blog | Guides & Taxi Tips | ItaliaRide",
+  title: "Italy Travel Blog | Taxi Tips & Guides",
   description: "Travel tips, destination guides, and the latest news about taxi transfers in Italy. Plan your perfect Italian journey with our expert blog.",
   alternates: {
     canonical: "/blog",

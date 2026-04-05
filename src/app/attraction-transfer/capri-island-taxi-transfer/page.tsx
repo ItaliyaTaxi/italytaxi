@@ -8,7 +8,7 @@ import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Capri Island Private Taxi | Port & Island Transfers",
+  title: "Private Taxi to Capri Island | Italy",
   description: "Luxury private transfers to and around Capri Island. Skip the long lines for the funicular and arrive at your hotel in one of Capri's iconic open-top taxis or premium vans.",
   alternates: {
     canonical: "/attraction-transfer/capri-island-taxi-transfer",

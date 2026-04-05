@@ -10,7 +10,7 @@ import { MapPin, CheckCircle, ChevronRight, MessageCircle } from 'lucide-react';
 import TaxiButton from '@/components/TaxiButton';
 
 export const metadata: Metadata = {
-  title: "Italy Taxi Coverage Areas | All Cities, Airports & Regions Covered",
+  title: "Taxi Service Coverage Areas in Italy",
   description: "Italy Taxi Service covers every major city, airport, cruise port, and region — Rome, Milan, Florence, Venice, Naples, Amalfi Coast, Lake Como and more. Private transfers nationwide.",
   alternates: { canonical: "/coverage-areas" }
 };

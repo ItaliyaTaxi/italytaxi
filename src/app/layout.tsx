@@ -33,7 +33,7 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.italytaxiservice.com"),
   title: {
-    default: "Italy Taxi Service | Private Transfers Italy",
+    default: "Private Taxi Service in Italy | Transfers | Italy Taxi Service",
     template: "%s | Italy Taxi Service"
   },
   description: "Experience the finest travel in Italy. Professional drivers and vehicle fleet for airport transfers and city tours.",
@@ -44,6 +44,10 @@ export const metadata: Metadata = {
   },
   other: {
     "msvalidate.01": "855d7a6f206b4d3cb0f5120fa3e5bd86", // Bing Validation
+    "geo.region": "IT",
+    "geo.placename": "Italy",
+    "geo.position": "41.8719;12.5674",
+    "ICBM": "41.8719, 12.5674",
   },
   robots: {
     index: true,

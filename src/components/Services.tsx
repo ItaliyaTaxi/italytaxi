@@ -45,22 +45,23 @@ export default function Services() {
     };
 
     return (
-        <section className="py-24 bg-white font-inter cv-section">
+        <section suppressHydrationWarning className="py-24 bg-white font-inter cv-section">
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
             />
-            <div className="container mx-auto px-6">
+            <div className="container mx-auto px-6" suppressHydrationWarning>
                 <div className="text-center mb-20">
                     <p className="text-[#F4C430] text-sm font-bold uppercase tracking-[0.4em] mb-4">{t.services.badge}</p>
                     <h2 className="text-4xl md:text-5xl font-bold text-[#0F1C2E]">{t.services.heading}</h2>
                     <div className="w-20 h-1 bg-[#F4C430] mx-auto mt-6" />
                 </div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 xl:gap-12">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 xl:gap-12" suppressHydrationWarning>
                     {services.map((service, index) => (
                         <div
                             key={index}
+                            suppressHydrationWarning
                             className="group uiverse-card p-10 min-h-[380px] animate-slide-left shadow-2xl"
                             style={{ animationDelay: `${0.2 + index * 0.1}s` }}
                         >

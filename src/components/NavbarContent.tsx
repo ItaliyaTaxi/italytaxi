@@ -112,15 +112,15 @@ export default function Navbar() {
 
     return (
         <>
-            <nav className={`fixed w-full z-50 transition-all duration-500 ${isScrolled ? 'bg-[#0F1C2E]/95 py-3 shadow-xl backdrop-blur-md' : 'bg-transparent py-5'}`}>
-                <div className="container mx-auto px-6 relative flex flex-col items-center">
+            <nav suppressHydrationWarning className={`fixed w-full z-50 transition-all duration-500 ${isScrolled ? 'bg-[#0F1C2E]/95 py-3 shadow-xl backdrop-blur-md' : 'bg-transparent py-5'}`}>
+                <div suppressHydrationWarning className="container mx-auto px-6 relative flex flex-col items-center">
 
                     {/* Top Section: Logo (Center) and Book Now (Upper Right) */}
                     <div className="w-full relative flex justify-center items-center mb-6">
                         <Link href="/" className="transition-transform duration-300 hover:scale-105 block animate-slide-left [animation-delay:0.2s]">
                             <Image
                                 src="/images/logo.webp"
-                                alt="ItaliaRide"
+                                alt="ItaliaRide in Italy"
                                 width={180}
                                 height={60}
                                 className="h-14 md:h-16 w-auto"
@@ -144,12 +144,14 @@ export default function Navbar() {
                             {/* Language Toggle */}
                             <div className="flex items-center bg-white/10 rounded-full p-0.5 border border-white/20">
                                 <button
+                                    suppressHydrationWarning
                                     onClick={() => setLanguage('en')}
                                     className={`px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all duration-200 ${language === 'en' ? 'bg-[#F4C430] text-[#0F1C2E]' : 'text-white/70 hover:text-white'}`}
                                 >
                                     EN
                                 </button>
                                 <button
+                                    suppressHydrationWarning
                                     onClick={() => setLanguage('it')}
                                     className={`px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all duration-200 ${language === 'it' ? 'bg-[#F4C430] text-[#0F1C2E]' : 'text-white/70 hover:text-white'}`}
                                 >
@@ -361,7 +363,7 @@ export default function Navbar() {
                 <div className="absolute inset-0 bg-[#0F1C2E]/95 backdrop-blur-lg">
                     <div className="flex flex-col h-full p-8">
                         <div className="flex justify-between items-center mb-8">
-                            <Image src="/images/logo.webp" alt="ItaliaRide" width={140} height={40} className="h-10 w-auto" />
+                            <Image src="/images/logo.webp" alt="ItaliaRide in Italy" width={140} height={40} className="h-10 w-auto" />
                             <div className="flex items-center gap-3">
                                 {/* Language Toggle in Mobile Drawer */}
                                 <div className="flex items-center bg-white/10 rounded-full p-0.5 border border-white/20">

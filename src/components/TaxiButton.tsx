@@ -21,7 +21,7 @@ export default function TaxiButton({
 }: TaxiButtonProps) {
     const content = (
         <>
-            <div className="inner">
+            <div className="inner" suppressHydrationWarning>
                 {children}
             </div>
             <div className="fold"></div>

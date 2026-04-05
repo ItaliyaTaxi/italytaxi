@@ -9,8 +9,8 @@ import type { PricingTier } from '@/components/ServicePageContent';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Hourly Private Taxi Italy | Chauffeur by the Hour for Shopping, Tours & Business",
-  description: "Hire a private chauffeur by the hour across Italy. Flexible hourly taxi service for sightseeing, shopping, business, and events. Fixed hourly rates, no hidden charges.",
+  title: "Hourly Private Taxi in Italy",
+  description: "Hire a private taxi by the hour across Italy. Flexible hourly taxi service for sightseeing, shopping, business, and events. Fixed hourly rates, no hidden charges.",
   alternates: {
     canonical: "/services/hourly-taxi",
   }
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
 const faqs = [
   {
-    q: "How does hourly chauffeur booking work in Italy?",
+    q: "How does hourly taxi booking work in Italy?",
     a: "You hire a professional driver and vehicle for a minimum number of hours. During this period, the driver and vehicle are entirely at your disposal. You direct where you want to go, how long to stay, and when to move on — complete flexibility."
   },
   {
@@ -82,12 +82,12 @@ export default function HourlytaxiPage() {
 
   return (
     <main className="min-h-screen font-inter">
-      <ServiceSchema name="Hourly Private Taxi Service Italy" description="Hire a professional chauffeur by the hour for complete flexibility and luxury travel across Italy." url={url} />
+      <ServiceSchema name="Hourly Private Taxi Service Italy" description="Hire a professional taxi by the hour for complete flexibility and luxury travel across Italy." url={url} />
       <Navbar />
 
       <PageHero
         titleTop="Private & Flexible"
-        titleBottom="Chauffeur by the Hour"
+        titleBottom="Taxi by the Hour"
         description="Your private driver, at your complete disposal, for as many hours as you need. Perfect for sightseeing, shopping, business, and day excursions across Italy."
         backgroundImage="/images/Taxis.webp"
         buttonText="Book Hourly Service"
@@ -100,13 +100,13 @@ export default function HourlytaxiPage() {
       <ServicePageContent
         introTitle="Your Personal Driver — Your Schedule, Your Way"
         introParagraphs={[
-          "Sometimes a single point-to-point transfer isn't enough. Italy is a country that rewards exploration — and our hourly chauffeur service gives you the freedom to experience it on your own terms. Hire a private driver for two hours or an entire day, and discover as much or as little as you please.",
+          "Sometimes a single point-to-point transfer isn't enough. Italy is a country that rewards exploration — and our hourly taxi service gives you the freedom to experience it on your own terms. Hire a private driver for two hours or an entire day, and discover as much or as little as you please.",
           "Whether you want to spend a morning hopping between Rome's piazzas and churches, an afternoon shopping along Milan's fashion district, or a full day weaving through the Amalfi Coast's clifftop villages, our hourly service puts you firmly in control.",
           "Your driver is a knowledgeable local who can suggest the best routes, alert you to hidden gems off the tourist trail, and ensure you're always where you want to be — comfortably, safely, and on time."
         ]}
-        detailTitle="What to Expect from Your Hourly Chauffeur Experience"
+        detailTitle="What to Expect from Your Hourly Taxi Experience"
         detailParagraphs={[
-          "When you book an hourly chauffeur with Italy Taxi Service, you're not simply hiring a car and driver — you're engaging a personal mobility partner for your journey. The service begins at your hotel, airport, or any address you specify, and from that moment your driver is entirely focused on making your time in Italy extraordinary.",
+          "When you book an hourly taxi with Italy Taxi Service, you're not simply hiring a car and driver — you're engaging a personal mobility partner for your journey. The service begins at your hotel, airport, or any address you specify, and from that moment your driver is entirely focused on making your time in Italy extraordinary.",
           "Unlike sightseeing buses with rigid routes and fixed stops, your itinerary is entirely your own. Tell your driver you want to stop for 30 minutes at the Trevi Fountain, then head to a specific restaurant for lunch, followed by an unplanned detour to a market you spotted — all of this is not just possible, it's expected.",
           "Our drivers are patient, unhurried, and genuinely invested in your experience. They know which viewpoints offer the best light for photography, which roads to take to avoid the worst tourist congestion, and which local spots the guidebooks don't mention.",
           "During any waiting time — whether you're in a museum, at lunch, or exploring on foot — your vehicle remains parked nearby. Your driver monitors the time and is always reachable by mobile. When you're ready to leave, a simple message brings them to you within minutes.",

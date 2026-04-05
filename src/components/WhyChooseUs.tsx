@@ -16,9 +16,9 @@ export default function WhyChooseUs() {
     const features = t.whyChooseUs.features.map((f, i) => ({ ...f, icon: icons[i] }));
 
     return (
-        <section className="relative py-24 font-inter overflow-hidden min-h-screen flex items-center">
+        <section suppressHydrationWarning className="relative py-24 font-inter overflow-hidden min-h-screen flex items-center">
             {/* Parallax Star Background */}
-            <div className="stars-container">
+            <div className="stars-container" suppressHydrationWarning>
                 <div id="stars"></div>
                 <div id="stars2"></div>
                 <div id="stars3"></div>
@@ -70,7 +70,7 @@ export default function WhyChooseUs() {
                             <div className="relative w-full h-full overflow-hidden rounded-full border-4 border-[#F4C430]/30">
                                 <Image
                                     src="/images/about.jpg"
-                                    alt="Professional taxi driver"
+                                    alt="Professional taxi driver in Italy"
                                     fill
                                     className="object-cover transition-transform duration-1000 group-hover:scale-110"
                                 />

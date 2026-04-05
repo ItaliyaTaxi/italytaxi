@@ -8,7 +8,7 @@ import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "San Gimignano Private Taxi | Tuscany Hilltop Transfers",
+  title: "Taxi for San Gimignano Visits",
   description: "Arrive at the medieval Manhattan of Tuscany in style. Private taxi transfers to San Gimignano from Florence, Siena, or Pisa. Expert local drivers.",
   alternates: {
     canonical: "/attraction-transfer/san-gimignano-taxi-transfer",

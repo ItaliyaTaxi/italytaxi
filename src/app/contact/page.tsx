@@ -12,7 +12,7 @@ import TaxiButton from '@/components/TaxiButton';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
-  title: "Contact Italy Taxi Service | Rome, Milan & Venice Transfers",
+  title: "Contact Us in Italy | Private Taxi Service",
   description: "Contact Italy Taxi Service for 24/7 private transfers across Italy. Serving Rome, Milan, Venice, Florence & Naples airports and city centers. Instant quotes via WhatsApp or email.",
   alternates: { canonical: "/contact" }
 };
@@ -177,7 +177,7 @@ export default function ContactPage() {
         <div className="container mx-auto px-4 md:px-6 max-w-6xl">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-extrabold text-navy leading-tight mb-4">Our Primary Service Hubs in Italy</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto text-lg">We provide premium taxi and chauffeur services across all major Italian cities, airports, and train stations.</p>
+            <p className="text-gray-600 max-w-2xl mx-auto text-lg">We provide premium taxi and taxi services across all major Italian cities, airports, and train stations.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {serviceAreas.map((area, idx) => (

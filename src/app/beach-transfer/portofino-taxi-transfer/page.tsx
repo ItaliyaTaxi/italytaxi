@@ -8,7 +8,7 @@ import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Portofino Private Taxi | Luxury Ligurian Transfers",
+  title: "Private Taxi to Portofino | Italy",
   description: "Experience the glamour of Portofino with our premium taxi transfers. Professional service from Genoa Airport, Santa Margherita Ligure station, or Milan.",
   alternates: {
     canonical: "/beach-transfer/portofino-taxi-transfer",

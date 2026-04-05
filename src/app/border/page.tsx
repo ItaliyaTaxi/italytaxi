@@ -32,7 +32,7 @@ export default function BorderTransfersPage() {
       },
       {
         q: "Are the drivers experienced in driving across the Alps?",
-        a: "Our chauffeurs are highly trained in mountain driving and familiar with the alpine passes into Switzerland and Austria, ensuring safety in all weather conditions."
+        a: "Our taxi drivers are highly trained in mountain driving and familiar with the alpine passes into Switzerland and Austria, ensuring safety in all weather conditions."
       },
       {
         q: "Is there an extra cost for international vignettes or tolls?",

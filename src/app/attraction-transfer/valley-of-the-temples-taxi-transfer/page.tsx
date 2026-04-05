@@ -4,7 +4,7 @@ import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Valley of Temples | Private Taxi",
+  title: "Taxi for Valley Of The Temples Visits",
   description: "Book a professional private transfer to Valley of the Temples. Avoid the crowds of public transport and enjoy a comfortable ride directly to one of Italy's most iconic locations.",
   alternates: {
     canonical: "/attraction-transfer/valley-of-the-temples-taxi-transfer",

@@ -8,7 +8,7 @@ import { CheckCircle, MessageCircle, Clock, Shield, CreditCard, Users, Star, Che
 import TaxiButton from '@/components/TaxiButton';
 
 export const metadata: Metadata = {
-  title: "FAQ | Italy Taxi Service | All Your Questions Answered",
+  title: "Taxi Service FAQ | Helpful Information",
   description: "Complete FAQ guide to Italy Taxi Service. Learn about airport transfers, pricing, cancellation, child seats, corporate accounts, and how to book across Italy.",
   alternates: { canonical: "/faq" }
 };

@@ -16,7 +16,7 @@ import {
 import TaxiButton from '@/components/TaxiButton';
 
 export const metadata: Metadata = {
-    title: "About Italy Taxi Service | Professional Private Taxi & Transfers Across Italy",
+    title: "About Our Taxi Service in Italy | Private Transfers",
     description: "Italy Taxi Service — Italy's private taxi and transfer company since 2013. NCC-licensed drivers, fixed prices, 10,000+ rides across Rome, Milan, Florence, Venice & 30+ cities.",
     alternates: { canonical: "/about-us" }
 };
@@ -40,7 +40,7 @@ const aboutFaqs = [
     },
     {
         q: "Do you offer service for weddings, corporate events, and group travel?",
-        a: "Yes. We have dedicated divisions for corporate travel (executive sedans, monthly invoicing, account management), destination weddings (multi-vehicle coordination, suited chauffeurs, ZTL venue access), and group transfers (8-seat minivans, convoy logistics). Contact us to discuss your specific requirements."
+        a: "Yes. We have dedicated divisions for corporate travel (executive sedans, monthly invoicing, account management), destination weddings (multi-vehicle coordination, suited taxi drivers, ZTL venue access), and group transfers (8-seat minivans, convoy logistics). Contact us to discuss your specific requirements."
     },
     {
         q: "Why should I choose Italy Taxi Service over a train or public transport?",
@@ -62,7 +62,7 @@ const services = [
     { icon: <Award className="w-6 h-6 text-gold" />, title: "Business Taxi", desc: "Executive vehicles, Wi-Fi, monthly invoicing, and NDA-ready discretion.", href: "/services/business-taxi" },
     { icon: <Anchor className="w-6 h-6 text-gold" />, title: "Cruise Port Transfers", desc: "Pier pickup at Civitavecchia, Livorno, Naples, Venice, and Genoa.", href: "/services/cruise-port-transfers" },
     { icon: <Sparkles className="w-6 h-6 text-gold" />, title: "Private Sightseeing Tours", desc: "Amalfi Coast, Tuscany, Vatican, Pompeii — custom itineraries at your pace.", href: "/services/private-tours" },
-    { icon: <HeartHandshake className="w-6 h-6 text-gold" />, title: "Wedding Transfers", desc: "Elegant fleet, suited chauffeurs, multi-vehicle coordination across Italy.", href: "/services/wedding-transfers" },
+    { icon: <HeartHandshake className="w-6 h-6 text-gold" />, title: "Wedding Transfers", desc: "Elegant fleet, suited taxi drivers, multi-vehicle coordination across Italy.", href: "/services/wedding-transfers" },
 ];
 
 const cities = [
@@ -279,7 +279,7 @@ export default function AboutUsPage() {
                 <div className="absolute inset-0 z-0 pointer-events-none">
                     <Image
                         src="/images/services.png"
-                        alt="Services Background"
+                        alt="Services Background in Italy"
                         fill
                         className="object-cover opacity-20 blur-sm transition-opacity duration-700 group-hover:opacity-35"
                         priority
@@ -455,7 +455,7 @@ export default function AboutUsPage() {
                             { label: "Business Taxi", href: "/services/business-taxi" },
                             { label: "Private Tours", href: "/services/private-tours" },
                             { label: "Cruise Port Transfers", href: "/services/cruise-port-transfers" },
-                            { label: "Hourly Chauffeur", href: "/services/hourly-taxi" },
+                            { label: "Hourly Taxi", href: "/services/hourly-taxi" },
                             { label: "Wedding Transfers", href: "/services/wedding-transfers" },
                             { label: "Rome Transfers", href: "/city/rome" },
                             { label: "Milan Transfers", href: "/city/milan" },

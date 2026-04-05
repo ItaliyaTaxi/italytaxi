@@ -20,8 +20,30 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     const airport = airports.find((a) => a.slug === slug);
     const airportName = airport ? airport.name : slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
 
+    const brand = " | Italy Taxi Service";
+    const templates = [
+        `${airportName} Taxi`, 
+        `Taxi from ${airportName}`,
+        `${airportName} Airport Taxi`,
+        `${airportName} Taxi Transfer`,
+        `${airportName} Airport Transfer`,
+        `${airportName} Private Taxi`,
+        `Taxi from ${airportName} Airport`,
+        `${airportName} Airport Taxi Transfer`,
+        `Private Taxi from ${airportName} Airport`,
+        `${airportName} Airport Private Transfer`,
+        `${airportName} Private Airport Taxi Transfer`
+    ].sort((a, b) => a.length - b.length);
+
+    let bestTitle = templates.find(t => (t.length + brand.length) >= 55 && (t.length + brand.length) <= 60);
+    if (!bestTitle) {
+        bestTitle = templates.reduce((prev, curr) => 
+            Math.abs((curr.length + brand.length) - 57) < Math.abs((prev.length + brand.length) - 57) ? curr : prev
+        );
+    }
+
     return {
-        title: `Best ${airportName.replace(/ Airport$/, '')} Airport Taxi Transfer | Cheap, 24/7 & Reliable`,
+        title: { absolute: bestTitle + brand },
         description: `Book the most reliable and affordable private taxi transfer to or from ${airportName}. 24/7 service, top-rated English-speaking drivers, and fixed pricing.`,
         alternates: {
             canonical: `/airport/${slug}`,

@@ -8,7 +8,7 @@ import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Costa Smeralda Taxi | Luxury Emerald Coast Transfers",
+  title: "Taxi for Costa Smeralda Visits",
   description: "Experience the luxury of Costa Smeralda with our premium taxi transfers. Professional service to Porto Cervo, Baia Sardinia, and Porto Rotondo from Olbia Airport.",
   alternates: {
     canonical: "/beach-transfer/costa-smeralda-taxi",
@@ -19,7 +19,7 @@ export default function CostaSmeraldaBeachPage() {
   const features = [
     "Luxury Mercedes-Benz fleet",
     "Punctual Olbia Airport pickups",
-    "Professional multi-lingual chauffeurs",
+    "Professional multi-lingual taxi drivers",
     "Direct service to hotels and private villas",
     "Fixed premium rates, no hidden fees",
     "Assistance with boat and club reservations"

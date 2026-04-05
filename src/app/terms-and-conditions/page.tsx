@@ -4,7 +4,7 @@ import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Terms & Conditions | Italy Taxi Service",
+  title: "Terms & Conditions | Private Taxi Service",
   description: "Read the full terms and conditions for booking private taxi and transfer services with Italy Taxi Service. Pricing, cancellations, liability, and service agreements.",
   alternates: {
     canonical: "/terms-and-conditions",
@@ -74,7 +74,7 @@ export default function TermsAndConditionsPage() {
               {/* Section 1 */}
               <section id="agreement" className="mb-12 scroll-mt-8">
                 <h2 className="text-2xl font-extrabold text-navy border-b border-gray-100 pb-3 mb-6">1. Service Agreement</h2>
-                <p>Italy Taxi Service provides private, pre-booked ground transportation across Italy. Our services include airport transfers, city-to-city transfers, hotel pickups, cruise port transfers, hourly chauffeur hire, private tours, and wedding transportation.</p>
+                <p>Italy Taxi Service provides private, pre-booked ground transportation across Italy. Our services include airport transfers, city-to-city transfers, hotel pickups, cruise port transfers, hourly taxi hire, private tours, and wedding transportation.</p>
                 <p>A binding contract is formed between Italy Taxi Service and the customer at the moment we issue a written booking confirmation. This confirmation may be sent via email, WhatsApp message, or SMS. Verbal agreements do not constitute a confirmed booking.</p>
                 <p>We reserve the right to refuse service to any passenger who is behaving in a manner that poses a risk to the driver, the vehicle, or other passengers. This includes but is not limited to: intoxication, verbal or physical aggression, and non-compliance with reasonable driver instructions.</p>
                 <p>Italy Taxi Service acts as the operator for all journeys and is responsible for the fulfilment of the contracted service. Where a journey is fulfilled by a vetted partner driver, Italy Taxi Service remains the contracting party and bears full responsibility for service delivery.</p>

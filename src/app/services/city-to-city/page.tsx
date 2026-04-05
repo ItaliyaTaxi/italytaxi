@@ -9,7 +9,7 @@ import type { PricingTier, RouteItem } from '@/components/ServicePageContent';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "City-to-City Private Transfers Italy | Rome to Florence by Taxi",
+  title: "City-to-City Transfers in Italy | Private Taxi Service",
   description: "Private intercity taxi transfers between all Italian cities. Rome to Florence, Milan to Venice, and more. Fixed price, door-to-door, no stops required.",
   alternates: {
     canonical: "/services/city-to-city",

@@ -4,7 +4,7 @@ import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Camogli | Private Beach Taxi Transfer",
+  title: "Private Taxi to Camogli | Italy",
   description: "Book a professional private transfer to Camogli. Avoid the crowds of public transport and enjoy a comfortable ride directly to one of Italy's most iconic locations.",
   alternates: {
     canonical: "/beach-transfer/camogli-taxi-transfer",

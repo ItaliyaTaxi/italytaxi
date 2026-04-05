@@ -30,7 +30,7 @@ export default function FloatingContact() {
     const toggle = () => setView(v => v === 'closed' ? 'main' : 'closed');
 
     return (
-        <div ref={ref} className="fixed bottom-5 right-5 z-[90] flex flex-col items-end gap-3 md:bottom-8 md:right-8">
+        <div ref={ref} suppressHydrationWarning className="fixed bottom-5 right-5 z-[90] flex flex-col items-end gap-3 md:bottom-8 md:right-8">
 
             {/* ── EMAIL SUB-MENU ─────────────────────────────────── */}
             {view === 'email' && (

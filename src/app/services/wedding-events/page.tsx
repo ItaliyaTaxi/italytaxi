@@ -9,7 +9,7 @@ import ServiceSchema from '@/components/ServiceSchema';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: "Wedding & Event Transfers Italy | Luxury Event Taxi",
+    title: "Wedding & Event Taxi | Private Transfers",
     description: "Elegant transportation for weddings and special events in Italy. High-quality taxi service to ensure your guests arrive in style and comfort.",
     alternates: {
         canonical: "/services/wedding-events",
@@ -21,7 +21,7 @@ export default function WeddingEventsPage() {
     const features = [
         "Elegant wedding vehicles",
         "Decorated cars upon request",
-        "Professional chauffeur service",
+        "Professional taxi service",
         "Coordination for guests",
         "Premium late-model fleet",
         "Punctual and refined"
@@ -54,7 +54,7 @@ export default function WeddingEventsPage() {
         <main className="min-h-screen">
             <ServiceSchema 
                 name="Private Wedding & Event Transfers Italy" 
-                description="Luxury private taxi and chauffeur services for weddings and high-end events across Italy." 
+                description="Luxury private taxi and taxi services for weddings and high-end events across Italy." 
                 url={url} 
             />
             <Navbar />

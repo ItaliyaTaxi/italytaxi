@@ -100,7 +100,7 @@ export default async function BlogPostPage({ params }: any) {
       <div className="relative h-[60vh] min-h-[400px] w-full">
         <Image 
           src={blog.featured_image_url || '/images/hero.png'}
-          alt={blog.title}
+          alt={`${blog.title} in Italy`}
           fill
           className="object-cover"
           priority
@@ -141,13 +141,21 @@ export default async function BlogPostPage({ params }: any) {
               dangerouslySetInnerHTML={{ __html: blog.content }}
             />
             
+            {/* Contextual Service Link */}
+            <div className="mt-12 p-8 border border-gold/30 bg-gold/5 rounded-2xl">
+              <h4 className="text-xl font-bold text-navy mb-3">Planning to explore these spots?</h4>
+              <p className="text-gray-700 text-lg mb-0 text-balance">
+                Make your trip across Italy stress-free and truly memorable. <Link href="/services/private-tours" className="text-gold font-bold hover:underline">Book our taxi for sightseeing</Link> and enjoy comfortable, private transfers directly to all the top destinations mentioned here.
+              </p>
+            </div>
+
             {/* Author Section */}
             {blog.bloggers && (
               <div className="mt-16 p-8 bg-slate-50 rounded-3xl flex flex-col md:flex-row items-center md:items-start gap-8">
                 <div className="relative w-24 h-24 rounded-full overflow-hidden flex-shrink-0">
                   <Image 
                     src={blog.bloggers.avatar_url || 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200'} 
-                    alt={blog.bloggers.full_name}
+                    alt={`${blog.bloggers.full_name} in Italy`}
                     fill
                     className="object-cover"
                   />
@@ -243,7 +251,7 @@ async function RecentPosts({ currentSlug }: { currentSlug: string }) {
           <div className="relative h-48 rounded-2xl overflow-hidden mb-4">
             <Image 
               src={post.featured_image_url || '/images/hero.png'} 
-              alt={post.title} 
+              alt={`${post.title} in Italy`} 
               fill 
               className="object-cover group-hover:scale-105 transition-transform duration-500"
             />
