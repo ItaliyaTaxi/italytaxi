@@ -70,18 +70,31 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    {/* Column 3: Transfers & Legal */}
+                    {/* Column 3: City Taxi Services + Popular Routes */}
                     <div className="col-span-1">
                         <p className="text-white font-bold text-lg mb-8 relative">
-                            Popular Transfers
+                            City Taxi Services
                             <span className="absolute -bottom-2 left-0 w-8 h-1 bg-gold" />
                         </p>
                         <ul className="space-y-3 text-sm mb-8">
-                            <li><Link href="/services/wedding-events" className="hover:text-gold transition-colors">Wedding & Events</Link></li>
-                            <li><Link href="/services/business-taxi" className="hover:text-gold transition-colors">Business / Corporate</Link></li>
-                            <li><Link href="/border" className="hover:text-gold transition-colors">Border Transfers</Link></li>
-                            <li><Link href="/tour" className="hover:text-gold transition-colors">Sightseeing Tours</Link></li>
+                            <li><Link href="/city/rome-taxi-service" className="hover:text-gold transition-colors">Rome Taxi Service</Link></li>
+                            <li><Link href="/city/milan-taxi-service" className="hover:text-gold transition-colors">Milan Taxi Service</Link></li>
+                            <li><Link href="/city/florence-taxi-service" className="hover:text-gold transition-colors">Florence Taxi Service</Link></li>
+                            <li><Link href="/city/venice-taxi-service" className="hover:text-gold transition-colors">Venice Taxi Service</Link></li>
+                            <li><Link href="/city/naples-taxi-service" className="hover:text-gold transition-colors">Naples Taxi Service</Link></li>
+                            <li><Link href="/city" className="hover:text-gold transition-colors text-gold/70">View All Cities →</Link></li>
                         </ul>
+
+                        <p className="text-white font-bold text-sm mb-4 uppercase tracking-widest">Popular Routes</p>
+                        <ul className="space-y-2 text-xs mb-8">
+                            <li><Link href="/route/florence-to-pisa-taxi" className="hover:text-gold transition-colors">Florence to Pisa Taxi</Link></li>
+                            <li><Link href="/route/rome-to-florence-taxi" className="hover:text-gold transition-colors">Rome to Florence Transfer</Link></li>
+                            <li><Link href="/route/milan-to-lake-como-taxi" className="hover:text-gold transition-colors">Milan to Lake Como Taxi</Link></li>
+                            <li><Link href="/route/rome-to-naples-taxi" className="hover:text-gold transition-colors">Rome to Naples Transfer</Link></li>
+                            <li><Link href="/route/naples-to-amalfi-coast-taxi" className="hover:text-gold transition-colors">Naples to Amalfi Coast</Link></li>
+                            <li><Link href="/services/city-to-city" className="hover:text-gold transition-colors text-gold/70">View All Routes →</Link></li>
+                        </ul>
+
                         <p className="text-white font-bold text-sm mb-4 uppercase tracking-widest">Help & Legal</p>
                         <ul className="space-y-2 text-xs">
                             <li><Link href="/faq" className="hover:text-gold transition-colors">FAQs</Link></li>

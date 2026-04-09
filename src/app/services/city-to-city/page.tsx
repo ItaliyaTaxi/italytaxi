@@ -10,10 +10,14 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: "City-to-City Transfers in Italy | Private Taxi Service",
-  description: "Private intercity taxi transfers between all Italian cities. Rome to Florence, Milan to Venice, and more. Fixed price, door-to-door, no stops required.",
+  description: "Private intercity taxi transfers between all Italian cities. Rome to Florence, Milan to Venice, Naples to Amalfi and more. Fixed price, door-to-door service.",
   alternates: {
     canonical: "/services/city-to-city",
-  }
+  },
+  openGraph: {
+    title: "City-to-City Transfers in Italy | Private Taxi Service",
+    description: "Private intercity taxi transfers between all Italian cities. Fixed price, door-to-door service with professional drivers.",
+  },
 };
 
 const faqs = [
@@ -116,12 +120,14 @@ export default function CityToCityPage() {
         routesTitle="Most Requested City-to-City Routes"
         routes={routes}
         relatedLinks={[
+          { label: "Florence to Pisa Taxi", href: "/route/florence-to-pisa-taxi" },
+          { label: "Rome to Florence Transfer", href: "/route/rome-to-florence-taxi" },
+          { label: "Milan to Lake Como Taxi", href: "/route/milan-to-lake-como-taxi" },
+          { label: "Rome to Naples Transfer", href: "/route/rome-to-naples-taxi" },
+          { label: "Naples to Amalfi Coast", href: "/route/naples-to-amalfi-coast-taxi" },
+          { label: "All Italy Routes", href: "/route" },
           { label: "Airport Transfers", href: "/services/airport-transfers" },
           { label: "Private Tours", href: "/services/private-tours" },
-          { label: "Hotel Transfers", href: "/services/hotel-transfers" },
-          { label: "Rome City Guide", href: "/city/rome" },
-          { label: "Florence City Guide", href: "/city/florence" },
-          { label: "Venice City Guide", href: "/city/venice" },
         ]}
       />
 

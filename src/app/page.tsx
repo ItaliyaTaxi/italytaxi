@@ -15,6 +15,7 @@ const PopularDestinations = dynamic(() => import('@/components/PopularDestinatio
 const HowItWorks = dynamic(() => import('@/components/HowItWorks'));
 const Testimonials = dynamic(() => import('@/components/Testimonials'));
 const Coverage = dynamic(() => import('@/components/Coverage'));
+const PopularRoutes = dynamic(() => import('@/components/PopularRoutes'));
 const KnowledgeHubSection = dynamic(() => import('@/components/KnowledgeHubSection'));
 const FAQSection = dynamic(() => import('@/components/FAQSection'));
 const CTA = dynamic(() => import('@/components/CTA'));
@@ -22,10 +23,16 @@ const Footer = dynamic(() => import('@/components/Footer'));
 
 export const metadata: Metadata = {
   title: "Private Taxi Transfers in Italy | Italian Taxi Service",
-  description: "Experience the finest travel in Italy. Professional drivers and vehicle fleet for airport transfers and city tours. Book your taxi today!",
+  description: "Book Italy's top-rated private taxi service. Airport transfers, city-to-city rides & private tours. Fixed prices, professional drivers, instant confirmation.",
   alternates: {
     canonical: "/",
-  }
+  },
+  openGraph: {
+    title: "Private Taxi Transfers in Italy | Italian Taxi Service",
+    description: "Book Italy's top-rated private taxi service. Airport transfers, city-to-city rides & private tours. Fixed prices, professional drivers, instant confirmation.",
+    url: "https://www.italytaxiservice.com",
+    images: [{ url: '/images/og-default.jpg', width: 1200, height: 630, alt: 'Italy Taxi Service' }],
+  },
 };
 
 // Minimal section placeholder shown while a code-split chunk loads.
@@ -75,6 +82,10 @@ export default function Home() {
 
       <Suspense fallback={<SectionFallback />}>
         <PopularDestinations />
+      </Suspense>
+
+      <Suspense fallback={<SectionFallback />}>
+        <PopularRoutes />
       </Suspense>
 
       <Suspense fallback={<SectionFallback />}>

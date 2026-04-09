@@ -39,8 +39,32 @@ export const metadata: Metadata = {
   description: "Experience the finest travel in Italy. Professional drivers and vehicle fleet for airport transfers and city tours.",
   keywords: ["Italy Taxi", "Airport Transfers Italy", "Private Driver Italy", "Luxury Taxi Italy", "Rome Airport Taxi", "Milan Transfer"],
   alternates: {
-    // We remove the root canonical from here to prevent subpages from inheriting it.
-    // Each page should ideally define its own canonical to avoid duplicate content issues.
+    // Each page defines its own canonical. Root-level alternates specify language variants.
+    languages: {
+      'en': 'https://www.italytaxiservice.com',
+      'it': 'https://www.italytaxiservice.com',
+      'x-default': 'https://www.italytaxiservice.com',
+    },
+  },
+  openGraph: {
+    type: 'website',
+    siteName: 'Italy Taxi Service',
+    title: 'Private Taxi Service in Italy | Airport Transfers & City Tours',
+    description: 'Book a premium private taxi in Italy. Airport transfers, city-to-city rides, and private tours with professional English-speaking drivers.',
+    images: [
+      {
+        url: '/images/og-default.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Italy Taxi Service — Private Transfers across Italy',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Private Taxi Service in Italy | Airport Transfers & City Tours',
+    description: 'Book a premium private taxi in Italy. Airport transfers, city-to-city rides, and private tours.',
+    images: ['/images/og-default.jpg'],
   },
   other: {
     "msvalidate.01": "855d7a6f206b4d3cb0f5120fa3e5bd86", // Bing Validation
