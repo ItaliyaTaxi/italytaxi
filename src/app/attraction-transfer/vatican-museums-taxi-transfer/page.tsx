@@ -51,7 +51,7 @@ export default function VaticanMuseumsPage() {
         titleTop="Private Taxi Transfers to the"
         titleBottom="World-Famous Vatican Museums"
         description="Start your art pilgrimage in comfort. Professional door-to-door service to the treasures of the Vatican City."
-        backgroundImage="https://aprilmunday.wordpress.com/wp-content/uploads/2018/09/bodiam_castle_through_the_trees.jpg?w=500"
+        backgroundImage="/images/hero.png"
         buttonText="Book Vatican Transfer"
         breadcrumbs={[
           { name: "Attraction Transfers", item: "/attraction-transfer" },

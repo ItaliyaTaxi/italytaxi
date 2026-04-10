@@ -51,7 +51,7 @@ export default function StMarksPage() {
         titleTop="Private Taxi Transfers to"
         titleBottom="The Heart of Venice"
         description="Your gateway to the floating city. Professional land transfers to Piazzale Roma or the Venice Cruise Port with absolute comfort."
-        backgroundImage="https://aprilmunday.wordpress.com/wp-content/uploads/2018/09/bodiam_castle_through_the_trees.jpg?w=500"
+        backgroundImage="/images/hero.png"
         buttonText="Book Venice Transfer"
       />
 

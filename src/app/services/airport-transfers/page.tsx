@@ -102,7 +102,7 @@ export default function AirportTransfersPage() {
         titleTop="Reliable Private Airport"
         titleBottom="Transfers Across Italy"
         description="Fixed-price airport pickups and drop-offs at every major Italian airport. Professional drivers, flight tracking, and 60 minutes of free waiting time — guaranteed."
-        backgroundImage="https://aprilmunday.wordpress.com/wp-content/uploads/2018/09/bodiam_castle_through_the_trees.jpg?w=500"
+        backgroundImage="/images/hero.png"
         buttonText="Book Airport Transfer Now"
         breadcrumbs={[
           { name: "Services", item: "/services" },

@@ -89,7 +89,7 @@ export default function HotelTransfersPage() {
         titleTop="Private Hotel"
         titleBottom="Transfers Across Italy"
         description="Door-to-door private taxi service to any hotel, Airbnb, villa, or resort in Italy. Fixed prices, luggage assistance, and meet-and-greet at every pickup."
-        backgroundImage="https://aprilmunday.wordpress.com/wp-content/uploads/2018/09/bodiam_castle_through_the_trees.jpg?w=500"
+        backgroundImage="/images/hero.png"
         buttonText="Book Hotel Transfer"
         breadcrumbs={[
           { name: "Services", item: "/services" },

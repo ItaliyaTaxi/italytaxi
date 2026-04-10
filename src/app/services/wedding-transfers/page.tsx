@@ -65,7 +65,7 @@ export default function WeddingTransfersPage() {
         titleTop="Elegant Wedding & Event"
         titleBottom="Transfers in Italy"
         description="Professional guest transportation for destination weddings in Tuscany, Lake Como, Amalfi Coast, and beyond. Suited taxi drivers, luxury vehicles, and seamless event logistics."
-        backgroundImage="https://aprilmunday.wordpress.com/wp-content/uploads/2018/09/bodiam_castle_through_the_trees.jpg?w=500"
+        backgroundImage="/images/hero.png"
         buttonText="Plan Wedding Transport"
         breadcrumbs={[
           { name: "Services", item: "/services" },

@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     description: 'Book a premium private taxi in Italy. Airport transfers, city-to-city rides, and private tours with professional English-speaking drivers.',
     images: [
       {
-        url: '/images/og-default.jpg',
+        url: '/images/hero.webp',
         width: 1200,
         height: 630,
         alt: 'Italy Taxi Service — Private Transfers across Italy',
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Private Taxi Service in Italy | Airport Transfers & City Tours',
     description: 'Book a premium private taxi in Italy. Airport transfers, city-to-city rides, and private tours.',
-    images: ['/images/og-default.jpg'],
+    images: ['/images/hero.webp'],
   },
   other: {
     "msvalidate.01": "855d7a6f206b4d3cb0f5120fa3e5bd86", // Bing Validation

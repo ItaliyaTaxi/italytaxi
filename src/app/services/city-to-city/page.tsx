@@ -78,7 +78,7 @@ export default function CityToCityPage() {
         titleTop="Comfortable City-to-City"
         titleBottom="Private Transfers in Italy"
         description="Skip crowded trains. Travel door-to-door between Rome, Florence, Milan, Venice and every Italian city in a private, air-conditioned vehicle at a fixed price."
-        backgroundImage="https://aprilmunday.wordpress.com/wp-content/uploads/2018/09/bodiam_castle_through_the_trees.jpg?w=500"
+        backgroundImage="/images/hero.png"
         buttonText="Book Intercity Transfer"
         breadcrumbs={[
           { name: "Services", item: "/services" },

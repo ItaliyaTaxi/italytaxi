@@ -51,7 +51,7 @@ export default function RoyalPalaceCasertaPage() {
         titleTop="Premium Private Taxi to"
         titleBottom="Royal Palace of Caserta"
         description="Experience the magnificence of the 'Versailles of Italy' with a comfortable, stress-free private transfer service."
-        backgroundImage="https://aprilmunday.wordpress.com/wp-content/uploads/2018/09/bodiam_castle_through_the_trees.jpg?w=500"
+        backgroundImage="/images/hero.png"
         buttonText="Book Caserta Transfer"
       />
 

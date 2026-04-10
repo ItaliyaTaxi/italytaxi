@@ -13,13 +13,16 @@ interface FAQSectionProps {
     title?: string;
     badge?: string;
     variant?: 'dark' | 'light';
+    /** Set to false when rendering multiple FAQSections on one page to avoid duplicate schemas */
+    includeSchema?: boolean;
 }
 
 export default function FAQSection({
     faqs: customFaqs,
     title = "Travel Frequently Asked Questions",
     badge = "Common Questions",
-    variant = 'dark'
+    variant = 'dark',
+    includeSchema = true,
 }: FAQSectionProps) {
     const isDark = variant === 'dark';
     const defaultFaqs = [
@@ -59,10 +62,12 @@ export default function FAQSection({
 
     return (
         <section className={`py-24 ${isDark ? 'bg-navy' : 'bg-[#F8F9FA]'} relative overflow-hidden font-inter`}>
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-            />
+            {includeSchema && (
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+                />
+            )}
             {/* Pattern Overlay */}
             <div className={`absolute inset-0 ${isDark ? 'opacity-10' : 'opacity-[0.03]'}`} style={{ backgroundImage: `radial-gradient(${isDark ? '#F4C430' : '#0F1C2E'} 0.5px, transparent 0.5px)`, backgroundSize: '24px 24px' }} />
 

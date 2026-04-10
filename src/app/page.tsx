@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     title: "Private Taxi Transfers in Italy | Italian Taxi Service",
     description: "Book Italy's top-rated private taxi service. Airport transfers, city-to-city rides & private tours. Fixed prices, professional drivers, instant confirmation.",
     url: "https://www.italytaxiservice.com",
-    images: [{ url: '/images/og-default.jpg', width: 1200, height: 630, alt: 'Italy Taxi Service' }],
+    images: [{ url: '/images/hero.webp', width: 1200, height: 630, alt: 'Italy Taxi Service' }],
   },
 };
 

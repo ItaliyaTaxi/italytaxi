@@ -37,7 +37,7 @@ export default function ColosseumPage() {
         titleTop="Private Taxi Transfer to the"
         titleBottom="Iconic Rome Colosseum"
         description="Avoid the heat and the crowds. Arrive at the gates of the Flavian Amphitheatre in comfort with our professional English-speaking taxi drivers."
-        backgroundImage="https://aprilmunday.wordpress.com/wp-content/uploads/2018/09/bodiam_castle_through_the_trees.jpg?w=500"
+        backgroundImage="/images/hero.png"
         breadcrumbs={[
           { name: "Attraction Transfers", item: "/attraction-transfer" },
             { name: "Colosseum", item: "/attraction-transfer/colosseum-taxi-transfer" }

@@ -82,11 +82,32 @@ export default function FaqPage() {
         </div>
       </section>
 
-      {/* FAQ Categories */}
-      <FAQSection faqs={generalFaqs} title="General Booking Questions" badge="Getting Started" />
-      <FAQSection faqs={airportFaqs} title="Airport Transfer Questions" badge="Airports & Arrivals" />
-      <FAQSection faqs={vehicleFaqs} title="Vehicle & Comfort Questions" badge="Fleet & Equipment" />
-      <FAQSection faqs={pricingFaqs} title="Pricing & Payment Questions" badge="Rates & Charges" />
+      {/* Combined FAQPage schema — single authoritative entity for this page */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              ...generalFaqs,
+              ...airportFaqs,
+              ...vehicleFaqs,
+              ...pricingFaqs,
+            ].map(faq => ({
+              "@type": "Question",
+              "name": faq.q,
+              "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+            }))
+          })
+        }}
+      />
+
+      {/* FAQ Categories — schema disabled per-section to avoid duplicates */}
+      <FAQSection faqs={generalFaqs} title="General Booking Questions" badge="Getting Started" includeSchema={false} />
+      <FAQSection faqs={airportFaqs} title="Airport Transfer Questions" badge="Airports & Arrivals" includeSchema={false} />
+      <FAQSection faqs={vehicleFaqs} title="Vehicle & Comfort Questions" badge="Fleet & Equipment" includeSchema={false} />
+      <FAQSection faqs={pricingFaqs} title="Pricing & Payment Questions" badge="Rates & Charges" includeSchema={false} />
 
       {/* Still have questions */}
       <section className="py-20 bg-navy font-inter relative overflow-hidden">

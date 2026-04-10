@@ -54,7 +54,7 @@ export default function ServiceSchema({ name, description, url, image }: Service
             "logo": "https://www.italytaxiservice.com/images/logo.png",
             "image": image || "https://www.italytaxiservice.com/images/hero.png",
             "description": description,
-            "telephone": "+9231489326310",
+            "telephone": "+39-02-0000-0000",
             "email": "booking@italytaxiservice.com",
             "address": {
                 "@type": "PostalAddress",

@@ -51,7 +51,7 @@ export default function CapriIslandPage() {
         titleTop="Private Taxi Transfers on the"
         titleBottom="Glamorous Capri Island"
         description="Arrive in style on Italy's most famous island. Professional door-to-door service from Marina Grande to Capri and Anacapri."
-        backgroundImage="https://aprilmunday.wordpress.com/wp-content/uploads/2018/09/bodiam_castle_through_the_trees.jpg?w=500"
+        backgroundImage="/images/hero.png"
         buttonText="Book Capri Transfer"
       />
 

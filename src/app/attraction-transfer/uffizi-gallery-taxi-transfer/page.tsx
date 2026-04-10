@@ -51,7 +51,7 @@ export default function UffiziGalleryPage() {
         titleTop="Private Taxi Transfers to the"
         titleBottom="Renowned Uffizi Gallery"
         description="Arrive at the heart of the Renaissance in comfort. Professional door-to-door service to one of the world's greatest art museums."
-        backgroundImage="https://aprilmunday.wordpress.com/wp-content/uploads/2018/09/bodiam_castle_through_the_trees.jpg?w=500"
+        backgroundImage="/images/hero.png"
         buttonText="Book Uffizi Transfer"
       />
 

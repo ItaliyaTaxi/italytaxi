@@ -15,13 +15,15 @@ const EXCLUDED_SEGMENTS = new Set([
 function routeConfig(urlPath: string) {
   if (urlPath === '/') return { priority: 1.0, changeFrequency: 'daily' as const };
   if (['/book-now', '/contact', '/services'].includes(urlPath)) return { priority: 0.9, changeFrequency: 'weekly' as const };
+  if (['/about-us', '/faq', '/coverage-areas', '/airport-transfer'].includes(urlPath)) return { priority: 0.8, changeFrequency: 'weekly' as const };
   if (urlPath.startsWith('/airport/') || urlPath.startsWith('/city/')) return { priority: 0.9, changeFrequency: 'weekly' as const };
   if (urlPath.startsWith('/route/')) return { priority: 0.9, changeFrequency: 'weekly' as const };
   if (urlPath.startsWith('/services/') || urlPath.startsWith('/tour/')) return { priority: 0.8, changeFrequency: 'weekly' as const };
   if (urlPath.startsWith('/blog/')) return { priority: 0.8, changeFrequency: 'weekly' as const };
   if (urlPath.startsWith('/attraction-transfer/') || urlPath.startsWith('/beach-transfer/')) return { priority: 0.7, changeFrequency: 'monthly' as const };
   if (urlPath.startsWith('/border/')) return { priority: 0.7, changeFrequency: 'monthly' as const };
-  return { priority: 0.6, changeFrequency: 'monthly' as const };
+  if (['/drivers', '/airport', '/route', '/city', '/tour', '/border', '/attraction-transfer', '/beach-transfer'].includes(urlPath)) return { priority: 0.6, changeFrequency: 'monthly' as const };
+  return { priority: 0.5, changeFrequency: 'monthly' as const };
 }
 
 /**

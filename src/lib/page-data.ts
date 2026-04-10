@@ -61,13 +61,13 @@ export const airports: AirportData[] = [
         code: "FCO",
         city: "Rome",
         hero_image: "/images/rome airport.png",
-        description: "Travel from Rome Fiumicino Airport to any Italian city in comfort and on time. Avoid long lines and enjoy door-to-door luxury service with our professional taxi fleet.",
+        description: "Rome Fiumicino (FCO) is Italy's largest and busiest international gateway, handling over 40 million passengers annually. Our private taxi service connects FCO directly to Rome city centre (30–45 min), Vatican, Trastevere, and all major hotels — bypassing the overcrowded Leonardo Express train. With real-time flight monitoring and a name-sign meet & greet in Terminal 1, 2, or 3 arrivals, your driver is waiting the moment you clear customs.",
         features: [
-            "Flight tracking & delay monitoring",
-            "Meet & greet service",
-            "Fixed pricing",
-            "24/7 availability",
-            "Premium fleet"
+            "Flight tracking & delay monitoring at FCO",
+            "Meet & greet in all FCO terminals",
+            "Fixed pricing to Rome city centre from €50",
+            "24/7 availability including overnight arrivals",
+            "Luxury Mercedes fleet — sedans and minivans"
         ]
     },
     {
@@ -76,13 +76,13 @@ export const airports: AirportData[] = [
         code: "MXP",
         city: "Milan",
         hero_image: "/images/milan airport.jpg",
-        description: "Travel from Milan Malpensa Airport to any Italian city in comfort and on time. Avoid long lines and enjoy door-to-door luxury service with our professional taxi fleet.",
+        description: "Milan Malpensa (MXP) serves northern Italy as its primary long-haul hub, 50km northwest of Milan city centre. Our private transfer covers both Terminal 1 and Terminal 2, with dedicated name-sign meet & greet in each arrivals hall. Unlike the Malpensa Express train, we provide door-to-door service to your hotel, the fashion district, Lake Como, or any Lombard city — all at a fixed price agreed before you travel.",
         features: [
-            "Flight tracking & delay monitoring",
-            "Meet & greet service",
-            "Fixed pricing",
-            "24/7 availability",
-            "Premium fleet"
+            "Terminal 1 and Terminal 2 coverage at MXP",
+            "Door-to-door service to Milan, Lake Como, and Bergamo",
+            "Fixed pricing from Milan Malpensa — no meters",
+            "24/7 availability including early-morning flights",
+            "Luxury Mercedes-Benz sedans and V-Class minivans"
         ]
     },
     {
@@ -91,53 +91,59 @@ export const airports: AirportData[] = [
         code: "VCE",
         city: "Venice",
         hero_image: "/images/venice airport.webp",
-        description: "Travel from Venice Marco Polo Airport to any Italian city in comfort and on time. Avoid long lines and enjoy door-to-door luxury service with our professional taxi fleet.",
+        description: "Venice Marco Polo Airport (VCE) presents a unique transfer challenge — the city itself is car-free. Our taxi service connects VCE to the Piazzale Roma water taxi hub, Mestre hotels, the Venice causeway hotels, and mainland Veneto destinations. We navigate the complex logistics so you don't have to, including coordinating with water taxis for the final island leg if required. Transfers to Verona, Padova, and Treviso are also available.",
         features: [
-            "Flight tracking & delay monitoring",
-            "Meet & greet service",
-            "Fixed pricing",
-            "24/7 availability",
-            "Premium fleet"
+            "VCE arrivals hall name-sign meet & greet",
+            "Transfer to Piazzale Roma, Mestre, and Veneto mainland",
+            "Connections to Verona, Padova, and Treviso",
+            "Fixed pricing confirmed before you land",
+            "24/7 availability — early and late flights covered"
         ]
     },
     {
         slug: "naples",
-        name: "Naples Airport",
+        name: "Naples Capodichino Airport",
         code: "NAP",
         city: "Naples",
         hero_image: "/images/naples airport.jpeg",
-        description: "Travel from Naples Airport to any Italian city in comfort and on time. Avoid long lines and enjoy door-to-door luxury service with our professional taxi fleet.",
+        description: "Naples Capodichino (NAP) is southern Italy's primary airport, just 7km from the city centre and the gateway to the Amalfi Coast, Pompeii, Capri, and the Campania region. Our private taxi service provides faster and more comfortable access to these destinations than any public option — particularly important for the winding coastal roads of Positano and Ravello where local knowledge is essential. Fixed price, no traffic stress, door to your hotel.",
         features: [
-            "Flight tracking & delay monitoring",
-            "Meet & greet service",
-            "Fixed pricing",
-            "24/7 availability",
-            "Premium fleet"
+            "NAP arrivals hall meet & greet service",
+            "Specialist Amalfi Coast transfers from Naples",
+            "Connections to Pompeii, Capri, and Sorrento",
+            "Fixed pricing — no meter surprises on coastal routes",
+            "24/7 availability for early and late-night flights"
         ]
     },
     {
         slug: "florence",
-        name: "Florence Airport",
+        name: "Florence Peretola Airport",
         code: "FLR",
         city: "Florence",
         hero_image: "/images/florence airport.jpg",
-        description: "Travel from Florence Airport to any Italian city in comfort and on time. Avoid long lines and enjoy door-to-door luxury service with our professional taxi fleet.",
+        description: "Florence Peretola (FLR) is a compact airport 5km from the historic city centre, making it one of the most convenient airport-to-city transfers in Italy. Our taxi service gets you to the Duomo, Uffizi, or any Florentine hotel in 15–20 minutes — faster than the shuttle bus and with door-to-door luggage assistance. We also cover onward connections to Siena, Chianti wine country, Pisa, and the Tuscan countryside.",
         features: [
-            "Flight tracking & delay monitoring",
-            "Meet & greet service",
-            "Fixed pricing",
-            "24/7 availability",
-            "Premium fleet"
+            "15-minute private transfer to Florence city centre",
+            "Connections to Siena, Chianti, and Pisa",
+            "Meet & greet inside FLR arrivals terminal",
+            "Fixed pricing confirmed at booking",
+            "24/7 service — all flight times covered"
         ]
     },
     {
         slug: "bologna-marconi",
-        name: "Bologna Marconi Airport",
+        name: "Bologna Guglielmo Marconi Airport",
         code: "BLQ",
         city: "Bologna",
         hero_image: "/images/florence airport.jpg",
-        description: "Travel from Bologna Marconi Airport to any Italian city in comfort and on time. Door-to-door luxury service with our professional taxi fleet.",
-        features: ["Flight tracking & delay monitoring", "Meet & greet service", "Fixed pricing", "24/7 availability", "Premium fleet"]
+        description: "Bologna Marconi (BLQ) serves Emilia-Romagna and acts as an alternative gateway to Tuscany and northern Italy. Our private taxi connects BLQ to Bologna city centre, Modena (Ferrari Museum), Parma, Ravenna, Florence, and Rimini — all with fixed pricing and English-speaking drivers. Ideal for travellers connecting to multiple Emilia-Romagna destinations on a single trip.",
+        features: [
+            "BLQ to Bologna city centre in under 20 minutes",
+            "Connections to Modena, Parma, and Ravenna",
+            "Alternative gateway transfers to Florence and Rimini",
+            "Fixed all-inclusive pricing confirmed before landing",
+            "24/7 availability — early-morning departures covered"
+        ]
     },
     {
         slug: "catania-fontanarossa",
@@ -145,8 +151,14 @@ export const airports: AirportData[] = [
         code: "CTA",
         city: "Catania",
         hero_image: "/images/naples airport.jpeg",
-        description: "Travel from Catania Fontanarossa Airport to any Sicilian destination in comfort and on time.",
-        features: ["Flight tracking & delay monitoring", "Meet & greet service", "Fixed pricing", "24/7 availability", "Premium fleet"]
+        description: "Catania Fontanarossa (CTA) is Sicily's primary airport and the closest gateway to Mount Etna, Taormina, and the Baroque towns of Val di Noto. Our private taxi service connects CTA to Catania city centre (10 minutes), Taormina (45 minutes), Syracuse, Ragusa, and Agrigento — destinations where public transport is slow or unreliable. All transfers include a professional English-speaking driver with local Sicilian knowledge.",
+        features: [
+            "CTA meet & greet — name sign in arrivals hall",
+            "Specialist Taormina and Mount Etna transfers",
+            "Coverage across eastern and southern Sicily",
+            "Fixed pricing — no Sicilian cab surprises",
+            "24/7 service for all Catania flight times"
+        ]
     },
     {
         slug: "genoa",
@@ -154,8 +166,14 @@ export const airports: AirportData[] = [
         code: "GOA",
         city: "Genoa",
         hero_image: "/images/milan airport.jpg",
-        description: "Travel from Genoa Airport to the Ligurian Riviera and beyond in luxury and comfort.",
-        features: ["Flight tracking & delay monitoring", "Meet & greet service", "Fixed pricing", "24/7 availability", "Premium fleet"]
+        description: "Genoa Cristoforo Colombo Airport (GOA) sits on a remarkable artificial sea-level platform, 6km west of the old port. Our private taxi covers Genoa city centre, the Cinque Terre villages (La Spezia connection), Portofino, Santa Margherita Ligure, and the French Riviera. The Ligurian coast requires knowledgeable local drivers — our network of Genoese specialists navigates the tunnel roads and coastal routes with precision.",
+        features: [
+            "GOA to Genoa city and old port in 15 minutes",
+            "Cinque Terre and Portofino specialist transfers",
+            "Cross-border connections to Monaco and Nice",
+            "Fixed pricing — no coastal toll surprises",
+            "24/7 availability covering all GOA flight schedules"
+        ]
     },
     {
         slug: "palermo",
@@ -163,8 +181,14 @@ export const airports: AirportData[] = [
         code: "PMO",
         city: "Palermo",
         hero_image: "/images/palermo-taxi.webp",
-        description: "Travel from Palermo Airport to any destination in Sicily with our professional taxi service.",
-        features: ["Flight tracking & delay monitoring", "Meet & greet service", "Fixed pricing", "24/7 availability", "Premium fleet"]
+        description: "Palermo Falcone Borsellino Airport (PMO) serves western Sicily and is 35km from the Sicilian capital. Our private taxi service reaches Palermo city centre in 35 minutes, with onward connections to Cefalù, Agrigento (Valley of the Temples), Monreale, and Trapani — all with fixed pricing and local Sicilian expertise. Avoid the slow Trinacria Express train and travel directly to your hotel with a professional English-speaking driver.",
+        features: [
+            "PMO to Palermo city centre in 35 minutes",
+            "Connections to Cefalù, Agrigento, and Trapani",
+            "Local Sicilian drivers with regional expertise",
+            "Fixed all-inclusive pricing — no hidden extras",
+            "24/7 availability for all Palermo departures"
+        ]
     },
     {
         slug: "bari",
@@ -172,8 +196,14 @@ export const airports: AirportData[] = [
         code: "BRI",
         city: "Bari",
         hero_image: "/images/bari-taxi.webp",
-        description: "Travel from Bari Airport to Puglia and beyond with our professional taxi service.",
-        features: ["Flight tracking & delay monitoring", "Meet & greet service", "Fixed pricing", "24/7 availability", "Premium fleet"]
+        description: "Bari Karol Wojtyla Airport (BRI) is Puglia's main gateway, 8km from Bari city centre and the starting point for exploring the Trulli of Alberobello, Matera, Lecce, and the Puglia coastline. Our private taxi service reaches Bari old town in 15 minutes, with fixed-price connections throughout the heel of Italy. Drivers are Puglia specialists who know the back roads to whitewashed hill towns and cave cities.",
+        features: [
+            "BRI to Bari city centre in 15 minutes",
+            "Specialist transfers to Alberobello and Matera",
+            "Coverage across Puglia — Lecce, Monopoli, and Polignano",
+            "Fixed pricing with no Puglian road surprises",
+            "24/7 availability for all Bari flight times"
+        ]
     },
     {
         slug: "milan-linate",
@@ -181,8 +211,14 @@ export const airports: AirportData[] = [
         code: "LIN",
         city: "Milan",
         hero_image: "/images/milan airport.jpg",
-        description: "Travel from Milan Linate Airport to the city centre or any Italian destination in comfort.",
-        features: ["Flight tracking & delay monitoring", "Meet & greet service", "Fixed pricing", "24/7 availability", "Premium fleet"]
+        description: "Milan Linate (LIN) is the city's closer downtown airport, just 7km from the fashion district and financial centre. Despite its proximity, public transport requires multiple changes. Our private taxi provides direct door-to-door service to any Milan address, Monza, Bergamo, or Lake Como in a luxury Mercedes vehicle — typically faster and far more convenient than navigating the metro with luggage after a long flight.",
+        features: [
+            "LIN to Milan city centre in under 20 minutes",
+            "Direct service to Monza, Bergamo, and Lake Como",
+            "Name-sign meet & greet inside LIN arrivals",
+            "Fixed pricing — no metered surprises from the airport",
+            "24/7 availability covering all Linate flight times"
+        ]
     },
     {
         slug: "pisa",
@@ -190,8 +226,14 @@ export const airports: AirportData[] = [
         code: "PSA",
         city: "Pisa",
         hero_image: "/images/florence airport.jpg",
-        description: "Travel from Pisa Airport to Tuscany and beyond with our luxury private taxi service.",
-        features: ["Flight tracking & delay monitoring", "Meet & greet service", "Fixed pricing", "24/7 availability", "Premium fleet"]
+        description: "Pisa International Airport (PSA) serves the Tuscany region and is used by many travellers who then proceed to Florence, Siena, or the Chianti wine region. Our private taxi covers Pisa city (Leaning Tower in 10 minutes), Florence in 1 hour, Lucca in 25 minutes, and any Tuscan destination at a fixed price. An excellent alternative to Florence FLR when flying with low-cost carriers into Tuscany.",
+        features: [
+            "PSA to Pisa Leaning Tower in 10 minutes",
+            "Florence transfers via scenic Tuscan countryside",
+            "Connections to Lucca, Siena, and Chianti",
+            "Fixed pricing — Tuscany-wide coverage",
+            "24/7 service for all Pisa Airport flights"
+        ]
     },
     {
         slug: "rome-ciampino",
@@ -199,8 +241,14 @@ export const airports: AirportData[] = [
         code: "CIA",
         city: "Rome",
         hero_image: "/images/rome airport.png",
-        description: "Travel from Rome Ciampino Airport to any destination in Rome or Italy in comfort.",
-        features: ["Flight tracking & delay monitoring", "Meet & greet service", "Fixed pricing", "24/7 availability", "Premium fleet"]
+        description: "Rome Ciampino (CIA) is Rome's secondary airport, 15km southeast of the city centre and preferred by Ryanair and Wizz Air. Despite being smaller than Fiumicino, the journey into Rome can be congested without the right driver. Our private taxi provides name-sign arrivals meeting, fixed pricing to all Rome neighbourhoods, Vatican, and Trastevere — without the chaotic bus options or inflated taxi demand that plagues Ciampino arrivals.",
+        features: [
+            "CIA meet & greet in the arrivals terminal",
+            "Fixed-price transfers to all Rome districts",
+            "Connections to Vatican, Colosseum, and Trastevere",
+            "Faster than bus to Termini then metro",
+            "24/7 service for all Ciampino flight times"
+        ]
     },
     {
         slug: "turin",
@@ -208,8 +256,14 @@ export const airports: AirportData[] = [
         code: "TRN",
         city: "Turin",
         hero_image: "/images/milan airport.jpg",
-        description: "Travel from Turin Airport to the Piedmont region and beyond with our professional drivers.",
-        features: ["Flight tracking & delay monitoring", "Meet & greet service", "Fixed pricing", "24/7 availability", "Premium fleet"]
+        description: "Turin Caselle Airport (TRN) serves Piedmont and is 16km north of Turin city centre. Our private taxi connects TRN to Turin city (including the Egyptian Museum and Lingotto), the Piedmontese wine country (Barolo, Barbaresco), and the Alps ski resorts of Sestriere and Courmayeur. A specialist in northern Italian mountain and valley routes, our Turin network understands the seasonal road conditions and resort access logistics.",
+        features: [
+            "TRN to Turin city centre in 25 minutes",
+            "Connections to Piedmont wine country and ski resorts",
+            "Alpine resort transfers — Sestriere and Courmayeur",
+            "Fixed pricing confirmed before landing",
+            "24/7 availability including winter ski season schedules"
+        ]
     },
     {
         slug: "verona",
@@ -217,8 +271,14 @@ export const airports: AirportData[] = [
         code: "VRN",
         city: "Verona",
         hero_image: "/images/venice airport.webp",
-        description: "Travel from Verona Airport to Lake Garda, the Dolomites, or any Italian city in comfort.",
-        features: ["Flight tracking & delay monitoring", "Meet & greet service", "Fixed pricing", "24/7 availability", "Premium fleet"]
+        description: "Verona Villafranca Airport (VRN) is the ideal gateway for Lake Garda, one of Italy's most popular summer destinations. Our private taxi connects VRN to Verona city (Arena di Verona, Romeo & Juliet balcony), all Lake Garda resorts (Sirmione, Gardone, Riva del Garda), Mantua, and Trento — at fixed prices with local drivers who know every lakeside road. A strong alternative to flying into Venice for Lake Garda holidays.",
+        features: [
+            "VRN to Verona city and Arena in 15 minutes",
+            "Specialist Lake Garda transfers to all resorts",
+            "Coverage of Mantua, Trento, and Bolzano",
+            "Fixed pricing — lake routes included",
+            "24/7 service for all Verona Airport departures"
+        ]
     }
 ];
 

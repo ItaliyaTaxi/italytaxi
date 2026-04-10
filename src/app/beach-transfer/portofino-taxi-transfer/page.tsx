@@ -51,7 +51,7 @@ export default function PortofinoBeachPage() {
         titleTop="Premium Private Taxi to the"
         titleBottom="Glamorous Portofino"
         description="Arrive at the Italian Riviera's most iconic village in absolute style. Professional, discreet, and reliable luxury transport."
-        backgroundImage="https://aprilmunday.wordpress.com/wp-content/uploads/2018/09/bodiam_castle_through_the_trees.jpg?w=500"
+        backgroundImage="/images/hero.png"
         buttonText="Book Portofino Taxi"
       />
 

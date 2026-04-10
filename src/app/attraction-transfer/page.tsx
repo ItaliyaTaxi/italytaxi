@@ -51,7 +51,7 @@ export default function AttractionTransfersPage() {
                 titleTop="Explore the Beauty of"
                 titleBottom="Italian Iconic Attractions"
                 description="Experience Italy's most famous landmarks and museums in absolute comfort with our professional private drivers."
-                backgroundImage="https://aprilmunday.wordpress.com/wp-content/uploads/2018/09/bodiam_castle_through_the_trees.jpg?w=500"
+                backgroundImage="/images/hero.png"
                 breadcrumbs={[{ name: "Attraction Transfers", item: "/attraction-transfer" }]}
             />
 
