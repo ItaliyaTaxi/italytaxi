@@ -1,8 +1,8 @@
-import { notFound } from 'next/navigation';
 import { cities } from '@/lib/page-data';
+import { getCityData } from '@/lib/cityData';
 import BookingForm from '@/components/BookingForm';
 import FAQSection from '@/components/FAQSection';
-import { Plane, Clock, MapPin, Camera, Star, ChevronRight, MessageCircle } from 'lucide-react';
+import { Plane, Clock, MapPin, Camera, Star, ChevronRight, MessageCircle, Navigation, Lightbulb, ArrowRight } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import PageHero from '@/components/PageHero';
@@ -39,6 +39,9 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
         description: "Explore this beautiful Italian destination with our premium private transfer services. Professional drivers and luxury vehicles at your service.",
         popular_tours: ["City Center Tour", "Historical Landmarks", "Local Food Tasting"]
     };
+
+    // Pull unique rich content for this city (keyed by city name)
+    const richData = getCityData(city.name);
 
     const cityFaqs = [
       {
@@ -137,35 +140,139 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
                 </div>
             </section>
 
-            {/* Pricing Section */}
-            <section className="py-24 bg-[#0F1C2E] text-white">
-                <div className="container mx-auto px-6 text-center">
-                    <p className="text-gold text-sm font-bold uppercase tracking-[0.4em] mb-4">Transparent Fares</p>
-                    <h2 className="text-3xl md:text-5xl font-bold mb-12">Fixed Pricing in {city.name}</h2>
-                    <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                        <div className="bg-white/5 border border-white/10 p-8 rounded-[2rem] hover:border-gold transition-colors">
-                            <h3 className="text-xl font-bold mb-2 text-gold">Standard Sedan</h3>
-                            <p className="text-gray-400 mb-6">Up to 3 Passengers + 2 Bags</p>
-                            <p className="text-4xl font-extrabold mb-6">From €50*</p>
-                            <button className="w-full bg-white text-navy font-bold py-3 rounded-xl hover:bg-gold transition-colors">Select Vehicle</button>
+            {/* ── NEW: Key Landmarks We Serve ─────────────────────────────────────────── */}
+            {richData && richData.landmarks.length > 0 && (
+                <section className="py-24 bg-gray-50">
+                    <div className="container mx-auto px-6">
+                        <div className="text-center mb-16">
+                            <p className="text-gold text-sm font-bold uppercase tracking-[0.4em] mb-4">Where We Take You</p>
+                            <h2 className="text-3xl md:text-5xl font-bold text-navy">Key Landmarks We Serve in {city.name}</h2>
+                            <div className="w-20 h-1 bg-gold mx-auto mt-6" />
+                            <p className="text-gray-500 mt-6 max-w-2xl mx-auto">From iconic piazzas to hidden neighbourhoods, our drivers know every landmark and the best approach routes — no GPS guesswork.</p>
                         </div>
-                        <div className="bg-gold p-8 rounded-[2rem] transform md:-translate-y-4 shadow-2xl shadow-gold/20 text-navy relative">
-                            <div className="absolute top-0 right-0 bg-white text-navy text-xs font-bold px-3 py-1 rounded-bl-xl rounded-tr-[2rem] uppercase">Most Popular</div>
-                            <h3 className="text-xl font-bold mb-2">Luxury Minivan</h3>
-                            <p className="text-navy/70 mb-6">Up to 7 Passengers + 7 Bags</p>
-                            <p className="text-4xl font-extrabold mb-6">From €80*</p>
-                            <button className="w-full bg-navy text-white font-bold py-3 rounded-xl hover:bg-white hover:text-navy transition-colors">Select Vehicle</button>
-                        </div>
-                        <div className="bg-white/5 border border-white/10 p-8 rounded-[2rem] hover:border-gold transition-colors">
-                            <h3 className="text-xl font-bold mb-2 text-gold">Premium Van</h3>
-                            <p className="text-gray-400 mb-6">Up to 8 Passengers + 8 Bags</p>
-                            <p className="text-4xl font-extrabold mb-6">From €100*</p>
-                            <button className="w-full bg-white text-navy font-bold py-3 rounded-xl hover:bg-gold transition-colors">Select Vehicle</button>
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                            {richData.landmarks.map((landmark, i) => (
+                                <div key={i} className="bg-white rounded-[2rem] p-8 border border-gray-100 shadow-sm hover:shadow-lg hover:border-gold/30 transition-all group">
+                                    <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center mb-5 group-hover:bg-gold transition-all">
+                                        <MapPin className="w-5 h-5 text-gold group-hover:text-navy transition-colors" />
+                                    </div>
+                                    <h3 className="text-navy font-bold text-lg mb-3">{landmark.name}</h3>
+                                    <p className="text-gray-500 text-sm leading-relaxed">{landmark.description}</p>
+                                </div>
+                            ))}
                         </div>
                     </div>
-                    <p className="text-sm text-gray-500 mt-8">*Prices vary by time and exact distance.</p>
+                </section>
+            )}
+
+            {/* ── NEW: Local Pickup Guide ──────────────────────────────────────────────── */}
+            {richData && (
+                <section className="py-24 bg-white">
+                    <div className="container mx-auto px-6">
+                        <div className="max-w-4xl mx-auto">
+                            <div className="flex items-center gap-4 mb-8">
+                                <div className="w-14 h-14 rounded-full bg-gold/10 flex items-center justify-center flex-shrink-0">
+                                    <Navigation className="w-6 h-6 text-gold" />
+                                </div>
+                                <div>
+                                    <p className="text-gold text-sm font-bold uppercase tracking-[0.4em]">Pickup Information</p>
+                                    <h2 className="text-3xl md:text-4xl font-bold text-navy">Local Pickup Guide — {city.name}</h2>
+                                </div>
+                            </div>
+                            <div className="bg-navy/3 border border-gray-100 rounded-[2rem] p-10">
+                                <p className="text-gray-600 text-lg leading-relaxed">{richData.pickupInstructions}</p>
+                                <div className="mt-8 grid sm:grid-cols-3 gap-4">
+                                    <div className="bg-gold/10 rounded-xl p-5 text-center">
+                                        <p className="text-2xl font-extrabold text-navy mb-1">60 min</p>
+                                        <p className="text-xs text-gray-500 font-bold uppercase tracking-widest">Free waiting time</p>
+                                    </div>
+                                    <div className="bg-gold/10 rounded-xl p-5 text-center">
+                                        <p className="text-2xl font-extrabold text-navy mb-1">24/7</p>
+                                        <p className="text-xs text-gray-500 font-bold uppercase tracking-widest">Available</p>
+                                    </div>
+                                    <div className="bg-gold/10 rounded-xl p-5 text-center">
+                                        <p className="text-2xl font-extrabold text-navy mb-1">NCC</p>
+                                        <p className="text-xs text-gray-500 font-bold uppercase tracking-widest">Licensed fleet</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            )}
+
+            {/* Get a Quote CTA Section */}
+            <section className="py-24 bg-[#0F1C2E] text-white relative overflow-hidden">
+                <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(#F4C430 0.5px, transparent 0.5px)', backgroundSize: '32px 32px' }} />
+                <div className="container mx-auto px-6 relative z-10">
+                    <div className="max-w-4xl mx-auto text-center">
+                        <p className="text-gold text-sm font-bold uppercase tracking-[0.4em] mb-4">Custom Quote</p>
+                        <h2 className="text-3xl md:text-5xl font-bold mb-6">How Much Does a Taxi in {city.name} Cost?</h2>
+                        <p className="text-gray-300 text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
+                            Every transfer is priced individually based on your pickup, destination, vehicle, and travel date. Get your personal fixed-price quote in minutes — no meters, no surprises.
+                        </p>
+                        <div className="grid sm:grid-cols-3 gap-6 mb-12">
+                            <div className="bg-white/5 border border-white/10 rounded-[1.5rem] p-6 text-center">
+                                <div className="text-3xl mb-3">🚗</div>
+                                <h3 className="text-white font-bold mb-1">Standard Sedan</h3>
+                                <p className="text-gray-400 text-sm">Up to 3 passengers + 2 bags</p>
+                            </div>
+                            <div className="bg-gold rounded-[1.5rem] p-6 text-center text-navy relative">
+                                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-white text-navy text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest">Most Booked</div>
+                                <div className="text-3xl mb-3">🚐</div>
+                                <h3 className="font-bold mb-1">Luxury Minivan</h3>
+                                <p className="text-navy/70 text-sm">Up to 7 passengers + 7 bags</p>
+                            </div>
+                            <div className="bg-white/5 border border-white/10 rounded-[1.5rem] p-6 text-center">
+                                <div className="text-3xl mb-3">🚌</div>
+                                <h3 className="text-white font-bold mb-1">Premium Van</h3>
+                                <p className="text-gray-400 text-sm">Up to 8 passengers + 8 bags</p>
+                            </div>
+                        </div>
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                            <a
+                                href="https://wa.me/923148932631?text=Hi%2C%20I%27d%20like%20a%20quote%20for%20a%20taxi%20in%20{encodeURIComponent(city.name)}"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-3 bg-[#25D366] text-white font-bold py-4 px-8 rounded-2xl hover:bg-[#128C7E] transition-colors text-lg"
+                            >
+                                <MessageCircle className="w-5 h-5" />
+                                Get a Free Quote on WhatsApp
+                            </a>
+                            <Link
+                                href="/book-now"
+                                className="inline-flex items-center gap-3 bg-gold text-navy font-bold py-4 px-8 rounded-2xl hover:bg-white transition-colors text-lg"
+                            >
+                                Request a Quote Online
+                                <ArrowRight className="w-5 h-5" />
+                            </Link>
+                        </div>
+                        <p className="text-gray-500 text-sm mt-6">Fixed price confirmed before your journey. No meters. No hidden fees.</p>
+                    </div>
                 </div>
             </section>
+
+            {/* ── NEW: Local Tips ──────────────────────────────────────────────────────── */}
+            {richData && (
+                <section className="py-24 bg-white">
+                    <div className="container mx-auto px-6">
+                        <div className="max-w-4xl mx-auto">
+                            <div className="flex items-center gap-4 mb-8">
+                                <div className="w-14 h-14 rounded-full bg-gold/10 flex items-center justify-center flex-shrink-0">
+                                    <Lightbulb className="w-6 h-6 text-gold" />
+                                </div>
+                                <div>
+                                    <p className="text-gold text-sm font-bold uppercase tracking-[0.4em]">Driver Knowledge</p>
+                                    <h2 className="text-3xl md:text-4xl font-bold text-navy">Local Tips for {city.name}</h2>
+                                </div>
+                            </div>
+                            <div className="bg-gray-50 border border-gray-100 rounded-[2rem] p-10">
+                                <p className="text-gray-600 text-lg leading-relaxed">{richData.localTips}</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            )}
 
             {/* Our Services Section */}
             <section className="py-24 bg-gray-50 overflow-hidden text-center">
@@ -297,4 +404,3 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
         </main>
     );
 }
-
