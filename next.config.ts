@@ -79,6 +79,14 @@ const nextConfig: NextConfig = {
         ],
       },
 
+      // ─── CRM routes: block indexing at HTTP header level ───────────────────
+      {
+        source: '/crm/:path*',
+        headers: [
+          { key: 'X-Robots-Tag', value: 'noindex, nofollow' },
+        ],
+      },
+
       // ─── Immutable cache for hashed Next.js static assets ──────────────────
       {
         source: '/_next/static/(.*)',
