@@ -18,7 +18,7 @@ export default function Footer() {
                     <div className="col-span-1">
                         <Image
                             src="/images/logo.png"
-                            alt="ItaliaRide Logo in Italy"
+                            alt="Italy Taxi Service Logo — Private Transfers Across Italy"
                             width={180}
                             height={60}
                             className="mb-6 opacity-90"
@@ -77,6 +77,9 @@ export default function Footer() {
                             <span className="absolute -bottom-2 left-0 w-8 h-1 bg-gold" />
                         </p>
                         <ul className="space-y-3 text-sm mb-8">
+                            <li><Link href="/rome-airport-transfer" className="hover:text-gold transition-colors">Rome Airport Transfer</Link></li>
+                            <li><Link href="/milan-chauffeur-service" className="hover:text-gold transition-colors">Milan Chauffeur Service</Link></li>
+                            <li><Link href="/florence-private-taxi" className="hover:text-gold transition-colors">Florence Private Taxi</Link></li>
                             <li><Link href="/city/rome-taxi-service" className="hover:text-gold transition-colors">Rome Taxi Service</Link></li>
                             <li><Link href="/city/milan-taxi-service" className="hover:text-gold transition-colors">Milan Taxi Service</Link></li>
                             <li><Link href="/city/florence-taxi-service" className="hover:text-gold transition-colors">Florence Taxi Service</Link></li>

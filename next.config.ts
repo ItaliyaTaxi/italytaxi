@@ -61,6 +61,21 @@ const nextConfig: NextConfig = {
 
   async headers() {
     return [
+      // ─── Agent discovery Link headers for homepage ─────────────────────────
+      {
+        source: '/',
+        headers: [
+          {
+            key: 'Link',
+            value: [
+              '</.well-known/api-catalog>; rel="api-catalog"',
+              '</.well-known/agent-skills/index.json>; rel="https://agentskills.io/rel/skills-index"',
+              '</.well-known/mcp/server-card.json>; rel="https://modelcontextprotocol.io/rel/server-card"',
+            ].join(', '),
+          },
+        ],
+      },
+
       // ─── Security headers for all routes ───────────────────────────────────
       {
         source: '/(.*)',

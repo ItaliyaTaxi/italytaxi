@@ -14,7 +14,7 @@ const EXCLUDED_SEGMENTS = new Set([
 // Priority/frequency config per route pattern
 function routeConfig(urlPath: string) {
   if (urlPath === '/') return { priority: 1.0, changeFrequency: 'daily' as const };
-  if (['/book-now', '/contact', '/services'].includes(urlPath)) return { priority: 0.9, changeFrequency: 'weekly' as const };
+  if (['/book-now', '/contact', '/services', '/rome-airport-transfer', '/milan-chauffeur-service', '/florence-private-taxi'].includes(urlPath)) return { priority: 0.9, changeFrequency: 'weekly' as const };
   if (['/about-us', '/faq', '/coverage-areas', '/airport-transfer'].includes(urlPath)) return { priority: 0.8, changeFrequency: 'weekly' as const };
   if (urlPath.startsWith('/airport/') || urlPath.startsWith('/city/')) return { priority: 0.9, changeFrequency: 'weekly' as const };
   if (urlPath.startsWith('/route/')) return { priority: 0.9, changeFrequency: 'weekly' as const };

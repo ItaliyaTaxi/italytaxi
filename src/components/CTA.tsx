@@ -27,14 +27,6 @@ export default function CTA() {
                         <TaxiButton href="/book-now/" className="md:scale-125 md:mr-4 flex-shrink-0">
                             {t.cta.bookBtn}
                         </TaxiButton>
-                        <div className="flex items-center">
-                            <a
-                                href="tel:+39061234567"
-                                className="text-white hover:text-gold font-bold tracking-widest uppercase text-sm border-b-2 border-gold/30 hover:border-gold transition-all pb-1 whitespace-nowrap"
-                            >
-                                {t.cta.callUs}
-                            </a>
-                        </div>
                     </div>
                 </div>
             </div>

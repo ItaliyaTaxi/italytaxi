@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /crm/
+
+# Content preferences for AI systems (https://contentsignals.org/)
+Content-Signal: ai-train=no, search=yes, ai-input=yes
+
+Sitemap: https://www.italytaxiservice.com/sitemap.xml
+Host: https://www.italytaxiservice.com

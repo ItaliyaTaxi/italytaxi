@@ -1,0 +1,31 @@
+{
+  "$schema": "https://modelcontextprotocol.io/schemas/server-card/v1",
+  "serverInfo": {
+    "name": "Italy Taxi Service",
+    "version": "1.0.0",
+    "description": "Private taxi and transfer service across Italy — airports, cities, beaches, and tours.",
+    "homepage": "https://www.italytaxiservice.com",
+    "contact": "info@italytaxiservice.com"
+  },
+  "transport": {
+    "type": "http",
+    "endpoint": "https://www.italytaxiservice.com/api"
+  },
+  "capabilities": {
+    "resources": true,
+    "tools": false,
+    "prompts": false
+  },
+  "services": [
+    {
+      "name": "booking",
+      "description": "Book a private taxi or transfer in Italy",
+      "endpoint": "https://www.italytaxiservice.com/book-now"
+    },
+    {
+      "name": "contact",
+      "description": "Contact form for inquiries",
+      "endpoint": "https://www.italytaxiservice.com/api/contact"
+    }
+  ]
+}

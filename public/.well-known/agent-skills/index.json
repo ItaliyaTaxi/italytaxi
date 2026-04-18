@@ -1,0 +1,26 @@
+{
+  "$schema": "https://agentskills.io/schemas/index/v0.2.0",
+  "skills": [
+    {
+      "name": "book-taxi",
+      "type": "action",
+      "description": "Book a private taxi or transfer service anywhere in Italy (airports, cities, beaches, border crossings).",
+      "url": "https://www.italytaxiservice.com/book-now",
+      "sha256": ""
+    },
+    {
+      "name": "check-coverage",
+      "type": "resource",
+      "description": "Check which cities and areas in Italy are covered by the taxi service.",
+      "url": "https://www.italytaxiservice.com/coverage-areas",
+      "sha256": ""
+    },
+    {
+      "name": "contact",
+      "type": "action",
+      "description": "Send a contact or inquiry message to Italy Taxi Service.",
+      "url": "https://www.italytaxiservice.com/contact",
+      "sha256": ""
+    }
+  ]
+}

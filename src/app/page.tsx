@@ -2,6 +2,7 @@ import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
+import HomeSEOContent from '@/components/HomeSEOContent';
 import { Metadata } from 'next';
 
 // ── Below-fold components: code-split into separate JS chunks ──────────────────
@@ -22,14 +23,14 @@ const CTA = dynamic(() => import('@/components/CTA'));
 const Footer = dynamic(() => import('@/components/Footer'));
 
 export const metadata: Metadata = {
-  title: "Private Taxi Transfers in Italy | Italian Taxi Service",
-  description: "Book Italy's top-rated private taxi service. Airport transfers, city-to-city rides & private tours. Fixed prices, professional drivers, instant confirmation.",
+  title: "Italy Taxi Service | Private Transfers & Airport Taxis",
+  description: "Book Italy's top-rated private taxi service. Airport transfers, city-to-city rides & private tours. Fixed prices, professional NCC drivers, instant confirmation.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Private Taxi Transfers in Italy | Italian Taxi Service",
-    description: "Book Italy's top-rated private taxi service. Airport transfers, city-to-city rides & private tours. Fixed prices, professional drivers, instant confirmation.",
+    title: "Italy Taxi Service | Private Transfers & Airport Taxis",
+    description: "Book Italy's top-rated private taxi service. Airport transfers, city-to-city rides & private tours. Fixed prices, professional NCC drivers, instant confirmation.",
     url: "https://www.italytaxiservice.com",
     images: [{ url: '/images/hero.webp', width: 1200, height: 630, alt: 'Italy Taxi Service' }],
   },
@@ -103,6 +104,9 @@ export default function Home() {
       <Suspense fallback={<SectionFallback />}>
         <Coverage />
       </Suspense>
+
+      {/* Static server-rendered SEO content — always in initial HTML for crawlers */}
+      <HomeSEOContent />
 
       <Suspense fallback={<SectionFallback />}>
         <FAQSection faqs={homeFaqs} title="Italy Travel & Transfer FAQ" />
