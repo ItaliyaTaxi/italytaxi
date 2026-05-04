@@ -222,6 +222,8 @@ export default function CRMPage() {
                                                 <th className="px-10 py-6">Customer Identity</th>
                                                 <th className="px-10 py-6">Route Logistics</th>
                                                 <th className="px-10 py-6">Schedule</th>
+                                                <th className="px-10 py-6">Date Received</th>
+                                                <th className="px-10 py-6">Form Source</th>
                                                 <th className="px-10 py-6 text-center">Passengers</th>
                                                 <th className="px-10 py-6 text-center">Validation</th>
                                                 <th className="px-10 py-6 text-right">Management</th>
@@ -255,6 +257,17 @@ export default function CRMPage() {
                                                             <div className="text-xs text-white font-black tracking-tight">{new Date(booking.booking_datetime).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}</div>
                                                             <div className="text-[10px] text-gold font-bold mt-1 tracking-widest">{new Date(booking.booking_datetime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}</div>
                                                         </div>
+                                                    </td>
+                                                    <td className="px-10 py-8">
+                                                        <div className="inline-block bg-[#F8FAFC] p-3 rounded-2xl border border-gray-100">
+                                                            <div className="text-xs text-navy font-black tracking-tight">{new Date(booking.created_at).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}</div>
+                                                            <div className="text-[10px] text-gold font-bold mt-1 tracking-widest">{new Date(booking.created_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}</div>
+                                                        </div>
+                                                    </td>
+                                                    <td className="px-10 py-8">
+                                                        <span className="inline-flex items-center px-3 py-1.5 rounded-full text-[9px] font-black uppercase tracking-[0.15em] bg-blue-50 text-blue-700 border border-blue-200">
+                                                            📋 {booking.source_form || '—'}
+                                                        </span>
                                                     </td>
                                                     <td className="px-10 py-8 text-center">
                                                         <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-navy/10 text-navy font-black text-sm">
@@ -312,7 +325,8 @@ export default function CRMPage() {
                                                 <th className="px-10 py-6">Sender</th>
                                                 <th className="px-10 py-6">Subject</th>
                                                 <th className="px-10 py-6">Message</th>
-                                                <th className="px-10 py-6">Date</th>
+                                                <th className="px-10 py-6">Date Received</th>
+                                                <th className="px-10 py-6">Form Source</th>
                                                 <th className="px-10 py-6 text-right">Actions</th>
                                             </tr>
                                         </thead>
@@ -335,6 +349,11 @@ export default function CRMPage() {
                                                             <div className="text-xs text-white font-black tracking-tight">{new Date(contact.created_at).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}</div>
                                                             <div className="text-[10px] text-gold font-bold mt-1 tracking-widest">{new Date(contact.created_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}</div>
                                                         </div>
+                                                    </td>
+                                                    <td className="px-10 py-8">
+                                                        <span className="inline-flex items-center px-3 py-1.5 rounded-full text-[9px] font-black uppercase tracking-[0.15em] bg-blue-50 text-blue-700 border border-blue-200">
+                                                            📋 {contact.source_form || '—'}
+                                                        </span>
                                                     </td>
                                                     <td className="px-10 py-8 text-right">
                                                         <button

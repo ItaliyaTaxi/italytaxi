@@ -38,7 +38,7 @@ export default function BookNowPage() {
             </p>
           </div>
           <div className="max-w-4xl mx-auto">
-            <BookingForm />
+            <BookingForm sourceName="Book Now Page" />
           </div>
         </div>
       </section>

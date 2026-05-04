@@ -9,7 +9,7 @@ const initialState = {
     message: '',
 };
 
-export default function BookingForm() {
+export default function BookingForm({ sourceName = 'Book Now Page' }: { sourceName?: string }) {
     const [state, formAction, isPending] = useActionState(submitBooking, initialState);
 
     if (state.success) {
@@ -60,6 +60,7 @@ export default function BookingForm() {
                 </header>
 
                 <form action={formAction} className="space-y-6">
+                    <input type="hidden" name="source_form" value={sourceName} />
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div className="space-y-1">
                             <label className="taxi-form-label">Full Name</label>

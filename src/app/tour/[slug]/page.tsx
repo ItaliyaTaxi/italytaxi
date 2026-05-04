@@ -211,7 +211,7 @@ export default async function TourPage({ params }: { params: Promise<{ slug: str
                         </div>
 
                         <div className="w-full lg:w-1/3">
-                            <BookingForm />
+                            <BookingForm sourceName="Tour Page" />
                         </div>
                     </div>
                 </div>
