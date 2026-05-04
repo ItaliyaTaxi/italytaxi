@@ -59,7 +59,7 @@ export default function TermsAndConditionsPage() {
                   <p className="font-bold text-gold mb-2">Last Updated</p>
                   <p>1 January 2025</p>
                   <p className="mt-2 text-gray-400">Questions? Email us at</p>
-                  <a href="mailto:info@italytaxiservice.com" className="text-gold hover:underline break-all">info@italytaxiservice.com</a>
+                  <a href="mailto:italytaxiservicee@gmail.com" className="text-gold hover:underline break-all">italytaxiservicee@gmail.com</a>
                 </div>
               </div>
             </aside>
@@ -84,7 +84,7 @@ export default function TermsAndConditionsPage() {
               <section id="booking" className="mb-12 scroll-mt-8">
                 <h2 className="text-2xl font-extrabold text-navy border-b border-gray-100 pb-3 mb-6">2. Booking & Confirmation</h2>
                 <p>All bookings must include the following information: full passenger name, pickup address, destination address, date and time of travel, number of passengers, and number of luggage items. For airport pickups, your flight number is also required.</p>
-                <p>Bookings are accepted via our online booking form, by email to <a href="mailto:info@italytaxiservice.com" className="text-gold">info@italytaxiservice.com</a>, or by WhatsApp message. Bookings made by WhatsApp are confirmed once we send a written confirmation message.</p>
+                <p>Bookings are accepted via our online booking form, by email to <a href="mailto:italytaxiservicee@gmail.com" className="text-gold">italytaxiservicee@gmail.com</a>, or by WhatsApp message. Bookings made by WhatsApp are confirmed once we send a written confirmation message.</p>
                 <p>You are responsible for providing accurate information. Italy Taxi Service cannot be held liable for any missed pickup or service failure caused by incorrect details provided by the customer, including wrong flight numbers, incorrect addresses, or inaccurate travel dates.</p>
                 <p>We recommend booking at least 24 hours in advance. Same-day bookings are accepted subject to availability and at our discretion. During peak travel periods — July, August, Easter, Christmas, and Italian public holidays — early booking is strongly advised.</p>
                 <p>Booking amendments (change of date, time, address, or vehicle) must be communicated as early as possible. Amendments are accepted free of charge when requested more than 24 hours before the scheduled pickup time, subject to availability.</p>
@@ -190,7 +190,7 @@ export default function TermsAndConditionsPage() {
                 <h2 className="text-2xl font-extrabold text-navy border-b border-gray-100 pb-3 mb-6">9. Complaints & Disputes</h2>
                 <p>We are committed to resolving any complaint promptly and fairly. If you experience any issue with our service, please contact us as soon as possible:</p>
                 <ul>
-                  <li><strong>Email:</strong> <a href="mailto:info@italytaxiservice.com" className="text-gold">info@italytaxiservice.com</a></li>
+                  <li><strong>Email:</strong> <a href="mailto:italytaxiservicee@gmail.com" className="text-gold">italytaxiservicee@gmail.com</a></li>
                   <li><strong>WhatsApp:</strong> <a href="https://wa.me/923148932631" target="_blank" rel="noopener noreferrer" className="text-gold">WhatsApp Chat</a></li>
                 </ul>
                 <p>Please include your booking reference number, a description of the issue, and any supporting evidence (photos, screenshots). We aim to acknowledge all complaints within 24 hours and provide a full response within 5 business days.</p>

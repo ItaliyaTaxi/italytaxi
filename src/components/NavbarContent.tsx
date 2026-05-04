@@ -130,13 +130,13 @@ export default function Navbar() {
 
                         {/* DESKTOP ONLY: Email - Upper Left */}
                         <a
-                            href="mailto:booking@italytaxiservice.com"
+                            href="mailto:italytaxiservicee@gmail.com"
                             className="hidden lg:flex items-center gap-2 absolute left-0 top-1/2 -translate-y-1/2 text-[10px] font-bold text-gold uppercase tracking-widest hover:text-white transition-colors animate-slide-left [animation-delay:0.2s]"
                         >
                             <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                             </svg>
-                            booking@italytaxiservice.com
+                            italytaxiservicee@gmail.com
                         </a>
 
                         {/* DESKTOP ONLY: Language Toggle + WhatsApp + Get Quote - Upper Right */}

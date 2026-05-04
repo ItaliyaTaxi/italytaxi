@@ -35,7 +35,7 @@ const JsonLd = () => {
     "description": "Professional private taxi and transfer service across Italy. NCC-licensed drivers, fixed prices, airport transfers, city-to-city rides, and private tours.",
     "url": "https://www.italytaxiservice.com",
     "telephone": "+39-02-0000-0000",
-    "email": "booking@italytaxiservice.com",
+    "email": "italytaxiservicee@gmail.com",
     "logo": "https://www.italytaxiservice.com/icon.svg",
     "image": "https://www.italytaxiservice.com/images/hero.webp",
     "priceRange": "€€€",

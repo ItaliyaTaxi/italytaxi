@@ -61,7 +61,7 @@ export default function PrivacyPolicyPage() {
                   <p className="font-bold text-gold mb-2">Last Updated</p>
                   <p>1 January 2025</p>
                   <p className="mt-3 text-gray-400">Data protection queries:</p>
-                  <a href="mailto:info@italytaxiservice.com" className="text-gold hover:underline break-all">info@italytaxiservice.com</a>
+                  <a href="mailto:italytaxiservicee@gmail.com" className="text-gold hover:underline break-all">italytaxiservicee@gmail.com</a>
                 </div>
               </div>
             </aside>
@@ -89,7 +89,7 @@ export default function PrivacyPolicyPage() {
                   <p className="font-bold text-navy text-base mb-3">Italy Taxi Service</p>
                   <p className="text-gray-600">Via della Conciliazione, 1</p>
                   <p className="text-gray-600">00193 Roma RM, Italy</p>
-                  <p className="text-gray-600 mt-2">Email: <a href="mailto:info@italytaxiservice.com" className="text-gold hover:underline">info@italytaxiservice.com</a></p>
+                  <p className="text-gray-600 mt-2">Email: <a href="mailto:italytaxiservicee@gmail.com" className="text-gold hover:underline">italytaxiservicee@gmail.com</a></p>
                 </div>
                 <p>If you have any questions or concerns about how your personal data is processed, you may contact us at the address above at any time.</p>
               </section>
@@ -195,7 +195,7 @@ export default function PrivacyPolicyPage() {
               {/* Section 8 */}
               <section id="rights" className="mb-12 scroll-mt-8">
                 <h2 className="text-2xl font-extrabold text-navy border-b border-gray-100 pb-3 mb-6">8. Your Rights Under GDPR</h2>
-                <p>As a data subject under GDPR, you have the following rights regarding your personal data. You may exercise these rights at any time by contacting us at <a href="mailto:info@italytaxiservice.com" className="text-gold">info@italytaxiservice.com</a>.</p>
+                <p>As a data subject under GDPR, you have the following rights regarding your personal data. You may exercise these rights at any time by contacting us at <a href="mailto:italytaxiservicee@gmail.com" className="text-gold">italytaxiservicee@gmail.com</a>.</p>
                 <div className="grid sm:grid-cols-2 gap-4 my-6 not-prose">
                   {[
                     { right: "Right of Access", desc: "Request a copy of the personal data we hold about you (a Subject Access Request)." },
@@ -257,7 +257,7 @@ export default function PrivacyPolicyPage() {
                 <div className="bg-navy rounded-2xl p-8 my-6 not-prose text-white">
                   <p className="font-bold text-gold text-lg mb-4">Italy Taxi Service — Data Enquiries</p>
                   <div className="space-y-2 text-sm text-gray-300">
-                    <p>📧 <a href="mailto:info@italytaxiservice.com" className="text-gold hover:underline">info@italytaxiservice.com</a></p>
+                    <p>📧 <a href="mailto:italytaxiservicee@gmail.com" className="text-gold hover:underline">italytaxiservicee@gmail.com</a></p>
                     <p>💬 <a href="https://wa.me/923148932631" target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">WhatsApp Chat</a></p>
                     <p>📍 Via della Conciliazione, 1, 00193 Roma RM, Italy</p>
                   </div>

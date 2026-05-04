@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 };
 
 const generalFaqs = [
-  { q: "How do I book a private taxi transfer in Italy?", a: "Book directly through our online booking form, send an email to booking@italytaxiservice.com, or message us on WhatsApp. You'll receive instant confirmation with your driver's details, vehicle information, and a fixed price." },
+  { q: "How do I book a private taxi transfer in Italy?", a: "Book directly through our online booking form, send an email to italytaxiservicee@gmail.com, or message us on WhatsApp. You'll receive instant confirmation with your driver's details, vehicle information, and a fixed price." },
   { q: "Is the price per person or per vehicle?", a: "All prices are per vehicle, not per person. Whether you book a sedan for 1 or a minivan for 7, the fare remains the same fixed price agreed at booking — great value for families and groups." },
   { q: "When and how do I pay for my transfer?", a: "Payment options are confirmed at booking. We accept credit and debit cards online, and cash or card payment to your driver at journey end. There are no hidden fees — what you paid is what you owe." },
   { q: "Do you provide meet-and-greet at the airport?", a: "Yes. For all airport pickups, your driver waits inside the arrivals hall holding a sign with your name. You won't need to look for a taxi outside — your driver will find you." },

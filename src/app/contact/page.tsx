@@ -26,7 +26,7 @@ const contactSchema = {
       "name": "Italy Taxi Service",
       "image": "https://www.italytaxiservice.com/images/hero.png",
       "telephone": "+923148932631",
-      "email": "booking@italytaxiservice.com",
+      "email": "italytaxiservicee@gmail.com",
       "priceRange": "$$$",
       "address": {
         "@type": "PostalAddress",
@@ -68,7 +68,7 @@ const contactSchema = {
         {
           "@type": "Question",
           "name": "Do you handle corporate or group booking enquiries?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Corporate accounts, wedding transportation, conference logistics, and group bookings of 10+ passengers are best handled directly by our team. Email us at booking@italytaxiservice.com with your event details." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Corporate accounts, wedding transportation, conference logistics, and group bookings of 10+ passengers are best handled directly by our team. Email us at italytaxiservicee@gmail.com with your event details." }
         }
       ]
     }
@@ -79,14 +79,14 @@ const contactFaqs = [
   { q: "How quickly will I receive a response to my enquiry?", a: "Via WhatsApp, we typically respond within 5–15 minutes, 24 hours a day. For email enquiries, our target response time is within 2 hours during business hours and within 4 hours at night or on weekends." },
   { q: "Can I book a same-day transfer by contacting you directly?", a: "Yes. Same-day bookings are often possible when contacted via WhatsApp or phone. Please provide your pickup location, destination, time, and passenger count and we'll confirm availability immediately." },
   { q: "How do I get a custom quote for a route not on your website?", a: "Simply send us your exact pickup address, destination address, travel date, and number of passengers via WhatsApp or the contact form. We'll provide a fixed all-inclusive price within minutes." },
-  { q: "Do you handle corporate or group booking enquiries?", a: "Yes. Corporate accounts, wedding transportation, conference logistics, and group bookings of 10+ passengers are best handled directly by our team. Email us at booking@italytaxiservice.com with your event details." },
+  { q: "Do you handle corporate or group booking enquiries?", a: "Yes. Corporate accounts, wedding transportation, conference logistics, and group bookings of 10+ passengers are best handled directly by our team. Email us at italytaxiservicee@gmail.com with your event details." },
   { q: "Can I modify an existing booking through your contact channels?", a: "Yes. Contact us via WhatsApp with your booking reference number and the changes you need. We handle modifications to pickup time, vehicle type, destination, and passenger count quickly." },
   { q: "What should I do if there is an issue during my transfer?", a: "Call or WhatsApp us immediately. Our operations team monitors all active transfers and can communicate directly with your driver to resolve any issue — route deviation, vehicle problem, or emergency — in real time." },
 ];
 
 const responsePromises = [
   { icon: <MessageCircle className="w-6 h-6 text-gold" />, channel: "WhatsApp", time: "Under 15 minutes", note: "24/7 · Most recommended" },
-  { icon: <Clock className="w-6 h-6 text-gold" />, channel: "Email", time: "Within 2 hours", note: "booking@italytaxiservice.com" },
+  { icon: <Clock className="w-6 h-6 text-gold" />, channel: "Email", time: "Within 2 hours", note: "italytaxiservicee@gmail.com" },
   { icon: <PhoneCall className="w-6 h-6 text-gold" />, channel: "Direct Call", time: "Instant Answer" },
 ];
 

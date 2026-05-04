@@ -39,7 +39,7 @@ const faqs = [
   },
   {
     q: "How do I set up a corporate business account?",
-    a: "Contact us via email at info@italytaxiservice.com with your company name, registration details, and expected monthly usage. We'll configure your account within 24 hours and assign a dedicated account manager."
+    a: "Contact us via email at italytaxiservicee@gmail.com with your company name, registration details, and expected monthly usage. We'll configure your account within 24 hours and assign a dedicated account manager."
   },
   {
     q: "Do you offer roadshow and multi-city executive itinerary planning?",

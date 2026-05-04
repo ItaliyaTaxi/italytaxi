@@ -3,7 +3,7 @@ import { Resend } from 'resend';
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 // All outbound emails come from this verified domain address
-const FROM_ADDRESS = 'Italy Taxi Service <booking@italytaxiservice.com>';
+const FROM_ADDRESS = 'Italy Taxi Service <italytaxiservicee@gmail.com>';
 
 interface SendEmailOptions {
     to: string;

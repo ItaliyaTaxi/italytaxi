@@ -6,8 +6,8 @@ import { MessageCircle, Mail, X, ChevronRight } from 'lucide-react';
 const WA_LINK = "https://wa.me/923148932631?text=Hello%2C%20I%20would%20like%20to%20inquire%20about%20a%20transfer%20service.";
 
 const emails = [
-    { label: "Booking Enquiry", address: "booking@italytaxiservice.com", hint: "Reservations & quotes" },
-    { label: "General Info", address: "info@italytaxiservice.com", hint: "Support & other queries" },
+    { label: "Booking Enquiry", address: "italytaxiservicee@gmail.com", hint: "Reservations & quotes" },
+    { label: "General Info", address: "italytaxiservicee@gmail.com", hint: "Support & other queries" },
 ];
 
 type View = 'closed' | 'main' | 'email';
