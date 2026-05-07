@@ -2,17 +2,18 @@ import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-// All outbound emails come from this verified domain address
-const FROM_ADDRESS = 'Italy Taxi Service <italytaxiservicee@gmail.com>';
+const FROM_ADDRESS = 'Italy Taxi Service <bookings@italytaxiservice.com>';
+const REPLY_TO = 'italytaxiservicee@gmail.com';
 
 interface SendEmailOptions {
     to: string;
     subject: string;
     html: string;
+    replyTo?: string;
     text?: string;
 }
 
-export async function sendEmail({ to, subject, html, text }: SendEmailOptions) {
+export async function sendEmail({ to, subject, html, replyTo, text }: SendEmailOptions) {
     if (!process.env.RESEND_API_KEY) {
         console.warn('[MAILER] RESEND_API_KEY not set — email skipped');
         return;
@@ -24,6 +25,7 @@ export async function sendEmail({ to, subject, html, text }: SendEmailOptions) {
         subject,
         html,
         text,
+        replyTo: replyTo ?? REPLY_TO,
     });
 
     if (error) {

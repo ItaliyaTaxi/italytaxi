@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabase/client';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { deleteBookingAction, deleteContactAction } from '@/app/actions/crm';
+import { deleteBookingAction, deleteContactAction, confirmBookingAction } from '@/app/actions/crm';
 
 export default function CRMPage() {
     const [bookings, setBookings] = useState<any[]>([]);
@@ -12,6 +12,7 @@ export default function CRMPage() {
     const [activeTab, setActiveTab] = useState<'bookings' | 'contacts'>('bookings');
     const [loading, setLoading] = useState(true);
     const [user, setUser] = useState<any>(null);
+    const [viewItem, setViewItem] = useState<{ type: 'booking' | 'contact'; data: any } | null>(null);
     const router = useRouter();
 
     useEffect(() => {
@@ -42,6 +43,23 @@ export default function CRMPage() {
     async function handleLogout() {
         await supabase.auth.signOut();
         router.push('/crm/login');
+    }
+
+    async function handleConfirm(booking: any) {
+        try {
+            await confirmBookingAction(booking.id, {
+                full_name: booking.full_name,
+                email: booking.email,
+                phone: booking.phone,
+                pickup_location: booking.pickup_location,
+                dropoff_location: booking.dropoff_location,
+                booking_datetime: booking.booking_datetime,
+                passengers: booking.passengers ?? 1,
+            });
+            setBookings(bookings.map(b => b.id === booking.id ? { ...b, status: 'confirmed' } : b));
+        } catch (e: any) {
+            alert('Error confirming booking: ' + e.message);
+        }
     }
 
     async function updateStatus(id: string, status: string) {
@@ -80,6 +98,106 @@ export default function CRMPage() {
 
     return (
         <div className="flex min-h-screen bg-[#F8FAFC]">
+            {/* View Detail Modal */}
+            {viewItem && (
+                <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4" onClick={() => setViewItem(null)}>
+                    <div className="bg-white rounded-[2rem] shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto" onClick={e => e.stopPropagation()}>
+                        <div className="flex items-center justify-between p-8 border-b border-gray-100">
+                            <div>
+                                <h2 className="text-2xl font-black text-navy tracking-tight">
+                                    {viewItem.type === 'booking' ? 'Booking Details' : 'Contact Message'}
+                                </h2>
+                                <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-1">Full lead information</p>
+                            </div>
+                            <button onClick={() => setViewItem(null)} className="w-10 h-10 flex items-center justify-center rounded-xl bg-gray-100 hover:bg-red-100 hover:text-red-600 text-gray-500 font-bold text-lg transition-all">✕</button>
+                        </div>
+                        <div className="p-8 space-y-6">
+                            {viewItem.type === 'booking' ? (
+                                <>
+                                    <div className="grid grid-cols-2 gap-4">
+                                        <div className="bg-[#F8FAFC] rounded-2xl p-5 border border-gray-100">
+                                            <p className="text-[9px] font-black uppercase tracking-widest text-gray-400 mb-1">Full Name</p>
+                                            <p className="font-black text-navy text-lg leading-tight">{viewItem.data.full_name}</p>
+                                        </div>
+                                        <div className="bg-[#F8FAFC] rounded-2xl p-5 border border-gray-100">
+                                            <p className="text-[9px] font-black uppercase tracking-widest text-gray-400 mb-1">Status</p>
+                                            <span className={`inline-flex items-center px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-[0.2em] border ${viewItem.data.status === 'confirmed' ? 'bg-green-50 text-green-600 border-green-200' : viewItem.data.status === 'cancelled' ? 'bg-red-50 text-red-600 border-red-200' : 'bg-yellow-50 text-yellow-600 border-yellow-200'}`}>{viewItem.data.status}</span>
+                                        </div>
+                                        <div className="bg-[#F8FAFC] rounded-2xl p-5 border border-gray-100">
+                                            <p className="text-[9px] font-black uppercase tracking-widest text-gray-400 mb-1">Email</p>
+                                            <p className="font-semibold text-navy text-sm">{viewItem.data.email}</p>
+                                        </div>
+                                        <div className="bg-[#F8FAFC] rounded-2xl p-5 border border-gray-100">
+                                            <p className="text-[9px] font-black uppercase tracking-widest text-gray-400 mb-1">Phone</p>
+                                            <p className="font-semibold text-navy text-sm font-mono">{viewItem.data.phone || '—'}</p>
+                                        </div>
+                                        <div className="bg-[#F8FAFC] rounded-2xl p-5 border border-gray-100 col-span-2">
+                                            <p className="text-[9px] font-black uppercase tracking-widest text-gray-400 mb-1">Pickup Location</p>
+                                            <p className="font-semibold text-navy text-sm">{viewItem.data.pickup_location}</p>
+                                        </div>
+                                        <div className="bg-[#F8FAFC] rounded-2xl p-5 border border-gray-100 col-span-2">
+                                            <p className="text-[9px] font-black uppercase tracking-widest text-gray-400 mb-1">Drop-off Location</p>
+                                            <p className="font-semibold text-navy text-sm">{viewItem.data.dropoff_location}</p>
+                                        </div>
+                                        <div className="bg-[#F8FAFC] rounded-2xl p-5 border border-gray-100">
+                                            <p className="text-[9px] font-black uppercase tracking-widest text-gray-400 mb-1">Booking Date & Time</p>
+                                            <p className="font-black text-navy text-sm">{new Date(viewItem.data.booking_datetime).toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' })}</p>
+                                            <p className="text-[10px] text-gold font-bold mt-1">{new Date(viewItem.data.booking_datetime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}</p>
+                                        </div>
+                                        <div className="bg-[#F8FAFC] rounded-2xl p-5 border border-gray-100">
+                                            <p className="text-[9px] font-black uppercase tracking-widest text-gray-400 mb-1">Passengers</p>
+                                            <p className="font-black text-navy text-2xl">{viewItem.data.passengers ?? '—'}</p>
+                                        </div>
+                                        <div className="bg-[#F8FAFC] rounded-2xl p-5 border border-gray-100">
+                                            <p className="text-[9px] font-black uppercase tracking-widest text-gray-400 mb-1">Source Form</p>
+                                            <p className="font-semibold text-navy text-sm">{viewItem.data.source_form || '—'}</p>
+                                        </div>
+                                        <div className="bg-[#F8FAFC] rounded-2xl p-5 border border-gray-100">
+                                            <p className="text-[9px] font-black uppercase tracking-widest text-gray-400 mb-1">Received On</p>
+                                            <p className="font-black text-navy text-sm">{new Date(viewItem.data.created_at).toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' })}</p>
+                                            <p className="text-[10px] text-gold font-bold mt-1">{new Date(viewItem.data.created_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}</p>
+                                        </div>
+                                    </div>
+                                </>
+                            ) : (
+                                <>
+                                    <div className="grid grid-cols-2 gap-4">
+                                        <div className="bg-[#F8FAFC] rounded-2xl p-5 border border-gray-100">
+                                            <p className="text-[9px] font-black uppercase tracking-widest text-gray-400 mb-1">Full Name</p>
+                                            <p className="font-black text-navy text-lg leading-tight">{viewItem.data.full_name}</p>
+                                        </div>
+                                        <div className="bg-[#F8FAFC] rounded-2xl p-5 border border-gray-100">
+                                            <p className="text-[9px] font-black uppercase tracking-widest text-gray-400 mb-1">Phone</p>
+                                            <p className="font-semibold text-navy text-sm font-mono">{viewItem.data.phone || '—'}</p>
+                                        </div>
+                                        <div className="bg-[#F8FAFC] rounded-2xl p-5 border border-gray-100 col-span-2">
+                                            <p className="text-[9px] font-black uppercase tracking-widest text-gray-400 mb-1">Email</p>
+                                            <p className="font-semibold text-navy text-sm">{viewItem.data.email}</p>
+                                        </div>
+                                        <div className="bg-[#F8FAFC] rounded-2xl p-5 border border-gray-100 col-span-2">
+                                            <p className="text-[9px] font-black uppercase tracking-widest text-gray-400 mb-1">Subject</p>
+                                            <p className="font-black text-navy text-base">{viewItem.data.subject}</p>
+                                        </div>
+                                        <div className="bg-[#F8FAFC] rounded-2xl p-5 border border-gray-100 col-span-2">
+                                            <p className="text-[9px] font-black uppercase tracking-widest text-gray-400 mb-2">Message</p>
+                                            <p className="text-sm text-gray-700 leading-relaxed whitespace-pre-wrap">{viewItem.data.message}</p>
+                                        </div>
+                                        <div className="bg-[#F8FAFC] rounded-2xl p-5 border border-gray-100">
+                                            <p className="text-[9px] font-black uppercase tracking-widest text-gray-400 mb-1">Source Form</p>
+                                            <p className="font-semibold text-navy text-sm">{viewItem.data.source_form || '—'}</p>
+                                        </div>
+                                        <div className="bg-[#F8FAFC] rounded-2xl p-5 border border-gray-100">
+                                            <p className="text-[9px] font-black uppercase tracking-widest text-gray-400 mb-1">Received On</p>
+                                            <p className="font-black text-navy text-sm">{new Date(viewItem.data.created_at).toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' })}</p>
+                                            <p className="text-[10px] text-gold font-bold mt-1">{new Date(viewItem.data.created_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}</p>
+                                        </div>
+                                    </div>
+                                </>
+                            )}
+                        </div>
+                    </div>
+                </div>
+            )}
             {/* Sidebar */}
             <aside className="w-80 bg-[#0F1C2E] text-white flex flex-col fixed h-full z-50">
                 <div className="p-10 border-b border-white/5">
@@ -285,7 +403,14 @@ export default function CRMPage() {
                                                     <td className="px-10 py-8 text-right">
                                                         <div className="flex gap-2 justify-end">
                                                             <button
-                                                                onClick={() => updateStatus(booking.id, 'confirmed')}
+                                                                onClick={() => setViewItem({ type: 'booking', data: booking })}
+                                                                className="h-10 w-10 flex items-center justify-center bg-gray-50 text-gray-400 rounded-xl hover:bg-navy hover:text-white hover:scale-110 active:scale-95 transition-all shadow-sm border border-transparent hover:border-navy"
+                                                                title="View Details"
+                                                            >
+                                                                👁
+                                                            </button>
+                                                            <button
+                                                                onClick={() => handleConfirm(booking)}
                                                                 className="h-10 w-10 flex items-center justify-center bg-gray-50 text-gray-400 rounded-xl hover:bg-green-600 hover:text-white hover:scale-110 active:scale-95 transition-all shadow-sm border border-transparent hover:border-green-400"
                                                                 title="Confirm Booking"
                                                             >
@@ -356,13 +481,22 @@ export default function CRMPage() {
                                                         </span>
                                                     </td>
                                                     <td className="px-10 py-8 text-right">
-                                                        <button
-                                                            onClick={() => deleteContact(contact.id)}
-                                                            className="h-10 w-10 flex items-center justify-center bg-gray-50 text-gray-400 rounded-xl hover:bg-red-900 hover:text-white hover:scale-110 active:scale-95 transition-all shadow-sm border border-transparent hover:border-red-900 ml-auto"
-                                                            title="Delete Message"
-                                                        >
-                                                            🗑
-                                                        </button>
+                                                        <div className="flex gap-2 justify-end">
+                                                            <button
+                                                                onClick={() => setViewItem({ type: 'contact', data: contact })}
+                                                                className="h-10 w-10 flex items-center justify-center bg-gray-50 text-gray-400 rounded-xl hover:bg-navy hover:text-white hover:scale-110 active:scale-95 transition-all shadow-sm border border-transparent hover:border-navy"
+                                                                title="View Details"
+                                                            >
+                                                                👁
+                                                            </button>
+                                                            <button
+                                                                onClick={() => deleteContact(contact.id)}
+                                                                className="h-10 w-10 flex items-center justify-center bg-gray-50 text-gray-400 rounded-xl hover:bg-red-900 hover:text-white hover:scale-110 active:scale-95 transition-all shadow-sm border border-transparent hover:border-red-900"
+                                                                title="Delete Message"
+                                                            >
+                                                                🗑
+                                                            </button>
+                                                        </div>
                                                     </td>
                                                 </tr>
                                             ))}
