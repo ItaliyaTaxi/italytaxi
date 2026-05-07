@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabase/client';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { deleteBookingAction, deleteContactAction, confirmBookingAction } from '@/app/actions/crm';
+import { deleteBookingAction, deleteContactAction, confirmBookingAction, sendClientEmailAction } from '@/app/actions/crm';
 
 export default function CRMPage() {
     const [bookings, setBookings] = useState<any[]>([]);
@@ -13,6 +13,11 @@ export default function CRMPage() {
     const [loading, setLoading] = useState(true);
     const [user, setUser] = useState<any>(null);
     const [viewItem, setViewItem] = useState<{ type: 'booking' | 'contact'; data: any } | null>(null);
+    const [emailModal, setEmailModal] = useState<{ to: string; name: string; defaultSubject: string } | null>(null);
+    const [emailSubject, setEmailSubject] = useState('');
+    const [emailBody, setEmailBody] = useState('');
+    const [emailSending, setEmailSending] = useState(false);
+    const [emailResult, setEmailResult] = useState<{ ok: boolean; msg: string } | null>(null);
     const router = useRouter();
 
     useEffect(() => {
@@ -84,6 +89,27 @@ export default function CRMPage() {
             setContacts(contacts.filter(c => c.id !== id));
         } catch (error: any) {
             alert('Error: Could not delete contact message. ' + error.message);
+        }
+    }
+
+    function openEmailModal(to: string, name: string, defaultSubject: string) {
+        setEmailSubject(defaultSubject);
+        setEmailBody('');
+        setEmailResult(null);
+        setEmailModal({ to, name, defaultSubject });
+    }
+
+    async function handleSendEmail() {
+        if (!emailModal || !emailSubject.trim() || !emailBody.trim()) return;
+        setEmailSending(true);
+        setEmailResult(null);
+        try {
+            await sendClientEmailAction(emailModal.to, emailModal.name, emailSubject, emailBody);
+            setEmailResult({ ok: true, msg: `Email sent to ${emailModal.to}` });
+        } catch (e: any) {
+            setEmailResult({ ok: false, msg: e.message || 'Failed to send email.' });
+        } finally {
+            setEmailSending(false);
         }
     }
 
@@ -198,6 +224,81 @@ export default function CRMPage() {
                     </div>
                 </div>
             )}
+            {/* Email Compose Modal */}
+            {emailModal && (
+                <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4" onClick={() => setEmailModal(null)}>
+                    <div className="bg-white rounded-[2rem] shadow-2xl w-full max-w-2xl" onClick={e => e.stopPropagation()}>
+                        {/* Header */}
+                        <div className="flex items-center justify-between px-8 py-6 bg-[#0F1C2E] rounded-t-[2rem]">
+                            <div>
+                                <h2 className="text-xl font-black text-white tracking-tight">Compose Email</h2>
+                                <p className="text-[10px] font-bold text-gold/70 uppercase tracking-widest mt-0.5">To: {emailModal.name} — {emailModal.to}</p>
+                            </div>
+                            <button onClick={() => setEmailModal(null)} className="w-9 h-9 flex items-center justify-center rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold transition-all">✕</button>
+                        </div>
+
+                        {/* Body */}
+                        <div className="p-8 space-y-5">
+                            {/* To (read-only) */}
+                            <div>
+                                <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-2">To</label>
+                                <div className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm font-semibold text-navy">
+                                    {emailModal.name} &lt;{emailModal.to}&gt;
+                                </div>
+                            </div>
+
+                            {/* Subject */}
+                            <div>
+                                <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-2">Subject</label>
+                                <input
+                                    type="text"
+                                    value={emailSubject}
+                                    onChange={e => setEmailSubject(e.target.value)}
+                                    className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm text-navy font-semibold focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all"
+                                    placeholder="Email subject..."
+                                />
+                            </div>
+
+                            {/* Body */}
+                            <div>
+                                <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-2">Message</label>
+                                <textarea
+                                    value={emailBody}
+                                    onChange={e => setEmailBody(e.target.value)}
+                                    rows={8}
+                                    className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm text-navy leading-relaxed focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all resize-none"
+                                    placeholder={`Write your message to ${emailModal.name}...`}
+                                />
+                            </div>
+
+                            {/* Result feedback */}
+                            {emailResult && (
+                                <div className={`px-4 py-3 rounded-xl text-sm font-bold ${emailResult.ok ? 'bg-green-50 text-green-700 border border-green-200' : 'bg-red-50 text-red-700 border border-red-200'}`}>
+                                    {emailResult.ok ? '✓ ' : '✕ '}{emailResult.msg}
+                                </div>
+                            )}
+
+                            {/* Actions */}
+                            <div className="flex gap-3 pt-2">
+                                <button
+                                    onClick={handleSendEmail}
+                                    disabled={emailSending || !emailSubject.trim() || !emailBody.trim()}
+                                    className="flex-1 py-4 bg-[#0F1C2E] text-white font-black text-sm uppercase tracking-widest rounded-2xl hover:bg-gold hover:text-navy transition-all disabled:opacity-40 disabled:cursor-not-allowed shadow-lg"
+                                >
+                                    {emailSending ? 'Sending...' : 'Send Email'}
+                                </button>
+                                <button
+                                    onClick={() => setEmailModal(null)}
+                                    className="px-8 py-4 bg-gray-100 text-gray-500 font-black text-sm uppercase tracking-widest rounded-2xl hover:bg-gray-200 transition-all"
+                                >
+                                    Cancel
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+
             {/* Sidebar */}
             <aside className="w-80 bg-[#0F1C2E] text-white flex flex-col fixed h-full z-50">
                 <div className="p-10 border-b border-white/5">
@@ -410,6 +511,13 @@ export default function CRMPage() {
                                                                 👁
                                                             </button>
                                                             <button
+                                                                onClick={() => openEmailModal(booking.email, booking.full_name, `Re: Your Italy Taxi Booking`)}
+                                                                className="h-10 w-10 flex items-center justify-center bg-gray-50 text-gray-400 rounded-xl hover:bg-gold hover:text-navy hover:scale-110 active:scale-95 transition-all shadow-sm border border-transparent hover:border-gold"
+                                                                title="Email Client"
+                                                            >
+                                                                ✉
+                                                            </button>
+                                                            <button
                                                                 onClick={() => handleConfirm(booking)}
                                                                 className="h-10 w-10 flex items-center justify-center bg-gray-50 text-gray-400 rounded-xl hover:bg-green-600 hover:text-white hover:scale-110 active:scale-95 transition-all shadow-sm border border-transparent hover:border-green-400"
                                                                 title="Confirm Booking"
@@ -488,6 +596,13 @@ export default function CRMPage() {
                                                                 title="View Details"
                                                             >
                                                                 👁
+                                                            </button>
+                                                            <button
+                                                                onClick={() => openEmailModal(contact.email, contact.full_name, `Re: ${contact.subject}`)}
+                                                                className="h-10 w-10 flex items-center justify-center bg-gray-50 text-gray-400 rounded-xl hover:bg-gold hover:text-navy hover:scale-110 active:scale-95 transition-all shadow-sm border border-transparent hover:border-gold"
+                                                                title="Email Client"
+                                                            >
+                                                                ✉
                                                             </button>
                                                             <button
                                                                 onClick={() => deleteContact(contact.id)}

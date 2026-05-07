@@ -109,6 +109,41 @@ export async function confirmBookingAction(id: string, booking: {
     return { success: true };
 }
 
+export async function sendClientEmailAction(to: string, clientName: string, subject: string, body: string) {
+    if (!to || !subject || !body) throw new Error('To, subject and body are required.');
+
+    const htmlBody = body.replace(/\n/g, '<br>');
+
+    await sendEmail({
+        to,
+        replyTo: ADMIN_EMAIL,
+        subject,
+        html: `
+            <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto">
+                <div style="background:#0F1C2E;padding:32px;text-align:center;border-radius:12px 12px 0 0">
+                    <h1 style="color:#C9A84C;margin:0;font-size:24px;letter-spacing:-0.5px">Italy Taxi Service</h1>
+                    <p style="color:#ffffff99;font-size:11px;margin:8px 0 0;letter-spacing:2px;text-transform:uppercase">Premium Transfers Across Italy</p>
+                </div>
+                <div style="background:#ffffff;padding:40px;border:1px solid #eee;border-top:none">
+                    <p style="color:#555;font-size:15px;line-height:1.8">Dear <strong>${clientName}</strong>,</p>
+                    <div style="color:#333;font-size:15px;line-height:1.8;margin:20px 0">${htmlBody}</div>
+                    <hr style="border:none;border-top:1px solid #eee;margin:32px 0">
+                    <p style="color:#888;font-size:13px;line-height:1.6">
+                        Best regards,<br>
+                        <strong style="color:#0F1C2E">Italy Taxi Service Team</strong><br>
+                        📧 <a href="mailto:italytaxiservicee@gmail.com" style="color:#C9A84C">italytaxiservicee@gmail.com</a>
+                    </p>
+                </div>
+                <div style="background:#f9f9f9;padding:20px;text-align:center;border:1px solid #eee;border-top:none;border-radius:0 0 12px 12px">
+                    <p style="color:#999;font-size:11px;margin:0">Italy Taxi Service &middot; italytaxiservice.com</p>
+                </div>
+            </div>
+        `,
+    });
+
+    return { success: true };
+}
+
 export async function deleteContactAction(id: string) {
     try {
         const supabase = getServiceSupabase();
