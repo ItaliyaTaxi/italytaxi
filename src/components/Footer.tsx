@@ -62,6 +62,7 @@ export default function Footer() {
                             <li><Link href="/services" className="hover:text-gold transition-colors">{t.footer.services}</Link></li>
                             <li><Link href="/coverage-areas" className="hover:text-gold transition-colors">Service Areas</Link></li>
                             <li><Link href="/airport" className="hover:text-gold transition-colors">Airports</Link></li>
+                            <li><Link href="/airport-transfer" className="hover:text-gold transition-colors">Airport Transfers</Link></li>
                             <li><Link href="/city" className="hover:text-gold transition-colors">Cities</Link></li>
                             <li><Link href="/blog" className="hover:text-gold transition-colors">Blog</Link></li>
                             <li><Link href="/about-us" className="hover:text-gold transition-colors">About Us</Link></li>

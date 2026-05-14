@@ -55,7 +55,7 @@ export default function HomeSEOContent() {
                 </Link>
               </h3>
               <p className="text-gray-600 text-sm leading-relaxed">
-                Fixed-price private <strong>airport transfer Italy</strong> from all 30+ Italian airports including
+                Fixed-price private <Link href="/airport-transfer" className="text-[#F4C430] font-semibold hover:underline">airport transfer Italy</Link> from all 30+ Italian airports including
                 Rome Fiumicino (FCO), Milan Malpensa (MXP), Venice Marco Polo (VCE), Florence (FLR), and Naples (NAP).
                 Flight tracking included, 60 minutes free waiting time, meet-and-greet inside arrivals hall.
               </p>
