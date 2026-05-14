@@ -17,10 +17,11 @@ export default function Footer() {
                     {/* Column 1: Brand & Contact */}
                     <div className="col-span-1">
                         <Image
-                            src="/images/logo.png"
+                            src="/images/logo.webp"
                             alt="Italy Taxi Service Logo — Private Transfers Across Italy"
                             width={180}
                             height={60}
+                            loading="lazy"
                             className="mb-6 opacity-90"
                         />
                         <p className="text-xs leading-relaxed mb-8">

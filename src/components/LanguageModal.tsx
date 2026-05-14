@@ -39,7 +39,7 @@ export default function LanguageModal() {
                     {/* Logo */}
                     <div className="flex justify-center mb-6">
                         <Image
-                            src="/images/logo.png"
+                            src="/images/logo.webp"
                             alt="Italy Taxi Service"
                             width={140}
                             height={46}

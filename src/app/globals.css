@@ -345,6 +345,17 @@ h6 {
   }
 }
 
+/* ── Pause card rotation when not hovered (saves GPU on mobile) ─────────
+   The heavy gradient rotation only needs to run while the user is
+   actively looking at the card. Pausing it at rest cuts GPU load
+   significantly on mobile devices.                                    */
+.uiverse-card::before {
+  animation-play-state: paused;
+}
+.uiverse-card:hover::before {
+  animation-play-state: running;
+}
+
 .uiverse-card::after {
   content: '';
   position: absolute;

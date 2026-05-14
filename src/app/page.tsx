@@ -73,48 +73,68 @@ export default function Home() {
       <Hero />
 
       {/* Below-fold: each wrapped in Suspense so the page doesn't block on them */}
-      <Suspense fallback={<SectionFallback minHeight="min-h-screen" />}>
-        <WhyChooseUs />
-      </Suspense>
+      <div className="cv-section">
+        <Suspense fallback={<SectionFallback minHeight="min-h-screen" />}>
+          <WhyChooseUs />
+        </Suspense>
+      </div>
 
-      <Suspense fallback={<SectionFallback />}>
-        <Services />
-      </Suspense>
+      <div className="cv-section">
+        <Suspense fallback={<SectionFallback />}>
+          <Services />
+        </Suspense>
+      </div>
 
-      <Suspense fallback={<SectionFallback />}>
-        <PopularDestinations />
-      </Suspense>
+      <div className="cv-section">
+        <Suspense fallback={<SectionFallback />}>
+          <PopularDestinations />
+        </Suspense>
+      </div>
 
-      <Suspense fallback={<SectionFallback />}>
-        <PopularRoutes />
-      </Suspense>
+      <div className="cv-section">
+        <Suspense fallback={<SectionFallback />}>
+          <PopularRoutes />
+        </Suspense>
+      </div>
 
-      <Suspense fallback={<SectionFallback />}>
-        <HowItWorks />
-      </Suspense>
+      <div className="cv-section">
+        <Suspense fallback={<SectionFallback />}>
+          <HowItWorks />
+        </Suspense>
+      </div>
 
-      <Suspense fallback={<SectionFallback />}>
-        <Testimonials />
-      </Suspense>
+      <div className="cv-section">
+        <Suspense fallback={<SectionFallback />}>
+          <Testimonials />
+        </Suspense>
+      </div>
 
-      <Suspense fallback={<SectionFallback />}>
-        <KnowledgeHubSection />
-      </Suspense>
+      <div className="cv-section">
+        <Suspense fallback={<SectionFallback />}>
+          <KnowledgeHubSection />
+        </Suspense>
+      </div>
 
-      <Suspense fallback={<SectionFallback />}>
-        <Coverage />
-      </Suspense>
+      <div className="cv-section">
+        <Suspense fallback={<SectionFallback />}>
+          <Coverage />
+        </Suspense>
+      </div>
 
       {/* Static server-rendered SEO content — always in initial HTML for crawlers */}
       <HomeSEOContent />
 
-      <Suspense fallback={<SectionFallback />}>
-        <FAQSection faqs={homeFaqs} title="Italy Travel & Transfer FAQ" />
-      </Suspense>
+      <div className="cv-section">
+        <Suspense fallback={<SectionFallback />}>
+          <FAQSection faqs={homeFaqs} title="Italy Travel & Transfer FAQ" />
+        </Suspense>
+      </div>
 
-      <Suspense fallback={<SectionFallback minHeight="min-h-[300px]" />}>
-        <CTA />
-      </Suspense>
+      <div className="cv-section">
+        <Suspense fallback={<SectionFallback minHeight="min-h-[300px]" />}>
+          <CTA />
+        </Suspense>
+      </div>
 
       <Suspense fallback={<SectionFallback minHeight="min-h-[400px]" />}>
         <Footer />

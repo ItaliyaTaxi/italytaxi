@@ -13,21 +13,24 @@ const inter = Inter({
   subsets: ["latin"],
   display: "swap",
   weight: ['400', '500', '700'],
+  preload: true,
 });
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
   subsets: ["latin"],
   display: "swap",
-  weight: ['400', '600', '700', '800'],
+  weight: ['600', '700', '800'],
+  preload: true,
 });
 
 const playfair = Playfair_Display({
   variable: "--font-serif",
   subsets: ["latin"],
   display: "swap",
-  style: ['italic', 'normal'],
-  weight: ['400', '700'],
+  style: ['italic'],
+  weight: ['700'],
+  preload: false,
 });
 
 export const metadata: Metadata = {
@@ -94,6 +97,23 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        {/* ── Critical resource preloads for LCP optimisation ─────────────────
+            Preloading the hero image and logo ensures they start downloading
+            before the browser finishes parsing the HTML document.            */}
+        <link
+          rel="preload"
+          as="image"
+          href="/images/hero.webp"
+          type="image/webp"
+          fetchPriority="high"
+        />
+        <link
+          rel="preload"
+          as="image"
+          href="/images/logo.webp"
+          type="image/webp"
+        />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://images.unsplash.com" />
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
         <JsonLd />

@@ -18,16 +18,16 @@ export default function Hero() {
             ──────────────────────────────────────────────────────────────────── */}
             <div className="absolute inset-0" suppressHydrationWarning>
                 <Image
-                    src="/images/hero.png"
+                    src="/images/hero.webp"
                     alt="Luxury Private Taxi Service in Italy - Professional Drivers and Transfers"
                     fill
                     priority
-                    quality={80}
+                    quality={85}
                     sizes="100vw"
                     className="object-cover object-center"
                     fetchPriority="high"
                     placeholder="blur"
-                    blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAADCAIAAAA7ljmRAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAMElEQVQI12NgYGD4z8BQz8DAAAD//wMABgYG/v///wAAAABJRU5ErkJggg=="
+                    blurDataURL="data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAADQAQCdASoEAAMAAUAmJaQCdAEO/gHOAAA="
                 />
                 {/* Gradient overlay sits above the image */}
                 <div className="absolute inset-0 bg-gradient-to-r from-[#0F1C2E]/90 via-[#0F1C2E]/60 to-transparent z-[1]" />

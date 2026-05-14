@@ -72,13 +72,15 @@ export default function WhyChooseUs() {
                                     src="/images/about.jpg"
                                     alt="Professional taxi driver in Italy"
                                     fill
+                                    loading="lazy"
+                                    sizes="(max-width: 768px) 90vw, 420px"
                                     className="object-cover transition-transform duration-1000 group-hover:scale-110"
                                 />
                             </div>
                         </div>
                         {/* Decorative Rings */}
                         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[115%] h-[115%] border border-[#F4C430]/10 rounded-full -z-10 animate-pulse" />
-                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[130%] h-[130%] border border-[#F4C430]/5 rounded-full -z-10 animate-[ping_3s_linear_infinite]" />
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[130%] h-[130%] border border-[#F4C430]/5 rounded-full -z-10" />
                     </div>
 
                     {/* Right Side: Points */}

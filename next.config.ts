@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   experimental: {
-    optimizePackageImports: ['lucide-react'],
+    optimizePackageImports: ['lucide-react', 'react-icons'],
   },
   // Disable the "X-Powered-By: Next.js" header to reduce response size and hide stack info
   poweredByHeader: false,
