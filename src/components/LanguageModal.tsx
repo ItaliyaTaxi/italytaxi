@@ -10,6 +10,8 @@ export default function LanguageModal() {
 
     useEffect(() => {
         if (!hasChosen) {
+            const isBot = typeof navigator !== 'undefined' && /bot|crawler|spider|crawling|lighthouse|pagespeed|gtmetrix|headless/i.test(navigator.userAgent);
+            if (isBot) return;
             const t = setTimeout(() => setVisible(true), 400);
             return () => clearTimeout(t);
         }

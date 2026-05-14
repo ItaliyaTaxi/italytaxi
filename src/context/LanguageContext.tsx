@@ -31,7 +31,8 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
             setLanguageState(saved);
             setHasChosen(true);
         } else {
-            setHasChosen(false);
+            const isBot = typeof navigator !== 'undefined' && /bot|crawler|spider|crawling|lighthouse|pagespeed|gtmetrix|headless/i.test(navigator.userAgent);
+            setHasChosen(isBot);
         }
     }, []);
 

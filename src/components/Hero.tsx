@@ -37,7 +37,7 @@ export default function Hero() {
             <div suppressHydrationWarning className="relative z-10 container mx-auto px-6">
                 <div className="max-w-4xl pt-20">
                     <h1 className="text-white font-montserrat font-semibold leading-[1.1] mb-6">
-                        <span className="text-5xl md:text-6xl block mb-2 animate-slide-left [animation-delay:0.2s]">{t.hero.line1}</span>
+                        <span className="text-5xl md:text-6xl block mb-2 animate-slide-left [animation-delay:0s]">{t.hero.line1}</span>
                         <span className="text-5xl md:text-7xl text-[#F4C430] font-serif italic block animate-slide-left [animation-delay:0.4s]">{t.hero.line2}</span>
                     </h1>
 

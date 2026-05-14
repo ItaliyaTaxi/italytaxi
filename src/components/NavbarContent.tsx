@@ -117,7 +117,7 @@ export default function Navbar() {
 
                     {/* Top Section: Logo (Center) and Book Now (Upper Right) */}
                     <div className="w-full relative flex justify-center items-center mb-6">
-                        <Link href="/" className="transition-transform duration-300 hover:scale-105 block animate-slide-left [animation-delay:0.2s]">
+                        <Link href="/" className="transition-transform duration-300 hover:scale-105 block animate-slide-left [animation-delay:0s]">
                             <Image
                                 src="/images/logo.webp"
                                 alt="ItaliaRide in Italy"

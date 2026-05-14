@@ -872,5 +872,5 @@ nav {
    browser can still compute scroll position without layout shifts.       */
 .cv-section {
   content-visibility: auto;
-  contain-intrinsic-size: 0 600px;
+  contain-intrinsic-size: auto 600px;
 }
