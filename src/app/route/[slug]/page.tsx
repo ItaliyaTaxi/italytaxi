@@ -69,9 +69,9 @@ export default async function RoutePage({ params }: { params: Promise<{ slug: st
                     <div className="grid lg:grid-cols-2 gap-16 items-start">
                         <div>
                             <p className="text-gold text-sm font-bold uppercase tracking-[0.4em] mb-4">Private Transfer</p>
-                            <h1 className="text-3xl md:text-5xl font-bold text-navy mb-8 leading-tight">
+                            <h2 className="text-3xl md:text-5xl font-bold text-navy mb-8 leading-tight">
                                 {route.from} to {route.to} Taxi
-                            </h1>
+                            </h2>
                             <p className="text-gray-600 text-lg leading-relaxed mb-10">{route.description}</p>
 
                             {/* Route Stats */}
