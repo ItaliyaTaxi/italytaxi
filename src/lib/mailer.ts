@@ -5,15 +5,23 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 const FROM_ADDRESS = 'Italy Taxi Service <bookings@italytaxiservice.com>';
 const REPLY_TO = 'italytaxiservicee@gmail.com';
 
+interface EmailAttachment {
+    filename: string;
+    content?: Buffer | string;
+    path?: string;
+    contentType?: string;
+}
+
 interface SendEmailOptions {
     to: string;
     subject: string;
     html: string;
     replyTo?: string;
     text?: string;
+    attachments?: EmailAttachment[];
 }
 
-export async function sendEmail({ to, subject, html, replyTo, text }: SendEmailOptions) {
+export async function sendEmail({ to, subject, html, replyTo, text, attachments }: SendEmailOptions) {
     if (!process.env.RESEND_API_KEY) {
         console.warn('[MAILER] RESEND_API_KEY not set — email skipped');
         return;
@@ -26,6 +34,7 @@ export async function sendEmail({ to, subject, html, replyTo, text }: SendEmailO
         html,
         text,
         replyTo: replyTo ?? REPLY_TO,
+        ...(attachments && attachments.length ? { attachments } : {}),
     });
 
     if (error) {

@@ -5,11 +5,13 @@ import { supabase } from '@/lib/supabase/client';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { deleteBookingAction, deleteContactAction, confirmBookingAction, sendClientEmailAction } from '@/app/actions/crm';
+import InvoicesPanel, { InvoicePrefill } from '@/components/crm/InvoicesPanel';
 
 export default function CRMPage() {
     const [bookings, setBookings] = useState<any[]>([]);
     const [contacts, setContacts] = useState<any[]>([]);
-    const [activeTab, setActiveTab] = useState<'bookings' | 'contacts'>('bookings');
+    const [activeTab, setActiveTab] = useState<'bookings' | 'contacts' | 'invoices'>('bookings');
+    const [invoicePrefill, setInvoicePrefill] = useState<InvoicePrefill | null>(null);
     const [loading, setLoading] = useState(true);
     const [user, setUser] = useState<any>(null);
     const [viewItem, setViewItem] = useState<{ type: 'booking' | 'contact'; data: any } | null>(null);
@@ -90,6 +92,19 @@ export default function CRMPage() {
         } catch (error: any) {
             alert('Error: Could not delete contact message. ' + error.message);
         }
+    }
+
+    function createInvoiceFromBooking(booking: any) {
+        setInvoicePrefill({
+            client_name: booking.full_name,
+            client_email: booking.email,
+            client_phone: booking.phone || '',
+            pickup_location: booking.pickup_location || '',
+            dropoff_location: booking.dropoff_location || '',
+            booking_datetime: booking.booking_datetime || '',
+            booking_id: booking.id,
+        });
+        setActiveTab('invoices');
     }
 
     function openEmailModal(to: string, name: string, defaultSubject: string) {
@@ -329,6 +344,13 @@ export default function CRMPage() {
                         <div className={`w-2 h-2 rounded-full ${activeTab === 'contacts' ? 'bg-gold animate-pulse' : 'bg-gray-600'}`}></div>
                         <span className="font-bold text-sm tracking-wider uppercase">Contact Messages</span>
                     </button>
+                    <button
+                        onClick={() => setActiveTab('invoices')}
+                        className={`w-full flex items-center gap-4 px-4 py-4 rounded-2xl text-left transition-all ${activeTab === 'invoices' ? 'bg-gold/10 text-gold border border-gold/20 shadow-lg shadow-gold/5' : 'text-gray-400 hover:bg-white/5 border border-transparent'}`}
+                    >
+                        <div className={`w-2 h-2 rounded-full ${activeTab === 'invoices' ? 'bg-gold animate-pulse' : 'bg-gray-600'}`}></div>
+                        <span className="font-bold text-sm tracking-wider uppercase">Invoices &amp; Receipts</span>
+                    </button>
                 </nav>
 
                 <div className="p-8 border-t border-white/5">
@@ -407,7 +429,11 @@ export default function CRMPage() {
                         </div>
                     )}
 
-                    {/* Table Section */}
+                    {/* Invoices Section */}
+                    {activeTab === 'invoices' ? (
+                        <InvoicesPanel prefill={invoicePrefill} onConsumePrefill={() => setInvoicePrefill(null)} />
+                    ) : (
+                    /* Table Section */
                     <div className="bg-white rounded-[3rem] shadow-2xl shadow-navy/10 border border-gray-100 overflow-hidden">
                         <div className="p-8 border-b border-gray-50 flex justify-between items-center bg-gray-50/50">
                             <h3 className="text-lg font-bold text-navy flex items-center gap-3">
@@ -518,6 +544,13 @@ export default function CRMPage() {
                                                                 ✉
                                                             </button>
                                                             <button
+                                                                onClick={() => createInvoiceFromBooking(booking)}
+                                                                className="h-10 w-10 flex items-center justify-center bg-gray-50 text-gray-400 rounded-xl hover:bg-navy hover:text-gold hover:scale-110 active:scale-95 transition-all shadow-sm border border-transparent hover:border-navy"
+                                                                title="Create Invoice"
+                                                            >
+                                                                🧾
+                                                            </button>
+                                                            <button
                                                                 onClick={() => handleConfirm(booking)}
                                                                 className="h-10 w-10 flex items-center justify-center bg-gray-50 text-gray-400 rounded-xl hover:bg-green-600 hover:text-white hover:scale-110 active:scale-95 transition-all shadow-sm border border-transparent hover:border-green-400"
                                                                 title="Confirm Booking"
@@ -621,6 +654,7 @@ export default function CRMPage() {
                             )}
                         </div>
                     </div>
+                    )}
                 </div>
             </main>
         </div>
