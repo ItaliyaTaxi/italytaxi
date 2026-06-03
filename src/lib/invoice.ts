@@ -57,19 +57,23 @@ export function formatAmount(amount: number, currency: string): string {
     return `${currencySymbol(currency)}${value}`;
 }
 
+// Booking dates are stored as the exact wall-clock the admin typed (a naive
+// datetime-local value persisted into a UTC timestamptz). We therefore format
+// in UTC everywhere so the displayed date/time always matches what was entered,
+// regardless of the server or browser timezone — avoiding off-by-one-day bugs.
 export function formatDate(raw: string | null | undefined): string {
     if (!raw) return '—';
     const d = new Date(raw);
     if (isNaN(d.getTime())) return '—';
-    return d.toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' });
+    return d.toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric', timeZone: 'UTC' });
 }
 
 export function formatDateTime(raw: string | null | undefined): string {
     if (!raw) return '—';
     const d = new Date(raw);
     if (isNaN(d.getTime())) return '—';
-    const date = d.toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' });
-    const time = d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });
+    const date = d.toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric', timeZone: 'UTC' });
+    const time = d.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', hour12: true, timeZone: 'UTC' });
     return `${date} at ${time}`;
 }
 

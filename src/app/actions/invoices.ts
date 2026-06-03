@@ -47,6 +47,21 @@ function field(formData: FormData, key: string): string | null {
     return trimmed === '' ? null : trimmed;
 }
 
+/**
+ * A datetime-local input yields a naive wall-clock string (e.g. "2026-06-08T14:30")
+ * with no timezone. We pin it to UTC so it is stored as that exact wall-clock
+ * regardless of the database session timezone — and read back the same way by
+ * the UTC formatters. Values that already carry a timezone are left untouched.
+ */
+function bookingDateTime(formData: FormData): string | null {
+    const raw = field(formData, 'booking_datetime');
+    if (!raw) return null;
+    // Already has an offset (Z or ±hh:mm)? Trust it.
+    if (/[zZ]$|[+-]\d{2}:?\d{2}$/.test(raw)) return raw;
+    const withSeconds = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/.test(raw) ? `${raw}:00` : raw;
+    return `${withSeconds}Z`;
+}
+
 /** Uploads every receipt file in the form and returns their storage entries. */
 async function uploadReceiptFiles(
     supabase: ServiceClient,
@@ -116,7 +131,7 @@ export async function createInvoiceAction(formData: FormData): Promise<Invoice> 
         client_phone: field(formData, 'client_phone'),
         pickup_location: field(formData, 'pickup_location'),
         dropoff_location: field(formData, 'dropoff_location'),
-        booking_datetime: field(formData, 'booking_datetime'),
+        booking_datetime: bookingDateTime(formData),
         amount: Number(field(formData, 'amount') || 0),
         currency: field(formData, 'currency') || 'EUR',
         payment_method: field(formData, 'payment_method'),
@@ -157,7 +172,7 @@ export async function updateInvoiceAction(id: string, formData: FormData): Promi
         client_phone: field(formData, 'client_phone'),
         pickup_location: field(formData, 'pickup_location'),
         dropoff_location: field(formData, 'dropoff_location'),
-        booking_datetime: field(formData, 'booking_datetime'),
+        booking_datetime: bookingDateTime(formData),
         amount: Number(field(formData, 'amount') || 0),
         currency: field(formData, 'currency') || 'EUR',
         payment_method: field(formData, 'payment_method'),

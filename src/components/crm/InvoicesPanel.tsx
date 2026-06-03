@@ -58,12 +58,15 @@ const STATUS_BADGE: Record<string, string> = {
     refunded: 'bg-gray-100 text-gray-500 border-gray-200',
 };
 
+// Read the stored wall-clock back into a datetime-local value using UTC getters,
+// matching how formatDate/formatDateTime render it. This keeps the round-trip
+// (type -> store -> display -> edit) stable and free of timezone day-shifts.
 function toInputDateTime(iso?: string | null): string {
     if (!iso) return '';
     const d = new Date(iso);
     if (isNaN(d.getTime())) return '';
     const pad = (n: number) => String(n).padStart(2, '0');
-    return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`;
+    return `${d.getUTCFullYear()}-${pad(d.getUTCMonth() + 1)}-${pad(d.getUTCDate())}T${pad(d.getUTCHours())}:${pad(d.getUTCMinutes())}`;
 }
 
 const errMsg = (e: unknown) => (e instanceof Error ? e.message : String(e));
