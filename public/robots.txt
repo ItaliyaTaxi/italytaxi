@@ -1,9 +1,26 @@
+# robots.txt — italytaxiservice.com
+# Policy: the ENTIRE site is crawlable EXCEPT the private admin / CRM panel.
+# (Private invoice links under /invoice/ are noindex via meta tag + unguessable
+#  tokens and are intentionally not listed in the sitemap.)
+
 User-agent: *
 Allow: /
 Disallow: /crm/
 
-# Content preferences for AI systems (https://contentsignals.org/)
+# Explicitly welcome the major search + SEO crawlers (everything except /crm).
+User-agent: Googlebot
+Allow: /
+Disallow: /crm/
+
+User-agent: Bingbot
+Allow: /
+Disallow: /crm/
+
+User-agent: AhrefsBot
+Allow: /
+Disallow: /crm/
+
+# AI content preferences (https://contentsignals.org/)
 Content-Signal: ai-train=no, search=yes, ai-input=yes
 
 Sitemap: https://www.italytaxiservice.com/sitemap.xml
-Host: https://www.italytaxiservice.com

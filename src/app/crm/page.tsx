@@ -6,12 +6,15 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { deleteBookingAction, deleteContactAction, confirmBookingAction, sendClientEmailAction } from '@/app/actions/crm';
 import InvoicesPanel, { InvoicePrefill } from '@/components/crm/InvoicesPanel';
+import DriversPanel from '@/components/crm/DriversPanel';
+import DispatchDriversModal from '@/components/crm/DispatchDriversModal';
 
 export default function CRMPage() {
     const [bookings, setBookings] = useState<any[]>([]);
     const [contacts, setContacts] = useState<any[]>([]);
-    const [activeTab, setActiveTab] = useState<'bookings' | 'contacts' | 'invoices'>('bookings');
+    const [activeTab, setActiveTab] = useState<'bookings' | 'contacts' | 'invoices' | 'drivers'>('bookings');
     const [invoicePrefill, setInvoicePrefill] = useState<InvoicePrefill | null>(null);
+    const [dispatchBooking, setDispatchBooking] = useState<any | null>(null);
     const [loading, setLoading] = useState(true);
     const [user, setUser] = useState<any>(null);
     const [viewItem, setViewItem] = useState<{ type: 'booking' | 'contact'; data: any } | null>(null);
@@ -314,6 +317,11 @@ export default function CRMPage() {
                 </div>
             )}
 
+            {/* Dispatch to Driver Modal */}
+            {dispatchBooking && (
+                <DispatchDriversModal booking={dispatchBooking} onClose={() => setDispatchBooking(null)} />
+            )}
+
             {/* Sidebar */}
             <aside className="w-80 bg-[#0F1C2E] text-white flex flex-col fixed h-full z-50">
                 <div className="p-10 border-b border-white/5">
@@ -350,6 +358,13 @@ export default function CRMPage() {
                     >
                         <div className={`w-2 h-2 rounded-full ${activeTab === 'invoices' ? 'bg-gold animate-pulse' : 'bg-gray-600'}`}></div>
                         <span className="font-bold text-sm tracking-wider uppercase">Invoices &amp; Receipts</span>
+                    </button>
+                    <button
+                        onClick={() => setActiveTab('drivers')}
+                        className={`w-full flex items-center gap-4 px-4 py-4 rounded-2xl text-left transition-all ${activeTab === 'drivers' ? 'bg-gold/10 text-gold border border-gold/20 shadow-lg shadow-gold/5' : 'text-gray-400 hover:bg-white/5 border border-transparent'}`}
+                    >
+                        <div className={`w-2 h-2 rounded-full ${activeTab === 'drivers' ? 'bg-gold animate-pulse' : 'bg-gray-600'}`}></div>
+                        <span className="font-bold text-sm tracking-wider uppercase">Drivers &amp; Dispatch</span>
                     </button>
                 </nav>
 
@@ -429,9 +444,11 @@ export default function CRMPage() {
                         </div>
                     )}
 
-                    {/* Invoices Section */}
+                    {/* Invoices / Drivers Sections */}
                     {activeTab === 'invoices' ? (
                         <InvoicesPanel prefill={invoicePrefill} onConsumePrefill={() => setInvoicePrefill(null)} />
+                    ) : activeTab === 'drivers' ? (
+                        <DriversPanel />
                     ) : (
                     /* Table Section */
                     <div className="bg-white rounded-[3rem] shadow-2xl shadow-navy/10 border border-gray-100 overflow-hidden">
@@ -542,6 +559,13 @@ export default function CRMPage() {
                                                                 title="Email Client"
                                                             >
                                                                 ✉
+                                                            </button>
+                                                            <button
+                                                                onClick={() => setDispatchBooking(booking)}
+                                                                className="h-10 w-10 flex items-center justify-center bg-gray-50 text-gray-400 rounded-xl hover:bg-[#25D366] hover:text-white hover:scale-110 active:scale-95 transition-all shadow-sm border border-transparent hover:border-[#25D366]"
+                                                                title="Dispatch to Driver (WhatsApp)"
+                                                            >
+                                                                🚗
                                                             </button>
                                                             <button
                                                                 onClick={() => createInvoiceFromBooking(booking)}
