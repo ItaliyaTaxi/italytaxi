@@ -74,13 +74,28 @@ export default async function BlogPostPage({ params }: any) {
   const blog = await getBlog(slug);
   if (!blog) notFound();
 
+  const SITE = 'https://www.italytaxiservice.com';
+  const postUrl = `${SITE}/blog/${slug}`;
+  const rawImg = blog.featured_image_url || '/images/hero.png';
+  const imageUrl = rawImg.startsWith('http') ? rawImg : `${SITE}${rawImg.startsWith('/') ? '' : '/'}${rawImg}`;
+
+  // ImageObject — explicit image schema for the featured image
+  const imageSchema = {
+    '@type': 'ImageObject',
+    url: imageUrl,
+    contentUrl: imageUrl,
+    width: 1200,
+    height: 630,
+    caption: blog.seo_title || blog.title,
+  };
+
   const blogSchema = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
-    mainEntityOfPage: { '@type': 'WebPage', '@id': `https://www.italytaxiservice.com/blog/${slug}` },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': postUrl },
     headline: blog.title,
     description: blog.excerpt || blog.seo_description,
-    image: [blog.featured_image_url || 'https://www.italytaxiservice.com/images/hero.png'],
+    image: imageSchema,
     datePublished: blog.published_at,
     dateModified: blog.updated_at || blog.published_at,
     author: {
@@ -90,12 +105,36 @@ export default async function BlogPostPage({ params }: any) {
     publisher: {
       '@type': 'Organization',
       name: 'Italy Taxi Service',
-      logo: { '@type': 'ImageObject', url: 'https://www.italytaxiservice.com/icon.svg' },
+      logo: { '@type': 'ImageObject', url: `${SITE}/icon.svg` },
     },
   };
 
+  // BreadcrumbList — Home › Blog › Article
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: SITE },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE}/blog` },
+      { '@type': 'ListItem', position: 3, name: blog.title, item: postUrl },
+    ],
+  };
+
+  // LocalBusiness / TaxiService reference — reinforces the provider on every post
+  const localBusinessSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'TaxiService',
+    '@id': `${SITE}/#taxiservice`,
+    name: 'Italy Taxi Service',
+    url: SITE,
+    image: `${SITE}/images/hero.png`,
+    email: 'italytaxiservicee@gmail.com',
+    areaServed: { '@type': 'Country', name: 'Italy' },
+    provider: { '@type': 'Organization', name: 'Italy Taxi Service', url: SITE },
+  };
+
   const faqItems = extractFAQItems(blog.content);
-  const faqSchema = buildFAQSchema(faqItems, `https://www.italytaxiservice.com/blog/${slug}`);
+  const faqSchema = buildFAQSchema(faqItems, postUrl);
 
   const publishDate = new Date(blog.published_at).toLocaleDateString('en-US', {
     month: 'long', day: 'numeric', year: 'numeric',
@@ -104,6 +143,8 @@ export default async function BlogPostPage({ params }: any) {
   return (
     <main className="min-h-screen bg-white font-inter">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
       {faqSchema && (
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       )}
