@@ -3,6 +3,8 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import PageHero from '@/components/PageHero';
 import BookingForm from '@/components/BookingForm';
+import ServiceSchema from '@/components/ServiceSchema';
+import FAQSection from '@/components/FAQSection';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Car, Clock, MapPin, CheckCircle, ArrowRight, Shield } from 'lucide-react';
@@ -201,6 +203,12 @@ export default async function BorderTransferPage({ params }: { params: Promise<{
 
     return (
         <main className="font-inter bg-white">
+            <ServiceSchema
+                name={`Italy to ${transfer.to} Private Taxi Transfer`}
+                description={`Private cross-border taxi transfers from Italy to ${transfer.to}. Professional English-speaking drivers, fixed pricing, and door-to-door service.`}
+                url={`https://www.italytaxiservice.com/border/${slug}`}
+                image={transfer.hero_image}
+            />
             <Navbar />
             <PageHero
                 titleTop="Private Taxi Transfer"
@@ -209,6 +217,10 @@ export default async function BorderTransferPage({ params }: { params: Promise<{
                 backgroundImage={transfer.hero_image}
                 buttonText={`Book Italy to ${transfer.to} Transfer`}
                 buttonLink="/book-now/"
+                breadcrumbs={[
+                    { name: "Cross-Border Transfers", item: "/coverage-areas" },
+                    { name: `Italy to ${transfer.to}`, item: `/border/${slug}` }
+                ]}
             />
 
             {/* Overview Section */}
@@ -356,6 +368,32 @@ export default async function BorderTransferPage({ params }: { params: Promise<{
                     </div>
                 </div>
             </section>
+
+            <FAQSection
+                title={`Italy to ${transfer.to} Transfer FAQ`}
+                faqs={[
+                    {
+                        q: `How long is a private transfer from Italy to ${transfer.to}?`,
+                        a: `Journey time depends on your exact pickup and drop-off points. Our most popular routes range from ${transfer.popular_routes[0]?.time || 'a couple of hours'} upward — your driver takes the fastest legal route, and the door-to-door fare is fixed and agreed in advance.`
+                    },
+                    {
+                        q: `Do I need my passport for an Italy to ${transfer.to} taxi transfer?`,
+                        a: `Yes. Carry a valid passport or national ID for any cross-border journey, as you may be checked at the frontier. Make sure every passenger travels with their own documents.`
+                    },
+                    {
+                        q: `Is the price for the cross-border transfer fixed?`,
+                        a: `Yes — we quote a fixed, all-inclusive price for your Italy to ${transfer.to} transfer when you book, with no meter and no surprise supplements. Tolls and border charges are included in the agreed fare.`
+                    },
+                    {
+                        q: `Can you collect me from an airport, hotel or station?`,
+                        a: `Absolutely. We offer door-to-door pickup from any airport, hotel, station or address in Italy and drop you at your exact destination in ${transfer.to}. Flight and train arrivals are tracked so your driver is ready when you are.`
+                    },
+                    {
+                        q: `How do I book an Italy to ${transfer.to} transfer?`,
+                        a: `Request a free quote online with your route, date and passenger numbers, and we'll confirm your fixed price and driver. We recommend booking in advance, especially in peak season, to guarantee availability.`
+                    }
+                ]}
+            />
 
             <Footer />
         </main>

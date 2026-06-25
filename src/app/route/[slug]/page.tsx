@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import { routes } from '@/lib/page-data';
+import { routes, cities } from '@/lib/page-data';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import PageHero from '@/components/PageHero';
@@ -7,7 +7,13 @@ import ServiceSchema from '@/components/ServiceSchema';
 import BookingForm from '@/components/BookingForm';
 import FAQSection from '@/components/FAQSection';
 import Link from 'next/link';
-import { MapPin, Clock, ChevronRight, MessageCircle, CheckCircle } from 'lucide-react';
+import { MapPin, Clock, ChevronRight, MessageCircle, CheckCircle, Euro } from 'lucide-react';
+
+/** Returns a /city/{slug}-taxi-service href only if that city page exists; else null. */
+function cityServiceHref(name: string): string | null {
+    const slug = `${name.toLowerCase().trim().replace(/\s+/g, '-')}-taxi-service`;
+    return cities.some((c) => c.slug === slug) ? `/city/${slug}` : null;
+}
 
 export async function generateStaticParams() {
     return routes.map((route) => ({ slug: route.slug }));
@@ -75,7 +81,7 @@ export default async function RoutePage({ params }: { params: Promise<{ slug: st
                             <p className="text-gray-600 text-lg leading-relaxed mb-10">{route.description}</p>
 
                             {/* Route Stats */}
-                            <div className="grid grid-cols-2 gap-4 mb-10">
+                            <div className={`grid ${route.price ? 'grid-cols-3' : 'grid-cols-2'} gap-4 mb-10`}>
                                 <div className="bg-[#F8F9FA] p-6 rounded-2xl text-center">
                                     <MapPin className="w-6 h-6 text-gold mx-auto mb-2" />
                                     <p className="text-xs text-gray-500 uppercase font-bold tracking-widest mb-1">Distance</p>
@@ -86,6 +92,13 @@ export default async function RoutePage({ params }: { params: Promise<{ slug: st
                                     <p className="text-xs text-gray-500 uppercase font-bold tracking-widest mb-1">Duration</p>
                                     <p className="text-navy font-extrabold text-lg">{route.duration}</p>
                                 </div>
+                                {route.price && (
+                                    <div className="bg-[#F8F9FA] p-6 rounded-2xl text-center">
+                                        <Euro className="w-6 h-6 text-gold mx-auto mb-2" />
+                                        <p className="text-xs text-gray-500 uppercase font-bold tracking-widest mb-1">From</p>
+                                        <p className="text-navy font-extrabold text-lg">{route.price}</p>
+                                    </div>
+                                )}
                             </div>
 
                             {/* Highlights */}
@@ -161,11 +174,13 @@ export default async function RoutePage({ params }: { params: Promise<{ slug: st
                         <div>
                             <h3 className="text-xl font-bold text-navy mb-6">Taxi Services in {route.from}</h3>
                             <ul className="space-y-3">
-                                <li>
-                                    <Link href={`/city/${route.from.toLowerCase()}-taxi-service`} className="flex items-center gap-2 text-gray-700 hover:text-gold transition-colors font-medium">
-                                        <ChevronRight className="w-4 h-4 text-gold" /> {route.from} Taxi Service
-                                    </Link>
-                                </li>
+                                {cityServiceHref(route.from) && (
+                                    <li>
+                                        <Link href={cityServiceHref(route.from)!} className="flex items-center gap-2 text-gray-700 hover:text-gold transition-colors font-medium">
+                                            <ChevronRight className="w-4 h-4 text-gold" /> {route.from} Taxi Service
+                                        </Link>
+                                    </li>
+                                )}
                                 <li>
                                     <Link href="/services/airport-transfers" className="flex items-center gap-2 text-gray-700 hover:text-gold transition-colors font-medium">
                                         <ChevronRight className="w-4 h-4 text-gold" /> Airport Transfers in Italy
@@ -186,11 +201,13 @@ export default async function RoutePage({ params }: { params: Promise<{ slug: st
                         <div>
                             <h3 className="text-xl font-bold text-navy mb-6">Taxi Services in {route.to}</h3>
                             <ul className="space-y-3">
-                                <li>
-                                    <Link href={`/city/${route.to.toLowerCase().replace(/\s+/g, '-')}-taxi-service`} className="flex items-center gap-2 text-gray-700 hover:text-gold transition-colors font-medium">
-                                        <ChevronRight className="w-4 h-4 text-gold" /> {route.to} Taxi Service
-                                    </Link>
-                                </li>
+                                {cityServiceHref(route.to) && (
+                                    <li>
+                                        <Link href={cityServiceHref(route.to)!} className="flex items-center gap-2 text-gray-700 hover:text-gold transition-colors font-medium">
+                                            <ChevronRight className="w-4 h-4 text-gold" /> {route.to} Taxi Service
+                                        </Link>
+                                    </li>
+                                )}
                                 <li>
                                     <Link href="/services/hotel-transfers" className="flex items-center gap-2 text-gray-700 hover:text-gold transition-colors font-medium">
                                         <ChevronRight className="w-4 h-4 text-gold" /> Hotel Transfer Service

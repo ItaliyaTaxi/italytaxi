@@ -587,6 +587,7 @@ export interface RouteData {
     description: string;
     distance: string;
     duration: string;
+    price?: string;
     highlights: string[];
     faqs: { q: string; a: string }[];
 }
@@ -782,6 +783,368 @@ export const routes: RouteData[] = [
             { q: 'How far is Siena from Florence by taxi?', a: 'Siena is approximately 70 km from Florence. The private taxi journey takes about 1 hour via the Superstrada, or 1.5 hours via the scenic Chianti Classico route.' },
             { q: 'Can I do a day trip from Florence to Siena?', a: 'Yes, a day trip from Florence to Siena is very popular. We can drive you in the morning, wait in the area, and return you to Florence in the evening.' },
             { q: 'Can I combine Siena and San Gimignano in one day?', a: 'Absolutely. Both medieval towns are nearby and make for a wonderful full-day Tuscan excursion from Florence, with stops in Chianti wine country along the way.' },
+        ]
+    },
+
+    // ─── Batch 1: 30 commercial route pages (indicative prices + travel times) ───
+    {
+        slug: 'rome-fiumicino-to-sorrento-taxi', from: 'Rome Fiumicino Airport', to: 'Sorrento',
+        title: 'Rome Fiumicino to Sorrento Taxi Transfer', hero_image: '/images/rome airport.webp',
+        description: 'Private door-to-door transfer from Rome Fiumicino Airport (FCO) to Sorrento. Skip the train changes and travel straight to the Sorrento coast with an English-speaking driver, with an optional Pompeii stop on the way.',
+        distance: '~280 km', duration: '~3 hours 30 min', price: '€330',
+        highlights: ['Meet & greet at Fiumicino arrivals', 'Flight tracking included', 'Optional Pompeii stop en route', 'Door-to-door to your Sorrento hotel', 'Fixed all-inclusive price'],
+        faqs: [
+            { q: 'How long is the transfer from Rome Fiumicino to Sorrento?', a: 'The drive is about 3 hours 30 minutes (around 280 km) via the A1 and A3 motorways, depending on traffic. We track your flight so the driver is ready when you land.' },
+            { q: 'Can we stop at Pompeii on the way to Sorrento?', a: 'Yes — a Pompeii stop is a popular add-on to this route, breaking up the journey with a visit to the ruins before continuing to Sorrento.' },
+            { q: 'Is the Rome to Sorrento transfer price fixed?', a: 'Yes, the indicative price shown is a fixed, all-inclusive fare per vehicle agreed in advance, covering tolls and meet & greet. Confirm your exact quote when booking.' },
+        ]
+    },
+    {
+        slug: 'rome-fiumicino-to-civitavecchia-taxi', from: 'Rome Fiumicino Airport', to: 'Civitavecchia Port',
+        title: 'Rome Fiumicino to Civitavecchia Port Taxi Transfer', hero_image: '/images/cruise-port-transfer.webp',
+        description: 'Direct private transfer from Rome Fiumicino Airport to Civitavecchia cruise port. Ideal for cruise passengers who need to reach their ship quickly and reliably, with flight tracking and a guaranteed pickup.',
+        distance: '~70 km', duration: '~1 hour', price: '€110',
+        highlights: ['Airport-to-ship direct transfer', 'Flight tracking for cruise embarkation', 'Help with luggage', 'No train changes', 'Fixed all-inclusive price'],
+        faqs: [
+            { q: 'How long does it take from Fiumicino to Civitavecchia?', a: 'About 1 hour by road (around 70 km), making it the fastest, most reliable way to reach your cruise on embarkation day.' },
+            { q: 'Is this transfer good for catching a cruise?', a: 'Yes — it is one of our most popular cruise-day transfers. We track your flight and build in a buffer so you reach the ship with time to spare.' },
+            { q: 'Can you collect me if my flight is delayed?', a: 'Yes, your booking is linked to your flight number and the pickup is re-timed automatically to your actual landing.' },
+        ]
+    },
+    {
+        slug: 'naples-airport-to-sorrento-taxi', from: 'Naples Airport', to: 'Sorrento',
+        title: 'Naples Airport to Sorrento Taxi Transfer', hero_image: '/images/almafi.webp',
+        description: 'Private transfer from Naples Capodichino Airport (NAP) to Sorrento. The easiest, most comfortable way to reach the Sorrento peninsula, avoiding the crowded Circumvesuviana train with door-to-door service.',
+        distance: '~50 km', duration: '~1 hour 15 min', price: '€110',
+        highlights: ['Meet & greet at Naples arrivals', 'Door-to-door to your Sorrento hotel', 'Child seats on request', 'Avoid the crowded train', 'Fixed all-inclusive price'],
+        faqs: [
+            { q: 'How far is Sorrento from Naples Airport?', a: 'Sorrento is about 50 km from Naples Airport, a drive of roughly 1 hour 15 minutes depending on traffic along the coast road.' },
+            { q: 'Is a private transfer better than the train to Sorrento?', a: 'For comfort and luggage, yes. The private transfer is door-to-door with no changes, while the Circumvesuviana train is crowded and requires connections.' },
+            { q: 'Can you continue to Positano or Amalfi?', a: 'Absolutely — we cover the whole Amalfi Coast. Just tell us your final destination and we will quote the full transfer.' },
+        ]
+    },
+    {
+        slug: 'naples-airport-to-positano-taxi', from: 'Naples Airport', to: 'Positano',
+        title: 'Naples Airport to Positano Taxi Transfer', hero_image: '/images/almafi.webp',
+        description: 'Private transfer from Naples Airport to Positano along the famous Amalfi Coast road. Let an experienced local driver handle the hairpin bends while you enjoy the views, with door-to-door drop-off at your Positano accommodation.',
+        distance: '~60 km', duration: '~1 hour 30 min', price: '€140',
+        highlights: ['Experienced Amalfi coast-road driver', 'Door-to-door to your Positano hotel', 'Photo stops on request', 'Luggage assistance on the steps', 'Fixed all-inclusive price'],
+        faqs: [
+            { q: 'How long is the drive from Naples Airport to Positano?', a: 'About 1 hour 30 minutes (around 60 km), longer in peak summer traffic on the narrow coast road. A private driver makes the winding route stress-free.' },
+            { q: 'Why not drive myself to Positano?', a: 'The SS163 coast road is narrow, busy and demanding, with very limited parking in Positano. A private driver removes the stress and the parking problem entirely.' },
+            { q: 'Can the driver help with luggage in Positano?', a: 'Yes. Positano is built on steep steps, so the driver will help you get as close as possible and assist with your bags.' },
+        ]
+    },
+    {
+        slug: 'naples-airport-to-amalfi-taxi', from: 'Naples Airport', to: 'Amalfi',
+        title: 'Naples Airport to Amalfi Taxi Transfer', hero_image: '/images/almafi.webp',
+        description: 'Private door-to-door transfer from Naples Airport to the town of Amalfi. Travel the scenic coast road in comfort with a professional driver and arrive relaxed at the heart of the Amalfi Coast.',
+        distance: '~70 km', duration: '~1 hour 45 min', price: '€150',
+        highlights: ['Scenic Amalfi Coast route', 'Door-to-door to your Amalfi hotel', 'Optional Ravello extension', 'Child seats on request', 'Fixed all-inclusive price'],
+        faqs: [
+            { q: 'How long does it take to reach Amalfi from Naples Airport?', a: 'Around 1 hour 45 minutes (about 70 km) via the coast road, depending on the season and traffic.' },
+            { q: 'Can I add a stop in Ravello?', a: 'Yes, Ravello is just above Amalfi and is a popular add-on for its gardens and panoramic views.' },
+            { q: 'Is the coast road difficult?', a: 'It is narrow and winding, which is exactly why a local private driver is the recommended way to travel it comfortably and safely.' },
+        ]
+    },
+    {
+        slug: 'naples-airport-to-pompeii-taxi', from: 'Naples Airport', to: 'Pompeii',
+        title: 'Naples Airport to Pompeii Taxi Transfer', hero_image: '/images/naples.webp',
+        description: 'Quick private transfer from Naples Airport to the Pompeii archaeological site. Perfect for visiting the ruins on arrival or departure day, with door-to-door drop-off right by the entrance.',
+        distance: '~30 km', duration: '~40 min', price: '€70',
+        highlights: ['Direct to the Pompeii entrance', 'Great for arrival-day sightseeing', 'Optional Vesuvius add-on', 'Luggage stored during your visit', 'Fixed all-inclusive price'],
+        faqs: [
+            { q: 'How far is Pompeii from Naples Airport?', a: 'Pompeii is about 30 km from Naples Airport, a short drive of roughly 40 minutes, making it easy to visit on arrival or departure day.' },
+            { q: 'Can the driver wait while I tour Pompeii?', a: 'Yes — with a round-trip or hourly booking the driver waits and then takes you onward, storing your luggage safely in the vehicle.' },
+            { q: 'Can I combine Pompeii with Vesuvius?', a: 'Yes, Mount Vesuvius is nearby and a popular combined excursion with Pompeii.' },
+        ]
+    },
+    {
+        slug: 'milan-malpensa-to-como-taxi', from: 'Milan Malpensa Airport', to: 'Como',
+        title: 'Milan Malpensa to Como Taxi Transfer', hero_image: '/images/Lake Como.webp',
+        description: 'Private transfer from Milan Malpensa Airport directly to Lake Como. Malpensa is closer to the lake than to Milan, so skip the city and head straight to Como, Bellagio or Varenna with a professional driver.',
+        distance: '~50 km', duration: '~50 min', price: '€120',
+        highlights: ['Straight to the lake — skip Milan', 'Drop-off at Como, Bellagio or Varenna', 'Flight tracking included', 'Luggage assistance', 'Fixed all-inclusive price'],
+        faqs: [
+            { q: 'How far is Lake Como from Malpensa Airport?', a: 'Como is about 50 km from Malpensa, roughly a 50-minute drive — often quicker than reaching central Milan.' },
+            { q: 'Can you take me to Bellagio or Varenna?', a: 'Yes, we drop off at any town on Lake Como, including the centre-lake villages of Bellagio, Varenna and Menaggio.' },
+            { q: 'Is a transfer better than the train to Como?', a: 'For luggage and the mid-lake villages, yes. A direct transfer avoids train changes and gets you to your exact hotel.' },
+        ]
+    },
+    {
+        slug: 'milan-malpensa-to-stresa-taxi', from: 'Milan Malpensa Airport', to: 'Stresa',
+        title: 'Milan Malpensa to Stresa (Lake Maggiore) Taxi Transfer', hero_image: '/images/Lake Como.webp',
+        description: 'Private transfer from Milan Malpensa Airport to Stresa on Lake Maggiore. Reach the gateway to the Borromean Islands quickly and comfortably with a door-to-door private car.',
+        distance: '~40 km', duration: '~45 min', price: '€110',
+        highlights: ['Gateway to the Borromean Islands', 'Very short transfer from Malpensa', 'Door-to-door to your lakeside hotel', 'Flight tracking included', 'Fixed all-inclusive price'],
+        faqs: [
+            { q: 'How far is Stresa from Malpensa Airport?', a: 'Stresa is only about 40 km from Malpensa, a quick 45-minute drive, making Lake Maggiore one of the easiest lakes to reach from the airport.' },
+            { q: 'Can I reach the Borromean Islands from Stresa?', a: 'Yes, Stresa is the main departure point for boats to the Borromean Islands — we drop you right by the waterfront.' },
+            { q: 'Is this transfer available for early flights?', a: 'Yes, we operate 24/7 and track your flight, so early or late arrivals are no problem.' },
+        ]
+    },
+    {
+        slug: 'pisa-airport-to-florence-taxi', from: 'Pisa Airport', to: 'Florence',
+        title: 'Pisa Airport to Florence Taxi Transfer', hero_image: '/images/Tuscany Wine.webp',
+        description: 'Private transfer from Pisa Airport (PSA) to Florence. Travel directly to your Florence hotel in under an hour, with an optional stop at the Leaning Tower of Pisa on the way.',
+        distance: '~85 km', duration: '~1 hour', price: '€150',
+        highlights: ['Door-to-door to central Florence', 'Optional Leaning Tower stop', 'ZTL-compliant hotel drop-off', 'Flight tracking included', 'Fixed all-inclusive price'],
+        faqs: [
+            { q: 'How long is the transfer from Pisa Airport to Florence?', a: 'About 1 hour (around 85 km) via the FI-PI-LI expressway and A11 motorway, direct to your Florence accommodation.' },
+            { q: 'Can I stop at the Leaning Tower on the way?', a: 'Yes, a short stop at Piazza dei Miracoli is a popular add-on before continuing to Florence.' },
+            { q: 'Can you drop me inside Florence\'s ZTL?', a: 'Yes — as a licensed service we can access the limited-traffic zone to reach your hotel door, which rental cars cannot do.' },
+        ]
+    },
+    {
+        slug: 'pisa-airport-to-lucca-taxi', from: 'Pisa Airport', to: 'Lucca',
+        title: 'Pisa Airport to Lucca Taxi Transfer', hero_image: '/images/Tuscany Wine.webp',
+        description: 'Quick private transfer from Pisa Airport to the walled city of Lucca. A short, scenic drive door-to-door to one of Tuscany\'s most charming and relaxed destinations.',
+        distance: '~25 km', duration: '~30 min', price: '€60',
+        highlights: ['Very short transfer from Pisa', 'Door-to-door to central Lucca', 'Great gateway to northern Tuscany', 'Flight tracking included', 'Fixed all-inclusive price'],
+        faqs: [
+            { q: 'How far is Lucca from Pisa Airport?', a: 'Lucca is only about 25 km from Pisa Airport, a quick 30-minute drive — one of the easiest Tuscan transfers.' },
+            { q: 'Can I combine Pisa and Lucca in one trip?', a: 'Yes, many travellers see the Leaning Tower and then continue to Lucca, or do both as a day trip with a private driver.' },
+            { q: 'Is Lucca worth visiting?', a: 'Absolutely — its intact Renaissance walls, towers and relaxed atmosphere make it a favourite, quieter alternative to the bigger Tuscan cities.' },
+        ]
+    },
+    {
+        slug: 'catania-airport-to-taormina-taxi', from: 'Catania Airport', to: 'Taormina',
+        title: 'Catania Airport to Taormina Taxi Transfer', hero_image: '/images/beach-transfer.webp',
+        description: 'Private transfer from Catania Airport (CTA) to the clifftop resort of Taormina. The fastest, most comfortable way to reach Sicily\'s most famous town, with door-to-door service and optional Mount Etna views.',
+        distance: '~60 km', duration: '~1 hour', price: '€90',
+        highlights: ['Door-to-door to Taormina centre', 'Drop-off near the pedestrian zone', 'Optional Mount Etna add-on', 'English-speaking Sicilian driver', 'Fixed all-inclusive price'],
+        faqs: [
+            { q: 'How long is the transfer from Catania Airport to Taormina?', a: 'About 1 hour (around 60 km) along the coastal motorway, with the dramatic approach up to the clifftop town.' },
+            { q: 'Can the driver get close to my Taormina hotel?', a: 'Taormina\'s historic centre is pedestrianised, so the driver drops you as close as legally possible and helps with luggage.' },
+            { q: 'Can I add a Mount Etna visit?', a: 'Yes, Etna is a popular combined excursion — ask us about a Taormina-and-Etna day tour.' },
+        ]
+    },
+    {
+        slug: 'verona-airport-to-lake-garda-taxi', from: 'Verona Airport', to: 'Lake Garda',
+        title: 'Verona Airport to Lake Garda Taxi Transfer', hero_image: '/images/Lake Como.webp',
+        description: 'Private transfer from Verona Villafranca Airport to Lake Garda. Reach Sirmione, Bardolino, Lazise or any lakeside resort quickly with a door-to-door private car.',
+        distance: '~35 km', duration: '~40 min', price: '€70',
+        highlights: ['Closest airport to Lake Garda', 'Drop-off at any lakeside resort', 'Short, easy transfer', 'Flight tracking included', 'Fixed all-inclusive price'],
+        faqs: [
+            { q: 'How far is Lake Garda from Verona Airport?', a: 'The southern lake (Sirmione, Peschiera) is about 35 km from Verona Airport, roughly a 40-minute drive — Verona is the closest airport to Garda.' },
+            { q: 'Which Lake Garda towns do you serve?', a: 'All of them, including Sirmione, Bardolino, Lazise, Peschiera, Garda, Malcesine and Riva del Garda.' },
+            { q: 'Is the transfer suitable for families?', a: 'Yes, with child seats on request and space for luggage, it is ideal for families heading to the lake.' },
+        ]
+    },
+    {
+        slug: 'bari-airport-to-polignano-a-mare-taxi', from: 'Bari Airport', to: 'Polignano a Mare',
+        title: 'Bari Airport to Polignano a Mare Taxi Transfer', hero_image: '/images/beach-transfer.webp',
+        description: 'Private transfer from Bari Airport (BRI) to the cliffside town of Polignano a Mare. Reach Puglia\'s most photogenic coastal town directly, with a comfortable door-to-door private car.',
+        distance: '~45 km', duration: '~45 min', price: '€70',
+        highlights: ['Door-to-door to Polignano a Mare', 'Gateway to the Puglia coast', 'English-speaking driver', 'Flight tracking included', 'Fixed all-inclusive price'],
+        faqs: [
+            { q: 'How far is Polignano a Mare from Bari Airport?', a: 'About 45 km, a drive of roughly 45 minutes south along the coast from Bari Airport.' },
+            { q: 'Can you continue to other Puglia towns?', a: 'Yes — we also serve Monopoli, Ostuni, Alberobello and the wider Puglia region.' },
+            { q: 'Is a transfer better than the train in Puglia?', a: 'For door-to-door convenience and reaching smaller towns, yes — regional services can be slow and infrequent.' },
+        ]
+    },
+    {
+        slug: 'bari-airport-to-alberobello-taxi', from: 'Bari Airport', to: 'Alberobello',
+        title: 'Bari Airport to Alberobello Taxi Transfer', hero_image: '/images/beach-transfer.webp',
+        description: 'Private transfer from Bari Airport to Alberobello, home of the UNESCO-listed trulli houses. Travel directly to the heart of the Itria Valley with a professional door-to-door driver.',
+        distance: '~60 km', duration: '~1 hour', price: '€90',
+        highlights: ['Door-to-door to the trulli town', 'Gateway to the Itria Valley', 'Optional Locorotondo stop', 'English-speaking driver', 'Fixed all-inclusive price'],
+        faqs: [
+            { q: 'How far is Alberobello from Bari Airport?', a: 'About 60 km, a drive of roughly 1 hour from Bari Airport into the Itria Valley.' },
+            { q: 'What is Alberobello known for?', a: 'Its trulli — distinctive conical-roofed stone houses that form a UNESCO World Heritage Site found nowhere else in the world.' },
+            { q: 'Can I visit other Itria Valley towns?', a: 'Yes, Locorotondo, Martina Franca and Ostuni are all nearby and make a wonderful combined day with a private driver.' },
+        ]
+    },
+    {
+        slug: 'palermo-airport-to-cefalu-taxi', from: 'Palermo Airport', to: 'Cefalu',
+        title: 'Palermo Airport to Cefalù Taxi Transfer', hero_image: '/images/beach-transfer.webp',
+        description: 'Private transfer from Palermo Airport (PMO) to the seaside town of Cefalù. Reach one of Sicily\'s most beautiful coastal towns directly, bypassing Palermo, with a door-to-door private car.',
+        distance: '~75 km', duration: '~1 hour', price: '€110',
+        highlights: ['Direct to Cefalù — bypass Palermo', 'Stunning coastal route', 'Door-to-door to your hotel', 'English-speaking Sicilian driver', 'Fixed all-inclusive price'],
+        faqs: [
+            { q: 'How far is Cefalù from Palermo Airport?', a: 'About 75 km, a scenic coastal drive of roughly 1 hour east of Palermo Airport.' },
+            { q: 'Can I go straight to Cefalù without entering Palermo?', a: 'Yes, the route bypasses the city, so you reach Cefalù directly and comfortably.' },
+            { q: 'Is Cefalù good for a beach holiday?', a: 'Yes — it combines a sandy beach, a Norman cathedral and a charming old town, making it one of Sicily\'s favourite coastal bases.' },
+        ]
+    },
+    {
+        slug: 'rome-to-sorrento-taxi', from: 'Rome', to: 'Sorrento',
+        title: 'Rome to Sorrento Taxi Transfer', hero_image: '/images/almafi.webp',
+        description: 'Private transfer from Rome to Sorrento with an optional Pompeii stop. Travel door-to-door to the Sorrento peninsula in comfort, skipping the crowded high-speed train plus local connection.',
+        distance: '~270 km', duration: '~3 hours 30 min', price: '€320',
+        highlights: ['Door-to-door Rome to Sorrento', 'Optional Pompeii stop en route', 'All motorway tolls included', 'English-speaking driver', 'Fixed all-inclusive price'],
+        faqs: [
+            { q: 'How long does the Rome to Sorrento transfer take?', a: 'About 3 hours 30 minutes (around 270 km) via the A1 and A3 motorways, or a little longer with a Pompeii stop.' },
+            { q: 'Can we break the journey at Pompeii?', a: 'Yes — Pompeii is conveniently on the route and a very popular stop between Rome and Sorrento.' },
+            { q: 'Is this better than the train?', a: 'For door-to-door comfort with luggage it is, since the train requires a change in Naples onto the local Circumvesuviana line.' },
+        ]
+    },
+    {
+        slug: 'rome-to-tivoli-taxi', from: 'Rome', to: 'Tivoli',
+        title: 'Rome to Tivoli Taxi Transfer', hero_image: '/images/rome airport.webp',
+        description: 'Private transfer or day trip from Rome to Tivoli, home of Villa d\'Este and Hadrian\'s Villa. Reach the UNESCO gardens easily with a door-to-door driver who can wait and return you to Rome.',
+        distance: '~30 km', duration: '~45 min', price: '€70',
+        highlights: ['Door-to-door to Villa d\'Este', 'Optional Hadrian\'s Villa stop', 'Driver can wait for the return', 'Easy half-day from Rome', 'Fixed all-inclusive price'],
+        faqs: [
+            { q: 'How far is Tivoli from Rome?', a: 'About 30 km east of Rome, a drive of roughly 45 minutes, making it an easy half-day or day trip.' },
+            { q: 'Can I see both Villa d\'Este and Hadrian\'s Villa?', a: 'Yes, both UNESCO sites are in Tivoli and can be combined in a single day with a private driver who waits between them.' },
+            { q: 'Is a private driver better than the train to Tivoli?', a: 'Yes — the sites are spread out and not walkable from the station, so a driver who waits makes the visit far easier.' },
+        ]
+    },
+    {
+        slug: 'rome-to-orvieto-taxi', from: 'Rome', to: 'Orvieto',
+        title: 'Rome to Orvieto Taxi Transfer', hero_image: '/images/Tuscany Wine.webp',
+        description: 'Private transfer from Rome to the clifftop town of Orvieto in Umbria. Travel door-to-door to one of central Italy\'s most dramatic hilltop towns, famous for its cathedral and white wine.',
+        distance: '~120 km', duration: '~1 hour 30 min', price: '€180',
+        highlights: ['Door-to-door to clifftop Orvieto', 'Great stop between Rome and Tuscany', 'Famous Gothic cathedral', 'English-speaking driver', 'Fixed all-inclusive price'],
+        faqs: [
+            { q: 'How far is Orvieto from Rome?', a: 'About 120 km north, a drive of roughly 1 hour 30 minutes via the A1 motorway.' },
+            { q: 'Is Orvieto a good stop on the way to Tuscany?', a: 'Yes, it sits conveniently between Rome and Tuscany and makes an excellent break or add-on to a longer transfer.' },
+            { q: 'What is Orvieto known for?', a: 'Its spectacular striped Gothic cathedral, underground caves, and the crisp Orvieto Classico white wine.' },
+        ]
+    },
+    {
+        slug: 'rome-to-siena-taxi', from: 'Rome', to: 'Siena',
+        title: 'Rome to Siena Taxi Transfer', hero_image: '/images/Tuscany Wine.webp',
+        description: 'Private transfer from Rome to Siena, the medieval heart of Tuscany. Travel door-to-door with optional stops in Umbria or Tuscan wine country along the way.',
+        distance: '~230 km', duration: '~3 hours', price: '€290',
+        highlights: ['Door-to-door Rome to Siena', 'Optional Orvieto or wine-country stop', 'All tolls included', 'English-speaking driver', 'Fixed all-inclusive price'],
+        faqs: [
+            { q: 'How long is the Rome to Siena transfer?', a: 'About 3 hours (around 230 km) via the A1 motorway, longer if you add a scenic stop.' },
+            { q: 'Can we stop in Tuscan wine country?', a: 'Yes — the route passes close to Montepulciano and Montalcino, popular add-on stops for wine lovers.' },
+            { q: 'Can this be a one-way transfer or a day trip?', a: 'Both — we offer one-way transfers and full-day round trips with the driver waiting in Siena.' },
+        ]
+    },
+    {
+        slug: 'florence-to-bologna-taxi', from: 'Florence', to: 'Bologna',
+        title: 'Florence to Bologna Taxi Transfer', hero_image: '/images/Bologna.webp',
+        description: 'Private transfer from Florence to Bologna across the Apennine mountains. A comfortable door-to-door alternative to the train for reaching Italy\'s food capital.',
+        distance: '~110 km', duration: '~1 hour 30 min', price: '€170',
+        highlights: ['Door-to-door Florence to Bologna', 'Scenic Apennine route', 'Great for foodie trips', 'English-speaking driver', 'Fixed all-inclusive price'],
+        faqs: [
+            { q: 'How far is Bologna from Florence?', a: 'About 110 km, a drive of roughly 1 hour 30 minutes across the Apennines via the A1 motorway.' },
+            { q: 'Is the transfer or the train better?', a: 'The high-speed train is fast city-centre to city-centre, but a private transfer is door-to-door and ideal with luggage or for reaching specific addresses.' },
+            { q: 'What is Bologna famous for?', a: 'Its mediaeval porticoes, the oldest university in the world, and being the gastronomic capital of Italy.' },
+        ]
+    },
+    {
+        slug: 'florence-to-lucca-taxi', from: 'Florence', to: 'Lucca',
+        title: 'Florence to Lucca Taxi Transfer', hero_image: '/images/Tuscany Wine.webp',
+        description: 'Private transfer or day trip from Florence to the walled city of Lucca. Travel door-to-door to one of Tuscany\'s most relaxed and beautiful towns, with an optional Pisa add-on.',
+        distance: '~80 km', duration: '~1 hour', price: '€130',
+        highlights: ['Door-to-door Florence to Lucca', 'Optional Pisa combination', 'Driver can wait for a day trip', 'English-speaking driver', 'Fixed all-inclusive price'],
+        faqs: [
+            { q: 'How far is Lucca from Florence?', a: 'About 80 km, a drive of roughly 1 hour via the A11 motorway.' },
+            { q: 'Can I combine Lucca and Pisa from Florence?', a: 'Yes, the two are close together and make a classic combined day trip from Florence with a private driver.' },
+            { q: 'Why visit Lucca?', a: 'Its complete Renaissance walls — now a tree-lined promenade — plus charming piazzas and a relaxed pace make it a favourite.' },
+        ]
+    },
+    {
+        slug: 'florence-to-san-gimignano-taxi', from: 'Florence', to: 'San Gimignano',
+        title: 'Florence to San Gimignano Taxi Transfer', hero_image: '/images/Tuscany Wine.webp',
+        description: 'Private transfer or day trip from Florence to San Gimignano, the medieval town of towers. Travel door-to-door into the Tuscan countryside, with optional stops in Chianti or Siena.',
+        distance: '~55 km', duration: '~1 hour', price: '€120',
+        highlights: ['Door-to-door to San Gimignano', 'Optional Chianti or Siena stop', 'Driver waits for a day trip', 'Famous medieval towers', 'Fixed all-inclusive price'],
+        faqs: [
+            { q: 'How far is San Gimignano from Florence?', a: 'About 55 km, a drive of roughly 1 hour through the Tuscan hills.' },
+            { q: 'Can I combine San Gimignano with Siena?', a: 'Yes, the two pair beautifully in a single day, often with a Chianti wine stop in between.' },
+            { q: 'What is San Gimignano known for?', a: 'Its skyline of medieval stone towers — the "Manhattan of Tuscany" — and award-winning gelato.' },
+        ]
+    },
+    {
+        slug: 'florence-to-montepulciano-taxi', from: 'Florence', to: 'Montepulciano',
+        title: 'Florence to Montepulciano Taxi Transfer', hero_image: '/images/Tuscany Wine.webp',
+        description: 'Private transfer or wine-country day trip from Florence to Montepulciano in the Val d\'Orcia. Travel door-to-door to one of Tuscany\'s great wine towns with an experienced local driver.',
+        distance: '~115 km', duration: '~1 hour 30 min', price: '€180',
+        highlights: ['Door-to-door to Montepulciano', 'Heart of Vino Nobile wine country', 'Optional Pienza & Val d\'Orcia stops', 'Driver waits for a day trip', 'Fixed all-inclusive price'],
+        faqs: [
+            { q: 'How far is Montepulciano from Florence?', a: 'About 115 km, a drive of roughly 1 hour 30 minutes into the Val d\'Orcia in southern Tuscany.' },
+            { q: 'Is this good for a wine tour?', a: 'Excellent — Montepulciano is the home of Vino Nobile, and a private driver means everyone can enjoy the tastings.' },
+            { q: 'Can I also see Pienza and the Val d\'Orcia?', a: 'Yes, nearby Pienza and the iconic Val d\'Orcia landscapes make a wonderful combined day.' },
+        ]
+    },
+    {
+        slug: 'milan-to-portofino-taxi', from: 'Milan', to: 'Portofino',
+        title: 'Milan to Portofino Taxi Transfer', hero_image: '/images/Lake Como.webp',
+        description: 'Private transfer from Milan to the glamorous harbour village of Portofino. Travel door-to-door to the Italian Riviera in comfort, with a professional driver handling the scenic coastal approach.',
+        distance: '~190 km', duration: '~2 hours 30 min', price: '€280',
+        highlights: ['Door-to-door Milan to Portofino', 'Glamorous Riviera destination', 'Optional Santa Margherita stop', 'All tolls included', 'Fixed all-inclusive price'],
+        faqs: [
+            { q: 'How far is Portofino from Milan?', a: 'About 190 km, a drive of roughly 2 hours 30 minutes via the motorway and the scenic Ligurian coast.' },
+            { q: 'Can a car reach Portofino village?', a: 'Cars stop just outside the tiny car-free harbour; the driver drops you as close as possible and you walk the final short stretch.' },
+            { q: 'Can I combine Portofino with Santa Margherita?', a: 'Yes, elegant Santa Margherita Ligure is right next door and makes a lovely combined visit.' },
+        ]
+    },
+    {
+        slug: 'milan-to-stresa-taxi', from: 'Milan', to: 'Stresa',
+        title: 'Milan to Stresa Taxi Transfer', hero_image: '/images/Lake Como.webp',
+        description: 'Private transfer from Milan to Stresa on Lake Maggiore. Reach the elegant lakeside resort and gateway to the Borromean Islands door-to-door with a professional driver.',
+        distance: '~80 km', duration: '~1 hour 15 min', price: '€150',
+        highlights: ['Door-to-door Milan to Stresa', 'Gateway to the Borromean Islands', 'Elegant lakeside resort', 'English-speaking driver', 'Fixed all-inclusive price'],
+        faqs: [
+            { q: 'How far is Stresa from Milan?', a: 'About 80 km, a drive of roughly 1 hour 15 minutes north of Milan to Lake Maggiore.' },
+            { q: 'What is there to do in Stresa?', a: 'Stresa is the gateway to the Borromean Islands, with belle-époque hotels, gardens and lake cruises.' },
+            { q: 'Can you collect from Milan airports too?', a: 'Yes, we transfer to Stresa from Milan city centre and from Malpensa, Linate and Bergamo airports.' },
+        ]
+    },
+    {
+        slug: 'naples-to-sorrento-taxi', from: 'Naples', to: 'Sorrento',
+        title: 'Naples to Sorrento Taxi Transfer', hero_image: '/images/almafi.webp',
+        description: 'Private transfer from Naples city or port to Sorrento. The comfortable, door-to-door alternative to the crowded Circumvesuviana train, ideal for cruise passengers and city visitors alike.',
+        distance: '~50 km', duration: '~1 hour 15 min', price: '€100',
+        highlights: ['Door-to-door Naples to Sorrento', 'Avoid the crowded local train', 'Cruise port pickup available', 'Child seats on request', 'Fixed all-inclusive price'],
+        faqs: [
+            { q: 'How far is Sorrento from Naples?', a: 'About 50 km, a drive of roughly 1 hour 15 minutes depending on traffic.' },
+            { q: 'Can you pick up from the Naples cruise port?', a: 'Yes, we offer cruise-port pickups to Sorrento with a guaranteed timed return for shore excursions.' },
+            { q: 'Is a transfer better than the Circumvesuviana?', a: 'For comfort and luggage, yes — the local train is crowded and basic, while a transfer is door-to-door.' },
+        ]
+    },
+    {
+        slug: 'naples-to-positano-taxi', from: 'Naples', to: 'Positano',
+        title: 'Naples to Positano Taxi Transfer', hero_image: '/images/almafi.webp',
+        description: 'Private transfer from Naples to Positano along the Amalfi Coast. Let a local driver navigate the famous coast road while you enjoy the views, with door-to-door drop-off in Positano.',
+        distance: '~60 km', duration: '~1 hour 30 min', price: '€130',
+        highlights: ['Door-to-door Naples to Positano', 'Experienced coast-road driver', 'Cruise port pickup available', 'Photo stops on request', 'Fixed all-inclusive price'],
+        faqs: [
+            { q: 'How long is the drive from Naples to Positano?', a: 'About 1 hour 30 minutes (around 60 km), longer in peak summer traffic on the coast road.' },
+            { q: 'Can you collect me from the Naples cruise terminal?', a: 'Yes, we provide cruise-port transfers to Positano with a timed return so you do not miss the ship.' },
+            { q: 'Why use a private driver to Positano?', a: 'The narrow coast road and lack of parking make a local driver by far the easiest and least stressful option.' },
+        ]
+    },
+    {
+        slug: 'naples-to-salerno-taxi', from: 'Naples', to: 'Salerno',
+        title: 'Naples to Salerno Taxi Transfer', hero_image: '/images/naples.webp',
+        description: 'Private transfer from Naples to Salerno, the eastern gateway to the Amalfi Coast. A quick, comfortable door-to-door transfer ideal for ferry connections and coast access.',
+        distance: '~55 km', duration: '~1 hour', price: '€110',
+        highlights: ['Door-to-door Naples to Salerno', 'Gateway to the eastern Amalfi Coast', 'Ferry terminal drop-off', 'English-speaking driver', 'Fixed all-inclusive price'],
+        faqs: [
+            { q: 'How far is Salerno from Naples?', a: 'About 55 km, a drive of roughly 1 hour via the motorway.' },
+            { q: 'Why go to Salerno?', a: 'Salerno is the closest gateway to the eastern Amalfi Coast (Amalfi, Ravello) and a hub for coastal ferries.' },
+            { q: 'Can you drop me at the Salerno ferry terminal?', a: 'Yes, we drop directly at the terminal so you can connect to Amalfi Coast ferries.' },
+        ]
+    },
+    {
+        slug: 'venice-to-padua-taxi', from: 'Venice', to: 'Padua',
+        title: 'Venice to Padua Taxi Transfer', hero_image: '/images/venice.webp',
+        description: 'Private transfer from Venice (Piazzale Roma or Mestre) to Padua. A quick door-to-door connection to the historic university city, famous for the Scrovegni Chapel and Saint Anthony\'s Basilica.',
+        distance: '~40 km', duration: '~45 min', price: '€90',
+        highlights: ['Door-to-door Venice to Padua', 'Pickup from Piazzale Roma or Mestre', 'Historic university city', 'English-speaking driver', 'Fixed all-inclusive price'],
+        faqs: [
+            { q: 'How far is Padua from Venice?', a: 'About 40 km, a drive of roughly 45 minutes from the Venice mainland.' },
+            { q: 'Where in Venice can you pick me up?', a: 'From Piazzale Roma (the vehicle limit of the islands) or anywhere on the mainland, including Mestre and the airport.' },
+            { q: 'What is Padua known for?', a: 'Giotto\'s frescoes in the Scrovegni Chapel, the Basilica of Saint Anthony, and one of the world\'s oldest universities.' },
+        ]
+    },
+    {
+        slug: 'bologna-to-florence-taxi', from: 'Bologna', to: 'Florence',
+        title: 'Bologna to Florence Taxi Transfer', hero_image: '/images/Tuscany Wine.webp',
+        description: 'Private transfer from Bologna to Florence across the Apennines. A comfortable door-to-door alternative to the train, ideal for reaching specific Florence addresses with luggage.',
+        distance: '~110 km', duration: '~1 hour 30 min', price: '€170',
+        highlights: ['Door-to-door Bologna to Florence', 'ZTL-compliant Florence drop-off', 'Bologna airport pickup available', 'Scenic Apennine route', 'Fixed all-inclusive price'],
+        faqs: [
+            { q: 'How far is Florence from Bologna?', a: 'About 110 km, a drive of roughly 1 hour 30 minutes across the Apennines via the A1 motorway.' },
+            { q: 'Can you pick up from Bologna Airport?', a: 'Yes, we offer transfers from Bologna Marconi Airport directly to Florence and the wider Tuscany region.' },
+            { q: 'Can you reach my hotel inside Florence\'s ZTL?', a: 'Yes — as a licensed service we can enter the limited-traffic zone to drop you at your hotel door.' },
         ]
     },
 ];
