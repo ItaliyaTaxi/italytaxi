@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next';
 import { supabase } from '@/lib/supabase/client';
+import { getAllAirportHotelTransfers } from '@/lib/airport-hotel-data';
 import fs from 'fs';
 import path from 'path';
 
@@ -130,9 +131,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     console.error('Sitemap: error fetching blogs from Supabase:', err);
   }
 
+  // ── 4. Programmatic Rome airport → hotel transfer pages (root-level slugs) ──
+  const airportHotelEntries: MetadataRoute.Sitemap = getAllAirportHotelTransfers().map((t) => ({
+    url: `${BASE_URL}/${t.slug}`,
+    lastModified: now,
+    priority: 0.8,
+    changeFrequency: 'monthly' as const,
+  }));
+
   return [
     ...staticEntries,
     ...dynamicEntries,
     ...blogEntries,
+    ...airportHotelEntries,
   ];
 }

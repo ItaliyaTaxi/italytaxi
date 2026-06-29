@@ -874,3 +874,14 @@ nav {
   content-visibility: auto;
   contain-intrinsic-size: auto 600px;
 }
+/* ── Google Translate widget: hide the injected banner/tooltip & keep layout ── */
+.goog-te-banner-frame,
+.goog-te-balloon-frame,
+#goog-gt-tt,
+.goog-te-gadget-icon,
+.goog-tooltip { display: none !important; }
+.goog-te-gadget { height: 0; overflow: hidden; font-size: 0; }
+.skiptranslate > iframe { display: none !important; visibility: hidden !important; height: 0 !important; }
+body { top: 0 !important; position: static !important; }
+/* Remove Google's translated-text highlight so the design stays clean */
+.goog-text-highlight { background: none !important; box-shadow: none !important; }

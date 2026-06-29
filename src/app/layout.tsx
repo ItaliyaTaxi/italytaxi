@@ -3,6 +3,7 @@ import { Montserrat, Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import FloatingContact from "@/components/FloatingContact";
 import LanguageModal from "@/components/LanguageModal";
+import GoogleTranslate from "@/components/GoogleTranslate";
 import { LanguageProvider } from "@/context/LanguageContext";
 import Script from "next/script";
 import JsonLd from "@/components/JsonLd";
@@ -152,6 +153,7 @@ export default function RootLayout({
           {children}
           <FloatingContact />
           <LanguageModal />
+          <GoogleTranslate />
         </LanguageProvider>
       </body>
     </html>
