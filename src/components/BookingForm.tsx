@@ -163,6 +163,20 @@ export default function BookingForm({ sourceName = 'Book Now Page' }: { sourceNa
                                 <option value="8">8 Passengers</option>
                             </select>
                         </div>
+                        <div className="space-y-1">
+                            <label className="taxi-form-label">Luggage <span className="text-xs opacity-60 normal-case">(bags)</span></label>
+                            <select name="luggage" className="taxi-form-input [&>option]:text-black">
+                                <option value="">Select luggage</option>
+                                <option value="Hand luggage only">Hand luggage only</option>
+                                <option value="1">1 suitcase</option>
+                                <option value="2">2 suitcases</option>
+                                <option value="3">3 suitcases</option>
+                                <option value="4">4 suitcases</option>
+                                <option value="5">5 suitcases</option>
+                                <option value="6">6 suitcases</option>
+                                <option value="7+">7+ suitcases</option>
+                            </select>
+                        </div>
                     </div>
 
                     {/* Return trip toggle */}

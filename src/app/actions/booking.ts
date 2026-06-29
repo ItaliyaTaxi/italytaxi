@@ -23,6 +23,7 @@ export async function submitBooking(_prevState: any, formData: FormData) {
     const dropoff = formData.get('dropoff') as string;
     const datetime = formData.get('datetime') as string;
     const passengers = Number(formData.get('passengers')) || 1;
+    const luggage = ((formData.get('luggage') as string) || '').trim();
     const flightNumber = ((formData.get('flight_number') as string) || '').trim();
     const source_form = (formData.get('source_form') as string) || 'Unknown Form';
 
@@ -33,19 +34,27 @@ export async function submitBooking(_prevState: any, formData: FormData) {
     const returnFlightNumber = ((formData.get('return_flight_number') as string) || '').trim();
 
     try {
-        const { error: dbError } = await supabase
+        const baseRecord = {
+            full_name: name,
+            email,
+            phone,
+            pickup_location: pickup,
+            dropoff_location: dropoff,
+            booking_datetime: datetime,
+            passengers,
+            status: 'pending',
+            source_form,
+        };
+
+        // Insert with luggage; if the `luggage` column hasn't been added yet,
+        // fall back to inserting without it so booking is never broken.
+        let { error: dbError } = await supabase
             .from('bookings')
-            .insert([{
-                full_name: name,
-                email,
-                phone,
-                pickup_location: pickup,
-                dropoff_location: dropoff,
-                booking_datetime: datetime,
-                passengers,
-                status: 'pending',
-                source_form,
-            }]);
+            .insert([{ ...baseRecord, ...(luggage ? { luggage } : {}) }]);
+
+        if (dbError && luggage && /luggage/i.test(dbError.message)) {
+            ({ error: dbError } = await supabase.from('bookings').insert([baseRecord]));
+        }
 
         if (dbError) throw dbError;
 
@@ -83,6 +92,7 @@ export async function submitBooking(_prevState: any, formData: FormData) {
                                 <tr><td style="${cellLabel}"><strong>Email</strong></td><td style="${cellValue}">${email}</td></tr>
                                 <tr><td style="${cellLabel}"><strong>Phone</strong></td><td style="${cellValue}">${phone}</td></tr>
                                 <tr><td style="${cellLabel}"><strong>Passengers</strong></td><td style="${cellValue}">${passengers}</td></tr>
+                                ${luggage ? `<tr><td style="${cellLabel}"><strong>Luggage</strong></td><td style="${cellValue}">${luggage}</td></tr>` : ''}
                             </table>
                             <h3 style="margin:24px 0 10px;font-size:14px;color:#0F1C2E;letter-spacing:0.5px;text-transform:uppercase;border-bottom:2px solid #C9A84C;padding-bottom:6px">Outbound Trip</h3>
                             <table style="border-collapse:collapse;width:100%;font-family:Arial,sans-serif">
@@ -137,6 +147,7 @@ export async function submitBooking(_prevState: any, formData: FormData) {
                                     <tr><td style="${labelStyle}">Email</td><td style="${valueStyle}">${email}</td></tr>
                                     <tr><td style="${labelStyle}">Phone</td><td style="${valueStyle}">${phone}</td></tr>
                                     <tr><td style="${labelStyle}">Passengers</td><td style="${valueStyle}">${passengers}</td></tr>
+                                    ${luggage ? `<tr><td style="${labelStyle}">Luggage</td><td style="${valueStyle}">${luggage}</td></tr>` : ''}
                                 </table>
                             </div>
                             <div style="background:#f9f9f9;border-left:4px solid #C9A84C;padding:20px;border-radius:0 8px 8px 0;margin:16px 0">
