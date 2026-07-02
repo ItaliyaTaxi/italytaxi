@@ -133,7 +133,7 @@ export default async function AirportHotelTransferPage({ params }: { params: Pro
 
             <section className="py-16">
                 <div className="container mx-auto px-6 max-w-5xl">
-                    <h1 className="text-3xl md:text-4xl font-extrabold text-navy mb-6 leading-tight">{h1}</h1>
+                    <h2 className="text-3xl md:text-4xl font-extrabold text-navy mb-6 leading-tight">{h1}</h2>
 
                     {/* Hero stats */}
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">

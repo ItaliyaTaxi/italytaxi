@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next';
 import { supabase } from '@/lib/supabase/client';
 import { getAllAirportHotelTransfers } from '@/lib/airport-hotel-data';
+import { getAllFlorenceTransfers } from '@/lib/florence-transfer-data';
 import fs from 'fs';
 import path from 'path';
 
@@ -139,10 +140,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     changeFrequency: 'monthly' as const,
   }));
 
+  // ── 5. Programmatic Florence/Pisa → hotel/resort/landmark transfer pages ──
+  const florenceEntries: MetadataRoute.Sitemap = getAllFlorenceTransfers().map((t) => ({
+    url: `${BASE_URL}/florence-transfer/${t.slug}`,
+    lastModified: now,
+    priority: 0.8,
+    changeFrequency: 'monthly' as const,
+  }));
+
   return [
     ...staticEntries,
     ...dynamicEntries,
     ...blogEntries,
     ...airportHotelEntries,
+    ...florenceEntries,
   ];
 }
