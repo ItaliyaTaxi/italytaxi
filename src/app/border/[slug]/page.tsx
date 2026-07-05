@@ -216,7 +216,7 @@ export default async function BorderTransferPage({ params }: { params: Promise<{
                 description={transfer.intro}
                 backgroundImage={transfer.hero_image}
                 buttonText={`Book Italy to ${transfer.to} Transfer`}
-                buttonLink="/book-now/"
+                buttonLink="/book-now"
                 breadcrumbs={[
                     { name: "Cross-Border Transfers", item: "/coverage-areas" },
                     { name: `Italy to ${transfer.to}`, item: `/border/${slug}` }
@@ -274,7 +274,7 @@ export default async function BorderTransferPage({ params }: { params: Promise<{
                         {transfer.popular_routes.map((route, i) => (
                             <Link
                                 key={i}
-                                href="/book-now/"
+                                href="/book-now"
                                 className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl border border-gray-100 hover:border-gold/30 p-8 transition-all duration-300"
                             >
                                 <div className="flex items-center justify-between mb-6">

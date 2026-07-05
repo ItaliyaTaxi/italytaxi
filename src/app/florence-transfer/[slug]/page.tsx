@@ -149,7 +149,7 @@ export default async function FlorenceTransferPage({ params }: { params: Promise
                     : `Fixed-price, door-to-door private transfer from ${airport.name} to ${dest.name} in ${dest.area}. ${leg.distance} · ${leg.duration} · meet & greet and flight monitoring included.`}
                 backgroundImage={HERO_IMG}
                 buttonText="Book Your Transfer"
-                buttonLink="/book-now/"
+                buttonLink="/book-now"
                 breadcrumbs={dep ? [
                     { name: 'Florence Airport Transfers', item: '/florence-transfer' },
                     { name: dest.name, item: `/florence-transfer/${slug}` },
@@ -184,7 +184,7 @@ export default async function FlorenceTransferPage({ params }: { params: Promise
                         </div>
                     </div>
                     <div className="flex flex-wrap gap-4 mb-4">
-                        <Link href="/book-now/" className="inline-block bg-[#0F1C2E] text-white font-bold px-8 py-4 rounded-full hover:bg-gold hover:text-navy transition-all">Book Your Transfer</Link>
+                        <Link href="/book-now" className="inline-block bg-[#0F1C2E] text-white font-bold px-8 py-4 rounded-full hover:bg-gold hover:text-navy transition-all">Book Your Transfer</Link>
                         <a href={waLink(`Hi, I'd like a quote for a private transfer: ${bookText}.`)} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-[#25D366] text-white font-bold px-8 py-4 rounded-full hover:bg-[#1da851] transition-all">
                             <MessageCircle className="w-5 h-5" /> Quote on WhatsApp
                         </a>
@@ -396,7 +396,7 @@ export default async function FlorenceTransferPage({ params }: { params: Promise
                     </div>
 
                     <div className="mt-10 flex flex-wrap gap-4 justify-center">
-                        <Link href="/book-now/" className="inline-block bg-[#0F1C2E] text-white font-bold px-10 py-4 rounded-full hover:bg-gold hover:text-navy transition-all">
+                        <Link href="/book-now" className="inline-block bg-[#0F1C2E] text-white font-bold px-10 py-4 rounded-full hover:bg-gold hover:text-navy transition-all">
                             Book Your {dep ? `${dest.name} → ${airport.short}` : `${airport.short} → ${dest.name}`} Transfer
                         </Link>
                         <a href={waLink(`Hi, I'd like to book a private transfer: ${bookText}.`)} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-[#25D366] text-white font-bold px-10 py-4 rounded-full hover:bg-[#1da851] transition-all">

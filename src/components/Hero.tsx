@@ -51,7 +51,7 @@ export default function Hero() {
                     </div>
 
                     <div className="animate-slide-left [animation-delay:1s]">
-                        <TaxiButton href="/book-now/">
+                        <TaxiButton href="/book-now">
                             {t.hero.cta}
                         </TaxiButton>
                     </div>

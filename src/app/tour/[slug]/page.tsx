@@ -194,7 +194,7 @@ export default async function TourPage({ params }: { params: Promise<{ slug: str
                             <p className="text-gray-400 text-lg leading-relaxed mb-10 max-w-xl italic">
                                 Ready to discover the heart of Italy in absolute comfort? Our reservation team is standing by to confirm your premium taxi tour.
                             </p>
-                            <TaxiButton href="/book-now/" className="scale-125 mb-10">
+                            <TaxiButton href="/book-now" className="scale-125 mb-10">
                                 Send Tour Request Now
                             </TaxiButton>
 

@@ -68,7 +68,7 @@ export default function CityTransfersPage() {
                 <div className="mt-24 text-center">
                     <h3 className="text-2xl font-bold text-[#0F1C2E] mb-6">Need a custom route?</h3>
                     <p className="text-gray-600 mb-8 max-w-xl mx-auto">We provide city-to-city transfers across all of Italy. From the Dolomites to Sicily, we've got you covered.</p>
-                    <Link href="/contact/" className="inline-block text-[#F4C430] font-bold border-b-2 border-[#F4C430] pb-1 hover:text-[#0F1C2E] hover:border-[#0F1C2E] transition-all">
+                    <Link href="/contact" className="inline-block text-[#F4C430] font-bold border-b-2 border-[#F4C430] pb-1 hover:text-[#0F1C2E] hover:border-[#0F1C2E] transition-all">
                         Plan Your Journey
                     </Link>
                 </div>

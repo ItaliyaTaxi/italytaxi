@@ -88,7 +88,7 @@ export default function FlorenceTransferHub() {
                 description="Fixed-price, door-to-door private transfers from Florence (FLR) and Pisa (PSA) airports to Florence hotels, Tuscany resorts and the region's most famous landmarks — with meet & greet, flight monitoring and ZTL-registered vehicles."
                 backgroundImage={HERO_IMG}
                 buttonText="Book Your Transfer"
-                buttonLink="/book-now/"
+                buttonLink="/book-now"
                 breadcrumbs={[
                     { name: 'Airport Transfers', item: '/airport-transfer' },
                     { name: 'Florence & Pisa Airport Transfers', item: '/florence-transfer' },

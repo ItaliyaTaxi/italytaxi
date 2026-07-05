@@ -19,7 +19,7 @@ export default function PageHero({
     description,
     backgroundImage,
     buttonText = "RESERVE YOUR RIDE",
-    buttonLink = "/book-now/",
+    buttonLink = "/book-now",
     breadcrumbs
 }: PageHeroProps) {
 

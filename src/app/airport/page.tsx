@@ -68,7 +68,7 @@ export default function AirportTransfersPage() {
                 <div className="mt-24 text-center">
                     <h3 className="text-2xl font-bold text-[#0F1C2E] mb-6">Can't find your airport?</h3>
                     <p className="text-gray-600 mb-8 max-w-xl mx-auto">We cover 40+ airports across Italy. Contact us for a custom quote or search for your specific destination.</p>
-                    <Link href="/contact/" className="inline-block text-[#F4C430] font-bold border-b-2 border-[#F4C430] pb-1 hover:text-[#0F1C2E] hover:border-[#0F1C2E] transition-all">
+                    <Link href="/contact" className="inline-block text-[#F4C430] font-bold border-b-2 border-[#F4C430] pb-1 hover:text-[#0F1C2E] hover:border-[#0F1C2E] transition-all">
                         Contact Support
                     </Link>
                 </div>

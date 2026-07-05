@@ -7,7 +7,16 @@ import ServiceSchema from '@/components/ServiceSchema';
 import BookingForm from '@/components/BookingForm';
 import FAQSection from '@/components/FAQSection';
 import Link from 'next/link';
-import { MapPin, Clock, ChevronRight, MessageCircle, CheckCircle, Euro } from 'lucide-react';
+import { MapPin, Clock, ChevronRight, MessageCircle, CheckCircle, Euro, Car, ShieldCheck } from 'lucide-react';
+
+const STANDARD_VEHICLES: { name: string; desc: string }[] = [
+    { name: 'Sedan', desc: '1–3 passengers · comfortable saloon car' },
+    { name: 'Executive Sedan', desc: 'Business-class comfort (Mercedes E-Class or similar)' },
+    { name: 'Minivan', desc: '4–8 passengers with luggage' },
+    { name: 'Mercedes V-Class', desc: 'Premium van for groups & families' },
+    { name: 'Luxury Van', desc: 'VIP group travel in full comfort' },
+    { name: 'Group Minibus', desc: 'Larger parties on request' },
+];
 
 /** Returns a /city/{slug}-taxi-service href only if that city page exists; else null. */
 function cityServiceHref(name: string): string | null {
@@ -24,16 +33,18 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     const route = routes.find((r) => r.slug === slug);
     if (!route) return {};
 
+    const description = route.metaDescription
+        || `Book a private taxi from ${route.from} to ${route.to}. Distance: ${route.distance}, duration: ${route.duration}. Professional English-speaking drivers, door-to-door service. Request a quote today.`;
     return {
-        title: `${route.title} | Private Transfer Italy`,
-        description: `Book a private taxi from ${route.from} to ${route.to}. Distance: ${route.distance}, duration: ${route.duration}. Professional English-speaking drivers, door-to-door service. Request a quote today.`,
+        title: route.metaTitle || `${route.title} | Private Transfer Italy`,
+        description,
         alternates: {
             canonical: `/route/${slug}`,
         },
         openGraph: {
             title: `${route.title} | Italy Taxi Service`,
-            description: `Private taxi from ${route.from} to ${route.to}. Professional drivers, door-to-door service. Request a quote today.`,
-            images: [{ url: route.hero_image, alt: route.title }],
+            description,
+            images: [{ url: route.hero_image, alt: route.imageAlt || route.title }],
         },
     };
 }
@@ -134,6 +145,42 @@ export default async function RoutePage({ params }: { params: Promise<{ slug: st
                     </div>
                 </div>
             </section>
+
+            {/* Rich long-form content (only for routes that provide sections) */}
+            {route.sections && route.sections.length > 0 && (
+                <section className="pb-8 bg-white">
+                    <div className="container mx-auto px-6 max-w-4xl">
+                        {route.sections.map((sec, i) => (
+                            <div key={i} className="mb-8">
+                                <h2 className="text-2xl font-bold text-navy mb-4">{sec.h2}</h2>
+                                {sec.p.map((para, j) => (
+                                    <p key={j} className="text-gray-700 leading-relaxed mb-4">{para}</p>
+                                ))}
+                            </div>
+                        ))}
+
+                        {route.vehicleOptions && (
+                            <div className="mb-8">
+                                <h2 className="text-2xl font-bold text-navy mb-4">Vehicle Options</h2>
+                                <ul className="grid sm:grid-cols-2 gap-3">
+                                    {STANDARD_VEHICLES.map((v, i) => (
+                                        <li key={i} className="flex items-start gap-2 text-gray-700">
+                                            <Car className="w-4 h-4 text-gold mt-1 shrink-0" />
+                                            <span><strong>{v.name}</strong> — {v.desc}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        )}
+
+                        <div className="bg-[#0F1C2E] text-white rounded-2xl p-6 grid sm:grid-cols-2 gap-3 text-sm">
+                            {['Fixed price — agreed before you travel', 'Real-time flight monitoring', 'Meet & greet with name sign', 'Professional English-speaking drivers', '24/7 availability', 'Free waiting time after landing', 'Clean, modern vehicles', 'Secure online booking'].map((s, i) => (
+                                <p key={i} className="flex items-center gap-2"><ShieldCheck className="w-4 h-4 text-gold shrink-0" /> {s}</p>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            )}
 
             <FAQSection faqs={route.faqs} title={`${route.from} to ${route.to} Transfer — FAQ`} />
 

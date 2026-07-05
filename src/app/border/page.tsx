@@ -95,7 +95,7 @@ export default function BorderTransfersPage() {
                     <div className="absolute top-0 right-0 w-64 h-64 bg-gold/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl transition-colors group-hover:bg-gold/10" />
                     <h3 className="text-3xl font-bold mb-6">Need an International Quote?</h3>
                     <p className="text-gray-400 mb-8 max-w-2xl mx-auto text-lg text-center">We specialize in long-distance European transfers. Whether you're heading to Zurich, Nice, or Vienna, our team ensures a smooth crossing.</p>
-                    <Link href="/contact/" className="inline-block transform px-12 py-5 bg-gold text-navy font-bold rounded-full shadow-xl transition-all hover:-translate-y-1 hover:bg-white hover:shadow-gold/20">
+                    <Link href="/contact" className="inline-block transform px-12 py-5 bg-gold text-navy font-bold rounded-full shadow-xl transition-all hover:-translate-y-1 hover:bg-white hover:shadow-gold/20">
                         Get Custom Quote
                     </Link>
                 </div>

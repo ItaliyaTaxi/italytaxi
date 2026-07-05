@@ -24,7 +24,7 @@ export default function CTA() {
                         {t.cta.description}
                     </p>
                     <div className="animate-slide-left [animation-delay:0.8s] flex flex-col md:flex-row items-center justify-center gap-10 md:gap-16">
-                        <TaxiButton href="/book-now/" className="md:scale-125 md:mr-4 flex-shrink-0">
+                        <TaxiButton href="/book-now" className="md:scale-125 md:mr-4 flex-shrink-0">
                             {t.cta.bookBtn}
                         </TaxiButton>
                     </div>

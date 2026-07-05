@@ -26,6 +26,11 @@
 
 
 
+import { extraRoutes } from './extra-routes';
+import { extraRoutesRome } from './extra-routes-rome';
+import { extraRoutesTuscany } from './extra-routes-tuscany';
+import { extraRoutesFinal } from './extra-routes-final';
+
 export interface AirportData {
     slug: string;
     name: string;
@@ -590,6 +595,14 @@ export interface RouteData {
     price?: string;
     highlights: string[];
     faqs: { q: string; a: string }[];
+    // ── Optional rich-content fields (render only when present) ──────────────
+    // Newer route pages set these to deliver full 1,200–1,800-word articles;
+    // existing entries omit them and render the original compact layout.
+    metaTitle?: string;        // <=60 chars — overrides the default <title>
+    metaDescription?: string;  // 150–160 chars — overrides the default meta description
+    imageAlt?: string;         // descriptive ALT for the hero image
+    sections?: { h2: string; p: string[] }[]; // long-form body sections (h2 + paragraphs)
+    vehicleOptions?: boolean;  // render the standard vehicle-options grid
 }
 
 export const routes: RouteData[] = [
@@ -1147,4 +1160,215 @@ export const routes: RouteData[] = [
             { q: 'Can you reach my hotel inside Florence\'s ZTL?', a: 'Yes — as a licensed service we can enter the limited-traffic zone to drop you at your hotel door.' },
         ]
     },
+
+    // ─── Phase 8: Airport-to-Airport transfers (rich long-form pages) ───────
+    {
+        slug: 'rome-fiumicino-to-rome-ciampino-taxi',
+        from: 'Rome Fiumicino Airport', to: 'Rome Ciampino Airport',
+        title: 'Rome Fiumicino to Rome Ciampino Airport Taxi',
+        metaTitle: 'Fiumicino to Ciampino Airport Transfer',
+        metaDescription: 'Private taxi between Rome Fiumicino (FCO) and Ciampino (CIA) airports. About 40 km, 50–70 min, fixed price, flight monitoring and meet & greet, 24/7.',
+        imageAlt: 'Private car transfer between Rome Fiumicino and Rome Ciampino airports',
+        hero_image: '/images/rome airport.webp',
+        distance: '~40 km', duration: '~50–70 min',
+        description: 'Private door-to-door transfer between Rome\'s two airports, Fiumicino (FCO) and Ciampino (CIA). There is no direct train between them, so a fixed-price car with a professional driver is the fastest, least stressful way to connect — ideal for split-airport itineraries with luggage.',
+        highlights: ['Direct FCO to CIA airport transfer', 'Perfect for split-airport connections', 'Real-time flight monitoring', 'Meet & greet with luggage help', 'Fixed price — no meter', '24/7 availability'],
+        vehicleOptions: true,
+        sections: [
+            { h2: 'Overview', p: [
+                'Travelling between Rome\'s two airports — Fiumicino (Leonardo da Vinci, FCO) and Ciampino (G. B. Pastine, CIA) — looks simple on a map but is awkward in practice. There is no direct rail link between the two, so the public route means taking a train or bus into central Rome and then another service back out, dragging your luggage across the city and through busy interchanges on the way.',
+                'A private airport-to-airport transfer removes all of that. A professional, English-speaking driver meets you at your arrival airport and takes you directly to the other, door to door, in a single comfortable ride. It is the option most travellers choose when a tight connection or heavy luggage makes public transport impractical.',
+            ]},
+            { h2: 'Who Books This Transfer', p: [
+                'The FCO to CIA transfer is most often booked by travellers with split-airport itineraries. A common example is arriving on a long-haul or international flight into Fiumicino — Rome\'s main intercontinental gateway — and then connecting to a low-cost European or domestic departure from Ciampino, the base for carriers such as Ryanair and Wizz Air.',
+                'It is also popular with travellers who simply booked separate tickets and later realised their flights use different Rome airports. Whatever the reason, the requirement is identical: move quickly and reliably from one airport to the other without the uncertainty of public transport.',
+            ]},
+            { h2: 'How Much Time to Allow Between Flights', p: [
+                'For a same-day connection, allow at least three to four hours between your scheduled arrival at Fiumicino and your departure from Ciampino. That window must cover landing and taxiing, passport control and baggage reclaim at FCO, the drive across Rome, and check-in and security at Ciampino.',
+                'Because the journey time depends heavily on Rome traffic, tell us both flight numbers when you book. We monitor your inbound flight and can advise whether a tight connection is realistic before you commit to it.',
+            ]},
+            { h2: 'Journey and Route', p: [
+                'The two airports sit on opposite sides of the city — Fiumicino to the southwest on the coast, Ciampino to the southeast — roughly 40 km apart. Drivers typically use the Grande Raccordo Anulare (GRA), Rome\'s ring road, to skirt the centre, with the journey usually taking 50 to 70 minutes.',
+                'Weekday peaks (around 7–10am and 4–7pm) are the busiest and the GRA can slow noticeably. Your driver selects the fastest live route, and because the fare is fixed, traffic never increases what you pay.',
+            ]},
+            { h2: 'Meet & Greet and Flight Monitoring', p: [
+                'Your driver waits in the arrivals hall of your first airport with a name sign, helps with your luggage and walks you to the vehicle. Free waiting time is included after landing to cover passport control and baggage reclaim.',
+                'We track your inbound flight in real time, so if it lands early or late the pickup is adjusted automatically. This matters most on split-airport days, when a delayed arrival can eat into an already tight connection window.',
+            ]},
+            { h2: 'Vehicles, Luggage and Groups', p: [
+                'Choose the vehicle that fits your party: a sedan for one to three passengers, a minivan or Mercedes V-Class for families and groups, or a larger minibus on request. Tell us your passenger and bag numbers when booking so the right vehicle is assigned and everything fits comfortably.',
+            ]},
+            { h2: 'Fixed Pricing and 24/7 Service', p: [
+                'The fare is fixed and agreed before you travel — no meter and no surge pricing — so congestion on the ring road never changes the price. Transfers run around the clock, which is essential at Ciampino, where low-cost flights frequently depart very early or land late at night when public transport between the airports is limited or has stopped entirely.',
+            ]},
+        ],
+        faqs: [
+            { q: 'How far is it from Fiumicino to Ciampino airport?', a: 'About 40 km. By private car around Rome on the GRA ring road the drive usually takes 50 to 70 minutes, depending on traffic.' },
+            { q: 'Is there a direct train between Rome\'s two airports?', a: 'No. There is no direct train linking Fiumicino and Ciampino; public transport requires travelling via central Rome with a train plus bus or metro, which is slow and awkward with luggage. A private transfer goes directly.' },
+            { q: 'How much time should I leave between flights at the two airports?', a: 'Allow at least three to four hours between your scheduled arrival at Fiumicino and departure from Ciampino, to cover baggage reclaim, the cross-city drive and check-in at the second airport.' },
+            { q: 'Will you track my incoming flight?', a: 'Yes. We monitor your inbound flight in real time and adjust the pickup if it lands early or late, with free waiting time after you land.' },
+            { q: 'Is the price fixed?', a: 'Yes — the fare is agreed before you travel with no meter, so Rome traffic never changes what you pay.' },
+            { q: 'Is the transfer available late at night or very early?', a: 'Yes, we operate 24/7 — ideal for the early-morning and late-night low-cost flights common at Ciampino.' },
+            { q: 'Can you carry luggage for a whole family?', a: 'Yes. Choose a minivan or Mercedes V-Class and tell us the number of passengers and bags when booking so everything fits comfortably.' },
+        ],
+    },
+    {
+        slug: 'rome-ciampino-to-rome-fiumicino-taxi',
+        from: 'Rome Ciampino Airport', to: 'Rome Fiumicino Airport',
+        title: 'Rome Ciampino to Rome Fiumicino Airport Taxi',
+        metaTitle: 'Ciampino to Fiumicino Airport Transfer',
+        metaDescription: 'Private taxi from Rome Ciampino (CIA) to Fiumicino (FCO) airport. About 40 km, 50–70 min, fixed price, flight monitoring and meet & greet, available 24/7.',
+        imageAlt: 'Private car transfer from Rome Ciampino to Rome Fiumicino airport',
+        hero_image: '/images/rome airport.webp',
+        distance: '~40 km', duration: '~50–70 min',
+        description: 'Private door-to-door transfer from Rome Ciampino (CIA) to Rome Fiumicino (FCO). With no direct train between the airports, a fixed-price car is the quickest and most reliable way to make an onward connection — especially when arriving on a low-cost flight and continuing long-haul from Fiumicino.',
+        highlights: ['Direct CIA to FCO airport transfer', 'Ideal after a low-cost arrival at Ciampino', 'Real-time flight monitoring', 'Meet & greet with luggage help', 'Fixed price — no meter', '24/7 availability'],
+        vehicleOptions: true,
+        sections: [
+            { h2: 'Overview', p: [
+                'Ciampino is Rome\'s smaller, second airport, a compact single-terminal hub southeast of the city used mainly by low-cost carriers. Many travellers land here on a cheap European flight and then need to reach Fiumicino — Rome\'s main intercontinental gateway on the opposite side of the city — to catch an onward long-haul or connecting departure.',
+                'There is no direct train between the two airports, so the public alternative means heading into central Rome and back out again with your luggage. A private transfer from Ciampino to Fiumicino replaces that with a single, direct, door-to-door ride in a comfortable vehicle.',
+            ]},
+            { h2: 'Why Pre-Book This Direction', p: [
+                'Arriving at Ciampino, you want to clear the terminal and get moving quickly, especially if a connecting flight is waiting at Fiumicino. Pre-booking guarantees a driver is ready and holding a name sign the moment you exit, rather than joining a taxi queue or working out bus and train connections after a late-night landing.',
+                'Because Ciampino handles a high share of early and late low-cost flights, this transfer is frequently needed at hours when public transport between the airports barely runs — another reason a pre-arranged car is the dependable choice.',
+            ]},
+            { h2: 'How Much Time to Allow', p: [
+                'If you are connecting onward from Fiumicino, leave a comfortable margin. Allow at least three to four hours between your scheduled Ciampino arrival and your Fiumicino departure to absorb any inbound delay, the cross-city drive and full check-in and security for a long-haul flight.',
+                'Share both flight numbers at the time of booking. We monitor your arrival and can flag whether the connection is realistic before your travel day.',
+            ]},
+            { h2: 'Journey and Route', p: [
+                'The drive covers roughly 40 km from Ciampino in the southeast to Fiumicino on the southwest coast, generally routed around the city on the GRA ring road. Expect 50 to 70 minutes in typical conditions, with weekday rush hours the slowest part of the day.',
+                'Your driver monitors live traffic and takes the quickest available route. With a fixed fare, any delays on the ring road never affect the price you agreed.',
+            ]},
+            { h2: 'Meet & Greet and Flight Monitoring', p: [
+                'Your driver meets you inside the Ciampino arrivals area with a name sign, assists with luggage and leads you to the car. Free waiting time is included so a slow bag delivery is never a problem.',
+                'We track your inbound flight and adjust the pickup automatically if it is early or delayed — valuable when you have a fixed check-in deadline waiting at Fiumicino.',
+            ]},
+            { h2: 'Vehicles and Groups', p: [
+                'From a private sedan for solo travellers and couples to a Mercedes V-Class or minibus for families and groups, we assign a vehicle sized to your party and luggage. Let us know passenger and bag counts when booking.',
+            ]},
+            { h2: 'Fixed Pricing and 24/7 Availability', p: [
+                'The price is fixed and confirmed in advance, with no meter and no hidden extras. Our service runs 24 hours a day, so whether your Ciampino flight lands at dawn or near midnight, a driver is available to take you straight to Fiumicino.',
+            ]},
+        ],
+        faqs: [
+            { q: 'How long does the Ciampino to Fiumicino transfer take?', a: 'The drive is about 40 km and typically takes 50 to 70 minutes around Rome on the GRA ring road, depending on traffic.' },
+            { q: 'Can I take a train directly between the airports?', a: 'No direct train exists. Public transport routes you through central Rome with connections, which is slow with luggage; a private car goes straight from one airport to the other.' },
+            { q: 'I land at Ciampino and fly long-haul from Fiumicino — how early should I arrive?', a: 'Allow three to four hours between flights so you have time for any delay, the cross-city drive, and long-haul check-in and security at Fiumicino.' },
+            { q: 'Will the driver wait if my Ciampino flight is late?', a: 'Yes. We monitor your flight and adjust the pickup, and free waiting time is included after landing.' },
+            { q: 'Is this available for very early or late flights?', a: 'Yes, we run 24/7, which suits the early and late low-cost flights that Ciampino is known for.' },
+            { q: 'Is the fare fixed?', a: 'Yes — agreed before travel with no meter, so traffic does not change the price.' },
+            { q: 'Can you accommodate a group with lots of luggage?', a: 'Yes, choose a minivan, Mercedes V-Class or minibus and tell us your numbers when booking.' },
+        ],
+    },
+    {
+        slug: 'florence-airport-to-pisa-airport-taxi',
+        from: 'Florence Airport', to: 'Pisa International Airport',
+        title: 'Florence Airport to Pisa Airport Taxi',
+        metaTitle: 'Florence to Pisa Airport Transfer (FLR–PSA)',
+        metaDescription: 'Private taxi from Florence Airport (FLR) to Pisa International (PSA). About 85 km, 1h10–1h30 via the FI-PI-LI, fixed price, flight monitoring, meet & greet.',
+        imageAlt: 'Private car transfer from Florence Airport to Pisa International Airport',
+        hero_image: '/images/florence airport.webp',
+        distance: '~85 km', duration: '~1 h 10–1 h 30',
+        description: 'Private door-to-door transfer from Florence Airport (FLR, Peretola) to Pisa International Airport (PSA, Galileo Galilei). A fixed-price car with a professional driver is the simplest way to connect Tuscany\'s two airports — direct on the expressway, with no train changes or luggage juggling.',
+        highlights: ['Direct FLR to PSA airport transfer', 'Connects Tuscany\'s two airports', 'Real-time flight monitoring', 'Meet & greet with luggage help', 'Fixed price — no meter', '24/7 availability'],
+        vehicleOptions: true,
+        sections: [
+            { h2: 'Overview', p: [
+                'Florence Airport (Amerigo Vespucci, FLR) and Pisa International Airport (Galileo Galilei, PSA) are the two gateways to Tuscany, about 85 km apart. Florence\'s airport is small and close to the city, while Pisa is larger with far more low-cost and full-service routes — so travellers regularly need to move between them.',
+                'A private transfer connects the two directly along the expressway, with a professional driver, luggage assistance and a fixed price. It avoids the multi-step public alternative, which involves a tram or bus into Florence, a train to Pisa Centrale and a further connection to the airport.',
+            ]},
+            { h2: 'Who Needs a Florence–Pisa Airport Transfer', p: [
+                'This route suits travellers whose inbound and onward flights use different Tuscan airports — for instance, arriving into Florence and flying out of Pisa on a low-cost carrier, or repositioning between the two for the widest choice of destinations. It is also used by tour groups and business travellers coordinating multi-city itineraries.',
+                'Because Pisa carries a much broader route network, many visitors deliberately fly out of PSA even when based near Florence, making a reliable FLR-to-PSA link a practical necessity.',
+            ]},
+            { h2: 'Journey and Route', p: [
+                'The transfer runs roughly 85 km, mostly along the FI-PI-LI expressway (the Firenze–Pisa–Livorno superstrada) or the A11 motorway, and typically takes between 1 hour 10 minutes and 1 hour 30 minutes depending on traffic and the exact airport approaches.',
+                'It is a straightforward, largely dual-carriageway drive, and your driver monitors live conditions to keep it as quick as possible. As the fare is fixed, any slow sections never add to the cost.',
+            ]},
+            { h2: 'How Much Time to Allow for a Connection', p: [
+                'Because this is a longer intercity drive rather than a short cross-city hop, leave a generous window for a same-day connection — ideally four to five hours between your scheduled arrival at one airport and your departure from the other. That covers reclaim, the drive of up to 90 minutes, and check-in and security at the second airport.',
+                'Send us both flight numbers when booking so we can monitor your arrival and advise on timing.',
+            ]},
+            { h2: 'Meet & Greet and Flight Monitoring', p: [
+                'Your driver meets you in the arrivals hall with a name sign, helps with your luggage and takes you straight to the vehicle. Free waiting time after landing covers passport control and baggage reclaim.',
+                'We track your inbound flight in real time and adjust the pickup for early or delayed arrivals — reassuring on a day when a connecting flight is waiting at the other airport.',
+            ]},
+            { h2: 'Vehicles, Luggage and Groups', p: [
+                'Whether you are travelling solo, as a couple or in a larger group, we match the vehicle to your needs — a comfortable sedan, a minivan or Mercedes V-Class for families, or a minibus for bigger parties. Tell us your passenger and luggage counts so everything fits.',
+            ]},
+            { h2: 'Fixed Pricing and 24/7 Service', p: [
+                'The price is fixed and agreed before you travel, with no meter and no hidden extras. We operate around the clock, so early-morning and late-night flights at either airport are covered — a real advantage over Tuscan public transport, which thins out significantly outside daytime hours.',
+            ]},
+        ],
+        faqs: [
+            { q: 'How far is Florence Airport from Pisa Airport?', a: 'About 85 km. The private transfer usually takes 1 hour 10 minutes to 1 hour 30 minutes via the FI-PI-LI expressway or the A11 motorway, depending on traffic.' },
+            { q: 'Is this different from a Florence to Pisa city transfer?', a: 'Yes. This route runs airport to airport (FLR to PSA). A Florence-to-Pisa city transfer goes to central Pisa or from central Florence, which are separate journeys.' },
+            { q: 'How much time should I allow between connecting flights?', a: 'Allow four to five hours between arrival at one airport and departure from the other, to cover baggage reclaim, the drive of up to 90 minutes, and check-in and security.' },
+            { q: 'Will you monitor my incoming flight?', a: 'Yes, we track it in real time and adjust the pickup if it is early or late, with free waiting time after landing.' },
+            { q: 'Why not just take the train?', a: 'The train involves a tram or bus into Florence, a service to Pisa Centrale and a further connection to the airport, all with luggage. A private transfer is a single direct ride.' },
+            { q: 'Is the fare fixed?', a: 'Yes — agreed in advance with no meter, so traffic on the expressway never changes the price.' },
+            { q: 'Can you take a group with luggage?', a: 'Yes. A minivan, Mercedes V-Class or minibus is available; just tell us passenger and bag numbers when booking.' },
+        ],
+    },
+    {
+        slug: 'pisa-airport-to-florence-airport-taxi',
+        from: 'Pisa International Airport', to: 'Florence Airport',
+        title: 'Pisa Airport to Florence Airport Taxi',
+        metaTitle: 'Pisa to Florence Airport Transfer (PSA–FLR)',
+        metaDescription: 'Private taxi from Pisa International Airport (PSA) to Florence Airport (FLR). About 85 km, 1h10–1h30, fixed price, flight monitoring and meet & greet, 24/7.',
+        imageAlt: 'Private car transfer from Pisa International Airport to Florence Airport',
+        hero_image: '/images/florence airport.webp',
+        distance: '~85 km', duration: '~1 h 10–1 h 30',
+        description: 'Private door-to-door transfer from Pisa International Airport (PSA) to Florence Airport (FLR, Peretola). When your inbound flight lands at Pisa but your onward flight leaves from Florence, a fixed-price car is the direct, comfortable way to connect Tuscany\'s two airports.',
+        highlights: ['Direct PSA to FLR airport transfer', 'Ideal after a low-cost arrival at Pisa', 'Real-time flight monitoring', 'Meet & greet with luggage help', 'Fixed price — no meter', '24/7 availability'],
+        vehicleOptions: true,
+        sections: [
+            { h2: 'Overview', p: [
+                'Pisa International (Galileo Galilei, PSA) is Tuscany\'s largest airport, handling the region\'s widest range of low-cost and full-service flights. Travellers frequently land here and then need to reach Florence Airport (Amerigo Vespucci, FLR), around 85 km to the east, to catch an onward or connecting departure.',
+                'A private transfer links the two directly, with a professional driver, luggage help and a fixed fare. It is far simpler than the public route, which requires a connection from Pisa airport to Pisa Centrale, a train to Florence, and then onward transport to the airport.',
+            ]},
+            { h2: 'Why Book This Direction in Advance', p: [
+                'Arriving at Pisa, particularly on a budget flight, you want a clear, pre-arranged plan to reach Florence Airport without improvising connections. Pre-booking means a driver is waiting with a name sign as you exit, ready to set off immediately — important when an onward flight schedule is fixed.',
+                'It is equally useful for travellers who found cheaper fares into Pisa but are flying home from Florence, tying the two ends of a trip together with one reliable transfer.',
+            ]},
+            { h2: 'Journey and Route', p: [
+                'The drive covers about 85 km, generally along the FI-PI-LI expressway or the A11 motorway, and takes roughly 1 hour 10 minutes to 1 hour 30 minutes. It is a mostly dual-carriageway route between the coast and Florence.',
+                'Your driver follows live traffic to keep the journey efficient, and because the price is fixed, any congestion never increases what you pay.',
+            ]},
+            { h2: 'How Much Time to Allow', p: [
+                'As with any intercity connection, build in a comfortable buffer. Four to five hours between your Pisa arrival and your Florence departure is a sensible target, covering baggage reclaim, a drive of up to 90 minutes, and check-in and security at Florence Airport.',
+                'Provide both flight numbers when you book so we can monitor your arrival and advise whether the connection is comfortable.',
+            ]},
+            { h2: 'Meet & Greet and Flight Monitoring', p: [
+                'Your driver meets you inside Pisa arrivals holding a name sign, assists with your bags and walks you to the vehicle, with free waiting time included after landing.',
+                'We track your inbound flight in real time and shift the pickup for early or late arrivals — one less thing to worry about when a Florence departure is waiting at the far end.',
+            ]},
+            { h2: 'Vehicles and Groups', p: [
+                'Choose from a private sedan, a minivan or Mercedes V-Class for families, or a minibus for larger groups. Share your passenger and luggage numbers at booking so the assigned vehicle has room for everyone and everything.',
+            ]},
+            { h2: 'Fixed Pricing and Round-the-Clock Service', p: [
+                'The fare is fixed and confirmed before travel, with no meter and no surprises on arrival. We run 24 hours a day, covering the early and late flights common at Pisa — hours when Tuscan trains and buses are sparse or not running.',
+            ]},
+        ],
+        faqs: [
+            { q: 'How long is the transfer from Pisa Airport to Florence Airport?', a: 'About 85 km, usually 1 hour 10 minutes to 1 hour 30 minutes via the FI-PI-LI expressway or the A11 motorway, traffic depending.' },
+            { q: 'Is this the same as a Pisa Airport to Florence city transfer?', a: 'No. This is an airport-to-airport transfer (PSA to FLR). A Pisa-to-Florence city transfer takes you to central Florence, which is a different destination.' },
+            { q: 'How much time should I leave between my flights?', a: 'Allow four to five hours between your Pisa arrival and Florence departure to cover reclaim, the drive of up to 90 minutes, and check-in and security.' },
+            { q: 'Do you track my arriving flight?', a: 'Yes, in real time — we adjust the pickup for early or delayed landings and include free waiting time.' },
+            { q: 'Why is a private transfer better than the train?', a: 'The train needs a connection from Pisa airport to Pisa Centrale, a service to Florence, and onward transport to the airport — several steps with luggage. A private car does it in one direct ride.' },
+            { q: 'Is the price fixed?', a: 'Yes — agreed before you travel with no meter, so traffic never changes the fare.' },
+            { q: 'Can you carry a family with luggage?', a: 'Yes; a minivan or Mercedes V-Class is ideal. Tell us the number of passengers and bags when booking.' },
+        ],
+    },
+
+    // ─── Phase 4: additional intercity routes (assembled in extra-routes.ts) ──
+    ...extraRoutes,
+    // ─── Phase 1: Rome airport → attraction pages (extra-routes-rome.ts) ──────
+    ...extraRoutesRome,
+    // ─── Phase 6 outlets + Phase 7 wine regions (extra-routes-tuscany.ts) ─────
+    ...extraRoutesTuscany,
+    // ─── Phase 5 day trips + Phase 2 cruise + Phase 3 stations (final) ────────
+    ...extraRoutesFinal,
 ];

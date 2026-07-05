@@ -2,6 +2,7 @@ import { MetadataRoute } from 'next';
 import { supabase } from '@/lib/supabase/client';
 import { getAllAirportHotelTransfers } from '@/lib/airport-hotel-data';
 import { getAllFlorenceTransfers } from '@/lib/florence-transfer-data';
+import { routes as pageRoutes } from '@/lib/page-data';
 import fs from 'fs';
 import path from 'path';
 
@@ -148,11 +149,30 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     changeFrequency: 'monthly' as const,
   }));
 
-  return [
+  // ── 6. Data-driven /route/[slug] pages (page-data.ts) ─────────────────────
+  // These are generated via generateStaticParams, so the filesystem walker in
+  // step 2 misses them — add them explicitly so every route page is indexed.
+  const routeEntries: MetadataRoute.Sitemap = pageRoutes.map((r) => ({
+    url: `${BASE_URL}/route/${r.slug}`,
+    lastModified: now,
+    priority: 0.9,
+    changeFrequency: 'weekly' as const,
+  }));
+
+  const combined = [
     ...staticEntries,
     ...dynamicEntries,
     ...blogEntries,
     ...airportHotelEntries,
     ...florenceEntries,
+    ...routeEntries,
   ];
+
+  // De-duplicate by URL (a data-driven route may also have a physical folder).
+  const seen = new Set<string>();
+  return combined.filter((e) => {
+    if (seen.has(e.url)) return false;
+    seen.add(e.url);
+    return true;
+  });
 }

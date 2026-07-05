@@ -119,7 +119,7 @@ export default async function AirportHotelTransferPage({ params }: { params: Pro
                     : `Fixed-price, door-to-door private transfer from ${airport.name} to ${hotel.name} in ${hotel.area}. ${airport.distance} · ${airport.duration} · meet & greet included.`}
                 backgroundImage="/images/rome airport.webp"
                 buttonText="Book Your Transfer"
-                buttonLink="/book-now/"
+                buttonLink="/book-now"
                 breadcrumbs={dep ? [
                     { name: 'Rome Hotel Transfers', item: '/services/hotel-transfers' },
                     { name: hotel.name, item: `/${slug}` },
@@ -154,8 +154,8 @@ export default async function AirportHotelTransferPage({ params }: { params: Pro
                         </div>
                     </div>
                     <div className="flex flex-wrap gap-4 mb-4">
-                        <Link href="/book-now/" className="inline-block bg-[#0F1C2E] text-white font-bold px-8 py-4 rounded-full hover:bg-gold hover:text-navy transition-all">Book Your Transfer</Link>
-                        <Link href="/book-now/" className="inline-block bg-gold text-navy font-bold px-8 py-4 rounded-full hover:bg-[#0F1C2E] hover:text-white transition-all">Get Instant Quote</Link>
+                        <Link href="/book-now" className="inline-block bg-[#0F1C2E] text-white font-bold px-8 py-4 rounded-full hover:bg-gold hover:text-navy transition-all">Book Your Transfer</Link>
+                        <Link href="/book-now" className="inline-block bg-gold text-navy font-bold px-8 py-4 rounded-full hover:bg-[#0F1C2E] hover:text-white transition-all">Get Instant Quote</Link>
                     </div>
 
                     {/* Overview */}
@@ -348,7 +348,7 @@ export default async function AirportHotelTransferPage({ params }: { params: Pro
                         <Link href="/services/cruise-port-transfers" className="flex items-center gap-2 text-gray-700 hover:text-gold font-medium"><ChevronRight className="w-4 h-4 text-gold" /> Civitavecchia Port Transfers</Link>
                     </div>
                     <div className="mt-10 text-center">
-                        <Link href="/book-now/" className="inline-block bg-[#0F1C2E] text-white font-bold px-10 py-4 rounded-full hover:bg-gold hover:text-navy transition-all">
+                        <Link href="/book-now" className="inline-block bg-[#0F1C2E] text-white font-bold px-10 py-4 rounded-full hover:bg-gold hover:text-navy transition-all">
                             Book Your {dep ? `${hotel.name} → ${airport.short}` : `${airport.short} → ${hotel.name}`} Transfer
                         </Link>
                     </div>

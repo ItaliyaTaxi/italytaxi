@@ -111,15 +111,9 @@ const JsonLd = () => {
     "description": "Premium private taxi and transfer services across Italy",
     "publisher": {
       "@id": "https://www.italytaxiservice.com/#organization"
-    },
-    "potentialAction": [{
-      "@type": "SearchAction",
-      "target": {
-        "@type": "EntryPoint",
-        "urlTemplate": "https://www.italytaxiservice.com/search?q={search_term_string}"
-      },
-      "query-input": "required name=search_term_string"
-    }]
+    }
+    // NOTE: SearchAction/sitelinks-searchbox removed — the site has no /search
+    // page, so the template URL (/search?q=…) was being crawled and 404ing.
   };
 
   const webpageSchema = {

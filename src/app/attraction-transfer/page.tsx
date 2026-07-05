@@ -83,7 +83,7 @@ export default function AttractionTransfersPage() {
                 <div className="mt-24 text-center">
                     <h3 className="text-2xl font-bold text-navy mb-6">Need a custom landmark route?</h3>
                     <p className="text-gray-600 mb-8 max-w-xl mx-auto">We provide transfers to any attraction across Italy. From the Dolomites to Sicily, we've got you covered.</p>
-                    <Link href="/contact/" className="inline-block text-gold font-bold border-b-2 border-gold pb-1 transition-all hover:text-navy hover:border-navy">
+                    <Link href="/contact" className="inline-block text-gold font-bold border-b-2 border-gold pb-1 transition-all hover:text-navy hover:border-navy">
                         Request Custom Route
                     </Link>
                 </div>
