@@ -284,6 +284,21 @@ export const airports: AirportData[] = [
             "Fixed pricing — lake routes included",
             "24/7 service for all Verona Airport departures"
         ]
+    },
+    {
+        slug: "bergamo",
+        name: "Milan Bergamo Airport (Orio al Serio)",
+        code: "BGY",
+        city: "Milan / Bergamo",
+        hero_image: "/images/milan airport.jpg",
+        description: "Milan Bergamo Airport (BGY), officially Orio al Serio, is northern Italy's largest low-cost hub, about 50 km northeast of Milan beside the historic city of Bergamo. With no direct rail link into central Milan, a private transfer is the most comfortable, door-to-door way to reach Milan, Bergamo's Città Alta, the lakes or the ski resorts — at a fixed price with luggage help and flight monitoring.",
+        features: [
+            "BGY to central Milan in about 55–65 minutes",
+            "Door-to-door alternative to the Milan coach",
+            "Transfers to Bergamo Città Alta, Lake Como and Lake Iseo",
+            "Meet & greet with flight monitoring",
+            "Fixed pricing — 24/7 for early and late low-cost flights"
+        ]
     }
 ];
 

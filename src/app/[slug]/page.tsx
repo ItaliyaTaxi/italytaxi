@@ -13,6 +13,8 @@ import {
     findAirportHotelTransfer,
     romeHotels,
 } from '@/lib/airport-hotel-data';
+import { getAllMilanTransfers, findMilanTransfer } from '@/lib/milan-transfer-data';
+import MilanTransferContent from '@/components/MilanTransferContent';
 
 const SITE = 'https://www.italytaxiservice.com';
 
@@ -20,13 +22,39 @@ const SITE = 'https://www.italytaxiservice.com';
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-    return getAllAirportHotelTransfers().map((t) => ({ slug: t.slug }));
+    return [
+        ...getAllAirportHotelTransfers().map((t) => ({ slug: t.slug })),
+        ...getAllMilanTransfers().map((t) => ({ slug: t.slug })),
+    ];
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
     const { slug } = await params;
     const t = findAirportHotelTransfer(slug);
-    if (!t) return { title: 'Page Not Found' };
+    if (!t) {
+        const m = findMilanTransfer(slug);
+        if (m) {
+            const dep = m.direction === 'hotel-to-airport';
+            const title = dep
+                ? `${m.hotel.name} to ${m.airport.short} Airport Transfer`
+                : `${m.airport.short} Airport to ${m.hotel.name} Transfer`;
+            const description = dep
+                ? `Private departure transfer from the ${m.hotel.name} (${m.hotel.district}) to ${m.airport.name}. Fixed price, on-time pickup, ${m.leg.duration} (${m.leg.distance}), luggage assistance.`
+                : `Private transfer from ${m.airport.name} to the ${m.hotel.name} (${m.hotel.district}). Fixed price, ${m.leg.duration} (${m.leg.distance}), meet & greet and flight monitoring.`;
+            const shortTitle = dep ? `${m.hotel.name} to ${m.airport.short} Transfer` : `${m.airport.short} to ${m.hotel.name} Transfer`;
+            return {
+                title: title.length > 60 ? shortTitle : title,
+                description: description.slice(0, 160),
+                alternates: { canonical: `/${slug}` },
+                openGraph: {
+                    title, description, url: `${SITE}/${slug}`, type: 'website',
+                    images: [{ url: `${SITE}/images/milan airport.jpg`, width: 1200, height: 630, alt: `${m.hotel.name} ${m.airport.name} private transfer` }],
+                },
+                twitter: { card: 'summary_large_image', title, description },
+            };
+        }
+        return { title: 'Page Not Found' };
+    }
     const dep = t.direction === 'hotel-to-airport';
     const title = dep
         ? `${t.hotel.name} to ${t.airport.short} Airport Transfer`
@@ -50,7 +78,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default async function AirportHotelTransferPage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
     const t = findAirportHotelTransfer(slug);
-    if (!t) notFound();
+    if (!t) {
+        const m = findMilanTransfer(slug);
+        if (m) return <MilanTransferContent combo={m} />;
+        notFound();
+    }
 
     const { airport, hotel, direction } = t;
     const dep = direction === 'hotel-to-airport';
