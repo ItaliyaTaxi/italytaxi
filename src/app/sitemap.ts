@@ -4,6 +4,7 @@ import { getAllAirportHotelTransfers } from '@/lib/airport-hotel-data';
 import { getAllFlorenceTransfers } from '@/lib/florence-transfer-data';
 import { routes as pageRoutes } from '@/lib/page-data';
 import { getAllMilanTransfers } from '@/lib/milan-transfer-data';
+import { getAllVenetoTransfers } from '@/lib/veneto-transfer-data';
 import fs from 'fs';
 import path from 'path';
 
@@ -168,6 +169,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     changeFrequency: 'monthly' as const,
   }));
 
+  // ── 8. Programmatic Venice/Verona (Veneto) airport ⇄ destination pages ────
+  const venetoEntries: MetadataRoute.Sitemap = getAllVenetoTransfers().map((t) => ({
+    url: `${BASE_URL}/${t.slug}`,
+    lastModified: now,
+    priority: 0.8,
+    changeFrequency: 'monthly' as const,
+  }));
+
   const combined = [
     ...staticEntries,
     ...dynamicEntries,
@@ -176,6 +185,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...florenceEntries,
     ...routeEntries,
     ...milanEntries,
+    ...venetoEntries,
   ];
 
   // De-duplicate by URL (a data-driven route may also have a physical folder).

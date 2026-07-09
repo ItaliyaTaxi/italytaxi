@@ -299,6 +299,21 @@ export const airports: AirportData[] = [
             "Meet & greet with flight monitoring",
             "Fixed pricing — 24/7 for early and late low-cost flights"
         ]
+    },
+    {
+        slug: "treviso",
+        name: "Treviso Airport (Antonio Canova)",
+        code: "TSF",
+        city: "Treviso / Venice",
+        hero_image: "/images/venice airport.webp",
+        description: "Treviso Airport (TSF, Antonio Canova) is Venice's second airport and a busy low-cost hub, about 3 km from Treviso city and roughly 40 km from Venice. Used by carriers such as Ryanair and Wizz Air, it has no direct rail link, so a private transfer is the most comfortable, door-to-door way to reach Venice, Treviso, the Veneto cities or the Dolomites — at a fixed price with luggage help and flight monitoring.",
+        features: [
+            "TSF to Treviso city in about 15 minutes",
+            "Door-to-door transfers to Venice (Piazzale Roma) in ~45–55 minutes",
+            "Connections to Padua, Vicenza, Cortina and the Prosecco hills",
+            "Meet & greet with real-time flight monitoring",
+            "Fixed pricing — 24/7 for early and late low-cost flights"
+        ]
     }
 ];
 

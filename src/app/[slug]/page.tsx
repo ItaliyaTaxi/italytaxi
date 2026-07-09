@@ -15,6 +15,8 @@ import {
 } from '@/lib/airport-hotel-data';
 import { getAllMilanTransfers, findMilanTransfer } from '@/lib/milan-transfer-data';
 import MilanTransferContent from '@/components/MilanTransferContent';
+import { getAllVenetoTransfers, findVenetoTransfer } from '@/lib/veneto-transfer-data';
+import VenetoTransferContent from '@/components/VenetoTransferContent';
 
 const SITE = 'https://www.italytaxiservice.com';
 
@@ -25,6 +27,7 @@ export function generateStaticParams() {
     return [
         ...getAllAirportHotelTransfers().map((t) => ({ slug: t.slug })),
         ...getAllMilanTransfers().map((t) => ({ slug: t.slug })),
+        ...getAllVenetoTransfers().map((t) => ({ slug: t.slug })),
     ];
 }
 
@@ -51,6 +54,27 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
                     images: [{ url: `${SITE}/images/milan airport.jpg`, width: 1200, height: 630, alt: `${m.hotel.name} ${m.airport.name} private transfer` }],
                 },
                 twitter: { card: 'summary_large_image', title, description },
+            };
+        }
+        const v = findVenetoTransfer(slug);
+        if (v) {
+            const vdep = v.direction === 'dest-to-airport';
+            const vtitle = vdep
+                ? `${v.dest.name} to ${v.airport.short} Airport Transfer`
+                : `${v.airport.short} Airport to ${v.dest.name} Transfer`;
+            const vdescription = vdep
+                ? `Private departure transfer from ${v.dest.name} (${v.dest.area}) to ${v.airport.name}. Fixed price, on-time pickup, ${v.leg.duration} (${v.leg.distance}), professional drivers — book online.`
+                : `Private transfer from ${v.airport.name} to ${v.dest.name} (${v.dest.area}). Fixed price, ${v.leg.duration} (${v.leg.distance}), meet & greet, professional drivers — book online.`;
+            const vshortTitle = vdep ? `${v.dest.name} to ${v.airport.short} Transfer` : `${v.airport.short} to ${v.dest.name} Transfer`;
+            return {
+                title: vtitle.length > 60 ? vshortTitle : vtitle,
+                description: vdescription.slice(0, 160),
+                alternates: { canonical: `/${slug}` },
+                openGraph: {
+                    title: vtitle, description: vdescription, url: `${SITE}/${slug}`, type: 'website',
+                    images: [{ url: `${SITE}/images/venice airport.webp`, width: 1200, height: 630, alt: `${v.dest.name} ${v.airport.name} private transfer` }],
+                },
+                twitter: { card: 'summary_large_image', title: vtitle, description: vdescription },
             };
         }
         return { title: 'Page Not Found' };
@@ -81,6 +105,8 @@ export default async function AirportHotelTransferPage({ params }: { params: Pro
     if (!t) {
         const m = findMilanTransfer(slug);
         if (m) return <MilanTransferContent combo={m} />;
+        const v = findVenetoTransfer(slug);
+        if (v) return <VenetoTransferContent combo={v} />;
         notFound();
     }
 
