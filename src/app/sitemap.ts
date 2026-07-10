@@ -5,6 +5,7 @@ import { getAllFlorenceTransfers } from '@/lib/florence-transfer-data';
 import { routes as pageRoutes } from '@/lib/page-data';
 import { getAllMilanTransfers } from '@/lib/milan-transfer-data';
 import { getAllVenetoTransfers } from '@/lib/veneto-transfer-data';
+import { getAllCrossBorderTransfers } from '@/lib/cross-border-data';
 import fs from 'fs';
 import path from 'path';
 
@@ -177,6 +178,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     changeFrequency: 'monthly' as const,
   }));
 
+  // ── 9. Programmatic Italy cross-border transfer pages (root-level slugs) ───
+  const crossBorderEntries: MetadataRoute.Sitemap = getAllCrossBorderTransfers().map((t) => ({
+    url: `${BASE_URL}/${t.slug}`,
+    lastModified: now,
+    priority: 0.8,
+    changeFrequency: 'monthly' as const,
+  }));
+
   const combined = [
     ...staticEntries,
     ...dynamicEntries,
@@ -186,6 +195,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...routeEntries,
     ...milanEntries,
     ...venetoEntries,
+    ...crossBorderEntries,
   ];
 
   // De-duplicate by URL (a data-driven route may also have a physical folder).

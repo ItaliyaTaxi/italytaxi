@@ -17,6 +17,8 @@ import { getAllMilanTransfers, findMilanTransfer } from '@/lib/milan-transfer-da
 import MilanTransferContent from '@/components/MilanTransferContent';
 import { getAllVenetoTransfers, findVenetoTransfer } from '@/lib/veneto-transfer-data';
 import VenetoTransferContent from '@/components/VenetoTransferContent';
+import { getAllCrossBorderTransfers, findCrossBorderTransfer, countries } from '@/lib/cross-border-data';
+import CrossBorderContent from '@/components/CrossBorderContent';
 
 const SITE = 'https://www.italytaxiservice.com';
 
@@ -28,6 +30,7 @@ export function generateStaticParams() {
         ...getAllAirportHotelTransfers().map((t) => ({ slug: t.slug })),
         ...getAllMilanTransfers().map((t) => ({ slug: t.slug })),
         ...getAllVenetoTransfers().map((t) => ({ slug: t.slug })),
+        ...getAllCrossBorderTransfers().map((t) => ({ slug: t.slug })),
     ];
 }
 
@@ -77,6 +80,22 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
                 twitter: { card: 'summary_large_image', title: vtitle, description: vdescription },
             };
         }
+        const cb = findCrossBorderTransfer(slug);
+        if (cb) {
+            const country = countries[cb.route.countryCode];
+            const cbtitle = `${cb.origin} to ${cb.dest} Private Transfer`;
+            const cbdescription = `Private ${cb.origin} to ${cb.dest} transfer (Italy–${country.name}). Fixed price, professional chauffeur, door-to-door, ${cb.route.duration}. Book online.`;
+            return {
+                title: cbtitle.length > 60 ? `${cb.origin} to ${cb.dest} Transfer` : cbtitle,
+                description: cbdescription.slice(0, 160),
+                alternates: { canonical: `/${slug}` },
+                openGraph: {
+                    title: cbtitle, description: cbdescription, url: `${SITE}/${slug}`, type: 'website',
+                    images: [{ url: `${SITE}/images/hero.webp`, width: 1200, height: 630, alt: `${cb.origin} to ${cb.dest} private cross-border transfer` }],
+                },
+                twitter: { card: 'summary_large_image', title: cbtitle, description: cbdescription },
+            };
+        }
         return { title: 'Page Not Found' };
     }
     const dep = t.direction === 'hotel-to-airport';
@@ -107,6 +126,8 @@ export default async function AirportHotelTransferPage({ params }: { params: Pro
         if (m) return <MilanTransferContent combo={m} />;
         const v = findVenetoTransfer(slug);
         if (v) return <VenetoTransferContent combo={v} />;
+        const cb = findCrossBorderTransfer(slug);
+        if (cb) return <CrossBorderContent combo={cb} />;
         notFound();
     }
 
