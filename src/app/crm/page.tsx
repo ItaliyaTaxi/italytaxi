@@ -13,6 +13,7 @@ export default function CRMPage() {
     const [bookings, setBookings] = useState<any[]>([]);
     const [contacts, setContacts] = useState<any[]>([]);
     const [activeTab, setActiveTab] = useState<'bookings' | 'contacts' | 'invoices' | 'drivers'>('bookings');
+    const [statusFilter, setStatusFilter] = useState<'all' | 'pending' | 'confirmed' | 'cancelled'>('all');
     const [invoicePrefill, setInvoicePrefill] = useState<InvoicePrefill | null>(null);
     const [dispatchBooking, setDispatchBooking] = useState<any | null>(null);
     const [loading, setLoading] = useState(true);
@@ -139,6 +140,11 @@ export default function CRMPage() {
         confirmed: bookings.filter(b => b.status === 'confirmed').length,
         cancelled: bookings.filter(b => b.status === 'cancelled').length,
     };
+
+    // Bookings shown in the table, filtered by the selected status card.
+    const visibleBookings = statusFilter === 'all'
+        ? bookings
+        : bookings.filter(b => b.status === statusFilter);
 
     return (
         <div className="flex min-h-screen bg-[#F8FAFC]">
@@ -405,7 +411,8 @@ export default function CRMPage() {
                     {/* Analytics Summary — only on bookings tab */}
                     {activeTab === 'bookings' && (
                         <div className="grid grid-cols-4 gap-8 mb-16">
-                            <div className="bg-white p-8 rounded-[2.5rem] border border-gray-100 shadow-sm shadow-navy/5 flex flex-col justify-between">
+                            <button type="button" onClick={() => setStatusFilter('all')}
+                                className={`text-left bg-white p-8 rounded-[2.5rem] border shadow-sm shadow-navy/5 flex flex-col justify-between transition-all hover:shadow-md cursor-pointer ${statusFilter === 'all' ? 'border-navy ring-2 ring-navy/20' : 'border-gray-100'}`}>
                                 <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4">Total Reservations</div>
                                 <div className="flex items-end justify-between">
                                     <span className="text-5xl font-black text-navy">{stats.total}</span>
@@ -413,8 +420,9 @@ export default function CRMPage() {
                                         <span className="text-xl">📊</span>
                                     </div>
                                 </div>
-                            </div>
-                            <div className="bg-white p-8 rounded-[2.5rem] border border-gray-100 shadow-sm shadow-navy/5 flex flex-col justify-between">
+                            </button>
+                            <button type="button" onClick={() => setStatusFilter('pending')}
+                                className={`text-left bg-white p-8 rounded-[2.5rem] border shadow-sm shadow-navy/5 flex flex-col justify-between transition-all hover:shadow-md cursor-pointer ${statusFilter === 'pending' ? 'border-yellow-400 ring-2 ring-yellow-200' : 'border-gray-100'}`}>
                                 <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4 italic">Pending Verification</div>
                                 <div className="flex items-end justify-between">
                                     <span className="text-5xl font-black text-yellow-600">{stats.pending}</span>
@@ -422,8 +430,9 @@ export default function CRMPage() {
                                         <span className="text-xl text-yellow-500">⏳</span>
                                     </div>
                                 </div>
-                            </div>
-                            <div className="bg-white p-8 rounded-[2.5rem] border border-gray-100 shadow-sm shadow-navy/5 flex flex-col justify-between">
+                            </button>
+                            <button type="button" onClick={() => setStatusFilter('confirmed')}
+                                className={`text-left bg-white p-8 rounded-[2.5rem] border shadow-sm shadow-navy/5 flex flex-col justify-between transition-all hover:shadow-md cursor-pointer ${statusFilter === 'confirmed' ? 'border-green-400 ring-2 ring-green-200' : 'border-gray-100'}`}>
                                 <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4">Confirmed Rides</div>
                                 <div className="flex items-end justify-between">
                                     <span className="text-5xl font-black text-green-600">{stats.confirmed}</span>
@@ -431,8 +440,9 @@ export default function CRMPage() {
                                         <span className="text-xl text-green-500">✅</span>
                                     </div>
                                 </div>
-                            </div>
-                            <div className="bg-white p-8 rounded-[2.5rem] border border-gray-100 shadow-sm shadow-navy/5 flex flex-col justify-between">
+                            </button>
+                            <button type="button" onClick={() => setStatusFilter('cancelled')}
+                                className={`text-left bg-white p-8 rounded-[2.5rem] border shadow-sm shadow-navy/5 flex flex-col justify-between transition-all hover:shadow-md cursor-pointer ${statusFilter === 'cancelled' ? 'border-red-400 ring-2 ring-red-200' : 'border-gray-100'}`}>
                                 <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4">Cancelled / Lost</div>
                                 <div className="flex items-end justify-between">
                                     <span className="text-5xl font-black text-red-600">{stats.cancelled}</span>
@@ -440,7 +450,7 @@ export default function CRMPage() {
                                         <span className="text-xl text-red-500">❌</span>
                                     </div>
                                 </div>
-                            </div>
+                            </button>
                         </div>
                     )}
 
@@ -453,9 +463,14 @@ export default function CRMPage() {
                     /* Table Section */
                     <div className="bg-white rounded-[3rem] shadow-2xl shadow-navy/10 border border-gray-100 overflow-hidden">
                         <div className="p-8 border-b border-gray-50 flex justify-between items-center bg-gray-50/50">
-                            <h3 className="text-lg font-bold text-navy flex items-center gap-3">
-                                {activeTab === 'bookings' ? 'Recent Activity Log' : 'Contact Messages'}
+                            <h3 className="text-lg font-bold text-navy flex items-center gap-3 flex-wrap">
+                                {activeTab === 'bookings'
+                                    ? (statusFilter === 'all' ? 'Recent Activity Log' : `${statusFilter.charAt(0).toUpperCase() + statusFilter.slice(1)} Bookings`)
+                                    : 'Contact Messages'}
                                 <span className="text-[10px] bg-navy text-white px-3 py-1 rounded-full uppercase tracking-widest font-bold">Real-time</span>
+                                {activeTab === 'bookings' && statusFilter !== 'all' && (
+                                    <button type="button" onClick={() => setStatusFilter('all')} className="text-[10px] font-bold text-gold uppercase tracking-widest border-b border-gold hover:text-navy hover:border-navy transition-all">Show all</button>
+                                )}
                             </h3>
                             <button
                                 onClick={() => router.refresh()}
@@ -472,10 +487,15 @@ export default function CRMPage() {
                                     <p className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.5em] animate-pulse">Syncing Database Assets...</p>
                                 </div>
                             ) : activeTab === 'bookings' ? (
-                                bookings.length === 0 ? (
+                                visibleBookings.length === 0 ? (
                                     <div className="flex flex-col items-center justify-center pt-32 gap-4">
                                         <span className="text-6xl">📥</span>
-                                        <p className="text-sm font-bold text-navy opacity-30 uppercase tracking-widest">No booking records found.</p>
+                                        <p className="text-sm font-bold text-navy opacity-30 uppercase tracking-widest">
+                                            {statusFilter === 'all' ? 'No booking records found.' : `No ${statusFilter} bookings.`}
+                                        </p>
+                                        {statusFilter !== 'all' && (
+                                            <button type="button" onClick={() => setStatusFilter('all')} className="text-[10px] font-bold text-gold uppercase tracking-widest border-b border-gold hover:text-navy transition-all">Show all bookings</button>
+                                        )}
                                     </div>
                                 ) : (
                                     <table className="w-full text-left">
@@ -492,7 +512,7 @@ export default function CRMPage() {
                                             </tr>
                                         </thead>
                                         <tbody className="divide-y divide-gray-50">
-                                            {bookings.map((booking) => (
+                                            {visibleBookings.map((booking) => (
                                                 <tr key={booking.id} className="hover:bg-[#F8FAFC]/80 transition-all duration-300 group">
                                                     <td className="px-10 py-8">
                                                         <div className="font-black text-navy text-lg mb-1 leading-none">{booking.full_name}</div>
