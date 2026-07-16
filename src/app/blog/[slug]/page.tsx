@@ -16,8 +16,21 @@ const getBlog = cache(async (slug: string) => {
     .select('*, bloggers(*)')
     .eq('slug', slug)
     .eq('status', 'published')
+    .eq('language', 'en')
     .single();
   return data;
+});
+
+/** Slug of the Italian translation of this English post, if one is published. */
+const getItalianTranslationSlug = cache(async (enSlug: string): Promise<string | null> => {
+  const { data } = await supabase
+    .from('blogs')
+    .select('slug')
+    .eq('translation_of', enSlug)
+    .eq('language', 'it')
+    .eq('status', 'published')
+    .maybeSingle();
+  return data?.slug ?? null;
 });
 
 export async function generateMetadata({ params }: any): Promise<Metadata> {
@@ -25,10 +38,15 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
   const blog = await getBlog(slug);
   if (!blog) return { title: 'Article Not Found' };
 
+  // hreflang: point at the Italian twin when it exists.
+  const itSlug = await getItalianTranslationSlug(slug);
+  const languages: Record<string, string> = { 'en': `/blog/${slug}` };
+  if (itSlug) languages['it-IT'] = `/it/blog/${itSlug}`;
+
   return {
     title: blog.seo_title || blog.title,
     description: blog.seo_description || blog.excerpt,
-    alternates: { canonical: `/blog/${slug}` },
+    alternates: { canonical: `/blog/${slug}`, languages },
     openGraph: {
       title: blog.seo_title || blog.title,
       description: blog.seo_description || blog.excerpt || '',
@@ -446,6 +464,7 @@ async function RelatedPosts({ currentSlug, category }: { currentSlug: string; ca
     .from('blogs')
     .select('id, title, slug, excerpt, featured_image_url, category, published_at, read_time')
     .eq('status', 'published')
+    .eq('language', 'en')
     .neq('slug', currentSlug)
     .order('published_at', { ascending: false })
     .limit(3);

@@ -28,6 +28,7 @@ export default function KnowledgeHubSection() {
                     .from('blogs')
                     .select('*')
                     .eq('status', 'published')
+                    .eq('language', 'en')
                     .order('published_at', { ascending: false })
                     .limit(3);
 

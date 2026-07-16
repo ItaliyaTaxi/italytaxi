@@ -22,6 +22,7 @@ export default async function BlogPage() {
     .from('blogs')
     .select('*')
     .eq('status', 'published')
+    .eq('language', 'en')
     .order('published_at', { ascending: false });
 
   const blogFaqs = [

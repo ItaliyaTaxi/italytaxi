@@ -122,12 +122,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   try {
     const { data: blogs, error } = await supabase
       .from('blogs')
-      .select('slug, updated_at')
+      .select('slug, updated_at, language')
       .eq('status', 'published');
 
     if (!error && blogs) {
+      // English posts live at /blog/<slug>; Italian translations at /it/blog/<slug>.
       blogEntries = blogs.map((blog) => ({
-        url: `${BASE_URL}/blog/${blog.slug}`,
+        url: `${BASE_URL}${blog.language === 'it' ? '/it/blog/' : '/blog/'}${blog.slug}`,
         lastModified: blog.updated_at ? new Date(blog.updated_at) : now,
         ...routeConfig('/blog/'),
       }));
