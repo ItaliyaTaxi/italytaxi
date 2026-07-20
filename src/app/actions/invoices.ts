@@ -7,8 +7,10 @@ import { sendEmail } from '@/lib/mailer';
 import {
     Invoice,
     ReceiptFile,
+    LineItem,
     buildInvoiceEmailHtml,
     getReceiptList,
+    lineItemsTotal,
     COMPANY_NAME,
 } from '@/lib/invoice';
 
@@ -45,6 +47,25 @@ function field(formData: FormData, key: string): string | null {
     if (v === null || typeof v !== 'string') return null;
     const trimmed = v.trim();
     return trimmed === '' ? null : trimmed;
+}
+
+/** Parses the `line_items` field (JSON array serialized by the CRM form). */
+function parseLineItems(formData: FormData): LineItem[] {
+    const raw = field(formData, 'line_items');
+    if (!raw) return [];
+    try {
+        const parsed = JSON.parse(raw);
+        if (!Array.isArray(parsed)) return [];
+        return parsed
+            .filter((i): i is LineItem => !!i && typeof i.description === 'string' && i.description.trim() !== '')
+            .map(i => ({
+                description: i.description.trim(),
+                note: typeof i.note === 'string' && i.note.trim() ? i.note.trim() : undefined,
+                amount: Number(i.amount) || 0,
+            }));
+    } catch {
+        return [];
+    }
 }
 
 /**
@@ -121,6 +142,7 @@ export async function createInvoiceAction(formData: FormData): Promise<Invoice> 
     const publicToken = randomBytes(16).toString('hex');
 
     const uploaded = await uploadReceiptFiles(supabase, invoiceNumber, formData);
+    const lineItems = parseLineItems(formData);
 
     const record = {
         invoice_number: invoiceNumber,
@@ -132,10 +154,17 @@ export async function createInvoiceAction(formData: FormData): Promise<Invoice> 
         pickup_location: field(formData, 'pickup_location'),
         dropoff_location: field(formData, 'dropoff_location'),
         booking_datetime: bookingDateTime(formData),
-        amount: Number(field(formData, 'amount') || 0),
+        passengers: field(formData, 'passengers') ? Number(field(formData, 'passengers')) : null,
+        luggage: field(formData, 'luggage'),
+        flight_no: field(formData, 'flight_no'),
+        trip_type: field(formData, 'trip_type'),
+        line_items: lineItems,
+        amount: lineItemsTotal(lineItems),
         currency: field(formData, 'currency') || 'EUR',
         payment_method: field(formData, 'payment_method'),
         payment_status: field(formData, 'payment_status') || 'paid',
+        ref_token: field(formData, 'ref_token'),
+        payment_date: field(formData, 'payment_date'),
         notes: field(formData, 'notes'),
         booking_id: field(formData, 'booking_id'),
         receipt_files: uploaded,
@@ -165,6 +194,8 @@ export async function updateInvoiceAction(id: string, formData: FormData): Promi
         .from('invoices').select('*').eq('id', id).single();
     if (loadErr || !existing) throw new Error('Invoice not found.');
 
+    const lineItems = parseLineItems(formData);
+
     const update: Record<string, unknown> = {
         doc_type: field(formData, 'doc_type') || 'invoice',
         client_name: clientName,
@@ -173,10 +204,17 @@ export async function updateInvoiceAction(id: string, formData: FormData): Promi
         pickup_location: field(formData, 'pickup_location'),
         dropoff_location: field(formData, 'dropoff_location'),
         booking_datetime: bookingDateTime(formData),
-        amount: Number(field(formData, 'amount') || 0),
+        passengers: field(formData, 'passengers') ? Number(field(formData, 'passengers')) : null,
+        luggage: field(formData, 'luggage'),
+        flight_no: field(formData, 'flight_no'),
+        trip_type: field(formData, 'trip_type'),
+        line_items: lineItems,
+        amount: lineItemsTotal(lineItems),
         currency: field(formData, 'currency') || 'EUR',
         payment_method: field(formData, 'payment_method'),
         payment_status: field(formData, 'payment_status') || 'paid',
+        ref_token: field(formData, 'ref_token'),
+        payment_date: field(formData, 'payment_date'),
         notes: field(formData, 'notes'),
     };
 

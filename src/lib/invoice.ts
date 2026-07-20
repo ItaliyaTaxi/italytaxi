@@ -6,6 +6,12 @@ export interface ReceiptFile {
     filename: string;
 }
 
+export interface LineItem {
+    description: string;
+    note?: string;
+    amount: number;
+}
+
 export interface Invoice {
     id: string;
     invoice_number: string;
@@ -17,10 +23,17 @@ export interface Invoice {
     pickup_location: string | null;
     dropoff_location: string | null;
     booking_datetime: string | null;
+    passengers: number | null;
+    luggage: string | null;
+    flight_no: string | null;
+    trip_type: string | null;
+    line_items: LineItem[] | null;
     amount: number;
     currency: string;
     payment_method: string | null;
     payment_status: 'paid' | 'unpaid' | 'partial' | 'refunded';
+    ref_token: string | null;
+    payment_date: string | null;
     notes: string | null;
     receipt_files: ReceiptFile[] | null;
     receipt_path: string | null;      // legacy single-file (back-compat)
@@ -33,9 +46,26 @@ export interface Invoice {
 }
 
 export const SITE_URL = 'https://www.italytaxiservice.com';
-export const COMPANY_NAME = 'Italy Taxi Service';
+export const COMPANY_NAME = 'ItaliaRide';
 export const COMPANY_EMAIL = 'italytaxiservicee@gmail.com';
-export const COMPANY_TAGLINE = 'Premium Transfers Across Italy';
+export const COMPANY_TAGLINE = 'Luxury Chauffeur Service';
+export const COMPANY_LOGO_URL = `${SITE_URL}/images/logo.png`;
+
+/** Normalizes an invoice's line items, synthesizing one from legacy amount/notes if empty. */
+export function getLineItems(inv: Pick<Invoice, 'line_items' | 'amount' | 'notes'>): LineItem[] {
+    const items = Array.isArray(inv.line_items)
+        ? inv.line_items.filter((i): i is LineItem => !!i && typeof i.description === 'string')
+        : [];
+    if (items.length > 0) return items;
+    if (Number(inv.amount) > 0) {
+        return [{ description: inv.notes?.trim() || 'Private chauffeur transfer', amount: Number(inv.amount) }];
+    }
+    return [];
+}
+
+export function lineItemsTotal(items: LineItem[]): number {
+    return items.reduce((sum, i) => sum + (Number(i.amount) || 0), 0);
+}
 
 const CURRENCY_SYMBOLS: Record<string, string> = {
     EUR: '€',
@@ -132,6 +162,10 @@ export function buildInvoiceEmailHtml(invoice: Invoice, customMessage?: string):
         invoice.pickup_location ? row('Pickup', invoice.pickup_location) : '',
         invoice.dropoff_location ? row('Drop-off', invoice.dropoff_location) : '',
         invoice.booking_datetime ? row('Date &amp; Time', formatDateTime(invoice.booking_datetime)) : '',
+        invoice.flight_no ? row('Flight No', invoice.flight_no) : '',
+        invoice.trip_type ? row('Trip Type', invoice.trip_type) : '',
+        invoice.passengers != null ? row('Passengers', String(invoice.passengers)) : '',
+        invoice.luggage ? row('Luggage', invoice.luggage) : '',
     ].join('');
 
     const messageBlock = customMessage && customMessage.trim()
@@ -141,7 +175,8 @@ export function buildInvoiceEmailHtml(invoice: Invoice, customMessage?: string):
 
     return `
     <div style="font-family:Arial,sans-serif;max-width:620px;margin:0 auto;background:#f4f5f7;padding:0">
-        <div style="background:${NAVY};padding:32px;text-align:center;border-radius:12px 12px 0 0">
+        <div style="background:${NAVY};padding:28px 32px;text-align:center;border-radius:12px 12px 0 0">
+            <img src="${COMPANY_LOGO_URL}" alt="${COMPANY_NAME}" width="72" height="72" style="display:block;margin:0 auto 8px;height:72px;width:auto" />
             <h1 style="color:${GOLD};margin:0;font-size:24px;letter-spacing:-0.5px">${COMPANY_NAME}</h1>
             <p style="color:#ffffff99;font-size:11px;margin:8px 0 0;letter-spacing:2px;text-transform:uppercase">${COMPANY_TAGLINE}</p>
         </div>
@@ -160,6 +195,8 @@ export function buildInvoiceEmailHtml(invoice: Invoice, customMessage?: string):
                     ${row('Issued', formatDate(invoice.created_at))}
                     ${tripRows}
                     ${invoice.payment_method ? row('Payment Method', invoice.payment_method) : ''}
+                    ${invoice.ref_token ? row('Ref Token', invoice.ref_token) : ''}
+                    ${invoice.payment_date ? row('Payment Date', formatDate(invoice.payment_date)) : ''}
                 </table>
                 <hr style="border:none;border-top:1px solid #eee;margin:18px 0">
                 <table style="border-collapse:collapse;width:100%">

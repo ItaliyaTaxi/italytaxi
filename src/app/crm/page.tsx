@@ -106,6 +106,8 @@ export default function CRMPage() {
             pickup_location: booking.pickup_location || '',
             dropoff_location: booking.dropoff_location || '',
             booking_datetime: booking.booking_datetime || '',
+            passengers: booking.passengers ?? undefined,
+            luggage: booking.luggage || '',
             booking_id: booking.id,
         });
         setActiveTab('invoices');

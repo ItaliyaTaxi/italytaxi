@@ -9,7 +9,7 @@ import {
     sendInvoiceEmailAction,
     getReceiptUrlsAction,
 } from '@/app/actions/invoices';
-import { Invoice, ReceiptFile, formatAmount, formatDate, getReceiptList } from '@/lib/invoice';
+import { Invoice, ReceiptFile, LineItem, formatAmount, formatDate, getReceiptList, getLineItems, lineItemsTotal } from '@/lib/invoice';
 
 export interface InvoicePrefill {
     client_name?: string;
@@ -18,6 +18,8 @@ export interface InvoicePrefill {
     pickup_location?: string;
     dropoff_location?: string;
     booking_datetime?: string;
+    passengers?: number | string;
+    luggage?: string;
     booking_id?: string;
 }
 
@@ -29,10 +31,15 @@ interface FormState {
     pickup_location: string;
     dropoff_location: string;
     booking_datetime: string;
-    amount: string;
+    passengers: string;
+    luggage: string;
+    flight_no: string;
+    trip_type: string;
     currency: string;
     payment_method: string;
     payment_status: string;
+    ref_token: string;
+    payment_date: string;
     notes: string;
 }
 
@@ -44,12 +51,27 @@ const EMPTY_FORM: FormState = {
     pickup_location: '',
     dropoff_location: '',
     booking_datetime: '',
-    amount: '',
+    passengers: '',
+    luggage: '',
+    flight_no: '',
+    trip_type: '',
     currency: 'EUR',
     payment_method: '',
     payment_status: 'paid',
+    ref_token: '',
+    payment_date: '',
     notes: '',
 };
+
+const EMPTY_LINE_ITEM: LineItem = { description: '', note: '', amount: 0 };
+
+const TRIP_TYPE_OPTIONS = [
+    'One-way, Private Transfer',
+    'Round-trip, Private Transfer',
+    'Hourly Hire',
+    'Point-to-Point',
+    'Private Tour',
+];
 
 const STATUS_BADGE: Record<string, string> = {
     paid: 'bg-green-50 text-green-600 border-green-200',
@@ -90,6 +112,7 @@ export default function InvoicesPanel({
     const [formOpen, setFormOpen] = useState(false);
     const [editingId, setEditingId] = useState<string | null>(null);
     const [form, setForm] = useState<FormState>(EMPTY_FORM);
+    const [lineItems, setLineItems] = useState<LineItem[]>([EMPTY_LINE_ITEM]);
     const [bookingId, setBookingId] = useState<string | null>(null);
     const [newFiles, setNewFiles] = useState<File[]>([]);
     const [existingReceipts, setExistingReceipts] = useState<ReceiptFile[]>([]);
@@ -129,7 +152,10 @@ export default function InvoicesPanel({
             pickup_location: seed?.pickup_location || '',
             dropoff_location: seed?.dropoff_location || '',
             booking_datetime: toInputDateTime(seed?.booking_datetime),
+            passengers: seed?.passengers != null ? String(seed.passengers) : '',
+            luggage: seed?.luggage || '',
         });
+        setLineItems([EMPTY_LINE_ITEM]);
         setBookingId(seed?.booking_id || null);
         setNewFiles([]);
         setExistingReceipts([]);
@@ -156,12 +182,19 @@ export default function InvoicesPanel({
             pickup_location: inv.pickup_location || '',
             dropoff_location: inv.dropoff_location || '',
             booking_datetime: toInputDateTime(inv.booking_datetime),
-            amount: inv.amount != null ? String(inv.amount) : '',
+            passengers: inv.passengers != null ? String(inv.passengers) : '',
+            luggage: inv.luggage || '',
+            flight_no: inv.flight_no || '',
+            trip_type: inv.trip_type || '',
             currency: inv.currency || 'EUR',
             payment_method: inv.payment_method || '',
             payment_status: inv.payment_status || 'paid',
+            ref_token: inv.ref_token || '',
+            payment_date: inv.payment_date || '',
             notes: inv.notes || '',
         });
+        const items = getLineItems(inv);
+        setLineItems(items.length > 0 ? items : [EMPTY_LINE_ITEM]);
         setBookingId(inv.booking_id || null);
         setNewFiles([]);
         setExistingReceipts(getReceiptList(inv));
@@ -170,9 +203,16 @@ export default function InvoicesPanel({
         setFormOpen(true);
     }
 
+    const cleanLineItems = useMemo(
+        () => lineItems.filter(i => i.description.trim() !== ''),
+        [lineItems]
+    );
+    const computedTotal = useMemo(() => lineItemsTotal(cleanLineItems), [cleanLineItems]);
+
     function buildFormData(): FormData {
         const fd = new FormData();
         Object.entries(form).forEach(([k, v]) => fd.append(k, v));
+        fd.append('line_items', JSON.stringify(cleanLineItems));
         if (bookingId) fd.append('booking_id', bookingId);
         newFiles.forEach(f => fd.append('receipt_file', f));
         if (removedPaths.length) fd.append('removed_receipts', JSON.stringify(removedPaths));
@@ -182,6 +222,7 @@ export default function InvoicesPanel({
     async function handleSubmit() {
         if (!form.client_name.trim()) return setFormError('Client name is required.');
         if (!form.client_email.trim()) return setFormError('Client email is required.');
+        if (cleanLineItems.length === 0) return setFormError('Add at least one service line with a description.');
         setSaving(true);
         setFormError(null);
         try {
@@ -339,11 +380,90 @@ export default function InvoicesPanel({
                                 <input type="datetime-local" value={form.booking_datetime} onChange={e => setForm({ ...form, booking_datetime: e.target.value })} className={inputClass} />
                             </div>
 
-                            <div className="grid grid-cols-3 gap-4">
+                            <div className="grid grid-cols-2 gap-4">
                                 <div>
-                                    <label className={labelClass}>Amount Paid</label>
-                                    <input type="number" step="0.01" min="0" value={form.amount} onChange={e => setForm({ ...form, amount: e.target.value })} className={inputClass} placeholder="0.00" />
+                                    <label className={labelClass}>Passengers</label>
+                                    <input type="number" min="0" value={form.passengers} onChange={e => setForm({ ...form, passengers: e.target.value })} className={inputClass} placeholder="2" />
                                 </div>
+                                <div>
+                                    <label className={labelClass}>Luggage</label>
+                                    <input value={form.luggage} onChange={e => setForm({ ...form, luggage: e.target.value })} className={inputClass} placeholder="2" />
+                                </div>
+                            </div>
+
+                            <div className="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label className={labelClass}>Flight No</label>
+                                    <input value={form.flight_no} onChange={e => setForm({ ...form, flight_no: e.target.value })} className={inputClass} placeholder="LY285" />
+                                </div>
+                                <div>
+                                    <label className={labelClass}>Trip Type</label>
+                                    <input
+                                        list="trip-type-options"
+                                        value={form.trip_type}
+                                        onChange={e => setForm({ ...form, trip_type: e.target.value })}
+                                        className={inputClass}
+                                        placeholder="One-way, Private Transfer"
+                                    />
+                                    <datalist id="trip-type-options">
+                                        {TRIP_TYPE_OPTIONS.map(t => <option key={t} value={t} />)}
+                                    </datalist>
+                                </div>
+                            </div>
+
+                            {/* Service Description / line items */}
+                            <div>
+                                <label className={labelClass}>Service Description</label>
+                                <div className="space-y-2">
+                                    {lineItems.map((item, idx) => (
+                                        <div key={idx} className="flex flex-col gap-2 rounded-xl border border-gray-200 p-3 sm:flex-row sm:items-start">
+                                            <div className="flex-1 space-y-2">
+                                                <input
+                                                    value={item.description}
+                                                    onChange={e => setLineItems(prev => prev.map((li, i) => i === idx ? { ...li, description: e.target.value } : li))}
+                                                    className={inputClass}
+                                                    placeholder="Private chauffeur transfer: FCO Airport -> Florence NH Hotel"
+                                                />
+                                                <input
+                                                    value={item.note || ''}
+                                                    onChange={e => setLineItems(prev => prev.map((li, i) => i === idx ? { ...li, note: e.target.value } : li))}
+                                                    className={`${inputClass} text-xs font-normal italic`}
+                                                    placeholder="Note (optional) — e.g. Includes flight monitoring, meet & greet"
+                                                />
+                                            </div>
+                                            <div className="flex items-center gap-2 sm:w-40">
+                                                <input
+                                                    type="number"
+                                                    step="0.01"
+                                                    min="0"
+                                                    value={item.amount || ''}
+                                                    onChange={e => setLineItems(prev => prev.map((li, i) => i === idx ? { ...li, amount: Number(e.target.value) } : li))}
+                                                    className={inputClass}
+                                                    placeholder="0.00"
+                                                />
+                                                <button
+                                                    type="button"
+                                                    onClick={() => setLineItems(prev => prev.length > 1 ? prev.filter((_, i) => i !== idx) : prev)}
+                                                    className="shrink-0 text-red-400 hover:text-red-600 font-bold text-lg leading-none px-1"
+                                                    title="Remove line"
+                                                >✕</button>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                                <button
+                                    type="button"
+                                    onClick={() => setLineItems(prev => [...prev, { ...EMPTY_LINE_ITEM }])}
+                                    className="mt-2 text-xs font-black uppercase tracking-widest text-gold hover:text-navy"
+                                >+ Add Line</button>
+
+                                <div className="mt-3 flex items-center justify-between rounded-xl bg-gray-50 px-4 py-3">
+                                    <span className="text-[10px] font-black uppercase tracking-widest text-gray-400">Total</span>
+                                    <span className="text-lg font-black text-navy">{formatAmount(computedTotal, form.currency)}</span>
+                                </div>
+                            </div>
+
+                            <div className="grid grid-cols-2 gap-4">
                                 <div>
                                     <label className={labelClass}>Currency</label>
                                     <select value={form.currency} onChange={e => setForm({ ...form, currency: e.target.value })} className={inputClass}>
@@ -364,8 +484,20 @@ export default function InvoicesPanel({
                                         <option value="PayPal">PayPal</option>
                                         <option value="Bank Transfer">Bank Transfer</option>
                                         <option value="Stripe">Stripe</option>
+                                        <option value="Payoneer">Payoneer</option>
                                         <option value="Other">Other</option>
                                     </select>
+                                </div>
+                            </div>
+
+                            <div className="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label className={labelClass}>Ref Token</label>
+                                    <input value={form.ref_token} onChange={e => setForm({ ...form, ref_token: e.target.value })} className={`${inputClass} font-mono`} placeholder="Payment gateway reference" />
+                                </div>
+                                <div>
+                                    <label className={labelClass}>Payment Date</label>
+                                    <input type="date" value={form.payment_date} onChange={e => setForm({ ...form, payment_date: e.target.value })} className={inputClass} />
                                 </div>
                             </div>
 
