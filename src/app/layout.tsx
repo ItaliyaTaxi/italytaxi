@@ -149,6 +149,12 @@ export default function RootLayout({
           `}
         </Script>
 
+        {/* TrustBox script */}
+        <Script
+          src="https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js"
+          strategy="afterInteractive"
+        />
+
         <LanguageProvider>
           {children}
           <FloatingContact />
