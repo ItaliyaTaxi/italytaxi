@@ -6,6 +6,7 @@ import { routes as pageRoutes } from '@/lib/page-data';
 import { getAllMilanTransfers } from '@/lib/milan-transfer-data';
 import { getAllVenetoTransfers } from '@/lib/veneto-transfer-data';
 import { getAllCrossBorderTransfers } from '@/lib/cross-border-data';
+import { getAllBolognaHotelTransfers, getAllBolognaCruiseTransfers } from '@/lib/bologna-transfer-data';
 import fs from 'fs';
 import path from 'path';
 
@@ -187,6 +188,22 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     changeFrequency: 'monthly' as const,
   }));
 
+  // ── 10. Programmatic Bologna airport ⇄ hotel transfer pages ────────────────
+  const bolognaHotelEntries: MetadataRoute.Sitemap = getAllBolognaHotelTransfers().map((t) => ({
+    url: `${BASE_URL}/bologna-transfer/${t.slug}`,
+    lastModified: now,
+    priority: 0.8,
+    changeFrequency: 'monthly' as const,
+  }));
+
+  // ── 11. Programmatic Bologna ⇄ Ravenna Cruise Port transfer pages ──────────
+  const bolognaCruiseEntries: MetadataRoute.Sitemap = getAllBolognaCruiseTransfers().map((t) => ({
+    url: `${BASE_URL}/bologna-transfer/${t.slug}`,
+    lastModified: now,
+    priority: 0.8,
+    changeFrequency: 'monthly' as const,
+  }));
+
   const combined = [
     ...staticEntries,
     ...dynamicEntries,
@@ -197,6 +214,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...milanEntries,
     ...venetoEntries,
     ...crossBorderEntries,
+    ...bolognaHotelEntries,
+    ...bolognaCruiseEntries,
   ];
 
   // De-duplicate by URL (a data-driven route may also have a physical folder).
