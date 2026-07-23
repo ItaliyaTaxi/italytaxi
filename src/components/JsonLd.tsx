@@ -116,78 +116,14 @@ const JsonLd = () => {
     // page, so the template URL (/search?q=…) was being crawled and 404ing.
   };
 
-  const webpageSchema = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "@id": "https://www.italytaxiservice.com/#webpage",
-    "url": "https://www.italytaxiservice.com",
-    "name": "Italy Taxi Service | Private Transfers and Airport Taxis",
-    "description": "Book a premium private taxi service in Italy. We provide airport transfers, city tours, and point-to-point transportation.",
-    "isPartOf": {
-      "@id": "https://www.italytaxiservice.com/#website"
-    },
-    "about": {
-      "@id": "https://www.italytaxiservice.com/#organization"
-    },
-    "breadcrumb": {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://www.italytaxiservice.com"
-        }
-      ]
-    }
-  };
-
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Why choose a private transfer over a standard Italian taxi?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Our service offers fixed, transparent pricing with no hidden fees, professional multi-lingual drivers, and pre-booked guaranteed pickups. Unlike standard taxis, we provide a premium Meet & Greet service and luxury vehicles suited for comfort."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you provide airport transfers from any city in Italy?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, we offer nationwide coverage across Italy. Whether you need a transfer from Rome, Milan, Venice, or a remote village in Tuscany, our network of professional drivers is available 24/7."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What types of vehicles are available?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "We offer a range of luxury vehicles including Mercedes E-Class/S-Class sedans for up to 3 passengers, V-Class minivans for up to 8 passengers, and larger Sprinter buses for group travel."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Are your drivers licensed to enter restricted traffic zones (ZTL)?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, all our drivers are professionally licensed (N.C.C.) which allows them to enter restricted city centers (ZTL) and bus/taxi lanes, ensuring a direct and efficient door-to-door service."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How far in advance should I book my Italian transfer?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "We recommend booking at least 24 hours in advance to guarantee availability. For last-minute requests, you can contact our 24/7 WhatsApp support team for immediate assistance."
-        }
-      }
-    ]
-  };
+  // NOTE: WebPage + FAQPage schema used to live here too, but that meant every
+  // single page on the site (blog posts, transfer pages, etc.) emitted a
+  // hardcoded homepage WebPage entity and 5 generic FAQs alongside its own,
+  // correct, page-specific schema — a duplicate/contradictory structured-data
+  // bug. Those two are now homepage-only, defined directly in src/app/page.tsx
+  // (and its Italian counterpart src/app/it/page.tsx). Organization/
+  // LocalBusiness/WebSite are language-neutral entity data, so they stay here,
+  // rendered once sitewide via the root layout.
 
   return (
     <>
@@ -202,14 +138,6 @@ const JsonLd = () => {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(webpageSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
     </>
   );

@@ -52,12 +52,20 @@ const INIT_SCRIPT =
     "new google.translate.TranslateElement({pageLanguage:'en',includedLanguages:'en,it',autoDisplay:false},'google_translate_element');}};";
 
 export default function GoogleTranslate() {
-    const { language } = useLanguage();
+    const { language, isNativeItalianRoute } = useLanguage();
 
     // Sync the page to the chosen language: set/clear the googtrans cookie and
     // reload ONCE. Loop-safe via a tolerant "is the cookie already Italian?" check.
     useEffect(() => {
         if (typeof window === 'undefined') return;
+        // Dedicated Italian routes (/it/...) are natively Italian — running them
+        // through Google Translate (EN source -> IT) would be wrong. If the
+        // googtrans cookie is somehow still set from a previous page, clear it
+        // so native Italian content renders as authored, not re-translated.
+        if (isNativeItalianRoute) {
+            if (cookieTargetsItalian()) clearGoogtransCookie();
+            return;
+        }
         const wantItalian = language === 'it';
         const isItalian = cookieTargetsItalian();
         if (wantItalian === isItalian) return;

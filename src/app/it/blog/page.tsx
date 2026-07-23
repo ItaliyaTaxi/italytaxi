@@ -11,7 +11,7 @@ const SITE = 'https://www.italytaxiservice.com';
 export const metadata: Metadata = {
   title: 'Blog di Viaggio in Italia | Italy Taxi Service',
   description: 'Guide, consigli e informazioni pratiche per viaggiare in Italia: transfer aeroportuali, città, itinerari e molto altro, in italiano.',
-  alternates: { canonical: '/it/blog', languages: { 'it-IT': '/it/blog', 'en': '/blog' } },
+  alternates: { canonical: '/it/blog', languages: { 'it-IT': '/it/blog', 'en': '/blog', 'x-default': '/blog' } },
   openGraph: {
     title: 'Blog di Viaggio in Italia | Italy Taxi Service',
     description: 'Guide e consigli pratici per viaggiare in Italia, in italiano.',
@@ -31,8 +31,6 @@ export default async function ItalianBlogIndex() {
 
   return (
     <main className="font-inter bg-white text-navy">
-      {/* The root layout renders <html lang="en">; only it can set that attribute. */}
-      <script dangerouslySetInnerHTML={{ __html: "document.documentElement.lang='it';" }} />
       <Navbar />
 
       <section className="pt-32 pb-12">

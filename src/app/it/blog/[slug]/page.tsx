@@ -46,7 +46,12 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
 
   // hreflang back to the English original.
   const languages: Record<string, string> = { 'it-IT': `/it/blog/${slug}` };
-  if (blog.translation_of) languages['en'] = `/blog/${blog.translation_of}`;
+  if (blog.translation_of) {
+    languages['en'] = `/blog/${blog.translation_of}`;
+    languages['x-default'] = `/blog/${blog.translation_of}`;
+  } else {
+    languages['x-default'] = `/it/blog/${slug}`;
+  }
 
   return {
     title: blog.seo_title || blog.title,
@@ -120,9 +125,6 @@ export default async function ItalianBlogPage({ params }: any) {
 
   return (
     <main className="font-inter bg-white text-navy">
-      {/* The root layout renders <html lang="en">; only it can set that attribute, so
-          Italian pages correct it here. hreflang + inLanguage carry the real signal. */}
-      <script dangerouslySetInnerHTML={{ __html: "document.documentElement.lang='it';" }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       {faqSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />}

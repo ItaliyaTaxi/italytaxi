@@ -21,11 +21,12 @@ const EXCLUDED_SEGMENTS = new Set([
 // Priority/frequency config per route pattern
 function routeConfig(urlPath: string) {
   if (urlPath === '/') return { priority: 1.0, changeFrequency: 'daily' as const };
-  if (['/book-now', '/contact', '/services', '/rome-airport-transfer', '/milan-chauffeur-service', '/florence-private-taxi'].includes(urlPath)) return { priority: 0.9, changeFrequency: 'weekly' as const };
-  if (['/about-us', '/faq', '/coverage-areas', '/airport-transfer'].includes(urlPath)) return { priority: 0.8, changeFrequency: 'weekly' as const };
+  if (urlPath === '/it') return { priority: 1.0, changeFrequency: 'daily' as const };
+  if (['/book-now', '/contact', '/services', '/rome-airport-transfer', '/milan-chauffeur-service', '/florence-private-taxi', '/it/contatti', '/it/servizi'].includes(urlPath)) return { priority: 0.9, changeFrequency: 'weekly' as const };
+  if (['/about-us', '/faq', '/coverage-areas', '/airport-transfer', '/it/domande-frequenti'].includes(urlPath)) return { priority: 0.8, changeFrequency: 'weekly' as const };
   if (urlPath.startsWith('/airport/') || urlPath.startsWith('/city/')) return { priority: 0.9, changeFrequency: 'weekly' as const };
   if (urlPath.startsWith('/route/')) return { priority: 0.9, changeFrequency: 'weekly' as const };
-  if (urlPath.startsWith('/services/') || urlPath.startsWith('/tour/')) return { priority: 0.8, changeFrequency: 'weekly' as const };
+  if (urlPath.startsWith('/services/') || urlPath.startsWith('/tour/') || urlPath.startsWith('/it/servizi/')) return { priority: 0.8, changeFrequency: 'weekly' as const };
   if (urlPath.startsWith('/blog/')) return { priority: 0.8, changeFrequency: 'weekly' as const };
   if (urlPath.startsWith('/attraction-transfer/') || urlPath.startsWith('/beach-transfer/')) return { priority: 0.7, changeFrequency: 'monthly' as const };
   if (urlPath.startsWith('/border/')) return { priority: 0.7, changeFrequency: 'monthly' as const };
@@ -36,6 +37,9 @@ function routeConfig(urlPath: string) {
 /**
  * Recursively walk the Next.js app directory and collect all routable paths.
  * - Skips excluded segments, files, and dynamic [slug] directories (handled separately).
+ * - Walks INTO route groups like (site) — they don't add a URL segment, but
+ *   the routes nested inside them (which is most of the site, post-refactor
+ *   into two root layouts — see src/app/(site)/layout.tsx) still need discovering.
  * - Returns URL paths like ['/', '/about-us', '/services/airport-transfers', ...]
  */
 function discoverStaticRoutes(appDir: string): string[] {
@@ -54,15 +58,14 @@ function discoverStaticRoutes(appDir: string): string[] {
     for (const entry of entries) {
       if (!entry.isDirectory()) continue;
       const name = entry.name;
-      // Skip excluded, special Next.js folders, and dynamic segments
-      if (
-        EXCLUDED_SEGMENTS.has(name) ||
-        name.startsWith('_') ||
-        name.startsWith('(') ||
-        name.startsWith('[') // dynamic — handled separately
-      ) continue;
+      if (EXCLUDED_SEGMENTS.has(name) || name.startsWith('_') || name.startsWith('[')) continue;
 
-      walk(path.join(dir, name), [...urlParts, name]);
+      if (name.startsWith('(')) {
+        // Route group — organisational only, contributes no URL segment.
+        walk(path.join(dir, name), urlParts);
+      } else {
+        walk(path.join(dir, name), [...urlParts, name]);
+      }
     }
   }
 
@@ -71,12 +74,25 @@ function discoverStaticRoutes(appDir: string): string[] {
 }
 
 /**
- * For a dynamic [slug] route (e.g. /beach-transfer/[slug]),
- * read all subdirectory names as slugs directly from the filesystem.
+ * For a dynamic [slug] route (e.g. /beach-transfer/[slug]), read all
+ * subdirectory names as slugs directly from the filesystem. `appDir` is
+ * searched directly and then one level into any route group (covers the
+ * (site) group every such route now lives under), so this keeps working
+ * regardless of which group a given segment is nested in.
  */
 function discoverDynamicSlugs(appDir: string, routeSegment: string): string[] {
-  const routeDir = path.join(appDir, routeSegment);
-  if (!fs.existsSync(routeDir)) return [];
+  const direct = path.join(appDir, routeSegment);
+  if (fs.existsSync(direct)) return readSlugDirs(direct);
+
+  const groups = fs.readdirSync(appDir, { withFileTypes: true }).filter((e) => e.isDirectory() && e.name.startsWith('('));
+  for (const group of groups) {
+    const nested = path.join(appDir, group.name, routeSegment);
+    if (fs.existsSync(nested)) return readSlugDirs(nested);
+  }
+  return [];
+}
+
+function readSlugDirs(routeDir: string): string[] {
   return fs
     .readdirSync(routeDir, { withFileTypes: true })
     .filter((e) => e.isDirectory() && !e.name.startsWith('[') && !e.name.startsWith('_'))

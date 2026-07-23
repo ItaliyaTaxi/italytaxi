@@ -3,8 +3,10 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
+import { useRouter, usePathname } from 'next/navigation';
 import TaxiButton from './TaxiButton';
 import { useLanguage } from '@/context/LanguageContext';
+import { getItalianPath, getEnglishPath } from '@/lib/i18n/page-registry';
 
 const WHATSAPP_NUMBER = "923148932631";
 
@@ -20,6 +22,27 @@ export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const { language, setLanguage, t } = useLanguage();
+    const router = useRouter();
+    const pathname = usePathname();
+
+    // Real navigation to the dedicated Italian/English page when one exists;
+    // falls back to the legacy dynamic (Google Translate) toggle otherwise.
+    function switchLanguage(lang: 'en' | 'it') {
+        if (lang === 'it') {
+            const itPath = getItalianPath(pathname);
+            if (itPath) { router.push(itPath); return; }
+            setLanguage('it');
+            return;
+        }
+        if (pathname === '/it' || pathname.startsWith('/it/')) {
+            const enPath = getEnglishPath(pathname);
+            if (enPath) { router.push(enPath); return; }
+            if (pathname.startsWith('/it/blog')) { router.push('/blog'); return; }
+            router.push('/');
+            return;
+        }
+        setLanguage('en');
+    }
 
     useEffect(() => {
         // RAF throttle: the callback is only executed once per animation frame,
@@ -145,14 +168,14 @@ export default function Navbar() {
                             <div className="flex items-center bg-white/10 rounded-full p-0.5 border border-white/20">
                                 <button
                                     suppressHydrationWarning
-                                    onClick={() => setLanguage('en')}
+                                    onClick={() => switchLanguage('en')}
                                     className={`px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all duration-200 ${language === 'en' ? 'bg-[#F4C430] text-[#0F1C2E]' : 'text-white/70 hover:text-white'}`}
                                 >
                                     EN
                                 </button>
                                 <button
                                     suppressHydrationWarning
-                                    onClick={() => setLanguage('it')}
+                                    onClick={() => switchLanguage('it')}
                                     className={`px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all duration-200 ${language === 'it' ? 'bg-[#F4C430] text-[#0F1C2E]' : 'text-white/70 hover:text-white'}`}
                                 >
                                     IT
@@ -187,13 +210,13 @@ export default function Navbar() {
                             {/* Language toggle — clearly visible next to hamburger */}
                             <div className="flex items-center bg-white/10 rounded-full p-0.5 border border-white/20">
                                 <button
-                                    onClick={() => setLanguage('en')}
+                                    onClick={() => switchLanguage('en')}
                                     className={`px-2 py-1 rounded-full text-[9px] font-bold uppercase tracking-widest transition-all duration-200 min-w-[28px] min-h-[28px] ${language === 'en' ? 'bg-[#F4C430] text-[#0F1C2E]' : 'text-white/70 hover:text-white'}`}
                                 >
                                     EN
                                 </button>
                                 <button
-                                    onClick={() => setLanguage('it')}
+                                    onClick={() => switchLanguage('it')}
                                     className={`px-2 py-1 rounded-full text-[9px] font-bold uppercase tracking-widest transition-all duration-200 min-w-[28px] min-h-[28px] ${language === 'it' ? 'bg-[#F4C430] text-[#0F1C2E]' : 'text-white/70 hover:text-white'}`}
                                 >
                                     IT
@@ -368,13 +391,13 @@ export default function Navbar() {
                                 {/* Language Toggle in Mobile Drawer */}
                                 <div className="flex items-center bg-white/10 rounded-full p-0.5 border border-white/20">
                                     <button
-                                        onClick={() => setLanguage('en')}
+                                        onClick={() => switchLanguage('en')}
                                         className={`px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all duration-200 ${language === 'en' ? 'bg-[#F4C430] text-[#0F1C2E]' : 'text-white/70 hover:text-white'}`}
                                     >
                                         EN
                                     </button>
                                     <button
-                                        onClick={() => setLanguage('it')}
+                                        onClick={() => switchLanguage('it')}
                                         className={`px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all duration-200 ${language === 'it' ? 'bg-[#F4C430] text-[#0F1C2E]' : 'text-white/70 hover:text-white'}`}
                                     >
                                         IT

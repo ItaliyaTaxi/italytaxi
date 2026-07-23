@@ -3,6 +3,7 @@
 import { Plane, Briefcase, MapPin, Anchor, Clock, Heart } from 'lucide-react';
 import TaxiButton from './TaxiButton';
 import { useLanguage } from '@/context/LanguageContext';
+import { getItalianPath } from '@/lib/i18n/page-registry';
 
 const serviceLinks = [
     "/services/airport-transfers",
@@ -25,11 +26,14 @@ const serviceIcons = [
 ];
 
 export default function Services() {
-    const { t } = useLanguage();
+    const { t, language } = useLanguage();
     const services = t.services.items.map((item, i) => ({
         ...item,
         icon: serviceIcons[i],
-        link: serviceLinks[i],
+        // On natively-Italian routes, link to the dedicated Italian page when
+        // one exists; falls back to the English URL (with the dynamic
+        // translate toggle) for services not yet translated.
+        link: (language === 'it' && getItalianPath(serviceLinks[i])) || serviceLinks[i],
     }));
 
     const itemListSchema = {
