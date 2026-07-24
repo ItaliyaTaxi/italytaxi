@@ -139,13 +139,6 @@ export function getReceiptList(
 const NAVY = '#0F1C2E';
 const GOLD = '#C9A84C';
 
-function row(label: string, value: string): string {
-    return `<tr>
-        <td style="padding:9px 0;color:#888;font-size:13px;width:150px;vertical-align:top">${label}</td>
-        <td style="padding:9px 0;color:${NAVY};font-weight:bold;font-size:13px">${value || '—'}</td>
-    </tr>`;
-}
-
 /**
  * Builds the branded HTML email that delivers an invoice/receipt to a client.
  * The full printable invoice lives at the view link; the uploaded receipt (if
@@ -154,19 +147,6 @@ function row(label: string, value: string): string {
 export function buildInvoiceEmailHtml(invoice: Invoice, customMessage?: string): string {
     const docLabel = invoice.doc_type === 'receipt' ? 'Receipt' : 'Invoice';
     const viewUrl = invoiceViewUrl(invoice.public_token);
-    const statusColor = invoice.payment_status === 'paid' ? '#16a34a'
-        : invoice.payment_status === 'refunded' ? '#6b7280'
-            : invoice.payment_status === 'partial' ? '#d97706' : '#dc2626';
-
-    const tripRows = [
-        invoice.pickup_location ? row('Pickup', invoice.pickup_location) : '',
-        invoice.dropoff_location ? row('Drop-off', invoice.dropoff_location) : '',
-        invoice.booking_datetime ? row('Date &amp; Time', formatDateTime(invoice.booking_datetime)) : '',
-        invoice.flight_no ? row('Flight No', invoice.flight_no) : '',
-        invoice.trip_type ? row('Trip Type', invoice.trip_type) : '',
-        invoice.passengers != null ? row('Passengers', String(invoice.passengers)) : '',
-        invoice.luggage ? row('Luggage', invoice.luggage) : '',
-    ].join('');
 
     const messageBlock = customMessage && customMessage.trim()
         ? `<p style="color:#555;line-height:1.8;font-size:15px;margin:0 0 8px">${customMessage.replace(/\n/g, '<br>')}</p>`
@@ -182,35 +162,6 @@ export function buildInvoiceEmailHtml(invoice: Invoice, customMessage?: string):
         </div>
         <div style="background:#ffffff;padding:40px;border:1px solid #eee;border-top:none">
             ${messageBlock}
-
-            <div style="background:#f9f9f9;border:1px solid #eee;border-radius:12px;padding:24px;margin:24px 0">
-                <div style="display:flex;justify-content:space-between;align-items:center">
-                    <div>
-                        <p style="margin:0;font-size:11px;font-weight:bold;color:#888;text-transform:uppercase;letter-spacing:1.5px">${docLabel} Number</p>
-                        <p style="margin:4px 0 0;font-size:18px;font-weight:bold;color:${NAVY}">${invoice.invoice_number}</p>
-                    </div>
-                </div>
-                <hr style="border:none;border-top:1px solid #eee;margin:18px 0">
-                <table style="border-collapse:collapse;width:100%">
-                    ${row('Issued', formatDate(invoice.created_at))}
-                    ${tripRows}
-                    ${invoice.payment_method ? row('Payment Method', invoice.payment_method) : ''}
-                    ${invoice.ref_token ? row('Ref Token', invoice.ref_token) : ''}
-                    ${invoice.payment_date ? row('Payment Date', formatDate(invoice.payment_date)) : ''}
-                </table>
-                <hr style="border:none;border-top:1px solid #eee;margin:18px 0">
-                <table style="border-collapse:collapse;width:100%">
-                    <tr>
-                        <td style="padding:0;color:${NAVY};font-size:16px;font-weight:bold">Amount Paid</td>
-                        <td style="padding:0;text-align:right;color:${NAVY};font-size:22px;font-weight:bold">${formatAmount(invoice.amount, invoice.currency)}</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" style="padding:8px 0 0;text-align:right">
-                            <span style="display:inline-block;background:${statusColor}1a;color:${statusColor};font-size:11px;font-weight:bold;text-transform:uppercase;letter-spacing:1px;padding:4px 12px;border-radius:999px">${paymentStatusLabel(invoice.payment_status)}</span>
-                        </td>
-                    </tr>
-                </table>
-            </div>
 
             <div style="text-align:center;margin:28px 0">
                 <a href="${viewUrl}" style="display:inline-block;background:${NAVY};color:${GOLD};text-decoration:none;font-weight:bold;font-size:14px;letter-spacing:0.5px;padding:14px 32px;border-radius:999px">View &amp; Download ${docLabel} (PDF)</a>
