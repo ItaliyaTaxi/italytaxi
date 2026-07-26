@@ -22,7 +22,7 @@ const defaultReviews: Review[] = [
     {
         name: "Sarah Steiner",
         location: "Munich, Germany",
-        text: "We used ItaliaRide for a day tour of the Amalfi Coast. Our driver was incredibly knowledgeable and showed us spots we never would have found on our own. Truly a taxi experience.",
+        text: "We used Italy Taxi Service for a day tour of the Amalfi Coast. Our driver was incredibly knowledgeable and showed us spots we never would have found on our own. Truly a taxi experience.",
         rating: 5,
         date: "1 month ago"
     },

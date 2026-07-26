@@ -67,33 +67,22 @@ async function submitBatch(urlBatch) {
   return { status: res.status, body: text };
 }
 
-// The 10 English + 10 Italian Digital Nomad cluster posts just added this
+// The 10 "Where to Meet Your Driver" airport-cluster posts just added this
 // session — most time-sensitive to get indexed, so they go first regardless
 // of quota pressure from the rest of the backlog.
 const NEW_CLUSTER_SLUGS_EN = [
-  'best-italian-cities-digital-nomads',
-  'italy-wifi-connectivity-guide',
-  'best-esim-sim-italy-remote-work',
-  'cost-of-living-italy-digital-nomad',
-  'monthly-apartment-rental-italy',
-  'open-bank-account-italy-foreigner',
-  'codice-fiscale-italy-guide',
-  'long-stay-airport-to-apartment-italy',
-  'digital-nomad-health-insurance-italy',
-  'italy-digital-nomad-base-europe',
+  'where-meet-driver-rome-fiumicino',
+  'driver-pickup-rome-ciampino',
+  'meet-driver-milan-malpensa',
+  'meet-driver-milan-linate',
+  'driver-pickup-venice-marco-polo',
+  'meet-driver-florence-airport',
+  'meet-driver-naples-airport',
+  'driver-pickup-bologna-marconi',
+  'meet-driver-catania-airport',
+  'driver-pickup-palermo-airport',
 ];
-const NEW_CLUSTER_SLUGS_IT = [
-  'le-migliori-citta-italiane-per-nomadi-digitali',
-  'guida-wifi-e-connessione-internet-in-italia',
-  'migliori-esim-sim-italia-lavoro-da-remoto',
-  'costo-della-vita-in-italia-per-nomadi-digitali',
-  'come-affittare-un-appartamento-mensile-in-italia',
-  'aprire-un-conto-bancario-in-italia-da-straniero',
-  'guida-al-codice-fiscale-italiano-per-stranieri',
-  'arrivo-lungo-soggiorno-dallaeroporto-allappartamento',
-  'assicurazione-sanitaria-in-italia-per-nomadi-digitali',
-  'litalia-e-una-buona-base-per-nomadi-digitali-in-europa',
-];
+const NEW_CLUSTER_SLUGS_IT = [];
 const NEW_CLUSTER_SLUGS = new Set([...NEW_CLUSTER_SLUGS_EN, ...NEW_CLUSTER_SLUGS_IT]);
 
 // Priority: new cluster posts, then Italian pages (previously never

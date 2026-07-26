@@ -338,7 +338,7 @@ export default function CRMPage() {
                             <span className="text-navy font-black text-2xl italic">I</span>
                         </div>
                         <div>
-                            <span className="block text-xl font-black tracking-tighter leading-none italic group-hover:text-gold transition-colors">ITALIARIDE</span>
+                            <span className="block text-xl font-black tracking-tighter leading-none italic group-hover:text-gold transition-colors">ITALY TAXI SERVICE</span>
                             <span className="text-[10px] uppercase font-bold text-gold tracking-widest opacity-50">CRM DASHBOARD</span>
                         </div>
                     </Link>

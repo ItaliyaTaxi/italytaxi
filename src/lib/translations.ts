@@ -28,7 +28,7 @@ export const translations = {
             cta: 'RESERVE YOUR RIDE',
         },
         whyChooseUs: {
-            badge: 'The ItaliaRide Edge',
+            badge: 'The Italy Taxi Service Edge',
             heading: 'Why Choose Our',
             headingHighlight: 'Private Transfers',
             headingEnd: 'in Italy',
@@ -186,7 +186,7 @@ export const translations = {
             cta: 'PRENOTA IL TUO VIAGGIO',
         },
         whyChooseUs: {
-            badge: 'Il Vantaggio ItaliaRide',
+            badge: 'Il Vantaggio Italy Taxi Service',
             heading: 'Perché Scegliere i Nostri',
             headingHighlight: 'Trasferimenti Privati',
             headingEnd: 'in Italia',

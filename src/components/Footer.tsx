@@ -1,4 +1,4 @@
-// Footer component for ItaliaRide
+// Footer component for Italy Taxi Service
 "use client";
 
 import Link from 'next/link';
@@ -129,7 +129,7 @@ export default function Footer() {
                 </div>
 
                 <div className="pt-8 border-t border-gray-800 text-center text-[10px] text-gray-600">
-                    <p>&copy; {new Date().getFullYear()} ItaliaRide. {t.footer.rights}</p>
+                    <p>&copy; {new Date().getFullYear()} Italy Taxi Service. {t.footer.rights}</p>
                 </div>
             </div>
         </footer>

@@ -46,7 +46,7 @@ export interface Invoice {
 }
 
 export const SITE_URL = 'https://www.italytaxiservice.com';
-export const COMPANY_NAME = 'ItaliaRide';
+export const COMPANY_NAME = 'Italy Taxi Service';
 export const COMPANY_EMAIL = 'italytaxiservicee@gmail.com';
 export const COMPANY_TAGLINE = 'Luxury Chauffeur Service';
 export const COMPANY_LOGO_URL = `${SITE_URL}/images/logo.png`;
