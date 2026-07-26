@@ -5,7 +5,7 @@ import { useLanguage } from '@/context/LanguageContext';
 
 export interface Review {
     name: string;
-    location: string;
+    location?: string;
     text: string;
     rating: number;
     date: string;
@@ -13,25 +13,22 @@ export interface Review {
 
 const defaultReviews: Review[] = [
     {
-        name: "James Wilson",
-        location: "London, UK",
-        text: "Exceptional service from Fiumicino to our hotel. The driver was waiting for us with a clear sign, the Mercedes S-Class was spotless, and the ride was perfectly smooth. Highly recommended!",
+        name: "Zohar Argov",
+        text: "We recently used the Taxi service between Rome airport and our hotel in Florence. The driver was friendly and communicated well in English. We had a nice conversation for most of the way. He arrived on time to collect us (despite very long passport control in Fiumicino) and was responsive on the phone before collecting us at the arrival Hall. The car was very comfortable (and clean).",
         rating: 5,
-        date: "2 weeks ago"
+        date: "Recent trip"
     },
     {
-        name: "Sarah Steiner",
-        location: "Munich, Germany",
-        text: "We used Italy Taxi Service for a day tour of the Amalfi Coast. Our driver was incredibly knowledgeable and showed us spots we never would have found on our own. Truly a taxi experience.",
+        name: "Marie",
+        text: "We had a pleasant journey with Maurizio today, despite we had to be dropped off near the destination with a 2-min walk, due to a road closure. He arrived on time. The car was very clean, tidy and well maintained throughout. He was polite and spoke very little to us, which was fine with us. Not all of us would like a very chatty driver! Overall, a very good experience and would be happy to recommend.",
         rating: 5,
-        date: "1 month ago"
+        date: "Recent trip"
     },
     {
-        name: "Michael Chen",
-        location: "San Francisco, USA",
-        text: "Professional, punctual, and very easy to book. The fix-pricing gave us peace of mind during our city-to-city transfer from Milan to Venice. Best way to travel Italy!",
+        name: "Matthew Johnson",
+        text: "Ari was an exceptional driver who welcomed us to Rome with true Roman grace. From the moment he greeted us at the airport, his kindness and professionalism were evident. The ride was comfortable and beautifully paced, and along the way he offered a charming mini-tour of the city, pointing out historic sites and sharing small insights that only a local would know. His gentle manner, thoughtful explanations, and sincere pride in Rome made our arrival unforgettable.",
         rating: 5,
-        date: "3 weeks ago"
+        date: "Recent trip"
     }
 ];
 
@@ -70,7 +67,9 @@ export default function Testimonials({ reviews = defaultReviews }: { reviews?: R
                                         </div>
                                         <div>
                                             <h3 className="font-bold text-white text-sm tracking-tight">{review.name}</h3>
-                                            <p className="text-[10px] font-bold text-gold/60 uppercase tracking-widest">{review.location}</p>
+                                            {review.location && (
+                                                <p className="text-[10px] font-bold text-gold/60 uppercase tracking-widest">{review.location}</p>
+                                            )}
                                         </div>
                                     </div>
                                     <div className="flex items-center gap-2 px-3 py-1 bg-white/5 border border-white/10 rounded-full shadow-inner">

@@ -13,7 +13,6 @@ const Services = dynamic(() => import('@/components/Services'));
 const PopularDestinations = dynamic(() => import('@/components/PopularDestinations'));
 const HowItWorks = dynamic(() => import('@/components/HowItWorks'));
 const Testimonials = dynamic(() => import('@/components/Testimonials'));
-const TrustpilotWidget = dynamic(() => import('@/components/TrustpilotWidget'));
 const Coverage = dynamic(() => import('@/components/Coverage'));
 const FAQSection = dynamic(() => import('@/components/FAQSection'));
 const CTA = dynamic(() => import('@/components/CTA'));
@@ -120,14 +119,6 @@ export default function HomeIt() {
         <Suspense fallback={<SectionFallback />}>
           <Testimonials />
         </Suspense>
-      </div>
-
-      <div className="cv-section py-12 bg-white">
-        <div className="container mx-auto px-6 max-w-3xl">
-          <Suspense fallback={<SectionFallback />}>
-            <TrustpilotWidget />
-          </Suspense>
-        </div>
       </div>
 
       <div className="cv-section">
