@@ -43,14 +43,14 @@ export default function Coverage() {
                     <div className="w-full lg:w-1/2 p-4 md:p-10 bg-white/5 rounded-[40px] border border-white/10 backdrop-blur-sm">
                         <div className="grid grid-cols-2 md:grid-cols-2 gap-4">
                             {[
-                                { name: "Rome", path: "/city/rome-taxi-service", types: ["airports", "city", "ports"] as const },
-                                { name: "Milan", path: "/city/milan-taxi-service", types: ["airports", "city"] as const },
-                                { name: "Venice", path: "/city/venice-taxi-service", types: ["airports", "city", "ports"] as const },
-                                { name: "Florence", path: "/city/florence-taxi-service", types: ["airports", "city"] as const },
-                                { name: "Naples", path: "/city/naples-taxi-service", types: ["airports", "city", "ports"] as const },
-                                { name: "Amalfi Coast", path: "/city/amalfi-taxi-service", types: ["city"] as const },
-                                { name: "Lake Como", path: "/city/como-taxi-service", types: ["city"] as const },
-                                { name: "Sicily", path: "/city/palermo-taxi-service", types: ["airports", "city"] as const },
+                                { name: "Rome", path: "/city/rome", types: ["airports", "city", "ports"] as const },
+                                { name: "Milan", path: "/city/milan", types: ["airports", "city"] as const },
+                                { name: "Venice", path: "/city/venice", types: ["airports", "city", "ports"] as const },
+                                { name: "Florence", path: "/city/florence", types: ["airports", "city"] as const },
+                                { name: "Naples", path: "/city/naples", types: ["airports", "city", "ports"] as const },
+                                { name: "Amalfi Coast", path: "/city/amalfi", types: ["city"] as const },
+                                { name: "Lake Como", path: "/city/como", types: ["city"] as const },
+                                { name: "Sicily", path: "/city/palermo", types: ["airports", "city"] as const },
                             ].map((loc, index) => (
                                 <Link
                                     key={index}

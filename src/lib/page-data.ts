@@ -30,6 +30,7 @@ import { extraRoutes } from './extra-routes';
 import { extraRoutesRome } from './extra-routes-rome';
 import { extraRoutesTuscany } from './extra-routes-tuscany';
 import { extraRoutesFinal } from './extra-routes-final';
+import { newClusterRoutesEn } from './new-regions-routes-data';
 
 export interface AirportData {
     slug: string;
@@ -314,6 +315,36 @@ export const airports: AirportData[] = [
             "Meet & greet with real-time flight monitoring",
             "Fixed pricing — 24/7 for early and late low-cost flights"
         ]
+    },
+    {
+        slug: "olbia",
+        name: "Olbia Costa Smeralda Airport",
+        code: "OLB",
+        city: "Olbia",
+        hero_image: "https://images.unsplash.com/photo-1533104816931-20fa691ff6ca?auto=format&fit=crop&q=60&w=1200",
+        description: "Olbia Costa Smeralda Airport (OLB) is northeastern Sardinia's main gateway, serving the Costa Smeralda's luxury resort towns. Our private taxi service connects OLB directly to Porto Cervo, Porto Rotondo, Baia Sardinia and San Teodoro, with fixed pricing agreed before you fly and a driver who knows the coast's narrow summer roads.",
+        features: [
+            "OLB to Porto Cervo in about 30–35 minutes",
+            "Direct transfers to Porto Rotondo and Baia Sardinia",
+            "Meet & greet with real-time flight monitoring",
+            "Fixed pricing — no summer surge pricing",
+            "24/7 availability for all Olbia flight times"
+        ]
+    },
+    {
+        slug: "cagliari",
+        name: "Cagliari Elmas Airport",
+        code: "CAG",
+        city: "Cagliari",
+        hero_image: "https://images.unsplash.com/photo-1512100356356-de1b84283e18?auto=format&fit=crop&q=60&w=1200",
+        description: "Cagliari Elmas Airport (CAG) is southern Sardinia's principal gateway, about 7 km from Cagliari city centre and the natural starting point for the island's southern beaches. Our private taxi service reaches Cagliari, Villasimius and Chia at a fixed price, with a professional driver who knows the coastal roads well beyond the city.",
+        features: [
+            "CAG to Cagliari city centre in about 15 minutes",
+            "Direct transfers to Villasimius and Chia beaches",
+            "Meet & greet with real-time flight monitoring",
+            "Fixed pricing — no hidden extras",
+            "24/7 availability for all Cagliari flight times"
+        ]
     }
 ];
 
@@ -373,69 +404,6 @@ export const cities: CityData[] = [
         hero_image: "/images/palermo-taxi.webp",
         description: "Experience the crossroads of Mediterranean history in the comfort of a luxury SUV.",
         popular_tours: ["Mondello Beach Visit", "Palatine Chapel Tour", "Sicilian Street Food"]
-    },
-    {
-        slug: "rome-taxi-service",
-        name: "Rome",
-        hero_image: "https://images.unsplash.com/photo-1529260830199-42c24126f198?auto=format&fit=crop&q=60&w=1200",
-        description: "Explore Rome in comfort with our professional drivers. From city landmarks like the Colosseum to hidden gems, travel at your own pace.",
-        popular_tours: ["Rome Night Tour", "Vatican City Tour", "Tivoli Gardens"]
-    },
-    {
-        slug: "milan-taxi-service",
-        name: "Milan",
-        hero_image: "https://images.unsplash.com/photo-1520986606214-8b456906c813?auto=format&fit=crop&q=60&w=1200",
-        description: "Discover Milan's fashion, history, and business districts with our premium taxi services.",
-        popular_tours: ["Milan Duomo Tour", "Lake Como Day Trip", "Last Supper Visit"]
-    },
-    {
-        slug: "florence-taxi-service",
-        name: "Florence",
-        hero_image: "https://images.unsplash.com/photo-1543429776-2782fc8e1acd?auto=format&fit=crop&q=60&w=1200",
-        description: "The cradle of the Renaissance. Travel between museums and piazzas in total elegance.",
-        popular_tours: ["Uffizi Gallery Tour", "Wine Tasting in Chianti", "Pisa Half-Day Trip"]
-    },
-    {
-        slug: "venice-taxi-service",
-        name: "Venice",
-        hero_image: "/images/venice.webp",
-        description: "Arrive at Piazzale Roma or your hotel terminal in luxury and style.",
-        popular_tours: ["Murano & Burano Tour", "Grand Canal Experience", "Gondola Private Docking"]
-    },
-    {
-        slug: "naples-taxi-service",
-        name: "Naples",
-        hero_image: "/images/naples.jpg",
-        description: "The gateway to the Amalfi Coast. Experience Southern Italy's vibrant spirit with our safe taxi rides.",
-        popular_tours: ["Pompeii & Vesuvius", "Amalfi Coast Drive", "Capri Island Tour"]
-    },
-    {
-        slug: "bologna-taxi-service",
-        name: "Bologna",
-        hero_image: "/images/Bologna.jpg",
-        description: "The culinary capital of Italy. Move between piazzas and porticos in professional comfort.",
-        popular_tours: ["Food & Ferrari Tour", "Medieval Towers Visit", "Modena Balsamic Experience"]
-    },
-    {
-        slug: "palermo-taxi-service",
-        name: "Palermo",
-        hero_image: "/images/palermo-taxi.webp",
-        description: "Experience the crossroads of Mediterranean history in the comfort of a luxury SUV.",
-        popular_tours: ["Mondello Beach Visit", "Palatine Chapel Tour", "Sicilian Street Food"]
-    },
-    {
-        slug: "amalfi-taxi-service",
-        name: "Amalfi",
-        hero_image: "/images/almafi.webp",
-        description: "Travel along the breathtaking Amalfi Coast with professional local drivers.",
-        popular_tours: ["Positano Day Trip", "Ravello Gardens", "Amalfi Cathedral Visit"]
-    },
-    {
-        slug: "como-taxi-service",
-        name: "Como",
-        hero_image: "/images/Lake Como.avif",
-        description: "Explore the stunning shores of Lake Como with our luxury taxi service.",
-        popular_tours: ["Bellagio Visit", "Villa Carlotta Tour", "Varenna Lakeside Walk"]
     },
     {
         slug: "amalfi",
@@ -633,6 +601,8 @@ export interface RouteData {
     imageAlt?: string;         // descriptive ALT for the hero image
     sections?: { h2: string; p: string[] }[]; // long-form body sections (h2 + paragraphs)
     vehicleOptions?: boolean;  // render the standard vehicle-options grid
+    relatedLinks?: { href: string; label: string }[]; // curated hub-and-spoke links (airport/city/region/sibling-route pages); renders as its own section when present
+    itSlug?: string; // slug of this page's Italian twin at /it/route/{itSlug}, if one exists — drives hreflang
 }
 
 export const routes: RouteData[] = [
@@ -1401,4 +1371,6 @@ export const routes: RouteData[] = [
     ...extraRoutesTuscany,
     // ─── Phase 5 day trips + Phase 2 cruise + Phase 3 stations (final) ────────
     ...extraRoutesFinal,
+    // ─── Amalfi Coast/Sorrento/Capri, Sicily & Sardinia clusters (bilingual) ──
+    ...newClusterRoutesEn,
 ];

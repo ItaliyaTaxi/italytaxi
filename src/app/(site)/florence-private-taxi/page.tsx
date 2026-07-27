@@ -126,7 +126,7 @@ export default function FlorencePrivateTaxiPage() {
           { label: "Rome Airport Transfer", href: "/rome-airport-transfer" },
           { label: "Milan Chauffeur Service", href: "/milan-chauffeur-service" },
           { label: "Private Tours Italy", href: "/services/private-tours" },
-          { label: "Florence City Taxi", href: "/city/florence-taxi-service" },
+          { label: "Florence City Taxi", href: "/city/florence" },
           { label: "Rome to Florence Transfer", href: "/route/rome-to-florence-taxi" },
           { label: "Book Now", href: "/book-now" },
         ]}

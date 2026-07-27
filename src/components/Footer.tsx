@@ -82,11 +82,11 @@ export default function Footer() {
                             <li><Link href="/rome-airport-transfer" className="hover:text-gold transition-colors">Rome Airport Transfer</Link></li>
                             <li><Link href="/milan-chauffeur-service" className="hover:text-gold transition-colors">Milan Chauffeur Service</Link></li>
                             <li><Link href="/florence-private-taxi" className="hover:text-gold transition-colors">Florence Private Taxi</Link></li>
-                            <li><Link href="/city/rome-taxi-service" className="hover:text-gold transition-colors">Rome Taxi Service</Link></li>
-                            <li><Link href="/city/milan-taxi-service" className="hover:text-gold transition-colors">Milan Taxi Service</Link></li>
-                            <li><Link href="/city/florence-taxi-service" className="hover:text-gold transition-colors">Florence Taxi Service</Link></li>
-                            <li><Link href="/city/venice-taxi-service" className="hover:text-gold transition-colors">Venice Taxi Service</Link></li>
-                            <li><Link href="/city/naples-taxi-service" className="hover:text-gold transition-colors">Naples Taxi Service</Link></li>
+                            <li><Link href="/city/rome" className="hover:text-gold transition-colors">Rome Taxi Service</Link></li>
+                            <li><Link href="/city/milan" className="hover:text-gold transition-colors">Milan Taxi Service</Link></li>
+                            <li><Link href="/city/florence" className="hover:text-gold transition-colors">Florence Taxi Service</Link></li>
+                            <li><Link href="/city/venice" className="hover:text-gold transition-colors">Venice Taxi Service</Link></li>
+                            <li><Link href="/city/naples" className="hover:text-gold transition-colors">Naples Taxi Service</Link></li>
                             <li><Link href="/city" className="hover:text-gold transition-colors text-gold/70">View All Cities →</Link></li>
                         </ul>
 

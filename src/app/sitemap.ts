@@ -2,7 +2,8 @@ import { MetadataRoute } from 'next';
 import { supabase } from '@/lib/supabase/client';
 import { getAllAirportHotelTransfers } from '@/lib/airport-hotel-data';
 import { getAllFlorenceTransfers } from '@/lib/florence-transfer-data';
-import { routes as pageRoutes } from '@/lib/page-data';
+import { routes as pageRoutes, airports, cities, tours, borderSlugs } from '@/lib/page-data';
+import { clusterRoutes } from '@/lib/new-regions-routes-data';
 import { getAllMilanTransfers } from '@/lib/milan-transfer-data';
 import { getAllVenetoTransfers } from '@/lib/veneto-transfer-data';
 import { getAllCrossBorderTransfers } from '@/lib/cross-border-data';
@@ -112,12 +113,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }));
 
   // ── 2. Dynamic [slug] routes discovered from filesystem subdirectories ────
+  // Only segments with a real per-slug folder on disk belong here. airport,
+  // city, tour, and border are data-driven via generateStaticParams (like
+  // /route/[slug] — see step 6), so this walker finds zero slugs for them;
+  // they're added explicitly below instead.
   const dynamicSegments = [
-    'airport',
-    'city',
-    'route',
-    'tour',
-    'border',
     'attraction-transfer',
     'beach-transfer',
   ];
@@ -133,6 +133,30 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       };
     });
   });
+
+  // ── 2b. Data-driven airport/city/tour/border pages (page-data.ts) ─────────
+  // These use generateStaticParams from static arrays, so — like /route/[slug]
+  // — they have no physical per-slug folder for the filesystem walker to find.
+  const airportEntries: MetadataRoute.Sitemap = airports.map((a) => ({
+    url: `${BASE_URL}/airport/${a.slug}`,
+    lastModified: now,
+    ...routeConfig('/airport/'),
+  }));
+  const cityEntries: MetadataRoute.Sitemap = cities.map((c) => ({
+    url: `${BASE_URL}/city/${c.slug}`,
+    lastModified: now,
+    ...routeConfig('/city/'),
+  }));
+  const tourEntries: MetadataRoute.Sitemap = tours.map((t) => ({
+    url: `${BASE_URL}/tour/${t.slug}`,
+    lastModified: now,
+    ...routeConfig('/tour/'),
+  }));
+  const borderEntries: MetadataRoute.Sitemap = borderSlugs.map((slug) => ({
+    url: `${BASE_URL}/border/${slug}`,
+    lastModified: now,
+    ...routeConfig('/border/'),
+  }));
 
   // ── 3. Blog posts from Supabase ───────────────────────────────────────────
   let blogEntries: MetadataRoute.Sitemap = [];
@@ -175,6 +199,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // step 2 misses them — add them explicitly so every route page is indexed.
   const routeEntries: MetadataRoute.Sitemap = pageRoutes.map((r) => ({
     url: `${BASE_URL}/route/${r.slug}`,
+    lastModified: now,
+    priority: 0.9,
+    changeFrequency: 'weekly' as const,
+  }));
+
+  // ── 6b. Italian counterparts of the new Amalfi/Sicily/Sardinia route pages ─
+  // (the other 92 legacy /route/* pages have no dedicated Italian version)
+  const itRouteEntries: MetadataRoute.Sitemap = clusterRoutes.map((r) => ({
+    url: `${BASE_URL}/it/route/${r.slugIt}`,
     lastModified: now,
     priority: 0.9,
     changeFrequency: 'weekly' as const,
@@ -223,10 +256,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const combined = [
     ...staticEntries,
     ...dynamicEntries,
+    ...airportEntries,
+    ...cityEntries,
+    ...tourEntries,
+    ...borderEntries,
     ...blogEntries,
     ...airportHotelEntries,
     ...florenceEntries,
     ...routeEntries,
+    ...itRouteEntries,
     ...milanEntries,
     ...venetoEntries,
     ...crossBorderEntries,

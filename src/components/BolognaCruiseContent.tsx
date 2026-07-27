@@ -331,7 +331,7 @@ export default function BolognaCruiseContent({ combo }: { combo: BolognaCruiseCo
                     <h3 className="text-xl font-bold text-navy mb-4">Bologna &amp; Ravenna Services</h3>
                     <div className="grid sm:grid-cols-2 gap-3">
                         <Link href="/airport/bologna-marconi" className="flex items-center gap-2 text-gray-700 hover:text-gold font-medium"><Plane className="w-4 h-4 text-gold" /> Bologna Marconi Airport Guide</Link>
-                        <Link href="/city/bologna-taxi-service" className="flex items-center gap-2 text-gray-700 hover:text-gold font-medium"><ChevronRight className="w-4 h-4 text-gold" /> Bologna City Transfers</Link>
+                        <Link href="/city/bologna" className="flex items-center gap-2 text-gray-700 hover:text-gold font-medium"><ChevronRight className="w-4 h-4 text-gold" /> Bologna City Transfers</Link>
                         <Link href="/services/cruise-port-transfers" className="flex items-center gap-2 text-gray-700 hover:text-gold font-medium"><Ship className="w-4 h-4 text-gold" /> Cruise Port Transfer Service</Link>
                         <Link href="/services/airport-transfers" className="flex items-center gap-2 text-gray-700 hover:text-gold font-medium"><ChevronRight className="w-4 h-4 text-gold" /> Airport Transfer Service</Link>
                         <Link href="/services/hotel-transfers" className="flex items-center gap-2 text-gray-700 hover:text-gold font-medium"><ChevronRight className="w-4 h-4 text-gold" /> Hotel Transfer Service</Link>

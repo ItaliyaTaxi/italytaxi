@@ -6,12 +6,12 @@ import { ChevronRight } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 
 const destinationData = [
-    { name: "Rome", image: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?q=60&w=1000&auto=format&fit=crop", link: "/city/rome-taxi-service" },
-    { name: "Milan", image: "https://images.unsplash.com/photo-1513581166391-887a96ddeafd?q=60&w=1000&auto=format&fit=crop", link: "/city/milan-taxi-service" },
-    { name: "Florence", image: "/images/florence airport.jpg", link: "/city/florence-taxi-service" },
-    { name: "Venice", image: "/images/venice.webp", link: "/city/venice-taxi-service" },
-    { name: "Naples", image: "/images/naples.jpg", link: "/city/naples-taxi-service" },
-    { name: "Bologna", image: "/images/Bologna.jpg", link: "/city/bologna-taxi-service" },
+    { name: "Rome", image: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?q=60&w=1000&auto=format&fit=crop", link: "/city/rome" },
+    { name: "Milan", image: "https://images.unsplash.com/photo-1513581166391-887a96ddeafd?q=60&w=1000&auto=format&fit=crop", link: "/city/milan" },
+    { name: "Florence", image: "/images/florence airport.jpg", link: "/city/florence" },
+    { name: "Venice", image: "/images/venice.webp", link: "/city/venice" },
+    { name: "Naples", image: "/images/naples.jpg", link: "/city/naples" },
+    { name: "Bologna", image: "/images/Bologna.jpg", link: "/city/bologna" },
 ];
 
 export default function PopularDestinations() {

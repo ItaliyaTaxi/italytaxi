@@ -2,8 +2,7 @@
  * cityData.ts
  *
  * Unique, city-specific content for /city/[slug] and /airport/[slug] pages.
- * Keyed by the CITY NAME (lowercased) so both Rome and rome-taxi-service slugs
- * resolve to the same rich data via `getCityData(city.name)`.
+ * Keyed by the CITY NAME (lowercased) and looked up via `getCityData(city.name)`.
  *
  * Adding a new city: copy an entry, change the key, and fill in the fields.
  */

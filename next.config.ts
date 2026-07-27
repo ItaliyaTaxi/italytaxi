@@ -59,6 +59,24 @@ const nextConfig: NextConfig = {
     ],
   },
 
+  // 301s for the legacy "-taxi-service" city slugs — duplicate-content pages
+  // that competed with the clean /city/{slug} URL for the same keyword.
+  // Keep these permanently; do not remove even after the old pages are gone
+  // from generateStaticParams, since external backlinks/bookmarks persist.
+  async redirects() {
+    return [
+      { source: '/city/rome-taxi-service', destination: '/city/rome', permanent: true },
+      { source: '/city/milan-taxi-service', destination: '/city/milan', permanent: true },
+      { source: '/city/florence-taxi-service', destination: '/city/florence', permanent: true },
+      { source: '/city/venice-taxi-service', destination: '/city/venice', permanent: true },
+      { source: '/city/naples-taxi-service', destination: '/city/naples', permanent: true },
+      { source: '/city/bologna-taxi-service', destination: '/city/bologna', permanent: true },
+      { source: '/city/palermo-taxi-service', destination: '/city/palermo', permanent: true },
+      { source: '/city/amalfi-taxi-service', destination: '/city/amalfi', permanent: true },
+      { source: '/city/como-taxi-service', destination: '/city/como', permanent: true },
+    ];
+  },
+
   async headers() {
     return [
       // ─── Agent discovery Link headers for homepage ─────────────────────────

@@ -18,9 +18,9 @@ const STANDARD_VEHICLES: { name: string; desc: string }[] = [
     { name: 'Group Minibus', desc: 'Larger parties on request' },
 ];
 
-/** Returns a /city/{slug}-taxi-service href only if that city page exists; else null. */
+/** Returns a /city/{slug} href only if that city page exists; else null. */
 function cityServiceHref(name: string): string | null {
-    const slug = `${name.toLowerCase().trim().replace(/\s+/g, '-')}-taxi-service`;
+    const slug = name.toLowerCase().trim().replace(/\s+/g, '-');
     return cities.some((c) => c.slug === slug) ? `/city/${slug}` : null;
 }
 
@@ -35,11 +35,15 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
     const description = route.metaDescription
         || `Book a private taxi from ${route.from} to ${route.to}. Distance: ${route.distance}, duration: ${route.duration}. Professional English-speaking drivers, door-to-door service. Request a quote today.`;
+    const languages: Record<string, string> | undefined = route.itSlug
+        ? { 'it-IT': `/it/route/${route.itSlug}`, 'en': `/route/${slug}`, 'x-default': `/route/${slug}` }
+        : undefined;
     return {
         title: route.metaTitle || `${route.title} | Private Transfer Italy`,
         description,
         alternates: {
             canonical: `/route/${slug}`,
+            ...(languages ? { languages } : {}),
         },
         openGraph: {
             title: `${route.title} | Italy Taxi Service`,
@@ -176,6 +180,26 @@ export default async function RoutePage({ params }: { params: Promise<{ slug: st
                         <div className="bg-[#0F1C2E] text-white rounded-2xl p-6 grid sm:grid-cols-2 gap-3 text-sm">
                             {['Fixed price — agreed before you travel', 'Real-time flight monitoring', 'Meet & greet with name sign', 'Professional English-speaking drivers', '24/7 availability', 'Free waiting time after landing', 'Clean, modern vehicles', 'Secure online booking'].map((s, i) => (
                                 <p key={i} className="flex items-center gap-2"><ShieldCheck className="w-4 h-4 text-gold shrink-0" /> {s}</p>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            )}
+
+            {/* Curated hub-and-spoke links (airport/city/region/sibling routes) — only for routes that provide them */}
+            {route.relatedLinks && route.relatedLinks.length > 0 && (
+                <section className="py-16 bg-white border-b border-gray-100">
+                    <div className="container mx-auto px-6 max-w-5xl">
+                        <h2 className="text-2xl font-bold text-navy mb-6">Related Pages</h2>
+                        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+                            {route.relatedLinks.map((link, i) => (
+                                <Link
+                                    key={i}
+                                    href={link.href}
+                                    className="flex items-center gap-2 p-4 bg-[#F8F9FA] rounded-xl text-gray-700 hover:text-gold hover:bg-white hover:shadow-md border border-transparent hover:border-gold/30 transition-all font-medium text-sm"
+                                >
+                                    <ChevronRight className="w-4 h-4 text-gold shrink-0" /> {link.label}
+                                </Link>
                             ))}
                         </div>
                     </div>

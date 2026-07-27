@@ -127,7 +127,7 @@ export default function MilanChauffeurServicePage() {
           { label: "Rome Airport Transfer", href: "/rome-airport-transfer" },
           { label: "Florence Private Taxi", href: "/florence-private-taxi" },
           { label: "Business Taxi Service", href: "/services/business-taxi" },
-          { label: "Milan City Taxi", href: "/city/milan-taxi-service" },
+          { label: "Milan City Taxi", href: "/city/milan" },
           { label: "Milan to Lake Como", href: "/route/milan-to-lake-como-taxi" },
           { label: "Book Now", href: "/book-now" },
         ]}
