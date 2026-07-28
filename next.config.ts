@@ -74,6 +74,17 @@ const nextConfig: NextConfig = {
       { source: '/city/palermo-taxi-service', destination: '/city/palermo', permanent: true },
       { source: '/city/amalfi-taxi-service', destination: '/city/amalfi', permanent: true },
       { source: '/city/como-taxi-service', destination: '/city/como', permanent: true },
+
+      // Legacy static route structures removed when the site moved to the
+      // dynamic /city/[slug] and /airport/[slug] systems (see cleanup.py,
+      // which deleted src/app/city-transfer/* and src/app/airport-transfer/*
+      // per-city sub-pages). Google Search Console still shows crawl attempts
+      // against these old URLs — redirect rather than leave them 404ing.
+      { source: '/city-transfer', destination: '/city', permanent: true },
+      { source: '/city-transfer/:path*', destination: '/city', permanent: true },
+      // /airport-transfer itself is a real, current page (src/app/(site)/airport-transfer) —
+      // only its old per-city sub-paths (e.g. /airport-transfer/rome-taxi-service) are gone.
+      { source: '/airport-transfer/:path+', destination: '/airport', permanent: true },
     ];
   },
 
