@@ -42,11 +42,14 @@ export default function Footer() {
                             </li>
                         </ul>
                         <div className="flex gap-4">
-                            <Link href="https://www.facebook.com/italytaxiservice" target="_blank" rel="nofollow noopener noreferrer" className="w-8 h-8 rounded-full bg-navy flex items-center justify-center hover:bg-gold hover:text-white transition-all">
+                            <Link href="https://www.facebook.com/profile.php?id=61588708420164" target="_blank" rel="nofollow noopener noreferrer" className="w-8 h-8 rounded-full bg-navy flex items-center justify-center hover:bg-gold hover:text-white transition-all">
                                 <Facebook className="w-4 h-4" />
                             </Link>
-                            <Link href="https://www.instagram.com/italytaxiservice" target="_blank" rel="nofollow noopener noreferrer" className="w-8 h-8 rounded-full bg-navy flex items-center justify-center hover:bg-gold hover:text-white transition-all">
+                            <Link href="https://www.instagram.com/italytaxiservicee/" target="_blank" rel="nofollow noopener noreferrer" className="w-8 h-8 rounded-full bg-navy flex items-center justify-center hover:bg-gold hover:text-white transition-all">
                                 <Instagram className="w-4 h-4" />
+                            </Link>
+                            <Link href="https://pin.it/5HupU1fjM" target="_blank" rel="nofollow noopener noreferrer" className="w-8 h-8 rounded-full bg-navy flex items-center justify-center hover:bg-gold hover:text-white transition-all">
+                                <PinterestIcon className="w-4 h-4" />
                             </Link>
                         </div>
                     </div>
@@ -133,5 +136,13 @@ export default function Footer() {
                 </div>
             </div>
         </footer>
+    );
+}
+
+function PinterestIcon({ className = "" }: { className?: string }) {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={className}>
+            <path d="M12.017 0C5.396 0 0 5.396 0 12.017c0 5.081 3.163 9.422 7.627 11.174-.105-.949-.2-2.405.042-3.441.219-.937 1.406-5.957 1.406-5.957s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.739a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.379l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146 1.124.347 2.317.535 3.554.535 6.621 0 12.017-5.396 12.017-12.017C24.034 5.396 18.638 0 12.017 0z" />
+        </svg>
     );
 }

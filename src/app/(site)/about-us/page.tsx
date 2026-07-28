@@ -105,8 +105,9 @@ export default function AboutUsPage() {
                                 "contactOption": "TollFree"
                             },
                             "sameAs": [
-                                "https://www.facebook.com/italytaxiservice",
-                                "https://www.instagram.com/italytaxiservice"
+                                "https://www.facebook.com/profile.php?id=61588708420164",
+                                "https://www.instagram.com/italytaxiservicee/",
+                                "https://pin.it/5HupU1fjM"
                             ]
                         }
                     ])
