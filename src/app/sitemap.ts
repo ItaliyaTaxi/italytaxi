@@ -13,6 +13,14 @@ import path from 'path';
 
 const BASE_URL = 'https://www.italytaxiservice.com';
 
+// Without this, sitemap.xml has no cache signal at all — since it fetches
+// from Supabase, Next.js treats it as fully dynamic, meaning EVERY hit
+// (crawlers request this constantly) triggers a full recursive filesystem
+// walk of src/app plus a live Supabase query, and transfers the entire
+// ~1100-URL XML body uncached, every single time. This was very likely the
+// single largest contributor to both Fast Origin Transfer and ISR Reads.
+export const revalidate = 3600;
+
 // Routes to exclude from the sitemap (admin, api, auth, internal)
 const EXCLUDED_SEGMENTS = new Set([
   'crm', 'api', '_next', 'admin', 'auth',

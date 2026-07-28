@@ -26,6 +26,18 @@ const getItBlog = cache(async (slug: string) => {
   return data;
 });
 
+/** Pre-render every published Italian post at build time — see the English
+ *  blog/[slug]/page.tsx for why this matters (avoids on-demand, per-request
+ *  generation for every post). */
+export async function generateStaticParams() {
+  const { data } = await supabase
+    .from('blogs')
+    .select('slug')
+    .eq('status', 'published')
+    .eq('language', 'it');
+  return (data || []).map((b) => ({ slug: b.slug }));
+}
+
 /** Extract FAQ pairs from the HTML — <h3 id="faq-N"> followed by <p>. */
 function extractFAQItems(html: string): FAQItem[] {
   const faqRegex = /<h3[^>]*id="faq-[^"]*"[^>]*>(.*?)<\/h3>\s*<p>(.*?)<\/p>/gi;
@@ -69,7 +81,9 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
   };
 }
 
-export const revalidate = 60;
+// Same reasoning as the English post page: content is batch-seeded, not
+// continuously edited, so a long revalidate window is safe and far cheaper.
+export const revalidate = 3600;
 
 export default async function ItalianBlogPage({ params }: any) {
   const { slug } = await params;

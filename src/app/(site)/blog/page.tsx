@@ -20,12 +20,17 @@ export const metadata: Metadata = {
   }
 };
 
-export const revalidate = 60; // Revalidate every minute
+// Listing content is batch-seeded, not continuously edited — a long window
+// cuts ISR reads/regenerations sharply with no visible staleness (was 60s).
+export const revalidate = 3600;
 
 export default async function BlogPage() {
   const { data: blogs, error } = await supabase
     .from('blogs')
-    .select('*')
+    // Narrow select: this listing only ever renders these fields — the
+    // full row (esp. `content`, often 5-20KB of HTML per post) was being
+    // fetched and discarded for every one of ~195 posts on every regeneration.
+    .select('id, title, slug, excerpt, featured_image_url, category, published_at, read_time')
     .eq('status', 'published')
     .eq('language', 'en')
     .order('published_at', { ascending: false });

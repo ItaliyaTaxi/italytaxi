@@ -19,7 +19,9 @@ export const metadata: Metadata = {
   },
 };
 
-export const revalidate = 60;
+// Same reasoning as the English blog listing: batch-seeded content, long
+// window is safe and cuts ISR reads/regenerations sharply (was 60s).
+export const revalidate = 3600;
 
 export default async function ItalianBlogIndex() {
   const { data: blogs } = await supabase

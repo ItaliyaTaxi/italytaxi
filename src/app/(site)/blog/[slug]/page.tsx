@@ -21,6 +21,19 @@ const getBlog = cache(async (slug: string) => {
   return data;
 });
 
+/** Pre-render every published English post at build time — without this,
+ *  each post is generated on-demand per-request instead of served as a
+ *  prebuilt static page, which is far more expensive in both origin
+ *  transfer and function invocations across ~195 posts. */
+export async function generateStaticParams() {
+  const { data } = await supabase
+    .from('blogs')
+    .select('slug')
+    .eq('status', 'published')
+    .eq('language', 'en');
+  return (data || []).map((b) => ({ slug: b.slug }));
+}
+
 /** Slug of the Italian translation of this English post, if one is published. */
 const getItalianTranslationSlug = cache(async (enSlug: string): Promise<string | null> => {
   const { data } = await supabase
@@ -57,7 +70,10 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
   };
 }
 
-export const revalidate = 60;
+// Blog content is batch-seeded via scripts, not continuously edited — a long
+// revalidate window drastically cuts ISR reads/regenerations with no visible
+// staleness in practice (was 60s; content realistically changes far less than hourly).
+export const revalidate = 3600;
 
 interface FAQItem { question: string; answer: string }
 

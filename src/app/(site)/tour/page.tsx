@@ -2,6 +2,7 @@ import Navbar from '@/components/Navbar';
 import PageHero from '@/components/PageHero';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Compass, ChevronRight, Star, Clock, MapPin } from 'lucide-react';
 import { tours } from '@/lib/page-data';
 import FAQSection from '@/components/FAQSection';
@@ -87,10 +88,12 @@ export default function ToursHubPage() {
                 className="group bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 hover:border-gold hover:shadow-2xl transition-all duration-300"
               >
                 <div className="relative h-64 overflow-hidden">
-                  <img
+                  <Image
                     src={tour.hero_image}
                     alt={`${tour.alt_text} in Italy`}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                   <div className="absolute bottom-4 left-6">
