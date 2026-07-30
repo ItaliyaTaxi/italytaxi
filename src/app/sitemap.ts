@@ -4,6 +4,7 @@ import { getAllAirportHotelTransfers } from '@/lib/airport-hotel-data';
 import { getAllFlorenceTransfers } from '@/lib/florence-transfer-data';
 import { routes as pageRoutes, airports, cities, tours, borderSlugs } from '@/lib/page-data';
 import { clusterRoutes } from '@/lib/new-regions-routes-data';
+import { dayTrips } from '@/lib/day-trips-data';
 import { getAllMilanTransfers } from '@/lib/milan-transfer-data';
 import { getAllVenetoTransfers } from '@/lib/veneto-transfer-data';
 import { getAllCrossBorderTransfers } from '@/lib/cross-border-data';
@@ -212,6 +213,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     changeFrequency: 'weekly' as const,
   }));
 
+  // ── 6c. Day Trips & Tours cluster (EN + IT) ────────────────────────────────
+  const dayTripEnEntries: MetadataRoute.Sitemap = dayTrips.map((t) => ({
+    url: `${BASE_URL}/day-trips/${t.slugEn}`,
+    lastModified: now,
+    priority: 0.9,
+    changeFrequency: 'weekly' as const,
+  }));
+  const dayTripItEntries: MetadataRoute.Sitemap = dayTrips.map((t) => ({
+    url: `${BASE_URL}/it/day-trips/${t.slugIt}`,
+    lastModified: now,
+    priority: 0.9,
+    changeFrequency: 'weekly' as const,
+  }));
+
   // ── 6b. Italian counterparts of the new Amalfi/Sicily/Sardinia route pages ─
   // (the other 92 legacy /route/* pages have no dedicated Italian version)
   const itRouteEntries: MetadataRoute.Sitemap = clusterRoutes.map((r) => ({
@@ -273,6 +288,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...florenceEntries,
     ...routeEntries,
     ...itRouteEntries,
+    ...dayTripEnEntries,
+    ...dayTripItEntries,
     ...milanEntries,
     ...venetoEntries,
     ...crossBorderEntries,
