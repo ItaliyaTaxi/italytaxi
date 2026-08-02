@@ -24,6 +24,12 @@ export default function CRMPage() {
     const [emailBody, setEmailBody] = useState('');
     const [emailSending, setEmailSending] = useState(false);
     const [emailResult, setEmailResult] = useState<{ ok: boolean; msg: string } | null>(null);
+    const [searchQuery, setSearchQuery] = useState('');
+    const [dateFilter, setDateFilter] = useState('');
+    const [confirmBooking, setConfirmBooking] = useState<any | null>(null);
+    const [confirmForm, setConfirmForm] = useState<any>(null);
+    const [confirming, setConfirming] = useState(false);
+    const [confirmResult, setConfirmResult] = useState<{ ok: boolean; msg: string } | null>(null);
     const router = useRouter();
 
     useEffect(() => {
@@ -56,20 +62,73 @@ export default function CRMPage() {
         router.push('/crm/login');
     }
 
-    async function handleConfirm(booking: any) {
+    // Opens the Confirm & Send modal, pre-filled with the booking's current
+    // details (including any return-trip info the client originally
+    // submitted) so the admin can review, correct, or extend them before the
+    // confirmation email goes out.
+    function openConfirmModal(booking: any) {
+        setConfirmResult(null);
+        setConfirmBooking(booking);
+        setConfirmForm({
+            full_name: booking.full_name || '',
+            email: booking.email || '',
+            phone: booking.phone || '',
+            pickup_location: booking.pickup_location || '',
+            dropoff_location: booking.dropoff_location || '',
+            booking_datetime: toDatetimeLocal(booking.booking_datetime),
+            flight_number: booking.flight_number || '',
+            passengers: booking.passengers ?? 1,
+            luggage: booking.luggage || '',
+            trip_selection: booking.trip_selection || (booking.has_return_trip ? 'roundtrip' : 'outbound'),
+            return_pickup_location: booking.return_pickup_location || '',
+            return_dropoff_location: booking.return_dropoff_location || '',
+            return_datetime: toDatetimeLocal(booking.return_datetime),
+            return_flight_number: booking.return_flight_number || '',
+            admin_notes: booking.admin_notes || '',
+        });
+    }
+
+    function toDatetimeLocal(raw: string | null | undefined): string {
+        if (!raw) return '';
+        // booking_datetime is stored as a raw "YYYY-MM-DDTHH:mm" string from the
+        // form already — pass it straight through if it looks right, otherwise
+        // derive it from a real Date so the <input type="datetime-local"> can use it.
+        if (/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}/.test(raw)) return raw.slice(0, 16);
+        const d = new Date(raw);
+        if (isNaN(d.getTime())) return '';
+        const pad = (n: number) => String(n).padStart(2, '0');
+        return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`;
+    }
+
+    async function handleConfirmSend() {
+        if (!confirmBooking || !confirmForm) return;
+        setConfirming(true);
+        setConfirmResult(null);
         try {
-            await confirmBookingAction(booking.id, {
-                full_name: booking.full_name,
-                email: booking.email,
-                phone: booking.phone,
-                pickup_location: booking.pickup_location,
-                dropoff_location: booking.dropoff_location,
-                booking_datetime: booking.booking_datetime,
-                passengers: booking.passengers ?? 1,
+            await confirmBookingAction(confirmBooking.id, {
+                full_name: confirmForm.full_name,
+                email: confirmForm.email,
+                phone: confirmForm.phone,
+                pickup_location: confirmForm.pickup_location,
+                dropoff_location: confirmForm.dropoff_location,
+                booking_datetime: confirmForm.booking_datetime,
+                flight_number: confirmForm.flight_number,
+                passengers: Number(confirmForm.passengers) || 1,
+                luggage: confirmForm.luggage,
+                trip_selection: confirmForm.trip_selection,
+                return_pickup_location: confirmForm.return_pickup_location,
+                return_dropoff_location: confirmForm.return_dropoff_location,
+                return_datetime: confirmForm.return_datetime,
+                return_flight_number: confirmForm.return_flight_number,
+                admin_notes: confirmForm.admin_notes,
             });
-            setBookings(bookings.map(b => b.id === booking.id ? { ...b, status: 'confirmed' } : b));
+            setBookings(bookings.map(b => b.id === confirmBooking.id ? { ...b, ...confirmForm, status: 'confirmed', has_return_trip: confirmForm.trip_selection !== 'outbound' } : b));
+            setConfirmResult({ ok: true, msg: 'Confirmed — email sent to client.' });
+            setTimeout(() => { setConfirmBooking(null); setConfirmForm(null); }, 1200);
         } catch (e: any) {
-            alert('Error confirming booking: ' + e.message);
+            setConfirmResult({ ok: false, msg: e.message || 'Failed to confirm booking.' });
+        } finally {
+            setConfirming(false);
         }
     }
 
@@ -143,10 +202,23 @@ export default function CRMPage() {
         cancelled: bookings.filter(b => b.status === 'cancelled').length,
     };
 
-    // Bookings shown in the table, filtered by the selected status card.
-    const visibleBookings = statusFilter === 'all'
-        ? bookings
-        : bookings.filter(b => b.status === statusFilter);
+    // Bookings shown in the table — filtered by status card, then by the
+    // name/email/phone search box, then by the selected trip date.
+    const visibleBookings = bookings
+        .filter(b => statusFilter === 'all' || b.status === statusFilter)
+        .filter(b => {
+            if (!searchQuery.trim()) return true;
+            const q = searchQuery.trim().toLowerCase();
+            return (
+                b.full_name?.toLowerCase().includes(q) ||
+                b.email?.toLowerCase().includes(q) ||
+                b.phone?.toLowerCase().includes(q)
+            );
+        })
+        .filter(b => {
+            if (!dateFilter) return true;
+            return b.booking_datetime?.slice(0, 10) === dateFilter;
+        });
 
     return (
         <div className="flex min-h-screen bg-[#F8FAFC]">
@@ -325,6 +397,154 @@ export default function CRMPage() {
                 </div>
             )}
 
+            {/* Confirm & Send Modal — review/edit every detail, choose which
+                leg(s) to confirm, then send the matching confirmation email. */}
+            {confirmBooking && confirmForm && (
+                <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4" onClick={() => { setConfirmBooking(null); setConfirmForm(null); }}>
+                    <div className="bg-white rounded-[2rem] shadow-2xl w-full max-w-3xl max-h-[92vh] overflow-y-auto" onClick={e => e.stopPropagation()}>
+                        <div className="flex items-center justify-between px-8 py-6 bg-[#0F1C2E] rounded-t-[2rem] sticky top-0 z-10">
+                            <div>
+                                <h2 className="text-xl font-black text-white tracking-tight">Confirm &amp; Send</h2>
+                                <p className="text-[10px] font-bold text-gold/70 uppercase tracking-widest mt-0.5">Review details, choose trip type, then send the confirmation email</p>
+                            </div>
+                            <button onClick={() => { setConfirmBooking(null); setConfirmForm(null); }} className="w-9 h-9 flex items-center justify-center rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold transition-all">✕</button>
+                        </div>
+
+                        <div className="p-8 space-y-6">
+                            {/* Trip selection */}
+                            <div>
+                                <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-3">Which Transfer(s) Has the Client Selected?</label>
+                                <div className="grid grid-cols-3 gap-3">
+                                    {[
+                                        { value: 'outbound', label: 'Outbound Only', desc: 'One-way transfer' },
+                                        { value: 'both', label: 'Both Trips', desc: 'Two separate transfers' },
+                                        { value: 'roundtrip', label: 'Round Trip', desc: 'One continuous booking' },
+                                    ].map(opt => (
+                                        <button
+                                            key={opt.value}
+                                            type="button"
+                                            onClick={() => setConfirmForm({ ...confirmForm, trip_selection: opt.value })}
+                                            className={`text-left p-4 rounded-2xl border-2 transition-all ${confirmForm.trip_selection === opt.value ? 'border-gold bg-gold/10' : 'border-gray-100 hover:border-gray-200'}`}
+                                        >
+                                            <p className="font-black text-navy text-sm">{opt.label}</p>
+                                            <p className="text-[10px] text-gray-400 font-semibold mt-0.5">{opt.desc}</p>
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* Client details */}
+                            <div className="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-2">Full Name</label>
+                                    <input value={confirmForm.full_name} onChange={e => setConfirmForm({ ...confirmForm, full_name: e.target.value })} className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm font-semibold text-navy focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20" />
+                                </div>
+                                <div>
+                                    <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-2">Email</label>
+                                    <input value={confirmForm.email} onChange={e => setConfirmForm({ ...confirmForm, email: e.target.value })} className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm font-semibold text-navy focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20" />
+                                </div>
+                                <div>
+                                    <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-2">Phone</label>
+                                    <input value={confirmForm.phone} onChange={e => setConfirmForm({ ...confirmForm, phone: e.target.value })} className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm font-semibold text-navy focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20" />
+                                </div>
+                                <div className="grid grid-cols-2 gap-3">
+                                    <div>
+                                        <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-2">Passengers</label>
+                                        <input type="number" min={1} value={confirmForm.passengers} onChange={e => setConfirmForm({ ...confirmForm, passengers: e.target.value })} className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm font-semibold text-navy focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20" />
+                                    </div>
+                                    <div>
+                                        <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-2">Luggage</label>
+                                        <input value={confirmForm.luggage} onChange={e => setConfirmForm({ ...confirmForm, luggage: e.target.value })} className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm font-semibold text-navy focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Outbound trip */}
+                            <div className="p-5 bg-[#F8FAFC] rounded-2xl border border-gray-100">
+                                <p className="text-[10px] font-black uppercase tracking-widest text-gold mb-4">{confirmForm.trip_selection === 'roundtrip' ? 'Outbound Trip' : confirmForm.trip_selection === 'both' ? 'Transfer 1' : 'Trip Details'}</p>
+                                <div className="grid grid-cols-2 gap-4">
+                                    <div className="col-span-2">
+                                        <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-2">Pickup Location</label>
+                                        <input value={confirmForm.pickup_location} onChange={e => setConfirmForm({ ...confirmForm, pickup_location: e.target.value })} className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm font-semibold text-navy focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20" />
+                                    </div>
+                                    <div className="col-span-2">
+                                        <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-2">Drop-off Location</label>
+                                        <input value={confirmForm.dropoff_location} onChange={e => setConfirmForm({ ...confirmForm, dropoff_location: e.target.value })} className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm font-semibold text-navy focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20" />
+                                    </div>
+                                    <div>
+                                        <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-2">Date &amp; Time</label>
+                                        <input type="datetime-local" value={confirmForm.booking_datetime} onChange={e => setConfirmForm({ ...confirmForm, booking_datetime: e.target.value })} className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm font-semibold text-navy focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20" />
+                                    </div>
+                                    <div>
+                                        <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-2">Flight Number</label>
+                                        <input value={confirmForm.flight_number} onChange={e => setConfirmForm({ ...confirmForm, flight_number: e.target.value })} placeholder="e.g., AZ610" className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm font-semibold text-navy focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Return trip — only when the admin has selected both/roundtrip */}
+                            {confirmForm.trip_selection !== 'outbound' && (
+                                <div className="p-5 bg-[#F8FAFC] rounded-2xl border border-gray-100">
+                                    <p className="text-[10px] font-black uppercase tracking-widest text-gold mb-4">{confirmForm.trip_selection === 'roundtrip' ? 'Return Trip' : 'Transfer 2'}</p>
+                                    <div className="grid grid-cols-2 gap-4">
+                                        <div className="col-span-2">
+                                            <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-2">Pickup Location</label>
+                                            <input value={confirmForm.return_pickup_location} onChange={e => setConfirmForm({ ...confirmForm, return_pickup_location: e.target.value })} className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm font-semibold text-navy focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20" />
+                                        </div>
+                                        <div className="col-span-2">
+                                            <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-2">Drop-off Location</label>
+                                            <input value={confirmForm.return_dropoff_location} onChange={e => setConfirmForm({ ...confirmForm, return_dropoff_location: e.target.value })} className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm font-semibold text-navy focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20" />
+                                        </div>
+                                        <div>
+                                            <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-2">Date &amp; Time</label>
+                                            <input type="datetime-local" value={confirmForm.return_datetime} onChange={e => setConfirmForm({ ...confirmForm, return_datetime: e.target.value })} className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm font-semibold text-navy focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20" />
+                                        </div>
+                                        <div>
+                                            <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-2">Flight Number</label>
+                                            <input value={confirmForm.return_flight_number} onChange={e => setConfirmForm({ ...confirmForm, return_flight_number: e.target.value })} placeholder="e.g., AZ611" className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm font-semibold text-navy focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20" />
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
+
+                            {/* Admin notes / procedure */}
+                            <div>
+                                <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-2">Notes / Meeting Procedure <span className="normal-case font-semibold text-gray-300">(included in the client email if filled in)</span></label>
+                                <textarea
+                                    value={confirmForm.admin_notes}
+                                    onChange={e => setConfirmForm({ ...confirmForm, admin_notes: e.target.value })}
+                                    rows={3}
+                                    placeholder="e.g., driver will be holding a name sign at arrivals, meet at Terminal 3 exit..."
+                                    className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm text-navy leading-relaxed focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 resize-none"
+                                />
+                            </div>
+
+                            {confirmResult && (
+                                <div className={`px-4 py-3 rounded-xl text-sm font-bold ${confirmResult.ok ? 'bg-green-50 text-green-700 border border-green-200' : 'bg-red-50 text-red-700 border border-red-200'}`}>
+                                    {confirmResult.ok ? '✓ ' : '✕ '}{confirmResult.msg}
+                                </div>
+                            )}
+
+                            <div className="flex gap-3 pt-2">
+                                <button
+                                    onClick={handleConfirmSend}
+                                    disabled={confirming}
+                                    className="flex-1 py-4 bg-green-600 text-white font-black text-sm uppercase tracking-widest rounded-2xl hover:bg-green-700 transition-all disabled:opacity-40 disabled:cursor-not-allowed shadow-lg"
+                                >
+                                    {confirming ? 'Sending...' : 'Confirm & Send Email'}
+                                </button>
+                                <button
+                                    onClick={() => { setConfirmBooking(null); setConfirmForm(null); }}
+                                    className="px-8 py-4 bg-gray-100 text-gray-500 font-black text-sm uppercase tracking-widest rounded-2xl hover:bg-gray-200 transition-all"
+                                >
+                                    Cancel
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+
             {/* Dispatch to Driver Modal */}
             {dispatchBooking && (
                 <DispatchDriversModal booking={dispatchBooking} onClose={() => setDispatchBooking(null)} />
@@ -396,8 +616,8 @@ export default function CRMPage() {
             </aside>
 
             {/* Main Content */}
-            <main className="ml-80 flex-1 p-12">
-                <div className="max-w-7xl mx-auto">
+            <main className="ml-80 flex-1 p-12 w-[calc(100%-20rem)]">
+                <div className="w-full">
                     {/* Dashboard Header */}
                     <div className="flex justify-between items-start mb-12">
                         <div>
@@ -463,13 +683,13 @@ export default function CRMPage() {
                         <DriversPanel />
                     ) : (
                     /* Table Section */
-                    <div className="bg-white rounded-[3rem] shadow-2xl shadow-navy/10 border border-gray-100 overflow-hidden">
-                        <div className="p-8 border-b border-gray-50 flex justify-between items-center bg-gray-50/50">
-                            <h3 className="text-lg font-bold text-navy flex items-center gap-3 flex-wrap">
+                    <div className="bg-white rounded-[1.75rem] shadow-xl shadow-navy/10 border border-gray-100 overflow-hidden w-full">
+                        <div className="px-6 py-4 border-b border-gray-50 flex justify-between items-center bg-gray-50/50 flex-wrap gap-3">
+                            <h3 className="text-sm font-bold text-navy flex items-center gap-2.5 flex-wrap">
                                 {activeTab === 'bookings'
                                     ? (statusFilter === 'all' ? 'Recent Activity Log' : `${statusFilter.charAt(0).toUpperCase() + statusFilter.slice(1)} Bookings`)
                                     : 'Contact Messages'}
-                                <span className="text-[10px] bg-navy text-white px-3 py-1 rounded-full uppercase tracking-widest font-bold">Real-time</span>
+                                <span className="text-[9px] bg-navy text-white px-2.5 py-1 rounded-full uppercase tracking-widest font-bold">Real-time</span>
                                 {activeTab === 'bookings' && statusFilter !== 'all' && (
                                     <button type="button" onClick={() => setStatusFilter('all')} className="text-[10px] font-bold text-gold uppercase tracking-widest border-b border-gold hover:text-navy hover:border-navy transition-all">Show all</button>
                                 )}
@@ -482,7 +702,42 @@ export default function CRMPage() {
                             </button>
                         </div>
 
-                        <div className="overflow-x-auto min-h-[400px]">
+                        {/* Search & date filters — bookings tab only, single compact row */}
+                        {activeTab === 'bookings' && (
+                            <div className="px-6 py-3 border-b border-gray-50 flex flex-wrap items-center gap-3 bg-white">
+                                <div className="relative flex-1 min-w-[220px]">
+                                    <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-300 text-sm">🔍</span>
+                                    <input
+                                        type="text"
+                                        value={searchQuery}
+                                        onChange={(e) => setSearchQuery(e.target.value)}
+                                        placeholder="Search by name, email or phone..."
+                                        className="w-full pl-9 pr-3 py-2 border border-gray-200 rounded-lg text-xs text-navy font-medium focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all"
+                                    />
+                                </div>
+                                <div className="flex items-center gap-2">
+                                    <label className="text-[9px] font-black uppercase tracking-widest text-gray-400">Trip Date</label>
+                                    <input
+                                        type="date"
+                                        value={dateFilter}
+                                        onChange={(e) => setDateFilter(e.target.value)}
+                                        className="px-3 py-2 border border-gray-200 rounded-lg text-xs text-navy font-medium focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all"
+                                    />
+                                </div>
+                                {(searchQuery || dateFilter) && (
+                                    <button
+                                        type="button"
+                                        onClick={() => { setSearchQuery(''); setDateFilter(''); }}
+                                        className="text-[9px] font-bold text-gray-400 uppercase tracking-widest border-b border-gray-300 hover:text-red-500 hover:border-red-500 transition-all"
+                                    >
+                                        Clear
+                                    </button>
+                                )}
+                                <span className="text-[9px] font-bold text-gray-300 uppercase tracking-widest ml-auto">{visibleBookings.length} of {bookings.length}</span>
+                            </div>
+                        )}
+
+                        <div className="overflow-auto max-h-[74vh] min-h-[200px]">
                             {loading ? (
                                 <div className="flex flex-col items-center justify-center pt-32 gap-6">
                                     <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-gold outline outline-4 outline-gold/10"></div>
@@ -500,129 +755,131 @@ export default function CRMPage() {
                                         )}
                                     </div>
                                 ) : (
-                                    <table className="w-full text-left">
-                                        <thead>
-                                            <tr className="bg-navy text-white text-[9px] font-bold uppercase tracking-[0.3em]">
-                                                <th className="px-10 py-6">Customer Identity</th>
-                                                <th className="px-10 py-6">Route Logistics</th>
-                                                <th className="px-10 py-6">Schedule</th>
-                                                <th className="px-10 py-6">Date Received</th>
-                                                <th className="px-10 py-6">Form Source</th>
-                                                <th className="px-10 py-6 text-center">Passengers</th>
-                                                <th className="px-10 py-6 text-center">Validation</th>
-                                                <th className="px-10 py-6 text-right">Management</th>
+                                    <>
+                                    {/* Desktop: dense data table */}
+                                    <table className="w-full text-left table-fixed hidden md:table">
+                                        <colgroup>
+                                            <col className="w-[22%]" />
+                                            <col className="w-[24%]" />
+                                            <col className="w-[11%]" />
+                                            <col className="w-[9%]" />
+                                            <col className="w-[9%]" />
+                                            <col className="w-[8%]" />
+                                            <col className="w-[17%]" />
+                                        </colgroup>
+                                        <thead className="sticky top-0 z-10">
+                                            <tr className="bg-navy text-white text-[9px] font-bold uppercase tracking-[0.2em]">
+                                                <th className="px-4 py-3">Customer</th>
+                                                <th className="px-4 py-3">Route</th>
+                                                <th className="px-4 py-3">Schedule</th>
+                                                <th className="px-4 py-3">Received</th>
+                                                <th className="px-4 py-3">Source</th>
+                                                <th className="px-4 py-3">Status</th>
+                                                <th className="px-4 py-3 text-right">Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody className="divide-y divide-gray-50">
                                             {visibleBookings.map((booking) => (
-                                                <tr key={booking.id} className="hover:bg-[#F8FAFC]/80 transition-all duration-300 group">
-                                                    <td className="px-10 py-8">
-                                                        <div className="font-black text-navy text-lg mb-1 leading-none">{booking.full_name}</div>
-                                                        <div className="space-y-1">
-                                                            <div className="text-xs font-semibold text-gold/80 italic">{booking.email}</div>
-                                                            <div className="text-[10px] font-bold text-gray-400 font-mono tracking-tighter uppercase">{booking.phone}</div>
+                                                <tr key={booking.id} className="hover:bg-[#F8FAFC] transition-colors duration-200 group">
+                                                    {/* Customer */}
+                                                    <td className="px-4 py-2.5 align-top">
+                                                        <div className="flex items-center gap-1.5 leading-tight">
+                                                            <span className="font-bold text-navy text-[13px] truncate">{booking.full_name}</span>
                                                         </div>
+                                                        <span className={`inline-flex items-center px-1.5 py-[1px] rounded-full text-[8px] font-black uppercase tracking-wide border mt-0.5 ${booking.has_return_trip ? 'bg-purple-50 text-purple-600 border-purple-200' : 'bg-gray-50 text-gray-500 border-gray-200'}`}>
+                                                            {booking.has_return_trip ? (booking.trip_selection === 'both' ? '2 Transfers' : 'Round Trip') : 'One Way'}
+                                                        </span>
+                                                        <div className="text-[11px] text-gold/90 truncate leading-tight mt-1">{booking.email}</div>
+                                                        <div className="text-[10px] text-gray-400 font-mono leading-tight">{booking.phone}</div>
                                                     </td>
-                                                    <td className="px-10 py-8">
-                                                        <div className="flex items-center gap-4">
-                                                            <div className="flex flex-col items-center gap-1">
-                                                                <div className="w-2.5 h-2.5 rounded-full border-2 border-gold bg-white"></div>
-                                                                <div className="w-0.5 h-6 bg-gray-100"></div>
-                                                                <div className="w-2.5 h-2.5 rounded-full bg-navy"></div>
-                                                            </div>
-                                                            <div className="space-y-4">
-                                                                <div className="text-xs font-bold text-navy max-w-[200px] leading-tight truncate">{booking.pickup_location}</div>
-                                                                <div className="text-xs font-bold text-navy max-w-[200px] leading-tight truncate">{booking.dropoff_location}</div>
-                                                            </div>
+                                                    {/* Route */}
+                                                    <td className="px-4 py-2.5 align-top">
+                                                        <div className="text-[11px] text-navy font-semibold leading-snug truncate" title={booking.pickup_location}>
+                                                            <span className="text-gold">📍</span> {booking.pickup_location}
                                                         </div>
-                                                    </td>
-                                                    <td className="px-10 py-8">
-                                                        <div className="inline-block bg-navy p-3 rounded-2xl border border-white/10 shadow-lg shadow-navy/5">
-                                                            <div className="text-xs text-white font-black tracking-tight">{new Date(booking.booking_datetime).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}</div>
-                                                            <div className="text-[10px] text-gold font-bold mt-1 tracking-widest">{new Date(booking.booking_datetime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}</div>
+                                                        <div className="text-[11px] text-navy font-semibold leading-snug truncate mt-0.5" title={booking.dropoff_location}>
+                                                            <span className="text-gray-400">→</span> {booking.dropoff_location}
                                                         </div>
+                                                        <div className="text-[9px] text-gray-400 font-bold uppercase tracking-wide mt-1">{booking.passengers ?? '—'} pax{booking.luggage ? ` · ${booking.luggage} bags` : ''}</div>
                                                     </td>
-                                                    <td className="px-10 py-8">
-                                                        <div className="inline-block bg-[#F8FAFC] p-3 rounded-2xl border border-gray-100">
-                                                            <div className="text-xs text-navy font-black tracking-tight">{new Date(booking.created_at).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}</div>
-                                                            <div className="text-[10px] text-gold font-bold mt-1 tracking-widest">{new Date(booking.created_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}</div>
-                                                        </div>
+                                                    {/* Schedule */}
+                                                    <td className="px-4 py-2.5 align-top">
+                                                        <div className="text-[11px] text-navy font-bold leading-tight">{new Date(booking.booking_datetime).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}</div>
+                                                        <div className="text-[10px] text-gold font-bold leading-tight mt-0.5">{new Date(booking.booking_datetime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}</div>
                                                     </td>
-                                                    <td className="px-10 py-8">
-                                                        <span className="inline-flex items-center px-3 py-1.5 rounded-full text-[9px] font-black uppercase tracking-[0.15em] bg-blue-50 text-blue-700 border border-blue-200">
-                                                            📋 {booking.source_form || '—'}
+                                                    {/* Received */}
+                                                    <td className="px-4 py-2.5 align-top">
+                                                        <div className="text-[11px] text-gray-600 font-semibold leading-tight">{new Date(booking.created_at).toLocaleDateString('en-GB', { day: '2-digit', month: 'short' })}</div>
+                                                        <div className="text-[10px] text-gray-400 font-semibold leading-tight mt-0.5">{new Date(booking.created_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}</div>
+                                                    </td>
+                                                    {/* Source */}
+                                                    <td className="px-4 py-2.5 align-top">
+                                                        <span className="inline-flex items-center px-2 py-1 rounded-md text-[9px] font-bold uppercase tracking-wide bg-blue-50 text-blue-700 border border-blue-200 truncate max-w-full">
+                                                            {booking.source_form || '—'}
                                                         </span>
                                                     </td>
-                                                    <td className="px-10 py-8 text-center">
-                                                        <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-navy/10 text-navy font-black text-sm">
-                                                            {booking.passengers ?? '—'}
-                                                        </span>
-                                                    </td>
-                                                    <td className="px-10 py-8 text-center">
-                                                        <span className={`inline-flex items-center px-4 py-2 rounded-full text-[9px] font-black uppercase tracking-[0.2em] border ${booking.status === 'confirmed' ? 'bg-green-50 text-green-600 border-green-200 shadow-sm shadow-green-100' :
-                                                                booking.status === 'cancelled' ? 'bg-red-50 text-red-600 border-red-200 shadow-sm shadow-red-100' :
-                                                                    'bg-yellow-50 text-yellow-600 border-yellow-200 shadow-sm shadow-yellow-100 animate-pulse'
+                                                    {/* Status */}
+                                                    <td className="px-4 py-2.5 align-top">
+                                                        <span className={`inline-flex items-center px-2 py-1 rounded-md text-[9px] font-black uppercase tracking-wide border ${booking.status === 'confirmed' ? 'bg-green-50 text-green-600 border-green-200' :
+                                                                booking.status === 'cancelled' ? 'bg-red-50 text-red-600 border-red-200' :
+                                                                    'bg-yellow-50 text-yellow-600 border-yellow-200'
                                                             }`}>
                                                             {booking.status}
                                                         </span>
                                                     </td>
-                                                    <td className="px-10 py-8 text-right">
-                                                        <div className="flex gap-2 justify-end">
-                                                            <button
-                                                                onClick={() => setViewItem({ type: 'booking', data: booking })}
-                                                                className="h-10 w-10 flex items-center justify-center bg-gray-50 text-gray-400 rounded-xl hover:bg-navy hover:text-white hover:scale-110 active:scale-95 transition-all shadow-sm border border-transparent hover:border-navy"
-                                                                title="View Details"
-                                                            >
-                                                                👁
-                                                            </button>
-                                                            <button
-                                                                onClick={() => openEmailModal(booking.email, booking.full_name, `Re: Your Italy Taxi Booking`)}
-                                                                className="h-10 w-10 flex items-center justify-center bg-gray-50 text-gray-400 rounded-xl hover:bg-gold hover:text-navy hover:scale-110 active:scale-95 transition-all shadow-sm border border-transparent hover:border-gold"
-                                                                title="Email Client"
-                                                            >
-                                                                ✉
-                                                            </button>
-                                                            <button
-                                                                onClick={() => setDispatchBooking(booking)}
-                                                                className="h-10 w-10 flex items-center justify-center bg-gray-50 text-gray-400 rounded-xl hover:bg-[#25D366] hover:text-white hover:scale-110 active:scale-95 transition-all shadow-sm border border-transparent hover:border-[#25D366]"
-                                                                title="Dispatch to Driver (WhatsApp)"
-                                                            >
-                                                                🚗
-                                                            </button>
-                                                            <button
-                                                                onClick={() => createInvoiceFromBooking(booking)}
-                                                                className="h-10 w-10 flex items-center justify-center bg-gray-50 text-gray-400 rounded-xl hover:bg-navy hover:text-gold hover:scale-110 active:scale-95 transition-all shadow-sm border border-transparent hover:border-navy"
-                                                                title="Create Invoice"
-                                                            >
-                                                                🧾
-                                                            </button>
-                                                            <button
-                                                                onClick={() => handleConfirm(booking)}
-                                                                className="h-10 w-10 flex items-center justify-center bg-gray-50 text-gray-400 rounded-xl hover:bg-green-600 hover:text-white hover:scale-110 active:scale-95 transition-all shadow-sm border border-transparent hover:border-green-400"
-                                                                title="Confirm Booking"
-                                                            >
-                                                                ✓
-                                                            </button>
-                                                            <button
-                                                                onClick={() => updateStatus(booking.id, 'cancelled')}
-                                                                className="h-10 w-10 flex items-center justify-center bg-gray-50 text-gray-400 rounded-xl hover:bg-red-600 hover:text-white hover:scale-110 active:scale-95 transition-all shadow-sm border border-transparent hover:border-red-400"
-                                                                title="Cancel Booking"
-                                                            >
-                                                                ✕
-                                                            </button>
-                                                            <button
-                                                                onClick={() => deleteBooking(booking.id)}
-                                                                className="h-10 w-10 flex items-center justify-center bg-gray-50 text-gray-400 rounded-xl hover:bg-red-900 hover:text-white hover:scale-110 active:scale-95 transition-all shadow-sm border border-transparent hover:border-red-900"
-                                                                title="Delete Booking"
-                                                            >
-                                                                🗑
-                                                            </button>
+                                                    {/* Actions */}
+                                                    <td className="px-4 py-2.5 align-top">
+                                                        <div className="flex gap-1 justify-end flex-wrap">
+                                                            <button onClick={() => setViewItem({ type: 'booking', data: booking })} className="h-7 w-7 flex items-center justify-center bg-gray-50 text-gray-400 text-xs rounded-lg hover:bg-navy hover:text-white transition-all border border-transparent hover:border-navy" title="View Details">👁</button>
+                                                            <button onClick={() => openEmailModal(booking.email, booking.full_name, `Re: Your Italy Taxi Booking`)} className="h-7 w-7 flex items-center justify-center bg-gray-50 text-gray-400 text-xs rounded-lg hover:bg-gold hover:text-navy transition-all border border-transparent hover:border-gold" title="Email Client">✉</button>
+                                                            <button onClick={() => setDispatchBooking(booking)} className="h-7 w-7 flex items-center justify-center bg-gray-50 text-gray-400 text-xs rounded-lg hover:bg-[#25D366] hover:text-white transition-all border border-transparent hover:border-[#25D366]" title="Dispatch to Driver (WhatsApp)">🚗</button>
+                                                            <button onClick={() => createInvoiceFromBooking(booking)} className="h-7 w-7 flex items-center justify-center bg-gray-50 text-gray-400 text-xs rounded-lg hover:bg-navy hover:text-gold transition-all border border-transparent hover:border-navy" title="Create Invoice">🧾</button>
+                                                            <button onClick={() => openConfirmModal(booking)} className="h-7 w-7 flex items-center justify-center bg-gray-50 text-gray-400 text-xs rounded-lg hover:bg-green-600 hover:text-white transition-all border border-transparent hover:border-green-400" title="Confirm & Send">✓</button>
+                                                            <button onClick={() => updateStatus(booking.id, 'cancelled')} className="h-7 w-7 flex items-center justify-center bg-gray-50 text-gray-400 text-xs rounded-lg hover:bg-red-600 hover:text-white transition-all border border-transparent hover:border-red-400" title="Cancel Booking">✕</button>
+                                                            <button onClick={() => deleteBooking(booking.id)} className="h-7 w-7 flex items-center justify-center bg-gray-50 text-gray-400 text-xs rounded-lg hover:bg-red-900 hover:text-white transition-all border border-transparent hover:border-red-900" title="Delete Booking">🗑</button>
                                                         </div>
                                                     </td>
                                                 </tr>
                                             ))}
                                         </tbody>
                                     </table>
+
+                                    {/* Mobile: card layout */}
+                                    <div className="md:hidden divide-y divide-gray-100">
+                                        {visibleBookings.map((booking) => (
+                                            <div key={booking.id} className="p-4 space-y-2">
+                                                <div className="flex items-start justify-between gap-2">
+                                                    <div>
+                                                        <div className="flex items-center gap-1.5">
+                                                            <span className="font-bold text-navy text-sm">{booking.full_name}</span>
+                                                            <span className={`inline-flex items-center px-1.5 py-[1px] rounded-full text-[8px] font-black uppercase border ${booking.has_return_trip ? 'bg-purple-50 text-purple-600 border-purple-200' : 'bg-gray-50 text-gray-500 border-gray-200'}`}>
+                                                                {booking.has_return_trip ? (booking.trip_selection === 'both' ? '2 Transfers' : 'Round Trip') : 'One Way'}
+                                                            </span>
+                                                        </div>
+                                                        <div className="text-[11px] text-gold/90">{booking.email}</div>
+                                                        <div className="text-[10px] text-gray-400 font-mono">{booking.phone}</div>
+                                                    </div>
+                                                    <span className={`shrink-0 inline-flex items-center px-2 py-1 rounded-md text-[9px] font-black uppercase border ${booking.status === 'confirmed' ? 'bg-green-50 text-green-600 border-green-200' : booking.status === 'cancelled' ? 'bg-red-50 text-red-600 border-red-200' : 'bg-yellow-50 text-yellow-600 border-yellow-200'}`}>{booking.status}</span>
+                                                </div>
+                                                <div className="text-[12px] text-navy font-semibold"><span className="text-gold">📍</span> {booking.pickup_location}</div>
+                                                <div className="text-[12px] text-navy font-semibold"><span className="text-gray-400">→</span> {booking.dropoff_location}</div>
+                                                <div className="flex items-center justify-between text-[10px] text-gray-500 font-bold uppercase tracking-wide">
+                                                    <span>{new Date(booking.booking_datetime).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })} · {new Date(booking.booking_datetime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}</span>
+                                                    <span>{booking.passengers ?? '—'} pax</span>
+                                                </div>
+                                                <div className="flex gap-1.5 pt-1 flex-wrap">
+                                                    <button onClick={() => setViewItem({ type: 'booking', data: booking })} className="h-8 w-8 flex items-center justify-center bg-gray-50 text-gray-500 rounded-lg border border-gray-100" title="View">👁</button>
+                                                    <button onClick={() => openEmailModal(booking.email, booking.full_name, `Re: Your Italy Taxi Booking`)} className="h-8 w-8 flex items-center justify-center bg-gray-50 text-gray-500 rounded-lg border border-gray-100" title="Email">✉</button>
+                                                    <button onClick={() => setDispatchBooking(booking)} className="h-8 w-8 flex items-center justify-center bg-gray-50 text-gray-500 rounded-lg border border-gray-100" title="Dispatch">🚗</button>
+                                                    <button onClick={() => createInvoiceFromBooking(booking)} className="h-8 w-8 flex items-center justify-center bg-gray-50 text-gray-500 rounded-lg border border-gray-100" title="Invoice">🧾</button>
+                                                    <button onClick={() => openConfirmModal(booking)} className="h-8 w-8 flex items-center justify-center bg-gray-50 text-gray-500 rounded-lg border border-gray-100" title="Confirm">✓</button>
+                                                    <button onClick={() => updateStatus(booking.id, 'cancelled')} className="h-8 w-8 flex items-center justify-center bg-gray-50 text-gray-500 rounded-lg border border-gray-100" title="Cancel">✕</button>
+                                                    <button onClick={() => deleteBooking(booking.id)} className="h-8 w-8 flex items-center justify-center bg-gray-50 text-gray-500 rounded-lg border border-gray-100" title="Delete">🗑</button>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                    </>
                                 )
                             ) : (
                                 contacts.length === 0 ? (
@@ -631,61 +888,67 @@ export default function CRMPage() {
                                         <p className="text-sm font-bold text-navy opacity-30 uppercase tracking-widest">No contact messages found.</p>
                                     </div>
                                 ) : (
-                                    <table className="w-full text-left">
-                                        <thead>
-                                            <tr className="bg-navy text-white text-[9px] font-bold uppercase tracking-[0.3em]">
-                                                <th className="px-10 py-6">Sender</th>
-                                                <th className="px-10 py-6">Subject</th>
-                                                <th className="px-10 py-6">Message</th>
-                                                <th className="px-10 py-6">Date Received</th>
-                                                <th className="px-10 py-6">Form Source</th>
-                                                <th className="px-10 py-6 text-right">Actions</th>
+                                    <table className="w-full text-left table-fixed">
+                                        <colgroup>
+                                            <col className="w-[22%]" />
+                                            <col className="w-[16%]" />
+                                            <col className="w-[32%]" />
+                                            <col className="w-[10%]" />
+                                            <col className="w-[10%]" />
+                                            <col className="w-[10%]" />
+                                        </colgroup>
+                                        <thead className="sticky top-0 z-10">
+                                            <tr className="bg-navy text-white text-[9px] font-bold uppercase tracking-[0.2em]">
+                                                <th className="px-4 py-3">Sender</th>
+                                                <th className="px-4 py-3">Subject</th>
+                                                <th className="px-4 py-3">Message</th>
+                                                <th className="px-4 py-3">Received</th>
+                                                <th className="px-4 py-3">Source</th>
+                                                <th className="px-4 py-3 text-right">Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody className="divide-y divide-gray-50">
                                             {contacts.map((contact) => (
-                                                <tr key={contact.id} className="hover:bg-[#F8FAFC]/80 transition-all duration-300">
-                                                    <td className="px-10 py-8">
-                                                        <div className="font-black text-navy text-lg mb-1 leading-none">{contact.full_name}</div>
-                                                        <div className="text-xs font-semibold text-gold/80 italic">{contact.email}</div>
-                                                        {contact.phone && <div className="text-[10px] font-bold text-gray-400 font-mono tracking-tighter uppercase mt-1">{contact.phone}</div>}
+                                                <tr key={contact.id} className="hover:bg-[#F8FAFC] transition-colors duration-200">
+                                                    <td className="px-4 py-2.5 align-top">
+                                                        <div className="font-bold text-navy text-[13px] leading-tight truncate">{contact.full_name}</div>
+                                                        <div className="text-[11px] text-gold/90 truncate leading-tight">{contact.email}</div>
+                                                        {contact.phone && <div className="text-[10px] text-gray-400 font-mono leading-tight">{contact.phone}</div>}
                                                     </td>
-                                                    <td className="px-10 py-8">
-                                                        <div className="text-sm font-bold text-navy max-w-[180px] leading-tight">{contact.subject}</div>
+                                                    <td className="px-4 py-2.5 align-top">
+                                                        <div className="text-[12px] font-semibold text-navy leading-snug truncate">{contact.subject}</div>
                                                     </td>
-                                                    <td className="px-10 py-8">
-                                                        <div className="text-xs text-gray-600 max-w-[280px] leading-relaxed line-clamp-3">{contact.message}</div>
+                                                    <td className="px-4 py-2.5 align-top">
+                                                        <div className="text-[11px] text-gray-600 leading-snug line-clamp-2">{contact.message}</div>
                                                     </td>
-                                                    <td className="px-10 py-8">
-                                                        <div className="inline-block bg-navy p-3 rounded-2xl border border-white/10 shadow-lg shadow-navy/5">
-                                                            <div className="text-xs text-white font-black tracking-tight">{new Date(contact.created_at).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}</div>
-                                                            <div className="text-[10px] text-gold font-bold mt-1 tracking-widest">{new Date(contact.created_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}</div>
-                                                        </div>
+                                                    <td className="px-4 py-2.5 align-top">
+                                                        <div className="text-[11px] text-gray-600 font-semibold leading-tight">{new Date(contact.created_at).toLocaleDateString('en-GB', { day: '2-digit', month: 'short' })}</div>
+                                                        <div className="text-[10px] text-gray-400 font-semibold leading-tight mt-0.5">{new Date(contact.created_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}</div>
                                                     </td>
-                                                    <td className="px-10 py-8">
-                                                        <span className="inline-flex items-center px-3 py-1.5 rounded-full text-[9px] font-black uppercase tracking-[0.15em] bg-blue-50 text-blue-700 border border-blue-200">
-                                                            📋 {contact.source_form || '—'}
+                                                    <td className="px-4 py-2.5 align-top">
+                                                        <span className="inline-flex items-center px-2 py-1 rounded-md text-[9px] font-bold uppercase tracking-wide bg-blue-50 text-blue-700 border border-blue-200 truncate max-w-full">
+                                                            {contact.source_form || '—'}
                                                         </span>
                                                     </td>
-                                                    <td className="px-10 py-8 text-right">
-                                                        <div className="flex gap-2 justify-end">
+                                                    <td className="px-4 py-2.5 align-top">
+                                                        <div className="flex gap-1 justify-end">
                                                             <button
                                                                 onClick={() => setViewItem({ type: 'contact', data: contact })}
-                                                                className="h-10 w-10 flex items-center justify-center bg-gray-50 text-gray-400 rounded-xl hover:bg-navy hover:text-white hover:scale-110 active:scale-95 transition-all shadow-sm border border-transparent hover:border-navy"
+                                                                className="h-7 w-7 flex items-center justify-center bg-gray-50 text-gray-400 text-xs rounded-lg hover:bg-navy hover:text-white transition-all border border-transparent hover:border-navy"
                                                                 title="View Details"
                                                             >
                                                                 👁
                                                             </button>
                                                             <button
                                                                 onClick={() => openEmailModal(contact.email, contact.full_name, `Re: ${contact.subject}`)}
-                                                                className="h-10 w-10 flex items-center justify-center bg-gray-50 text-gray-400 rounded-xl hover:bg-gold hover:text-navy hover:scale-110 active:scale-95 transition-all shadow-sm border border-transparent hover:border-gold"
+                                                                className="h-7 w-7 flex items-center justify-center bg-gray-50 text-gray-400 text-xs rounded-lg hover:bg-gold hover:text-navy transition-all border border-transparent hover:border-gold"
                                                                 title="Email Client"
                                                             >
                                                                 ✉
                                                             </button>
                                                             <button
                                                                 onClick={() => deleteContact(contact.id)}
-                                                                className="h-10 w-10 flex items-center justify-center bg-gray-50 text-gray-400 rounded-xl hover:bg-red-900 hover:text-white hover:scale-110 active:scale-95 transition-all shadow-sm border border-transparent hover:border-red-900"
+                                                                className="h-7 w-7 flex items-center justify-center bg-gray-50 text-gray-400 text-xs rounded-lg hover:bg-red-900 hover:text-white transition-all border border-transparent hover:border-red-900"
                                                                 title="Delete Message"
                                                             >
                                                                 🗑

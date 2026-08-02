@@ -46,14 +46,34 @@ export async function submitBooking(_prevState: any, formData: FormData) {
             source_form,
         };
 
-        // Insert with luggage; if the `luggage` column hasn't been added yet,
-        // fall back to inserting without it so booking is never broken.
+        // Optional/extended fields — require the add_bookings_return_trip_fields
+        // migration. If that hasn't been run yet, the insert below falls back
+        // to the baseline column set so booking submission is never broken.
+        const extendedFields = {
+            ...(luggage ? { luggage } : {}),
+            ...(flightNumber ? { flight_number: flightNumber } : {}),
+            has_return_trip: returnTrip,
+            ...(returnTrip ? {
+                return_pickup_location: returnPickup,
+                return_dropoff_location: returnDropoff,
+                return_datetime: returnDatetime,
+                ...(returnFlightNumber ? { return_flight_number: returnFlightNumber } : {}),
+            } : {}),
+            trip_selection: returnTrip ? 'roundtrip' : 'outbound',
+        };
+
         let { error: dbError } = await supabase
             .from('bookings')
-            .insert([{ ...baseRecord, ...(luggage ? { luggage } : {}) }]);
+            .insert([{ ...baseRecord, ...extendedFields }]);
 
-        if (dbError && luggage && /luggage/i.test(dbError.message)) {
-            ({ error: dbError } = await supabase.from('bookings').insert([baseRecord]));
+        if (dbError && /column .* does not exist/i.test(dbError.message)) {
+            // Pre-migration schema — retry with just luggage (the older, already-run migration).
+            ({ error: dbError } = await supabase
+                .from('bookings')
+                .insert([{ ...baseRecord, ...(luggage ? { luggage } : {}) }]));
+            if (dbError && luggage && /luggage/i.test(dbError.message)) {
+                ({ error: dbError } = await supabase.from('bookings').insert([baseRecord]));
+            }
         }
 
         if (dbError) throw dbError;

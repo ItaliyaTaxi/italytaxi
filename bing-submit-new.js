@@ -67,20 +67,20 @@ async function submitBatch(urlBatch) {
   return { status: res.status, body: text };
 }
 
-// The 10 "Where to Meet Your Driver" airport-cluster posts just added this
+// The 10 "Luggage Storage at [Airport]" cluster posts just added this
 // session — most time-sensitive to get indexed, so they go first regardless
 // of quota pressure from the rest of the backlog.
 const NEW_CLUSTER_SLUGS_EN = [
-  'where-meet-driver-rome-fiumicino',
-  'driver-pickup-rome-ciampino',
-  'meet-driver-milan-malpensa',
-  'meet-driver-milan-linate',
-  'driver-pickup-venice-marco-polo',
-  'meet-driver-florence-airport',
-  'meet-driver-naples-airport',
-  'driver-pickup-bologna-marconi',
-  'meet-driver-catania-airport',
-  'driver-pickup-palermo-airport',
+  'luggage-storage-rome-fiumicino',
+  'ciampino-luggage-lounges',
+  'luggage-storage-milan-malpensa',
+  'linate-luggage-wifi',
+  'luggage-storage-venice-marco-polo',
+  'florence-airport-luggage-lounges',
+  'naples-airport-luggage-atm',
+  'bologna-airport-luggage-lounges',
+  'catania-airport-luggage-sim',
+  'palermo-airport-luggage-wifi',
 ];
 const NEW_CLUSTER_SLUGS_IT = [];
 const NEW_CLUSTER_SLUGS = new Set([...NEW_CLUSTER_SLUGS_EN, ...NEW_CLUSTER_SLUGS_IT]);
