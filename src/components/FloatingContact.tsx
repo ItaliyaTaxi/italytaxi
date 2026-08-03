@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import { MessageCircle, Mail, X, ChevronRight } from 'lucide-react';
 
 const WA_LINK = "https://wa.me/923148932631?text=Hello%2C%20I%20would%20like%20to%20inquire%20about%20a%20transfer%20service.";
+const TRUSTPILOT_LINK = "https://www.trustpilot.com/review/italytaxiservice.com";
 
 const emails = [
     { label: "Booking Enquiry", address: "italytaxiservicee@gmail.com", hint: "Reservations & quotes" },
@@ -96,6 +97,18 @@ export default function FloatingContact() {
                 </div>
             )}
 
+            {/* ── TRUSTPILOT (always visible, stacked above WhatsApp) ─────────── */}
+            <a
+                href={TRUSTPILOT_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Read our reviews on Trustpilot"
+                title="Read our reviews on Trustpilot"
+                className="w-14 h-14 rounded-full shadow-2xl flex items-center justify-center bg-[#00b67a] transition-all duration-300 hover:scale-110 active:scale-95"
+            >
+                <TrustpilotIcon className="w-7 h-7 text-white" />
+            </a>
+
             {/* ── MAIN TOGGLE BUTTON ────────────────────────────── */}
             <button
                 onClick={toggle}
@@ -113,6 +126,14 @@ export default function FloatingContact() {
                 )}
             </button>
         </div>
+    );
+}
+
+function TrustpilotIcon({ className = "" }: { className?: string }) {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={className}>
+            <path d="M12 2L14.35 8.76 21.51 8.91 15.80 13.24 17.88 20.09 12 16 6.12 20.09 8.20 13.24 2.49 8.91 9.65 8.76 Z" />
+        </svg>
     );
 }
 

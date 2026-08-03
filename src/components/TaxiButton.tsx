@@ -24,7 +24,6 @@ export default function TaxiButton({
             <div className="inner" suppressHydrationWarning>
                 {children}
             </div>
-            <div className="fold"></div>
             <div className="points_wrapper">
                 <i className="point"></i>
                 <i className="point"></i>
