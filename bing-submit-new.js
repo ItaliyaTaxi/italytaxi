@@ -67,20 +67,12 @@ async function submitBatch(urlBatch) {
   return { status: res.status, body: text };
 }
 
-// The 10 "Luggage Storage at [Airport]" cluster posts just added this
-// session — most time-sensitive to get indexed, so they go first regardless
-// of quota pressure from the rest of the backlog.
+// Batch 3 of the Airport FAQs cluster — only 2 of the 10 written posts are
+// published today per user's pacing request; the other 8 are saved as
+// drafts in Supabase and will be published/submitted on later days.
 const NEW_CLUSTER_SLUGS_EN = [
-  'luggage-storage-rome-fiumicino',
-  'ciampino-luggage-lounges',
-  'luggage-storage-milan-malpensa',
-  'linate-luggage-wifi',
-  'luggage-storage-venice-marco-polo',
-  'florence-airport-luggage-lounges',
-  'naples-airport-luggage-atm',
-  'bologna-airport-luggage-lounges',
-  'catania-airport-luggage-sim',
-  'palermo-airport-luggage-wifi',
+  'fiumicino-terminals-guide',
+  'sim-card-rome-fiumicino',
 ];
 const NEW_CLUSTER_SLUGS_IT = [];
 const NEW_CLUSTER_SLUGS = new Set([...NEW_CLUSTER_SLUGS_EN, ...NEW_CLUSTER_SLUGS_IT]);

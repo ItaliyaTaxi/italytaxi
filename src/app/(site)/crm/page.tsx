@@ -9,11 +9,24 @@ import InvoicesPanel, { InvoicePrefill } from '@/components/crm/InvoicesPanel';
 import DriversPanel from '@/components/crm/DriversPanel';
 import DispatchDriversModal from '@/components/crm/DispatchDriversModal';
 
+/** A confirmed booking whose trip date/time has already passed is treated as
+ *  "completed" for display purposes — derived live from booking_datetime
+ *  rather than a separate DB flag, so a booking rolls from Confirmed into
+ *  Completed automatically the moment its trip time passes, with nothing to
+ *  update manually. Pending/cancelled bookings are unaffected. */
+function getEffectiveStatus(booking: any, now: Date): 'pending' | 'confirmed' | 'completed' | 'cancelled' {
+    if (booking.status === 'cancelled') return 'cancelled';
+    if (booking.status !== 'confirmed') return booking.status;
+    const tripDate = new Date(booking.booking_datetime);
+    if (!isNaN(tripDate.getTime()) && tripDate < now) return 'completed';
+    return 'confirmed';
+}
+
 export default function CRMPage() {
     const [bookings, setBookings] = useState<any[]>([]);
     const [contacts, setContacts] = useState<any[]>([]);
     const [activeTab, setActiveTab] = useState<'bookings' | 'contacts' | 'invoices' | 'drivers'>('bookings');
-    const [statusFilter, setStatusFilter] = useState<'all' | 'pending' | 'confirmed' | 'cancelled'>('all');
+    const [statusFilter, setStatusFilter] = useState<'all' | 'pending' | 'confirmed' | 'completed' | 'cancelled'>('all');
     const [invoicePrefill, setInvoicePrefill] = useState<InvoicePrefill | null>(null);
     const [dispatchBooking, setDispatchBooking] = useState<any | null>(null);
     const [loading, setLoading] = useState(true);
@@ -195,17 +208,34 @@ export default function CRMPage() {
 
     if (!user && !loading) return null;
 
+    // Computed once per render — used to derive completed/upcoming status
+    // and the "this week" list below. Cheap enough not to need memoizing.
+    const now = new Date();
+    const weekFromNow = new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000);
+
     const stats = {
         total: bookings.length,
         pending: bookings.filter(b => b.status === 'pending').length,
-        confirmed: bookings.filter(b => b.status === 'confirmed').length,
+        confirmed: bookings.filter(b => getEffectiveStatus(b, now) === 'confirmed').length,
+        completed: bookings.filter(b => getEffectiveStatus(b, now) === 'completed').length,
         cancelled: bookings.filter(b => b.status === 'cancelled').length,
     };
 
-    // Bookings shown in the table — filtered by status card, then by the
-    // name/email/phone search box, then by the selected trip date.
+    // Confirmed bookings whose trip falls within the next 7 days, soonest
+    // first — the dashboard's "This Week's Transfers" widget.
+    const thisWeekTransfers = bookings
+        .filter(b => getEffectiveStatus(b, now) === 'confirmed')
+        .filter(b => {
+            const d = new Date(b.booking_datetime);
+            return !isNaN(d.getTime()) && d >= now && d <= weekFromNow;
+        })
+        .sort((a, b) => new Date(a.booking_datetime).getTime() - new Date(b.booking_datetime).getTime());
+
+    // Bookings shown in the table — filtered by status card (using the
+    // derived completed/confirmed split), then by the name/email/phone
+    // search box, then by the selected trip date.
     const visibleBookings = bookings
-        .filter(b => statusFilter === 'all' || b.status === statusFilter)
+        .filter(b => statusFilter === 'all' || getEffectiveStatus(b, now) === statusFilter)
         .filter(b => {
             if (!searchQuery.trim()) return true;
             const q = searchQuery.trim().toLowerCase();
@@ -245,7 +275,14 @@ export default function CRMPage() {
                                         </div>
                                         <div className="bg-[#F8FAFC] rounded-2xl p-5 border border-gray-100">
                                             <p className="text-[9px] font-black uppercase tracking-widest text-gray-400 mb-1">Status</p>
-                                            <span className={`inline-flex items-center px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-[0.2em] border ${viewItem.data.status === 'confirmed' ? 'bg-green-50 text-green-600 border-green-200' : viewItem.data.status === 'cancelled' ? 'bg-red-50 text-red-600 border-red-200' : 'bg-yellow-50 text-yellow-600 border-yellow-200'}`}>{viewItem.data.status}</span>
+                                            {(() => {
+                                                const eff = getEffectiveStatus(viewItem.data, new Date());
+                                                const cls = eff === 'confirmed' ? 'bg-green-50 text-green-600 border-green-200'
+                                                    : eff === 'completed' ? 'bg-blue-50 text-blue-600 border-blue-200'
+                                                    : eff === 'cancelled' ? 'bg-red-50 text-red-600 border-red-200'
+                                                    : 'bg-yellow-50 text-yellow-600 border-yellow-200';
+                                                return <span className={`inline-flex items-center px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-[0.2em] border ${cls}`}>{eff}</span>;
+                                            })()}
                                         </div>
                                         <div className="bg-[#F8FAFC] rounded-2xl p-5 border border-gray-100">
                                             <p className="text-[9px] font-black uppercase tracking-widest text-gray-400 mb-1">Email</p>
@@ -632,47 +669,103 @@ export default function CRMPage() {
 
                     {/* Analytics Summary — only on bookings tab */}
                     {activeTab === 'bookings' && (
-                        <div className="grid grid-cols-4 gap-8 mb-16">
+                        <div className="grid grid-cols-5 gap-6 mb-12">
                             <button type="button" onClick={() => setStatusFilter('all')}
-                                className={`text-left bg-white p-8 rounded-[2.5rem] border shadow-sm shadow-navy/5 flex flex-col justify-between transition-all hover:shadow-md cursor-pointer ${statusFilter === 'all' ? 'border-navy ring-2 ring-navy/20' : 'border-gray-100'}`}>
+                                className={`text-left bg-white p-6 rounded-[2rem] border shadow-sm shadow-navy/5 flex flex-col justify-between transition-all hover:shadow-md cursor-pointer ${statusFilter === 'all' ? 'border-navy ring-2 ring-navy/20' : 'border-gray-100'}`}>
                                 <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4">Total Reservations</div>
                                 <div className="flex items-end justify-between">
-                                    <span className="text-5xl font-black text-navy">{stats.total}</span>
+                                    <span className="text-4xl font-black text-navy">{stats.total}</span>
                                     <div className="w-10 h-10 rounded-2xl bg-blue-50 flex items-center justify-center">
                                         <span className="text-xl">📊</span>
                                     </div>
                                 </div>
                             </button>
                             <button type="button" onClick={() => setStatusFilter('pending')}
-                                className={`text-left bg-white p-8 rounded-[2.5rem] border shadow-sm shadow-navy/5 flex flex-col justify-between transition-all hover:shadow-md cursor-pointer ${statusFilter === 'pending' ? 'border-yellow-400 ring-2 ring-yellow-200' : 'border-gray-100'}`}>
+                                className={`text-left bg-white p-6 rounded-[2rem] border shadow-sm shadow-navy/5 flex flex-col justify-between transition-all hover:shadow-md cursor-pointer ${statusFilter === 'pending' ? 'border-yellow-400 ring-2 ring-yellow-200' : 'border-gray-100'}`}>
                                 <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4 italic">Pending Verification</div>
                                 <div className="flex items-end justify-between">
-                                    <span className="text-5xl font-black text-yellow-600">{stats.pending}</span>
+                                    <span className="text-4xl font-black text-yellow-600">{stats.pending}</span>
                                     <div className="w-10 h-10 rounded-2xl bg-yellow-50 flex items-center justify-center animate-pulse">
                                         <span className="text-xl text-yellow-500">⏳</span>
                                     </div>
                                 </div>
                             </button>
                             <button type="button" onClick={() => setStatusFilter('confirmed')}
-                                className={`text-left bg-white p-8 rounded-[2.5rem] border shadow-sm shadow-navy/5 flex flex-col justify-between transition-all hover:shadow-md cursor-pointer ${statusFilter === 'confirmed' ? 'border-green-400 ring-2 ring-green-200' : 'border-gray-100'}`}>
-                                <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4">Confirmed Rides</div>
+                                className={`text-left bg-white p-6 rounded-[2rem] border shadow-sm shadow-navy/5 flex flex-col justify-between transition-all hover:shadow-md cursor-pointer ${statusFilter === 'confirmed' ? 'border-green-400 ring-2 ring-green-200' : 'border-gray-100'}`}>
+                                <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4">Confirmed &amp; Upcoming</div>
                                 <div className="flex items-end justify-between">
-                                    <span className="text-5xl font-black text-green-600">{stats.confirmed}</span>
+                                    <span className="text-4xl font-black text-green-600">{stats.confirmed}</span>
                                     <div className="w-10 h-10 rounded-2xl bg-green-50 flex items-center justify-center">
                                         <span className="text-xl text-green-500">✅</span>
                                     </div>
                                 </div>
                             </button>
+                            <button type="button" onClick={() => setStatusFilter('completed')}
+                                className={`text-left bg-white p-6 rounded-[2rem] border shadow-sm shadow-navy/5 flex flex-col justify-between transition-all hover:shadow-md cursor-pointer ${statusFilter === 'completed' ? 'border-blue-400 ring-2 ring-blue-200' : 'border-gray-100'}`}>
+                                <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4">Completed</div>
+                                <div className="flex items-end justify-between">
+                                    <span className="text-4xl font-black text-blue-600">{stats.completed}</span>
+                                    <div className="w-10 h-10 rounded-2xl bg-blue-50 flex items-center justify-center">
+                                        <span className="text-xl text-blue-500">🏁</span>
+                                    </div>
+                                </div>
+                            </button>
                             <button type="button" onClick={() => setStatusFilter('cancelled')}
-                                className={`text-left bg-white p-8 rounded-[2.5rem] border shadow-sm shadow-navy/5 flex flex-col justify-between transition-all hover:shadow-md cursor-pointer ${statusFilter === 'cancelled' ? 'border-red-400 ring-2 ring-red-200' : 'border-gray-100'}`}>
+                                className={`text-left bg-white p-6 rounded-[2rem] border shadow-sm shadow-navy/5 flex flex-col justify-between transition-all hover:shadow-md cursor-pointer ${statusFilter === 'cancelled' ? 'border-red-400 ring-2 ring-red-200' : 'border-gray-100'}`}>
                                 <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4">Cancelled / Lost</div>
                                 <div className="flex items-end justify-between">
-                                    <span className="text-5xl font-black text-red-600">{stats.cancelled}</span>
+                                    <span className="text-4xl font-black text-red-600">{stats.cancelled}</span>
                                     <div className="w-10 h-10 rounded-2xl bg-red-50 flex items-center justify-center">
                                         <span className="text-xl text-red-500">❌</span>
                                     </div>
                                 </div>
                             </button>
+                        </div>
+                    )}
+
+                    {/* This Week's Transfers — confirmed bookings with a trip date in the next 7 days */}
+                    {activeTab === 'bookings' && (
+                        <div className="bg-white rounded-[1.75rem] shadow-xl shadow-navy/10 border border-gray-100 overflow-hidden mb-12">
+                            <div className="px-6 py-4 border-b border-gray-50 flex items-center justify-between bg-gray-50/50">
+                                <h3 className="text-sm font-bold text-navy flex items-center gap-2.5">
+                                    🗓️ This Week's Transfers
+                                    <span className="text-[9px] bg-navy text-white px-2.5 py-1 rounded-full uppercase tracking-widest font-bold">{thisWeekTransfers.length}</span>
+                                </h3>
+                                <span className="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Confirmed pickups in the next 7 days</span>
+                            </div>
+                            {thisWeekTransfers.length === 0 ? (
+                                <div className="px-6 py-8 text-center">
+                                    <p className="text-xs font-bold text-gray-400 uppercase tracking-widest">No confirmed transfers scheduled in the next 7 days.</p>
+                                </div>
+                            ) : (
+                                <div className="divide-y divide-gray-50 max-h-[320px] overflow-y-auto">
+                                    {thisWeekTransfers.map((booking) => (
+                                        <div key={booking.id} className="px-6 py-3 flex items-center gap-4 hover:bg-[#F8FAFC] transition-colors">
+                                            <div className="shrink-0 bg-navy text-white rounded-xl px-3 py-2 text-center min-w-[64px]">
+                                                <div className="text-[10px] font-black uppercase tracking-wide">{new Date(booking.booking_datetime).toLocaleDateString('en-GB', { day: '2-digit', month: 'short' })}</div>
+                                                <div className="text-[9px] text-gold font-bold">{new Date(booking.booking_datetime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}</div>
+                                            </div>
+                                            <div className="min-w-0 flex-1">
+                                                <div className="flex items-center gap-1.5">
+                                                    <span className="font-bold text-navy text-[13px] truncate">{booking.full_name}</span>
+                                                    {booking.has_return_trip && (
+                                                        <span className="inline-flex items-center px-1.5 py-[1px] rounded-full text-[8px] font-black uppercase border bg-purple-50 text-purple-600 border-purple-200">
+                                                            {booking.trip_selection === 'both' ? '2 Transfers' : 'Round Trip'}
+                                                        </span>
+                                                    )}
+                                                </div>
+                                                <div className="text-[11px] text-gray-500 truncate">
+                                                    <span className="text-gold">📍</span> {booking.pickup_location} <span className="text-gray-300">→</span> {booking.dropoff_location}
+                                                </div>
+                                            </div>
+                                            <div className="shrink-0 flex gap-1">
+                                                <button onClick={() => setViewItem({ type: 'booking', data: booking })} className="h-7 w-7 flex items-center justify-center bg-gray-50 text-gray-400 text-xs rounded-lg hover:bg-navy hover:text-white transition-all" title="View Details">👁</button>
+                                                <button onClick={() => setDispatchBooking(booking)} className="h-7 w-7 flex items-center justify-center bg-gray-50 text-gray-400 text-xs rounded-lg hover:bg-[#25D366] hover:text-white transition-all" title="Dispatch to Driver">🚗</button>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
                         </div>
                     )}
 
@@ -820,12 +913,18 @@ export default function CRMPage() {
                                                     </td>
                                                     {/* Status */}
                                                     <td className="px-4 py-2.5 align-top">
-                                                        <span className={`inline-flex items-center px-2 py-1 rounded-md text-[9px] font-black uppercase tracking-wide border ${booking.status === 'confirmed' ? 'bg-green-50 text-green-600 border-green-200' :
-                                                                booking.status === 'cancelled' ? 'bg-red-50 text-red-600 border-red-200' :
-                                                                    'bg-yellow-50 text-yellow-600 border-yellow-200'
-                                                            }`}>
-                                                            {booking.status}
-                                                        </span>
+                                                        {(() => {
+                                                            const eff = getEffectiveStatus(booking, now);
+                                                            const cls = eff === 'confirmed' ? 'bg-green-50 text-green-600 border-green-200'
+                                                                : eff === 'completed' ? 'bg-blue-50 text-blue-600 border-blue-200'
+                                                                : eff === 'cancelled' ? 'bg-red-50 text-red-600 border-red-200'
+                                                                : 'bg-yellow-50 text-yellow-600 border-yellow-200';
+                                                            return (
+                                                                <span className={`inline-flex items-center px-2 py-1 rounded-md text-[9px] font-black uppercase tracking-wide border ${cls}`}>
+                                                                    {eff}
+                                                                </span>
+                                                            );
+                                                        })()}
                                                     </td>
                                                     {/* Actions */}
                                                     <td className="px-4 py-2.5 align-top">
@@ -859,7 +958,14 @@ export default function CRMPage() {
                                                         <div className="text-[11px] text-gold/90">{booking.email}</div>
                                                         <div className="text-[10px] text-gray-400 font-mono">{booking.phone}</div>
                                                     </div>
-                                                    <span className={`shrink-0 inline-flex items-center px-2 py-1 rounded-md text-[9px] font-black uppercase border ${booking.status === 'confirmed' ? 'bg-green-50 text-green-600 border-green-200' : booking.status === 'cancelled' ? 'bg-red-50 text-red-600 border-red-200' : 'bg-yellow-50 text-yellow-600 border-yellow-200'}`}>{booking.status}</span>
+                                                    {(() => {
+                                                        const eff = getEffectiveStatus(booking, now);
+                                                        const cls = eff === 'confirmed' ? 'bg-green-50 text-green-600 border-green-200'
+                                                            : eff === 'completed' ? 'bg-blue-50 text-blue-600 border-blue-200'
+                                                            : eff === 'cancelled' ? 'bg-red-50 text-red-600 border-red-200'
+                                                            : 'bg-yellow-50 text-yellow-600 border-yellow-200';
+                                                        return <span className={`shrink-0 inline-flex items-center px-2 py-1 rounded-md text-[9px] font-black uppercase border ${cls}`}>{eff}</span>;
+                                                    })()}
                                                 </div>
                                                 <div className="text-[12px] text-navy font-semibold"><span className="text-gold">📍</span> {booking.pickup_location}</div>
                                                 <div className="text-[12px] text-navy font-semibold"><span className="text-gray-400">→</span> {booking.dropoff_location}</div>
