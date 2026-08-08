@@ -274,3 +274,84 @@ export async function deleteContactAction(id: string) {
         throw new Error(e.message || 'Failed to delete contact');
     }
 }
+
+export interface CreateManualLeadInput {
+    full_name: string;
+    email?: string;
+    phone?: string;
+    pickup_location: string;
+    dropoff_location: string;
+    booking_datetime: string;
+    passengers: number;
+    luggage?: string;
+    flight_number?: string;
+    source_form: string;
+    status: 'pending' | 'confirmed' | 'cancelled';
+    trip_selection: TripSelection;
+    has_return_trip: boolean;
+    return_pickup_location?: string;
+    return_dropoff_location?: string;
+    return_datetime?: string;
+    return_flight_number?: string;
+    admin_notes?: string;
+}
+
+export async function createManualLeadAction(input: CreateManualLeadInput) {
+    try {
+        const supabase = getServiceSupabase();
+
+        if (!input.full_name || !input.pickup_location || !input.dropoff_location || !input.booking_datetime) {
+            throw new Error('Full name, pickup location, drop-off location, and trip date & time are required.');
+        }
+
+        const payload: Record<string, any> = {
+            full_name: input.full_name,
+            email: input.email ? input.email.trim() : '',
+            phone: input.phone ? input.phone.trim() : '',
+            pickup_location: input.pickup_location,
+            dropoff_location: input.dropoff_location,
+            booking_datetime: input.booking_datetime,
+            passengers: Number(input.passengers) || 1,
+            luggage: input.luggage || null,
+            flight_number: input.flight_number || null,
+            source_form: input.source_form || 'WhatsApp',
+            status: input.status || 'confirmed',
+            trip_selection: input.trip_selection || 'outbound',
+            has_return_trip: input.has_return_trip || false,
+            return_pickup_location: input.has_return_trip ? (input.return_pickup_location || null) : null,
+            return_dropoff_location: input.has_return_trip ? (input.return_dropoff_location || null) : null,
+            return_datetime: input.has_return_trip ? (input.return_datetime || null) : null,
+            return_flight_number: input.has_return_trip ? (input.return_flight_number || null) : null,
+            admin_notes: input.admin_notes || null,
+        };
+
+        let { data, error } = await supabase.from('bookings').insert([payload]).select('*').single();
+        if (error && /column .* does not exist/i.test(error.message)) {
+            // Fallback for missing return trip columns if table hasn't migrated
+            const fallbackPayload = {
+                full_name: payload.full_name,
+                email: payload.email,
+                phone: payload.phone,
+                pickup_location: payload.pickup_location,
+                dropoff_location: payload.dropoff_location,
+                booking_datetime: payload.booking_datetime,
+                passengers: payload.passengers,
+                status: payload.status,
+                source_form: payload.source_form,
+                luggage: payload.luggage,
+            };
+            const res = await supabase.from('bookings').insert([fallbackPayload]).select('*').single();
+            if (res.error) throw new Error(res.error.message);
+            data = res.data;
+        } else if (error) {
+            throw new Error(error.message);
+        }
+
+        revalidatePath('/crm');
+        return { success: true, data };
+    } catch (e: any) {
+        console.error('[CRM Action] Exception creating manual lead:', e);
+        throw new Error(e.message || 'Failed to create manual lead');
+    }
+}
+

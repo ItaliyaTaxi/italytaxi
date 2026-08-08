@@ -85,6 +85,22 @@ const nextConfig: NextConfig = {
       // /airport-transfer itself is a real, current page (src/app/(site)/airport-transfer) —
       // only its old per-city sub-paths (e.g. /airport-transfer/rome-taxi-service) are gone.
       { source: '/airport-transfer/:path+', destination: '/airport', permanent: true },
+
+      // 301s for consolidated duplicate blog posts (redirecting secondary stubs to primary canonical posts)
+      { source: '/blog/do-taxis-in-italy-accept-credit-cards-a-complete-guide', destination: '/blog/do-italian-taxis-accept-credit-cards', permanent: true },
+      { source: '/blog/do-taxis-in-italy-accept-credit-cards-complete-guide', destination: '/blog/do-italian-taxis-accept-credit-cards', permanent: true },
+      { source: '/blog/essential-travel-tips-for-firsttime-visitors-to-italy', destination: '/blog/essential-travel-tips-for-first-time-visitors-to-italy', permanent: true },
+      { source: '/blog/what-to-expect-booking-airport-transfer-italy', destination: '/blog/what-to-expect-when-booking-an-airport-transfer-in-italy', permanent: true },
+      { source: '/blog/taxi-vs-train-from-italian-airports-better-option', destination: '/blog/taxi-vs-train-from-italian-airports-which-option-is-better', permanent: true },
+      { source: '/blog/travel-time-major-italian-airports-city-centers', destination: '/blog/travel-time-from-major-italian-airports-to-city-centers', permanent: true },
+      { source: '/blog/transportation-guide-for-traveling-across-italy', destination: '/blog/comprehensive-transportation-guide-for-traveling-across-italy', permanent: true },
+      { source: '/blog/what-tourists-should-know-before-taking-taxi-italy', destination: '/blog/what-tourists-should-know-before-taking-a-taxi-in-italy', permanent: true },
+      { source: '/blog/how-to-plan-comfortable-city-to-city-travel-italy', destination: '/blog/how-to-plan-comfortable-citytocity-travel-in-italy', permanent: true },
+      { source: '/blog/private-taxi-vs-public-transport-in-italy-which-is-better', destination: '/blog/private-taxi-vs-public-transport-in-italy-which-is-better-for-travelers', permanent: true },
+
+      // Thin attraction-transfer stub consolidated into the richer beach-transfer page.
+      // The beach page is canonical for Costa Smeralda taxi traffic.
+      { source: '/attraction-transfer/costa-smeralda-taxi-transfer', destination: '/beach-transfer/costa-smeralda-taxi', permanent: true },
     ];
   },
 

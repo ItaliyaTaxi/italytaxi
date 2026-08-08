@@ -8,6 +8,7 @@ import { deleteBookingAction, deleteContactAction, confirmBookingAction, sendCli
 import InvoicesPanel, { InvoicePrefill } from '@/components/crm/InvoicesPanel';
 import DriversPanel from '@/components/crm/DriversPanel';
 import DispatchDriversModal from '@/components/crm/DispatchDriversModal';
+import AddLeadModal from '@/components/crm/AddLeadModal';
 
 /** A confirmed booking whose trip date/time has already passed is treated as
  *  "completed" for display purposes — derived live from booking_datetime
@@ -22,11 +23,58 @@ function getEffectiveStatus(booking: any, now: Date): 'pending' | 'confirmed' | 
     return 'confirmed';
 }
 
+function getSourceBadge(source: string | null | undefined) {
+    const src = (source || 'Website Form').trim();
+    const lower = src.toLowerCase();
+    if (lower.includes('whatsapp')) {
+        return (
+            <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-[9px] font-black uppercase tracking-wide bg-emerald-50 text-emerald-700 border border-emerald-200">
+                💬 WhatsApp
+            </span>
+        );
+    }
+    if (lower.includes('phone') || lower.includes('call')) {
+        return (
+            <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-[9px] font-black uppercase tracking-wide bg-sky-50 text-sky-700 border border-sky-200">
+                📞 Phone
+            </span>
+        );
+    }
+    if (lower.includes('email')) {
+        return (
+            <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-[9px] font-black uppercase tracking-wide bg-purple-50 text-purple-700 border border-purple-200">
+                📧 Email
+            </span>
+        );
+    }
+    if (lower.includes('referral')) {
+        return (
+            <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-[9px] font-black uppercase tracking-wide bg-amber-50 text-amber-700 border border-amber-200">
+                🤝 Referral
+            </span>
+        );
+    }
+    if (lower.includes('other')) {
+        return (
+            <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-[9px] font-black uppercase tracking-wide bg-gray-100 text-gray-700 border border-gray-200">
+                📌 Other
+            </span>
+        );
+    }
+    return (
+        <span className="inline-flex items-center px-2 py-1 rounded-md text-[9px] font-bold uppercase tracking-wide bg-blue-50 text-blue-700 border border-blue-200 truncate max-w-full">
+            🌐 {src}
+        </span>
+    );
+}
+
 export default function CRMPage() {
     const [bookings, setBookings] = useState<any[]>([]);
     const [contacts, setContacts] = useState<any[]>([]);
     const [activeTab, setActiveTab] = useState<'bookings' | 'contacts' | 'invoices' | 'drivers'>('bookings');
     const [statusFilter, setStatusFilter] = useState<'all' | 'pending' | 'confirmed' | 'completed' | 'cancelled'>('all');
+    const [sourceFilter, setSourceFilter] = useState<string>('all');
+    const [isAddLeadOpen, setIsAddLeadOpen] = useState(false);
     const [invoicePrefill, setInvoicePrefill] = useState<InvoicePrefill | null>(null);
     const [dispatchBooking, setDispatchBooking] = useState<any | null>(null);
     const [loading, setLoading] = useState(true);
@@ -237,12 +285,24 @@ export default function CRMPage() {
     const visibleBookings = bookings
         .filter(b => statusFilter === 'all' || getEffectiveStatus(b, now) === statusFilter)
         .filter(b => {
+            if (sourceFilter === 'all') return true;
+            const src = (b.source_form || '').toLowerCase();
+            const target = sourceFilter.toLowerCase();
+            if (target === 'website form') {
+                return !src || src.includes('website') || src.includes('contact') || src.includes('quote') || src.includes('page') || src.includes('form');
+            }
+            return src.includes(target);
+        })
+        .filter(b => {
             if (!searchQuery.trim()) return true;
             const q = searchQuery.trim().toLowerCase();
             return (
                 b.full_name?.toLowerCase().includes(q) ||
                 b.email?.toLowerCase().includes(q) ||
-                b.phone?.toLowerCase().includes(q)
+                b.phone?.toLowerCase().includes(q) ||
+                b.pickup_location?.toLowerCase().includes(q) ||
+                b.dropoff_location?.toLowerCase().includes(q) ||
+                b.source_form?.toLowerCase().includes(q)
             );
         })
         .filter(b => {
@@ -252,6 +312,19 @@ export default function CRMPage() {
 
     return (
         <div className="flex min-h-screen bg-[#F8FAFC]">
+            {/* Add Lead Modal */}
+            <AddLeadModal
+                isOpen={isAddLeadOpen}
+                onClose={() => setIsAddLeadOpen(false)}
+                existingBookings={bookings}
+                onLeadCreated={(newLead) => {
+                    setBookings([newLead, ...bookings]);
+                }}
+                onViewExistingLead={(lead) => {
+                    setViewItem({ type: 'booking', data: lead });
+                }}
+            />
+
             {/* View Detail Modal */}
             {viewItem && (
                 <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4" onClick={() => setViewItem(null)}>
@@ -661,9 +734,19 @@ export default function CRMPage() {
                             <h2 className="text-4xl font-black text-[#0F1C2E] tracking-tight mb-2">Internal Dashboard</h2>
                             <p className="text-gray-400 font-medium">Welcome back! Manage your fleet bookings and leads here.</p>
                         </div>
-                        <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-xl border border-gray-100 shadow-sm">
-                            <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                            <span className="text-xs font-bold text-navy uppercase tracking-widest">Database Linked</span>
+                        <div className="flex items-center gap-3">
+                            <button
+                                type="button"
+                                onClick={() => setIsAddLeadOpen(true)}
+                                className="px-6 py-3 bg-[#0F1C2E] hover:bg-gold hover:text-navy text-white text-xs font-black uppercase tracking-widest rounded-2xl transition-all shadow-lg shadow-navy/10 flex items-center gap-2 cursor-pointer group"
+                            >
+                                <span className="text-gold group-hover:text-navy text-base font-black transition-colors">+</span>
+                                <span>Add Lead</span>
+                            </button>
+                            <div className="flex items-center gap-2 bg-white px-4 py-3 rounded-2xl border border-gray-100 shadow-sm">
+                                <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                                <span className="text-xs font-bold text-navy uppercase tracking-widest">Database Linked</span>
+                            </div>
                         </div>
                     </div>
 
@@ -787,15 +870,26 @@ export default function CRMPage() {
                                     <button type="button" onClick={() => setStatusFilter('all')} className="text-[10px] font-bold text-gold uppercase tracking-widest border-b border-gold hover:text-navy hover:border-navy transition-all">Show all</button>
                                 )}
                             </h3>
-                            <button
-                                onClick={() => router.refresh()}
-                                className="text-[10px] font-bold text-gold uppercase tracking-widest border-b border-gold hover:text-navy hover:border-navy transition-all"
-                            >
-                                Refresh Table Data
-                            </button>
+                            <div className="flex items-center gap-3">
+                                {activeTab === 'bookings' && (
+                                    <button
+                                        type="button"
+                                        onClick={() => setIsAddLeadOpen(true)}
+                                        className="px-4 py-2 bg-gold hover:bg-navy text-navy hover:text-white font-black text-xs uppercase tracking-widest rounded-xl transition-all shadow-sm flex items-center gap-1.5 cursor-pointer"
+                                    >
+                                        <span>+ Add Lead</span>
+                                    </button>
+                                )}
+                                <button
+                                    onClick={() => router.refresh()}
+                                    className="text-[10px] font-bold text-gold uppercase tracking-widest border-b border-gold hover:text-navy hover:border-navy transition-all"
+                                >
+                                    Refresh Table Data
+                                </button>
+                            </div>
                         </div>
 
-                        {/* Search & date filters — bookings tab only, single compact row */}
+                        {/* Search, Source & Date filters — bookings tab only */}
                         {activeTab === 'bookings' && (
                             <div className="px-6 py-3 border-b border-gray-50 flex flex-wrap items-center gap-3 bg-white">
                                 <div className="relative flex-1 min-w-[220px]">
@@ -804,9 +898,25 @@ export default function CRMPage() {
                                         type="text"
                                         value={searchQuery}
                                         onChange={(e) => setSearchQuery(e.target.value)}
-                                        placeholder="Search by name, email or phone..."
+                                        placeholder="Search by name, email, phone, location..."
                                         className="w-full pl-9 pr-3 py-2 border border-gray-200 rounded-lg text-xs text-navy font-medium focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all"
                                     />
+                                </div>
+                                <div className="flex items-center gap-2">
+                                    <label className="text-[9px] font-black uppercase tracking-widest text-gray-400">Source</label>
+                                    <select
+                                        value={sourceFilter}
+                                        onChange={(e) => setSourceFilter(e.target.value)}
+                                        className="px-3 py-2 border border-gray-200 rounded-lg text-xs text-navy font-bold bg-white focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all"
+                                    >
+                                        <option value="all">All Sources</option>
+                                        <option value="WhatsApp">💬 WhatsApp</option>
+                                        <option value="Phone">📞 Phone</option>
+                                        <option value="Email">📧 Email</option>
+                                        <option value="Website Form">🌐 Website Form</option>
+                                        <option value="Referral">🤝 Referral</option>
+                                        <option value="Other">📌 Other</option>
+                                    </select>
                                 </div>
                                 <div className="flex items-center gap-2">
                                     <label className="text-[9px] font-black uppercase tracking-widest text-gray-400">Trip Date</label>
@@ -817,10 +927,10 @@ export default function CRMPage() {
                                         className="px-3 py-2 border border-gray-200 rounded-lg text-xs text-navy font-medium focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all"
                                     />
                                 </div>
-                                {(searchQuery || dateFilter) && (
+                                {(searchQuery || dateFilter || sourceFilter !== 'all') && (
                                     <button
                                         type="button"
-                                        onClick={() => { setSearchQuery(''); setDateFilter(''); }}
+                                        onClick={() => { setSearchQuery(''); setDateFilter(''); setSourceFilter('all'); }}
                                         className="text-[9px] font-bold text-gray-400 uppercase tracking-widest border-b border-gray-300 hover:text-red-500 hover:border-red-500 transition-all"
                                     >
                                         Clear
@@ -856,9 +966,9 @@ export default function CRMPage() {
                                             <col className="w-[24%]" />
                                             <col className="w-[11%]" />
                                             <col className="w-[9%]" />
-                                            <col className="w-[9%]" />
+                                            <col className="w-[10%]" />
                                             <col className="w-[8%]" />
-                                            <col className="w-[17%]" />
+                                            <col className="w-[16%]" />
                                         </colgroup>
                                         <thead className="sticky top-0 z-10">
                                             <tr className="bg-navy text-white text-[9px] font-bold uppercase tracking-[0.2em]">
@@ -907,9 +1017,7 @@ export default function CRMPage() {
                                                     </td>
                                                     {/* Source */}
                                                     <td className="px-4 py-2.5 align-top">
-                                                        <span className="inline-flex items-center px-2 py-1 rounded-md text-[9px] font-bold uppercase tracking-wide bg-blue-50 text-blue-700 border border-blue-200 truncate max-w-full">
-                                                            {booking.source_form || '—'}
-                                                        </span>
+                                                        {getSourceBadge(booking.source_form)}
                                                     </td>
                                                     {/* Status */}
                                                     <td className="px-4 py-2.5 align-top">
@@ -949,11 +1057,12 @@ export default function CRMPage() {
                                             <div key={booking.id} className="p-4 space-y-2">
                                                 <div className="flex items-start justify-between gap-2">
                                                     <div>
-                                                        <div className="flex items-center gap-1.5">
+                                                        <div className="flex items-center gap-1.5 flex-wrap">
                                                             <span className="font-bold text-navy text-sm">{booking.full_name}</span>
                                                             <span className={`inline-flex items-center px-1.5 py-[1px] rounded-full text-[8px] font-black uppercase border ${booking.has_return_trip ? 'bg-purple-50 text-purple-600 border-purple-200' : 'bg-gray-50 text-gray-500 border-gray-200'}`}>
                                                                 {booking.has_return_trip ? (booking.trip_selection === 'both' ? '2 Transfers' : 'Round Trip') : 'One Way'}
                                                             </span>
+                                                            {getSourceBadge(booking.source_form)}
                                                         </div>
                                                         <div className="text-[11px] text-gold/90">{booking.email}</div>
                                                         <div className="text-[10px] text-gray-400 font-mono">{booking.phone}</div>

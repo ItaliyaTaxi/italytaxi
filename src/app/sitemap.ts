@@ -297,9 +297,30 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...bolognaCruiseEntries,
   ];
 
-  // De-duplicate by URL (a data-driven route may also have a physical folder).
+  // Set of known redirected/non-canonical slugs to guarantee they never enter sitemap.xml
+  const EXCLUDED_PATHS = new Set([
+    '/city/rome-taxi-service', '/city/milan-taxi-service', '/city/florence-taxi-service',
+    '/city/venice-taxi-service', '/city/naples-taxi-service', '/city/bologna-taxi-service',
+    '/city/palermo-taxi-service', '/city/amalfi-taxi-service', '/city/como-taxi-service',
+    '/blog/do-taxis-in-italy-accept-credit-cards-a-complete-guide',
+    '/blog/do-taxis-in-italy-accept-credit-cards-complete-guide',
+    '/blog/essential-travel-tips-for-firsttime-visitors-to-italy',
+    '/blog/what-to-expect-booking-airport-transfer-italy',
+    '/blog/taxi-vs-train-from-italian-airports-better-option',
+    '/blog/travel-time-major-italian-airports-city-centers',
+    '/blog/transportation-guide-for-traveling-across-italy',
+    '/blog/what-tourists-should-know-before-taking-taxi-italy',
+    '/blog/how-to-plan-comfortable-city-to-city-travel-italy',
+    '/blog/private-taxi-vs-public-transport-in-italy-which-is-better',
+    // Attraction stub redirected to beach page — must not appear in sitemap
+    '/attraction-transfer/costa-smeralda-taxi-transfer',
+  ]);
+
+  // De-duplicate by URL and filter out non-canonical / redirected / admin URLs.
   const seen = new Set<string>();
   return combined.filter((e) => {
+    const pathOnly = e.url.replace(BASE_URL, '');
+    if (EXCLUDED_PATHS.has(pathOnly) || pathOnly.startsWith('/crm')) return false;
     if (seen.has(e.url)) return false;
     seen.add(e.url);
     return true;
