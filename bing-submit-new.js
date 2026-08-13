@@ -67,12 +67,14 @@ async function submitBatch(urlBatch) {
   return { status: res.status, body: text };
 }
 
-// Batch 3 of the Airport FAQs cluster — only 2 of the 10 written posts are
-// published today per user's pacing request; the other 8 are saved as
-// drafts in Supabase and will be published/submitted on later days.
+// Batch 3 of the Airport FAQs cluster — published 2 at a time per user's
+// pacing request. Remaining drafts in Supabase: linate-vs-malpensa-city,
+// meet-driver-bergamo-airport, driver-pickup-pisa-airport,
+// pisa-vs-florence-airport, meet-driver-bari-airport,
+// find-exit-meet-driver-italy.
 const NEW_CLUSTER_SLUGS_EN = [
-  'fiumicino-terminals-guide',
-  'sim-card-rome-fiumicino',
+  'ciampino-vs-fiumicino-arrivals',
+  'malpensa-t1-t2-transit',
 ];
 const NEW_CLUSTER_SLUGS_IT = [];
 const NEW_CLUSTER_SLUGS = new Set([...NEW_CLUSTER_SLUGS_EN, ...NEW_CLUSTER_SLUGS_IT]);
