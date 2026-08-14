@@ -4,6 +4,7 @@ import { getAllAirportHotelTransfers } from '@/lib/airport-hotel-data';
 import { getAllFlorenceTransfers } from '@/lib/florence-transfer-data';
 import { routes as pageRoutes, airports, cities, tours, borderSlugs } from '@/lib/page-data';
 import { clusterRoutes } from '@/lib/new-regions-routes-data';
+import { existingRouteItTranslations } from '@/lib/it-translations-existing-routes';
 import { dayTrips } from '@/lib/day-trips-data';
 import { getAllMilanTransfers } from '@/lib/milan-transfer-data';
 import { getAllVenetoTransfers } from '@/lib/veneto-transfer-data';
@@ -227,9 +228,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     changeFrequency: 'weekly' as const,
   }));
 
-  // ── 6b. Italian counterparts of the new Amalfi/Sicily/Sardinia route pages ─
-  // (the other 92 legacy /route/* pages have no dedicated Italian version)
-  const itRouteEntries: MetadataRoute.Sitemap = clusterRoutes.map((r) => ({
+  // ── 6b. Italian route pages: the 22 bilingual Amalfi/Sicily/Sardinia
+  // cluster routes, plus the 30 Route Expansion 2026 Phase B translations of
+  // existing English routes (the other 62 legacy /route/* pages have no
+  // dedicated Italian version yet).
+  const itRouteEntries: MetadataRoute.Sitemap = [...clusterRoutes, ...existingRouteItTranslations].map((r) => ({
     url: `${BASE_URL}/it/route/${r.slugIt}`,
     lastModified: now,
     priority: 0.9,

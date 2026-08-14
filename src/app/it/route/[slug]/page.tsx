@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import { clusterRoutes } from '@/lib/new-regions-routes-data';
+import { existingRouteItTranslations } from '@/lib/it-translations-existing-routes';
 import { cities } from '@/lib/page-data';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -10,11 +11,26 @@ import FAQSection from '@/components/FAQSection';
 import Link from 'next/link';
 import { MapPin, Clock, ChevronRight, MessageCircle, CheckCircle, Car, ShieldCheck } from 'lucide-react';
 
-// Italian counterpart of /route/[slug] — reads the Italian half of the same
-// bilingual entries in new-regions-routes-data.ts. Only the 22 new cluster
-// routes have an Italian version; the other 92 legacy /route/* pages don't
-// (no dedicated Italian content exists for them), so this page only ever
-// serves the itSlug values already registered there.
+// Italian counterpart of /route/[slug] — reads Italian content from two
+// sources: the 22 bilingual entries in new-regions-routes-data.ts (which
+// also carry their own English content, spread separately into routes[] in
+// page-data.ts), plus the 30 translations in it-translations-existing-
+// routes.ts (Route Expansion 2026 Phase B), which attach Italian content to
+// EXISTING English routes without duplicating or touching their EN data.
+// Together that's 52 Italian pages; the other 62 legacy /route/* pages have
+// no dedicated Italian version yet.
+type ItRouteView = {
+    slugEn: string;
+    slugIt: string;
+    from: string;
+    to: string;
+    hero_image: string;
+    imageAlt: string;
+    distance: string;
+    duration: string;
+    it: (typeof clusterRoutes)[number]['it'];
+};
+const allItRoutes: ItRouteView[] = [...clusterRoutes, ...existingRouteItTranslations];
 
 const STANDARD_VEHICLES: { name: string; desc: string }[] = [
     { name: 'Berlina', desc: '1–3 passeggeri · comoda auto berlina' },
@@ -44,18 +60,39 @@ const IT_PLACE_NAMES: Record<string, string> = {
     'Syracuse': 'Siracusa',
     'Mount Etna': 'Etna',
     'Baia Sardinia': 'Baia Sardegna',
+    // Added for Route Expansion 2026 Phase B (existingRouteItTranslations) —
+    // these 30 entries reuse plain English city/place names as from/to (so
+    // cityServiceHref's slug-matching against `cities` keeps working), so
+    // their Italian display forms are mapped here instead.
+    'Rome': 'Roma',
+    'Florence': 'Firenze',
+    'Milan': 'Milano',
+    'Venice': 'Venezia',
+    'Naples': 'Napoli',
+    'Pompeii': 'Pompei',
+    'Rome Fiumicino Airport': 'Aeroporto di Roma Fiumicino',
+    'Milan Malpensa Airport': 'Aeroporto di Milano Malpensa',
+    'Verona Airport': 'Aeroporto di Verona',
+    'Bari Airport': 'Aeroporto di Bari',
+    'Pisa Airport': 'Aeroporto di Pisa',
+    'Civitavecchia Port': 'Porto di Civitavecchia',
+    'Civitavecchia Cruise Port': 'Civitavecchia',
+    'Chianti Wine Region': 'Chianti',
+    'Lake Como': 'Lago di Como',
+    'Lake Garda': 'Lago di Garda',
+    'Colosseum': 'Colosseo',
 };
 function itPlaceName(name: string): string {
     return IT_PLACE_NAMES[name] || name;
 }
 
 export async function generateStaticParams() {
-    return clusterRoutes.map((route) => ({ slug: route.slugIt }));
+    return allItRoutes.map((route) => ({ slug: route.slugIt }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
-    const route = clusterRoutes.find((r) => r.slugIt === slug);
+    const route = allItRoutes.find((r) => r.slugIt === slug);
     if (!route) return {};
 
     const description = route.it.metaDescription;
@@ -82,7 +119,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function ItalianRoutePage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
-    const route = clusterRoutes.find((r) => r.slugIt === slug);
+    const route = allItRoutes.find((r) => r.slugIt === slug);
 
     if (!route) notFound();
 
@@ -231,7 +268,7 @@ export default async function ItalianRoutePage({ params }: { params: Promise<{ s
                         <h2 className="text-3xl font-bold text-navy">Altri Percorsi Popolari in Italia</h2>
                     </div>
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                        {clusterRoutes
+                        {allItRoutes
                             .filter((r) => r.slugIt !== slug)
                             .slice(0, 6)
                             .map((r, idx) => (

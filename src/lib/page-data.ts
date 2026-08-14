@@ -31,6 +31,8 @@ import { extraRoutesRome } from './extra-routes-rome';
 import { extraRoutesTuscany } from './extra-routes-tuscany';
 import { extraRoutesFinal } from './extra-routes-final';
 import { newClusterRoutesEn } from './new-regions-routes-data';
+import { routeExpansion2026 } from './route-expansion-2026';
+import { existingRouteItTranslations } from './it-translations-existing-routes';
 
 export interface AirportData {
     slug: string;
@@ -1373,4 +1375,15 @@ export const routes: RouteData[] = [
     ...extraRoutesFinal,
     // ─── Amalfi Coast/Sorrento/Capri, Sicily & Sardinia clusters (bilingual) ──
     ...newClusterRoutesEn,
+    // ─── Route Expansion 2026 — Phase A1 + A2 (approved audit routes) ────────
+    ...routeExpansion2026,
 ];
+
+// Patch `itSlug` onto the existing routes approved for Italian translation
+// (Route Expansion 2026, Phase B) — done here rather than editing each route
+// object's literal declaration, so none of their existing content/metadata
+// is touched. Drives the hreflang alternate in /route/[slug]/page.tsx.
+for (const t of existingRouteItTranslations) {
+    const match = routes.find((r) => r.slug === t.slugEn);
+    if (match) match.itSlug = t.slugIt;
+}
