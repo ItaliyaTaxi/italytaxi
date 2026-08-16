@@ -297,7 +297,7 @@ export const existingRouteItTranslations: ExistingRouteItTranslation[] = [
 
     {
         slugEn: 'rome-fiumicino-to-civitavecchia-taxi',
-        slugIt: 'trasferimento-fiumicino-civitavecchia',
+        slugIt: 'trasferimento-aeroporto-fiumicino-civitavecchia',
         from: 'Rome Fiumicino Airport', to: 'Civitavecchia Port',
         hero_image: '/images/cruise-port-transfer.webp',
         imageAlt: 'Nave da crociera ormeggiata al porto di Civitavecchia',
@@ -587,7 +587,7 @@ export const existingRouteItTranslations: ExistingRouteItTranslation[] = [
             relatedLinks: [
                 { href: '/city/milan', label: 'Servizio Taxi Milano' },
                 { href: '/city/como', label: 'Servizio Taxi Como' },
-                { href: '/it/route/trasferimento-malpensa-como', label: 'In arrivo a Malpensa? Transfer Malpensa - Como' },
+                { href: '/it/route/trasferimento-aeroporto-malpensa-como', label: 'In arrivo a Malpensa? Transfer Malpensa - Como' },
                 { href: '/tour/lake-como', label: 'Tour del Lago di Como' },
             ],
         },
@@ -595,7 +595,7 @@ export const existingRouteItTranslations: ExistingRouteItTranslation[] = [
 
     {
         slugEn: 'milan-malpensa-to-como-taxi',
-        slugIt: 'trasferimento-malpensa-como',
+        slugIt: 'trasferimento-aeroporto-malpensa-como',
         from: 'Milan Malpensa Airport', to: 'Como',
         hero_image: '/images/Lake Como.webp',
         imageAlt: 'Lungolago di Como con le montagne sullo sfondo',
@@ -630,7 +630,7 @@ export const existingRouteItTranslations: ExistingRouteItTranslation[] = [
             relatedLinks: [
                 { href: '/city/como', label: 'Servizio Taxi Como' },
                 { href: '/it/route/trasferimento-milano-lago-di-como', label: 'Partendo da Milano città? Transfer Milano - Lago di Como' },
-                { href: '/it/route/trasferimento-malpensa-stresa', label: 'Transfer Malpensa - Stresa (Lago Maggiore)' },
+                { href: '/it/route/trasferimento-aeroporto-malpensa-stresa', label: 'Transfer Malpensa - Stresa (Lago Maggiore)' },
                 { href: '/tour/lake-como', label: 'Tour del Lago di Como' },
             ],
         },
@@ -638,7 +638,7 @@ export const existingRouteItTranslations: ExistingRouteItTranslation[] = [
 
     {
         slugEn: 'milan-malpensa-to-stresa-taxi',
-        slugIt: 'trasferimento-malpensa-stresa',
+        slugIt: 'trasferimento-aeroporto-malpensa-stresa',
         from: 'Milan Malpensa Airport', to: 'Stresa',
         hero_image: '/images/Lake Como.webp',
         imageAlt: 'Isole Borromee viste da Stresa sul Lago Maggiore',
@@ -671,7 +671,7 @@ export const existingRouteItTranslations: ExistingRouteItTranslation[] = [
                 { q: 'Il prezzo è fisso?', a: 'Sì, concordato prima della partenza.' },
             ],
             relatedLinks: [
-                { href: '/it/route/trasferimento-malpensa-como', label: 'Transfer Malpensa - Como (Lago di Como)' },
+                { href: '/it/route/trasferimento-aeroporto-malpensa-como', label: 'Transfer Malpensa - Como (Lago di Como)' },
                 { href: '/route/milan-to-stresa-taxi', label: 'Milan to Stresa Transfer' },
             ],
         },
@@ -1095,7 +1095,7 @@ export const existingRouteItTranslations: ExistingRouteItTranslation[] = [
 
     {
         slugEn: 'rome-fiumicino-to-colosseum-taxi',
-        slugIt: 'trasferimento-fiumicino-colosseo',
+        slugIt: 'trasferimento-aeroporto-fiumicino-colosseo',
         from: 'Rome Fiumicino Airport', to: 'Colosseum',
         hero_image: '/images/rome airport.webp',
         imageAlt: 'Colosseo di Roma illuminato al tramonto',
@@ -1170,7 +1170,7 @@ export const existingRouteItTranslations: ExistingRouteItTranslation[] = [
             ],
             relatedLinks: [
                 { href: '/city/rome', label: 'Servizio Taxi Roma' },
-                { href: '/it/route/trasferimento-fiumicino-civitavecchia', label: 'In arrivo in aereo? Transfer Fiumicino - Civitavecchia' },
+                { href: '/it/route/trasferimento-aeroporto-fiumicino-civitavecchia', label: 'In arrivo in aereo? Transfer Fiumicino - Civitavecchia' },
             ],
         },
     },

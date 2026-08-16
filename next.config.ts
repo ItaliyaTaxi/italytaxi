@@ -101,6 +101,15 @@ const nextConfig: NextConfig = {
       // Thin attraction-transfer stub consolidated into the richer beach-transfer page.
       // The beach page is canonical for Costa Smeralda taxi traffic.
       { source: '/attraction-transfer/costa-smeralda-taxi-transfer', destination: '/beach-transfer/costa-smeralda-taxi', permanent: true },
+
+      // Italian route slugs normalized to match the site's established
+      // "aeroporto-" airport-origin naming convention (all 22 pre-existing
+      // cluster routes use it; these 4 were introduced without it and are
+      // being corrected). Keep permanently for external backlinks/bookmarks.
+      { source: '/it/route/trasferimento-fiumicino-civitavecchia', destination: '/it/route/trasferimento-aeroporto-fiumicino-civitavecchia', permanent: true },
+      { source: '/it/route/trasferimento-malpensa-como', destination: '/it/route/trasferimento-aeroporto-malpensa-como', permanent: true },
+      { source: '/it/route/trasferimento-malpensa-stresa', destination: '/it/route/trasferimento-aeroporto-malpensa-stresa', permanent: true },
+      { source: '/it/route/trasferimento-fiumicino-colosseo', destination: '/it/route/trasferimento-aeroporto-fiumicino-colosseo', permanent: true },
     ];
   },
 
