@@ -48,7 +48,7 @@ export default function Page() {
 
         <section className="mt-16 pt-16 border-t border-gray-100">
           <h2 className="text-2xl font-semibold text-navy mb-6">Nearby City Services</h2>
-          <p className="text-gray-600">Explore more in the area: <Link href="/city/" className="text-gold font-bold hover:underline">Taxi Services in Italy</Link>.</p>
+          <p className="text-gray-600">Explore more in the area: <Link href="/city" className="text-gold font-bold hover:underline">Taxi Services in Italy</Link>.</p>
         </section>
       </div>
       <Footer />

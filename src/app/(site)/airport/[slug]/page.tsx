@@ -1,3 +1,4 @@
+import { notFound } from 'next/navigation';
 import { airports } from '@/lib/page-data';
 import BookingForm from '@/components/BookingForm';
 import FAQSection from '@/components/FAQSection';
@@ -111,7 +112,8 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
     const airport = airports.find((a) => a.slug === slug);
-    const airportName = airport ? airport.name : slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+    if (!airport) return {};
+    const airportName = airport.name;
 
     const brand = " | Italy Taxi Service";
     const templates = [
@@ -146,14 +148,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function AirportPage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
-    const airport = airports.find((a) => a.slug === slug) || {
-        slug: slug,
-        name: slug.split('-').filter(w => w !== 'airport' && w !== 'taxi').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ') + ' Airport',
-        hero_image: "/images/hero.png",
-        description: "Professional airport transfer service. Reliable, punctual, and comfortable rides to and from the airport.",
-        features: ["Flight tracking", "Meet & greet service", "Fixed pricing", "24/7 availability", "Premium fleet"],
-        city: slug.split('-')[0]
-    };
+    const airport = airports.find((a) => a.slug === slug);
+    if (!airport) notFound();
 
     const rich = airportRichData[slug];
 

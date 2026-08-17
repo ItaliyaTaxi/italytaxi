@@ -74,6 +74,11 @@ const nextConfig: NextConfig = {
       { source: '/city/palermo-taxi-service', destination: '/city/palermo', permanent: true },
       { source: '/city/amalfi-taxi-service', destination: '/city/amalfi', permanent: true },
       { source: '/city/como-taxi-service', destination: '/city/como', permanent: true },
+      // Note: no '/city/pisa-taxi-service' rule — verified '/city/pisa' is NOT
+      // a real canonical page (Pisa only exists at /airport/pisa; it was never
+      // in the `cities` array). Redirecting there would 404. With the P0 fix
+      // to /city/[slug] (notFound() guard), this slug now correctly 404s on
+      // its own — no fake 200 page, no broken redirect. See audit report.
 
       // Legacy static route structures removed when the site moved to the
       // dynamic /city/[slug] and /airport/[slug] systems (see cleanup.py,

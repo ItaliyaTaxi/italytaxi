@@ -68,13 +68,12 @@ async function submitBatch(urlBatch) {
 }
 
 // Batch 3 of the Airport FAQs cluster — published 2 at a time per user's
-// pacing request. Remaining drafts in Supabase: linate-vs-malpensa-city,
-// meet-driver-bergamo-airport, driver-pickup-pisa-airport,
+// pacing request. Remaining drafts in Supabase: driver-pickup-pisa-airport,
 // pisa-vs-florence-airport, meet-driver-bari-airport,
 // find-exit-meet-driver-italy.
 const NEW_CLUSTER_SLUGS_EN = [
-  'ciampino-vs-fiumicino-arrivals',
-  'malpensa-t1-t2-transit',
+  'linate-vs-malpensa-city',
+  'meet-driver-bergamo-airport',
 ];
 const NEW_CLUSTER_SLUGS_IT = [];
 const NEW_CLUSTER_SLUGS = new Set([...NEW_CLUSTER_SLUGS_EN, ...NEW_CLUSTER_SLUGS_IT]);

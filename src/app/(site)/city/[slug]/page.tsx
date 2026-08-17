@@ -1,3 +1,4 @@
+import { notFound } from 'next/navigation';
 import { cities } from '@/lib/page-data';
 import { getCityData } from '@/lib/cityData';
 import BookingForm from '@/components/BookingForm';
@@ -19,11 +20,11 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
     const city = cities.find((c) => c.slug === slug);
-    const cityName = city ? city.name : slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+    if (!city) return {};
 
     return {
-        title: `Taxi Service in ${cityName} | Private Transfers`,
-        description: `Book the #1 top-rated private taxi transfer in ${cityName}. 24/7 service, English-speaking drivers, and fixed pricing for airport and city rides.`,
+        title: `Taxi Service in ${city.name} | Private Transfers`,
+        description: `Book the #1 top-rated private taxi transfer in ${city.name}. 24/7 service, English-speaking drivers, and fixed pricing for airport and city rides.`,
         alternates: {
             canonical: `/city/${slug}`,
         }
@@ -32,13 +33,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function CityPage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
-    const city = cities.find((c) => c.slug === slug) || {
-        slug: slug,
-        name: slug.split('-').filter(w => w !== 'taxi' && w !== 'service').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' '),
-        hero_image: "https://images.unsplash.com/photo-1542281286-9e0a16bb7366?auto=format&fit=crop&q=60&w=1200",
-        description: "Explore this beautiful Italian destination with our premium private transfer services. Professional drivers and luxury vehicles at your service.",
-        popular_tours: ["City Center Tour", "Historical Landmarks", "Local Food Tasting"]
-    };
+    const city = cities.find((c) => c.slug === slug);
+    if (!city) notFound();
 
     // Pull unique rich content for this city (keyed by city name)
     const richData = getCityData(city.name);

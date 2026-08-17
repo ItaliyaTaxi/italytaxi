@@ -55,7 +55,7 @@ export default function PopularDestinations() {
 
                 <div className="text-center mt-12">
                     <Link
-                        href="/city/"
+                        href="/city"
                         className="inline-flex items-center text-gold hover:text-white font-bold tracking-widest uppercase text-sm border-b-2 border-gold/30 hover:border-white transition-all pb-1"
                     >
                         {t.destinations.exploreAll} <ChevronRight className="w-4 h-4 ml-1" />
