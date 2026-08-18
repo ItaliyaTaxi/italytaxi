@@ -91,6 +91,9 @@ export default function Navbar() {
         { name: 'Genoa Airport', path: '/airport/genoa' },
     ];
 
+    // Kept in sync with `cities` in src/lib/page-data.ts — the actual source
+    // of truth for /city/[slug]. Do not add a city here unless it has a real
+    // entry in that array; /city/[slug] calls notFound() for anything else.
     const cities = [
         { name: 'Rome', path: '/city/rome' },
         { name: 'Milan', path: '/city/milan' },
@@ -98,6 +101,7 @@ export default function Navbar() {
         { name: 'Florence', path: '/city/florence' },
         { name: 'Naples', path: '/city/naples' },
         { name: 'Amalfi', path: '/city/amalfi' },
+        { name: 'Amalfi Coast', path: '/city/amalfi-coast' },
         { name: 'Positano', path: '/city/positano' },
         { name: 'Ravello', path: '/city/ravello' },
         { name: 'Sorrento', path: '/city/sorrento' },
@@ -107,13 +111,6 @@ export default function Navbar() {
         { name: 'Bologna', path: '/city/bologna' },
         { name: 'Bari', path: '/city/bari' },
         { name: 'Palermo', path: '/city/palermo' },
-        { name: 'Siena', path: '/city/siena' },
-        { name: 'Pisa', path: '/city/pisa' },
-        { name: 'Lucca', path: '/city/lucca' },
-        { name: 'San Gimignano', path: '/city/san-gimignano' },
-        { name: 'Cinque Terre', path: '/city/cinque-terre' },
-        { name: 'Agrigento', path: '/city/agrigento' },
-        { name: 'Alberobello', path: '/city/alberobello' },
     ];
 
     const tours = [
