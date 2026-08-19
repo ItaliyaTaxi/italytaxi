@@ -30,7 +30,7 @@ const airports = [
   { name: "Milan Linate (LIN)", link: "/airport/milan-linate", code: "LIN", city: "Milan" },
   { name: "Rome Ciampino (CIA)", link: "/airport/rome-ciampino", code: "CIA", city: "Rome" },
   { name: "Catania Fontanarossa (CTA)", link: "/airport/catania-fontanarossa", code: "CTA", city: "Sicily" },
-  { name: "Bologna Guglielmo Marconi (BLQ)", link: "/airport/bologna", code: "BLQ", city: "Bologna" },
+  { name: "Bologna Guglielmo Marconi (BLQ)", link: "/airport/bologna-marconi", code: "BLQ", city: "Bologna" },
 ];
 
 const airportFaqs = [
