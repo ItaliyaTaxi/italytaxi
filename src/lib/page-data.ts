@@ -622,7 +622,10 @@ export const routes: RouteData[] = [
             { q: 'How long is the taxi ride from Florence to Pisa?', a: 'The drive from Florence to Pisa takes approximately 1 hour (about 80 km) via the A11 motorway, depending on traffic.' },
             { q: 'Can I make a stop at the Leaning Tower of Pisa?', a: 'Yes, we can arrange a dedicated sightseeing stop at Piazza dei Miracoli so you can visit the Leaning Tower of Pisa before continuing to your final destination.' },
             { q: 'How do I get a quote for the Florence to Pisa taxi?', a: 'Simply fill in the booking form with your pickup address, destination, date, and number of passengers. The driver will provide you with a confirmed quote before your journey.' },
-        ]
+        ],
+        relatedLinks: [
+            { href: '/florence-to-pisa-distance', label: 'Florence to Pisa Distance Guide' },
+        ],
     },
     {
         slug: 'rome-to-florence-taxi',
@@ -638,7 +641,10 @@ export const routes: RouteData[] = [
             { q: 'How long does the Rome to Florence taxi transfer take?', a: 'The journey from Rome to Florence takes approximately 3 hours (about 277 km) via the A1 Autostrada del Sole motorway.' },
             { q: 'Can I stop in Tuscany during the Rome to Florence transfer?', a: 'Yes, we can arrange scenic stops in the Tuscan countryside, including Orvieto or Chianti wine country, as an add-on to your transfer.' },
             { q: 'What vehicle is best for a group traveling Rome to Florence?', a: 'For groups of up to 7 passengers, we recommend our luxury Mercedes V-Class minivan, which offers plenty of space for luggage and passengers.' },
-        ]
+        ],
+        relatedLinks: [
+            { href: '/rome-to-florence-distance', label: 'Rome to Florence Distance Guide' },
+        ],
     },
     {
         slug: 'milan-to-lake-como-taxi',
@@ -654,7 +660,10 @@ export const routes: RouteData[] = [
             { q: 'How far is Lake Como from Milan by taxi?', a: 'Lake Como is approximately 50 km from Milan city centre, a journey of about 45 minutes by private taxi. From Malpensa Airport, the drive is around 60 km and takes about 50 minutes.' },
             { q: 'Can I get a taxi from Malpensa Airport directly to Lake Como?', a: 'Yes, we provide direct private transfers from Milan Malpensa Airport (MXP) to any town on Lake Como, including Como, Bellagio, Varenna, and Menaggio.' },
             { q: 'Can I book a return taxi from Lake Como to Milan?', a: 'Yes, we offer both single and return transfer bookings. Simply select a return trip when booking and specify your preferred pickup time.' },
-        ]
+        ],
+        relatedLinks: [
+            { href: '/milan-to-lake-como-distance', label: 'Milan to Lake Como Distance Guide' },
+        ],
     },
     {
         slug: 'rome-to-naples-taxi',
@@ -670,7 +679,10 @@ export const routes: RouteData[] = [
             { q: 'How long is the taxi from Rome to Naples?', a: 'The private taxi from Rome to Naples takes approximately 2.5 hours (about 226 km) via the A1 motorway, depending on traffic conditions.' },
             { q: 'Can I stop at Pompeii on my way from Rome to Naples?', a: 'Yes, we can arrange a sightseeing stop at the ancient ruins of Pompeii en route to Naples. This is a popular add-on that makes the journey even more memorable.' },
             { q: 'Is it better to take a train or taxi from Rome to Naples?', a: 'While the high-speed train is fast, a private taxi offers door-to-door convenience, no station transfers, ideal for families, groups, or those with lots of luggage.' },
-        ]
+        ],
+        relatedLinks: [
+            { href: '/rome-to-naples-distance', label: 'Rome to Naples Distance Guide' },
+        ],
     },
     {
         slug: 'florence-to-rome-taxi',
@@ -686,7 +698,10 @@ export const routes: RouteData[] = [
             { q: 'How long does the Florence to Rome taxi take?', a: 'The private taxi from Florence to Rome takes approximately 3 hours (about 277 km) via the A1 motorway.' },
             { q: 'Can I stop somewhere between Florence and Rome?', a: 'Yes, Orvieto is a popular stop between Florence and Rome. We can arrange a 1-hour visit to this hilltop town with its stunning cathedral.' },
             { q: 'What does the Florence to Rome taxi include?', a: 'All transfers include motorway tolls, fuel, and the driver\'s service. The exact fare is provided when you request a quote.' },
-        ]
+        ],
+        relatedLinks: [
+            { href: '/rome-to-florence-distance', label: 'Rome to Florence Distance Guide' },
+        ],
     },
     {
         slug: 'milan-to-venice-taxi',
@@ -702,7 +717,10 @@ export const routes: RouteData[] = [
             { q: 'How do I get from Milan to Venice by private taxi?', a: 'Our private taxi travels directly from Milan (city centre or Malpensa Airport) to Venice, arriving at Piazzale Roma or Venice Mestre station. The journey takes about 2.5 hours.' },
             { q: 'How do I request a quote for Milan to Venice?', a: 'Fill in the booking form with your travel details and number of passengers. You will receive a confirmed quote from the driver before your journey.' },
             { q: 'Can you drop me directly at Piazzale Roma in Venice?', a: 'Yes, our drivers are familiar with all Venice access points and will take you directly to Piazzale Roma — the closest vehicle access point to central Venice.' },
-        ]
+        ],
+        relatedLinks: [
+            { href: '/milan-to-venice-distance', label: 'Milan to Venice Distance Guide' },
+        ],
     },
     {
         slug: 'naples-to-amalfi-coast-taxi',
@@ -718,7 +736,10 @@ export const routes: RouteData[] = [
             { q: 'How long is the taxi from Naples to Amalfi Coast?', a: 'The taxi from Naples to the Amalfi Coast takes approximately 1.5 hours (about 65 km), depending on traffic along the famous SS163 coastal road.' },
             { q: 'Which towns on the Amalfi Coast can you drop me off at?', a: 'We serve all Amalfi Coast towns, including Positano, Amalfi town, Ravello, Praiano, Maiori, and Cetara.' },
             { q: 'Is it safe to hire a taxi along the Amalfi Coast roads?', a: 'Yes. Our drivers are experts on the narrow, winding Amalfi Coast roads and hold all required local driving licenses for this unique terrain.' },
-        ]
+        ],
+        relatedLinks: [
+            { href: '/naples-to-amalfi-coast-distance', label: 'Naples to Amalfi Coast Distance Guide' },
+        ],
     },
     {
         slug: 'rome-to-pompeii-taxi',
@@ -734,7 +755,10 @@ export const routes: RouteData[] = [
             { q: 'Can I do a day trip from Rome to Pompeii by taxi?', a: 'Yes, a popular option is a day-trip from Rome to Pompeii. We can drive you down in the morning, wait while you explore (typically 3-4 hours), then return to Rome in the evening.' },
             { q: 'How long does it take to drive from Rome to Pompeii?', a: 'The private taxi from Rome to Pompeii takes approximately 2.5 hours (about 240 km) via the A1 and A3 motorways.' },
             { q: 'Can I combine Pompeii and Naples in the same transfer?', a: 'Absolutely. Many clients visit Pompeii and then continue to Naples for the night, or vice versa. We can tailor the route to your itinerary.' },
-        ]
+        ],
+        relatedLinks: [
+            { href: '/rome-to-pompeii-distance', label: 'Rome to Pompeii Distance Guide' },
+        ],
     },
     {
         slug: 'venice-to-verona-taxi',
@@ -750,7 +774,10 @@ export const routes: RouteData[] = [
             { q: 'How far is Verona from Venice by taxi?', a: 'Verona is approximately 115 km from Venice. The private taxi journey takes about 1.5 hours via the A4 motorway.' },
             { q: 'Can I get a taxi from Venice Airport to Verona?', a: 'Yes, we offer direct transfers from Venice Marco Polo Airport (VCE) to Verona. This journey is approximately 1 hour 20 minutes.' },
             { q: 'What are the top things to see in Verona on arrival?', a: 'Verona\'s highlights include Juliet\'s House (Casa di Giulietta), the Arena di Verona amphitheatre, Piazza delle Erbe, and the Scaligeri Castles — all easily walkable from the city centre.' },
-        ]
+        ],
+        relatedLinks: [
+            { href: '/venice-to-verona-distance', label: 'Venice to Verona Distance Guide' },
+        ],
     },
     {
         slug: 'milan-to-turin-taxi',
@@ -766,7 +793,10 @@ export const routes: RouteData[] = [
             { q: 'How long is the drive from Milan to Turin?', a: 'The private taxi from Milan to Turin takes approximately 1.5 hours (about 140 km) via the A4 motorway.' },
             { q: 'Can I book a taxi from Milan Malpensa Airport to Turin?', a: 'Yes, we offer direct transfers from Milan Malpensa Airport (MXP) to Turin. The journey takes approximately 1 hour 40 minutes.' },
             { q: 'How do I get a quote for Milan to Turin taxi?', a: 'Submit your travel details via the booking form and the driver will send you a confirmed quote. No obligation to book until you accept.' },
-        ]
+        ],
+        relatedLinks: [
+            { href: '/milan-to-turin-distance', label: 'Milan to Turin Distance Guide' },
+        ],
     },
     {
         slug: 'rome-to-vatican-taxi',

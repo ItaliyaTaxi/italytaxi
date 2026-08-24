@@ -68,12 +68,14 @@ async function submitBatch(urlBatch) {
 }
 
 // Batch 3 of the Airport FAQs cluster — published 2 at a time per user's
-// pacing request. Remaining drafts in Supabase: driver-pickup-pisa-airport,
-// pisa-vs-florence-airport, meet-driver-bari-airport,
-// find-exit-meet-driver-italy.
+// pacing request. find-exit-meet-driver-italy was also published today as a
+// broken-link fix (was linked live from meet-driver-bergamo-airport while
+// still draft) and hadn't been submitted yet, so it's included here too.
+// Remaining draft: meet-driver-bari-airport.
 const NEW_CLUSTER_SLUGS_EN = [
-  'linate-vs-malpensa-city',
-  'meet-driver-bergamo-airport',
+  'driver-pickup-pisa-airport',
+  'pisa-vs-florence-airport',
+  'find-exit-meet-driver-italy',
 ];
 const NEW_CLUSTER_SLUGS_IT = [];
 const NEW_CLUSTER_SLUGS = new Set([...NEW_CLUSTER_SLUGS_EN, ...NEW_CLUSTER_SLUGS_IT]);

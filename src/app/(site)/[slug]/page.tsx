@@ -19,6 +19,8 @@ import { getAllVenetoTransfers, findVenetoTransfer } from '@/lib/veneto-transfer
 import VenetoTransferContent from '@/components/VenetoTransferContent';
 import { getAllCrossBorderTransfers, findCrossBorderTransfer, countries } from '@/lib/cross-border-data';
 import CrossBorderContent from '@/components/CrossBorderContent';
+import { getAllDistancePages, findDistancePage } from '@/lib/distance-pages-data';
+import DistancePageContent from '@/components/DistancePageContent';
 
 const SITE = 'https://www.italytaxiservice.com';
 
@@ -31,6 +33,7 @@ export function generateStaticParams() {
         ...getAllMilanTransfers().map((t) => ({ slug: t.slug })),
         ...getAllVenetoTransfers().map((t) => ({ slug: t.slug })),
         ...getAllCrossBorderTransfers().map((t) => ({ slug: t.slug })),
+        ...getAllDistancePages().map((d) => ({ slug: d.slug })),
     ];
 }
 
@@ -96,6 +99,19 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
                 twitter: { card: 'summary_large_image', title: cbtitle, description: cbdescription },
             };
         }
+        const dp = findDistancePage(slug);
+        if (dp) {
+            return {
+                title: dp.seoTitle,
+                description: dp.metaDescription,
+                alternates: { canonical: `/${slug}` },
+                openGraph: {
+                    title: dp.seoTitle, description: dp.metaDescription, url: `${SITE}/${slug}`, type: 'website',
+                    images: [{ url: `${SITE}${dp.heroImage}`, width: 1200, height: 630, alt: dp.h1 }],
+                },
+                twitter: { card: 'summary_large_image', title: dp.seoTitle, description: dp.metaDescription },
+            };
+        }
         return { title: 'Page Not Found' };
     }
     const dep = t.direction === 'hotel-to-airport';
@@ -128,6 +144,8 @@ export default async function AirportHotelTransferPage({ params }: { params: Pro
         if (v) return <VenetoTransferContent combo={v} />;
         const cb = findCrossBorderTransfer(slug);
         if (cb) return <CrossBorderContent combo={cb} />;
+        const dp = findDistancePage(slug);
+        if (dp) return <DistancePageContent page={dp} />;
         notFound();
     }
 
