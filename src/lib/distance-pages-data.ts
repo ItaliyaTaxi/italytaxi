@@ -52,6 +52,7 @@ export interface DistancePage {
     routePageLabel: string;
     secondaryRoutePageSlug?: string; // for symmetric pairs with route pages in both directions
     secondaryRoutePageLabel?: string;
+    itSlug?: string; // slug of this page's Italian twin at /it/distance/{itSlug}, if one exists — drives hreflang, mirrors RouteData.itSlug
 
     popularStops: DistanceStop[];
 
@@ -65,6 +66,7 @@ export interface DistancePage {
 export const distancePages: DistancePage[] = [
     {
         slug: 'florence-to-pisa-distance',
+        itSlug: 'distanza-da-firenze-a-pisa',
         origin: 'Florence',
         dest: 'Pisa',
         seoTitle: 'Florence to Pisa Distance – Km, Miles & Travel Time',
@@ -133,6 +135,7 @@ export const distancePages: DistancePage[] = [
     },
     {
         slug: 'rome-to-florence-distance',
+        itSlug: 'distanza-da-roma-a-firenze',
         origin: 'Rome',
         dest: 'Florence',
         seoTitle: 'Rome to Florence Distance – Km, Miles & Travel Time',
@@ -201,6 +204,7 @@ export const distancePages: DistancePage[] = [
     },
     {
         slug: 'milan-to-lake-como-distance',
+        itSlug: 'distanza-da-milano-al-lago-di-como',
         origin: 'Milan',
         dest: 'Lake Como',
         seoTitle: 'Milan to Lake Como Distance – Km, Miles & Travel Time',
@@ -262,6 +266,7 @@ export const distancePages: DistancePage[] = [
     },
     {
         slug: 'rome-to-naples-distance',
+        itSlug: 'distanza-da-roma-a-napoli',
         origin: 'Rome',
         dest: 'Naples',
         seoTitle: 'Rome to Naples Distance – Km, Miles & Travel Time',
@@ -325,6 +330,7 @@ export const distancePages: DistancePage[] = [
     },
     {
         slug: 'milan-to-venice-distance',
+        itSlug: 'distanza-da-milano-a-venezia',
         origin: 'Milan',
         dest: 'Venice',
         seoTitle: 'Milan to Venice Distance – Km, Miles & Travel Time',
@@ -389,6 +395,7 @@ export const distancePages: DistancePage[] = [
     },
     {
         slug: 'naples-to-amalfi-coast-distance',
+        itSlug: 'distanza-da-napoli-alla-costiera-amalfitana',
         origin: 'Naples',
         dest: 'Amalfi Coast',
         seoTitle: 'Naples to Amalfi Coast Distance – Km & Travel Time',
@@ -453,6 +460,7 @@ export const distancePages: DistancePage[] = [
     },
     {
         slug: 'rome-to-pompeii-distance',
+        itSlug: 'distanza-da-roma-a-pompei',
         origin: 'Rome',
         dest: 'Pompeii',
         seoTitle: 'Rome to Pompeii Distance – Km, Miles & Travel Time',
@@ -516,6 +524,7 @@ export const distancePages: DistancePage[] = [
     },
     {
         slug: 'venice-to-verona-distance',
+        itSlug: 'distanza-da-venezia-a-verona',
         origin: 'Venice',
         dest: 'Verona',
         seoTitle: 'Venice to Verona Distance – Km, Miles & Travel Time',
@@ -579,6 +588,7 @@ export const distancePages: DistancePage[] = [
     },
     {
         slug: 'milan-to-turin-distance',
+        itSlug: 'distanza-da-milano-a-torino',
         origin: 'Milan',
         dest: 'Turin',
         seoTitle: 'Milan to Turin Distance – Km, Miles & Travel Time',
@@ -638,6 +648,635 @@ export const distancePages: DistancePage[] = [
             { q: 'Is the train much faster than driving?', a: "Station to station, yes — the fastest trains take under an hour versus 1 hour 20 minutes or more by road. A private transfer trades some of that speed for a direct door-to-door ride." },
             { q: 'Does it matter which Milan airport I start from?', a: "Yes — Malpensa, Linate and Bergamo are all different distances from Turin, so your journey time depends on which airport you're using." },
             { q: 'Are all trains from Milan to Turin equally fast?', a: "No — high-speed Frecciarossa and Italo services take under 50 minutes, while regional trains on the same route can take up to around 1 hour 40 minutes." },
+        ],
+    },
+    {
+        slug: 'rome-to-vatican-distance',
+        itSlug: 'distanza-da-roma-al-vaticano',
+        origin: 'Rome',
+        dest: 'Vatican City',
+        seoTitle: 'Rome to Vatican Distance – Km & Travel Time',
+        metaDescription: 'How far is the Vatican from Rome city centre? Distance and travel time by car, on foot and by private transfer, from different parts of Rome.',
+        h1: 'Rome to Vatican Distance',
+        heroImage: '/images/rome airport.webp',
+
+        straightLineDistance: 'approx. 3–4 km (about 2–2.5 miles) from central Rome',
+        straightLineNote: 'The Vatican sits inside Rome, not outside it, so there is no single "distance from Rome" — the real figure depends entirely on which part of the city you start from. Historic-centre starting points on the west bank of the Tiber (near Piazza Navona) are closer than points further east.',
+        drivingDistance: 'approx. 2–5 km (about 1.5–3 miles), depending on starting point',
+        drivingDuration: '10–20 minutes by car outside peak traffic',
+        trainDuration: 'Not applicable — no direct train; the Metro (Line A, Ottaviano station) is the nearest rail option',
+
+        intro: [
+            "Unlike most \"distance\" questions on this site, Rome to Vatican isn't a point-to-point journey between two cities — the Vatican is an independent city-state entirely surrounded by Rome, near the historic centre. So the real answer to \"how far is it\" depends almost entirely on where in Rome you're starting from, not on a single fixed figure.",
+            "This page focuses on what actually matters for planning: typical distances and times from the main tourist and hotel areas of central Rome, and the practical options for getting there.",
+        ],
+
+        centreVsDoorToDoor: [
+            "From Piazza Navona or the area around the Pantheon, it's roughly 1.5 km to St Peter's Square — about an 18–20 minute walk. From further east (Trevi Fountain, Termini station area), expect 3–4 km and 30–45 minutes on foot.",
+            "By car the distance is short in every case — typically 2–5 km — but actual journey time depends heavily on traffic and on the fact that vehicle access right up to St Peter's Square is restricted; a driver will normally drop you as close as traffic rules allow, with a short walk to finish.",
+        ],
+
+        byCar: [
+            "Driving to the Vatican from most central Rome addresses covers only a few kilometres, but the historic centre's narrow streets, one-way systems and limited-traffic zones (ZTL) mean the drive can take longer than the short distance suggests — typically 10–20 minutes outside peak hours, more during Wednesday general audiences or major events when the area around St Peter's Square sees significant pedestrian and traffic restrictions.",
+        ],
+        byCarRoad: 'central Rome\'s city streets (no motorway is involved for this short a distance)',
+
+        byTrain: [
+            "There is no direct overground train to the Vatican. The closest option is Rome's Metro Line A, which stops at Ottaviano–San Pietro, about a 10-minute walk from St Peter's Square. From most central hotels, a taxi or private transfer covers the same short distance without a station walk at either end.",
+        ],
+
+        byPrivateTransfer: [
+            "For a short, specific hop like this, a private transfer's main advantage is convenience: pickup from your exact hotel or address, no walking to a Metro station, and a driver who knows exactly where vehicles can and can't stop near St Peter's Square.",
+            "For pricing and booking, see our dedicated Rome to Vatican taxi transfer page.",
+        ],
+        routePageSlug: 'rome-to-vatican-taxi',
+        routePageLabel: 'Rome to Vatican Taxi Transfer',
+
+        popularStops: [],
+
+        travelTimeFactors: [
+            'Your exact starting point in Rome — the historic centre is much closer than areas further east or south.',
+            'Wednesday papal general audiences and major Vatican events, which bring extra crowds and road restrictions around St Peter\'s Square.',
+            'Traffic and restricted vehicle access in Rome\'s historic centre generally.',
+            'Whether you\'re walking, in which case river crossings and one-way pedestrian routes affect the practical route more than the straight-line distance.',
+        ],
+
+        bestWay: [
+            "If you're already staying near the historic centre, walking is often just as quick as a short car ride once you account for traffic and drop-off restrictions. From further out, or with limited time, mobility needs, or during a Wednesday audience, a private transfer or taxi to the nearest practical drop-off point is more comfortable.",
+        ],
+
+        faqs: [
+            { q: 'How far is the Vatican from Rome city centre?', a: "It depends on your starting point — roughly 1.5 km (18–20 minutes' walk) from Piazza Navona, or 3–4 km (30–45 minutes' walk) from areas further east like Termini. The Vatican is inside Rome, not a separate destination outside it." },
+            { q: 'Can I walk from central Rome to the Vatican?', a: "Yes — for most historic-centre hotels it's a comfortable 20–40 minute walk, and many visitors do it as a scenic route along or near the Tiber." },
+            { q: 'Is it worth taking a taxi to the Vatican?', a: "For a short distance with no luggage, walking or the Metro (Line A to Ottaviano) can be just as fast. A taxi or private transfer is worth it with luggage, mobility considerations, poor weather, or when you want a specific pickup time." },
+            { q: 'Why is there no single distance figure for Rome to Vatican?', a: "Because the Vatican sits inside Rome rather than being a separate town — the real distance depends entirely on which part of the city you're travelling from." },
+            { q: 'Does traffic near the Vatican get busy?', a: "Yes, especially on Wednesday mornings for the papal general audience and around major religious events, when both pedestrian and vehicle traffic increase significantly near St Peter's Square." },
+        ],
+    },
+    {
+        slug: 'florence-to-siena-distance',
+        itSlug: 'distanza-da-firenze-a-siena',
+        origin: 'Florence',
+        dest: 'Siena',
+        seoTitle: 'Florence to Siena Distance – Km & Travel Time',
+        metaDescription: 'How far is Siena from Florence? Driving distance and time via the fast SR2 and the scenic Chianti route, plus train and private transfer options.',
+        h1: 'Florence to Siena Distance',
+        heroImage: '/images/Tuscany Wine.webp',
+
+        straightLineDistance: 'approx. 55–60 km (about 34–37 miles)',
+        straightLineNote: 'Straight-line distance is a less useful reference here than usual, since the two practical driving routes differ meaningfully from each other in both distance and character.',
+        drivingDistance: 'approx. 50–69 km depending on route (about 31–43 miles)',
+        drivingDuration: '50 minutes (fast route) to 1 hour 30 minutes (scenic route)',
+        trainDuration: 'approx. 1 hour 10 minutes (direct) to 1 hour 40 minutes',
+
+        intro: [
+            "Florence to Siena is unusual among Tuscan routes in having two genuinely different roads, not just one route with variable traffic: the fast SR2 Superstrada and the scenic SR222 \"Chiantigiana\" through the Chianti wine region. Which one applies depends on whether you're prioritising speed or the journey itself.",
+            "This page compares both, plus the train and private transfer, so you can choose based on what matters for your trip.",
+        ],
+
+        centreVsDoorToDoor: [
+            "The times below are for the direct city-to-city drive. Add extra time if your Florence pickup point is outside the centre or if you're stopping at any of the Chianti towns along the SR222 — that route is popular specifically because it invites stops, not because it's the quickest way through.",
+        ],
+
+        byCar: [
+            "The fast route follows the SR2 Superstrada Firenze–Siena, a free four-lane expressway along the western edge of Chianti, covering the drive in about 50 minutes with no stops.",
+            "The scenic alternative follows the SR222 \"Via Chiantigiana\" directly through the Chianti wine region — about 69 km and roughly 1 hour 30 minutes, roughly 15 minutes longer than the SR2 but passing directly through Chianti's vineyards and villages rather than skirting them.",
+        ],
+        byCarRoad: 'the SR2 Superstrada (fast) or the SR222 Via Chiantigiana (scenic, through Chianti)',
+
+        byTrain: [
+            "Regional trains run from Firenze Santa Maria Novella to Siena with up to 8 direct services a day, taking about 1 hour 10 minutes on the fastest direct trains and up to around 1 hour 40 minutes on slower ones with more stops. Services run roughly every 60–90 minutes.",
+        ],
+
+        byPrivateTransfer: [
+            "A private transfer lets you choose the route that suits your trip — the direct SR2 if you just need to get to Siena, or the SR222 through Chianti with the flexibility to stop at a vineyard or hill town along the way, something neither the train nor a fixed-route coach can offer.",
+            "For pricing and booking, see our dedicated Florence to Siena taxi transfer page.",
+        ],
+        routePageSlug: 'florence-to-siena-taxi',
+        routePageLabel: 'Florence to Siena Taxi Transfer',
+
+        popularStops: [
+            { name: 'Chianti wine region', note: 'Directly along the SR222 route — the reason most travellers choose the scenic road over the faster SR2.' },
+            { name: 'Castellina in Chianti', note: 'One of the well-known Chianti villages sitting directly on the Via Chiantigiana between Florence and Siena.' },
+        ],
+
+        travelTimeFactors: [
+            'Which route you take — the SR2 and SR222 differ by roughly 15–40 minutes depending on conditions.',
+            'Traffic leaving Florence, especially during weekday peaks.',
+            'Whether you stop in Chianti along the scenic route.',
+            'For train travel, whether you catch a direct service or one with more stops.',
+        ],
+
+        bestWay: [
+            "If Siena itself is the goal and time is limited, the SR2 or the direct train are both efficient. If the journey through Chianti is part of the appeal, a private transfer on the SR222 — with the option to stop — makes more sense than either the fast road or a fixed train timetable.",
+        ],
+
+        faqs: [
+            { q: 'How far is Siena from Florence?', a: "It depends on the route: about 50 minutes via the fast SR2 Superstrada, or around 69 km and 1 hour 30 minutes via the scenic SR222 Chiantigiana through the Chianti wine region." },
+            { q: 'Which route is better, the SR2 or the Chianti road?', a: "The SR2 is faster and more direct. The SR222 (Via Chiantigiana) takes longer but passes through Chianti's vineyards and villages — it's the popular choice when the drive itself is part of the trip." },
+            { q: 'Is there a direct train from Florence to Siena?', a: "Yes — regional trains run directly from Santa Maria Novella to Siena in about 1 hour 10 minutes on the fastest services, with up to 8 direct connections a day." },
+            { q: 'Can I stop in Chianti on the way to Siena?', a: "Yes, if you take the SR222 route by car or private transfer — it runs directly through the Chianti wine region, unlike the faster SR2 which skirts around it." },
+            { q: 'Is it worth driving instead of taking the train to Siena?', a: "If you want to stop in Chianti or you're travelling with luggage or as a group, driving or a private transfer is more flexible. For a direct city-to-city trip alone, the train is a straightforward, efficient option." },
+        ],
+    },
+    {
+        slug: 'rome-fiumicino-to-sorrento-distance',
+        itSlug: 'distanza-dallaeroporto-di-fiumicino-a-sorrento',
+        origin: 'Rome Fiumicino Airport',
+        dest: 'Sorrento',
+        seoTitle: 'Rome Fiumicino to Sorrento Distance & Travel Time',
+        metaDescription: 'How far is Sorrento from Rome Fiumicino Airport? Driving distance, typical travel time and transport options for this popular airport-to-coast route.',
+        h1: 'Rome Fiumicino to Sorrento Distance',
+        heroImage: '/images/almafi.webp',
+
+        straightLineDistance: 'approx. 210–220 km (about 130–137 miles)',
+        straightLineNote: 'Straight-line distance is a rough reference only on a route this long and indirect — the real driving distance is significantly greater because the road has to skirt Naples and follow the coast.',
+        drivingDistance: 'approx. 280–290 km (about 174–180 miles)',
+        drivingDuration: '3 hours – 3 hours 30 minutes',
+        trainDuration: 'No direct train — approx. 2 hours 30 minutes to 3 hours via Naples with a connection',
+
+        intro: [
+            "Rome Fiumicino Airport to Sorrento is one of the longer airport transfers covered on this site — around 280–290 km, mostly motorway, finishing on the coastal approach into the Sorrento peninsula. It's a common route for travellers flying into Rome and heading straight to the Amalfi Coast area without stopping in the city.",
+            "Because it's a multi-hour journey, the practical differences between driving, the train (with a change), and a private transfer are worth understanding before you book.",
+        ],
+
+        centreVsDoorToDoor: [
+            "The figures above are airport-to-town figures. Your exact time will vary a little depending on your specific hotel or address in Sorrento, and on which Fiumicino terminal you land at, but the difference is minor compared with the length of the overall journey.",
+        ],
+
+        byCar: [
+            "Driving from Fiumicino to Sorrento covers roughly 280–290 km via the A1 and A3 motorways, skirting Naples, and typically takes 3 hours to 3 hours 30 minutes depending on traffic — especially around Naples itself, which can add real delay at peak times.",
+        ],
+        byCarRoad: 'the A1 and A3 motorways, skirting Naples',
+
+        byTrain: [
+            "There is no direct train from Fiumicino to Sorrento. The practical route is the Leonardo Express or a regional train into Rome, a high-speed train from Roma Termini to Napoli Centrale, and then the Circumvesuviana line to Sorrento — three separate legs with connections, realistically totalling 2.5–3+ hours of travel plus waiting and change time, and it involves handling luggage across multiple stations.",
+        ],
+
+        byPrivateTransfer: [
+            "For a journey this long with connections this awkward by train, a private transfer's main advantage is doing the whole route in one vehicle, with no station changes or luggage handling along the way — meaningful on a 3-hour-plus journey straight off a flight.",
+            "For pricing and booking, see our dedicated Rome Fiumicino to Sorrento taxi transfer page.",
+        ],
+        routePageSlug: 'rome-fiumicino-to-sorrento-taxi',
+        routePageLabel: 'Rome Fiumicino to Sorrento Taxi Transfer',
+
+        popularStops: [
+            { name: 'Pompeii', note: 'Directly on the route between Naples and Sorrento — a common stop to break up the long drive.' },
+        ],
+
+        travelTimeFactors: [
+            'Traffic around Naples, which the route passes directly alongside.',
+            'Time of year — summer weekends see significantly heavier traffic on the approach to Sorrento.',
+            'Your Fiumicino arrival terminal and time, if connecting straight off a flight.',
+            'Whether you add a stop, such as Pompeii, along the way.',
+        ],
+
+        bestWay: [
+            "Given the length of the journey and the lack of a direct train, most travellers making this specific trip choose either driving themselves or a private transfer. The train is possible but involves multiple changes and is generally only worth it for solo travellers comfortable managing connections and luggage across three legs.",
+        ],
+
+        faqs: [
+            { q: 'How far is Sorrento from Rome Fiumicino Airport?', a: "About 280–290 km by road, a drive of roughly 3 to 3.5 hours via the A1 and A3 motorways past Naples." },
+            { q: 'Is there a direct train from Fiumicino to Sorrento?', a: "No. It requires multiple legs — into Rome, a high-speed train to Naples, then the Circumvesuviana to Sorrento — realistically taking 2.5 to 3+ hours including connections." },
+            { q: 'Can I stop at Pompeii on the way to Sorrento?', a: "Yes — Pompeii sits directly on the route between Naples and Sorrento and is a popular stop to break up the drive." },
+            { q: 'Is this a long transfer to do right after a flight?', a: "It's one of the longer airport transfers on this route network, at around 3 hours-plus. A private transfer with a professional driver is a comfortable way to do it directly after landing, without managing train connections." },
+            { q: 'Does traffic around Naples affect this route much?', a: "Yes — the drive passes directly alongside Naples, and traffic there, especially at peak times, is one of the main variables affecting overall journey time." },
+        ],
+    },
+    {
+        slug: 'rome-fiumicino-to-civitavecchia-distance',
+        itSlug: 'distanza-dallaeroporto-di-fiumicino-a-civitavecchia',
+        origin: 'Rome Fiumicino Airport',
+        dest: 'Civitavecchia',
+        seoTitle: 'Fiumicino to Civitavecchia Distance & Travel Time',
+        metaDescription: 'How far is Civitavecchia cruise port from Rome Fiumicino Airport? Driving distance, typical journey time and transport options compared.',
+        h1: 'Rome Fiumicino to Civitavecchia Distance',
+        heroImage: '/images/cruise-port-transfer.webp',
+
+        straightLineDistance: 'approx. 55–60 km (about 34–37 miles)',
+        straightLineNote: 'Straight-line and driving distance are close on this route, since it runs fairly directly along the coast with no major detour.',
+        drivingDistance: 'approx. 60–70 km (about 37–43 miles)',
+        drivingDuration: '50 minutes – 1 hour',
+        trainDuration: 'approx. 45–60 minutes on regional trains',
+
+        intro: [
+            "Rome Fiumicino Airport to Civitavecchia is a short, direct coastal route, mainly travelled by cruise passengers flying into Rome and heading straight to the port rather than into the city. At roughly 60–70 km, it's a much shorter transfer than most other routes on this site.",
+            "Because embarkation timing matters for cruise travel, this page focuses on realistic journey time and what can affect it, alongside the plain distance.",
+        ],
+
+        centreVsDoorToDoor: [
+            "The figures above are airport-to-port. Since Civitavecchia's cruise terminal is a single, well-defined destination (unlike a city with many possible hotel addresses), the door-to-door time is close to the airport-to-port time in almost every case.",
+        ],
+
+        byCar: [
+            "Driving from Fiumicino to Civitavecchia covers about 60–70 km via the A12 motorway along the coast, typically taking 50 minutes to an hour under normal conditions.",
+        ],
+        byCarRoad: 'the A12 motorway',
+
+        byTrain: [
+            "Regional trains connect Roma Termini (via Fiumicino's rail link) to Civitavecchia in roughly 45–60 minutes, running fairly frequently. This is a genuinely practical option for a light-luggage traveller, though it still requires getting from the airport into a Rome station first and then from Civitavecchia's station to the port terminal.",
+        ],
+
+        byPrivateTransfer: [
+            "For cruise passengers, a private transfer's main advantage is a single door-to-door ride straight to the correct cruise terminal, with no station changes or terminal-finding involved — useful when embarkation has a fixed check-in window and luggage is a factor.",
+            "For pricing and booking, see our dedicated Rome Fiumicino to Civitavecchia taxi transfer page.",
+        ],
+        routePageSlug: 'rome-fiumicino-to-civitavecchia-taxi',
+        routePageLabel: 'Rome Fiumicino to Civitavecchia Taxi Transfer',
+
+        popularStops: [],
+
+        travelTimeFactors: [
+            'Traffic on the A12, particularly around Rome\'s outer areas.',
+            'Your Fiumicino arrival terminal and flight landing time.',
+            'Cruise embarkation-day congestion at the port itself, especially around peak check-in windows.',
+            'Weather and general road conditions.',
+        ],
+
+        bestWay: [
+            "For cruise embarkation specifically, a private transfer with flight tracking is generally the most reliable option, since it removes the uncertainty of connecting from the airport into Rome and back out to the coast by train. The train is a reasonable budget option for light-luggage travellers with a flexible schedule.",
+        ],
+
+        faqs: [
+            { q: 'How far is Civitavecchia from Rome Fiumicino Airport?', a: "About 60–70 km by road, a drive of roughly 50 minutes to an hour via the A12 motorway." },
+            { q: 'Can I take the train from Fiumicino to Civitavecchia?', a: "Yes — regional trains connect the two, taking roughly 45–60 minutes, though you'll need to get from the airport to a Rome station first and from the Civitavecchia station to the port terminal." },
+            { q: 'Is this a good transfer to arrange for a cruise embarkation?', a: "Yes — many cruise passengers flying into Fiumicino use exactly this route. A private transfer with flight tracking is a common choice to avoid embarkation-day timing risk." },
+            { q: 'How much time should I allow between landing and my cruise departure?', a: "Cruise lines generally recommend several hours of buffer for flights arriving on embarkation day; the transfer itself is under an hour, but allow time for baggage claim, the drive, and port check-in procedures." },
+            { q: 'Is the drive to Civitavecchia scenic?', a: "It runs along the coast on the A12, with some sea views, though it's a fairly direct motorway drive rather than a slow scenic route." },
+        ],
+    },
+    {
+        slug: 'naples-airport-to-sorrento-distance',
+        itSlug: 'distanza-dallaeroporto-di-napoli-a-sorrento',
+        origin: 'Naples Airport',
+        dest: 'Sorrento',
+        seoTitle: 'Naples Airport to Sorrento Distance & Travel Time',
+        metaDescription: 'How far is Sorrento from Naples Airport? Driving distance, typical travel time and transport options for this popular coastal route.',
+        h1: 'Naples Airport to Sorrento Distance',
+        heroImage: '/images/almafi.webp',
+
+        straightLineDistance: 'approx. 40–45 km (about 25–28 miles)',
+        straightLineNote: 'The driving distance is noticeably longer than the straight-line figure because the route has to go around the Bay of Naples rather than across it.',
+        drivingDistance: 'approx. 50 km (about 31 miles)',
+        drivingDuration: '55 minutes – 1 hour 20 minutes',
+        trainDuration: 'approx. 70–80 minutes on the Circumvesuviana',
+
+        intro: [
+            "Naples Airport to Sorrento is one of the most frequently travelled routes on the Amalfi Coast gateway, covering about 50 km around the Bay of Naples. It's short enough to be manageable by several methods, but traffic on the final coastal stretch makes the exact time genuinely variable.",
+            "This page compares driving, the train, and a private transfer so you know what to expect before you travel.",
+        ],
+
+        centreVsDoorToDoor: [
+            "The figures above are airport-to-town. Sorrento itself is compact, so once you're in town, reaching most hotels adds only a few minutes — the bigger variable is traffic on the approach roads, not the last stretch within Sorrento.",
+        ],
+
+        byCar: [
+            "Driving from Naples Airport to Sorrento covers about 50 km via the A3 motorway and the SS145 coastal road, typically taking 55 minutes to 1 hour 20 minutes. Best-case journeys under light traffic can be closer to 55 minutes; summer weekends and peak season regularly push this toward the upper end or beyond.",
+        ],
+        byCarRoad: 'the A3 motorway, then the SS145 coastal road',
+
+        byTrain: [
+            "The Circumvesuviana line runs from Naples (with a connection from the airport into the city) to Sorrento in roughly 70–80 minutes. It's a practical, inexpensive option, though trains can be crowded, especially in summer, and it isn't a direct airport-to-Sorrento service — you need to reach a Naples station first.",
+        ],
+
+        byPrivateTransfer: [
+            "A private transfer covers the same route door-to-door from the arrivals hall straight to your Sorrento hotel, avoiding both the Circumvesuviana's crowding and the need to navigate a station connection with luggage.",
+            "For pricing and booking, see our dedicated Naples Airport to Sorrento taxi transfer page.",
+        ],
+        routePageSlug: 'naples-airport-to-sorrento-taxi',
+        routePageLabel: 'Naples Airport to Sorrento Taxi Transfer',
+
+        popularStops: [],
+
+        travelTimeFactors: [
+            'Season — summer weekends significantly increase traffic on the coastal approach to Sorrento.',
+            'Traffic around Naples itself before reaching the A3.',
+            'Time of day, with weekday evening peaks adding delay.',
+            'For the Circumvesuviana, waiting time for the connection from the airport into Naples.',
+        ],
+
+        bestWay: [
+            "For a straightforward arrival with luggage, a private transfer is the most predictable door-to-door option, particularly in peak season. The Circumvesuviana is a solid budget choice for light travellers comfortable with a busier train and one connection.",
+        ],
+
+        faqs: [
+            { q: 'How far is Sorrento from Naples Airport?', a: "About 50 km by road, a drive of roughly 55 minutes to 1 hour 20 minutes depending on traffic, especially in peak season." },
+            { q: 'Is the Circumvesuviana a good way to get to Sorrento?', a: "It's a practical, budget-friendly option taking about 70–80 minutes, though it isn't direct from the airport (you need to reach a Naples station first) and can get crowded in summer." },
+            { q: 'Why does the driving time vary so much?', a: "The final stretch is a coastal road that gets significantly busier in summer and at weekends — the same 50 km drive can take under an hour in light traffic or well over that at peak times." },
+            { q: 'Is a private transfer worth it for this route?', a: "For a direct arrival with luggage, especially in peak season, yes — it avoids the Circumvesuviana connection and crowding and goes straight to your hotel." },
+            { q: 'Can I combine this trip with a stop in Pompeii?', a: "Yes — Pompeii is close to the A3 route between Naples and Sorrento and is a common add-on stop for travellers with time to spare." },
+        ],
+    },
+    {
+        slug: 'naples-airport-to-positano-distance',
+        itSlug: 'distanza-dallaeroporto-di-napoli-a-positano',
+        origin: 'Naples Airport',
+        dest: 'Positano',
+        seoTitle: 'Naples Airport to Positano Distance & Travel Time',
+        metaDescription: 'How far is Positano from Naples Airport? Driving distance along the Amalfi Coast road, typical travel time and transport options.',
+        h1: 'Naples Airport to Positano Distance',
+        heroImage: '/images/almafi.webp',
+
+        straightLineDistance: 'approx. 45–50 km (about 28–31 miles)',
+        straightLineNote: 'The driving distance is significantly longer than the straight-line figure because the SS163 coast road follows every bay and headland rather than cutting across.',
+        drivingDistance: 'approx. 61 km (about 38 miles)',
+        drivingDuration: '1 hour 12 minutes – 1 hour 40 minutes',
+        trainDuration: 'No direct train — nearest station is Sorrento, then bus or ferry',
+
+        intro: [
+            "Naples Airport to Positano covers about 61 km, running via the A3 motorway before joining the SS163 coast road for the final, more dramatic stretch into Positano. It's a well-travelled but genuinely variable route — the coast road's narrow, winding character means traffic has an outsized effect on journey time.",
+            "This page sets out realistic driving times and the practical alternatives, since there's no direct public transport option all the way to Positano.",
+        ],
+
+        centreVsDoorToDoor: [
+            "Positano is built on steep terrain with very limited vehicle access — most hotels are reached via steps rather than a direct driveway, so allow a little extra time for the final approach and luggage handling regardless of how you travel.",
+        ],
+
+        byCar: [
+            "Driving from Naples Airport to Positano covers about 61 km via the A3 motorway and the SS163 coast road, typically taking 1 hour 12 minutes under normal conditions. Saturday mornings and summer weekends commonly add 20–30 minutes or more on the narrow Meta-to-Positano stretch of the coast road.",
+        ],
+        byCarRoad: 'the A3 motorway, then the SS163 Amalfitana coast road',
+
+        byTrain: [
+            "There is no train to Positano — the rail line doesn't reach the Amalfi Coast. The typical public-transport route is the Circumvesuviana to Sorrento, then a SITA bus or seasonal ferry on to Positano, adding real connection and waiting time beyond the driving figures above.",
+        ],
+
+        byPrivateTransfer: [
+            "Given the lack of rail access and the awkward bus/ferry connections, a private transfer is the most direct way to reach Positano from the airport — driven the whole way with no changes, and dropped as close to your hotel as the town's steep, limited access allows.",
+            "For pricing and booking, see our dedicated Naples Airport to Positano taxi transfer page.",
+        ],
+        routePageSlug: 'naples-airport-to-positano-taxi',
+        routePageLabel: 'Naples Airport to Positano Taxi Transfer',
+
+        popularStops: [
+            { name: 'Vietri sul Mare', note: 'The gateway town where the SS163 coast road begins, passed en route.' },
+        ],
+
+        travelTimeFactors: [
+            'Season — the SS163 gets significantly busier from May to October.',
+            'Day of the week — Saturday changeover traffic is a known bottleneck on this route.',
+            'Traffic through Naples and Castellammare before reaching the coast road.',
+            'Positano\'s limited vehicle access, which adds a short walk/steps at the very end regardless of transport method.',
+        ],
+
+        bestWay: [
+            "Given there's no direct public transport and the coast road's traffic is genuinely unpredictable, most travellers with luggage choose a private transfer for this route. It won't avoid coast-road traffic entirely, but it removes the connection and waiting time that the bus/ferry alternative adds.",
+        ],
+
+        faqs: [
+            { q: 'How far is Positano from Naples Airport?', a: "About 61 km by road, a drive of roughly 1 hour 12 minutes under normal conditions, via the A3 motorway and the SS163 coast road." },
+            { q: 'Why does the drive to Positano take longer at weekends?', a: "The SS163 coast road is narrow with limited overtaking room, and Saturday changeover traffic (as one week's visitors leave and the next arrive) is a known cause of delays, adding 20–30 minutes or more." },
+            { q: 'Is there a train to Positano?', a: "No — the rail line doesn't reach the Amalfi Coast. The usual public-transport route is the Circumvesuviana to Sorrento, then a SITA bus or seasonal ferry." },
+            { q: 'Can a car reach my hotel in Positano directly?', a: "Not always — Positano's steep, narrow streets mean many hotels are reached via steps rather than a driveway. Drivers get you as close as possible and help with luggage from there." },
+            { q: 'Is a private transfer the best option for this route?', a: "For travellers with luggage or without a flexible schedule, yes — it avoids the bus/ferry connection required by public transport and drives the whole route directly." },
+        ],
+    },
+    {
+        slug: 'naples-airport-to-amalfi-distance',
+        itSlug: 'distanza-dallaeroporto-di-napoli-ad-amalfi',
+        origin: 'Naples Airport',
+        dest: 'Amalfi',
+        seoTitle: 'Naples Airport to Amalfi Distance & Travel Time',
+        metaDescription: 'How far is Amalfi town from Naples Airport? Driving distance along the coast road, realistic travel time and transport options.',
+        h1: 'Naples Airport to Amalfi Distance',
+        heroImage: '/images/almafi.webp',
+
+        straightLineDistance: 'approx. 48–55 km (about 30–34 miles)',
+        straightLineNote: 'Sources vary somewhat on the exact figure (roughly 64–74 km by road depending on the reference point used), reflecting how sensitive this route is to the precise start and end address on a winding coast road.',
+        drivingDistance: 'approx. 65–70 km (about 40–43 miles)',
+        drivingDuration: '1 hour 50 minutes under normal conditions; 2–3 hours in peak season',
+        trainDuration: 'No direct train — nearest stations are Salerno or Sorrento, then bus or ferry',
+
+        intro: [
+            "Naples Airport to Amalfi town covers roughly 65–70 km, but the driving time varies more than almost any other route on this site: about 1 hour 50 minutes under normal conditions, stretching to 2–3 hours on a busy summer day. The road itself — the SS163 Amalfitana — is the reason.",
+            "This page sets realistic expectations for the drive and lays out the alternatives, since there's no direct public transport option either.",
+        ],
+
+        centreVsDoorToDoor: [
+            "Amalfi town's centre is more accessible by car than Positano's, but parking is still limited, so private transfers typically drop close to the centre with a short walk to most hotels.",
+        ],
+
+        byCar: [
+            "The route runs via the A3 motorway to Vietri sul Mare, then the SS163 Amalfitana coast road through Positano to Amalfi, covering about 65–70 km. Allow 1 hour 50 minutes under normal conditions; summer peak season (May–October) can extend this to 2–3 hours due to SS163 congestion, particularly on weekend changeover days.",
+        ],
+        byCarRoad: 'the A3 motorway to Vietri sul Mare, then the SS163 Amalfitana coast road',
+
+        byTrain: [
+            "There is no direct train to Amalfi — the coastline has no rail line. The typical public-transport route is a train to Salerno (the eastern gateway to the coast) or Sorrento (the western one), followed by a SITA bus or seasonal ferry, adding real connection time on top of the driving figures above.",
+        ],
+
+        byPrivateTransfer: [
+            "Given the lack of rail access and the coast road's unpredictable traffic, a private transfer is the most direct way to reach Amalfi — one vehicle for the whole journey, with a driver experienced on the SS163's hairpin bends.",
+            "For pricing and booking, see our dedicated Naples Airport to Amalfi taxi transfer page.",
+        ],
+        routePageSlug: 'naples-airport-to-amalfi-taxi',
+        routePageLabel: 'Naples Airport to Amalfi Taxi Transfer',
+
+        popularStops: [
+            { name: 'Positano', note: 'Directly on the SS163 route between Naples and Amalfi — many travellers combine both in one trip.' },
+            { name: 'Vietri sul Mare', note: 'The gateway town where the SS163 coast road begins.' },
+        ],
+
+        travelTimeFactors: [
+            'Season — May to October sees significantly heavier SS163 traffic.',
+            'Day of the week — weekend changeover days are typically the busiest.',
+            'Whether you\'re travelling via Positano (common, but adds time) or a more direct stretch of the coast road.',
+            'Traffic through Naples and Salerno before reaching the coast road itself.',
+        ],
+
+        bestWay: [
+            "Because journey time on this route varies so widely with the season, and there's no direct public transport, a private transfer with a driver who knows the SS163 is the most reliable way to manage a route this variable — particularly in peak season.",
+        ],
+
+        faqs: [
+            { q: 'How far is Amalfi from Naples Airport?', a: "About 65–70 km by road, though sources vary slightly depending on the exact reference points used. The drive normally takes around 1 hour 50 minutes, but can extend to 2–3 hours in peak season." },
+            { q: 'Why does the drive to Amalfi take so much longer in summer?', a: "The SS163 Amalfitana coast road is narrow with limited overtaking, and May–October sees far heavier tourist traffic, particularly around Positano, which the route also passes through." },
+            { q: 'Is there a train to Amalfi?', a: "No — there's no rail line on the Amalfi Coast. You'd need a train to Salerno or Sorrento, then a SITA bus or seasonal ferry to reach Amalfi town." },
+            { q: 'Does the route pass through Positano?', a: "Yes, typically — the SS163 runs through Positano on its way to Amalfi, which is why many travellers combine both towns in a single trip." },
+            { q: 'What\'s the most reliable way to reach Amalfi from the airport?', a: "A private transfer with a driver experienced on the coast road is generally the most predictable option, especially given how much traffic conditions vary by season." },
+        ],
+    },
+    {
+        slug: 'naples-airport-to-pompeii-distance',
+        itSlug: 'distanza-dallaeroporto-di-napoli-a-pompei',
+        origin: 'Naples Airport',
+        dest: 'Pompeii',
+        seoTitle: 'Naples Airport to Pompeii Distance & Travel Time',
+        metaDescription: 'How far is Pompeii from Naples Airport? Driving distance, typical journey time and transport options for visiting the ruins.',
+        h1: 'Naples Airport to Pompeii Distance',
+        heroImage: '/images/naples.webp',
+
+        straightLineDistance: 'approx. 20–24 km (about 12–15 miles)',
+        straightLineNote: 'This is one of the shorter, more direct routes covered on this site — straight-line and driving distance are fairly close.',
+        drivingDistance: 'approx. 28 km (about 17 miles)',
+        drivingDuration: '24–40 minutes',
+        trainDuration: 'approx. 40–50 minutes via the Circumvesuviana, with a connection from the airport into Naples',
+
+        intro: [
+            "Naples Airport to Pompeii is one of the shortest routes on this site — about 28 km, making it an easy add-on for arrival or departure day. It's a popular way to see the ruins without dedicating a full separate day.",
+            "This page covers the realistic driving time, the train alternative, and what affects the journey.",
+        ],
+
+        centreVsDoorToDoor: [
+            "The figures above are to the Pompei Scavi archaeological site entrance, the natural destination for this route rather than a city centre.",
+        ],
+
+        byCar: [
+            "Driving from Naples Airport to Pompeii covers about 28 km via the A3 motorway and typically takes 24 to 40 minutes, depending on traffic. Weekday mornings (8–10am) and summer weekends see the heaviest congestion on this stretch of the A3.",
+        ],
+        byCarRoad: 'the A3 motorway',
+
+        byTrain: [
+            "The Circumvesuviana line connects Naples to Pompei Scavi – Villa dei Misteri, right by the site entrance, in about 30–40 minutes from central Naples. From the airport, add the connection time to reach a Naples station first — realistically 40–50 minutes door to station in total.",
+        ],
+
+        byPrivateTransfer: [
+            "For a short add-on visit like this, especially straight off a flight with luggage, a private transfer avoids the Circumvesuviana connection and can wait while you tour the site before continuing to your final destination.",
+            "For pricing and booking, see our dedicated Naples Airport to Pompeii taxi transfer page.",
+        ],
+        routePageSlug: 'naples-airport-to-pompeii-taxi',
+        routePageLabel: 'Naples Airport to Pompeii Taxi Transfer',
+
+        popularStops: [],
+
+        travelTimeFactors: [
+            'Weekday morning traffic (8–10am) on the A3.',
+            'Summer weekend congestion, both on the road and around the site entrance itself.',
+            'Whether you\'re continuing on to Sorrento or the Amalfi Coast afterwards rather than returning to the airport.',
+        ],
+
+        bestWay: [
+            "Given the short distance, either driving/private transfer or the Circumvesuviana work well. A private transfer is the more convenient choice straight off a flight with luggage, or if you want the driver to wait during your visit and continue on afterwards.",
+        ],
+
+        faqs: [
+            { q: 'How far is Pompeii from Naples Airport?', a: "About 28 km by road, a drive of roughly 24 to 40 minutes via the A3 motorway depending on traffic." },
+            { q: 'Can I visit Pompeii straight after landing?', a: "Yes — it's a short, practical add-on to an arrival, especially with a private transfer that can store your luggage and wait while you tour the site." },
+            { q: 'Is the Circumvesuviana a good way to reach Pompeii from the airport?', a: "It's workable — about 40–50 minutes door to station once you include the connection from the airport into Naples — but a private transfer is more direct if you have luggage." },
+            { q: 'What\'s the closest station to the Pompeii ruins?', a: "Pompei Scavi – Villa dei Misteri, on the Circumvesuviana line, sits right by the main entrance." },
+            { q: 'Can I continue to Sorrento or the Amalfi Coast after Pompeii?', a: "Yes — Pompeii sits directly on the route toward Sorrento and the Amalfi Coast, so many travellers combine a stop here with continuing onward rather than returning to Naples." },
+        ],
+    },
+    {
+        slug: 'milan-malpensa-to-como-distance',
+        itSlug: 'distanza-dallaeroporto-di-malpensa-a-como',
+        origin: 'Milan Malpensa Airport',
+        dest: 'Como',
+        seoTitle: 'Milan Malpensa to Como Distance & Travel Time',
+        metaDescription: 'How far is Lake Como from Milan Malpensa Airport? Driving distance, typical travel time and train options for reaching Como town.',
+        h1: 'Milan Malpensa to Como Distance',
+        heroImage: '/images/Lake Como.webp',
+
+        straightLineDistance: 'approx. 35 km (about 22 miles)',
+        straightLineNote: 'Malpensa sits northwest of Milan, already closer to Lake Como than the city centre is — one reason this is a popular direct airport-to-lake route.',
+        drivingDistance: 'approx. 52 km (about 32 miles)',
+        drivingDuration: '42–60 minutes',
+        trainDuration: 'approx. 1 hour 15 minutes on the fastest service (one change); around 2 hours on average with more stops',
+
+        intro: [
+            "Milan Malpensa Airport to Como is a genuinely convenient route — Malpensa sits northwest of Milan, already on the way to the lake, so this transfer is often quicker than heading into the city first. It covers about 52 km by road.",
+            "This page compares driving and train options, since both are realistic choices for this specific route.",
+        ],
+
+        centreVsDoorToDoor: [
+            "The figures above are to Como town. If you're headed further up the lake — Bellagio or Varenna, for example — expect meaningfully more time; this page covers the Malpensa-to-Como leg specifically.",
+        ],
+
+        byCar: [
+            "Driving from Malpensa to Como covers about 52 km via the A8/A9 motorways and typically takes 42 to 60 minutes, depending on traffic around the airport and approaching Como.",
+        ],
+        byCarRoad: 'the A8/A9 motorways',
+
+        byTrain: [
+            "Train options exist but require at least one change; the fastest journeys take around 1 hour 15 minutes, while the average, including less convenient connections, is closer to 2 hours. For a direct airport arrival with luggage, this makes driving or a private transfer noticeably more convenient than the rail option on this specific route.",
+        ],
+
+        byPrivateTransfer: [
+            "A private transfer takes you directly from the Malpensa arrivals hall to your Como hotel with no station change, which matters more here than on many routes given the train's need for a connection.",
+            "For pricing and booking, see our dedicated Milan Malpensa to Como taxi transfer page.",
+        ],
+        routePageSlug: 'milan-malpensa-to-como-taxi',
+        routePageLabel: 'Milan Malpensa to Como Taxi Transfer',
+
+        popularStops: [],
+
+        travelTimeFactors: [
+            'Traffic around Malpensa and on the approach into Como.',
+            'For train travel, the connection time at the changeover station.',
+            'Which part of the lake you\'re ultimately headed to — this page covers Como town specifically.',
+        ],
+
+        bestWay: [
+            "For a direct arrival with luggage, driving or a private transfer is generally more convenient than the train on this route, since the train requires a change and the road route is short and fairly direct.",
+        ],
+
+        faqs: [
+            { q: 'How far is Como from Milan Malpensa Airport?', a: "About 35 km in a straight line, or roughly 52 km by road — a drive of 42 to 60 minutes." },
+            { q: 'Is Malpensa closer to Lake Como than central Milan?', a: "Yes — Malpensa sits northwest of Milan, already on the way to the lake, so this route is often quicker than travelling from the city centre." },
+            { q: 'Is the train a good option from Malpensa to Como?', a: "It's possible but requires at least one change, with journeys taking anywhere from about 1 hour 15 minutes to close to 2 hours depending on the connection — driving is generally more direct." },
+            { q: 'Can I reach Bellagio or Varenna directly from Malpensa?', a: "This page covers the Malpensa-to-Como leg; towns further up the lake such as Bellagio or Varenna take meaningfully longer and are worth checking separately." },
+            { q: 'Is a private transfer worth it for this route?', a: "For a direct arrival with luggage, yes — it avoids the train's required connection and goes straight to your hotel." },
+        ],
+    },
+    {
+        slug: 'milan-malpensa-to-stresa-distance',
+        itSlug: 'distanza-dallaeroporto-di-malpensa-a-stresa',
+        origin: 'Milan Malpensa Airport',
+        dest: 'Stresa',
+        seoTitle: 'Milan Malpensa to Stresa Distance & Travel Time',
+        metaDescription: 'How far is Stresa on Lake Maggiore from Milan Malpensa Airport? Driving distance and typical travel time for this direct airport-to-lake route.',
+        h1: 'Milan Malpensa to Stresa Distance',
+        heroImage: '/images/Lake Como.webp',
+
+        straightLineDistance: 'approx. 30–35 km (about 19–22 miles)',
+        straightLineNote: 'Sources give a range for the road distance too (roughly 45–55 km) — Stresa sits close enough to Malpensa that small differences in the exact start and end point noticeably affect the figure.',
+        drivingDistance: 'approx. 50–55 km (about 31–34 miles)',
+        drivingDuration: '44–60 minutes',
+        trainDuration: 'Limited direct options — check current timetables; driving is the more established route',
+
+        intro: [
+            "Milan Malpensa Airport to Stresa, on Lake Maggiore, is one of the shortest and most direct airport-to-lake transfers on this site — around 50–55 km, mostly motorway. Stresa is the main gateway to the Borromean Islands, making this a popular route for lake-bound arrivals.",
+            "This page sets out the driving distance and time, since that's the practical option most travellers use for this specific route.",
+        ],
+
+        centreVsDoorToDoor: [
+            "The figures above are to central Stresa. Since Stresa itself is a compact lakefront town, the difference between the town-centre figure and a specific hotel address is generally small.",
+        ],
+
+        byCar: [
+            "Driving from Malpensa to Stresa covers about 50–55 km via the A26 motorway toward Gravellona Toce, taking the Carpugnino exit for Stresa, and typically takes 44 to 60 minutes depending on traffic.",
+        ],
+        byCarRoad: 'the A26 motorway',
+
+        byTrain: [
+            "Rail options between Malpensa and Stresa are limited and often involve a change; driving or a private transfer is the more straightforward and commonly used route for this specific journey. If considering the train, check current timetables directly, since service patterns on this connection are less frequent than on major intercity lines.",
+        ],
+
+        byPrivateTransfer: [
+            "A private transfer takes you directly from the Malpensa arrivals hall to your Stresa hotel or the lakefront, with flight monitoring so early or delayed landings don't disrupt the pickup.",
+            "For pricing and booking, see our dedicated Milan Malpensa to Stresa taxi transfer page.",
+        ],
+        routePageSlug: 'milan-malpensa-to-stresa-taxi',
+        routePageLabel: 'Milan Malpensa to Stresa Taxi Transfer',
+
+        popularStops: [],
+
+        travelTimeFactors: [
+            'Traffic around Malpensa and on the A26.',
+            'Weather conditions, which can affect the motorway approach in the wider lakes region.',
+            'Your exact Stresa destination, if not the town centre itself.',
+        ],
+
+        bestWay: [
+            "Given the short, direct motorway distance and the limited rail alternative, most travellers use driving or a private transfer for this route. A private transfer adds flight monitoring and door-to-door convenience without you needing to navigate the drive yourself after a flight.",
+        ],
+
+        faqs: [
+            { q: 'How far is Stresa from Milan Malpensa Airport?', a: "About 30–35 km in a straight line, or roughly 50–55 km by road — a drive of 44 to 60 minutes via the A26 motorway." },
+            { q: 'Why is Stresa a popular arrival point?', a: "Stresa is the main gateway to the Borromean Islands on Lake Maggiore, and its short distance from Malpensa makes it one of the easiest lakes to reach directly from the airport." },
+            { q: 'Is there a direct train from Malpensa to Stresa?', a: "Rail options are limited and often require a change; driving or a private transfer is the more established route for this specific journey." },
+            { q: 'How long does the drive really take?', a: "Typically 44 to 60 minutes under normal traffic via the A26 motorway toward Gravellona Toce." },
+            { q: 'Is a private transfer a good option for this route?', a: "Yes, particularly for a direct arrival — it includes flight monitoring, so timing adjusts automatically if your flight is early or delayed." },
         ],
     },
 ];

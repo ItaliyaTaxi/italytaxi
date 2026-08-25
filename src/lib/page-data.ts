@@ -624,7 +624,7 @@ export const routes: RouteData[] = [
             { q: 'How do I get a quote for the Florence to Pisa taxi?', a: 'Simply fill in the booking form with your pickup address, destination, date, and number of passengers. The driver will provide you with a confirmed quote before your journey.' },
         ],
         relatedLinks: [
-            { href: '/florence-to-pisa-distance', label: 'Florence to Pisa Distance Guide' },
+            { href: '/distance/florence-to-pisa-distance', label: 'Florence to Pisa Distance Guide' },
         ],
     },
     {
@@ -643,7 +643,7 @@ export const routes: RouteData[] = [
             { q: 'What vehicle is best for a group traveling Rome to Florence?', a: 'For groups of up to 7 passengers, we recommend our luxury Mercedes V-Class minivan, which offers plenty of space for luggage and passengers.' },
         ],
         relatedLinks: [
-            { href: '/rome-to-florence-distance', label: 'Rome to Florence Distance Guide' },
+            { href: '/distance/rome-to-florence-distance', label: 'Rome to Florence Distance Guide' },
         ],
     },
     {
@@ -662,7 +662,7 @@ export const routes: RouteData[] = [
             { q: 'Can I book a return taxi from Lake Como to Milan?', a: 'Yes, we offer both single and return transfer bookings. Simply select a return trip when booking and specify your preferred pickup time.' },
         ],
         relatedLinks: [
-            { href: '/milan-to-lake-como-distance', label: 'Milan to Lake Como Distance Guide' },
+            { href: '/distance/milan-to-lake-como-distance', label: 'Milan to Lake Como Distance Guide' },
         ],
     },
     {
@@ -681,7 +681,7 @@ export const routes: RouteData[] = [
             { q: 'Is it better to take a train or taxi from Rome to Naples?', a: 'While the high-speed train is fast, a private taxi offers door-to-door convenience, no station transfers, ideal for families, groups, or those with lots of luggage.' },
         ],
         relatedLinks: [
-            { href: '/rome-to-naples-distance', label: 'Rome to Naples Distance Guide' },
+            { href: '/distance/rome-to-naples-distance', label: 'Rome to Naples Distance Guide' },
         ],
     },
     {
@@ -700,7 +700,7 @@ export const routes: RouteData[] = [
             { q: 'What does the Florence to Rome taxi include?', a: 'All transfers include motorway tolls, fuel, and the driver\'s service. The exact fare is provided when you request a quote.' },
         ],
         relatedLinks: [
-            { href: '/rome-to-florence-distance', label: 'Rome to Florence Distance Guide' },
+            { href: '/distance/rome-to-florence-distance', label: 'Rome to Florence Distance Guide' },
         ],
     },
     {
@@ -719,7 +719,7 @@ export const routes: RouteData[] = [
             { q: 'Can you drop me directly at Piazzale Roma in Venice?', a: 'Yes, our drivers are familiar with all Venice access points and will take you directly to Piazzale Roma — the closest vehicle access point to central Venice.' },
         ],
         relatedLinks: [
-            { href: '/milan-to-venice-distance', label: 'Milan to Venice Distance Guide' },
+            { href: '/distance/milan-to-venice-distance', label: 'Milan to Venice Distance Guide' },
         ],
     },
     {
@@ -738,7 +738,7 @@ export const routes: RouteData[] = [
             { q: 'Is it safe to hire a taxi along the Amalfi Coast roads?', a: 'Yes. Our drivers are experts on the narrow, winding Amalfi Coast roads and hold all required local driving licenses for this unique terrain.' },
         ],
         relatedLinks: [
-            { href: '/naples-to-amalfi-coast-distance', label: 'Naples to Amalfi Coast Distance Guide' },
+            { href: '/distance/naples-to-amalfi-coast-distance', label: 'Naples to Amalfi Coast Distance Guide' },
         ],
     },
     {
@@ -757,7 +757,7 @@ export const routes: RouteData[] = [
             { q: 'Can I combine Pompeii and Naples in the same transfer?', a: 'Absolutely. Many clients visit Pompeii and then continue to Naples for the night, or vice versa. We can tailor the route to your itinerary.' },
         ],
         relatedLinks: [
-            { href: '/rome-to-pompeii-distance', label: 'Rome to Pompeii Distance Guide' },
+            { href: '/distance/rome-to-pompeii-distance', label: 'Rome to Pompeii Distance Guide' },
         ],
     },
     {
@@ -776,7 +776,7 @@ export const routes: RouteData[] = [
             { q: 'What are the top things to see in Verona on arrival?', a: 'Verona\'s highlights include Juliet\'s House (Casa di Giulietta), the Arena di Verona amphitheatre, Piazza delle Erbe, and the Scaligeri Castles — all easily walkable from the city centre.' },
         ],
         relatedLinks: [
-            { href: '/venice-to-verona-distance', label: 'Venice to Verona Distance Guide' },
+            { href: '/distance/venice-to-verona-distance', label: 'Venice to Verona Distance Guide' },
         ],
     },
     {
@@ -795,7 +795,7 @@ export const routes: RouteData[] = [
             { q: 'How do I get a quote for Milan to Turin taxi?', a: 'Submit your travel details via the booking form and the driver will send you a confirmed quote. No obligation to book until you accept.' },
         ],
         relatedLinks: [
-            { href: '/milan-to-turin-distance', label: 'Milan to Turin Distance Guide' },
+            { href: '/distance/milan-to-turin-distance', label: 'Milan to Turin Distance Guide' },
         ],
     },
     {
@@ -812,7 +812,10 @@ export const routes: RouteData[] = [
             { q: 'How do I book a taxi from Rome to the Vatican?', a: 'Simply enter your pickup address and select Vatican City as your destination in the booking form. The driver will confirm your quote and arrival time.' },
             { q: 'Can you drop me directly at the Vatican Museums entrance?', a: 'Yes, our drivers know exactly where to drop you for quick access to the Vatican Museums entrance on Viale Vaticano, avoiding the long queues at St. Peter\'s Square.' },
             { q: 'Do your drivers have access to Rome\'s restricted traffic zones?', a: 'Yes. All our drivers hold an NCC (Noleggio Con Conducente) license, which grants access to restricted traffic zones (ZTL) in Rome\'s historic centre.' },
-        ]
+        ],
+        relatedLinks: [
+            { href: '/distance/rome-to-vatican-distance', label: 'Rome to Vatican Distance Guide' },
+        ],
     },
     {
         slug: 'florence-to-siena-taxi',
@@ -828,7 +831,10 @@ export const routes: RouteData[] = [
             { q: 'How far is Siena from Florence by taxi?', a: 'Siena is approximately 70 km from Florence. The private taxi journey takes about 1 hour via the Superstrada, or 1.5 hours via the scenic Chianti Classico route.' },
             { q: 'Can I do a day trip from Florence to Siena?', a: 'Yes, a day trip from Florence to Siena is very popular. We can drive you in the morning, wait in the area, and return you to Florence in the evening.' },
             { q: 'Can I combine Siena and San Gimignano in one day?', a: 'Absolutely. Both medieval towns are nearby and make for a wonderful full-day Tuscan excursion from Florence, with stops in Chianti wine country along the way.' },
-        ]
+        ],
+        relatedLinks: [
+            { href: '/distance/florence-to-siena-distance', label: 'Florence to Siena Distance Guide' },
+        ],
     },
 
     // ─── Batch 1: 30 commercial route pages (indicative prices + travel times) ───
@@ -842,7 +848,10 @@ export const routes: RouteData[] = [
             { q: 'How long is the transfer from Rome Fiumicino to Sorrento?', a: 'The drive is about 3 hours 30 minutes (around 280 km) via the A1 and A3 motorways, depending on traffic. We track your flight so the driver is ready when you land.' },
             { q: 'Can we stop at Pompeii on the way to Sorrento?', a: 'Yes — a Pompeii stop is a popular add-on to this route, breaking up the journey with a visit to the ruins before continuing to Sorrento.' },
             { q: 'Is the Rome to Sorrento transfer price fixed?', a: 'Yes, the indicative price shown is a fixed, all-inclusive fare per vehicle agreed in advance, covering tolls and meet & greet. Confirm your exact quote when booking.' },
-        ]
+        ],
+        relatedLinks: [
+            { href: '/distance/rome-fiumicino-to-sorrento-distance', label: 'Rome Fiumicino to Sorrento Distance Guide' },
+        ],
     },
     {
         slug: 'rome-fiumicino-to-civitavecchia-taxi', from: 'Rome Fiumicino Airport', to: 'Civitavecchia Port',
@@ -854,7 +863,10 @@ export const routes: RouteData[] = [
             { q: 'How long does it take from Fiumicino to Civitavecchia?', a: 'About 1 hour by road (around 70 km), making it the fastest, most reliable way to reach your cruise on embarkation day.' },
             { q: 'Is this transfer good for catching a cruise?', a: 'Yes — it is one of our most popular cruise-day transfers. We track your flight and build in a buffer so you reach the ship with time to spare.' },
             { q: 'Can you collect me if my flight is delayed?', a: 'Yes, your booking is linked to your flight number and the pickup is re-timed automatically to your actual landing.' },
-        ]
+        ],
+        relatedLinks: [
+            { href: '/distance/rome-fiumicino-to-civitavecchia-distance', label: 'Rome Fiumicino to Civitavecchia Distance Guide' },
+        ],
     },
     {
         slug: 'naples-airport-to-sorrento-taxi', from: 'Naples Airport', to: 'Sorrento',
@@ -866,7 +878,10 @@ export const routes: RouteData[] = [
             { q: 'How far is Sorrento from Naples Airport?', a: 'Sorrento is about 50 km from Naples Airport, a drive of roughly 1 hour 15 minutes depending on traffic along the coast road.' },
             { q: 'Is a private transfer better than the train to Sorrento?', a: 'For comfort and luggage, yes. The private transfer is door-to-door with no changes, while the Circumvesuviana train is crowded and requires connections.' },
             { q: 'Can you continue to Positano or Amalfi?', a: 'Absolutely — we cover the whole Amalfi Coast. Just tell us your final destination and we will quote the full transfer.' },
-        ]
+        ],
+        relatedLinks: [
+            { href: '/distance/naples-airport-to-sorrento-distance', label: 'Naples Airport to Sorrento Distance Guide' },
+        ],
     },
     {
         slug: 'naples-airport-to-positano-taxi', from: 'Naples Airport', to: 'Positano',
@@ -878,7 +893,10 @@ export const routes: RouteData[] = [
             { q: 'How long is the drive from Naples Airport to Positano?', a: 'About 1 hour 30 minutes (around 60 km), longer in peak summer traffic on the narrow coast road. A private driver makes the winding route stress-free.' },
             { q: 'Why not drive myself to Positano?', a: 'The SS163 coast road is narrow, busy and demanding, with very limited parking in Positano. A private driver removes the stress and the parking problem entirely.' },
             { q: 'Can the driver help with luggage in Positano?', a: 'Yes. Positano is built on steep steps, so the driver will help you get as close as possible and assist with your bags.' },
-        ]
+        ],
+        relatedLinks: [
+            { href: '/distance/naples-airport-to-positano-distance', label: 'Naples Airport to Positano Distance Guide' },
+        ],
     },
     {
         slug: 'naples-airport-to-amalfi-taxi', from: 'Naples Airport', to: 'Amalfi',
@@ -890,7 +908,10 @@ export const routes: RouteData[] = [
             { q: 'How long does it take to reach Amalfi from Naples Airport?', a: 'Around 1 hour 45 minutes (about 70 km) via the coast road, depending on the season and traffic.' },
             { q: 'Can I add a stop in Ravello?', a: 'Yes, Ravello is just above Amalfi and is a popular add-on for its gardens and panoramic views.' },
             { q: 'Is the coast road difficult?', a: 'It is narrow and winding, which is exactly why a local private driver is the recommended way to travel it comfortably and safely.' },
-        ]
+        ],
+        relatedLinks: [
+            { href: '/distance/naples-airport-to-amalfi-distance', label: 'Naples Airport to Amalfi Distance Guide' },
+        ],
     },
     {
         slug: 'naples-airport-to-pompeii-taxi', from: 'Naples Airport', to: 'Pompeii',
@@ -902,7 +923,10 @@ export const routes: RouteData[] = [
             { q: 'How far is Pompeii from Naples Airport?', a: 'Pompeii is about 30 km from Naples Airport, a short drive of roughly 40 minutes, making it easy to visit on arrival or departure day.' },
             { q: 'Can the driver wait while I tour Pompeii?', a: 'Yes — with a round-trip or hourly booking the driver waits and then takes you onward, storing your luggage safely in the vehicle.' },
             { q: 'Can I combine Pompeii with Vesuvius?', a: 'Yes, Mount Vesuvius is nearby and a popular combined excursion with Pompeii.' },
-        ]
+        ],
+        relatedLinks: [
+            { href: '/distance/naples-airport-to-pompeii-distance', label: 'Naples Airport to Pompeii Distance Guide' },
+        ],
     },
     {
         slug: 'milan-malpensa-to-como-taxi', from: 'Milan Malpensa Airport', to: 'Como',
@@ -914,7 +938,10 @@ export const routes: RouteData[] = [
             { q: 'How far is Lake Como from Malpensa Airport?', a: 'Como is about 50 km from Malpensa, roughly a 50-minute drive — often quicker than reaching central Milan.' },
             { q: 'Can you take me to Bellagio or Varenna?', a: 'Yes, we drop off at any town on Lake Como, including the centre-lake villages of Bellagio, Varenna and Menaggio.' },
             { q: 'Is a transfer better than the train to Como?', a: 'For luggage and the mid-lake villages, yes. A direct transfer avoids train changes and gets you to your exact hotel.' },
-        ]
+        ],
+        relatedLinks: [
+            { href: '/distance/milan-malpensa-to-como-distance', label: 'Milan Malpensa to Como Distance Guide' },
+        ],
     },
     {
         slug: 'milan-malpensa-to-stresa-taxi', from: 'Milan Malpensa Airport', to: 'Stresa',
@@ -926,7 +953,10 @@ export const routes: RouteData[] = [
             { q: 'How far is Stresa from Malpensa Airport?', a: 'Stresa is only about 40 km from Malpensa, a quick 45-minute drive, making Lake Maggiore one of the easiest lakes to reach from the airport.' },
             { q: 'Can I reach the Borromean Islands from Stresa?', a: 'Yes, Stresa is the main departure point for boats to the Borromean Islands — we drop you right by the waterfront.' },
             { q: 'Is this transfer available for early flights?', a: 'Yes, we operate 24/7 and track your flight, so early or late arrivals are no problem.' },
-        ]
+        ],
+        relatedLinks: [
+            { href: '/distance/milan-malpensa-to-stresa-distance', label: 'Milan Malpensa to Stresa Distance Guide' },
+        ],
     },
     {
         slug: 'pisa-airport-to-florence-taxi', from: 'Pisa Airport', to: 'Florence',

@@ -74,6 +74,7 @@ export const existingRouteItTranslations: ExistingRouteItTranslation[] = [
                 { q: 'È più conveniente del treno alta velocità?', a: 'Il treno è più veloce come tempo di percorrenza puro, ma il transfer privato offre un servizio porta a porta senza cambi né trasporto bagagli in stazione — la scelta preferita da famiglie e gruppi.' },
             ],
             relatedLinks: [
+                { href: '/it/distance/distanza-da-roma-a-firenze', label: 'Distanza Roma - Firenze' },
                 { href: '/city/rome', label: 'Servizio Taxi Roma' },
                 { href: '/city/florence', label: 'Servizio Taxi Firenze' },
                 { href: '/it/route/trasferimento-firenze-chianti', label: 'Transfer Firenze - Chianti' },
@@ -117,6 +118,7 @@ export const existingRouteItTranslations: ExistingRouteItTranslation[] = [
                 { q: 'L\'autista parla inglese?', a: 'Sì, tutti i nostri autisti sono professionisti locali di lingua inglese.' },
             ],
             relatedLinks: [
+                { href: '/it/distance/distanza-da-roma-a-napoli', label: 'Distanza Roma - Napoli' },
                 { href: '/city/rome', label: 'Servizio Taxi Roma' },
                 { href: '/city/naples', label: 'Servizio Taxi Napoli' },
                 { href: '/it/route/trasferimento-roma-pompei', label: 'Transfer Roma - Pompei' },
@@ -160,6 +162,7 @@ export const existingRouteItTranslations: ExistingRouteItTranslation[] = [
                 { q: 'Dove viene lasciato il gruppo esattamente?', a: 'Direttamente all\'ingresso principale del sito archeologico di Pompei.' },
             ],
             relatedLinks: [
+                { href: '/it/distance/distanza-da-roma-a-pompei', label: 'Distanza Roma - Pompei' },
                 { href: '/city/rome', label: 'Servizio Taxi Roma' },
                 { href: '/city/naples', label: 'Servizio Taxi Napoli' },
                 { href: '/it/route/trasferimento-roma-napoli', label: 'Transfer Roma - Napoli' },
@@ -288,6 +291,7 @@ export const existingRouteItTranslations: ExistingRouteItTranslation[] = [
                 { q: 'Cosa succede se il mio volo è in ritardo?', a: 'Il tuo volo è monitorato automaticamente, quindi l\'autista si adatta al tuo orario di atterraggio reale, senza costi aggiuntivi.' },
             ],
             relatedLinks: [
+                { href: '/it/distance/distanza-dallaeroporto-di-fiumicino-a-sorrento', label: 'Distanza Fiumicino - Sorrento' },
                 { href: '/city/sorrento', label: 'Servizio Taxi Sorrento' },
                 { href: '/it/route/trasferimento-roma-sorrento', label: 'Transfer Roma (centro città) - Sorrento' },
                 { href: '/route/naples-airport-to-sorrento-taxi', label: 'Naples Airport to Sorrento Transfer' },
@@ -330,6 +334,7 @@ export const existingRouteItTranslations: ExistingRouteItTranslation[] = [
                 { q: 'C\'è assistenza per i bagagli da crociera?', a: 'Sì, il tuo autista aiuta con i bagagli sia in aeroporto che al terminal crociere.' },
             ],
             relatedLinks: [
+                { href: '/it/distance/distanza-dallaeroporto-di-fiumicino-a-civitavecchia', label: 'Distanza Fiumicino - Civitavecchia' },
                 { href: '/it/route/trasferimento-roma-civitavecchia', label: 'Transfer Roma (centro città) - Civitavecchia' },
                 { href: '/route/civitavecchia-to-rome-fiumicino-taxi', label: 'Civitavecchia to Rome Fiumicino (return leg)' },
             ],
@@ -371,6 +376,7 @@ export const existingRouteItTranslations: ExistingRouteItTranslation[] = [
                 { q: 'L\'autista monitora il mio volo?', a: 'Sì, automaticamente, così ritardi o anticipi non influiscono sul ritiro.' },
             ],
             relatedLinks: [
+                { href: '/it/distance/distanza-dallaeroporto-di-napoli-a-sorrento', label: 'Distanza Aeroporto Napoli - Sorrento' },
                 { href: '/airport/naples', label: 'Guida Aeroporto di Napoli Capodichino' },
                 { href: '/city/sorrento', label: 'Servizio Taxi Sorrento' },
                 { href: '/it/route/trasferimento-napoli-sorrento', label: 'Transfer Napoli (città) - Sorrento' },
@@ -414,6 +420,7 @@ export const existingRouteItTranslations: ExistingRouteItTranslation[] = [
                 { q: 'Il prezzo è fisso indipendentemente dal traffico estivo?', a: 'Sì, il prezzo è concordato in anticipo e non cambia in base al traffico.' },
             ],
             relatedLinks: [
+                { href: '/it/distance/distanza-dallaeroporto-di-napoli-a-positano', label: 'Distanza Aeroporto Napoli - Positano' },
                 { href: '/airport/naples', label: 'Guida Aeroporto di Napoli Capodichino' },
                 { href: '/city/positano', label: 'Servizio Taxi Positano' },
                 { href: '/it/route/trasferimento-aeroporto-napoli-sorrento', label: 'Transfer Aeroporto Napoli - Sorrento' },
@@ -457,6 +464,7 @@ export const existingRouteItTranslations: ExistingRouteItTranslation[] = [
                 { q: 'Il transfer arriva fino al centro di Amalfi?', a: 'Sì, lo sbarco avviene al tuo hotel o al punto più vicino accessibile nel centro di Amalfi.' },
             ],
             relatedLinks: [
+                { href: '/it/distance/distanza-dallaeroporto-di-napoli-ad-amalfi', label: 'Distanza Aeroporto Napoli - Amalfi' },
                 { href: '/airport/naples', label: 'Guida Aeroporto di Napoli Capodichino' },
                 { href: '/city/amalfi', label: 'Servizio Taxi Amalfi' },
                 { href: '/it/route/trasferimento-aeroporto-napoli-ravello', label: 'Transfer Aeroporto Napoli - Ravello' },
@@ -500,6 +508,7 @@ export const existingRouteItTranslations: ExistingRouteItTranslation[] = [
                 { q: 'Posso aggiungere una tappa al Vesuvio?', a: 'Sì, un\'estensione al Vesuvio può essere organizzata su richiesta.' },
             ],
             relatedLinks: [
+                { href: '/it/distance/distanza-dallaeroporto-di-napoli-a-pompei', label: 'Distanza Aeroporto Napoli - Pompei' },
                 { href: '/airport/naples', label: 'Guida Aeroporto di Napoli Capodichino' },
                 { href: '/city/naples', label: 'Servizio Taxi Napoli' },
                 { href: '/it/route/trasferimento-roma-pompei', label: 'In arrivo da Roma? Transfer Roma - Pompei' },
@@ -585,6 +594,7 @@ export const existingRouteItTranslations: ExistingRouteItTranslation[] = [
                 { q: 'Il prezzo cambia in base alla destinazione sul lago?', a: 'Il prezzo dipende dalla distanza esatta — richiedi un preventivo indicando la tua destinazione precisa.' },
             ],
             relatedLinks: [
+                { href: '/it/distance/distanza-da-milano-al-lago-di-como', label: 'Distanza Milano - Lago di Como' },
                 { href: '/city/milan', label: 'Servizio Taxi Milano' },
                 { href: '/city/como', label: 'Servizio Taxi Como' },
                 { href: '/it/route/trasferimento-aeroporto-malpensa-como', label: 'In arrivo a Malpensa? Transfer Malpensa - Como' },
@@ -628,6 +638,7 @@ export const existingRouteItTranslations: ExistingRouteItTranslation[] = [
                 { q: 'Quanto dura il transfer?', a: 'Circa 50 minuti, traffico permettendo.' },
             ],
             relatedLinks: [
+                { href: '/it/distance/distanza-dallaeroporto-di-malpensa-a-como', label: 'Distanza Malpensa - Como' },
                 { href: '/city/como', label: 'Servizio Taxi Como' },
                 { href: '/it/route/trasferimento-milano-lago-di-como', label: 'Partendo da Milano città? Transfer Milano - Lago di Como' },
                 { href: '/it/route/trasferimento-aeroporto-malpensa-stresa', label: 'Transfer Malpensa - Stresa (Lago Maggiore)' },
@@ -671,6 +682,7 @@ export const existingRouteItTranslations: ExistingRouteItTranslation[] = [
                 { q: 'Il prezzo è fisso?', a: 'Sì, concordato prima della partenza.' },
             ],
             relatedLinks: [
+                { href: '/it/distance/distanza-dallaeroporto-di-malpensa-a-stresa', label: 'Distanza Malpensa - Stresa' },
                 { href: '/it/route/trasferimento-aeroporto-malpensa-como', label: 'Transfer Malpensa - Como (Lago di Como)' },
                 { href: '/route/milan-to-stresa-taxi', label: 'Milan to Stresa Transfer' },
             ],
@@ -754,6 +766,7 @@ export const existingRouteItTranslations: ExistingRouteItTranslation[] = [
                 { q: 'L\'autista parla inglese?', a: 'Sì, tutti i nostri autisti sono professionisti di lingua inglese.' },
             ],
             relatedLinks: [
+                { href: '/it/distance/distanza-da-firenze-a-pisa', label: 'Distanza Firenze - Pisa' },
                 { href: '/city/florence', label: 'Servizio Taxi Firenze' },
                 { href: '/it/route/trasferimento-aeroporto-pisa-firenze', label: 'Transfer Aeroporto Pisa - Firenze' },
                 { href: '/it/route/trasferimento-firenze-lucca', label: 'Transfer Firenze - Lucca' },
@@ -796,6 +809,7 @@ export const existingRouteItTranslations: ExistingRouteItTranslation[] = [
                 { q: 'Il prezzo include eventuali soste fotografiche nel Chianti?', a: 'Sì, brevi soste possono essere incluse senza costi aggiuntivi — comunicalo alla prenotazione.' },
             ],
             relatedLinks: [
+                { href: '/it/distance/distanza-da-firenze-a-siena', label: 'Distanza Firenze - Siena' },
                 { href: '/city/florence', label: 'Servizio Taxi Firenze' },
                 { href: '/it/route/trasferimento-roma-siena', label: 'In arrivo da Roma? Transfer Roma - Siena' },
                 { href: '/it/route/trasferimento-firenze-chianti', label: 'Transfer Firenze - Chianti' },
@@ -962,6 +976,7 @@ export const existingRouteItTranslations: ExistingRouteItTranslation[] = [
                 { q: 'Il transfer arriva fino al centro storico di Verona?', a: 'Sì, lo sbarco avviene nel punto accessibile più vicino al tuo hotel o indirizzo nel centro.' },
             ],
             relatedLinks: [
+                { href: '/it/distance/distanza-da-venezia-a-verona', label: 'Distanza Venezia - Verona' },
                 { href: '/city/venice', label: 'Servizio Taxi Venezia' },
                 { href: '/it/route/trasferimento-aeroporto-verona-lago-di-garda', label: 'Transfer Aeroporto Verona - Lago di Garda' },
                 { href: '/route/milan-to-venice-taxi', label: 'Milan to Venice Transfer' },

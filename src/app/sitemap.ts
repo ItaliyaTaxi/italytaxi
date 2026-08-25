@@ -10,6 +10,7 @@ import { getAllMilanTransfers } from '@/lib/milan-transfer-data';
 import { getAllVenetoTransfers } from '@/lib/veneto-transfer-data';
 import { getAllCrossBorderTransfers } from '@/lib/cross-border-data';
 import { getAllDistancePages } from '@/lib/distance-pages-data';
+import { getAllItDistancePages } from '@/lib/distance-pages-it-data';
 import { getAllBolognaHotelTransfers, getAllBolognaCruiseTransfers } from '@/lib/bologna-transfer-data';
 import fs from 'fs';
 import path from 'path';
@@ -280,9 +281,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     changeFrequency: 'monthly' as const,
   }));
 
-  // ── 12. Informational distance pages (root-level slugs) ────────────────────
+  // ── 12. Informational distance pages — EN /distance/[slug] + IT /it/distance/[slug] ──
   const distanceEntries: MetadataRoute.Sitemap = getAllDistancePages().map((d) => ({
-    url: `${BASE_URL}/${d.slug}`,
+    url: `${BASE_URL}/distance/${d.slug}`,
+    lastModified: now,
+    priority: 0.7,
+    changeFrequency: 'monthly' as const,
+  }));
+  const itDistanceEntries: MetadataRoute.Sitemap = getAllItDistancePages().map((d) => ({
+    url: `${BASE_URL}/it/distance/${d.slugIt}`,
     lastModified: now,
     priority: 0.7,
     changeFrequency: 'monthly' as const,
@@ -308,6 +315,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...bolognaHotelEntries,
     ...bolognaCruiseEntries,
     ...distanceEntries,
+    ...itDistanceEntries,
   ];
 
   // Set of known redirected/non-canonical slugs to guarantee they never enter sitemap.xml
