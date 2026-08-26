@@ -73,7 +73,8 @@ export default function HomeSEOContentIt() {
               <p className="text-gray-600 text-sm leading-relaxed">
                 Trasferimenti comodi da punto a punto tra le principali città italiane. Viaggia da Roma a Firenze,
                 da Milano al Lago di Como, da Napoli alla Costiera Amalfitana o qualsiasi altra combinazione nel
-                Paese. Servizio porta a porta, senza cambi, senza coincidenze, senza pensieri.
+                Paese. Servizio porta a porta, senza cambi, senza coincidenze, senza pensieri.{' '}
+                <Link href="/it/route" className="text-[#F4C430] font-semibold hover:underline">Scopri tutti i nostri percorsi</Link>.
               </p>
             </div>
 

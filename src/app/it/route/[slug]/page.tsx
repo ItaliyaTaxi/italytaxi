@@ -142,7 +142,7 @@ export default async function ItalianRoutePage({ params }: { params: Promise<{ s
                 backgroundImage={route.hero_image}
                 buttonText={`Prenota Taxi ${itPlaceName(route.from)} - ${itPlaceName(route.to)}`}
                 breadcrumbs={[
-                    { name: 'Percorsi', item: '/it/servizi/trasferimenti-citta-citta' },
+                    { name: 'Percorsi', item: '/it/route' },
                     { name: `${itPlaceName(route.from)} - ${itPlaceName(route.to)}`, item: `/it/route/${slug}` },
                 ]}
             />
@@ -283,8 +283,8 @@ export default async function ItalianRoutePage({ params }: { params: Promise<{ s
                             ))}
                     </div>
                     <div className="text-center mt-8">
-                        <Link href="/it/servizi/trasferimenti-citta-citta" className="inline-flex items-center text-gold hover:text-navy font-bold tracking-widest uppercase text-sm border-b-2 border-gold/30 hover:border-navy transition-all pb-1">
-                            Vedi Tutti i Trasferimenti Città-Città <ChevronRight className="w-4 h-4 ml-1" />
+                        <Link href="/it/route" className="inline-flex items-center text-gold hover:text-navy font-bold tracking-widest uppercase text-sm border-b-2 border-gold/30 hover:border-navy transition-all pb-1">
+                            Vedi Tutti i Percorsi <ChevronRight className="w-4 h-4 ml-1" />
                         </Link>
                     </div>
                 </div>

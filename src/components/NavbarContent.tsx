@@ -24,6 +24,7 @@ export default function Navbar() {
     const { language, setLanguage, t } = useLanguage();
     const router = useRouter();
     const pathname = usePathname();
+    const routesHref = pathname.startsWith('/it') ? '/it/route' : '/route';
 
     // Real navigation to the dedicated Italian/English page when one exists;
     // falls back to the legacy dynamic (Google Translate) toggle otherwise.
@@ -237,6 +238,12 @@ export default function Navbar() {
                             <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#F4C430] transition-all duration-300 group-hover:w-full"></span>
                         </Link>
 
+                        {/* Routes hub */}
+                        <Link href={routesHref} className="text-white hover:text-[#F4C430] transition-colors text-xs font-bold uppercase tracking-widest relative group">
+                            {t.nav.routes}
+                            <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#F4C430] transition-all duration-300 group-hover:w-full"></span>
+                        </Link>
+
                         {/* Services Dropdown */}
                         <div className="relative group dropdown-trigger">
                             <button className="text-white group-hover:text-[#F4C430] transition-colors text-xs font-bold uppercase tracking-widest flex items-center gap-1">
@@ -410,6 +417,7 @@ export default function Navbar() {
 
                         <div className="flex flex-col gap-6 overflow-y-auto pb-20">
                             <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="text-white text-lg font-bold uppercase tracking-widest">{t.nav.home}</Link>
+                            <Link href={routesHref} onClick={() => setIsMobileMenuOpen(false)} className="text-white text-lg font-bold uppercase tracking-widest">{t.nav.routes}</Link>
 
                             {/* Services Mobile */}
                             <div className="border-t border-white/10 pt-4">
