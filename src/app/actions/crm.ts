@@ -74,21 +74,6 @@ function bookingReference(id: string): string {
     return `ITS-${clean.slice(0, 8) || '00000000'}`;
 }
 
-// Small, email-safe inline SVG icons (18x18, currentColor stroke) matching the
-// lucide-react icon set already used across the site. Purely decorative —
-// every value they sit beside also has a text label, so if a client fails to
-// render inline SVG (older Outlook desktop builds) no information is lost.
-const EMAIL_ICONS = {
-    pin: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>',
-    flag: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22V4a1 1 0 0 1 1-1h13l-2 5 2 5H6a1 1 0 0 0-1 1v8"/></svg>',
-    calendar: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>',
-    users: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
-    briefcase: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>',
-    plane: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-1 .1-1.3.5l-.6.7c-.5.7-.3 1.7.4 2.1L9 12l-2 3H3l-1 1 3 2 2 3 1-1v-4l3-2 3.5 5.3c.4.7 1.4.9 2.1.4l.7-.6c.4-.3.6-.8.5-1.3Z"/></svg>',
-    mail: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>',
-    phone: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 3a2 2 0 0 1-.5 2.1L8 10.1a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2-.5c1 .3 2 .5 3 .7a2 2 0 0 1 1.7 2Z"/></svg>',
-};
-
 const EMAIL_SUPPORT_EMAIL = 'italytaxiservicee@gmail.com';
 const SITE_URL = 'https://www.italytaxiservice.com';
 
@@ -125,78 +110,34 @@ function renderTripLeg(args: {
     isFirst: boolean;
 }): string {
     const { heading, pickup, dropoff, date, time, passengers, luggage, flightNumber, isFirst } = args;
+    // No icons or small images here by design — inline SVG is silently stripped by
+    // several major email clients (confirmed by live testing: Gmail removed every
+    // <svg> icon in this card, and Outlook has similarly inconsistent support), and
+    // a raster image small enough to sit beside a text field renders illegibly.
+    // A thin left-border accent + uppercase label carries the same hierarchy using
+    // only text and CSS, which every client renders identically.
+    const field = (label: string, value: string) => `
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:14px;">
+            <tr><td style="border-left:3px solid #C9A84C;padding:1px 0 1px 12px;">
+                <div style="font-family:Arial,Helvetica,sans-serif;font-size:10px;font-weight:700;letter-spacing:1px;color:#9AA0AB;text-transform:uppercase;">${label}</div>
+                <div style="font-family:Arial,Helvetica,sans-serif;font-size:13px;font-weight:700;color:#0F1C2E;word-break:break-word;">${value}</div>
+            </td></tr>
+        </table>`;
     return `
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="${isFirst ? '' : 'margin-top:24px;padding-top:24px;border-top:1px solid #ECE8DD;'}">
         <tr>
-            <td style="padding-bottom:14px;">
+            <td style="padding-bottom:4px;">
                 <span style="font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;color:#B3A170;text-transform:uppercase;">${escapeHtml(heading)}</span>
             </td>
         </tr>
-        <tr>
-            <td>
-                <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
-                    <tr>
-                        <td width="26" valign="top" style="padding-top:2px;color:#C9A84C;">${EMAIL_ICONS.pin}</td>
-                        <td style="padding-left:10px;">
-                            <div style="font-family:Arial,Helvetica,sans-serif;font-size:10px;font-weight:700;letter-spacing:1px;color:#9AA0AB;text-transform:uppercase;">Pickup</div>
-                            <div style="font-family:Arial,Helvetica,sans-serif;font-size:15px;font-weight:700;color:#0F1C2E;line-height:1.4;word-break:break-word;">${escapeHtml(pickup)}</div>
-                        </td>
-                    </tr>
-                </table>
-                <table role="presentation" cellpadding="0" cellspacing="0"><tr><td width="26" style="padding:2px 0;"><div style="width:1px;height:18px;background:#DCD7C8;margin-left:12px;"></div></td></tr></table>
-                <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
-                    <tr>
-                        <td width="26" valign="top" style="padding-top:2px;color:#C9A84C;">${EMAIL_ICONS.flag}</td>
-                        <td style="padding-left:10px;">
-                            <div style="font-family:Arial,Helvetica,sans-serif;font-size:10px;font-weight:700;letter-spacing:1px;color:#9AA0AB;text-transform:uppercase;">Drop-off</div>
-                            <div style="font-family:Arial,Helvetica,sans-serif;font-size:15px;font-weight:700;color:#0F1C2E;line-height:1.4;word-break:break-word;">${escapeHtml(dropoff)}</div>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-        <tr>
-            <td style="padding-top:18px;">
-                <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
-                    <tr>
-                        <td width="28" valign="top" style="padding-top:1px;">
-                            <img src="${SITE_URL}/images/icon.png" width="24" height="24" alt="Italy Taxi Service" style="display:block;border:0;border-radius:5px;">
-                        </td>
-                        <td style="padding-left:10px;">
-                            <div style="font-family:Arial,Helvetica,sans-serif;font-size:10px;font-weight:700;letter-spacing:1px;color:#9AA0AB;text-transform:uppercase;">Date &amp; Time</div>
-                            <div style="font-family:Arial,Helvetica,sans-serif;font-size:13px;font-weight:700;color:#0F1C2E;">${escapeHtml(date)}${time ? ` · ${escapeHtml(time)}` : ''}</div>
-                        </td>
-                    </tr>
-                </table>
-                ${flightNumber ? `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:14px;">
-                    <tr>
-                        <td width="28" valign="top" style="color:#B3A170;padding-top:2px;">${EMAIL_ICONS.plane}</td>
-                        <td style="padding-left:10px;">
-                            <div style="font-family:Arial,Helvetica,sans-serif;font-size:10px;font-weight:700;letter-spacing:1px;color:#9AA0AB;text-transform:uppercase;">Flight</div>
-                            <div style="font-family:Arial,Helvetica,sans-serif;font-size:13px;font-weight:700;color:#0F1C2E;">${escapeHtml(flightNumber)}</div>
-                        </td>
-                    </tr>
-                </table>` : ''}
-                ${passengers != null ? `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:14px;">
-                    <tr>
-                        <td width="28" valign="top" style="color:#B3A170;padding-top:2px;">${EMAIL_ICONS.users}</td>
-                        <td style="padding-left:10px;">
-                            <div style="font-family:Arial,Helvetica,sans-serif;font-size:10px;font-weight:700;letter-spacing:1px;color:#9AA0AB;text-transform:uppercase;">Passengers</div>
-                            <div style="font-family:Arial,Helvetica,sans-serif;font-size:13px;font-weight:700;color:#0F1C2E;">${passengers}</div>
-                        </td>
-                    </tr>
-                </table>` : ''}
-                ${luggage ? `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:14px;">
-                    <tr>
-                        <td width="28" valign="top" style="color:#B3A170;padding-top:2px;">${EMAIL_ICONS.briefcase}</td>
-                        <td style="padding-left:10px;">
-                            <div style="font-family:Arial,Helvetica,sans-serif;font-size:10px;font-weight:700;letter-spacing:1px;color:#9AA0AB;text-transform:uppercase;">Luggage</div>
-                            <div style="font-family:Arial,Helvetica,sans-serif;font-size:13px;font-weight:700;color:#0F1C2E;">${escapeHtml(luggage)}</div>
-                        </td>
-                    </tr>
-                </table>` : ''}
-            </td>
-        </tr>
+        <tr><td>
+            ${field('Pickup', `<span style="font-size:15px;">${escapeHtml(pickup)}</span>`)}
+            ${field('Drop-off', `<span style="font-size:15px;">${escapeHtml(dropoff)}</span>`)}
+            ${field('Date &amp; Time', `${escapeHtml(date)}${time ? ` · ${escapeHtml(time)}` : ''}`)}
+            ${flightNumber ? field('Flight', escapeHtml(flightNumber)) : ''}
+            ${passengers != null ? field('Passengers', String(passengers)) : ''}
+            ${luggage ? field('Luggage', escapeHtml(luggage)) : ''}
+        </td></tr>
     </table>`;
 }
 
@@ -342,10 +283,8 @@ function buildClientConfirmationEmailHtml(args: ClientConfirmationEmailArgs): st
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#F8F6F1;border-radius:14px;">
                 <tr><td style="padding:22px 24px;">
                   <div style="font-family:Arial,Helvetica,sans-serif;font-size:15px;font-weight:700;color:#0F1C2E;margin-bottom:12px;">Need Help?</div>
-                  <table role="presentation" cellpadding="0" cellspacing="0"><tr>
-                    <td valign="middle" style="color:#C9A84C;">${EMAIL_ICONS.mail}</td>
-                    <td style="padding-left:8px;"><a href="mailto:${EMAIL_SUPPORT_EMAIL}" style="font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#0F1C2E;text-decoration:none;font-weight:600;">${EMAIL_SUPPORT_EMAIL}</a></td>
-                  </tr></table>
+                  <div style="font-family:Arial,Helvetica,sans-serif;font-size:10px;font-weight:700;letter-spacing:1px;color:#9AA0AB;text-transform:uppercase;">Email</div>
+                  <a href="mailto:${EMAIL_SUPPORT_EMAIL}" style="font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#0F1C2E;text-decoration:none;font-weight:700;">${EMAIL_SUPPORT_EMAIL}</a>
                   <div style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#9AA0AB;margin-top:10px;">Available 24/7 for assistance with your journey.</div>
                 </td></tr>
               </table>
