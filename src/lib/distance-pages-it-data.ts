@@ -1016,6 +1016,486 @@ export const newDistancePagesIt: NewDistancePageIt[] = [
             ],
         },
     },
+    {
+        slugEn: 'pisa-airport-to-florence-distance',
+        slugIt: 'distanza-dallaeroporto-di-pisa-a-firenze',
+        origin: 'Aeroporto di Pisa', dest: 'Firenze',
+        heroImage: '/images/Tuscany Wine.webp',
+        it: {
+            seoTitle: 'Distanza Aeroporto di Pisa Firenze – Km e Tempo',
+            metaDescription: 'Quanto dista Firenze dall\'aeroporto di Pisa? Distanza in auto verificata, collegamento PisaMover + treno e tempi di viaggio reali a confronto.',
+            h1: 'Distanza dall\'Aeroporto di Pisa a Firenze',
+            intro: [
+                'L\'aeroporto di Pisa (Galileo Galilei) è una delle due principali porte d\'accesso alla Toscana, e Firenze — a circa 85-90 km su strada — è la destinazione più comune per chi atterra qui. Dato che l\'aeroporto si trova a pochi chilometri a sud di Pisa stessa, la distanza e il tempo di viaggio reali dipendono dal fatto che tu guidi direttamente o che tu ti sposti tramite la rete ferroviaria pisana.',
+                'Questa pagina riporta la distanza verificata in auto e il collegamento ferroviario pratico, entrambi realmente utilizzati per questo percorso.',
+            ],
+            centreVsDoorToDoor: [
+                'I dati sopra sono da aeroporto a centro città. Il centro di Firenze ha una zona a traffico limitato (ZTL), quindi se guidi da solo l\'ultimo tratto e il parcheggio aggiungeranno tempo oltre alla distanza autostradale — un transfer privato evita questo problema, poiché gli autisti autorizzati possono entrare nella ZTL per raggiungere direttamente il tuo hotel.',
+            ],
+            byCar: [
+                'In auto dall\'aeroporto di Pisa a Firenze si percorrono circa 85-90 km, in genere 1 ora - 1 ora e 15 minuti lungo la superstrada FI-PI-LI (Firenze-Pisa-Livorno) e/o l\'autostrada A11, a seconda del percorso esatto e del traffico.',
+            ],
+            byCarRoad: 'la superstrada FI-PI-LI e/o l\'autostrada A11',
+            byTrain: [
+                'Non esiste un treno diretto dal terminal dell\'aeroporto. Il percorso pratico è il PisaMover — una navetta automatica che collega l\'aeroporto alla stazione di Pisa Centrale in circa 8 minuti, con partenze ogni 5-8 minuti durante tutta la giornata. Da Pisa Centrale, i treni Trenitalia raggiungono Firenze Santa Maria Novella, con i regionali che impiegano circa 1 ora - 1 ora e 22 minuti e i servizi più rapidi circa 49 minuti. Includendo il PisaMover e un breve collegamento, il tempo realistico porta a porta è di circa 60-90 minuti.',
+            ],
+            byPrivateTransfer: [
+                'Un transfer privato copre il tragitto aeroporto-Firenze in un\'unica corsa, senza dover gestire il collegamento navetta-treno e senza camminare per Pisa Centrale con i bagagli — e a differenza di un\'auto a noleggio, un autista autorizzato può raggiungere direttamente un hotel all\'interno della ZTL di Firenze.',
+                'Per prezzi e prenotazione, visita la nostra pagina dedicata al transfer privato Aeroporto di Pisa - Firenze.',
+            ],
+            routePageSlugIt: 'trasferimento-aeroporto-pisa-firenze',
+            routePageLabelIt: 'Transfer Privato Aeroporto di Pisa - Firenze',
+            popularStops: [
+                { name: 'Empoli', note: 'Cittadina mercantile sul percorso della FI-PI-LI, pressappoco a metà strada tra Pisa e Firenze.' },
+            ],
+            travelTimeFactors: [
+                'Traffico sulla FI-PI-LI e sull\'A11, in particolare intorno a Firenze nelle ore di punta dei giorni feriali.',
+                'Se la destinazione finale è all\'interno della ZTL di Firenze, il che incide sull\'ultimo tratto di qualsiasi viaggio in auto.',
+                'Per l\'opzione treno, il tempo di coincidenza tra il PisaMover e il servizio Trenitalia in partenza da Pisa Centrale.',
+            ],
+            bestWay: [
+                'Per chi viaggia da solo con bagagli leggeri e senza orari fissi, la combinazione PisaMover più treno è un\'opzione pratica ed economica. Per famiglie, gruppi, bagagli ingombranti, o un hotel all\'interno della ZTL di Firenze, un transfer privato o un taxi eliminano il collegamento navetta-treno e il problema dell\'ultimo miglio che anche un\'auto a noleggio dovrebbe affrontare.',
+            ],
+            faqs: [
+                { q: 'Quanto dista Firenze dall\'aeroporto di Pisa?', a: 'Circa 85-90 km su strada, un tragitto di circa 1 ora - 1 ora e 15 minuti lungo la superstrada FI-PI-LI e/o l\'autostrada A11.' },
+                { q: 'Esiste un treno diretto dall\'aeroporto di Pisa a Firenze?', a: 'Non direttamente dal terminal. Si prende il PisaMover fino a Pisa Centrale (circa 8 minuti) e poi un treno Trenitalia fino a Firenze Santa Maria Novella (circa 49 minuti - 1 ora e 22 minuti a seconda del servizio).' },
+                { q: 'Cos\'è il PisaMover?', a: 'È una navetta automatica che collega direttamente l\'aeroporto di Pisa alla stazione ferroviaria di Pisa Centrale, con partenze ogni 5-8 minuti — il modo standard per raggiungere la rete ferroviaria dall\'aeroporto.' },
+                { q: 'Un taxi o transfer privato può entrare nel centro di Firenze?', a: 'Un transfer privato autorizzato può raggiungere gli hotel all\'interno della zona a traffico limitato (ZTL) di Firenze, cosa che un\'auto a noleggio non può fare senza rischiare una multa.' },
+                { q: 'È più veloce guidare o prendere il treno dall\'aeroporto di Pisa a Firenze?', a: 'Sono sostanzialmente comparabili — guidare richiede circa 1 ora - 1 ora e 15 minuti, mentre la combinazione PisaMover più treno richiede realisticamente 60-90 minuti porta a porta includendo la coincidenza.' },
+            ],
+        },
+    },
+    {
+        slugEn: 'pisa-airport-to-lucca-distance',
+        slugIt: 'distanza-dallaeroporto-di-pisa-a-lucca',
+        origin: 'Aeroporto di Pisa', dest: 'Lucca',
+        heroImage: '/images/Tuscany Wine.webp',
+        it: {
+            seoTitle: 'Distanza Aeroporto di Pisa Lucca – Km e Tempo',
+            metaDescription: 'Quanto dista Lucca dall\'aeroporto di Pisa? Distanza in auto verificata e collegamento diretto PisaMover + treno, con tempi di viaggio realistici.',
+            h1: 'Distanza dall\'Aeroporto di Pisa a Lucca',
+            intro: [
+                'Aeroporto di Pisa-Lucca è uno dei percorsi più brevi e meglio collegati di questo sito — circa 34 km su strada, servito realmente sia da un\'autostrada diretta sia da un treno diretto, una combinazione insolita per un transfer aeroportuale di questa lunghezza.',
+                'Questa pagina espone chiaramente entrambe le opzioni, dato che sono entrambe scelte realistiche per questo percorso specifico.',
+            ],
+            centreVsDoorToDoor: [
+                'Il centro storico di Lucca si trova all\'interno delle famose mura rinascimentali, con l\'accesso veicolare per lo più limitato a residenti e trasporti autorizzati — quindi indipendentemente dal mezzo scelto, l\'ultimo tratto verso un hotel specifico all\'interno delle mura può comportare una breve camminata o una discesa appena fuori dai bastioni.',
+            ],
+            byCar: [
+                'In auto dall\'aeroporto di Pisa a Lucca si percorrono circa 34 km lungo l\'autostrada A11, in genere 27-33 minuti a seconda del traffico.',
+            ],
+            byCarRoad: 'l\'autostrada A11',
+            byTrain: [
+                'Questo percorso ha un vero collegamento ferroviario diretto: la navetta PisaMover collega l\'aeroporto a Pisa Centrale in circa 5-8 minuti, e Trenitalia gestisce treni regionali diretti da Pisa Centrale a Lucca ogni 30 minuti, in circa 25-27 minuti. Nel complesso, il viaggio porta a porta è realisticamente di circa 30-35 minuti — uno dei collegamenti ferroviari più efficienti trattati su questo sito.',
+            ],
+            byPrivateTransfer: [
+                'Un transfer privato copre la stessa breve distanza direttamente dalla sala arrivi fino al tuo indirizzo a Lucca, utile se il tuo alloggio si trova all\'interno del centro murato o se preferisci evitare di gestire il collegamento navetta-treno con i bagagli.',
+                'Per prezzi e prenotazione, visita la nostra pagina dedicata al transfer privato Aeroporto di Pisa - Lucca.',
+            ],
+            routePageSlugIt: undefined,
+            routePageLabelIt: undefined,
+            popularStops: [],
+            travelTimeFactors: [
+                'Traffico sull\'A11, anche se trattandosi di un percorso breve i ritardi sono di solito modesti.',
+                'Per l\'opzione treno, il tempo di coincidenza tra il PisaMover e il servizio Pisa Centrale-Lucca.',
+                'L\'accesso veicolare limitato all\'interno delle mura di Lucca, che incide sull\'ultimo tratto indipendentemente dal mezzo di trasporto.',
+            ],
+            bestWay: [
+                'Questo è un percorso in cui il treno diretto compete realmente con la guida — entrambi richiedono circa 30 minuti porta a porta. Chi viaggia con budget limitato o senza bagagli trova spesso la combinazione PisaMover più treno perfettamente comoda. Un transfer privato resta la scelta più semplice per gruppi, bagagli, o una discesa il più vicina possibile al centro murato compatibilmente con l\'accesso veicolare.',
+            ],
+            faqs: [
+                { q: 'Quanto dista Lucca dall\'aeroporto di Pisa?', a: 'Circa 34 km su strada, un tragitto di 27-33 minuti lungo l\'autostrada A11.' },
+                { q: 'Esiste un treno diretto dall\'aeroporto di Pisa a Lucca?', a: 'Sì — si prende il PisaMover fino a Pisa Centrale (circa 5-8 minuti), poi un treno regionale Trenitalia diretto fino a Lucca (circa 25-27 minuti), con partenze ogni 30 minuti.' },
+                { q: 'Il treno è una buona opzione per questo percorso?', a: 'Sì, è uno dei collegamenti ferroviari più comodi di questo sito — nessuna lunga attesa, un treno diretto in coincidenza, e un viaggio complessivo breve.' },
+                { q: 'Un\'auto può raggiungere il centro di Lucca?', a: 'L\'accesso veicolare all\'interno delle mura rinascimentali di Lucca è limitato a residenti e trasporti autorizzati, quindi la maggior parte dei visitatori scende appena fuori dalle mura e prosegue a piedi.' },
+                { q: 'Vale la pena un transfer privato per un percorso così breve?', a: 'È principalmente una questione di comodità — un transfer privato evita il collegamento navetta-treno e arriva direttamente al tuo indirizzo, il che conta soprattutto con bagagli o in gruppo.' },
+            ],
+        },
+    },
+    {
+        slugEn: 'catania-airport-to-taormina-distance',
+        slugIt: 'distanza-dallaeroporto-di-catania-a-taormina',
+        origin: 'Aeroporto di Catania', dest: 'Taormina',
+        heroImage: '/images/beach-transfer.webp',
+        it: {
+            seoTitle: 'Distanza Aeroporto di Catania Taormina – Km e Tempo',
+            metaDescription: 'Quanto dista Taormina dall\'aeroporto di Catania? Distanza in auto verificata, servizio diretto Interbus e opzione treno a confronto.',
+            h1: 'Distanza dall\'Aeroporto di Catania a Taormina',
+            intro: [
+                'L\'aeroporto di Catania è la porta d\'accesso più trafficata della Sicilia, e Taormina — la città collinare sulla costa a circa 65 km — è una delle destinazioni più comuni per chi atterra qui. In modo insolito per un percorso aeroportuale, Taormina è servita da un autobus diretto proprio dal terminal, un\'informazione utile insieme alle opzioni auto e treno.',
+                'Questa pagina espone tutte e tre le opzioni, dato che ciascuna viene realmente utilizzata dai viaggiatori.',
+            ],
+            centreVsDoorToDoor: [
+                'Il centro storico di Taormina si trova su un pendio collinare con accesso veicolare limitato nelle sue strade strette, quindi la maggior parte dei trasporti — bus, taxi o transfer — scende ai margini della città anziché a una porta specifica, con una breve camminata o una navetta locale per l\'ultimo tratto.',
+            ],
+            byCar: [
+                'In auto dall\'aeroporto di Catania a Taormina si percorrono circa 64-66 km lungo l\'autostrada A18, in genere 46 minuti - 1 ora a seconda del traffico.',
+            ],
+            byCarRoad: 'l\'autostrada A18',
+            byTrain: [
+                'Trenitalia gestisce treni diretti da Catania Centrale a Taormina-Giardini all\'incirca ogni 30 minuti, in circa un\'ora. Per raggiungere Catania Centrale dall\'aeroporto, si prende prima la navetta AMTS, che parte ogni 10 minuti dall\'esterno degli arrivi del Terminal A — quindi questo percorso comporta una coincidenza anziché una corsa diretta unica.',
+            ],
+            byPrivateTransfer: [
+                'In modo insolito per questo percorso, esiste anche un autobus diretto: Interbus gestisce servizi proprio dall\'aeroporto di Catania a Taormina (Via Luigi Pirandello), all\'incirca ogni 30 minuti al mattino e ogni ora nel resto della giornata, in circa 1 ora e 25 minuti — senza navetta o cambio richiesti, rendendolo un\'opzione economica genuinamente comoda. Un transfer privato offre la stessa immediatezza con discesa porta a porta e senza orario fisso.',
+                'Per prezzi e prenotazione, visita la nostra pagina dedicata al transfer privato Aeroporto di Catania - Taormina.',
+            ],
+            routePageSlugIt: 'trasferimento-aeroporto-catania-taormina',
+            routePageLabelIt: 'Transfer Privato Aeroporto di Catania - Taormina',
+            popularStops: [
+                { name: 'Giardini-Naxos', note: 'La cittadina costiera proprio sotto Taormina, sede della stazione ferroviaria Taormina-Giardini.' },
+            ],
+            travelTimeFactors: [
+                'Traffico sull\'A18, specialmente durante la stagione turistica estiva.',
+                'Per il servizio Interbus, il suo orario pubblicato — le partenze si diradano da ogni 30 minuti a meno frequenti nel corso della giornata.',
+                'Per il treno, il tempo di coincidenza sulla navetta aeroportuale AMTS fino a Catania Centrale.',
+            ],
+            bestWay: [
+                'Il servizio diretto Interbus è un\'opzione genuinamente comoda ed economica, poiché non richiede coincidenze — una rarità per un percorso aeroporto-località turistica. Per arrivi tardivi o mattutini fuori dall\'orario dei bus, o con bagagli e un hotel specifico da raggiungere, un transfer privato è la scelta più flessibile.',
+            ],
+            faqs: [
+                { q: 'Quanto dista Taormina dall\'aeroporto di Catania?', a: 'Circa 64-66 km su strada, un tragitto di 46 minuti - 1 ora lungo l\'autostrada A18.' },
+                { q: 'Esiste un bus diretto dall\'aeroporto di Catania a Taormina?', a: 'Sì — Interbus gestisce servizi diretti dall\'aeroporto a Taormina, all\'incirca ogni 30 minuti al mattino e ogni ora nel resto della giornata, in circa 1 ora e 25 minuti, senza coincidenze necessarie.' },
+                { q: 'Esiste un treno diretto dall\'aeroporto a Taormina?', a: 'Non dal terminal stesso — si prende prima la navetta AMTS fino a Catania Centrale (ogni 10 minuti), poi un treno Trenitalia diretto fino a Taormina-Giardini (circa un\'ora).' },
+                { q: 'Cosa conviene di più, il bus o il treno?', a: 'Il servizio Interbus è più diretto, poiché parte proprio dall\'aeroporto senza coincidenze, mentre il percorso in treno richiede prima la navetta AMTS.' },
+                { q: 'Un veicolo può raggiungere il mio hotel dentro Taormina?', a: 'Il centro storico di Taormina ha strade strette e in gran parte pedonali, quindi la maggior parte dei trasporti scende ai margini della città con una breve camminata o navetta locale per l\'ultimo tratto.' },
+            ],
+        },
+    },
+    {
+        slugEn: 'verona-airport-to-lake-garda-distance',
+        slugIt: 'distanza-dallaeroporto-di-verona-al-lago-di-garda',
+        origin: 'Aeroporto di Verona', dest: 'Lago di Garda',
+        heroImage: '/images/Lake Como.webp',
+        it: {
+            seoTitle: 'Distanza Aeroporto di Verona Lago di Garda – Km',
+            metaDescription: 'Quanto dista il Lago di Garda dall\'aeroporto di Verona? Distanze verificate verso le principali località, più la navetta diretta ATV e il treno.',
+            h1: 'Distanza dall\'Aeroporto di Verona al Lago di Garda',
+            intro: [
+                'L\'aeroporto di Verona (Villafranca) si trova vicino all\'estremità meridionale del Lago di Garda, il che lo rende l\'aeroporto principale più vicino al lago — ma "Lago di Garda" comprende decine di località lungo una costa molto estesa, quindi la distanza reale dipende interamente da quale meta hai scelto. Peschiera del Garda, la più vicina, dista solo circa 22 km; località più lontane lungo il lago, come Sirmione, sono a circa 35 km.',
+                'Questa pagina copre sia le distanze in auto verso le principali località della sponda meridionale, sia il servizio di autobus diretto dell\'aeroporto, particolarmente adatto a questo percorso.',
+            ],
+            centreVsDoorToDoor: [
+                'I dati sopra si riferiscono al centro di ciascuna località. Dato che le cittadine rivierasche del Lago di Garda sono generalmente compatte, la differenza tra il dato del centro città e un indirizzo alberghiero specifico è di solito contenuta — la variabile maggiore è semplicemente quale località stai raggiungendo.',
+            ],
+            byCar: [
+                'In auto dall\'aeroporto di Verona a Peschiera del Garda si percorrono circa 22 km in circa 21 minuti. A Sirmione, un po\' più avanti lungo il lago, sono circa 35 km e 35-45 minuti. Altre località della sponda orientale — Lazise, Bardolino, Garda — si collocano tra queste due distanze a seconda della vicinanza all\'aeroporto.',
+            ],
+            byCarRoad: 'strade locali e l\'autostrada A4 verso il lago',
+            byTrain: [
+                'L\'aeroporto di Verona offre un\'opzione diretta davvero utile: la navetta ATV linea 164 collega l\'aeroporto direttamente alla sponda orientale del Lago di Garda, con fermate a Peschiera, Lazise, Bardolino e Garda — senza bisogno di cambiare treno. Un servizio stagionale, la linea 482, aggiunge capacità extra in alta stagione sullo stesso corridoio. In alternativa, la navetta ATV Airlink linea 199 collega l\'aeroporto alla stazione di Verona Porta Nuova ogni 20 minuti, da dove i treni Trenitalia raggiungono direttamente Desenzano e Peschiera del Garda.',
+            ],
+            byPrivateTransfer: [
+                'Un transfer privato ti porta direttamente dagli arrivi al tuo hotel specifico sul lago, qualunque sia la località in cui alloggi, senza dover far coincidere l\'orario della navetta o gestire i bagagli sui mezzi pubblici.',
+                'Per prezzi e prenotazione, visita la nostra pagina dedicata al transfer privato Aeroporto di Verona - Lago di Garda.',
+            ],
+            routePageSlugIt: 'trasferimento-aeroporto-verona-lago-di-garda',
+            routePageLabelIt: 'Transfer Privato Aeroporto di Verona - Lago di Garda',
+            popularStops: [
+                { name: 'Peschiera del Garda', note: 'La principale località del lago più vicina all\'aeroporto, e un nodo ferroviario per le coincidenze intorno al lago.' },
+            ],
+            travelTimeFactors: [
+                'La specifica località del lago di destinazione — la sponda meridionale è molto più vicina all\'aeroporto rispetto alle località all\'estremità settentrionale del lago.',
+                'Il traffico turistico estivo sulle strade intorno al lago, in particolare a luglio e agosto.',
+                'Per la navetta ATV diretta, il suo orario programmato e se il servizio stagionale linea 482 è attivo.',
+            ],
+            bestWay: [
+                'Per le località della sponda orientale — Peschiera, Lazise, Bardolino, Garda — la navetta diretta ATV è un\'opzione genuinamente comoda, pensata apposta per questo collegamento dagli arrivi. Per altre località del lago, una discesa specifica in hotel, bagagli o un gruppo, un transfer privato è più flessibile e non dipende dall\'orario della navetta.',
+            ],
+            faqs: [
+                { q: 'Quanto dista il Lago di Garda dall\'aeroporto di Verona?', a: 'Dipende dalla località — Peschiera del Garda, la più vicina, è a circa 22 km (21 minuti di guida); Sirmione è a circa 35 km (35-45 minuti).' },
+                { q: 'Esiste un bus diretto dall\'aeroporto di Verona al Lago di Garda?', a: 'Sì — la navetta ATV linea 164 va direttamente dall\'aeroporto alle località della sponda orientale di Peschiera, Lazise, Bardolino e Garda, senza bisogno di cambiare treno.' },
+                { q: 'Quale località del Lago di Garda è più vicina all\'aeroporto di Verona?', a: 'Peschiera del Garda, all\'estremità meridionale del lago, è la principale località più vicina, a circa 22 km dall\'aeroporto.' },
+                { q: 'Posso raggiungere il Lago di Garda in treno dall\'aeroporto?', a: 'Sì, indirettamente — la navetta ATV Airlink linea 199 collega l\'aeroporto alla stazione di Verona Porta Nuova ogni 20 minuti, da dove i treni Trenitalia raggiungono Desenzano e Peschiera del Garda.' },
+                { q: 'Verona è l\'aeroporto più vicino al Lago di Garda?', a: 'Sì — Verona Villafranca è il principale aeroporto più vicino al lago, più vicino di Milano Bergamo o Brescia per la maggior parte delle località della sponda meridionale e orientale.' },
+            ],
+        },
+    },
+    {
+        slugEn: 'bari-airport-to-polignano-a-mare-distance',
+        slugIt: 'distanza-dallaeroporto-di-bari-a-polignano-a-mare',
+        origin: 'Aeroporto di Bari', dest: 'Polignano a Mare',
+        heroImage: '/images/beach-transfer.webp',
+        it: {
+            seoTitle: 'Distanza Aeroporto di Bari Polignano a Mare – Km',
+            metaDescription: 'Quanto dista Polignano a Mare dall\'aeroporto di Bari? Distanza in auto verificata e collegamento treno via Bari Centrale, con tempi realistici.',
+            h1: 'Distanza dall\'Aeroporto di Bari a Polignano a Mare',
+            intro: [
+                'Aeroporto di Bari (Karol Wojtyła)-Polignano a Mare — la città a picco sulla scogliera famosa per la spiaggia incastonata nella roccia — copre circa 48 km lungo la costa adriatica. È un tragitto semplice in auto, anche se i mezzi pubblici richiedono un cambio nel centro di Bari.',
+                'Questa pagina riporta la distanza verificata in auto e il percorso ferroviario pratico, entrambi rilevanti per organizzare questo viaggio.',
+            ],
+            centreVsDoorToDoor: [
+                'I dati sopra sono da aeroporto a città. Il centro storico di Polignano a Mare e i suoi punti panoramici sulla scogliera sono compatti e in gran parte pedonali, quindi una volta in città la maggior parte dei punti di interesse è a breve distanza a piedi da dove si viene lasciati.',
+            ],
+            byCar: [
+                'In auto dall\'aeroporto di Bari a Polignano a Mare si percorrono circa 48 km, in genere circa 40 minuti lungo la strada costiera e i collegamenti autostradali a sud di Bari.',
+            ],
+            byCarRoad: 'strade costiere e collegamenti autostradali a sud di Bari',
+            byTrain: [
+                'Non esiste un treno diretto dall\'aeroporto a Polignano a Mare. Il percorso pratico prevede di raggiungere prima Bari Centrale (dall\'aeroporto, questo significa tipicamente un taxi, un transfer, o il collegamento bus dell\'aeroporto verso la città), poi un servizio Trenitalia lungo la linea costiera verso sud fino alla stazione di Polignano a Mare. Includendo la coincidenza, il tempo di viaggio realistico totale è di circa 1 ora e 30 minuti.',
+            ],
+            byPrivateTransfer: [
+                'Un transfer privato copre l\'intero percorso in un\'unica corsa, evitando la necessità di raggiungere prima Bari Centrale e poi trovare un treno in coincidenza — utile se sei diretto dal tuo volo direttamente verso la costa senza fermarti a Bari.',
+                'Per prezzi e prenotazione, visita la nostra pagina dedicata al transfer privato Aeroporto di Bari - Polignano a Mare.',
+            ],
+            routePageSlugIt: undefined,
+            routePageLabelIt: undefined,
+            popularStops: [],
+            travelTimeFactors: [
+                'Traffico attraverso e intorno a Bari stessa, che il percorso costeggia.',
+                'Traffico della stagione balneare estiva in avvicinamento a Polignano a Mare, dato che la spiaggia sulla scogliera della città è una popolare meta per gite giornaliere.',
+                'Per l\'opzione treno, il tempo di coincidenza a Bari Centrale.',
+            ],
+            bestWay: [
+                'Dato che non esiste un collegamento diretto con i mezzi pubblici, un transfer privato o la guida sono generalmente più semplici per un arrivo diretto in aeroporto rispetto a gestire la coincidenza a Bari Centrale, in particolare con bagagli. Il treno è un\'opzione ragionevole se hai in programma di trascorrere del tempo a Bari prima di proseguire verso la costa.',
+            ],
+            faqs: [
+                { q: 'Quanto dista Polignano a Mare dall\'aeroporto di Bari?', a: 'Circa 48 km su strada, un tragitto di circa 40 minuti.' },
+                { q: 'Esiste un treno diretto dall\'aeroporto di Bari a Polignano a Mare?', a: 'No — bisogna prima raggiungere Bari Centrale, poi prendere un servizio Trenitalia lungo la linea costiera fino alla stazione di Polignano a Mare, per un totale realistico di circa 1 ora e 30 minuti.' },
+                { q: 'Posso combinare una sosta a Bari con questo viaggio?', a: 'Sì — dato che il percorso in treno passa già per Bari Centrale, molti viaggiatori spezzano il viaggio lì prima di proseguire verso Polignano a Mare.' },
+                { q: 'Per cosa è famosa Polignano a Mare?', a: 'Per il suo drammatico centro storico a picco sulla scogliera e la piccola spiaggia (Cala Porto) incastonata in un\'insenatura proprio sotto le rocce.' },
+                { q: 'Vale la pena un transfer privato per questo percorso?', a: 'Per un arrivo diretto senza fermarsi a Bari, sì — evita la necessità di raggiungere Bari Centrale e trovare un treno in coincidenza.' },
+            ],
+        },
+    },
+    {
+        slugEn: 'bari-airport-to-alberobello-distance',
+        slugIt: 'distanza-dallaeroporto-di-bari-ad-alberobello',
+        origin: 'Aeroporto di Bari', dest: 'Alberobello',
+        heroImage: '/images/beach-transfer.webp',
+        it: {
+            seoTitle: 'Distanza Aeroporto di Bari Alberobello – Km e Tempo',
+            metaDescription: 'Quanto dista Alberobello dall\'aeroporto di Bari? Distanza in auto verificata e perché i mezzi pubblici sono poco pratici per questo percorso.',
+            h1: 'Distanza dall\'Aeroporto di Bari ad Alberobello',
+            intro: [
+                'Aeroporto di Bari-Alberobello, patria dei trulli patrimonio UNESCO, copre circa 66 km verso l\'interno, nella Valle d\'Itria pugliese. A differenza di molti percorsi aeroportuali, questo ha un collegamento con i mezzi pubblici genuinamente scarso, un\'informazione utile prima di pianificare come arrivarci.',
+                'Questa pagina riporta la distanza verificata in auto ed è onesta sulla situazione dei mezzi pubblici, invece di esagerare una comodità che non esiste.',
+            ],
+            centreVsDoorToDoor: [
+                'Il quartiere dei trulli di Alberobello ha strade strette e in gran parte pedonali, quindi la discesa dai veicoli avviene generalmente ai margini del centro storico anziché a una porta specifica.',
+            ],
+            byCar: [
+                'In auto dall\'aeroporto di Bari ad Alberobello si percorrono circa 66 km, in genere circa 1 ora e 5 minuti, dirigendosi dall\'entroterra costiero verso la Valle d\'Itria.',
+            ],
+            byCarRoad: 'strade dell\'entroterra attraverso la Valle d\'Itria',
+            byTrain: [
+                'Non esiste un\'opzione pratica di mezzi pubblici diretti per questo percorso. Raggiungere Alberobello senza auto significa prima arrivare a Bari Centrale dall\'aeroporto, poi viaggiare sulla linea regionale delle Ferrovie del Sud Est (FSE), tipicamente con un ulteriore cambio — un viaggio combinato che può realisticamente richiedere da circa 2 ore e 30 minuti a oltre 4 ore a seconda delle coincidenze, il che è genuinamente poco pratico per la maggior parte dei viaggiatori appena atterrati.',
+            ],
+            byPrivateTransfer: [
+                'Dato quanto questo percorso sia scarsamente servito dai mezzi pubblici, un transfer privato è una scelta particolarmente pratica qui — una corsa diretta di poco più di un\'ora sostituisce quella che altrimenti potrebbe essere mezza giornata di coincidenze.',
+                'Per prezzi e prenotazione, visita la nostra pagina dedicata al transfer privato Aeroporto di Bari - Alberobello.',
+            ],
+            routePageSlugIt: 'trasferimento-aeroporto-bari-alberobello',
+            routePageLabelIt: 'Transfer Privato Aeroporto di Bari - Alberobello',
+            popularStops: [
+                { name: 'Locorotondo', note: 'Cittadina collinare della Valle d\'Itria vicino ad Alberobello, spesso visitata insieme nello stesso giorno.' },
+            ],
+            travelTimeFactors: [
+                'Traffico attraverso l\'area metropolitana di Bari prima di raggiungere le strade dell\'entroterra.',
+                'Per qualsiasi tentativo con i mezzi pubblici, la qualità della coincidenza a Bari Centrale con la linea regionale FSE, che varia notevolmente a seconda dell\'orario.',
+            ],
+            bestWay: [
+                'Data la mancanza di un\'opzione pratica di mezzi pubblici diretti, guidare o un transfer privato sono genuinamente la scelta sensata per la maggior parte dei viaggiatori su questo percorso, più che una questione di preferenza — l\'alternativa con i mezzi pubblici può richiedere diverse volte più tempo.',
+            ],
+            faqs: [
+                { q: 'Quanto dista Alberobello dall\'aeroporto di Bari?', a: 'Circa 66 km su strada, un tragitto di circa 1 ora e 5 minuti verso l\'interno nella Valle d\'Itria.' },
+                { q: 'Esiste un treno diretto dall\'aeroporto di Bari ad Alberobello?', a: 'No. Non esiste un treno o bus diretto — raggiungere Alberobello con i mezzi pubblici significa passare per Bari Centrale e prendere la linea regionale delle Ferrovie del Sud Est, e può realisticamente richiedere da 2,5 a oltre 4 ore.' },
+                { q: 'Perché i mezzi pubblici sono così poco pratici per questo percorso?', a: 'Alberobello è servita da una linea regionale (FSE) anziché dalla rete nazionale principale, e non esiste un collegamento diretto dall\'aeroporto, quindi raggiungerla senza auto comporta tipicamente più coincidenze.' },
+                { q: 'Un transfer privato è consigliato per questo percorso?', a: 'Data la mancanza di un\'alternativa pratica con i mezzi pubblici, sì — è l\'opzione più efficiente in termini di tempo per la maggior parte dei viaggiatori, non solo la più comoda.' },
+                { q: 'Posso combinare Alberobello con altre località della Valle d\'Itria?', a: 'Sì — Locorotondo e Martina Franca sono entrambe vicine e comunemente visitate insieme ad Alberobello in un\'unica giornata con un autista privato.' },
+            ],
+        },
+    },
+    {
+        slugEn: 'palermo-airport-to-cefalu-distance',
+        slugIt: 'distanza-dallaeroporto-di-palermo-a-cefalu',
+        origin: 'Aeroporto di Palermo', dest: 'Cefalù',
+        heroImage: '/images/beach-transfer.webp',
+        it: {
+            seoTitle: 'Distanza Aeroporto di Palermo Cefalù – Km e Tempo',
+            metaDescription: 'Quanto dista Cefalù dall\'aeroporto di Palermo? Distanza in auto verificata e il servizio ferroviario diretto limitato, con tempi realistici.',
+            h1: 'Distanza dall\'Aeroporto di Palermo a Cefalù',
+            intro: [
+                'Aeroporto di Palermo (Falcone-Borsellino)-Cefalù, la città costiera famosa per la cattedrale normanna e la spiaggia, copre poco più di 100 km lungo la costa settentrionale della Sicilia. La guida è semplice, ma l\'opzione treno merita qualche spiegazione, dato che il servizio diretto è limitato.',
+                'Questa pagina riporta la distanza verificata in auto e cosa comporta esattamente l\'opzione ferroviaria, invece di presumere che sia comoda quanto potrebbe sembrare a prima vista.',
+            ],
+            centreVsDoorToDoor: [
+                'I dati sopra si riferiscono al centro di Cefalù. Il centro storico e la spiaggia della città sono compatti e percorribili a piedi una volta arrivati, quindi la differenza porta a porta rispetto al dato del centro città è generalmente contenuta.',
+            ],
+            byCar: [
+                'In auto dall\'aeroporto di Palermo a Cefalù si percorrono circa 103 km lungo le autostrade A29 e A20, in genere circa 1 ora e 15 minuti.',
+            ],
+            byCarRoad: 'le autostrade A29 e A20',
+            byTrain: [
+                'Trenitalia gestisce un servizio diretto giornaliero da Palermo Aeroporto a Cefalù, in circa 1 ora e 35 minuti — utile da sapere se il tuo orario di arrivo coincide con questa partenza. Al di fuori di questa unica partenza diretta, il percorso prevede un cambio a Palermo Centrale, con un viaggio combinato di circa 2 ore e 30 minuti, dato che non si tratta semplicemente di una coincidenza sullo stesso binario.',
+            ],
+            byPrivateTransfer: [
+                'Dato che il servizio ferroviario diretto è limitato a un\'unica partenza giornaliera, un transfer privato elimina completamente qualsiasi dipendenza dagli orari — utile qualunque sia l\'ora di atterraggio del tuo volo.',
+                'Per prezzi e prenotazione, visita la nostra pagina dedicata al transfer privato Aeroporto di Palermo - Cefalù.',
+            ],
+            routePageSlugIt: undefined,
+            routePageLabelIt: undefined,
+            popularStops: [],
+            travelTimeFactors: [
+                'Traffico sul corridoio autostradale A29/A20, in particolare in estate.',
+                'Per il viaggio in treno, se il tuo orario di arrivo coincide con l\'unico servizio diretto giornaliero Palermo Aeroporto-Cefalù.',
+                'Condizioni meteo costiere, che possono occasionalmente influire su questo tratto autostradale.',
+            ],
+            bestWay: [
+                'Se il tuo volo atterra in tempo per l\'unico treno diretto giornaliero, è un\'opzione semplice e senza auto. Per qualsiasi altro orario di arrivo, o con bagagli e un hotel fisso da raggiungere, guidare o un transfer privato sono più pratici che pianificare intorno a un\'unica partenza giornaliera o a una coincidenza più lunga via Palermo Centrale.',
+            ],
+            faqs: [
+                { q: 'Quanto dista Cefalù dall\'aeroporto di Palermo?', a: 'Circa 103 km su strada, un tragitto di circa 1 ora e 15 minuti lungo le autostrade A29 e A20.' },
+                { q: 'Esiste un treno diretto dall\'aeroporto di Palermo a Cefalù?', a: 'Esiste un\'unica partenza diretta giornaliera, di circa 1 ora e 35 minuti. Al di fuori di questa partenza, bisogna cambiare a Palermo Centrale, estendendo il viaggio a circa 2 ore e 30 minuti.' },
+                { q: 'Perché il treno non è più comodo per questo percorso?', a: 'Perché il servizio diretto è limitato a un\'unica partenza giornaliera — al di fuori di quella finestra, il viaggio richiede un cambio aggiuntivo e più tempo di percorrenza complessivo.' },
+                { q: 'Per cosa è famosa Cefalù?', a: 'Per la sua cattedrale normanna (patrimonio mondiale UNESCO), una spiaggia sabbiosa proprio nel centro cittadino, e un centro storico medievale ben conservato.' },
+                { q: 'Un transfer privato è consigliato per questo percorso?', a: 'Dato l\'orario ferroviario diretto limitato, sì — elimina la necessità di pianificare l\'arrivo intorno a un\'unica partenza giornaliera.' },
+            ],
+        },
+    },
+    {
+        slugEn: 'rome-to-sorrento-distance',
+        slugIt: 'distanza-da-roma-a-sorrento',
+        origin: 'Roma', dest: 'Sorrento',
+        heroImage: '/images/almafi.webp',
+        it: {
+            seoTitle: 'Distanza Roma Sorrento – Km e Tempo di Percorrenza',
+            metaDescription: 'Quanto dista Sorrento da Roma? Distanza in auto verificata con pedaggi, e il percorso in treno Roma-Napoli più Circumvesuviana a confronto.',
+            h1: 'Distanza da Roma a Sorrento',
+            intro: [
+                'Roma-Sorrento è un percorso a lunga distanza di circa 275 km, per lo più autostradale, che termina nell\'avvicinamento alla penisola sorrentina. È un viaggio comune per chi è diretto verso la Costiera Amalfitana, e vale la pena capire sia i pedaggi in auto sia la natura "a due biglietti" dell\'opzione treno prima di pianificarlo.',
+                'Questa pagina verifica sia il percorso in auto sia il viaggio in treno realistico, dato che il treno comporta un dettaglio importante che molti viaggiatori non notano: non è un unico biglietto collegato.',
+            ],
+            centreVsDoorToDoor: [
+                'I dati sopra sono da centro città a centro città. La tua distanza reale dipende dal punto di partenza esatto a Roma — centro città o aeroporto di Fiumicino — e dal tuo indirizzo a Sorrento, anche se la differenza è minima rispetto alla lunghezza complessiva del viaggio.',
+            ],
+            byCar: [
+                'In auto da Roma a Sorrento si percorrono circa 275 km, in genere 2 ore e 30 minuti - 3 ore e 30 minuti a seconda del traffico, specialmente intorno a Napoli. Il percorso segue l\'autostrada A1 verso Napoli, poi l\'A30 fino a Salerno, prima di immettersi sulla SS145 per l\'avvicinamento finale a Sorrento. I pedaggi per questo percorso ammontano a circa 19 € in totale (circa 12,30 € per il tratto A1 Roma-Caserta e 6,40 € per il tratto A30 Caserta-Salerno); l\'ultimo tratto sulla SS145 è gratuito ma stretto e tortuoso.',
+            ],
+            byCarRoad: 'l\'autostrada A1 fino a Napoli, poi l\'A30 fino a Salerno, poi la SS145',
+            byTrain: [
+                'Questo percorso richiede realmente due biglietti separati, non un unico viaggio collegato. Prima, un treno alta velocità diretto va da Roma Termini a Napoli Centrale senza cambi (circa 1 ora e 10 minuti). A Napoli Centrale, si passa poi alla Circumvesuviana — una linea regionale completamente separata con un proprio sistema di biglietteria, non coperta da alcun abbonamento ferroviario nazionale — che raggiunge Sorrento in circa 1 ora e 6 minuti, con partenze all\'incirca ogni 30 minuti. Il tempo di coincidenza a Napoli Centrale è di solito gestibile (prevedi almeno 10-15 minuti), ma la natura a due sistemi di questo viaggio coglie di sorpresa alcuni viaggiatori.',
+            ],
+            byPrivateTransfer: [
+                'Data la natura a due biglietti e due sistemi dell\'opzione treno, il vantaggio principale di un transfer privato su questo percorso specifico è la semplicità genuina: un unico veicolo, nessun cambio di stazione, e nessun biglietto regionale separato da acquistare a Napoli.',
+                'Per prezzi e prenotazione, visita la nostra pagina dedicata al transfer privato Roma - Sorrento.',
+            ],
+            routePageSlugIt: 'trasferimento-roma-sorrento',
+            routePageLabelIt: 'Transfer Privato Roma - Sorrento',
+            popularStops: [
+                { name: 'Pompei', note: 'Direttamente sul percorso tra Napoli e Sorrento — una tappa comune per spezzare il lungo tragitto.' },
+            ],
+            travelTimeFactors: [
+                'Traffico intorno a Napoli, che il percorso costeggia direttamente.',
+                'Per il viaggio in treno, la coincidenza a Napoli Centrale tra la rete nazionale alta velocità e la linea separata Circumvesuviana.',
+                'Traffico della stagione estiva sull\'ultimo tratto della SS145 in avvicinamento a Sorrento.',
+                'L\'eventuale sosta a Pompei lungo il percorso.',
+            ],
+            bestWay: [
+                'Chi viaggia da solo e ha dimestichezza con un cambio di stazione e un biglietto regionale separato può far funzionare il treno ragionevolmente bene. Per famiglie, gruppi, bagagli ingombranti, o chi preferisce non navigare i binari di Napoli Centrale con le valigie, guidare o un transfer privato che copre l\'intero percorso in un\'unica corsa è generalmente la scelta più comoda su un viaggio così lungo.',
+            ],
+            faqs: [
+                { q: 'Quanto dista Sorrento da Roma?', a: 'Circa 275 km su strada, un tragitto di 2,5-3,5 ore lungo l\'A1, l\'A30 e la SS145.' },
+                { q: 'Ci sono pedaggi tra Roma e Sorrento?', a: 'Sì — circa 19 € in totale per i tratti A1 (Roma-Caserta) e A30 (Caserta-Salerno); l\'ultimo tratto sulla SS145 verso Sorrento è gratuito.' },
+                { q: 'Esiste un treno diretto da Roma a Sorrento?', a: 'Non con un unico biglietto. Si prende un treno alta velocità diretto da Roma Termini a Napoli Centrale, poi si passa alla linea regionale separata Circumvesuviana per raggiungere Sorrento — due sistemi diversi con biglietti separati.' },
+                { q: 'Quanto dura l\'intero viaggio in treno?', a: 'Realisticamente circa 2 ore e 15 minuti - 2,5 ore in totale: circa 1 ora e 10 minuti Roma-Napoli, più la coincidenza, più circa 1 ora e 6 minuti sulla Circumvesuviana fino a Sorrento.' },
+                { q: 'Posso fermarmi a Pompei andando verso Sorrento?', a: 'Sì — Pompei si trova direttamente sul percorso tra Napoli e Sorrento ed è una tappa popolare, sia in auto sia con la Circumvesuviana, che vi si ferma anch\'essa.' },
+            ],
+        },
+    },
+    {
+        slugEn: 'rome-to-tivoli-distance',
+        slugIt: 'distanza-da-roma-a-tivoli',
+        origin: 'Roma', dest: 'Tivoli',
+        heroImage: '/images/rome airport.webp',
+        it: {
+            seoTitle: 'Distanza Roma Tivoli – Km e Tempo di Percorrenza',
+            metaDescription: 'Quanto dista Tivoli da Roma? Distanza in auto verificata, il treno diretto Trenitalia e l\'opzione bus Cotral, con tempi di viaggio realistici.',
+            h1: 'Distanza da Roma a Tivoli',
+            intro: [
+                'Tivoli, sede di Villa d\'Este e Villa Adriana, entrambe patrimonio UNESCO, si trova a circa 30 km a est di Roma — abbastanza vicina da essere una gita di mezza giornata o di un\'intera giornata genuinamente semplice, con diversi modi pratici per arrivarci.',
+                'Questa pagina verifica la distanza in auto e confronta il treno diretto con il bus Cotral, entrambe opzioni realistiche per questo breve percorso.',
+            ],
+            centreVsDoorToDoor: [
+                'I dati sopra sono dal centro di Roma a Tivoli. Dato che i due principali siti UNESCO di Tivoli — Villa d\'Este in città e Villa Adriana a pochi chilometri fuori — non sono a distanza pedonale l\'uno dall\'altro, considera un breve taxi o bus locale se vuoi vederli entrambi senza un autista che ti aspetta.',
+            ],
+            byCar: [
+                'In auto da Roma a Tivoli si percorrono circa 28-30 km, in genere 30-45 minuti lungo l\'autostrada A24, con l\'uscita Tivoli come percorso consigliato.',
+            ],
+            byCarRoad: 'l\'autostrada A24',
+            byTrain: [
+                'Trenitalia gestisce treni diretti da Roma Tiburtina a Tivoli all\'incirca ogni 30 minuti, con un tempo di percorrenza di circa 40-60 minuti a seconda del servizio specifico. È un collegamento semplice, senza cambi, che lo rende una delle opzioni ferroviarie più comode per una gita di un giorno da Roma.',
+            ],
+            byPrivateTransfer: [
+                'Un transfer privato è particolarmente utile per Tivoli nello specifico perché può aspettare tra Villa d\'Este e Villa Adriana, che si trovano a pochi chilometri di distanza — cosa che né il treno né il bus possono fare, dato che entrambi ti portano solo in città.',
+                'Per prezzi e prenotazione, visita la nostra pagina dedicata al transfer privato Roma - Tivoli.',
+            ],
+            routePageSlugIt: undefined,
+            routePageLabelIt: undefined,
+            popularStops: [],
+            travelTimeFactors: [
+                'Traffico sull\'A24, in particolare nelle ore di punta dei giorni feriali intorno a Roma.',
+                'Se visiti sia Villa d\'Este sia la più distante Villa Adriana, il che richiede un ulteriore breve spostamento tra le due.',
+                'Per il bus Cotral, il suo orario giornaliero più limitato rispetto al treno ogni mezz\'ora.',
+            ],
+            bestWay: [
+                'Per una visita semplice a Villa d\'Este in città, il treno diretto è rapido, frequente ed economico. Se vuoi vedere sia Villa d\'Este sia la più distante Villa Adriana in un unico viaggio senza organizzare trasporti locali tra le due, un transfer privato che può aspettare e spostarsi tra i siti è decisamente più pratico.',
+            ],
+            faqs: [
+                { q: 'Quanto dista Tivoli da Roma?', a: 'Circa 28-30 km su strada, un tragitto di 30-45 minuti lungo l\'autostrada A24.' },
+                { q: 'Esiste un treno diretto da Roma a Tivoli?', a: 'Sì — Trenitalia gestisce treni diretti da Roma Tiburtina a Tivoli all\'incirca ogni 30 minuti, in circa 40-60 minuti.' },
+                { q: 'Posso visitare sia Villa d\'Este sia Villa Adriana in un giorno?', a: 'Sì, entrambe sono popolari in un\'unica visita, ma distano alcuni chilometri l\'una dall\'altra, quindi serve un taxi locale, un bus o un autista privato per spostarsi tra le due.' },
+                { q: 'Esiste un bus da Roma a Tivoli?', a: 'Sì — Cotral gestisce un bus dalla stazione degli autobus di Tiburtina a Roma fino a Tivoli, anche se con un orario più limitato rispetto al treno ogni mezz\'ora.' },
+                { q: 'Tivoli è una buona gita di un giorno da Roma?', a: 'Sì — a circa 30-45 minuti di distanza con un treno diretto e frequente, è una delle gite di un giorno più semplici tra i siti UNESCO vicino a Roma.' },
+            ],
+        },
+    },
+    {
+        slugEn: 'rome-to-orvieto-distance',
+        slugIt: 'distanza-da-roma-a-orvieto',
+        origin: 'Roma', dest: 'Orvieto',
+        heroImage: '/images/Tuscany Wine.webp',
+        it: {
+            seoTitle: 'Distanza Roma Orvieto – Km e Tempo di Percorrenza',
+            metaDescription: 'Quanto dista Orvieto da Roma? Distanza in auto verificata lungo l\'autostrada A1 e il treno diretto Trenitalia, con tempi di viaggio realistici.',
+            h1: 'Distanza da Roma a Orvieto',
+            intro: [
+                'Orvieto, la suggestiva città collinare umbra famosa per la cattedrale gotica, si trova a circa 120 km a nord di Roma, direttamente sull\'autostrada A1 e sulla linea ferroviaria Roma-Firenze — rendendola una delle destinazioni per gite di un giorno più semplici trattate su questo sito.',
+                'Questa pagina verifica la distanza in auto e l\'opzione del treno diretto, entrambi percorsi ben consolidati per questo viaggio.',
+            ],
+            centreVsDoorToDoor: [
+                'Il centro storico di Orvieto si trova sopra un altopiano vulcanico, raggiungibile dalla città bassa o dalla stazione tramite una funicolare — utile da sapere se arrivi in treno, dato che la cattedrale e le principali attrazioni si trovano sull\'altopiano, non al livello della stazione.',
+            ],
+            byCar: [
+                'In auto da Roma a Orvieto si percorrono circa 120-122 km lungo l\'autostrada A1, in genere 1 ora e 20 minuti - 1 ora e 30 minuti.',
+            ],
+            byCarRoad: 'l\'autostrada A1',
+            byTrain: [
+                'Orvieto si trova direttamente sulla linea principale Roma-Firenze, e Trenitalia gestisce servizi diretti da Roma Termini in circa 1 ora - 1 ora e 20 minuti, a seconda che si prenda un servizio più rapido o un regionale con più fermate. Dalla stazione di Orvieto, nella città bassa, una funicolare porta i passeggeri fino al centro storico sull\'altopiano sovrastante.',
+            ],
+            byPrivateTransfer: [
+                'Un transfer privato ti porta direttamente nella città alta, evitando il collegamento in funicolare di cui i viaggiatori in treno hanno bisogno per raggiungere il centro storico, ed è utile se stai combinando Orvieto con un viaggio più lungo, ad esempio proseguendo verso la Toscana.',
+                'Per prezzi e prenotazione, visita la nostra pagina dedicata al transfer privato Roma - Orvieto.',
+            ],
+            routePageSlugIt: undefined,
+            routePageLabelIt: undefined,
+            popularStops: [],
+            travelTimeFactors: [
+                'Traffico sull\'A1, in particolare intorno alle zone periferiche di Roma.',
+                'Per il viaggio in treno, se si prende un servizio diretto più rapido o un regionale con più fermate.',
+                'Il collegamento in funicolare tra la stazione di Orvieto e il centro storico, rilevante solo per chi viaggia in treno.',
+            ],
+            bestWay: [
+                'Orvieto è ben servita da entrambe le opzioni. Il treno diretto è una scelta valida per una gita semplice da Roma, con arrivo vicino alla funicolare che sale alla città vecchia. Guidare o un transfer privato si adattano a chi combina Orvieto con un proseguimento del viaggio, ad esempio verso la Toscana o l\'Umbria, o preferisce una discesa diretta nella città alta.',
+            ],
+            faqs: [
+                { q: 'Quanto dista Orvieto da Roma?', a: 'Circa 120-122 km su strada, un tragitto di 1 ora e 20 minuti - 1 ora e 30 minuti lungo l\'autostrada A1.' },
+                { q: 'Esiste un treno diretto da Roma a Orvieto?', a: 'Sì — Orvieto si trova direttamente sulla linea principale Roma-Firenze, con servizi Trenitalia diretti da Roma Termini in circa 1 ora - 1 ora e 20 minuti.' },
+                { q: 'Come si raggiunge il centro storico dalla stazione di Orvieto?', a: 'Una funicolare collega la città bassa vicino alla stazione al centro storico sull\'altopiano sovrastante, dove si trovano la cattedrale e le principali attrazioni.' },
+                { q: 'Orvieto è una buona tappa tra Roma e la Toscana?', a: 'Sì — trovandosi direttamente sull\'A1 e sulla linea ferroviaria principale, Orvieto è una tappa popolare e comoda per chi prosegue verso nord, verso Firenze o la Toscana.' },
+                { q: 'Orvieto è una buona gita di un giorno da Roma?', a: 'Sì — a circa 1-1,5 ore di distanza in treno diretto o in auto, è una gita di un giorno gestibile, con la cattedrale e le grotte sotterranee come principali attrazioni.' },
+            ],
+        },
+    },
 ];
 
 export function getAllItDistancePages() {

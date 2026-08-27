@@ -206,6 +206,7 @@ export const existingRouteItTranslations: ExistingRouteItTranslation[] = [
                 { q: 'È più comodo del treno più la Circumvesuviana?', a: 'Sì per chi viaggia con bagagli — la Circumvesuviana è spesso affollata e con poco spazio, mentre il transfer privato è un\'unica corsa diretta.' },
             ],
             relatedLinks: [
+                { href: '/it/distance/distanza-da-roma-a-sorrento', label: 'Distanza Roma - Sorrento' },
                 { href: '/city/rome', label: 'Servizio Taxi Roma' },
                 { href: '/city/sorrento', label: 'Servizio Taxi Sorrento' },
                 { href: '/it/route/trasferimento-aeroporto-fiumicino-sorrento', label: 'Transfer Aeroporto Fiumicino - Sorrento' },
@@ -935,6 +936,7 @@ export const existingRouteItTranslations: ExistingRouteItTranslation[] = [
                 { q: 'L\'autista monitora il mio volo?', a: 'Sì, automaticamente, così ritardi non influiscono sul ritiro.' },
             ],
             relatedLinks: [
+                { href: '/it/distance/distanza-dallaeroporto-di-pisa-a-firenze', label: 'Distanza Aeroporto di Pisa - Firenze' },
                 { href: '/city/florence', label: 'Servizio Taxi Firenze' },
                 { href: '/it/route/trasferimento-firenze-pisa', label: 'Transfer Firenze - Pisa (direzione opposta)' },
             ],
@@ -1019,6 +1021,7 @@ export const existingRouteItTranslations: ExistingRouteItTranslation[] = [
                 { q: 'È l\'aeroporto più conveniente per il Lago di Garda?', a: 'Sì, geograficamente è il più vicino tra gli scali del nord Italia.' },
             ],
             relatedLinks: [
+                { href: '/it/distance/distanza-dallaeroporto-di-verona-al-lago-di-garda', label: 'Distanza Aeroporto di Verona - Lago di Garda' },
                 { href: '/it/route/trasferimento-venezia-verona', label: 'Transfer Venezia - Verona' },
                 { href: '/route/venice-to-verona-taxi', label: 'Coming from Venice? Venice to Verona Transfer' },
             ],
@@ -1060,6 +1063,7 @@ export const existingRouteItTranslations: ExistingRouteItTranslation[] = [
                 { q: 'L\'autista è del posto?', a: 'Sì, i nostri autisti siciliani conoscono bene il territorio e parlano inglese.' },
             ],
             relatedLinks: [
+                { href: '/it/distance/distanza-dallaeroporto-di-catania-a-taormina', label: 'Distanza Aeroporto di Catania - Taormina' },
                 { href: '/airport/catania-fontanarossa', label: 'Guida Aeroporto di Catania' },
                 { href: '/city/taormina', label: 'Servizio Taxi Taormina' },
                 { href: '/route/catania-airport-to-noto-taxi', label: 'Catania Airport to Noto Transfer' },
@@ -1102,6 +1106,7 @@ export const existingRouteItTranslations: ExistingRouteItTranslation[] = [
                 { q: 'L\'autista parla inglese?', a: 'Sì, tutti i nostri autisti sono professionisti di lingua inglese.' },
             ],
             relatedLinks: [
+                { href: '/it/distance/distanza-dallaeroporto-di-bari-ad-alberobello', label: 'Distanza Aeroporto di Bari - Alberobello' },
                 { href: '/city/bari', label: 'Servizio Taxi Bari' },
                 { href: '/route/bari-airport-to-polignano-a-mare-taxi', label: 'Bari Airport to Polignano a Mare Transfer' },
             ],

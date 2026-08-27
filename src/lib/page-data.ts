@@ -968,7 +968,10 @@ export const routes: RouteData[] = [
             { q: 'How long is the transfer from Pisa Airport to Florence?', a: 'About 1 hour (around 85 km) via the FI-PI-LI expressway and A11 motorway, direct to your Florence accommodation.' },
             { q: 'Can I stop at the Leaning Tower on the way?', a: 'Yes, a short stop at Piazza dei Miracoli is a popular add-on before continuing to Florence.' },
             { q: 'Can you drop me inside Florence\'s ZTL?', a: 'Yes — as a licensed service we can access the limited-traffic zone to reach your hotel door, which rental cars cannot do.' },
-        ]
+        ],
+        relatedLinks: [
+            { href: '/distance/pisa-airport-to-florence-distance', label: 'Pisa Airport to Florence Distance Guide' },
+        ],
     },
     {
         slug: 'pisa-airport-to-lucca-taxi', from: 'Pisa Airport', to: 'Lucca',
@@ -980,7 +983,10 @@ export const routes: RouteData[] = [
             { q: 'How far is Lucca from Pisa Airport?', a: 'Lucca is only about 25 km from Pisa Airport, a quick 30-minute drive — one of the easiest Tuscan transfers.' },
             { q: 'Can I combine Pisa and Lucca in one trip?', a: 'Yes, many travellers see the Leaning Tower and then continue to Lucca, or do both as a day trip with a private driver.' },
             { q: 'Is Lucca worth visiting?', a: 'Absolutely — its intact Renaissance walls, towers and relaxed atmosphere make it a favourite, quieter alternative to the bigger Tuscan cities.' },
-        ]
+        ],
+        relatedLinks: [
+            { href: '/distance/pisa-airport-to-lucca-distance', label: 'Pisa Airport to Lucca Distance Guide' },
+        ],
     },
     {
         slug: 'catania-airport-to-taormina-taxi', from: 'Catania Airport', to: 'Taormina',
@@ -992,7 +998,10 @@ export const routes: RouteData[] = [
             { q: 'How long is the transfer from Catania Airport to Taormina?', a: 'About 1 hour (around 60 km) along the coastal motorway, with the dramatic approach up to the clifftop town.' },
             { q: 'Can the driver get close to my Taormina hotel?', a: 'Taormina\'s historic centre is pedestrianised, so the driver drops you as close as legally possible and helps with luggage.' },
             { q: 'Can I add a Mount Etna visit?', a: 'Yes, Etna is a popular combined excursion — ask us about a Taormina-and-Etna day tour.' },
-        ]
+        ],
+        relatedLinks: [
+            { href: '/distance/catania-airport-to-taormina-distance', label: 'Catania Airport to Taormina Distance Guide' },
+        ],
     },
     {
         slug: 'verona-airport-to-lake-garda-taxi', from: 'Verona Airport', to: 'Lake Garda',
@@ -1004,7 +1013,10 @@ export const routes: RouteData[] = [
             { q: 'How far is Lake Garda from Verona Airport?', a: 'The southern lake (Sirmione, Peschiera) is about 35 km from Verona Airport, roughly a 40-minute drive — Verona is the closest airport to Garda.' },
             { q: 'Which Lake Garda towns do you serve?', a: 'All of them, including Sirmione, Bardolino, Lazise, Peschiera, Garda, Malcesine and Riva del Garda.' },
             { q: 'Is the transfer suitable for families?', a: 'Yes, with child seats on request and space for luggage, it is ideal for families heading to the lake.' },
-        ]
+        ],
+        relatedLinks: [
+            { href: '/distance/verona-airport-to-lake-garda-distance', label: 'Verona Airport to Lake Garda Distance Guide' },
+        ],
     },
     {
         slug: 'bari-airport-to-polignano-a-mare-taxi', from: 'Bari Airport', to: 'Polignano a Mare',
@@ -1016,7 +1028,10 @@ export const routes: RouteData[] = [
             { q: 'How far is Polignano a Mare from Bari Airport?', a: 'About 45 km, a drive of roughly 45 minutes south along the coast from Bari Airport.' },
             { q: 'Can you continue to other Puglia towns?', a: 'Yes — we also serve Monopoli, Ostuni, Alberobello and the wider Puglia region.' },
             { q: 'Is a transfer better than the train in Puglia?', a: 'For door-to-door convenience and reaching smaller towns, yes — regional services can be slow and infrequent.' },
-        ]
+        ],
+        relatedLinks: [
+            { href: '/distance/bari-airport-to-polignano-a-mare-distance', label: 'Bari Airport to Polignano a Mare Distance Guide' },
+        ],
     },
     {
         slug: 'bari-airport-to-alberobello-taxi', from: 'Bari Airport', to: 'Alberobello',
@@ -1028,7 +1043,10 @@ export const routes: RouteData[] = [
             { q: 'How far is Alberobello from Bari Airport?', a: 'About 60 km, a drive of roughly 1 hour from Bari Airport into the Itria Valley.' },
             { q: 'What is Alberobello known for?', a: 'Its trulli — distinctive conical-roofed stone houses that form a UNESCO World Heritage Site found nowhere else in the world.' },
             { q: 'Can I visit other Itria Valley towns?', a: 'Yes, Locorotondo, Martina Franca and Ostuni are all nearby and make a wonderful combined day with a private driver.' },
-        ]
+        ],
+        relatedLinks: [
+            { href: '/distance/bari-airport-to-alberobello-distance', label: 'Bari Airport to Alberobello Distance Guide' },
+        ],
     },
     {
         slug: 'palermo-airport-to-cefalu-taxi', from: 'Palermo Airport', to: 'Cefalu',
@@ -1040,7 +1058,10 @@ export const routes: RouteData[] = [
             { q: 'How far is Cefalù from Palermo Airport?', a: 'About 75 km, a scenic coastal drive of roughly 1 hour east of Palermo Airport.' },
             { q: 'Can I go straight to Cefalù without entering Palermo?', a: 'Yes, the route bypasses the city, so you reach Cefalù directly and comfortably.' },
             { q: 'Is Cefalù good for a beach holiday?', a: 'Yes — it combines a sandy beach, a Norman cathedral and a charming old town, making it one of Sicily\'s favourite coastal bases.' },
-        ]
+        ],
+        relatedLinks: [
+            { href: '/distance/palermo-airport-to-cefalu-distance', label: 'Palermo Airport to Cefalù Distance Guide' },
+        ],
     },
     {
         slug: 'rome-to-sorrento-taxi', from: 'Rome', to: 'Sorrento',
@@ -1052,7 +1073,10 @@ export const routes: RouteData[] = [
             { q: 'How long does the Rome to Sorrento transfer take?', a: 'About 3 hours 30 minutes (around 270 km) via the A1 and A3 motorways, or a little longer with a Pompeii stop.' },
             { q: 'Can we break the journey at Pompeii?', a: 'Yes — Pompeii is conveniently on the route and a very popular stop between Rome and Sorrento.' },
             { q: 'Is this better than the train?', a: 'For door-to-door comfort with luggage it is, since the train requires a change in Naples onto the local Circumvesuviana line.' },
-        ]
+        ],
+        relatedLinks: [
+            { href: '/distance/rome-to-sorrento-distance', label: 'Rome to Sorrento Distance Guide' },
+        ],
     },
     {
         slug: 'rome-to-tivoli-taxi', from: 'Rome', to: 'Tivoli',
@@ -1064,7 +1088,10 @@ export const routes: RouteData[] = [
             { q: 'How far is Tivoli from Rome?', a: 'About 30 km east of Rome, a drive of roughly 45 minutes, making it an easy half-day or day trip.' },
             { q: 'Can I see both Villa d\'Este and Hadrian\'s Villa?', a: 'Yes, both UNESCO sites are in Tivoli and can be combined in a single day with a private driver who waits between them.' },
             { q: 'Is a private driver better than the train to Tivoli?', a: 'Yes — the sites are spread out and not walkable from the station, so a driver who waits makes the visit far easier.' },
-        ]
+        ],
+        relatedLinks: [
+            { href: '/distance/rome-to-tivoli-distance', label: 'Rome to Tivoli Distance Guide' },
+        ],
     },
     {
         slug: 'rome-to-orvieto-taxi', from: 'Rome', to: 'Orvieto',
@@ -1076,7 +1103,10 @@ export const routes: RouteData[] = [
             { q: 'How far is Orvieto from Rome?', a: 'About 120 km north, a drive of roughly 1 hour 30 minutes via the A1 motorway.' },
             { q: 'Is Orvieto a good stop on the way to Tuscany?', a: 'Yes, it sits conveniently between Rome and Tuscany and makes an excellent break or add-on to a longer transfer.' },
             { q: 'What is Orvieto known for?', a: 'Its spectacular striped Gothic cathedral, underground caves, and the crisp Orvieto Classico white wine.' },
-        ]
+        ],
+        relatedLinks: [
+            { href: '/distance/rome-to-orvieto-distance', label: 'Rome to Orvieto Distance Guide' },
+        ],
     },
     {
         slug: 'rome-to-siena-taxi', from: 'Rome', to: 'Siena',

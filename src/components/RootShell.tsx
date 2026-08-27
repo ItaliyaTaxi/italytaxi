@@ -2,6 +2,7 @@ import Script from "next/script";
 import FloatingContact from "@/components/FloatingContact";
 import LanguageModal from "@/components/LanguageModal";
 import GoogleTranslate from "@/components/GoogleTranslate";
+import StickyBookNow from "@/components/StickyBookNow";
 import { LanguageProvider } from "@/context/LanguageContext";
 
 /**
@@ -49,6 +50,7 @@ export default function RootShell({ children }: { children: React.ReactNode }) {
       <LanguageProvider>
         {children}
         <FloatingContact />
+        <StickyBookNow />
         <LanguageModal />
         <GoogleTranslate />
       </LanguageProvider>

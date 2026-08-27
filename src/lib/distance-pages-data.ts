@@ -1279,6 +1279,626 @@ export const distancePages: DistancePage[] = [
             { q: 'Is a private transfer a good option for this route?', a: "Yes, particularly for a direct arrival — it includes flight monitoring, so timing adjusts automatically if your flight is early or delayed." },
         ],
     },
+    {
+        slug: 'pisa-airport-to-florence-distance',
+        itSlug: 'distanza-dallaeroporto-di-pisa-a-firenze',
+        origin: 'Pisa Airport',
+        dest: 'Florence',
+        seoTitle: 'Pisa Airport to Florence Distance – Km & Travel Time',
+        metaDescription: 'How far is Florence from Pisa Airport? Verified driving distance, PisaMover + train connection, and travel times compared for this popular route.',
+        h1: 'Pisa Airport to Florence Distance',
+        heroImage: '/images/Tuscany Wine.webp',
+
+        straightLineDistance: 'approx. 60–65 km (about 37–40 miles)',
+        straightLineNote: 'Sources differ on the exact driving figure (roughly 85–100 km depending on the calculator and reference point used), which is why this page gives a range rather than a single precise number.',
+        drivingDistance: 'approx. 85–90 km (about 53–56 miles)',
+        drivingDuration: '1 hour – 1 hour 15 minutes',
+        trainDuration: 'approx. 60–90 minutes door-to-door (PisaMover + train, one change)',
+
+        intro: [
+            "Pisa Airport (Galileo Galilei) is one of the two main gateways into Tuscany, and Florence — about 85–90 km away by road — is the most common onward destination for arriving travellers. Because the airport sits a few kilometres south of Pisa itself, your real distance and journey time depend on whether you're driving direct or connecting via Pisa's train network.",
+            "This page sets out the verified driving distance and the practical rail connection, since both are genuinely used for this route.",
+        ],
+
+        centreVsDoorToDoor: [
+            "The figures above are airport-to-city-centre. Florence's centre has a restricted traffic zone (ZTL), so if you're driving yourself, your final approach and parking will add time beyond the highway distance — a private transfer avoids this since licensed drivers can enter the ZTL to reach your hotel directly.",
+        ],
+
+        byCar: [
+            "Driving from Pisa Airport to Florence covers approximately 85–90 km, typically taking 1 hour to 1 hour 15 minutes via the FI-PI-LI expressway (Firenze–Pisa–Livorno) and/or the A11 motorway, depending on the exact route taken and traffic conditions.",
+        ],
+        byCarRoad: 'the FI-PI-LI expressway and/or the A11 motorway',
+
+        byTrain: [
+            "There's no direct train from the airport terminal itself. The practical route is the PisaMover — an automated people-mover shuttle that connects the airport to Pisa Centrale station in about 8 minutes, running every 5–8 minutes throughout the day. From Pisa Centrale, Trenitalia trains run to Firenze Santa Maria Novella, with regional services taking around 1 hour to 1 hour 22 minutes and faster services around 49 minutes. Including the PisaMover and a short connection, a realistic door-to-door time is roughly 60–90 minutes.",
+        ],
+
+        byPrivateTransfer: [
+            "A private transfer covers the airport-to-Florence journey in one ride, with no shuttle-then-train connection to manage and no walking through Pisa Centrale with luggage — and unlike a self-drive rental, a licensed driver can reach a hotel inside Florence's ZTL directly.",
+            "For pricing and booking, see our dedicated Pisa Airport to Florence taxi transfer page.",
+        ],
+        routePageSlug: 'pisa-airport-to-florence-taxi',
+        routePageLabel: 'Pisa Airport to Florence Taxi Transfer',
+
+        popularStops: [
+            { name: 'Empoli', note: 'A market town on the FI-PI-LI route roughly midway between Pisa and Florence.' },
+        ],
+
+        travelTimeFactors: [
+            'Traffic on the FI-PI-LI and A11, particularly around Florence during weekday peaks.',
+            'Whether your final destination is inside Florence\'s ZTL, which affects the last stretch of any driven journey.',
+            'For the train option, the connection time between the PisaMover and your onward Trenitalia service at Pisa Centrale.',
+        ],
+
+        bestWay: [
+            "For a single traveller with light luggage and no fixed schedule, the PisaMover-plus-train combination is a genuinely workable, inexpensive option. For families, groups, heavy luggage, or a hotel inside Florence's ZTL, a private transfer or taxi removes the shuttle-and-train connection and the last-mile access problem that a self-drive rental would also face.",
+        ],
+
+        faqs: [
+            { q: 'How far is Florence from Pisa Airport?', a: "Approximately 85–90 km by road, a drive of about 1 hour to 1 hour 15 minutes via the FI-PI-LI expressway and/or the A11 motorway." },
+            { q: 'Is there a direct train from Pisa Airport to Florence?', a: "Not directly from the terminal. You take the PisaMover shuttle to Pisa Centrale station (about 8 minutes) and then a Trenitalia train to Florence Santa Maria Novella (roughly 49 minutes to 1 hour 22 minutes depending on the service)." },
+            { q: 'What is the PisaMover?', a: "It's an automated shuttle train connecting Pisa Airport directly to Pisa Centrale railway station, running every 5–8 minutes — the standard way to reach the wider rail network from the airport." },
+            { q: 'Can a taxi or private transfer enter central Florence?', a: "A licensed private transfer can reach hotels inside Florence's limited-traffic zone (ZTL), which a self-drive rental car cannot enter without risking a fine." },
+            { q: 'Is it faster to drive or take the train from Pisa Airport to Florence?', a: "They're broadly comparable — driving takes about 1 hour to 1 hour 15 minutes, while the PisaMover-plus-train combination realistically takes 60–90 minutes door to door once the connection is included." },
+        ],
+    },
+    {
+        slug: 'pisa-airport-to-lucca-distance',
+        itSlug: 'distanza-dallaeroporto-di-pisa-a-lucca',
+        origin: 'Pisa Airport',
+        dest: 'Lucca',
+        seoTitle: 'Pisa Airport to Lucca Distance – Km & Travel Time',
+        metaDescription: 'How far is Lucca from Pisa Airport? Verified driving distance and the direct PisaMover + train connection, with realistic journey times.',
+        h1: 'Pisa Airport to Lucca Distance',
+        heroImage: '/images/Tuscany Wine.webp',
+
+        straightLineDistance: 'approx. 20–22 km (about 12–14 miles)',
+        straightLineNote: 'Straight-line and driving distance are reasonably close on this route, since it runs fairly directly along the A11 corridor.',
+        drivingDistance: 'approx. 34 km (about 21 miles)',
+        drivingDuration: '27–33 minutes',
+        trainDuration: 'approx. 30–35 minutes door-to-door (PisaMover + direct train)',
+
+        intro: [
+            "Pisa Airport to Lucca is one of the shortest and best-connected routes on this site — about 34 km by road, and genuinely well served by both a direct motorway and a direct train, which is unusual for an airport transfer of this length.",
+            "This page sets out both options clearly, since either is a realistic choice for this specific route.",
+        ],
+
+        centreVsDoorToDoor: [
+            "Lucca's historic centre sits inside its famous Renaissance walls, with most vehicle access limited to residents and licensed transport — so whichever way you travel, the final stretch to a specific hotel inside the walls may involve a short walk or drop-off just outside the ramparts.",
+        ],
+
+        byCar: [
+            "Driving from Pisa Airport to Lucca covers about 34 km via the A11 motorway, typically taking 27 to 33 minutes depending on traffic.",
+        ],
+        byCarRoad: 'the A11 motorway',
+
+        byTrain: [
+            "This route has a genuine direct rail connection: the PisaMover shuttle links the airport to Pisa Centrale in about 5–8 minutes, and Trenitalia runs direct regional trains from Pisa Centrale to Lucca every 30 minutes, taking around 25–27 minutes. Combined, the door-to-door journey is realistically about 30–35 minutes — one of the more efficient rail connections covered on this site.",
+        ],
+
+        byPrivateTransfer: [
+            "A private transfer covers the same short distance directly from the arrivals hall to your Lucca address, useful if your accommodation is inside the walled centre or if you'd rather not manage the shuttle-to-train connection with luggage.",
+            "For pricing and booking, see our dedicated Pisa Airport to Lucca taxi transfer page.",
+        ],
+        routePageSlug: 'pisa-airport-to-lucca-taxi',
+        routePageLabel: 'Pisa Airport to Lucca Taxi Transfer',
+
+        popularStops: [],
+
+        travelTimeFactors: [
+            'Traffic on the A11, though this is a short enough route that delays are usually modest.',
+            'For the train option, the connection time between the PisaMover and the Pisa Centrale–Lucca service.',
+            'Lucca\'s limited vehicle access inside the city walls, which affects the final stretch regardless of transport mode.',
+        ],
+
+        bestWay: [
+            "This is a route where the direct train genuinely competes with driving — both take around 30 minutes door to door. Budget travellers or those without luggage often find the PisaMover-plus-train combination perfectly convenient. A private transfer remains the simplest choice for groups, luggage, or a direct drop-off as close to the walled centre as vehicle access allows.",
+        ],
+
+        faqs: [
+            { q: 'How far is Lucca from Pisa Airport?', a: "About 34 km by road, a drive of 27 to 33 minutes via the A11 motorway." },
+            { q: 'Is there a direct train from Pisa Airport to Lucca?', a: "Yes — take the PisaMover shuttle to Pisa Centrale (about 5–8 minutes), then a direct Trenitalia regional train to Lucca (around 25–27 minutes), running every 30 minutes." },
+            { q: 'Is the train a good option for this route?', a: "Yes, this is one of the more convenient rail connections on this site — no long wait, a direct onward train, and a short overall journey." },
+            { q: 'Can a car reach the centre of Lucca?', a: "Vehicle access inside Lucca's Renaissance walls is limited to residents and authorised transport, so most visitors are dropped just outside the walls and walk in." },
+            { q: 'Is a private transfer worth it for such a short route?', a: "It's mainly a matter of convenience — a private transfer avoids the shuttle-to-train connection and goes directly to your address, which matters most with luggage or as a group." },
+        ],
+    },
+    {
+        slug: 'catania-airport-to-taormina-distance',
+        itSlug: 'distanza-dallaeroporto-di-catania-a-taormina',
+        origin: 'Catania Airport',
+        dest: 'Taormina',
+        seoTitle: 'Catania Airport to Taormina Distance & Travel Time',
+        metaDescription: 'How far is Taormina from Catania Airport? Verified driving distance, direct Interbus service and train option compared, with real journey times.',
+        h1: 'Catania Airport to Taormina Distance',
+        heroImage: '/images/beach-transfer.webp',
+
+        straightLineDistance: 'approx. 36 miles (about 58 km)',
+        straightLineNote: 'Road-distance sources cluster around 64–66 km; the figure varies slightly depending on which part of Taormina is used as the endpoint, since the town sits on a hillside above the coast.',
+        drivingDistance: 'approx. 64–66 km (about 40 miles)',
+        drivingDuration: '46 minutes – 1 hour',
+        trainDuration: 'approx. 1 hour on the train (plus an airport shuttle connection); around 1 hour 25 minutes by direct bus',
+
+        intro: [
+            "Catania Airport is Sicily's busiest gateway, and Taormina — the clifftop resort town about 65 km up the coast — is one of its most common onward destinations. Unusually for an airport route, Taormina is served by a direct bus straight from the terminal, which is worth knowing about alongside the driving and rail options.",
+            "This page sets out all three, since each is genuinely used by travellers.",
+        ],
+
+        centreVsDoorToDoor: [
+            "Taormina's historic centre sits on a hillside with limited vehicle access on its narrow streets, so most transport — bus, taxi or transfer — drops you at the edge of town rather than at a specific door, with a short walk or local shuttle to finish.",
+        ],
+
+        byCar: [
+            "Driving from Catania Airport to Taormina covers about 64–66 km via the A18 motorway, typically taking 46 minutes to 1 hour depending on traffic.",
+        ],
+        byCarRoad: 'the A18 motorway',
+
+        byTrain: [
+            "Trenitalia runs direct trains from Catania Centrale to Taormina-Giardini roughly every 30 minutes, taking about an hour. To reach Catania Centrale from the airport, you first take the AMTS shuttle bus, which runs every 10 minutes from outside Terminal A arrivals — so this route involves one connection rather than a single direct ride.",
+        ],
+
+        byPrivateTransfer: [
+            "Unusually for this route, there's also a direct bus: Interbus runs services straight from Catania Airport to Taormina (Via Luigi Pirandello), roughly every 30 minutes in the morning and hourly later in the day, taking about 1 hour 25 minutes — no shuttle or change required, making it a genuinely convenient budget option. A private transfer offers the same directness with door-to-door drop-off and no fixed timetable.",
+            "For pricing and booking, see our dedicated Catania Airport to Taormina taxi transfer page.",
+        ],
+        routePageSlug: 'catania-airport-to-taormina-taxi',
+        routePageLabel: 'Catania Airport to Taormina Taxi Transfer',
+
+        popularStops: [
+            { name: 'Giardini-Naxos', note: 'The coastal town directly below Taormina, and the location of the Taormina-Giardini railway station.' },
+        ],
+
+        travelTimeFactors: [
+            'Traffic on the A18, especially during the summer tourist season.',
+            'For the Interbus service, its published timetable — departures thin out from hourly to less frequent later in the day.',
+            'For the train, the connection time on the AMTS airport shuttle to Catania Centrale.',
+        ],
+
+        bestWay: [
+            "The direct Interbus service is a genuinely convenient, budget-friendly option since it needs no connection — a rarity for an airport-to-resort route. For late or early arrivals outside bus operating hours, or with luggage and a specific hotel drop-off in mind, a private transfer is the more flexible choice.",
+        ],
+
+        faqs: [
+            { q: 'How far is Taormina from Catania Airport?', a: "About 64–66 km by road, a drive of 46 minutes to 1 hour via the A18 motorway." },
+            { q: 'Is there a direct bus from Catania Airport to Taormina?', a: "Yes — Interbus runs services directly from the airport to Taormina, roughly every 30 minutes in the morning and hourly later, taking about 1 hour 25 minutes, with no connection needed." },
+            { q: 'Is there a direct train from the airport to Taormina?', a: "Not from the terminal itself — you first take the AMTS shuttle bus to Catania Centrale (every 10 minutes), then a direct Trenitalia train to Taormina-Giardini (about an hour)." },
+            { q: 'Which is more convenient, the bus or the train?', a: "The Interbus service is more direct, since it goes straight from the airport with no connection, while the train route requires the AMTS shuttle first." },
+            { q: 'Can a vehicle reach my hotel inside Taormina?', a: "Taormina's historic centre has narrow, largely pedestrianised streets, so most transport drops you at the edge of town with a short walk or local shuttle to finish." },
+        ],
+    },
+    {
+        slug: 'verona-airport-to-lake-garda-distance',
+        itSlug: 'distanza-dallaeroporto-di-verona-al-lago-di-garda',
+        origin: 'Verona Airport',
+        dest: 'Lake Garda',
+        seoTitle: 'Verona Airport to Lake Garda Distance & Travel Time',
+        metaDescription: 'How far is Lake Garda from Verona Airport? Verified driving distances to the main towns, plus the direct ATV airport shuttle bus and train options.',
+        h1: 'Verona Airport to Lake Garda Distance',
+        heroImage: '/images/Lake Como.webp',
+
+        straightLineDistance: 'varies by destination town — see below',
+        straightLineNote: '"Lake Garda" covers many towns along the shore, so there is no single distance figure. Peschiera del Garda, the closest major town, is about 22 km from the airport; Sirmione, further round the southern shore, is about 35 km.',
+        drivingDistance: 'approx. 22 km to Peschiera; approx. 35 km to Sirmione',
+        drivingDuration: '21 minutes to Peschiera; 35–45 minutes to Sirmione',
+        trainDuration: 'Direct ATV shuttle bus (line 164) reaches the lake towns directly; alternatively, ATV line 199 to Verona Porta Nuova station, then a Trenitalia train',
+
+        intro: [
+            "Verona Airport (Villafranca) sits close to the southern end of Lake Garda, making it the closest major airport to the lake — but \"Lake Garda\" spans dozens of towns along a large shoreline, so the real distance depends entirely on which one you're headed to. Peschiera del Garda, the nearest, is only about 22 km away; towns further round the lake, like Sirmione, are closer to 35 km.",
+            "This page covers both the driving distances to the main southern-shore towns and the airport's own direct bus service, which is genuinely well suited to this route.",
+        ],
+
+        centreVsDoorToDoor: [
+            "The figures above are to each town's centre. Since Lake Garda's shoreline towns are generally compact, the difference between a town-centre figure and a specific hotel address is usually small — the bigger variable is simply which town you're travelling to.",
+        ],
+
+        byCar: [
+            "Driving from Verona Airport to Peschiera del Garda covers about 22 km and takes around 21 minutes. To Sirmione, a little further around the lake, it's about 35 km and 35 to 45 minutes. Other towns along the eastern shore — Lazise, Bardolino, Garda — fall between these figures depending on distance from the airport.",
+        ],
+        byCarRoad: 'local roads and the A4 motorway link toward the lake',
+
+        byTrain: [
+            "Verona Airport has a genuinely useful direct option: ATV's line 164 shuttle bus connects the airport straight to the eastern shore of Lake Garda, calling at Peschiera, Lazise, Bardolino and Garda — no train change needed. A seasonal service, line 482, adds extra high-season capacity on the same corridor. Alternatively, ATV's line 199 Airlink bus connects the airport to Verona Porta Nuova railway station every 20 minutes, from where Trenitalia trains reach Desenzano and Peschiera del Garda directly.",
+        ],
+
+        byPrivateTransfer: [
+            "A private transfer takes you directly from arrivals to your specific lakeside hotel, in whichever town you're staying, without needing to match the shuttle bus timetable or handle luggage on public transport.",
+            "For pricing and booking, see our dedicated Verona Airport to Lake Garda taxi transfer page.",
+        ],
+        routePageSlug: 'verona-airport-to-lake-garda-taxi',
+        routePageLabel: 'Verona Airport to Lake Garda Taxi Transfer',
+
+        popularStops: [
+            { name: 'Peschiera del Garda', note: 'The closest major lake town to the airport, and a rail hub for onward connections around the lake.' },
+        ],
+
+        travelTimeFactors: [
+            'Which specific lake town you\'re travelling to — the southern shore is far closer to the airport than towns at the northern end of the lake.',
+            'Summer tourist traffic on the roads around the lake, particularly in July and August.',
+            'For the direct ATV shuttle, its scheduled timetable and whether the seasonal line 482 service is running.',
+        ],
+
+        bestWay: [
+            "For the eastern shore towns — Peschiera, Lazise, Bardolino, Garda — the direct ATV shuttle bus is a genuinely convenient, purpose-built option straight from arrivals. For other lake towns, a specific hotel drop-off, luggage, or a group, a private transfer is more flexible and doesn't depend on the shuttle's timetable.",
+        ],
+
+        faqs: [
+            { q: 'How far is Lake Garda from Verona Airport?', a: "It depends on the town — Peschiera del Garda, the closest, is about 22 km (21 minutes' drive); Sirmione is about 35 km (35–45 minutes)." },
+            { q: 'Is there a direct bus from Verona Airport to Lake Garda?', a: "Yes — ATV's line 164 shuttle runs directly from the airport to the eastern shore towns of Peschiera, Lazise, Bardolino and Garda, with no train change required." },
+            { q: 'Which Lake Garda town is closest to Verona Airport?', a: "Peschiera del Garda, at the southern tip of the lake, is the closest major town, about 22 km from the airport." },
+            { q: 'Can I reach Lake Garda by train from the airport?', a: "Yes, indirectly — ATV's line 199 Airlink bus connects the airport to Verona Porta Nuova station every 20 minutes, from where Trenitalia trains run to Desenzano and Peschiera del Garda." },
+            { q: 'Is Verona the closest airport to Lake Garda?', a: "Yes — Verona Villafranca is the nearest major airport to the lake, closer than Milan Bergamo or Brescia for most of the southern and eastern shore towns." },
+        ],
+    },
+    {
+        slug: 'bari-airport-to-polignano-a-mare-distance',
+        itSlug: 'distanza-dallaeroporto-di-bari-a-polignano-a-mare',
+        origin: 'Bari Airport',
+        dest: 'Polignano a Mare',
+        seoTitle: 'Bari Airport to Polignano a Mare Distance & Time',
+        metaDescription: 'How far is Polignano a Mare from Bari Airport? Verified driving distance and train connection via Bari Centrale, with realistic travel times.',
+        h1: 'Bari Airport to Polignano a Mare Distance',
+        heroImage: '/images/beach-transfer.webp',
+
+        straightLineDistance: 'approx. 51 km (about 32 miles)',
+        straightLineNote: 'The driving distance is shorter than the straight-line figure in this case, since the direct road runs fairly efficiently down the coast.',
+        drivingDistance: 'approx. 48 km (about 30 miles)',
+        drivingDuration: 'approx. 40 minutes',
+        trainDuration: 'No direct train — approx. 1 hour 30 minutes via a change at Bari Centrale',
+
+        intro: [
+            "Bari Airport (Karol Wojtyła) to Polignano a Mare — the clifftop town famous for its beach set into the rock — covers about 48 km down the Adriatic coast. It's a straightforward drive, though public transport requires a change in central Bari.",
+            "This page sets out the verified driving distance and the practical rail route, since both matter for planning this trip.",
+        ],
+
+        centreVsDoorToDoor: [
+            "The figures above are airport-to-town. Polignano a Mare's historic centre and clifftop viewpoints are compact and largely pedestrian, so once in town, most points of interest are within easy walking distance of wherever you're dropped.",
+        ],
+
+        byCar: [
+            "Driving from Bari Airport to Polignano a Mare covers about 48 km, typically taking around 40 minutes via the coastal road and motorway links south of Bari.",
+        ],
+        byCarRoad: 'coastal roads and motorway links south of Bari',
+
+        byTrain: [
+            "There's no direct train from the airport to Polignano a Mare. The practical route involves reaching Bari Centrale first (from the airport, this typically means a taxi, transfer, or the airport's bus link into the city), then a Trenitalia service south along the coastal line to Polignano a Mare station. Including the connection, the realistic total journey time is around 1 hour 30 minutes.",
+        ],
+
+        byPrivateTransfer: [
+            "A private transfer covers the whole route in one ride, avoiding the need to reach Bari Centrale first and then find a connecting train — useful if you're heading straight from your flight to the coast without stopping in Bari itself.",
+            "For pricing and booking, see our dedicated Bari Airport to Polignano a Mare taxi transfer page.",
+        ],
+        routePageSlug: 'bari-airport-to-polignano-a-mare-taxi',
+        routePageLabel: 'Bari Airport to Polignano a Mare Taxi Transfer',
+
+        popularStops: [],
+
+        travelTimeFactors: [
+            'Traffic through and around Bari itself, which the route passes near.',
+            'Summer beach-season traffic on the approach to Polignano a Mare, since the town\'s cliffside beach is a popular day-trip destination.',
+            'For the train option, the connection time at Bari Centrale.',
+        ],
+
+        bestWay: [
+            "Since there's no direct public transport link, a private transfer or driving is generally more straightforward for a direct airport arrival than managing the connection at Bari Centrale, particularly with luggage. The train is a reasonable option if you're planning to spend time in Bari itself before continuing to the coast.",
+        ],
+
+        faqs: [
+            { q: 'How far is Polignano a Mare from Bari Airport?', a: "About 48 km by road, a drive of roughly 40 minutes." },
+            { q: 'Is there a direct train from Bari Airport to Polignano a Mare?', a: "No — you need to reach Bari Centrale first, then take a Trenitalia service down the coastal line to Polignano a Mare station, for a realistic total of about 1 hour 30 minutes." },
+            { q: 'Can I combine a stop in Bari with this trip?', a: "Yes — since the train route already passes through Bari Centrale, many travellers break the journey there before continuing to Polignano a Mare." },
+            { q: 'What is Polignano a Mare known for?', a: "Its dramatic clifftop old town and the small beach (Cala Porto) set into a cove directly beneath the cliffs." },
+            { q: 'Is a private transfer worth it for this route?', a: "For a direct arrival without stopping in Bari, yes — it avoids the need to reach Bari Centrale and find a connecting train." },
+        ],
+    },
+    {
+        slug: 'bari-airport-to-alberobello-distance',
+        itSlug: 'distanza-dallaeroporto-di-bari-ad-alberobello',
+        origin: 'Bari Airport',
+        dest: 'Alberobello',
+        seoTitle: 'Bari Airport to Alberobello Distance & Travel Time',
+        metaDescription: 'How far is Alberobello from Bari Airport? Verified driving distance and why public transport is impractical for this route, with real journey times.',
+        h1: 'Bari Airport to Alberobello Distance',
+        heroImage: '/images/beach-transfer.webp',
+
+        straightLineDistance: 'approx. 55 km (about 34 miles)',
+        straightLineNote: 'The driving distance is meaningfully longer than the straight-line figure, since the route heads inland into the Itria Valley rather than following a direct line.',
+        drivingDistance: 'approx. 66 km (about 41 miles)',
+        drivingDuration: 'approx. 1 hour 5 minutes',
+        trainDuration: 'No practical direct public transport — connections via Bari Centrale and Ferrovie del Sud Est can take 2.5–4+ hours',
+
+        intro: [
+            "Bari Airport to Alberobello, home of the UNESCO-listed trulli houses, covers about 66 km inland into Puglia's Itria Valley. Unlike many airport routes, this one has a genuinely poor public transport connection, which is worth knowing before you plan how to get there.",
+            "This page sets out the verified driving distance and is honest about the public transport situation, rather than overstating convenience that doesn't exist.",
+        ],
+
+        centreVsDoorToDoor: [
+            "Alberobello's trulli district has narrow, largely pedestrian streets, so vehicle drop-off is generally at the edge of the historic centre rather than at a specific door.",
+        ],
+
+        byCar: [
+            "Driving from Bari Airport to Alberobello covers about 66 km, typically taking around 1 hour 5 minutes, heading inland from the coast into the Itria Valley.",
+        ],
+        byCarRoad: 'inland roads through the Itria Valley',
+
+        byTrain: [
+            "There is no practical direct public transport option for this route. Reaching Alberobello without a car means first getting to Bari Centrale from the airport, then travelling on the Ferrovie del Sud Est (FSE) regional line, typically with a further change — a combined journey that can realistically take anywhere from about 2 hours 30 minutes to over 4 hours depending on connections, which is genuinely impractical for most travellers arriving on a flight.",
+        ],
+
+        byPrivateTransfer: [
+            "Given how poorly this route is served by public transport, a private transfer is a particularly practical choice here — a direct 1-hour-plus ride replaces what can otherwise be a half-day of connections.",
+            "For pricing and booking, see our dedicated Bari Airport to Alberobello taxi transfer page.",
+        ],
+        routePageSlug: 'bari-airport-to-alberobello-taxi',
+        routePageLabel: 'Bari Airport to Alberobello Taxi Transfer',
+
+        popularStops: [
+            { name: 'Locorotondo', note: 'A hilltop Itria Valley town near Alberobello, often combined with it on the same day.' },
+        ],
+
+        travelTimeFactors: [
+            'Traffic through the Bari metropolitan area before reaching the inland roads.',
+            'For any public-transport attempt, the connection quality at Bari Centrale onto the FSE regional line, which varies significantly by time of day.',
+        ],
+
+        bestWay: [
+            "Given the lack of a practical direct public transport option, driving or a private transfer is genuinely the sensible choice for most travellers on this route, rather than a matter of preference — the public transport alternative can take several times longer.",
+        ],
+
+        faqs: [
+            { q: 'How far is Alberobello from Bari Airport?', a: "About 66 km by road, a drive of roughly 1 hour 5 minutes inland into the Itria Valley." },
+            { q: 'Is there a direct train from Bari Airport to Alberobello?', a: "No. There's no direct train or bus — reaching Alberobello by public transport means connecting via Bari Centrale onto the Ferrovie del Sud Est regional line, and can realistically take 2.5 to 4+ hours." },
+            { q: 'Why is public transport so impractical for this route?', a: "Alberobello is served by a regional line (FSE) rather than the main national network, and there's no direct link from the airport, so reaching it without a car typically involves multiple connections." },
+            { q: 'Is a private transfer recommended for this route?', a: "Given the lack of a practical public transport alternative, yes — it's the most time-effective option for most travellers, rather than simply the most comfortable one." },
+            { q: 'Can I combine Alberobello with other Itria Valley towns?', a: "Yes — Locorotondo and Martina Franca are both nearby and commonly visited alongside Alberobello in a single day with a private driver." },
+        ],
+    },
+    {
+        slug: 'palermo-airport-to-cefalu-distance',
+        itSlug: 'distanza-dallaeroporto-di-palermo-a-cefalu',
+        origin: 'Palermo Airport',
+        dest: 'Cefalù',
+        seoTitle: 'Palermo Airport to Cefalù Distance & Travel Time',
+        metaDescription: 'How far is Cefalù from Palermo Airport? Verified driving distance and the limited direct train service, with realistic travel times compared.',
+        h1: 'Palermo Airport to Cefalù Distance',
+        heroImage: '/images/beach-transfer.webp',
+
+        straightLineDistance: 'approx. 82 km (about 51 miles)',
+        straightLineNote: 'The driving distance is notably longer than the straight-line figure, since the coastal geography between Palermo and Cefalù adds real distance to the direct road route.',
+        drivingDistance: 'approx. 103 km (about 64 miles)',
+        drivingDuration: 'approx. 1 hour 15 minutes',
+        trainDuration: 'approx. 1 hour 35 minutes on the one daily direct service; around 2 hours 30 minutes via a change at Palermo Centrale otherwise',
+
+        intro: [
+            "Palermo Airport (Falcone–Borsellino) to Cefalù, the coastal town famous for its Norman cathedral and beach, covers just over 100 km east along Sicily's northern coast. The drive is straightforward, but the train option needs some explanation, since direct service is limited.",
+            "This page sets out the verified driving distance and exactly what the rail option involves, rather than assuming it's as convenient as it might first appear.",
+        ],
+
+        centreVsDoorToDoor: [
+            "The figures above are to central Cefalù. The town's historic centre and beach are compact and walkable once you arrive, so the door-to-door difference from the town-centre figure is generally small.",
+        ],
+
+        byCar: [
+            "Driving from Palermo Airport to Cefalù covers about 103 km along the A29 and A20 motorways, typically taking around 1 hour 15 minutes.",
+        ],
+        byCarRoad: 'the A29 and A20 motorways',
+
+        byTrain: [
+            "Trenitalia operates one direct daily service from Palermo Aeroporto to Cefalù, taking about 1 hour 35 minutes — worth knowing if your arrival time happens to align with it. Outside that one direct departure, the route involves changing at Palermo Centrale, with a combined journey of around 2 hours 30 minutes, since it's not simply a same-platform connection.",
+        ],
+
+        byPrivateTransfer: [
+            "Given that direct train service is limited to a single daily departure, a private transfer removes any dependency on timetables entirely — useful whatever time your flight lands.",
+            "For pricing and booking, see our dedicated Palermo Airport to Cefalù taxi transfer page.",
+        ],
+        routePageSlug: 'palermo-airport-to-cefalu-taxi',
+        routePageLabel: 'Palermo Airport to Cefalù Taxi Transfer',
+
+        popularStops: [],
+
+        travelTimeFactors: [
+            'Traffic on the A29/A20 motorway corridor, particularly in summer.',
+            'For train travel, whether your arrival lines up with the single daily direct Palermo Aeroporto–Cefalù service.',
+            'Coastal weather conditions, which can occasionally affect this stretch of motorway.',
+        ],
+
+        bestWay: [
+            "If your flight happens to land in time for the one direct daily train, it's a straightforward, car-free option. For any other arrival time, or with luggage and a fixed hotel to reach, driving or a private transfer is more practical than working around a single daily departure or a longer connection via Palermo Centrale.",
+        ],
+
+        faqs: [
+            { q: 'How far is Cefalù from Palermo Airport?', a: "About 103 km by road, a drive of roughly 1 hour 15 minutes via the A29 and A20 motorways." },
+            { q: 'Is there a direct train from Palermo Airport to Cefalù?', a: "There's one direct daily service, taking about 1 hour 35 minutes. Outside that departure, you'd need to change at Palermo Centrale, extending the journey to around 2 hours 30 minutes." },
+            { q: 'Why isn\'t the train more convenient for this route?', a: "Because direct service is limited to a single daily departure — outside that window, the trip requires an extra change and more total travel time." },
+            { q: 'What is Cefalù known for?', a: "Its Norman cathedral (a UNESCO World Heritage Site), a sandy beach right in the town centre, and a well-preserved medieval old town." },
+            { q: 'Is a private transfer recommended for this route?', a: "Given the limited direct train schedule, yes — it removes any need to plan your arrival around a single daily departure." },
+        ],
+    },
+    {
+        slug: 'rome-to-sorrento-distance',
+        itSlug: 'distanza-da-roma-a-sorrento',
+        origin: 'Rome',
+        dest: 'Sorrento',
+        seoTitle: 'Rome to Sorrento Distance – Km, Miles & Travel Time',
+        metaDescription: 'How far is Sorrento from Rome? Verified driving distance, tolls, and the Naples-plus-Circumvesuviana train route compared, with real travel times.',
+        h1: 'Rome to Sorrento Distance',
+        heroImage: '/images/almafi.webp',
+
+        straightLineDistance: 'approx. 200–210 km (about 124–130 miles)',
+        straightLineNote: 'The driving distance is meaningfully longer than the straight-line figure, since the route has to go around the Bay of Naples and onto the Sorrento peninsula rather than across it.',
+        drivingDistance: 'approx. 275 km (about 171 miles)',
+        drivingDuration: '2 hours 30 minutes – 3 hours 30 minutes',
+        trainDuration: 'No single-ticket direct service — approx. 2 hours 15 minutes–2.5 hours combining a direct Rome–Naples train with a separate Circumvesuviana connection',
+
+        intro: [
+            "Rome to Sorrento is a long-distance route covering about 275 km, most of it motorway, finishing on the approach to the Sorrento peninsula. It's a common trip for travellers heading to the Amalfi Coast area, and it's worth understanding both the driving tolls and the two-ticket nature of the train option before you plan it.",
+            "This page verifies both the driving route and the realistic rail journey, since the train involves an important detail many travellers miss: it isn't a single connected ticket.",
+        ],
+
+        centreVsDoorToDoor: [
+            "The figures above are city-centre to town-centre. Your real distance depends on your exact Rome starting point — city centre or Fiumicino Airport — and your Sorrento address, though the difference is minor compared with the length of the overall journey.",
+        ],
+
+        byCar: [
+            "Driving from Rome to Sorrento covers about 275 km, typically taking 2 hours 30 minutes to 3 hours 30 minutes depending on traffic, especially around Naples. The route runs via the A1 motorway toward Naples, then the A30 to Salerno, before joining the SS145 for the final approach into Sorrento. Tolls for this route total approximately €19 (around €12.30 for the A1 Rome–Caserta section and €6.40 for the A30 Caserta–Salerno section); the final SS145 stretch is toll-free but narrow and winding.",
+        ],
+        byCarRoad: 'the A1 motorway to Naples, then the A30 to Salerno, then the SS145',
+
+        byTrain: [
+            "This route genuinely requires two separate tickets, not one connected journey. First, a direct high-speed train runs from Roma Termini to Napoli Centrale with no changes (around 1 hour 10 minutes). At Napoli Centrale, you then transfer to the Circumvesuviana — a completely separate regional line with its own ticketing system, not covered by any national rail pass — which runs to Sorrento in about 1 hour 6 minutes, with departures roughly every 30 minutes. Connection time at Napoli Centrale is typically manageable (allow at least 10–15 minutes), but the two-system nature of this journey catches some travellers by surprise.",
+        ],
+
+        byPrivateTransfer: [
+            "Given the two-ticket, two-system nature of the train option, a private transfer's main advantage on this specific route is genuine simplicity: one vehicle, no station changes, and no separate regional ticket to buy at Naples.",
+            "For pricing and booking, see our dedicated Rome to Sorrento taxi transfer page.",
+        ],
+        routePageSlug: 'rome-to-sorrento-taxi',
+        routePageLabel: 'Rome to Sorrento Taxi Transfer',
+
+        popularStops: [
+            { name: 'Pompeii', note: 'Directly on the route between Naples and Sorrento — a common stop to break up the long drive.' },
+        ],
+
+        travelTimeFactors: [
+            'Traffic around Naples, which the route passes directly alongside.',
+            'For train travel, the connection at Napoli Centrale between the national high-speed network and the separate Circumvesuviana line.',
+            'Summer season traffic on the final SS145 approach into Sorrento.',
+            'Whether you add a stop, such as Pompeii, along the way.',
+        ],
+
+        bestWay: [
+            "Solo travellers comfortable managing a station change and a separate regional ticket can make the train work reasonably well. For families, groups, heavy luggage, or anyone who'd rather not navigate Napoli Centrale's platforms with bags, driving or a private transfer covering the whole route in one ride is generally the more comfortable choice on a journey this long.",
+        ],
+
+        faqs: [
+            { q: 'How far is Sorrento from Rome?', a: "About 275 km by road, a drive of 2.5 to 3.5 hours via the A1, A30 and SS145." },
+            { q: 'Are there tolls between Rome and Sorrento?', a: "Yes — approximately €19 in total for the A1 (Rome–Caserta) and A30 (Caserta–Salerno) sections; the final SS145 stretch into Sorrento is toll-free." },
+            { q: 'Is there a direct train from Rome to Sorrento?', a: "Not on a single ticket. You take a direct high-speed train from Roma Termini to Napoli Centrale, then transfer to the separate Circumvesuviana regional line to reach Sorrento — two different systems with separate tickets." },
+            { q: 'How long does the whole train journey take?', a: "Realistically about 2 hours 15 minutes to 2.5 hours in total: roughly 1 hour 10 minutes Rome–Naples, plus the connection, plus about 1 hour 6 minutes on the Circumvesuviana to Sorrento." },
+            { q: 'Can I stop at Pompeii on the way to Sorrento?', a: "Yes — Pompeii sits directly on the route between Naples and Sorrento and is a popular stop, whether driving or taking the Circumvesuviana, which also calls there." },
+        ],
+    },
+    {
+        slug: 'rome-to-tivoli-distance',
+        itSlug: 'distanza-da-roma-a-tivoli',
+        origin: 'Rome',
+        dest: 'Tivoli',
+        seoTitle: 'Rome to Tivoli Distance – Km & Travel Time',
+        metaDescription: 'How far is Tivoli from Rome? Verified driving distance, the direct Trenitalia train, and Cotral bus option, with realistic travel times.',
+        h1: 'Rome to Tivoli Distance',
+        heroImage: '/images/rome airport.webp',
+
+        straightLineDistance: 'approx. 28–33 km (about 17–20 miles)',
+        straightLineNote: 'Sources give a modest range for both the straight-line and driving figures; this reflects genuinely small variation between reference points rather than a major discrepancy.',
+        drivingDistance: 'approx. 28–30 km (about 17–19 miles)',
+        drivingDuration: '30–45 minutes',
+        trainDuration: 'approx. 40–60 minutes direct from Roma Tiburtina, with departures roughly every 30 minutes',
+
+        intro: [
+            "Tivoli, home to the UNESCO-listed Villa d'Este and Hadrian's Villa, sits about 30 km east of Rome — close enough to be a genuinely easy half-day or full-day trip, with several practical ways to get there.",
+            "This page verifies the driving distance and compares the direct train against the Cotral bus, both of which are realistic options for this short route.",
+        ],
+
+        centreVsDoorToDoor: [
+            "The figures above are Rome centre to Tivoli. Since Tivoli's two main UNESCO sites — Villa d'Este in town and Hadrian's Villa a few kilometres outside — aren't within walking distance of each other, factor in a short local taxi or bus ride if you plan to see both without a driver waiting for you.",
+        ],
+
+        byCar: [
+            "Driving from Rome to Tivoli covers about 28–30 km, typically taking 30 to 45 minutes via the A24 motorway, with the Tivoli exit being the recommended route.",
+        ],
+        byCarRoad: 'the A24 motorway',
+
+        byTrain: [
+            "Trenitalia runs direct trains from Roma Tiburtina to Tivoli roughly every 30 minutes, with a journey time of around 40 to 60 minutes depending on the specific service. This is a straightforward, no-change connection, making it one of the more convenient train options for a short Rome day trip.",
+        ],
+
+        byPrivateTransfer: [
+            "A private transfer is particularly useful for Tivoli specifically because it can wait between Villa d'Este and Hadrian's Villa, which sit a few kilometres apart — something neither the train nor the bus can do, since both only get you into town.",
+            "For pricing and booking, see our dedicated Rome to Tivoli taxi transfer page.",
+        ],
+        routePageSlug: 'rome-to-tivoli-taxi',
+        routePageLabel: 'Rome to Tivoli Taxi Transfer',
+
+        popularStops: [],
+
+        travelTimeFactors: [
+            'Traffic on the A24, particularly during weekday peaks around Rome.',
+            'Whether you\'re visiting both Villa d\'Este and Hadrian\'s Villa, which requires a further short journey between them.',
+            'For the Cotral bus, its more limited daily timetable compared with the half-hourly train.',
+        ],
+
+        bestWay: [
+            "For a straightforward visit to Villa d'Este in town, the direct train is fast, frequent and inexpensive. If you want to see both Villa d'Este and the more distant Hadrian's Villa in one trip without arranging local transport between them, a private transfer that can wait and move between sites is considerably more practical.",
+        ],
+
+        faqs: [
+            { q: 'How far is Tivoli from Rome?', a: "About 28–30 km by road, a drive of 30 to 45 minutes via the A24 motorway." },
+            { q: 'Is there a direct train from Rome to Tivoli?', a: "Yes — Trenitalia runs direct trains from Roma Tiburtina to Tivoli roughly every 30 minutes, taking about 40 to 60 minutes." },
+            { q: 'Can I visit both Villa d\'Este and Hadrian\'s Villa in one day?', a: "Yes, both are popular in a single visit, but they're a few kilometres apart, so you'll need a local taxi, bus or a private driver to get between them." },
+            { q: 'Is there a bus from Rome to Tivoli?', a: "Yes — Cotral operates a bus from Rome's Tiburtina bus station to Tivoli, though with a more limited schedule than the half-hourly train." },
+            { q: 'Is Tivoli a good day trip from Rome?', a: "Yes — at around 30–45 minutes away with a direct, frequent train, it's one of the easiest UNESCO-site day trips from Rome." },
+        ],
+    },
+    {
+        slug: 'rome-to-orvieto-distance',
+        itSlug: 'distanza-da-roma-a-orvieto',
+        origin: 'Rome',
+        dest: 'Orvieto',
+        seoTitle: 'Rome to Orvieto Distance – Km & Travel Time',
+        metaDescription: 'How far is Orvieto from Rome? Verified driving distance via the A1 motorway and the direct Trenitalia train, with realistic travel times.',
+        h1: 'Rome to Orvieto Distance',
+        heroImage: '/images/Tuscany Wine.webp',
+
+        straightLineDistance: 'approx. 96 km (about 60 miles)',
+        straightLineNote: 'The driving distance is somewhat longer than the straight-line figure, reflecting the A1\'s route through the hills of northern Lazio and southern Umbria.',
+        drivingDistance: 'approx. 120–122 km (about 75–76 miles)',
+        drivingDuration: '1 hour 20 minutes – 1 hour 30 minutes',
+        trainDuration: 'approx. 1 hour – 1 hour 20 minutes on direct services',
+
+        intro: [
+            "Orvieto, the dramatic hilltop town in Umbria famous for its Gothic cathedral, sits about 120 km north of Rome directly on the A1 motorway and the Rome–Florence rail line — making it one of the more straightforward day-trip destinations covered on this site.",
+            "This page verifies the driving distance and the direct train option, both well-established routes for this journey.",
+        ],
+
+        centreVsDoorToDoor: [
+            "Orvieto's historic centre sits atop a volcanic plateau, reached from the lower town or station by a funicular railway — worth knowing if you're arriving by train, since the cathedral and main sights are up on the plateau, not at station level.",
+        ],
+
+        byCar: [
+            "Driving from Rome to Orvieto covers about 120–122 km via the A1 motorway, typically taking 1 hour 20 minutes to 1 hour 30 minutes.",
+        ],
+        byCarRoad: 'the A1 motorway',
+
+        byTrain: [
+            "Orvieto sits directly on the Rome–Florence main line, and Trenitalia runs direct services from Roma Termini taking around 1 hour to 1 hour 20 minutes depending on whether you catch a faster or a stopping regional service. From Orvieto's station in the lower town, a funicular railway carries passengers up to the historic centre on the plateau above.",
+        ],
+
+        byPrivateTransfer: [
+            "A private transfer takes you directly to the upper town, avoiding the funicular connection that train travellers need to reach the historic centre, and is useful if you're combining Orvieto with a longer onward journey, such as continuing into Tuscany.",
+            "For pricing and booking, see our dedicated Rome to Orvieto taxi transfer page.",
+        ],
+        routePageSlug: 'rome-to-orvieto-taxi',
+        routePageLabel: 'Rome to Orvieto Taxi Transfer',
+
+        popularStops: [],
+
+        travelTimeFactors: [
+            'Traffic on the A1, particularly around Rome\'s outer areas.',
+            'For train travel, whether you catch a faster direct service or a slower stopping regional train.',
+            "The funicular connection between Orvieto's station and the historic centre, relevant only for train travellers.",
+        ],
+
+        bestWay: [
+            "Orvieto is well served by both options. The direct train is a strong choice for a straightforward day trip from central Rome, landing you close to the funicular up to the old town. Driving or a private transfer suits those combining Orvieto with onward travel, such as continuing to Tuscany or Umbria, or preferring a direct drop-off in the upper town.",
+        ],
+
+        faqs: [
+            { q: 'How far is Orvieto from Rome?', a: "About 120–122 km by road, a drive of 1 hour 20 minutes to 1 hour 30 minutes via the A1 motorway." },
+            { q: 'Is there a direct train from Rome to Orvieto?', a: "Yes — Orvieto sits directly on the Rome–Florence main line, with direct Trenitalia services from Roma Termini taking about 1 hour to 1 hour 20 minutes." },
+            { q: 'How do I reach the historic centre from Orvieto station?', a: "A funicular railway connects the lower town near the station to the historic centre on the plateau above, where the cathedral and main sights are located." },
+            { q: 'Is Orvieto a good stop between Rome and Tuscany?', a: "Yes — sitting directly on the A1 and the main rail line, Orvieto is a popular and convenient stop for travellers continuing north toward Florence or Tuscany." },
+            { q: 'Is Orvieto a good day trip from Rome?', a: "Yes — at around 1 to 1.5 hours away by direct train or car, it's a manageable day trip, with its cathedral and underground caves as the main highlights." },
+        ],
+    },
 ];
 
 export function getAllDistancePages(): DistancePage[] {

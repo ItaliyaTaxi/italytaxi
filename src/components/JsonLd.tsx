@@ -15,7 +15,7 @@ const JsonLd = () => {
     },
     "contactPoint": {
       "@type": "ContactPoint",
-      "telephone": "+39-02-0000-0000",
+      "telephone": "+923148932631",
       "contactType": "customer service",
       "areaServed": "IT",
       "availableLanguage": ["English", "Italian"]
@@ -34,7 +34,7 @@ const JsonLd = () => {
     "name": "Italy Taxi Service",
     "description": "Professional private taxi and transfer service across Italy. NCC-licensed drivers, fixed prices, airport transfers, city-to-city rides, and private tours.",
     "url": "https://www.italytaxiservice.com",
-    "telephone": "+39-02-0000-0000",
+    "telephone": "+923148932631",
     "email": "italytaxiservicee@gmail.com",
     "logo": "https://www.italytaxiservice.com/icon.svg",
     "image": "https://www.italytaxiservice.com/images/hero.webp",
