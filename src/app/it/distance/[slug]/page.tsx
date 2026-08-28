@@ -8,6 +8,9 @@ import FAQSection from '@/components/FAQSection';
 import { Ruler, Car, TrainFront, ChevronRight, Clock } from 'lucide-react';
 import { distancePages } from '@/lib/distance-pages-data';
 import { getAllItDistancePages, type DistanceLangContentIt } from '@/lib/distance-pages-it-data';
+import { findRichDistancePage } from '@/lib/rich-distance-pages-data';
+import { getAllRichDistancePagesIt, findRichDistancePageIt } from '@/lib/rich-distance-pages-it-data';
+import RichDistancePageContentIt from '@/components/RichDistancePageContentIt';
 
 const SITE = 'https://www.italytaxiservice.com';
 
@@ -28,38 +31,78 @@ function factsFor(slugEn: string) {
     return distancePages.find((d) => d.slug === slugEn) ?? null;
 }
 
+// Rich IT pages mirror the classic ones: static Italian editorial content in
+// rich-distance-pages-it-data.ts, numeric facts + map geometry looked up
+// from the EN rich page via slugEn — never duplicated.
+function richFactsFor(slugEn: string) {
+    return findRichDistancePage(slugEn);
+}
+
 export async function generateStaticParams() {
-    return allItDistancePages.map((d) => ({ slug: d.slugIt }));
+    return [
+        ...allItDistancePages.map((d) => ({ slug: d.slugIt })),
+        ...getAllRichDistancePagesIt().map((d) => ({ slug: d.slugIt })),
+    ];
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
     const { slug } = await params;
     const page = allItDistancePages.find((d) => d.slugIt === slug);
-    if (!page) return { title: 'Pagina Non Trovata' };
+    if (page) {
+        const languages: Record<string, string> = {
+            'it-IT': `/it/distance/${slug}`,
+            'en': `/distance/${page.slugEn}`,
+            'x-default': `/distance/${page.slugEn}`,
+        };
+        const facts = factsFor(page.slugEn);
 
-    const languages: Record<string, string> = {
-        'it-IT': `/it/distance/${slug}`,
-        'en': `/distance/${page.slugEn}`,
-        'x-default': `/distance/${page.slugEn}`,
-    };
-    const facts = factsFor(page.slugEn);
+        return {
+            title: page.it.seoTitle,
+            description: page.it.metaDescription,
+            alternates: { canonical: `/it/distance/${slug}`, languages },
+            openGraph: {
+                title: page.it.seoTitle, description: page.it.metaDescription, url: `${SITE}/it/distance/${slug}`, type: 'website',
+                images: facts ? [{ url: `${SITE}${facts.heroImage}`, width: 1200, height: 630, alt: page.it.h1 }] : undefined,
+            },
+            twitter: { card: 'summary_large_image', title: page.it.seoTitle, description: page.it.metaDescription },
+        };
+    }
 
-    return {
-        title: page.it.seoTitle,
-        description: page.it.metaDescription,
-        alternates: { canonical: `/it/distance/${slug}`, languages },
-        openGraph: {
-            title: page.it.seoTitle, description: page.it.metaDescription, url: `${SITE}/it/distance/${slug}`, type: 'website',
-            images: facts ? [{ url: `${SITE}${facts.heroImage}`, width: 1200, height: 630, alt: page.it.h1 }] : undefined,
-        },
-        twitter: { card: 'summary_large_image', title: page.it.seoTitle, description: page.it.metaDescription },
-    };
+    const rp = findRichDistancePageIt(slug);
+    if (rp) {
+        const languages: Record<string, string> = {
+            'it-IT': `/it/distance/${slug}`,
+            'en': `/distance/${rp.slugEn}`,
+            'x-default': `/distance/${rp.slugEn}`,
+        };
+
+        return {
+            title: rp.seoTitle,
+            description: rp.metaDescription,
+            alternates: { canonical: `/it/distance/${slug}`, languages },
+            openGraph: {
+                title: rp.seoTitle, description: rp.metaDescription, url: `${SITE}/it/distance/${slug}`, type: 'website',
+            },
+            twitter: { card: 'summary_large_image', title: rp.seoTitle, description: rp.metaDescription },
+        };
+    }
+
+    return { title: 'Pagina Non Trovata' };
 }
 
 export default async function ItalianDistancePage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
     const page = allItDistancePages.find((d) => d.slugIt === slug);
-    if (!page) notFound();
+
+    if (!page) {
+        const rp = findRichDistancePageIt(slug);
+        if (rp) {
+            const facts = richFactsFor(rp.slugEn);
+            if (!facts) notFound();
+            return <RichDistancePageContentIt page={rp} facts={facts} />;
+        }
+        notFound();
+    }
 
     const facts = factsFor(page.slugEn);
     if (!facts) notFound();

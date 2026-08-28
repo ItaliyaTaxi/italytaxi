@@ -10,7 +10,9 @@ import { getAllMilanTransfers } from '@/lib/milan-transfer-data';
 import { getAllVenetoTransfers } from '@/lib/veneto-transfer-data';
 import { getAllCrossBorderTransfers } from '@/lib/cross-border-data';
 import { getAllDistancePages } from '@/lib/distance-pages-data';
+import { getAllRichDistancePages } from '@/lib/rich-distance-pages-data';
 import { getAllItDistancePages } from '@/lib/distance-pages-it-data';
+import { getAllRichDistancePagesIt } from '@/lib/rich-distance-pages-it-data';
 import { getAllBolognaHotelTransfers, getAllBolognaCruiseTransfers } from '@/lib/bologna-transfer-data';
 import fs from 'fs';
 import path from 'path';
@@ -288,7 +290,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
     changeFrequency: 'monthly' as const,
   }));
+  const richDistanceEntries: MetadataRoute.Sitemap = getAllRichDistancePages().map((d) => ({
+    url: `${BASE_URL}/distance/${d.slug}`,
+    lastModified: now,
+    priority: 0.7,
+    changeFrequency: 'monthly' as const,
+  }));
   const itDistanceEntries: MetadataRoute.Sitemap = getAllItDistancePages().map((d) => ({
+    url: `${BASE_URL}/it/distance/${d.slugIt}`,
+    lastModified: now,
+    priority: 0.7,
+    changeFrequency: 'monthly' as const,
+  }));
+  const richItDistanceEntries: MetadataRoute.Sitemap = getAllRichDistancePagesIt().map((d) => ({
     url: `${BASE_URL}/it/distance/${d.slugIt}`,
     lastModified: now,
     priority: 0.7,
@@ -315,7 +329,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...bolognaHotelEntries,
     ...bolognaCruiseEntries,
     ...distanceEntries,
+    ...richDistanceEntries,
     ...itDistanceEntries,
+    ...richItDistanceEntries,
   ];
 
   // Set of known redirected/non-canonical slugs to guarantee they never enter sitemap.xml

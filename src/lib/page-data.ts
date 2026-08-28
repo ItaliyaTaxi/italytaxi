@@ -1118,7 +1118,10 @@ export const routes: RouteData[] = [
             { q: 'How long is the Rome to Siena transfer?', a: 'About 3 hours (around 230 km) via the A1 motorway, longer if you add a scenic stop.' },
             { q: 'Can we stop in Tuscan wine country?', a: 'Yes — the route passes close to Montepulciano and Montalcino, popular add-on stops for wine lovers.' },
             { q: 'Can this be a one-way transfer or a day trip?', a: 'Both — we offer one-way transfers and full-day round trips with the driver waiting in Siena.' },
-        ]
+        ],
+        relatedLinks: [
+            { href: '/distance/rome-to-siena-distance', label: 'How Far Is Siena from Rome?' },
+        ],
     },
     {
         slug: 'florence-to-bologna-taxi', from: 'Florence', to: 'Bologna',
@@ -1130,7 +1133,10 @@ export const routes: RouteData[] = [
             { q: 'How far is Bologna from Florence?', a: 'About 110 km, a drive of roughly 1 hour 30 minutes across the Apennines via the A1 motorway.' },
             { q: 'Is the transfer or the train better?', a: 'The high-speed train is fast city-centre to city-centre, but a private transfer is door-to-door and ideal with luggage or for reaching specific addresses.' },
             { q: 'What is Bologna famous for?', a: 'Its mediaeval porticoes, the oldest university in the world, and being the gastronomic capital of Italy.' },
-        ]
+        ],
+        relatedLinks: [
+            { href: '/distance/florence-to-bologna-distance', label: 'Florence to Bologna Distance & Route Map' },
+        ],
     },
     {
         slug: 'florence-to-lucca-taxi', from: 'Florence', to: 'Lucca',
@@ -1142,7 +1148,10 @@ export const routes: RouteData[] = [
             { q: 'How far is Lucca from Florence?', a: 'About 80 km, a drive of roughly 1 hour via the A11 motorway.' },
             { q: 'Can I combine Lucca and Pisa from Florence?', a: 'Yes, the two are close together and make a classic combined day trip from Florence with a private driver.' },
             { q: 'Why visit Lucca?', a: 'Its complete Renaissance walls — now a tree-lined promenade — plus charming piazzas and a relaxed pace make it a favourite.' },
-        ]
+        ],
+        relatedLinks: [
+            { href: '/distance/florence-to-lucca-distance', label: 'Florence to Lucca Distance Guide' },
+        ],
     },
     {
         slug: 'florence-to-san-gimignano-taxi', from: 'Florence', to: 'San Gimignano',
@@ -1154,7 +1163,10 @@ export const routes: RouteData[] = [
             { q: 'How far is San Gimignano from Florence?', a: 'About 55 km, a drive of roughly 1 hour through the Tuscan hills.' },
             { q: 'Can I combine San Gimignano with Siena?', a: 'Yes, the two pair beautifully in a single day, often with a Chianti wine stop in between.' },
             { q: 'What is San Gimignano known for?', a: 'Its skyline of medieval stone towers — the "Manhattan of Tuscany" — and award-winning gelato.' },
-        ]
+        ],
+        relatedLinks: [
+            { href: '/distance/florence-to-san-gimignano-distance', label: 'See the Route to San Gimignano' },
+        ],
     },
     {
         slug: 'florence-to-montepulciano-taxi', from: 'Florence', to: 'Montepulciano',
@@ -1166,7 +1178,10 @@ export const routes: RouteData[] = [
             { q: 'How far is Montepulciano from Florence?', a: 'About 115 km, a drive of roughly 1 hour 30 minutes into the Val d\'Orcia in southern Tuscany.' },
             { q: 'Is this good for a wine tour?', a: 'Excellent — Montepulciano is the home of Vino Nobile, and a private driver means everyone can enjoy the tastings.' },
             { q: 'Can I also see Pienza and the Val d\'Orcia?', a: 'Yes, nearby Pienza and the iconic Val d\'Orcia landscapes make a wonderful combined day.' },
-        ]
+        ],
+        relatedLinks: [
+            { href: '/distance/florence-to-montepulciano-distance', label: 'Planning the Drive to Montepulciano' },
+        ],
     },
     {
         slug: 'milan-to-portofino-taxi', from: 'Milan', to: 'Portofino',

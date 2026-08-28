@@ -250,6 +250,7 @@ export const existingRouteItTranslations: ExistingRouteItTranslation[] = [
                 { q: 'Il prezzo è fisso?', a: 'Sì, concordato prima della partenza, senza sorprese all\'arrivo.' },
             ],
             relatedLinks: [
+                { href: '/it/distance/distanza-da-roma-a-siena', label: 'Distanza Roma - Siena' },
                 { href: '/city/rome', label: 'Servizio Taxi Roma' },
                 { href: '/it/route/trasferimento-firenze-siena', label: 'Transfer Firenze - Siena' },
                 { href: '/it/route/trasferimento-firenze-chianti', label: 'Transfer Firenze - Chianti' },
@@ -853,6 +854,7 @@ export const existingRouteItTranslations: ExistingRouteItTranslation[] = [
                 { q: 'Il transfer entra all\'interno delle mura di Lucca?', a: 'Il centro storico ha limitazioni al traffico veicolare, quindi lo sbarco avviene al punto accessibile più vicino al tuo indirizzo.' },
             ],
             relatedLinks: [
+                { href: '/it/distance/distanza-da-firenze-a-lucca', label: 'Distanza Firenze - Lucca' },
                 { href: '/city/florence', label: 'Servizio Taxi Firenze' },
                 { href: '/it/route/trasferimento-firenze-pisa', label: 'Transfer Firenze - Pisa' },
             ],
