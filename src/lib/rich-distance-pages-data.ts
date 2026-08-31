@@ -12,10 +12,12 @@
 
 import {
     GEOM_ROME_SIENA, GEOM_FLORENCE_BOLOGNA, GEOM_FLORENCE_LUCCA, GEOM_FLORENCE_SANGIMIGNANO, GEOM_FLORENCE_MONTEPULCIANO,
+    GEOM_MILAN_PORTOFINO, GEOM_MILAN_STRESA, GEOM_NAPLES_SORRENTO, GEOM_NAPLES_POSITANO, GEOM_NAPLES_SALERNO,
     COORD_ROME, COORD_SIENA, COORD_FLORENCE, COORD_BOLOGNA, COORD_LUCCA, COORD_SANGIMIGNANO, COORD_MONTEPULCIANO,
+    COORD_MILAN, COORD_PORTOFINO, COORD_STRESA, COORD_NAPLES, COORD_SORRENTO, COORD_POSITANO, COORD_SALERNO,
 } from './route-geometry';
 
-export type JourneyType = 'intercity' | 'city-to-city' | 'countryside' | 'hilltown';
+export type JourneyType = 'intercity' | 'city-to-city' | 'countryside' | 'hilltown' | 'coastal' | 'lake';
 
 export interface RichSnapshotStat { label: string; value: string; }
 export interface RichJourneyStep { label: string; description: string; }
@@ -444,6 +446,392 @@ export const richDistancePages: RichDistancePage[] = [
             { href: '/route/florence-to-montepulciano-taxi', label: 'Florence to Montepulciano Taxi Transfer' },
             { href: '/distance/florence-to-san-gimignano-distance', label: 'Florence to San Gimignano Distance' },
             { href: '/distance/florence-to-siena-distance', label: 'Florence to Siena Distance' },
+        ],
+    },
+
+    // ═══════════════════════════ MILAN → PORTOFINO ═══════════════════════════
+    {
+        slug: 'milan-to-portofino-distance',
+        itSlug: 'distanza-da-milano-a-portofino',
+        origin: 'Milan',
+        dest: 'Portofino',
+        journeyType: 'coastal',
+        journeyTypeLabel: 'Lombardy → Liguria · Motorway to the Riviera',
+        seoTitle: 'Milan to Portofino Distance – Km, Route & Travel Time',
+        metaDescription: 'How far is Portofino from Milan? Real driving distance via the A7 and A12 motorways to the Italian Riviera, with route map and public transport comparison.',
+        h1: 'Distance from Milan to Portofino',
+        heroSubtitle: 'South from Lombardy\'s business capital to a car-free harbour village on the Italian Riviera — a motorway run that ends on foot.',
+        map: {
+            origin: { name: 'Milan (Duomo)', lat: COORD_MILAN.lat, lon: COORD_MILAN.lon },
+            destination: { name: 'Portofino', lat: COORD_PORTOFINO.lat, lon: COORD_PORTOFINO.lon },
+            geometry: GEOM_MILAN_PORTOFINO,
+        },
+        drivingDistanceKm: 'approx. 170–175 km',
+        drivingDurationRange: '2 hours 15 minutes – 2 hours 40 minutes',
+        snapshot: [
+            { label: 'Region change', value: 'Lombardy → Liguria' },
+            { label: 'Route type', value: 'Long motorway, coastal finish' },
+            { label: 'Main roads', value: 'A7, then A12 Autostrada dei Fiori' },
+            { label: 'Destination access', value: 'Car-free harbour — park outside' },
+        ],
+        howFarIsIt: [
+            'By road, Milan and Portofino are approximately 170–175 km apart — a genuinely long cross-regional drive, not a quick hop. Most sources converge in this range, though the exact figure shifts a little depending on the precise starting point in Milan and which of Portofino\'s car parks you\'re counting as the endpoint, since the village itself has no through road for cars.',
+            'That last point matters more here than on most routes on this site: Portofino\'s tiny harbour piazzetta has never been open to general vehicle traffic, so your real door-to-door distance includes walking in from one of the paid car parks on the approach to the village, not driving directly to the waterfront.',
+        ],
+        journeySteps: [
+            { label: 'Leaving Milan', description: 'The route joins the A7 motorway heading south out of the city, the same corridor used for traffic toward Genoa and the Ligurian coast.' },
+            { label: 'The A7 to Genoa', description: 'The A7 covers the bulk of the distance — roughly 130 km — running south through Lombardy and Piedmont before descending toward Genoa\'s motorway ring.' },
+            { label: 'Onto the A12 Autostrada dei Fiori', description: 'At Genoa, the route joins the A12, a coastal motorway known for its heavy concentration of tunnels and viaducts as it threads along the Ligurian cliffs, continuing to the Rapallo exit.' },
+            { label: 'The final approach', description: 'From the Rapallo exit, a roughly 15-minute local road leads through Santa Margherita Ligure to Portofino, ending at one of the paid car parks just outside the harbour — the village\'s historic centre itself is closed to cars.' },
+        ],
+        journeyTimeNote: [
+            'This route runs through some of the busiest motorway corridors in northern Italy, so timing matters. Summer weekends and holiday periods bring significant Riviera-bound traffic on the A12, and the Genoa motorway interchange — where several major routes converge — is a recurring bottleneck regardless of season.',
+        ],
+        understandingJourney: [
+            'This is the longest of the routes covered on this site, and it feels that way at the wheel — the first hour and a half is a straightforward motorway run south through Lombardy and Piedmont on the A7, well before any hint of the coast appears.',
+            'The character changes at Genoa, where the route picks up the A12 Autostrada dei Fiori. This stretch is a genuine feat of road engineering, built through a landscape where the mountains meet the sea almost without any flat ground — long tunnels alternate with viaducts perched above the water, one of the more dramatic stretches of motorway driving in Italy.',
+            'Portofino itself is the payoff, and also the reason this journey can\'t end at a normal drop-off point. The village\'s famous piazzetta, ringed by pastel houses and yacht moorings, has no room and no permission for through traffic — every visitor, whether arriving by car, bus or boat, covers the final stretch on foot.',
+        ],
+        highlights: [
+            { title: 'Two distinct motorways, two different drives', description: 'The A7\'s inland run to Genoa and the A12\'s coastal, tunnel-heavy stretch to Rapallo are genuinely different driving experiences within the same journey.' },
+            { title: 'A gateway through Santa Margherita Ligure', description: 'The final approach passes directly through this elegant resort town, which many visitors combine with Portofino on the same day.' },
+            { title: 'A harbour village that ends every journey on foot', description: 'No form of transport — car, bus, or boat — reaches Portofino\'s piazzetta directly; the walk-in is part of arriving, not an inconvenience unique to driving.' },
+        ],
+        transportOptions: [
+            { mode: 'Private transfer / taxi', time: '2h15–2h40', note: 'Door-to-door to the edge of Portofino without navigating the Genoa interchange or hunting for parking.' },
+            { mode: 'Train + local train + bus', time: 'Roughly 2.5–3 hours', note: 'Milano Centrale to Genova Piazza Principe takes about 1h30–1h47 on hourly services, then a further regional train continues along the coast to Santa Margherita Ligure–Portofino station, followed by bus 82 into the village (about 13 minutes, running every 30 minutes).' },
+            { mode: 'Self-driving', time: '2h15–2h40', note: 'Straightforward on the motorway, but budget extra time for Riviera traffic on summer weekends and for finding parking near the village.' },
+        ],
+        transportNote: 'There is no way to shortcut the final stretch into Portofino — every option, including a private transfer, ends with a walk from a car park or bus stop into the piazzetta.',
+        planningTips: [
+            { title: 'Confirm which Portofino car park you\'re aiming for', description: 'Several paid car parks serve the village from different approach roads — knowing which one in advance saves circling during busy periods.' },
+            { title: 'Consider combining with Santa Margherita Ligure', description: 'Since the route passes directly through this resort town on the way in, many visitors treat it as a natural stop rather than a separate trip.' },
+            { title: 'Avoid summer weekend afternoons on the A12 if possible', description: 'This stretch of coastal motorway is one of the most congested in Liguria during peak season — a mid-morning or weekday departure tends to be considerably smoother.' },
+        ],
+        ctaHeading: 'Planning this trip from Milan?',
+        ctaText: 'A private transfer covers the full route, including the Genoa interchange and the final walk-in — see our Milan to Portofino taxi transfer for details.',
+        ctaAnchor: 'View the Milan to Portofino transfer',
+        routePageSlug: 'milan-to-portofino-taxi',
+        faqs: [
+            { q: 'How far is Portofino from Milan?', a: 'Approximately 170–175 km by road, via the A7 motorway to Genoa and then the A12 Autostrada dei Fiori toward Rapallo.' },
+            { q: 'How long does the drive take?', a: 'Typically 2 hours 15 minutes to 2 hours 40 minutes under normal conditions, longer on summer weekends when Riviera-bound traffic builds on the A12.' },
+            { q: 'Can I drive directly into Portofino village?', a: 'No — the historic piazzetta has no through road for cars. Every visitor parks at one of the car parks on the approach and walks the final stretch in.' },
+            { q: 'Is the train a realistic alternative to driving?', a: 'It works, but involves a change — Milan to Genoa by train, a further regional service to Santa Margherita Ligure–Portofino station, then bus 82 into the village. The full journey typically takes around 2.5 to 3 hours.' },
+            { q: 'Is it worth stopping in Santa Margherita Ligure on the way?', a: 'Many visitors do, since the approach road to Portofino passes directly through this resort town — it\'s a natural place to break the journey rather than a detour.' },
+        ],
+        relatedLinks: [
+            { href: '/route/milan-to-portofino-taxi', label: 'Milan to Portofino Taxi Transfer' },
+            { href: '/route/milan-to-stresa-taxi', label: 'Milan to Stresa Taxi Transfer' },
+            { href: '/distance/milan-to-stresa-distance', label: 'Milan to Stresa Distance' },
+        ],
+    },
+
+    // ═══════════════════════════ MILAN → STRESA ═══════════════════════════
+    {
+        slug: 'milan-to-stresa-distance',
+        itSlug: 'distanza-da-milano-a-stresa',
+        origin: 'Milan',
+        dest: 'Stresa',
+        journeyType: 'lake',
+        journeyTypeLabel: 'Lombardy → Piedmont · Gateway to Lake Maggiore',
+        seoTitle: 'Milan to Stresa Distance – Km, Route & Travel Time',
+        metaDescription: 'How far is Stresa from Milan? Real driving distance via the A8 and A26 motorways to Lake Maggiore, with route map, tolls and train comparison.',
+        h1: 'Distance from Milan to Stresa',
+        heroSubtitle: 'A short run northwest from Milan to the belle-époque lakefront of Stresa, gateway to Lake Maggiore\'s Borromean Islands.',
+        map: {
+            origin: { name: 'Milan (Duomo)', lat: COORD_MILAN.lat, lon: COORD_MILAN.lon },
+            destination: { name: 'Stresa', lat: COORD_STRESA.lat, lon: COORD_STRESA.lon },
+            geometry: GEOM_MILAN_STRESA,
+        },
+        drivingDistanceKm: 'approx. 90 km',
+        drivingDurationRange: '1 hour 15 minutes – 1 hour 30 minutes',
+        snapshot: [
+            { label: 'Region change', value: 'Lombardy → Piedmont' },
+            { label: 'Route type', value: 'Short, direct motorway run' },
+            { label: 'Main roads', value: 'A8, then A26' },
+            { label: 'Tolls', value: 'Approx. €5–14' },
+        ],
+        howFarIsIt: [
+            'Milan and Stresa are close by the standards of this site — roughly 90 km apart by road, one of the shorter journeys covered here. The route runs almost entirely on motorway, so unlike some longer or more rural routes, the practical distance doesn\'t vary much based on the exact pickup point within Milan.',
+            'This is a genuinely direct route: northwest out of the city on the A8, then a short stretch of the A26 to reach the lake shore, without the kind of local-road finish that adds uncertainty to some of the other journeys on this site.',
+        ],
+        journeySteps: [
+            { label: 'Leaving Milan', description: 'The route joins the A8 motorway, signposted toward Laghi–Sesto Calende–Varese, heading northwest away from the city.' },
+            { label: 'Onto the A26', description: 'The A8 connects to the A26 motorway, signposted toward Gravellona Toce, which continues north toward the lakes region.' },
+            { label: 'Exiting at Carpugnino', description: 'The route leaves the A26 at the Carpugnino exit, from which local signs lead directly to Stresa.' },
+            { label: 'Arriving at the lakefront', description: 'A short final stretch reaches Stresa\'s lakefront promenade, with its historic hotels and the boat piers for the Borromean Islands.' },
+        ],
+        journeyTimeNote: [
+            'Because this route is almost entirely motorway, travel time is relatively predictable compared with routes that finish on local roads. The main variables are ordinary Milan-area traffic near the start of the journey and summer lake-district traffic on weekends, when Stresa draws day-trippers from across northern Italy.',
+        ],
+        understandingJourney: [
+            'This is one of the more compact journeys on this site — under an hour and a half in normal conditions — and the route reflects that: almost the entire distance runs on two connected motorways, the A8 and the A26, with none of the winding local-road stretches that define some of the longer or more rural routes covered here.',
+            'The A26 section in particular is a fast, modern motorway built to serve the lakes region, and the transition from Milan\'s urban sprawl to the mountains framing Lake Maggiore happens relatively quickly once you\'re on it.',
+            'Stresa itself has been a lakeside resort since the 19th century, and its grand belle-époque hotels along the lungolago reflect that history. It\'s the main departure point for boats to the Borromean Islands — Isola Bella, Isola Madre and Isola dei Pescatori — which sit just offshore in the lake.',
+        ],
+        highlights: [
+            { title: 'One of the shorter, more direct routes on this site', description: 'At roughly 90 km on two connected motorways, this is a considerably more compact journey than the cross-regional routes to Liguria or Campania.' },
+            { title: 'A historic resort town, not a village', description: 'Unlike some smaller lake or hill-town destinations, Stresa has a full lakefront promenade, hotels and year-round infrastructure built around tourism since the 1800s.' },
+            { title: 'The gateway to the Borromean Islands', description: 'Stresa\'s boat piers are the main departure point for the islands in Lake Maggiore, a detail that shapes why many travellers are making this specific journey.' },
+        ],
+        transportOptions: [
+            { mode: 'Private transfer / taxi', time: '1h15–1h30', note: 'Door-to-door to the lakefront, useful if you\'re continuing straight on to a boat departure.' },
+            { mode: 'Direct train', time: 'From around 1 hour on the fastest services', note: 'Trenitalia and Trenord run direct trains from Milano Centrale (and Porta Garibaldi) roughly hourly on the historic Simplon line; journey times vary by service type.' },
+            { mode: 'Self-driving', time: '1h15–1h30', note: 'A straightforward motorway drive via the A8 and A26; tolls run approximately €5–14 depending on vehicle class.' },
+        ],
+        transportNote: 'This is one of the few routes on this site where the direct train is a genuinely strong alternative to driving — Stresa sits directly on a historic main line from Milan, with no change required.',
+        planningTips: [
+            { title: 'Check the boat schedule before you travel', description: 'If the Borromean Islands are the goal, timing your arrival in Stresa around the ferry timetable avoids a wait at the pier.' },
+            { title: 'Weekday travel is noticeably quieter', description: 'Stresa is a popular day-trip destination from Milan, so summer weekends bring more traffic on the approach roads and more crowds at the lakefront and boat piers.' },
+            { title: 'The train is worth comparing directly', description: 'Given the direct line and roughly hourly service, it\'s worth weighing the train against driving specifically on this route, unlike some others where public transport is a distant second option.' },
+        ],
+        ctaHeading: 'Heading to Lake Maggiore from Milan?',
+        ctaText: 'A private transfer gets you to the lakefront without the motorway or the walk from parking — see our Milan to Stresa taxi transfer for details.',
+        ctaAnchor: 'View the Milan to Stresa transfer',
+        routePageSlug: 'milan-to-stresa-taxi',
+        faqs: [
+            { q: 'How far is Stresa from Milan?', a: 'Approximately 90 km by road, via the A8 and A26 motorways — one of the shorter journeys covered on this site.' },
+            { q: 'How long does the drive take?', a: 'Typically 1 hour 15 minutes to 1 hour 30 minutes under normal conditions, with tolls of roughly €5–14 depending on vehicle class.' },
+            { q: 'Is the train a good alternative to driving?', a: 'Yes — Stresa sits directly on a historic main line from Milan, with roughly hourly direct services and no change required, making it one of the stronger train alternatives among the routes on this site.' },
+            { q: 'Does Stresa have its own train station?', a: 'Yes, a historic station on the Simplon line connecting Milan to Switzerland, within walking distance of the lakefront and boat piers.' },
+            { q: 'Why do people travel from Milan to Stresa specifically?', a: 'Stresa is the main departure point for boats to the Borromean Islands in Lake Maggiore, which is the primary reason for this particular journey.' },
+        ],
+        relatedLinks: [
+            { href: '/route/milan-to-stresa-taxi', label: 'Milan to Stresa Taxi Transfer' },
+            { href: '/route/milan-to-portofino-taxi', label: 'Milan to Portofino Taxi Transfer' },
+            { href: '/distance/milan-to-portofino-distance', label: 'Milan to Portofino Distance' },
+        ],
+    },
+
+    // ═══════════════════════════ NAPLES → SORRENTO ═══════════════════════════
+    {
+        slug: 'naples-to-sorrento-distance',
+        itSlug: 'distanza-da-napoli-a-sorrento',
+        origin: 'Naples',
+        dest: 'Sorrento',
+        journeyType: 'coastal',
+        journeyTypeLabel: 'Campania · Gateway to the Sorrentine Peninsula',
+        seoTitle: 'Naples to Sorrento Distance – Km, Route & Travel Time',
+        metaDescription: 'How far is Sorrento from Naples? Real driving distance via the A3 and SS145, with route map and a direct comparison against the Circumvesuviana train.',
+        h1: 'Distance from Naples to Sorrento',
+        heroSubtitle: 'South along the bay from Naples to the clifftop town that anchors the Sorrentine Peninsula and the approach to the Amalfi Coast.',
+        map: {
+            origin: { name: 'Naples (Piazza del Plebiscito)', lat: COORD_NAPLES.lat, lon: COORD_NAPLES.lon },
+            destination: { name: 'Sorrento', lat: COORD_SORRENTO.lat, lon: COORD_SORRENTO.lon },
+            geometry: GEOM_NAPLES_SORRENTO,
+        },
+        drivingDistanceKm: 'approx. 50 km',
+        drivingDurationRange: '50 minutes – 1 hour 15 minutes',
+        snapshot: [
+            { label: 'Route type', value: 'Motorway + coastal state road' },
+            { label: 'Main roads', value: 'A3, then SS145' },
+            { label: 'Train alternative', value: 'Circumvesuviana, ~1h10, every ~30 min' },
+            { label: 'Traffic sensitivity', value: 'High in summer' },
+        ],
+        howFarIsIt: [
+            'Naples and Sorrento are about 50 km apart by road — a short distance on paper, though the journey takes longer than the distance alone would suggest. The route leaves the A3 motorway partway through and finishes on the SS145, a coastal state road that slows things down through Castellammare di Stabia and the built-up towns along the Sorrentine Peninsula.',
+            'The gap between "distance" and "travel time" is unusually wide on this route. In free-flowing conditions the drive can be done in under an hour, but this corridor carries heavy local traffic year-round and even heavier tourist traffic in summer, so real journey times vary more than the road distance alone implies.',
+        ],
+        journeySteps: [
+            { label: 'Leaving Naples', description: 'The route joins the A3 motorway heading south, the main corridor toward Salerno and the coast.' },
+            { label: 'Exiting at Castellammare di Stabia', description: 'The route leaves the A3 to join the SS145, a coastal state road that continues along the base of the Sorrentine Peninsula.' },
+            { label: 'Along the SS145', description: 'This stretch runs through a near-continuous chain of towns — Castellammare, Vico Equense, Meta — with more traffic lights and local traffic than a motorway.' },
+            { label: 'Arriving in Sorrento', description: 'The road reaches Sorrento\'s town centre near Piazza Tasso, the hub of the town perched on cliffs above the Marina Piccola.' },
+        ],
+        journeyTimeNote: [
+            'This is one of the more traffic-sensitive routes on this site. The SS145 corridor serves a dense string of towns with everyday local traffic, and from roughly May to October it also carries a heavy volume of tourists heading toward Sorrento and onward to the Amalfi Coast, so summer travel times can run well above the free-flow figure.',
+        ],
+        understandingJourney: [
+            'This route splits cleanly into two very different halves. The first part, on the A3 motorway, is fast and unremarkable — standard Italian motorway driving south out of Naples. The second half, after exiting onto the SS145, is a different experience entirely: a coastal state road threading through one town after another along the base of the Sorrentine Peninsula, with sea views opening up between the buildings.',
+            'Unlike a rural or countryside route, this corridor is genuinely built-up for almost its whole length — Castellammare di Stabia, Vico Equense and Meta effectively run into one another, so the drive feels more like moving through a chain of coastal towns than through open countryside.',
+            'Sorrento itself sits on a clifftop above its small harbour, the Marina Piccola, and functions as the practical gateway to the peninsula and the wider Amalfi Coast — many journeys that continue further along the coast, whether by road or boat, start from here.',
+        ],
+        highlights: [
+            { title: 'A route defined by two different road types', description: 'The fast A3 motorway section and the slower, town-threading SS145 give this journey a genuinely two-part character rather than one continuous driving experience.' },
+            { title: 'A near-continuous string of coastal towns', description: 'Castellammare di Stabia, Vico Equense and Meta run together along the SS145, making this one of the more built-up routes on this site rather than a rural drive.' },
+            { title: 'A well-known and genuinely competitive train alternative', description: 'The Circumvesuviana line runs frequently and directly between Naples and Sorrento, giving this route one of the clearer public-transport choices covered here.' },
+        ],
+        transportOptions: [
+            { mode: 'Private transfer / taxi', time: '50min–1h15', note: 'Door-to-door and free of the Circumvesuviana\'s crowding, though still subject to the same road traffic as any vehicle on the SS145.' },
+            { mode: 'Circumvesuviana train', time: 'Approx. 1 hour 10 minutes', note: 'Runs directly between Naples and Sorrento roughly every 30 minutes — a genuinely practical option, though the trains are basic and can be crowded, especially in summer.' },
+            { mode: 'Self-driving', time: '50min–1h15', note: 'Via the A3 then SS145; expect the coastal stretch to be considerably slower than the motorway portion, especially through town centres.' },
+        ],
+        transportNote: 'Of the routes on this site, this is one where the train is most directly comparable to driving — the Circumvesuviana connects the two towns without a change, though comfort and crowding are real trade-offs against a private transfer.',
+        planningTips: [
+            { title: 'Expect the SS145 to be the slow part', description: 'The motorway portion of this route is quick; nearly all of the variability comes from the coastal towns the SS145 passes through.' },
+            { title: 'Avoid the Circumvesuviana at peak times if you have luggage', description: 'The line is a genuinely useful option but was not built with large suitcases in mind — it gets crowded, especially on summer weekends and around midday.' },
+            { title: 'This route is often a step toward the wider Amalfi Coast', description: 'Many travellers treat Sorrento as a gateway rather than the final stop, continuing on by road, bus or seasonal ferry — worth factoring into onward planning.' },
+        ],
+        ctaHeading: 'Heading to Sorrento from Naples?',
+        ctaText: 'Skip the crowded Circumvesuviana with a door-to-door private transfer — see our Naples to Sorrento taxi transfer for details.',
+        ctaAnchor: 'View the Naples to Sorrento transfer',
+        routePageSlug: 'naples-to-sorrento-taxi',
+        faqs: [
+            { q: 'How far is Sorrento from Naples?', a: 'Approximately 50 km by road, via the A3 motorway and the SS145 coastal state road.' },
+            { q: 'How long does the drive take?', a: 'Typically 50 minutes to 1 hour 15 minutes, though the SS145 section through Castellammare di Stabia, Vico Equense and Meta can slow things down considerably in summer.' },
+            { q: 'Is the Circumvesuviana train a good option?', a: 'Yes — it runs directly between Naples and Sorrento in about 1 hour 10 minutes, roughly every 30 minutes, making it one of the more genuinely useful train alternatives among the routes on this site, though it can be crowded.' },
+            { q: 'Why does this route take longer than the distance suggests?', a: 'Only part of the journey is on the A3 motorway — the rest runs on the SS145, a coastal state road through a near-continuous string of towns, which is inherently slower than motorway driving.' },
+            { q: 'Is Sorrento a good base for the wider Amalfi Coast?', a: 'Yes — Sorrento functions as a practical gateway to the Sorrentine Peninsula and the Amalfi Coast, with onward road, bus and seasonal boat connections starting from the town.' },
+        ],
+        relatedLinks: [
+            { href: '/route/naples-to-sorrento-taxi', label: 'Naples to Sorrento Taxi Transfer' },
+            { href: '/route/naples-to-positano-taxi', label: 'Naples to Positano Taxi Transfer' },
+            { href: '/distance/naples-to-positano-distance', label: 'Naples to Positano Distance' },
+        ],
+    },
+
+    // ═══════════════════════════ NAPLES → POSITANO ═══════════════════════════
+    {
+        slug: 'naples-to-positano-distance',
+        itSlug: 'distanza-da-napoli-a-positano',
+        origin: 'Naples',
+        dest: 'Positano',
+        journeyType: 'coastal',
+        journeyTypeLabel: 'Campania · Onto the Amalfi Coast Road',
+        seoTitle: 'Naples to Positano Distance – Km, Route & Travel Time',
+        metaDescription: 'How far is Positano from Naples? Real driving distance via the A3 and the SS163 Amalfi coast road, with route map, seasonal traffic notes and toll information.',
+        h1: 'Distance from Naples to Positano',
+        heroSubtitle: 'From the Campanian mainland onto the SS163, the cliffside road that carries every journey along the Amalfi Coast to Positano.',
+        map: {
+            origin: { name: 'Naples (Piazza del Plebiscito)', lat: COORD_NAPLES.lat, lon: COORD_NAPLES.lon },
+            destination: { name: 'Positano', lat: COORD_POSITANO.lat, lon: COORD_POSITANO.lon },
+            geometry: GEOM_NAPLES_POSITANO,
+        },
+        drivingDistanceKm: 'approx. 60–65 km',
+        drivingDurationRange: '1 hour 15 minutes off-peak; 2–2.5 hours in high season',
+        snapshot: [
+            { label: 'Route type', value: 'Motorway + cliffside coast road' },
+            { label: 'Main roads', value: 'A3, then SS163 Amalfitana' },
+            { label: 'A3 tolls', value: 'Approx. €3–6' },
+            { label: 'Season sensitivity', value: 'Very high (May–October)' },
+        ],
+        howFarIsIt: [
+            'Naples and Positano are roughly 60–65 km apart by road, though sources vary somewhat depending on the exact starting point in Naples and whether the measurement runs to the town centre or the edge of Positano. What matters more than the distance itself is that a significant part of the route runs on the SS163 Amalfitana — a narrow, cliffside road that behaves nothing like a motorway.',
+            'This is one of the routes on this site where distance and travel time genuinely diverge the most. The same roughly 60 km can take anywhere from just over an hour to well over two, entirely depending on the season and time of day.',
+        ],
+        journeySteps: [
+            { label: 'Leaving Naples', description: 'The route joins the A3 motorway heading south toward Salerno.' },
+            { label: 'Exiting at Vietri sul Mare', description: 'The route leaves the A3 at Vietri sul Mare, the eastern gateway to the Amalfi Coast, joining the SS163 Amalfitana.' },
+            { label: 'Along the SS163 Amalfitana', description: 'This roughly 50 km state road is carved directly into the cliffside, winding through Amalfi, Praiano and Meta before reaching Positano — narrow, with frequent tight bends and limited overtaking room.' },
+            { label: 'Arriving in Positano', description: 'The road descends into Positano, a town built almost vertically into the cliff, with the final stretch into the centre often the tightest and slowest part of the whole journey.' },
+        ],
+        journeyTimeNote: [
+            'Seasonal timing matters more on this route than almost any other covered on this site. In light traffic the drive takes around 1 hour 15 minutes to 1 hour 30 minutes, but during the May-to-October high season it commonly takes 2 to 2.5 hours, with single-lane bottlenecks between Meta and Positano adding a further 20 to 30 minutes on busy summer weekends.',
+        ],
+        understandingJourney: [
+            'This route has two genuinely different characters. The A3 motorway section to Vietri sul Mare is fast and conventional. Everything changes once the route joins the SS163 Amalfitana — a road carved directly into vertical cliffside, built long before modern traffic volumes existed, and never widened to match them.',
+            'The SS163 is famous for good reason: it\'s one of the most scenically dramatic coastal roads in Italy, with the sea dropping away directly below the roadway for long stretches. But that same geography — a narrow shelf cut into rock, with the mountain on one side and a cliff on the other — is exactly why the road can\'t simply absorb more traffic during busy periods.',
+            'Positano itself is built almost vertically down the cliff face toward the sea, and the final approach into the town reflects that: tight switchbacks and very limited road width mean the last few minutes are often the slowest part of the entire journey from Naples, whatever the time of year.',
+        ],
+        highlights: [
+            { title: 'A motorway-to-cliff-road journey, not a single continuous type of drive', description: 'The fast A3 section and the narrow, winding SS163 are different enough that this route can\'t be judged by distance alone.' },
+            { title: 'One of the most dramatic coastal roads in Italy', description: 'The SS163 Amalfitana runs largely at the edge of the cliffside for its full length between Vietri sul Mare and Positano.' },
+            { title: 'A route with no meaningful train alternative', description: 'Unlike Naples–Sorrento or Naples–Salerno, there is no rail line along this stretch of coast, which shapes every transport decision for this specific journey.' },
+        ],
+        transportOptions: [
+            { mode: 'Private transfer / taxi', time: '1h15 off-peak; 2–2.5h high season', note: 'Door-to-door on a road with no realistic self-navigation shortcuts, and no parking to search for in central Positano.' },
+            { mode: 'Circumvesuviana train + SITA bus', time: 'Roughly 2–3 hours total', note: 'Train to Sorrento (about 1h10, every ~30 min), then a SITA bus onward to Positano (every 30–60 minutes, tickets must be bought in advance, not on board).' },
+            { mode: 'Seasonal ferry (Apr–Oct)', time: 'Roughly 1.5–2 hours', note: 'Operators including Alicost and Travelmar run 2–3 sailings a day from Naples to Positano in season; only one crossing a day runs in winter.' },
+            { mode: 'Self-driving', time: '1h15 off-peak; 2–2.5h high season', note: 'Via the A3 then SS163; the coast road has very limited overtaking and can back up significantly on summer weekends.' },
+        ],
+        transportNote: 'There is no rail option on this route, which makes it different from most others on this site — the realistic choices are driving, a private transfer, a train-plus-bus combination, or a seasonal ferry, each with a genuinely different time and comfort trade-off.',
+        planningTips: [
+            { title: 'Build in a wide time buffer in high season', description: 'Between May and October, treat 2 to 2.5 hours as the realistic planning figure, not the 1h15 off-peak time, especially for anything with a fixed arrival deadline.' },
+            { title: 'Consider the ferry between April and October', description: 'When it\'s running, the seasonal boat from Naples avoids the SS163 entirely and can be genuinely faster than driving during peak traffic periods.' },
+            { title: 'Buy SITA bus tickets before boarding if using public transport', description: 'Tickets are not sold on board — they need to be bought in advance at a station bar or newsstand, which can catch first-time visitors out.' },
+        ],
+        ctaHeading: 'Planning a trip to Positano from Naples?',
+        ctaText: 'Let an experienced driver handle the SS163\'s cliffside bends — see our Naples to Positano taxi transfer for details.',
+        ctaAnchor: 'View the Naples to Positano transfer',
+        routePageSlug: 'naples-to-positano-taxi',
+        faqs: [
+            { q: 'How far is Positano from Naples?', a: 'Approximately 60–65 km by road, via the A3 motorway to Vietri sul Mare and then the SS163 Amalfitana coast road.' },
+            { q: 'How long does the drive take?', a: 'Around 1 hour 15 minutes in light traffic, but commonly 2 to 2.5 hours during the May-to-October high season, when the SS163 gets significantly busier.' },
+            { q: 'Is there a direct train to Positano?', a: 'No — there is no rail line along this stretch of the Amalfi Coast. The public transport option is the Circumvesuviana train to Sorrento followed by a SITA bus onward.' },
+            { q: 'Is the ferry a good alternative?', a: 'When it runs — roughly April to October — yes, with 2 to 3 sailings a day from Naples taking around 1.5 to 2 hours, avoiding the coast road entirely. Only one crossing a day operates in winter.' },
+            { q: 'Why does traffic affect this route so much more than others?', a: 'The SS163 is a narrow road carved into the cliffside with very limited overtaking room, so even moderate increases in traffic volume during high season create disproportionate delays.' },
+        ],
+        relatedLinks: [
+            { href: '/route/naples-to-positano-taxi', label: 'Naples to Positano Taxi Transfer' },
+            { href: '/route/naples-to-sorrento-taxi', label: 'Naples to Sorrento Taxi Transfer' },
+            { href: '/distance/naples-to-sorrento-distance', label: 'Naples to Sorrento Distance' },
+        ],
+    },
+
+    // ═══════════════════════════ NAPLES → SALERNO ═══════════════════════════
+    {
+        slug: 'naples-to-salerno-distance',
+        itSlug: 'distanza-da-napoli-a-salerno',
+        origin: 'Naples',
+        dest: 'Salerno',
+        journeyType: 'city-to-city',
+        journeyTypeLabel: 'Campania · City-to-City Gateway to the Coast',
+        seoTitle: 'Naples to Salerno Distance – Km, Route & Travel Time',
+        metaDescription: 'How far is Salerno from Naples? Real driving distance via the A3 motorway, with route map and a direct comparison against Trenitalia\'s frequent direct trains.',
+        h1: 'Distance from Naples to Salerno',
+        heroSubtitle: 'A quick motorway run between two proper Campanian cities — and, for many travellers, the practical eastern gateway to the Amalfi Coast.',
+        map: {
+            origin: { name: 'Naples (Piazza del Plebiscito)', lat: COORD_NAPLES.lat, lon: COORD_NAPLES.lon },
+            destination: { name: 'Salerno', lat: COORD_SALERNO.lat, lon: COORD_SALERNO.lon },
+            geometry: GEOM_NAPLES_SALERNO,
+        },
+        drivingDistanceKm: 'approx. 55–58 km',
+        drivingDurationRange: '50 minutes – 1 hour 10 minutes',
+        snapshot: [
+            { label: 'Route type', value: 'City-to-city motorway run' },
+            { label: 'Main road', value: 'A3 motorway' },
+            { label: 'Train alternative', value: 'Trenitalia, frequent, 30–55 min' },
+            { label: 'Destination', value: 'Full city, ferry gateway' },
+        ],
+        howFarIsIt: [
+            'Naples and Salerno are approximately 55–58 km apart by road, almost entirely along the A3 motorway. By rail the distance is slightly shorter, at just under 48 km, reflecting the more direct line the railway takes compared with the motorway\'s route.',
+            'Unlike some of the other journeys on this site, this one connects two substantial cities rather than a city and a resort town or village, so the destination itself — not just the road — has proper year-round infrastructure at the other end.',
+        ],
+        journeySteps: [
+            { label: 'Leaving Naples', description: 'The route joins the A3 motorway heading south, the main corridor connecting Naples to the Cilento and Calabria beyond Salerno.' },
+            { label: 'The A3 corridor', description: 'This is a fast, direct motorway stretch, historically the primary road link between the two cities and still the fastest route by car.' },
+            { label: 'Approaching Salerno', description: 'The motorway meets Salerno\'s urban ring roads on the northern edge of the city.' },
+            { label: 'Arriving in Salerno', description: 'The route continues into the city centre near Piazza della Concordia, close to Salerno\'s seafront and passenger ferry terminal.' },
+        ],
+        journeyTimeNote: [
+            'Traffic on the A3 can build during peak commuting hours, since this corridor serves regular business and commuter traffic between the two cities in addition to tourist traffic heading toward the Amalfi Coast and Cilento — it isn\'t a purely leisure route, which shapes when it tends to get busy.',
+        ],
+        understandingJourney: [
+            'This is a more straightforward, businesslike journey than most others on this site — a direct motorway run between two working Campanian cities, without the narrow coast roads, hill-town climbs or single-track bottlenecks that define some of the other routes covered here.',
+            'That practicality is exactly why the route matters commercially: Salerno functions as the eastern gateway to the Amalfi Coast, considerably easier to reach by both road and rail than towns further along the SS163, which is why many travellers heading to Amalfi, Ravello or Cetara route through here rather than via Sorrento.',
+            'Salerno itself is a full city with its own seafront, historic centre and a working port — including a passenger ferry terminal used for coastal connections in season — a different kind of destination from the resort villages that some of the other routes on this site lead to.',
+        ],
+        highlights: [
+            { title: 'A genuine city-to-city motorway run', description: 'Unlike routes that end at a resort village or hill town, this one connects two proper cities with full year-round infrastructure at both ends.' },
+            { title: 'A frequent, genuinely fast train alternative', description: 'Trenitalia runs frequent direct services on this well-served intercity line, with some of the fastest journey times of any train route featured on this site.' },
+            { title: 'The practical eastern gateway to the Amalfi Coast', description: 'Salerno\'s road and rail links make it a common starting point for onward travel to Amalfi, Ravello and Cetara, distinct from the Sorrento-side approach to the coast.' },
+        ],
+        transportOptions: [
+            { mode: 'Trenitalia train', time: 'Roughly 30–55 minutes', note: 'Frequent direct services between Napoli Centrale and Salerno, with the fastest trains around 30 minutes and regional services closer to 45–55 minutes; departures run roughly every 20–30 minutes.' },
+            { mode: 'Private transfer / taxi', time: '50min–1h10', note: 'Door-to-door, useful if continuing straight on to an Amalfi Coast destination or the ferry terminal without a station transfer.' },
+            { mode: 'Self-driving', time: '50min–1h10', note: 'A direct A3 motorway run; traffic is generally lighter outside peak commuting hours.' },
+        ],
+        transportNote: 'This is one of the routes on this site where the train is a clearly strong option in its own right — a direct, frequent, well-established intercity line — rather than a slower fallback to driving.',
+        planningTips: [
+            { title: 'Consider the train if you don\'t need a car in Salerno', description: 'Given the frequency and speed of direct services, the train is a genuinely competitive option here in a way it isn\'t on several of the other routes on this site.' },
+            { title: 'Factor in onward travel if Salerno is a stopover', description: 'Many travellers pass through Salerno en route to Amalfi, Ravello or Cetara — worth planning the connection onward rather than treating Salerno as the final stop.' },
+            { title: 'The ferry terminal is close to the centre', description: 'If continuing by boat along the coast, Salerno\'s passenger terminal is within walking distance of the city centre, unlike some more spread-out arrival points.' },
+        ],
+        ctaHeading: 'Continuing on to the Amalfi Coast?',
+        ctaText: 'A private transfer takes you straight to Salerno\'s centre or ferry terminal — see our Naples to Salerno taxi transfer for details.',
+        ctaAnchor: 'View the Naples to Salerno transfer',
+        routePageSlug: 'naples-to-salerno-taxi',
+        faqs: [
+            { q: 'How far is Salerno from Naples?', a: 'Approximately 55–58 km by road via the A3 motorway; slightly shorter by rail, at just under 48 km.' },
+            { q: 'How long does the drive take?', a: 'Typically 50 minutes to 1 hour 10 minutes under normal conditions, with the A3 carrying regular commuter traffic in addition to tourist traffic.' },
+            { q: 'Is the train faster than driving?', a: 'It can be — Trenitalia runs frequent direct services, with the fastest trains taking around 30 minutes, making this one of the more genuinely competitive train routes on this site.' },
+            { q: 'Why do people travel from Naples to Salerno specifically?', a: 'Salerno functions as the practical eastern gateway to the Amalfi Coast, with easier road and rail access than towns further along the coast road, making it a common route toward Amalfi, Ravello and Cetara.' },
+            { q: 'Does Salerno have a ferry terminal?', a: 'Yes — a passenger ferry terminal close to the city centre serves seasonal coastal connections, useful for travellers continuing along the coast by boat.' },
+        ],
+        relatedLinks: [
+            { href: '/route/naples-to-salerno-taxi', label: 'Naples to Salerno Taxi Transfer' },
+            { href: '/route/naples-to-positano-taxi', label: 'Naples to Positano Taxi Transfer' },
+            { href: '/distance/naples-to-sorrento-distance', label: 'Naples to Sorrento Distance' },
         ],
     },
 ];

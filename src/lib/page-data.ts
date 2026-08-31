@@ -1193,7 +1193,11 @@ export const routes: RouteData[] = [
             { q: 'How far is Portofino from Milan?', a: 'About 190 km, a drive of roughly 2 hours 30 minutes via the motorway and the scenic Ligurian coast.' },
             { q: 'Can a car reach Portofino village?', a: 'Cars stop just outside the tiny car-free harbour; the driver drops you as close as possible and you walk the final short stretch.' },
             { q: 'Can I combine Portofino with Santa Margherita?', a: 'Yes, elegant Santa Margherita Ligure is right next door and makes a lovely combined visit.' },
-        ]
+        ],
+        relatedLinks: [
+            { href: '/distance/milan-to-portofino-distance', label: 'Milan to Portofino Distance & Route Map' },
+            { href: '/route/milan-to-stresa-taxi', label: 'Milan to Stresa Taxi Transfer' },
+        ],
     },
     {
         slug: 'milan-to-stresa-taxi', from: 'Milan', to: 'Stresa',
@@ -1205,7 +1209,11 @@ export const routes: RouteData[] = [
             { q: 'How far is Stresa from Milan?', a: 'About 80 km, a drive of roughly 1 hour 15 minutes north of Milan to Lake Maggiore.' },
             { q: 'What is there to do in Stresa?', a: 'Stresa is the gateway to the Borromean Islands, with belle-époque hotels, gardens and lake cruises.' },
             { q: 'Can you collect from Milan airports too?', a: 'Yes, we transfer to Stresa from Milan city centre and from Malpensa, Linate and Bergamo airports.' },
-        ]
+        ],
+        relatedLinks: [
+            { href: '/distance/milan-to-stresa-distance', label: 'Milan to Stresa Distance & Route Map' },
+            { href: '/route/milan-to-portofino-taxi', label: 'Milan to Portofino Taxi Transfer' },
+        ],
     },
     {
         slug: 'naples-to-sorrento-taxi', from: 'Naples', to: 'Sorrento',
@@ -1217,7 +1225,11 @@ export const routes: RouteData[] = [
             { q: 'How far is Sorrento from Naples?', a: 'About 50 km, a drive of roughly 1 hour 15 minutes depending on traffic.' },
             { q: 'Can you pick up from the Naples cruise port?', a: 'Yes, we offer cruise-port pickups to Sorrento with a guaranteed timed return for shore excursions.' },
             { q: 'Is a transfer better than the Circumvesuviana?', a: 'For comfort and luggage, yes — the local train is crowded and basic, while a transfer is door-to-door.' },
-        ]
+        ],
+        relatedLinks: [
+            { href: '/distance/naples-to-sorrento-distance', label: 'Naples to Sorrento Distance & Route Map' },
+            { href: '/route/naples-to-positano-taxi', label: 'Naples to Positano Taxi Transfer' },
+        ],
     },
     {
         slug: 'naples-to-positano-taxi', from: 'Naples', to: 'Positano',
@@ -1229,7 +1241,11 @@ export const routes: RouteData[] = [
             { q: 'How long is the drive from Naples to Positano?', a: 'About 1 hour 30 minutes (around 60 km), longer in peak summer traffic on the coast road.' },
             { q: 'Can you collect me from the Naples cruise terminal?', a: 'Yes, we provide cruise-port transfers to Positano with a timed return so you do not miss the ship.' },
             { q: 'Why use a private driver to Positano?', a: 'The narrow coast road and lack of parking make a local driver by far the easiest and least stressful option.' },
-        ]
+        ],
+        relatedLinks: [
+            { href: '/distance/naples-to-positano-distance', label: 'Naples to Positano Distance & Route Map' },
+            { href: '/route/naples-to-salerno-taxi', label: 'Naples to Salerno Taxi Transfer' },
+        ],
     },
     {
         slug: 'naples-to-salerno-taxi', from: 'Naples', to: 'Salerno',
@@ -1241,7 +1257,11 @@ export const routes: RouteData[] = [
             { q: 'How far is Salerno from Naples?', a: 'About 55 km, a drive of roughly 1 hour via the motorway.' },
             { q: 'Why go to Salerno?', a: 'Salerno is the closest gateway to the eastern Amalfi Coast (Amalfi, Ravello) and a hub for coastal ferries.' },
             { q: 'Can you drop me at the Salerno ferry terminal?', a: 'Yes, we drop directly at the terminal so you can connect to Amalfi Coast ferries.' },
-        ]
+        ],
+        relatedLinks: [
+            { href: '/distance/naples-to-salerno-distance', label: 'Naples to Salerno Distance & Route Map' },
+            { href: '/route/naples-to-sorrento-taxi', label: 'Naples to Sorrento Taxi Transfer' },
+        ],
     },
     {
         slug: 'venice-to-padua-taxi', from: 'Venice', to: 'Padua',

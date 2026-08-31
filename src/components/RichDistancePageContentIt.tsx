@@ -14,6 +14,8 @@ const JOURNEY_TYPE_COLOR: Record<string, string> = {
     'city-to-city': '#3A5A6B',
     'countryside': '#5C7A4F',
     'hilltown': '#8A5A3B',
+    'coastal': '#2B6E7A',
+    'lake': '#3D6E96',
 };
 
 /**

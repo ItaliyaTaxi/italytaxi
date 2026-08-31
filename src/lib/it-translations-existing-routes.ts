@@ -553,6 +553,7 @@ export const existingRouteItTranslations: ExistingRouteItTranslation[] = [
                 { q: 'Sono disponibili seggiolini per bambini?', a: 'Sì, su richiesta al momento della prenotazione.' },
             ],
             relatedLinks: [
+                { href: '/it/distance/distanza-da-napoli-a-sorrento', label: 'Distanza Napoli - Sorrento' },
                 { href: '/city/naples', label: 'Servizio Taxi Napoli' },
                 { href: '/city/sorrento', label: 'Servizio Taxi Sorrento' },
                 { href: '/it/route/trasferimento-aeroporto-napoli-sorrento', label: 'In arrivo in aereo? Transfer Aeroporto Napoli - Sorrento' },
@@ -726,6 +727,7 @@ export const existingRouteItTranslations: ExistingRouteItTranslation[] = [
                 { q: 'Il transfer arriva fino al porticciolo di Portofino?', a: 'Sì, lo sbarco avviene nel punto più vicino accessibile al centro di Portofino.' },
             ],
             relatedLinks: [
+                { href: '/it/distance/distanza-da-milano-a-portofino', label: 'Distanza Milano - Portofino' },
                 { href: '/city/milan', label: 'Servizio Taxi Milano' },
                 { href: '/city/portofino', label: 'Servizio Taxi Portofino' },
                 { href: '/route/genoa-airport-to-cinque-terre-taxi', label: 'Visiting the Cinque Terre too? Genoa Airport Transfer' },

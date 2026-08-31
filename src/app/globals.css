@@ -151,6 +151,22 @@ h6 {
   transform: scale(0.95);
 }
 
+/* Compact variant for tight spaces (mobile navbar) — a real smaller size,
+   not a CSS transform:scale() on the full-size button, which only shrinks
+   the button visually while its layout footprint (and collision risk with
+   neighbouring elements) stays at full width. Also keeps longer translated
+   labels, e.g. Italian "Ottieni Preventivo", from overflowing their slot. */
+.taxi-button--compact {
+  padding: 7px 9px;
+}
+
+.taxi-button--compact .inner {
+  font-size: 9px;
+  gap: 4px;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
 .points_wrapper {
   overflow: hidden;
   width: 100%;

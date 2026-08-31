@@ -134,17 +134,23 @@ export default function Navbar() {
     return (
         <>
             <nav suppressHydrationWarning className={`fixed w-full z-50 transition-all duration-500 ${isScrolled ? 'bg-[#0F1C2E]/95 py-3 shadow-xl backdrop-blur-md' : 'bg-transparent py-5'}`}>
-                <div suppressHydrationWarning className="container mx-auto px-6 relative flex flex-col items-center">
+                <div suppressHydrationWarning className="container mx-auto px-4 md:px-6 relative flex flex-col items-center">
 
-                    {/* Top Section: Logo (Center) and Book Now (Upper Right) */}
-                    <div className="w-full relative flex justify-center items-center mb-6">
-                        <Link href="/" className="transition-transform duration-300 hover:scale-105 block animate-slide-left [animation-delay:0s]">
+                    {/* Top Section: Logo (Center) and Book Now (Upper Right).
+                        Mobile uses a real flex row (justify-between + order-N on each
+                        item) instead of absolute-positioned overlays, so the hamburger,
+                        language toggle, logo and quote button each get their own slot
+                        and can never overlap — regardless of screen width or how long
+                        the translated button text is. Desktop keeps its existing
+                        centered-logo-with-absolute-siblings layout unchanged. */}
+                    <div className="w-full relative flex justify-between items-center mb-6 lg:justify-center">
+                        <Link href="/" className="order-2 lg:order-none shrink-0 transition-transform duration-300 hover:scale-105 block animate-slide-left [animation-delay:0s]">
                             <Image
                                 src="/images/logo.webp"
                                 alt="Italy Taxi Service in Italy"
                                 width={180}
                                 height={60}
-                                className="h-14 md:h-16 w-auto"
+                                className="h-8 sm:h-12 md:h-16 w-auto"
                                 priority
                             />
                         </Link>
@@ -194,28 +200,32 @@ export default function Navbar() {
                             </TaxiButton>
                         </div>
 
-                        {/* MOBILE ONLY: Left group — hamburger + EN/IT toggle */}
-                        <div className="lg:hidden absolute left-0 top-1/2 -translate-y-1/2 flex items-center gap-2 animate-slide-left [animation-delay:0.4s]">
+                        {/* MOBILE ONLY: Left — hamburger + EN/IT toggle, as one flex slot
+                            (order-1) so it can never overlap the logo or quote button. */}
+                        <div className="lg:hidden order-1 flex items-center gap-1.5 animate-slide-left [animation-delay:0.4s]">
                             <button
-                                className="text-white p-2 min-w-[44px] min-h-[44px] flex items-center justify-center"
+                                className="text-white p-1.5 min-w-[40px] min-h-[40px] flex items-center justify-center shrink-0"
                                 onClick={() => setIsMobileMenuOpen(true)}
                                 aria-label="Open mobile menu"
                             >
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                                 </svg>
                             </button>
-                            {/* Language toggle — clearly visible next to hamburger */}
-                            <div className="flex items-center bg-white/10 rounded-full p-0.5 border border-white/20">
+                            <div className="flex items-center bg-white/10 rounded-full p-0.5 border border-white/20 shrink-0">
                                 <button
+                                    suppressHydrationWarning
                                     onClick={() => switchLanguage('en')}
-                                    className={`px-2 py-1 rounded-full text-[9px] font-bold uppercase tracking-widest transition-all duration-200 min-w-[28px] min-h-[28px] ${language === 'en' ? 'bg-[#F4C430] text-[#0F1C2E]' : 'text-white/70 hover:text-white'}`}
+                                    aria-label="Switch to English"
+                                    className={`px-1.5 py-1 rounded-full text-[9px] font-bold uppercase tracking-wider transition-all duration-200 ${language === 'en' ? 'bg-[#F4C430] text-[#0F1C2E]' : 'text-white/70 hover:text-white'}`}
                                 >
                                     EN
                                 </button>
                                 <button
+                                    suppressHydrationWarning
                                     onClick={() => switchLanguage('it')}
-                                    className={`px-2 py-1 rounded-full text-[9px] font-bold uppercase tracking-widest transition-all duration-200 min-w-[28px] min-h-[28px] ${language === 'it' ? 'bg-[#F4C430] text-[#0F1C2E]' : 'text-white/70 hover:text-white'}`}
+                                    aria-label="Passa all'italiano"
+                                    className={`px-1.5 py-1 rounded-full text-[9px] font-bold uppercase tracking-wider transition-all duration-200 ${language === 'it' ? 'bg-[#F4C430] text-[#0F1C2E]' : 'text-white/70 hover:text-white'}`}
                                 >
                                     IT
                                 </button>
@@ -223,9 +233,9 @@ export default function Navbar() {
                         </div>
 
                         {/* MOBILE ONLY: Right — Get Quote only (WhatsApp is the fixed floating button) */}
-                        <div className="lg:hidden absolute right-0 top-1/2 -translate-y-1/2 scale-75 origin-right animate-slide-left [animation-delay:0.4s]">
-                            <TaxiButton href="/book-now">
-                                {t.nav.getQuote}
+                        <div className="lg:hidden order-3 shrink-0 animate-slide-left [animation-delay:0.4s]">
+                            <TaxiButton href="/book-now" className="taxi-button--compact">
+                                {t.nav.getQuoteShort}
                             </TaxiButton>
                         </div>
                     </div>
