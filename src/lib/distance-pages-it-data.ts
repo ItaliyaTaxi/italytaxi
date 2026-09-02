@@ -1496,6 +1496,102 @@ export const newDistancePagesIt: NewDistancePageIt[] = [
             ],
         },
     },
+    {
+        slugEn: 'venice-to-padua-distance',
+        slugIt: 'distanza-da-venezia-a-padova',
+        origin: 'Venezia', dest: 'Padova',
+        heroImage: '/images/venice.webp',
+        it: {
+            seoTitle: 'Distanza Venezia Padova – Km e Tempo di Percorrenza',
+            metaDescription: 'Quanto dista Padova da Venezia? Distanza in linea d\'aria, in auto e in treno a confronto, con tempi di percorrenza reali per ogni mezzo.',
+            h1: 'Distanza da Venezia a Padova',
+            intro: [
+                'Venezia e Padova sono vicine per gli standard delle città italiane — circa 36 km in linea d\'aria, e circa 38-42 km su strada a seconda del punto esatto di partenza e arrivo sul lato di terraferma di ciascuna città. È uno dei percorsi più brevi e diretti trattati su questo sito.',
+                'Poiché il centro storico di Venezia è privo di auto, ogni distanza stradale qui è misurata dalla terraferma — Piazzale Roma o Mestre — non dalle isole stesse, un dettaglio importante quando si confrontano dati provenienti da fonti diverse.',
+            ],
+            centreVsDoorToDoor: [
+                'Le distanze sopra indicate sono misurate dalla porta d\'accesso di Venezia sulla terraferma (Piazzale Roma, il limite veicolare delle isole storiche) fino al centro di Padova. Se alloggi sulle isole, aggiungi il tempo per raggiungere Piazzale Roma in vaporetto o a piedi prima che possa iniziare qualsiasi tragitto in auto.',
+                'Un transfer privato viene prenotato dal tuo reale punto di ritiro — incluso un hotel sulle isole, con il passaggio acqua-strada già considerato — anziché presumere che tu sia già in terraferma.',
+            ],
+            byCar: [
+                'In auto dalla terraferma di Venezia a Padova si percorrono circa 38-42 km, normalmente in 40 minuti - 1 ora e 20 minuti, a seconda soprattutto del traffico. Il percorso diretto segue l\'autostrada A4, una delle più trafficate del nord Italia, che collega Venezia, Padova, Verona e Milano.',
+            ],
+            byCarRoad: 'l\'autostrada A4',
+            byTrain: [
+                'Questo è un collegamento ferroviario frequente e ben servito. I treni Frecce ad alta velocità collegano Venezia Santa Lucia e Padova in appena 26 minuti, mentre i treni regionali impiegano un po\' più tempo ma circolano comunque per tutta la giornata su una delle linee a breve percorrenza più trafficate d\'Italia. È genuinamente uno dei collegamenti ferroviari più rapidi tra quelli trattati su questo sito.',
+            ],
+            byPrivateTransfer: [
+                'Un transfer privato copre lo stesso percorso porta a porta, il che conta soprattutto se alloggi sulle isole di Venezia (evitando la sequenza vaporetto-poi-taxi), viaggi con bagagli, o sei diretto a un indirizzo specifico di Padova anziché alla stazione.',
+                'Per prezzi, opzioni di veicolo e prenotazione, visita la nostra pagina dedicata al transfer privato Venezia - Padova.',
+            ],
+            routePageSlugIt: undefined,
+            routePageLabelIt: undefined,
+            popularStops: [],
+            travelTimeFactors: [
+                'Traffico sull\'A4, una delle autostrade più trafficate del nord Italia, specialmente intorno a entrambe le città nelle ore di punta.',
+                'Se si parte dalle isole di Venezia (che richiede prima un vaporetto o una camminata fino a Piazzale Roma) o già dalla terraferma.',
+                'Per il viaggio in treno, se si prende un servizio Frecce ad alta velocità o un treno regionale più lento.',
+            ],
+            bestWay: [
+                'Data la frequenza e la velocità del treno su questo specifico percorso, è una scelta valida per chi viaggia senza bagagli pesanti e parte vicino a una delle due stazioni. Un transfer privato o la guida hanno più senso se si arriva dalle isole di Venezia con bagagli, si è diretti a un indirizzo di Padova lontano dalla stazione, o si preferisce un\'unica corsa prenotata anziché destreggiarsi tra vaporetto e treno.',
+            ],
+            faqs: [
+                { q: 'Quanto dista Padova da Venezia?', a: 'Circa 36 km in linea d\'aria, o circa 38-42 km su strada dal lato di terraferma di Venezia (Piazzale Roma o Mestre), con un tragitto di 40 minuti - 1 ora e 20 minuti in auto a seconda del traffico.' },
+                { q: 'Il treno è più veloce dell\'auto da Venezia a Padova?', a: 'Spesso sì — i servizi Frecce ad alta velocità coprono il percorso in appena 26 minuti, difficile da battere in auto una volta considerato il traffico sull\'A4, anche se resta da raggiungere e lasciare le stazioni a entrambe le estremità.' },
+                { q: 'La distanza include le isole storiche di Venezia?', a: 'No — poiché le isole sono prive di auto, le distanze stradali si misurano dalla porta d\'accesso di terraferma a Piazzale Roma. Se alloggi sulle isole, aggiungi il tempo per raggiungere la terraferma in vaporetto o a piedi.' },
+                { q: 'Quale strada collega Venezia e Padova?', a: 'L\'autostrada A4, un\'importante arteria del nord Italia che prosegue anche verso Verona e Milano — può essere trafficata, specialmente intorno a entrambe le città nelle ore di punta pendolari.' },
+                { q: 'Padova è una buona gita di un giorno da Venezia?', a: 'Sì — con un tempo di percorrenza ben sotto l\'ora sia in treno sia con un transfer privato, la Cappella degli Scrovegni e la Basilica di Sant\'Antonio rendono Padova una gita di mezza giornata o giornata intera popolare e comoda da Venezia.' },
+            ],
+        },
+    },
+    {
+        slugEn: 'rome-fiumicino-to-ciampino-distance',
+        slugIt: 'distanza-fiumicino-ciampino',
+        origin: 'Aeroporto di Roma Fiumicino', dest: 'Aeroporto di Roma Ciampino',
+        heroImage: '/images/rome airport.webp',
+        it: {
+            seoTitle: 'Distanza Fiumicino Ciampino – Km e Tempo di Percorrenza',
+            metaDescription: 'Quanto dista l\'aeroporto di Ciampino da Fiumicino? Distanza in auto, tempi di percorrenza e opzioni di trasporto pubblico tra i due scali di Roma.',
+            h1: 'Distanza tra Fiumicino e Ciampino',
+            intro: [
+                'I due aeroporti di Roma si trovano su lati opposti della città — Fiumicino (FCO) a sud-ovest sulla costa, Ciampino (CIA) a sud-est — a circa 31 km di distanza in linea d\'aria, ma a circa 40-42 km seguendo il percorso stradale che li collega realmente.',
+                'Questa distanza è identica in entrambe le direzioni, che tu stia viaggiando da Fiumicino a Ciampino per un volo low-cost in coincidenza o viceversa per una coincidenza intercontinentale, quindi i dati di questa pagina valgono ugualmente in entrambi i sensi.',
+            ],
+            centreVsDoorToDoor: [
+                'Poiché entrambi i punti sono terminal aeroportuali e non centri città, qui non esiste una vera distinzione "porta a porta" come per un percorso città-città — i dati sopra riportati riflettono già il tragitto terminal-terminal.',
+                'Ciò che varia è quale terminal specifico stai usando in ciascun aeroporto (Fiumicino ha i Terminal 1 e 3; Ciampino ha un terminal unico), il che può aggiungere qualche minuto a seconda del punto esatto di ritiro o discesa.',
+            ],
+            byCar: [
+                'In auto tra i due aeroporti si percorrono circa 40-42 km, tipicamente in 45 minuti - 1 ora e 10 minuti, utilizzando il Grande Raccordo Anulare (GRA), la tangenziale di Roma, per aggirare il centro città anziché attraversarlo. Il traffico sul GRA varia molto a seconda dell\'orario — le ore di punta dei giorni feriali, all\'incirca 7-10 e 16-19, sono le più lente.',
+            ],
+            byCarRoad: 'il Grande Raccordo Anulare (GRA)',
+            byTrain: [
+                'Non esiste un treno o bus diretto tra Fiumicino e Ciampino. L\'alternativa con mezzi pubblici prevede di raggiungere prima il centro di Roma — ad esempio una navetta da Fiumicino a Termini richiede circa 45 minuti — per poi prendere un bus o treno separato fino a Ciampino, con un cambio e ulteriore tempo di viaggio aggiuntivo. In pratica questo tragitto richiede spesso ben oltre 90 minuti una volta considerati attesa e cambio, decisamente più lungo e meno prevedibile rispetto alla guida diretta.',
+            ],
+            byPrivateTransfer: [
+                'Per questo specifico percorso, un transfer privato non riguarda tanto il comfort quanto il fatto che non esiste una vera alternativa diretta con i mezzi pubblici — passare dal centro di Roma con bagagli e una coincidenza stretta comporta un rischio reale, mentre un transfer diretto copre lo stesso tragitto in un\'unica corsa senza interruzioni.',
+                'Per prezzi, opzioni di veicolo e prenotazione, visita la nostra pagina dedicata al transfer Fiumicino - Ciampino.',
+            ],
+            routePageSlugIt: undefined,
+            routePageLabelIt: undefined,
+            popularStops: [],
+            travelTimeFactors: [
+                'Traffico sul GRA, in particolare nelle ore di punta mattutine e serali dei giorni feriali.',
+                'Quale terminal stai usando a Fiumicino (Terminal 1 o 3) e il punto esatto di ritiro al terminal unico di Ciampino.',
+                'Quanto tempo prevedi per una coincidenza in giornata tra i due aeroporti — un margine adeguato copre il ritiro bagagli, il tragitto e il check-in al secondo aeroporto.',
+            ],
+            bestWay: [
+                'Per questa specifica coppia di aeroporti, guidare o un transfer privato sono la scelta pratica predefinita più che una tra le tante opzioni — non esiste un trasporto pubblico diretto, e il percorso indiretto attraverso il centro di Roma richiede notevolmente più tempo ed è meno prevedibile con bagagli e un volo in coincidenza.',
+            ],
+            faqs: [
+                { q: 'Quanto dista Fiumicino dall\'aeroporto di Ciampino?', a: 'Circa 31 km in linea d\'aria, o circa 40-42 km seguendo il percorso stradale reale via il GRA, con un tragitto di 45 minuti - 1 ora e 10 minuti in auto a seconda del traffico.' },
+                { q: 'Esiste un treno diretto tra i due aeroporti di Roma?', a: 'No — non esiste un treno o bus diretto tra Fiumicino e Ciampino. Il trasporto pubblico richiede di passare dal centro di Roma e tornare indietro, impiegando comunemente ben oltre 90 minuti considerando il cambio.' },
+                { q: 'La distanza cambia a seconda della direzione?', a: 'No — la distanza e il tempo di guida tipico sono identici sia viaggiando da Fiumicino a Ciampino sia da Ciampino a Fiumicino.' },
+                { q: 'Quanto tempo devo prevedere per una coincidenza in giornata tra i due aeroporti?', a: 'Una linea guida comune è di lasciare almeno 3-4 ore tra l\'orario di arrivo previsto in un aeroporto e la partenza dall\'altro, per coprire ritiro bagagli, tragitto e check-in.' },
+                { q: 'Quale strada collega Fiumicino e Ciampino?', a: 'Il Grande Raccordo Anulare (GRA), la tangenziale di Roma, che aggira il centro città anziché attraversarlo — il traffico varia molto a seconda dell\'orario.' },
+            ],
+        },
+    },
 ];
 
 export function getAllItDistancePages() {

@@ -1899,6 +1899,132 @@ export const distancePages: DistancePage[] = [
             { q: 'Is Orvieto a good day trip from Rome?', a: "Yes — at around 1 to 1.5 hours away by direct train or car, it's a manageable day trip, with its cathedral and underground caves as the main highlights." },
         ],
     },
+    {
+        slug: 'venice-to-padua-distance',
+        itSlug: 'distanza-da-venezia-a-padova',
+        origin: 'Venice',
+        dest: 'Padua',
+        seoTitle: 'Venice to Padua Distance – Km, Miles & Travel Time',
+        metaDescription: 'How far is Padua from Venice? Straight-line, driving and train distances compared, with real travel times by car, train and private transfer.',
+        h1: 'Venice to Padua Distance',
+        heroImage: '/images/venice.webp',
+
+        straightLineDistance: 'approx. 36 km (about 22 miles)',
+        straightLineNote: 'Straight-line distance calculators put Venice and Padua at approximately 36 km apart — one of the shorter city-to-city hops in this region, which is why the route feels quick by both road and rail.',
+        drivingDistance: 'approx. 38–42 km (about 24–26 miles)',
+        drivingDuration: '40 minutes – 1 hour 20 minutes',
+        trainDuration: 'as little as 26 minutes on high-speed services',
+
+        intro: [
+            "Venice and Padua sit close together by Italian city-to-city standards — around 36 km apart in a straight line, and roughly 38–42 km by road depending on your exact start and end points on each city's mainland side. It's one of the shortest and most straightforward routes covered on this site.",
+            "Because Venice's historic centre is car-free, every road distance here is measured from the mainland — Piazzale Roma or Mestre — not the islands themselves, which matters for anyone comparing figures from different sources.",
+        ],
+
+        centreVsDoorToDoor: [
+            "The distances above are measured from Venice's mainland gateway (Piazzale Roma, the vehicle limit of the historic islands) to central Padua. If you're staying on the islands themselves, add the time to reach Piazzale Roma by vaporetto or on foot before any car journey can begin.",
+            "A private transfer is booked from your actual pickup point — including a hotel on the islands, with the water-to-road transition factored in — rather than assuming you're already on the mainland.",
+        ],
+
+        byCar: [
+            "Driving from Venice's mainland to Padua covers about 38–42 km and normally takes 40 minutes to 1 hour 20 minutes, depending heavily on traffic. The direct route follows the A4 motorway, one of northern Italy's busiest, which connects Venice, Padua, Verona and Milan.",
+        ],
+        byCarRoad: 'the A4 motorway',
+
+        byTrain: [
+            "This is a well-served, frequent rail corridor. High-speed Frecce services connect Venezia Santa Lucia and Padova in as little as 26 minutes, while regional trains take somewhat longer but still run throughout the day on one of Italy's busiest short-haul lines. It's genuinely one of the fastest train connections featured on this site.",
+        ],
+
+        byPrivateTransfer: [
+            "A private transfer covers the same route door-to-door, which matters most if you're staying on Venice's islands (avoiding the vaporetto-to-taxi-rank sequence), travelling with luggage, or heading to a specific Padua address rather than the train station.",
+            "For pricing, vehicle options and booking, see our dedicated Venice to Padua taxi transfer page.",
+        ],
+        routePageSlug: 'venice-to-padua-taxi',
+        routePageLabel: 'Venice to Padua Taxi Transfer',
+
+        popularStops: [],
+
+        travelTimeFactors: [
+            'Traffic on the A4, one of the busiest motorways in northern Italy, especially around both cities at peak times.',
+            'Whether you\'re starting from Venice\'s islands (requiring a vaporetto or walk to Piazzale Roma first) or already on the mainland.',
+            'For train travel, whether you catch a high-speed Frecce service or a slower regional train.',
+        ],
+
+        bestWay: [
+            "Given how frequent and fast the train is on this specific route, it's a strong default for anyone travelling without heavy luggage and starting near either station. A private transfer or driving makes more sense if you're coming from Venice's islands with bags, heading to a Padua address away from the station, or want a single booked journey rather than juggling vaporetto and train connections.",
+        ],
+
+        faqs: [
+            { q: 'How far is Padua from Venice?', a: "About 36 km in a straight line, or roughly 38–42 km by road from Venice's mainland side (Piazzale Roma or Mestre), taking 40 minutes to 1 hour 20 minutes to drive depending on traffic." },
+            { q: 'Is the train faster than driving from Venice to Padua?', a: "Often, yes — high-speed Frecce services cover the route in as little as 26 minutes, which is hard to beat by car once you factor in A4 traffic, though you still need to reach and leave the stations at both ends." },
+            { q: 'Does the distance include Venice\'s historic islands?', a: "No — since the islands are car-free, road distances are measured from the mainland gateway at Piazzale Roma. If you're staying on the islands, add time to reach the mainland by vaporetto or on foot first." },
+            { q: 'What road connects Venice and Padua?', a: "The A4 motorway, a major northern Italian route that also continues on to Verona and Milan — it can get busy, particularly around both cities at peak commuting times." },
+            { q: 'Is Padua a good day trip from Venice?', a: "Yes — with a journey time of well under an hour either by train or private transfer, Padua's Scrovegni Chapel and Basilica of Saint Anthony make it a popular and easy half-day or full-day trip from Venice." },
+        ],
+    },
+    {
+        slug: 'rome-fiumicino-to-ciampino-distance',
+        itSlug: 'distanza-fiumicino-ciampino',
+        origin: 'Rome Fiumicino Airport',
+        dest: 'Rome Ciampino Airport',
+        seoTitle: 'Fiumicino to Ciampino Airport Distance – Km & Travel Time',
+        metaDescription: 'How far is Rome Ciampino Airport from Fiumicino? Driving distance, travel time and public transport options between Rome\'s two airports.',
+        h1: 'Fiumicino to Ciampino Airport Distance',
+        heroImage: '/images/rome airport.webp',
+
+        straightLineDistance: 'approx. 31 km (about 19 miles)',
+        straightLineNote: 'Straight-line distance calculators place the two airport terminals at approximately 31 km apart — the real driving distance is longer because no road runs directly between them across the city.',
+        drivingDistance: 'approx. 40–42 km (about 25–26 miles)',
+        drivingDuration: '45 minutes – 1 hour 10 minutes',
+        trainDuration: 'no direct service — see Public Transport below',
+
+        intro: [
+            "Rome's two airports sit on opposite sides of the city — Fiumicino (FCO) to the southwest on the coast, Ciampino (CIA) to the southeast — around 31 km apart in a straight line, but roughly 40–42 km by the road route that actually connects them.",
+            "This distance is the same in both directions, whether you're travelling from Fiumicino to Ciampino for an onward low-cost flight or the reverse for a long-haul connection, so the figures on this page apply equally either way.",
+        ],
+
+        centreVsDoorToDoor: [
+            "Because both endpoints are airport terminals rather than city centres, there's no meaningful \"door-to-door\" distinction here the way there is for a city-to-city route — the figures above already reflect terminal-to-terminal travel.",
+            "What does vary is which specific terminal you're using at each airport (Fiumicino has Terminals 1 and 3; Ciampino has a single terminal), which can add a few minutes depending on where exactly you're collected or dropped off.",
+        ],
+
+        byCar: [
+            "Driving between the two airports covers roughly 40–42 km and typically takes 45 minutes to 1 hour 10 minutes, using the Grande Raccordo Anulare (GRA), Rome's ring road, to skirt around the city centre rather than through it. Traffic on the GRA varies significantly by time of day — weekday peaks, roughly 7–10am and 4–7pm, are the slowest.",
+        ],
+        byCarRoad: 'the GRA (Grande Raccordo Anulare) ring road',
+
+        byTrain: [
+            "There is no direct train or bus between Fiumicino and Ciampino. The public-transport alternative means travelling into central Rome first — for example, a shuttle from Fiumicino to Termini station takes around 45 minutes — and then a separate bus or train back out to Ciampino, adding a transfer and further travel time on top. In practice this route commonly takes well over 90 minutes once waiting and the change are factored in, considerably longer and less predictable than driving directly.",
+        ],
+
+        byPrivateTransfer: [
+            "For this specific route, a private transfer is less about comfort and more about there being no practical direct public-transport alternative — going via central Rome with luggage and a tight connection is a real risk, while a direct transfer covers the same ground in one uninterrupted trip.",
+            "For pricing, vehicle options and booking, see our dedicated Fiumicino to Ciampino airport taxi transfer page.",
+        ],
+        routePageSlug: 'rome-fiumicino-to-rome-ciampino-taxi',
+        routePageLabel: 'Fiumicino to Ciampino Airport Transfer',
+        secondaryRoutePageSlug: 'rome-ciampino-to-rome-fiumicino-taxi',
+        secondaryRoutePageLabel: 'Ciampino to Fiumicino Airport Transfer',
+
+        popularStops: [],
+
+        travelTimeFactors: [
+            'Traffic on the GRA ring road, particularly during weekday morning and evening peaks.',
+            'Which terminal you\'re using at Fiumicino (Terminal 1 or 3) and the exact pickup point at Ciampino\'s single terminal.',
+            'How much time you need to allow for a same-day flight connection — a comfortable buffer covers baggage reclaim, the drive, and check-in at the second airport.',
+        ],
+
+        bestWay: [
+            "For this specific pair of airports, driving or a private transfer is the practical default rather than one option among several — there's no direct public transport, and the indirect route via central Rome takes considerably longer and is harder to predict with luggage and a connecting flight at stake.",
+        ],
+
+        faqs: [
+            { q: 'How far is Fiumicino from Ciampino airport?', a: "About 31 km in a straight line, or roughly 40–42 km by the actual road route via the GRA ring road, taking 45 minutes to 1 hour 10 minutes to drive depending on traffic." },
+            { q: 'Is there a direct train between Rome\'s two airports?', a: "No — there is no direct train or bus linking Fiumicino and Ciampino. Public transport requires travelling into central Rome and back out again, commonly taking well over 90 minutes with the transfer included." },
+            { q: 'Does the distance differ depending on direction?', a: "No — the distance and typical drive time are the same whether you're travelling from Fiumicino to Ciampino or from Ciampino to Fiumicino." },
+            { q: 'How much time should I leave for a same-day connection between the airports?', a: "A common guideline is at least three to four hours between your scheduled arrival at one airport and your departure from the other, to cover baggage reclaim, the drive and check-in." },
+            { q: 'What road connects Fiumicino and Ciampino?', a: "The Grande Raccordo Anulare (GRA), Rome's ring road, which routes around the city centre rather than through it — traffic on it varies significantly by time of day." },
+        ],
+    },
 ];
 
 export function getAllDistancePages(): DistancePage[] {

@@ -169,6 +169,7 @@ export const richDistancePages: RichDistancePage[] = [
         howFarIsIt: [
             "Sources for this route vary more than most: driving-distance figures range from around 102 km up to 115 km depending on the tool and the exact endpoints used, largely because \"Florence\" and \"Bologna\" both cover a reasonable spread of possible city-centre reference points, and because the A1's exact alignment through the mountains means small routing differences compound over the distance.",
             "The straight-line distance between the two is somewhat shorter still, since the A1 doesn't run in a straight line at all — it bends to follow the Apennine terrain, threading through a long sequence of tunnels and viaducts rather than cutting directly north. This is one route where the difference between \"as the crow flies\" and \"the road distance\" is genuinely explained by the mountains in between, not by an indirect city approach.",
+            "Distance and drive time are identical whichever direction you're travelling — Florence to Bologna or Bologna to Florence — so everything on this page applies equally to both.",
         ],
         journeySteps: [
             { label: 'Leaving Florence', description: 'The A1 picks up on the northern edge of the city and climbs almost immediately into the foothills of the Apennines.' },
@@ -210,11 +211,12 @@ export const richDistancePages: RichDistancePage[] = [
             { q: 'Is driving faster than the train?', a: "No — this is one route where the train is clearly faster. The high-speed service covers the distance in around 35 minutes through a dedicated mountain tunnel, well under half the typical driving time." },
             { q: 'Does traffic affect the journey time?', a: 'Yes, particularly at weekday peak hours around both cities, and within the mountain tunnel section itself, where there\'s limited ability to reroute around any slowdown or incident.' },
             { q: 'Why is the driving distance range so wide for this route?', a: "Because \"Florence\" and \"Bologna\" each cover a range of plausible city-centre reference points, and small differences compound over a route that runs through mountainous terrain rather than a direct, flat road." },
+            { q: 'Is the distance the same from Bologna to Florence?', a: "Yes — the road distance, drive time and train time are identical in both directions. This page and the figures on it apply equally whether you're travelling from Florence to Bologna or from Bologna to Florence." },
         ],
         relatedLinks: [
             { href: '/route/florence-to-bologna-taxi', label: 'Florence to Bologna Taxi Transfer' },
+            { href: '/route/bologna-to-florence-taxi', label: 'Bologna to Florence Taxi Transfer' },
             { href: '/distance/florence-to-pisa-distance', label: 'Florence to Pisa Distance' },
-            { href: '/distance/pisa-airport-to-florence-distance', label: 'Pisa Airport to Florence Distance' },
         ],
     },
 

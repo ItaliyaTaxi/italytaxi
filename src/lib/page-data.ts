@@ -1273,7 +1273,10 @@ export const routes: RouteData[] = [
             { q: 'How far is Padua from Venice?', a: 'About 40 km, a drive of roughly 45 minutes from the Venice mainland.' },
             { q: 'Where in Venice can you pick me up?', a: 'From Piazzale Roma (the vehicle limit of the islands) or anywhere on the mainland, including Mestre and the airport.' },
             { q: 'What is Padua known for?', a: 'Giotto\'s frescoes in the Scrovegni Chapel, the Basilica of Saint Anthony, and one of the world\'s oldest universities.' },
-        ]
+        ],
+        relatedLinks: [
+            { href: '/distance/venice-to-padua-distance', label: 'Venice to Padua Distance & Route Map' },
+        ],
     },
     {
         slug: 'bologna-to-florence-taxi', from: 'Bologna', to: 'Florence',
@@ -1285,7 +1288,10 @@ export const routes: RouteData[] = [
             { q: 'How far is Florence from Bologna?', a: 'About 110 km, a drive of roughly 1 hour 30 minutes across the Apennines via the A1 motorway.' },
             { q: 'Can you pick up from Bologna Airport?', a: 'Yes, we offer transfers from Bologna Marconi Airport directly to Florence and the wider Tuscany region.' },
             { q: 'Can you reach my hotel inside Florence\'s ZTL?', a: 'Yes — as a licensed service we can enter the limited-traffic zone to drop you at your hotel door.' },
-        ]
+        ],
+        relatedLinks: [
+            { href: '/distance/florence-to-bologna-distance', label: 'Florence to Bologna Distance & Route Map' },
+        ],
     },
 
     // ─── Phase 8: Airport-to-Airport transfers (rich long-form pages) ───────
@@ -1338,6 +1344,9 @@ export const routes: RouteData[] = [
             { q: 'Is the transfer available late at night or very early?', a: 'Yes, we operate 24/7 — ideal for the early-morning and late-night low-cost flights common at Ciampino.' },
             { q: 'Can you carry luggage for a whole family?', a: 'Yes. Choose a minivan or Mercedes V-Class and tell us the number of passengers and bags when booking so everything fits comfortably.' },
         ],
+        relatedLinks: [
+            { href: '/distance/rome-fiumicino-to-ciampino-distance', label: 'Fiumicino to Ciampino Distance & Route Map' },
+        ],
     },
     {
         slug: 'rome-ciampino-to-rome-fiumicino-taxi',
@@ -1387,6 +1396,9 @@ export const routes: RouteData[] = [
             { q: 'Is this available for very early or late flights?', a: 'Yes, we run 24/7, which suits the early and late low-cost flights that Ciampino is known for.' },
             { q: 'Is the fare fixed?', a: 'Yes — agreed before travel with no meter, so traffic does not change the price.' },
             { q: 'Can you accommodate a group with lots of luggage?', a: 'Yes, choose a minivan, Mercedes V-Class or minibus and tell us your numbers when booking.' },
+        ],
+        relatedLinks: [
+            { href: '/distance/rome-fiumicino-to-ciampino-distance', label: 'Fiumicino to Ciampino Distance & Route Map' },
         ],
     },
     {

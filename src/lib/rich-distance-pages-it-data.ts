@@ -135,6 +135,7 @@ export const richDistancePagesIt: RichDistancePageIt[] = [
         howFarIsIt: [
             'Le fonti per questo percorso variano più della media: le cifre sulla distanza in auto vanno da circa 102 km fino a 115 km a seconda dello strumento e dei punti di riferimento esatti, in gran parte perché sia "Firenze" sia "Bologna" coprono un ragionevole ventaglio di possibili punti di riferimento nel centro città, e perché l\'esatto tracciato dell\'A1 tra le montagne fa sì che piccole differenze di percorso si sommino sulla distanza.',
             'La distanza in linea d\'aria tra le due è un po\' più breve, dato che l\'A1 non segue affatto una linea retta — piega per seguire il terreno appenninico, attraversando una lunga sequenza di gallerie e viadotti anziché tagliare direttamente verso nord. Questo è uno dei percorsi in cui la differenza tra la distanza "in linea d\'aria" e quella "su strada" è genuinamente spiegata dalle montagne di mezzo, non da un percorso urbano indiretto.',
+            'Distanza e tempo di percorrenza sono identici in entrambe le direzioni — da Firenze a Bologna o da Bologna a Firenze — quindi tutto ciò che trovi in questa pagina vale ugualmente per entrambi i sensi di marcia.',
         ],
         journeySteps: [
             { label: 'Partenza da Firenze', description: 'L\'A1 inizia sul lato settentrionale della città e sale quasi subito verso le colline pedemontane appenniniche.' },
@@ -177,6 +178,7 @@ export const richDistancePagesIt: RichDistancePageIt[] = [
             { q: 'È più veloce guidare o prendere il treno?', a: 'No — questo è uno dei percorsi in cui il treno è chiaramente più veloce. Il servizio alta velocità copre la distanza in circa 35 minuti attraverso una galleria di montagna dedicata, ben al di sotto della metà del tempo tipico in auto.' },
             { q: 'Il traffico influisce sul tempo di viaggio?', a: 'Sì, in particolare nelle ore di punta dei giorni feriali intorno a entrambe le città, e all\'interno del tratto in galleria, dove le possibilità di percorso alternativo in caso di rallentamento sono limitate.' },
             { q: 'Perché l\'intervallo di distanza in auto è così ampio per questo percorso?', a: 'Perché "Firenze" e "Bologna" coprono ciascuna un ventaglio di punti di riferimento plausibili nel centro città, e piccole differenze si sommano su un percorso che attraversa un territorio montuoso anziché una strada diretta e pianeggiante.' },
+            { q: 'La distanza è la stessa da Bologna a Firenze?', a: 'Sì — distanza stradale, tempo di guida e tempo in treno sono identici in entrambe le direzioni. Questa pagina e i suoi dati valgono ugualmente sia viaggiando da Firenze a Bologna sia da Bologna a Firenze.' },
         ],
         relatedLinks: [
             { href: '/it/route/trasferimento-firenze-pisa', label: 'Transfer Privato Firenze - Pisa' },
