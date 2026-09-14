@@ -10,12 +10,12 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: "Milan Chauffeur Service | Private Taxi MXP LIN BGY",
-  description: "Premium chauffeur service in Milan from Malpensa, Linate & Bergamo airports. Business-class vehicles, suited drivers, fixed prices. Book online instantly.",
+  title: "Milan Chauffeur Service | Private Driver, Malpensa & Linate",
+  description: "Private chauffeur and driver service in Milan — Malpensa, Linate & Bergamo airport transfers plus city and Lake Como trips. Fixed prices, English-speaking drivers.",
   alternates: { canonical: "/milan-chauffeur-service" },
   openGraph: {
-    title: "Milan Chauffeur Service | Private Taxi MXP LIN BGY",
-    description: "Premium chauffeur service in Milan from Malpensa, Linate & Bergamo airports. Business-class vehicles, suited drivers, fixed prices. Book online instantly.",
+    title: "Milan Chauffeur Service | Private Driver, Malpensa & Linate",
+    description: "Private chauffeur and driver service in Milan — Malpensa, Linate & Bergamo airport transfers plus city and Lake Como trips. Fixed prices, English-speaking drivers.",
     url: "https://www.italytaxiservice.com/milan-chauffeur-service",
     images: [{ url: '/images/milan airport.jpg', width: 1200, height: 630, alt: 'Milan Chauffeur Service — Private Taxi' }],
   },
@@ -45,6 +45,10 @@ const faqs = [
   {
     q: "Is an early morning or late night Milan airport transfer possible?",
     a: "Yes. Our Milan chauffeur service operates 24 hours a day, 365 days a year. We regularly handle 4am departures from Linate for early morning European business flights, and midnight arrivals at Malpensa for long-haul intercontinental flights. There is no surcharge for unsociable hours on pre-booked transfers."
+  },
+  {
+    q: "How does hotel pickup work in Milan?",
+    a: "For hotel and city pickups, your driver contacts you directly — by WhatsApp or phone, using the details you provide at booking — to confirm the exact pickup time and meeting point outside your hotel. It's the same direct driver-contact approach we use for airport meet-and-greet, just without the terminal name-sign step."
   }
 ];
 
@@ -128,6 +132,8 @@ export default function MilanChauffeurServicePage() {
           { label: "Florence Private Taxi", href: "/florence-private-taxi" },
           { label: "Business Taxi Service", href: "/services/business-taxi" },
           { label: "Milan City Taxi", href: "/city/milan" },
+          { label: "Milan Malpensa Airport", href: "/airport/milan-malpensa" },
+          { label: "Milan Linate Airport", href: "/airport/milan-linate" },
           { label: "Milan to Lake Como", href: "/route/milan-to-lake-como-taxi" },
           { label: "Book Now", href: "/book-now" },
         ]}

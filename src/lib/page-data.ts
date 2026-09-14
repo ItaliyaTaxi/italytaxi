@@ -736,6 +736,7 @@ export const routes: RouteData[] = [
             { q: 'How long is the taxi from Naples to Amalfi Coast?', a: 'The taxi from Naples to the Amalfi Coast takes approximately 1.5 hours (about 65 km), depending on traffic along the famous SS163 coastal road.' },
             { q: 'Which towns on the Amalfi Coast can you drop me off at?', a: 'We serve all Amalfi Coast towns, including Positano, Amalfi town, Ravello, Praiano, Maiori, and Cetara.' },
             { q: 'Is it safe to hire a taxi along the Amalfi Coast roads?', a: 'Yes. Our drivers are experts on the narrow, winding Amalfi Coast roads and hold all required local driving licenses for this unique terrain.' },
+            { q: 'Which airport do I fly into for the Amalfi Coast?', a: 'Naples International Airport (Capodichino, IATA: NAP) is the main airport for the Amalfi Coast, about 65km/1.5 hours by road from Positano, Amalfi and Ravello. Salerno\'s small regional airport has very limited flights, so almost all visitors arrive via Naples.' },
         ],
         relatedLinks: [
             { href: '/distance/naples-to-amalfi-coast-distance', label: 'Naples to Amalfi Coast Distance Guide' },
