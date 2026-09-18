@@ -14,12 +14,20 @@ import AddLeadModal from '@/components/crm/AddLeadModal';
  *  "completed" for display purposes — derived live from booking_datetime
  *  rather than a separate DB flag, so a booking rolls from Confirmed into
  *  Completed automatically the moment its trip time passes, with nothing to
- *  update manually. Pending/cancelled bookings are unaffected. */
+ *  update manually. Pending/cancelled bookings are unaffected.
+ *
+ *  For a round trip / two-transfer booking, completion is based on whichever
+ *  leg is LATER (outbound or return) — otherwise a booking flipped to
+ *  "completed" the moment the outbound leg passed, even when the return leg
+ *  was still upcoming, silently dropping it out of every "confirmed/upcoming"
+ *  view. */
 function getEffectiveStatus(booking: any, now: Date): 'pending' | 'confirmed' | 'completed' | 'cancelled' {
     if (booking.status === 'cancelled') return 'cancelled';
     if (booking.status !== 'confirmed') return booking.status;
     const tripDate = new Date(booking.booking_datetime);
-    if (!isNaN(tripDate.getTime()) && tripDate < now) return 'completed';
+    const returnDate = booking.has_return_trip && booking.return_datetime ? new Date(booking.return_datetime) : null;
+    const lastLegDate = returnDate && !isNaN(returnDate.getTime()) && returnDate > tripDate ? returnDate : tripDate;
+    if (!isNaN(lastLegDate.getTime()) && lastLegDate < now) return 'completed';
     return 'confirmed';
 }
 
@@ -271,13 +279,31 @@ export default function CRMPage() {
 
     // Confirmed bookings whose trip falls within the next 7 days, soonest
     // first — the dashboard's "This Week's Transfers" widget.
+    //
+    // A round trip / two-transfer booking is one DB row with an outbound leg
+    // (booking_datetime) and a return leg (return_datetime). Each leg is
+    // surfaced as its own entry here — so the return leg still shows up even
+    // when it falls in a different week than the outbound leg — instead of
+    // the previous behaviour of filtering/sorting on booking_datetime alone,
+    // which silently dropped the return leg whenever its own date fell
+    // outside the outbound leg's 7-day window.
     const thisWeekTransfers = bookings
         .filter(b => getEffectiveStatus(b, now) === 'confirmed')
-        .filter(b => {
-            const d = new Date(b.booking_datetime);
-            return !isNaN(d.getTime()) && d >= now && d <= weekFromNow;
+        .flatMap(b => {
+            const legs: { booking: any; leg: 'outbound' | 'return'; when: Date }[] = [];
+            const outboundWhen = new Date(b.booking_datetime);
+            if (!isNaN(outboundWhen.getTime()) && outboundWhen >= now && outboundWhen <= weekFromNow) {
+                legs.push({ booking: b, leg: 'outbound', when: outboundWhen });
+            }
+            if (b.has_return_trip && b.return_datetime) {
+                const returnWhen = new Date(b.return_datetime);
+                if (!isNaN(returnWhen.getTime()) && returnWhen >= now && returnWhen <= weekFromNow) {
+                    legs.push({ booking: b, leg: 'return', when: returnWhen });
+                }
+            }
+            return legs;
         })
-        .sort((a, b) => new Date(a.booking_datetime).getTime() - new Date(b.booking_datetime).getTime());
+        .sort((a, b) => a.when.getTime() - b.when.getTime());
 
     // Bookings shown in the table — filtered by status card (using the
     // derived completed/confirmed split), then by the name/email/phone
@@ -392,6 +418,42 @@ export default function CRMPage() {
                                             <p className="text-[10px] text-gold font-bold mt-1">{new Date(viewItem.data.created_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}</p>
                                         </div>
                                     </div>
+
+                                    {/* Return leg — only shown for round trip / two-transfer bookings */}
+                                    {viewItem.data.has_return_trip && (
+                                        <div>
+                                            <p className="text-[10px] font-black uppercase tracking-widest text-indigo-500 mb-4 mt-2">
+                                                {viewItem.data.trip_selection === 'roundtrip' ? '↩ Return Trip' : '↩ Transfer 2'}
+                                            </p>
+                                            <div className="grid grid-cols-2 gap-4">
+                                                <div className="bg-indigo-50/50 rounded-2xl p-5 border border-indigo-100 col-span-2">
+                                                    <p className="text-[9px] font-black uppercase tracking-widest text-gray-400 mb-1">Pickup Location</p>
+                                                    <p className="font-semibold text-navy text-sm">{viewItem.data.return_pickup_location || '—'}</p>
+                                                </div>
+                                                <div className="bg-indigo-50/50 rounded-2xl p-5 border border-indigo-100 col-span-2">
+                                                    <p className="text-[9px] font-black uppercase tracking-widest text-gray-400 mb-1">Drop-off Location</p>
+                                                    <p className="font-semibold text-navy text-sm">{viewItem.data.return_dropoff_location || '—'}</p>
+                                                </div>
+                                                <div className="bg-indigo-50/50 rounded-2xl p-5 border border-indigo-100">
+                                                    <p className="text-[9px] font-black uppercase tracking-widest text-gray-400 mb-1">Return Date & Time</p>
+                                                    {viewItem.data.return_datetime ? (
+                                                        <>
+                                                            <p className="font-black text-navy text-sm">{new Date(viewItem.data.return_datetime).toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' })}</p>
+                                                            <p className="text-[10px] text-indigo-500 font-bold mt-1">{new Date(viewItem.data.return_datetime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}</p>
+                                                        </>
+                                                    ) : (
+                                                        <p className="font-semibold text-navy text-sm">—</p>
+                                                    )}
+                                                </div>
+                                                {viewItem.data.return_flight_number && (
+                                                    <div className="bg-indigo-50/50 rounded-2xl p-5 border border-indigo-100">
+                                                        <p className="text-[9px] font-black uppercase tracking-widest text-gray-400 mb-1">Flight No.</p>
+                                                        <p className="font-semibold text-navy text-sm">{viewItem.data.return_flight_number}</p>
+                                                    </div>
+                                                )}
+                                            </div>
+                                        </div>
+                                    )}
                                 </>
                             ) : (
                                 <>
@@ -822,23 +884,23 @@ export default function CRMPage() {
                                 </div>
                             ) : (
                                 <div className="divide-y divide-gray-50 max-h-[320px] overflow-y-auto">
-                                    {thisWeekTransfers.map((booking) => (
-                                        <div key={booking.id} className="px-6 py-3 flex items-center gap-4 hover:bg-[#F8FAFC] transition-colors">
+                                    {thisWeekTransfers.map(({ booking, leg, when }) => (
+                                        <div key={`${booking.id}-${leg}`} className="px-6 py-3 flex items-center gap-4 hover:bg-[#F8FAFC] transition-colors">
                                             <div className="shrink-0 bg-navy text-white rounded-xl px-3 py-2 text-center min-w-[64px]">
-                                                <div className="text-[10px] font-black uppercase tracking-wide">{new Date(booking.booking_datetime).toLocaleDateString('en-GB', { day: '2-digit', month: 'short' })}</div>
-                                                <div className="text-[9px] text-gold font-bold">{new Date(booking.booking_datetime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}</div>
+                                                <div className="text-[10px] font-black uppercase tracking-wide">{when.toLocaleDateString('en-GB', { day: '2-digit', month: 'short' })}</div>
+                                                <div className="text-[9px] text-gold font-bold">{when.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}</div>
                                             </div>
                                             <div className="min-w-0 flex-1">
                                                 <div className="flex items-center gap-1.5">
                                                     <span className="font-bold text-navy text-[13px] truncate">{booking.full_name}</span>
                                                     {booking.has_return_trip && (
-                                                        <span className="inline-flex items-center px-1.5 py-[1px] rounded-full text-[8px] font-black uppercase border bg-purple-50 text-purple-600 border-purple-200">
-                                                            {booking.trip_selection === 'both' ? '2 Transfers' : 'Round Trip'}
+                                                        <span className={`inline-flex items-center px-1.5 py-[1px] rounded-full text-[8px] font-black uppercase border ${leg === 'return' ? 'bg-indigo-50 text-indigo-600 border-indigo-200' : 'bg-purple-50 text-purple-600 border-purple-200'}`}>
+                                                            {leg === 'return' ? '↩ Return Leg' : (booking.trip_selection === 'both' ? 'Outbound · 2 Transfers' : 'Outbound · Round Trip')}
                                                         </span>
                                                     )}
                                                 </div>
                                                 <div className="text-[11px] text-gray-500 truncate">
-                                                    <span className="text-gold">📍</span> {booking.pickup_location} <span className="text-gray-300">→</span> {booking.dropoff_location}
+                                                    <span className="text-gold">📍</span> {leg === 'return' ? (booking.return_pickup_location || booking.dropoff_location) : booking.pickup_location} <span className="text-gray-300">→</span> {leg === 'return' ? (booking.return_dropoff_location || booking.pickup_location) : booking.dropoff_location}
                                                 </div>
                                             </div>
                                             <div className="shrink-0 flex gap-1">
@@ -1009,6 +1071,13 @@ export default function CRMPage() {
                                                     <td className="px-4 py-2.5 align-top">
                                                         <div className="text-[11px] text-navy font-bold leading-tight">{new Date(booking.booking_datetime).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}</div>
                                                         <div className="text-[10px] text-gold font-bold leading-tight mt-0.5">{new Date(booking.booking_datetime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}</div>
+                                                        {booking.has_return_trip && booking.return_datetime && (
+                                                            <div className="mt-1.5 pt-1.5 border-t border-gray-100">
+                                                                <div className="text-[9px] text-indigo-500 font-black uppercase tracking-wide">↩ Return</div>
+                                                                <div className="text-[11px] text-navy font-bold leading-tight">{new Date(booking.return_datetime).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}</div>
+                                                                <div className="text-[10px] text-gold font-bold leading-tight mt-0.5">{new Date(booking.return_datetime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}</div>
+                                                            </div>
+                                                        )}
                                                     </td>
                                                     {/* Received */}
                                                     <td className="px-4 py-2.5 align-top">
@@ -1082,6 +1151,11 @@ export default function CRMPage() {
                                                     <span>{new Date(booking.booking_datetime).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })} · {new Date(booking.booking_datetime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}</span>
                                                     <span>{booking.passengers ?? '—'} pax</span>
                                                 </div>
+                                                {booking.has_return_trip && booking.return_datetime && (
+                                                    <div className="text-[10px] text-indigo-500 font-bold uppercase tracking-wide">
+                                                        ↩ Return: {new Date(booking.return_datetime).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })} · {new Date(booking.return_datetime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}
+                                                    </div>
+                                                )}
                                                 <div className="flex gap-1.5 pt-1 flex-wrap">
                                                     <button onClick={() => setViewItem({ type: 'booking', data: booking })} className="h-8 w-8 flex items-center justify-center bg-gray-50 text-gray-500 rounded-lg border border-gray-100" title="View">👁</button>
                                                     <button onClick={() => openEmailModal(booking.email, booking.full_name, `Re: Your Italy Taxi Booking`)} className="h-8 w-8 flex items-center justify-center bg-gray-50 text-gray-500 rounded-lg border border-gray-100" title="Email">✉</button>
