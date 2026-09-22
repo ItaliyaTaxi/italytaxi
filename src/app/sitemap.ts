@@ -37,7 +37,7 @@ const EXCLUDED_SEGMENTS = new Set([
 function routeConfig(urlPath: string) {
   if (urlPath === '/') return { priority: 1.0, changeFrequency: 'daily' as const };
   if (urlPath === '/it') return { priority: 1.0, changeFrequency: 'daily' as const };
-  if (['/book-now', '/contact', '/services', '/rome-airport-transfer', '/milan-chauffeur-service', '/florence-private-taxi', '/it/contatti', '/it/servizi'].includes(urlPath)) return { priority: 0.9, changeFrequency: 'weekly' as const };
+  if (['/book-now', '/contact', '/services', '/rome-airport-transfer', '/milan-chauffeur-service', '/florence-private-taxi', '/milan-fashion-week-transfers', '/it/contatti', '/it/servizi'].includes(urlPath)) return { priority: 0.9, changeFrequency: 'weekly' as const };
   if (['/about-us', '/faq', '/coverage-areas', '/airport-transfer', '/it/domande-frequenti'].includes(urlPath)) return { priority: 0.8, changeFrequency: 'weekly' as const };
   if (urlPath.startsWith('/airport/') || urlPath.startsWith('/city/')) return { priority: 0.9, changeFrequency: 'weekly' as const };
   if (urlPath.startsWith('/route/')) return { priority: 0.9, changeFrequency: 'weekly' as const };
