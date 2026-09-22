@@ -67,17 +67,16 @@ async function submitBatch(urlBatch) {
   return { status: res.status, body: text };
 }
 
-// Batch 3 of the Airport FAQs cluster — published 2 at a time per user's
-// pacing request. find-exit-meet-driver-italy was also published today as a
-// broken-link fix (was linked live from meet-driver-bergamo-airport while
-// still draft) and hadn't been submitted yet, so it's included here too.
-// Remaining draft: meet-driver-bari-airport.
+// Batch 8 of the Airport FAQs cluster — free WiFi and paid lounges at Rome
+// Fiumicino, published EN + IT, closing out the Fiumicino sub-cluster.
 const NEW_CLUSTER_SLUGS_EN = [
-  'driver-pickup-pisa-airport',
-  'pisa-vs-florence-airport',
-  'find-exit-meet-driver-italy',
+  'wifi-rome-fiumicino-airport',
+  'lounges-rome-fiumicino',
 ];
-const NEW_CLUSTER_SLUGS_IT = [];
+const NEW_CLUSTER_SLUGS_IT = [
+  'wifi-gratis-aeroporto-fiumicino',
+  'lounge-aeroporto-fiumicino',
+];
 const NEW_CLUSTER_SLUGS = new Set([...NEW_CLUSTER_SLUGS_EN, ...NEW_CLUSTER_SLUGS_IT]);
 
 // Priority: new cluster posts, then Italian pages (previously never
