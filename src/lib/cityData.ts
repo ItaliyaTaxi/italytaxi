@@ -166,6 +166,36 @@ const cityDataMap: Record<string, CityRichData> = {
     localTips:
       'Bologna is arguably Italy\'s finest food city — the birthplace of ragù alla bolognese, mortadella, tortellini, and tagliatelle. The Quadrilatero market district (surrounding Mercato di Mezzo) is best explored on foot between 08:00 and 13:00. The Salumeria Simoni on Via Drapperie is the most famous deli for cured meats. For day trips, Modena and Parma are equidistant (45 minutes each) and form a perfect Emilia-Romagna gastronomic triangle. The Ferrari Museum in Modena and the Lamborghini Museum in Sant\'Agata Bolognese are popular combines — we can do both in a single day trip. Bologna\'s university district (university founded 1088, the world\'s oldest) comes alive in the evenings with student nightlife in the cobblestone streets.',
   },
+
+  lucca: {
+    landmarks: [
+      { name: 'The City Walls (Le Mura)', description: 'Complete 16th-century Renaissance ramparts, now a tree-lined walking and cycling promenade circling the whole historic centre.' },
+      { name: 'Torre Guinigi', description: 'Medieval tower topped with a rooftop garden of holm oak trees — drop-off within the walls, short walk to the base.' },
+      { name: 'Piazza dell\'Anfiteatro', description: 'An oval piazza built directly on the foundations of Lucca\'s Roman amphitheatre.' },
+      { name: 'Lucca Cathedral (Duomo di San Martino)', description: 'The city\'s main cathedral, a short walk from the central piazzas.' },
+      { name: 'Puccini\'s Birthplace', description: 'The composer\'s family home, now a small museum, in the heart of the old town.' },
+      { name: 'Piazza Napoleone', description: 'Lucca\'s grand central square, framed by the Ducal Palace.' },
+    ],
+    pickupInstructions:
+      'Lucca\'s historic centre sits entirely within the city walls and is largely restricted to local traffic, so hotel pickups inside the walls are typically arranged at the nearest accessible gate (commonly Porta San Pietro or Porta Santa Maria), with a short walk or luggage assistance to properties just inside. Lucca has no airport of its own — most visitors arrive via Pisa Airport (PSA), around 25 km away and roughly a 30-minute drive, or via Florence, around 80 km away and roughly an hour\'s drive on the A11. Both are straightforward door-to-door private transfers, and many travellers combine a Pisa Airport arrival with a stop to see the Leaning Tower before continuing to Lucca. Train travellers arriving at Lucca station will find it just outside the southern walls, a short transfer to most central hotels.',
+    localTips:
+      'Unlike most Tuscan hill towns, Lucca is flat — the historic centre is easy walking, and cycling the 4 km ring of the city walls is one of the most popular things visitors do here, with bike rental available right along the ramparts. It makes a relaxed, quieter overnight base compared to Florence, or an easy half-day addition to a Pisa Airport arrival given the short distance between the two. The old town is compact enough to see on foot in a few hours, so a private transfer is most useful for getting to and from Lucca itself — from Pisa Airport, from Florence, or onward into the rest of Tuscany — rather than for getting around inside the walls.',
+  },
+
+  'san gimignano': {
+    landmarks: [
+      { name: 'The Medieval Towers', description: 'A skyline of surviving stone towers built by rival medieval families — the town\'s defining feature.' },
+      { name: 'Torre Grossa', description: 'The tallest surviving tower and the only one open to climb, with views over the Tuscan countryside.' },
+      { name: 'Piazza della Cisterna', description: 'The town\'s triangular main square, named for the medieval well at its centre.' },
+      { name: 'Collegiata di San Gimignano', description: 'The town\'s main church, just off Piazza della Cisterna, known for its frescoed interior.' },
+      { name: 'Rocca di Montestaffoli', description: 'A ruined hilltop fortress at the edge of town with panoramic countryside views.' },
+      { name: 'Sant\'Agostino', description: 'A quieter church at the northern end of town, notable for its fresco cycle.' },
+    ],
+    pickupInstructions:
+      'San Gimignano\'s walled historic centre sits on a hilltop and is closed to most vehicle traffic, so drop-off for hotels inside the walls is typically at one of the main gates — commonly Porta San Giovanni to the south or Porta San Matteo to the north — with a short walk from there, as is standard for Tuscany\'s hill towns. The nearest major airport is Florence, around 55 km away and roughly an hour\'s drive through the Tuscan hills; Pisa Airport is a further, less direct alternative for some itineraries. San Gimignano is commonly combined with Siena or a Chianti wine-region stop as part of the same day, and our drivers can plan the route accordingly rather than treating it as a single point-to-point transfer.',
+    localTips:
+      'San Gimignano is known as the "Manhattan of Tuscany" for its cluster of surviving medieval towers, visible from well outside the town. It\'s one of the most-visited hill towns in Tuscany, so arriving earlier or later in the day — rather than at midday, when coach tour groups are at their busiest — makes for a noticeably more relaxed visit. Vernaccia di San Gimignano, the local white DOCG wine, is worth trying at one of the town\'s wine bars, and the town has several well-regarded gelaterias near Piazza della Cisterna. The streets inside the walls are cobbled and slope steeply in places, so comfortable footwear matters more here than in flatter towns like Lucca.',
+  },
 };
 
 /**

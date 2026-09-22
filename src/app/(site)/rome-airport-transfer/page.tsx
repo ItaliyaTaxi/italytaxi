@@ -8,6 +8,30 @@ import ServicePageContent from '@/components/ServicePageContent';
 import type { PricingTier, RouteItem } from '@/components/ServicePageContent';
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { ChevronRight } from 'lucide-react';
+import { romeAirports, romeHotels, transferSlug } from '@/lib/airport-hotel-data';
+
+// A curated, geographically diverse subset of the full Rome hotel-transfer
+// inventory (35 hotels x 2 airports x 2 directions = 140 pages in
+// airport-hotel-data.ts) — not the full list, just enough contextual links
+// for a user browsing this page to discover a handful of real hotel-specific
+// transfer pages. See docs/ GSC "crawled, not indexed" audit: this cluster
+// previously had zero inbound links from any page outside its own template.
+const FEATURED_HOTEL_SLUGS = [
+  'hotel-de-russie',
+  'hotel-hassler-roma',
+  'the-rome-edition',
+  'sofitel-roma-villa-borghese',
+  'hotel-splendide-royal',
+  'palazzo-manfredi',
+  'nh-collection-roma-fori-imperiali',
+  'rome-cavalieri-waldorf-astoria',
+  'bvlgari-hotel-rome',
+  'le-meridien-visconti-rome',
+  'hotel-santa-maria',
+  'portrait-roma',
+  'hotel-nazionale',
+];
 
 export const metadata: Metadata = {
   title: "Rome Airport Transfer | Private Taxi FCO & CIA",
@@ -66,6 +90,10 @@ const routes: RouteItem[] = [
 
 export default function RomeAirportTransferPage() {
   const url = "https://www.italytaxiservice.com/rome-airport-transfer";
+  const fiumicino = romeAirports.find((a) => a.slugPart === 'rome-fiumicino-airport');
+  const featuredHotels = FEATURED_HOTEL_SLUGS
+    .map((slugPart) => romeHotels.find((h) => h.slugPart === slugPart))
+    .filter((h): h is NonNullable<typeof h> => Boolean(h));
 
   return (
     <main className="min-h-screen text-navy-rich font-inter">
@@ -174,6 +202,28 @@ export default function RomeAirportTransferPage() {
               <strong>private transfer in Rome</strong>.
             </p>
           </div>
+          {fiumicino && featuredHotels.length > 0 && (
+            <div>
+              <h3 className="text-2xl font-bold text-[#0F1C2E] mb-3">Popular Rome Hotel Transfers</h3>
+              <p className="mb-6">
+                Need a private transfer to a specific Rome hotel? Alongside general airport-to-centre transfers, we
+                run direct, fixed-price routes between Fiumicino and individual Rome hotels — including a return
+                transfer back to the airport for your departure. A few of the hotels we cover most often:
+              </p>
+              <div className="flex flex-wrap gap-3">
+                {featuredHotels.map((hotel) => (
+                  <Link
+                    key={hotel.slugPart}
+                    href={`/${transferSlug(fiumicino, hotel)}`}
+                    className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full border border-gray-200 text-navy font-semibold text-sm bg-white hover:border-gold hover:text-gold hover:shadow-md transition-all"
+                  >
+                    <ChevronRight className="w-4 h-4" />
+                    {hotel.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
           <div className="text-center pt-6">
             <Link
               href="/book-now"

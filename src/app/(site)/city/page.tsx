@@ -25,12 +25,15 @@ export default function CityTransfersPage() {
         { name: "Bari", link: "/city/bari" },
         { name: "Palermo", link: "/city/palermo" },
         { name: "Amalfi", link: "/city/amalfi" },
+        { name: "Amalfi Coast", link: "/city/amalfi-coast" },
         { name: "Portofino", link: "/city/portofino" },
         { name: "Lake Como", link: "/city/como" },
         { name: "Positano", link: "/city/positano" },
         { name: "Ravello", link: "/city/ravello" },
         { name: "Taormina", link: "/city/taormina" },
-        { name: "Sorrento", link: "/city/sorrento" }
+        { name: "Sorrento", link: "/city/sorrento" },
+        { name: "Lucca", link: "/city/lucca" },
+        { name: "San Gimignano", link: "/city/san-gimignano" }
     ];
 
     return (

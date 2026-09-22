@@ -80,6 +80,30 @@ const nextConfig: NextConfig = {
       // to /city/[slug] (notFound() guard), this slug now correctly 404s on
       // its own — no fake 200 page, no broken redirect. See audit report.
 
+      // GSC 404 audit (Sept 2026), city-page follow-ups:
+      // Lucca and San Gimignano showed real historical organic clicks on
+      // their clean /city/{slug} URLs — both were restored as genuine pages
+      // in the `cities` array (page-data.ts) + cityData.ts, so these legacy
+      // "-taxi-service" slugs now redirect to real 200 pages, not stubs.
+      { source: '/city/lucca-taxi-service', destination: '/city/lucca', permanent: true },
+      { source: '/city/lucca-taxi-service/', destination: '/city/lucca', permanent: true },
+      { source: '/city/san-gimignano-taxi-service', destination: '/city/san-gimignano', permanent: true },
+      { source: '/city/san-gimignano-taxi-service/', destination: '/city/san-gimignano', permanent: true },
+      // Riomaggiore never had its own city page (it's one of the five Cinque
+      // Terre villages) — redirects to the existing attraction page that
+      // explicitly covers it, rather than a thin standalone stub.
+      { source: '/city/riomaggiore-taxi-service', destination: '/attraction-transfer/cinque-terre-taxi-transfer', permanent: true },
+      { source: '/city/riomaggiore-taxi-service/', destination: '/attraction-transfer/cinque-terre-taxi-transfer', permanent: true },
+      // Cinque Terre itself was never a `cities` array entry — the real,
+      // canonical page for this content has always been the attraction page.
+      { source: '/city/cinque-terre', destination: '/attraction-transfer/cinque-terre-taxi-transfer', permanent: true },
+      { source: '/city/cinque-terre/', destination: '/attraction-transfer/cinque-terre-taxi-transfer', permanent: true },
+      // Agrigento never had a city hub; the closest genuine intent match is
+      // the existing airport route page (transactional), not the Valley of
+      // the Temples attraction page (which is about one specific site).
+      { source: '/city/agrigento-taxi-service', destination: '/route/catania-airport-to-agrigento-taxi', permanent: true },
+      { source: '/city/agrigento-taxi-service/', destination: '/route/catania-airport-to-agrigento-taxi', permanent: true },
+
       // Legacy static route structures removed when the site moved to the
       // dynamic /city/[slug] and /airport/[slug] systems (see cleanup.py,
       // which deleted src/app/city-transfer/* and src/app/airport-transfer/*

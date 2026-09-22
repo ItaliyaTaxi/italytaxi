@@ -5,6 +5,7 @@ import HowItWorks from '@/components/HowItWorks';
 import FAQSection from '@/components/FAQSection';
 import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
+import Link from 'next/link';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -75,6 +76,9 @@ export default function SanGimignanoPage() {
             </p>
             <p className="text-gray-600 text-lg leading-relaxed">
               If you are traveling with a group or have significant luggage, our fleet of Mercedes-Benz minivans provides the perfect combination of space and luxury. We ensure your journey is smooth, safe, and tailored to your schedule.
+            </p>
+            <p className="text-gray-600 text-lg leading-relaxed mt-6">
+              Staying in San Gimignano itself rather than day-tripping in? Our <Link href="/city/san-gimignano" className="text-gold font-semibold hover:underline">San Gimignano taxi service</Link> page covers local transfers within and around the town, not just arrivals from Florence.
             </p>
           </div>
         </div>

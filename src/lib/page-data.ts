@@ -462,6 +462,20 @@ export const cities: CityData[] = [
         hero_image: "https://images.unsplash.com/photo-1542281286-9e0a16bb7366?auto=format&fit=crop&q=60&w=1200",
         description: "The perfect base for the Amalfi Coast — transfer to Sorrento in comfort and style.",
         popular_tours: ["Pompeii Day Trip", "Capri Ferry Transfer", "Naples City Tour"]
+    },
+    {
+        slug: "lucca",
+        name: "Lucca",
+        hero_image: "/images/Tuscany Wine.webp",
+        description: "One of Tuscany's most complete Renaissance towns, fully encircled by intact city walls now used as a tree-lined promenade. A relaxed, flat, walkable alternative to Florence — with private transfers to match.",
+        popular_tours: ["Walk or Cycle the City Walls", "Torre Guinigi Rooftop Garden", "Puccini's Birthplace"]
+    },
+    {
+        slug: "san-gimignano",
+        name: "San Gimignano",
+        hero_image: "/images/Tuscany Wine.webp",
+        description: "Known as the \"Manhattan of Tuscany\" for its skyline of medieval stone towers, San Gimignano is one of the region's most recognisable hill towns — and a popular pairing with Siena or a Chianti wine stop.",
+        popular_tours: ["Medieval Towers Walk", "Piazza della Cisterna", "Vernaccia Wine Tasting"]
     }
 ];
 

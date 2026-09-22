@@ -7,7 +7,27 @@ import ServiceSchema from '@/components/ServiceSchema';
 import ServicePageContent from '@/components/ServicePageContent';
 import type { PricingTier } from '@/components/ServicePageContent';
 import { Metadata } from 'next';
+import Link from 'next/link';
+import { ChevronRight } from 'lucide-react';
 import { itHreflangFor } from '@/lib/i18n/page-registry';
+import { romeAirports, romeHotels, transferSlug } from '@/lib/airport-hotel-data';
+
+// A different, non-overlapping subset from the one featured on
+// /rome-airport-transfer — see the GSC "crawled, not indexed" audit note
+// there for context on why this cluster needed inbound links from outside
+// its own template.
+const FEATURED_HOTEL_SLUGS = [
+  'hotel-eden',
+  'hotel-artemide',
+  'anantara-palazzo-naiadi',
+  'six-senses-rome',
+  'hotel-de-la-ville',
+  'hotel-indigo-rome-st-george',
+  'hotel-fontana',
+  'hotel-campo-de-fiori',
+  'hotel-ponte-sisto',
+  'hotel-capo-d-africa',
+];
 
 export const metadata: Metadata = {
   title: "Hotel Transfers in Italy",
@@ -81,6 +101,10 @@ const reviews = [
 
 export default function HotelTransfersPage() {
   const url = "https://www.italytaxiservice.com/services/hotel-transfers";
+  const fiumicino = romeAirports.find((a) => a.slugPart === 'rome-fiumicino-airport');
+  const featuredHotels = FEATURED_HOTEL_SLUGS
+    .map((slugPart) => romeHotels.find((h) => h.slugPart === slugPart))
+    .filter((h): h is NonNullable<typeof h> => Boolean(h));
 
   return (
     <main className="min-h-screen font-inter">
@@ -140,6 +164,31 @@ export default function HotelTransfersPage() {
           { label: "Venice Hotels & Transfers", href: "/city/venice" },
         ]}
       />
+
+      {fiumicino && featuredHotels.length > 0 && (
+        <section className="py-20 bg-white font-inter">
+          <div className="container mx-auto px-6 max-w-4xl">
+            <h2 className="text-3xl font-extrabold text-[#0F1C2E] mb-4">Hotel-Specific Rome Transfers</h2>
+            <p className="text-gray-700 text-lg leading-relaxed mb-6">
+              Rome is where we run the widest range of named hotel-to-airport transfers — fixed-price, door-to-door
+              routes between Fiumicino and individual hotels, bookable for arrival or return. A sample of the
+              hotels we cover:
+            </p>
+            <div className="flex flex-wrap gap-3">
+              {featuredHotels.map((hotel) => (
+                <Link
+                  key={hotel.slugPart}
+                  href={`/${transferSlug(fiumicino, hotel)}`}
+                  className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full border border-gray-200 text-navy font-semibold text-sm bg-white hover:border-gold hover:text-gold hover:shadow-md transition-all"
+                >
+                  <ChevronRight className="w-4 h-4" />
+                  {hotel.name}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       <HowItWorks />
 
