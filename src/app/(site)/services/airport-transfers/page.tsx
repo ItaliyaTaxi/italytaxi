@@ -158,6 +158,7 @@ export default function AirportTransfersPage() {
           { label: "Rome Taxi Service", href: "/city/rome" },
           { label: "Milan Taxi Service", href: "/city/milan" },
           { label: "Florence Taxi Service", href: "/city/florence" },
+          { label: "Naples America's Cup Transfer Guide", href: "/blog/americas-cup-naples-transfer" },
         ]}
       />
 

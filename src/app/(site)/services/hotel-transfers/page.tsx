@@ -162,6 +162,7 @@ export default function HotelTransfersPage() {
           { label: "Rome Hotels & Transfers", href: "/city/rome" },
           { label: "Florence Hotels & Transfers", href: "/city/florence" },
           { label: "Venice Hotels & Transfers", href: "/city/venice" },
+          { label: "Naples America's Cup Transfer Guide", href: "/blog/americas-cup-naples-transfer" },
         ]}
       />
 

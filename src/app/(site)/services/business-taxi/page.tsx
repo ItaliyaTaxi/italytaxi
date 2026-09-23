@@ -112,6 +112,7 @@ export default function BusinessCorporatePage() {
           { label: "City-to-City Transfers", href: "/services/city-to-city" },
           { label: "Milan Taxi Service", href: "/city/milan" },
           { label: "Rome Business District", href: "/city/rome" },
+          { label: "CPHI Milan Transfer Guide", href: "/blog/cphi-milan-transfer" },
         ]}
       />
 
