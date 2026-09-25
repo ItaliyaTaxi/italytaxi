@@ -113,6 +113,7 @@ export default function BusinessCorporatePage() {
           { label: "Milan Taxi Service", href: "/city/milan" },
           { label: "Rome Business District", href: "/city/rome" },
           { label: "CPHI Milan Transfer Guide", href: "/blog/cphi-milan-transfer" },
+          { label: "TTG Travel Experience Rimini Transfer Guide", href: "/blog/ttg-travel-experience-rimini-transfer" },
         ]}
       />
 

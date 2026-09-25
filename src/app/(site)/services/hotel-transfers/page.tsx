@@ -163,6 +163,7 @@ export default function HotelTransfersPage() {
           { label: "Florence Hotels & Transfers", href: "/city/florence" },
           { label: "Venice Hotels & Transfers", href: "/city/venice" },
           { label: "Naples America's Cup Transfer Guide", href: "/blog/americas-cup-naples-transfer" },
+          { label: "TTG Travel Experience Rimini Transfer Guide", href: "/blog/ttg-travel-experience-rimini-transfer" },
         ]}
       />
 
