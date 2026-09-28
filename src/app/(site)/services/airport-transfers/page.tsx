@@ -160,6 +160,7 @@ export default function AirportTransfersPage() {
           { label: "Florence Taxi Service", href: "/city/florence" },
           { label: "Naples America's Cup Transfer Guide", href: "/blog/americas-cup-naples-transfer" },
           { label: "TTG Travel Experience Rimini Transfer Guide", href: "/blog/ttg-travel-experience-rimini-transfer" },
+          { label: "Turin Airport to the Ski Resorts", href: "/blog/turin-airport-transfers-ski" },
         ]}
       />
 

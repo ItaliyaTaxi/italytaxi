@@ -811,6 +811,7 @@ export const routes: RouteData[] = [
         ],
         relatedLinks: [
             { href: '/distance/milan-to-turin-distance', label: 'Milan to Turin Distance Guide' },
+            { href: '/blog/turin-airport-transfers-ski', label: 'Turin Airport to the Ski Resorts' },
         ],
     },
     {

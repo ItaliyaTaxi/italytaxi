@@ -136,6 +136,7 @@ export default function MilanChauffeurServicePage() {
           { label: "Milan Linate Airport", href: "/airport/milan-linate" },
           { label: "Milan to Lake Como", href: "/route/milan-to-lake-como-taxi" },
           { label: "CPHI Milan Transfer Guide", href: "/blog/cphi-milan-transfer" },
+          { label: "Milano Centrale to Malpensa Guide", href: "/blog/milano-centrale-to-malpensa-transfer" },
           { label: "Book Now", href: "/book-now" },
         ]}
       />
