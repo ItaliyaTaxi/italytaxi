@@ -127,6 +127,7 @@ export default function PrivateToursPageIt() {
           { label: "Guida alla Costiera Amalfitana", href: "/city/amalfi-coast" },
           { label: "Informazioni di Viaggio sulla Toscana", href: "/city/florence" },
           { label: "Punti Salienti di Roma", href: "/city/rome" },
+          { label: "Autista Privato per Più Giorni", href: "/it/blog/autista-privato-piu-giorni-italia" },
         ]}
       />
 

@@ -127,6 +127,7 @@ export default function PrivateToursPage() {
           { label: "Amalfi Coast Guide", href: "/city/amalfi-coast" },
           { label: "Tuscany Travel Info", href: "/city/florence" },
           { label: "Rome Highlights", href: "/city/rome" },
+          { label: "Multi-Day Private Driver Guide", href: "/blog/multi-day-private-driver-italy" },
         ]}
       />
 

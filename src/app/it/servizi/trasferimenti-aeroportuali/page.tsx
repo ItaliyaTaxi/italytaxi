@@ -133,6 +133,7 @@ export default function AirportTransfersPageIt() {
           { label: "Taxi a Roma", href: "/city/rome" },
           { label: "Taxi a Milano", href: "/city/milan" },
           { label: "Taxi a Firenze", href: "/city/florence" },
+          { label: "Transfer EICMA Milano", href: "/it/blog/transfer-eicma-milano" },
         ]}
       />
 

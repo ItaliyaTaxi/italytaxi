@@ -137,6 +137,7 @@ export default function MilanChauffeurServicePage() {
           { label: "Milan to Lake Como", href: "/route/milan-to-lake-como-taxi" },
           { label: "CPHI Milan Transfer Guide", href: "/blog/cphi-milan-transfer" },
           { label: "Milano Centrale to Malpensa Guide", href: "/blog/milano-centrale-to-malpensa-transfer" },
+          { label: "EICMA Milan Transfer Guide", href: "/blog/eicma-milan-transfer" },
           { label: "Book Now", href: "/book-now" },
         ]}
       />

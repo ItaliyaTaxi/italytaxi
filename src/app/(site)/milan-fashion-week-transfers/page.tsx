@@ -119,6 +119,9 @@ export default function MilanFashionWeekTransfersPage() {
         routes={routes}
         relatedLinks={[
           { label: "Milan Fashion Week Airport Transfer Guide", href: "/blog/milan-fashion-week-airport-transfer-guide" },
+          { label: "Linate Airport to Milan Fashion Week", href: "/blog/linate-airport-to-milan-fashion-week" },
+          { label: "Bergamo Airport to Milan Fashion Week", href: "/blog/bergamo-airport-to-milan-fashion-week" },
+          { label: "Malpensa Airport to Milan Fashion Week", href: "/blog/malpensa-airport-to-milan-fashion-week" },
           { label: "Transfers Between Fashion Week Shows", href: "/blog/milan-fashion-week-transfers-between-shows" },
           { label: "Milan Fashion Week Hotel Transfer Guide", href: "/blog/milan-fashion-week-hotel-transfer-guide" },
           { label: "Transportation for Designers, Models & Buyers", href: "/blog/milan-fashion-week-transportation-designers-models-buyers" },
@@ -155,6 +158,26 @@ export default function MilanFashionWeekTransfersPage() {
               <strong> Palazzo Reale</strong> and other central historic venues. Exactly which venues are in use
               changes every season, so we don't publish a fixed venue list here — once your own schedule is
               confirmed, that's what a driver plans the day's route around.
+            </p>
+          </div>
+          <div>
+            <h3 className="text-2xl font-bold text-[#0F1C2E] mb-3">
+              Arriving by Airport
+            </h3>
+            <p>
+              Which of Milan&apos;s three airports you land at changes what your arrival actually looks like. Landing at{' '}
+              <Link href="/blog/linate-airport-to-milan-fashion-week" className="text-[#F4C430] font-semibold hover:underline">
+                Linate, the closest airport to the fashion districts
+              </Link>
+              , is a different journey from{' '}
+              <Link href="/blog/bergamo-airport-to-milan-fashion-week" className="text-[#F4C430] font-semibold hover:underline">
+                arriving at Bergamo, Milan&apos;s low-cost hub further from the centre
+              </Link>
+              , or from Malpensa, the main long-haul gateway — our{' '}
+              <Link href="/blog/malpensa-airport-to-milan-fashion-week" className="text-[#F4C430] font-semibold hover:underline">
+                Malpensa arrival guide
+              </Link>{' '}
+              covers that route in detail. Each guide below sets out the realistic transfer time from that specific airport and how it compares with public transport, so you can plan the first leg of your trip before you land.
             </p>
           </div>
           <div>
