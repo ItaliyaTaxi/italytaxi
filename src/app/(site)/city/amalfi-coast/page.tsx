@@ -338,6 +338,7 @@ export default function AmalfiCoastPage() {
                             { href: '/route/naples-cruise-port-to-amalfi-taxi', label: 'Naples Cruise Port' },
                             { href: '/services/hotel-transfers', label: 'Hotel Transfers' },
                             { href: '/services/private-tours', label: 'Private Tours' },
+                            { href: '/blog/amalfi-coast-with-family-private-driver', label: 'Amalfi Coast with Family' },
                             { href: '/book-now', label: 'Book Now' },
                         ].map((r, i) => (
                             <Link

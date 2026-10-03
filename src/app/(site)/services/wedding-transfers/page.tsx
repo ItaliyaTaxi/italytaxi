@@ -112,7 +112,7 @@ export default function WeddingTransfersPage() {
           { label: "Hourly Taxi Service", href: "/services/hourly-taxi" },
           { label: "Tuscany Wedding Transfers", href: "/city/florence" },
           { label: "Amalfi Coast Wedding Transfers", href: "/city/amalfi-coast" },
-          { label: "Lake Como Wedding Transfers", href: "/city/como" },
+          { label: "Lake Como Wedding Transfers", href: "/blog/lake-como-wedding-transfers" },
         ]}
       />
 

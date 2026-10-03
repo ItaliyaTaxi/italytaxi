@@ -677,6 +677,7 @@ export const routes: RouteData[] = [
         ],
         relatedLinks: [
             { href: '/distance/milan-to-lake-como-distance', label: 'Milan to Lake Como Distance Guide' },
+            { href: '/blog/lake-como-wedding-transfers', label: 'Lake Como Wedding & Event Transfers' },
         ],
     },
     {
@@ -927,6 +928,7 @@ export const routes: RouteData[] = [
         ],
         relatedLinks: [
             { href: '/distance/naples-airport-to-amalfi-distance', label: 'Naples Airport to Amalfi Distance Guide' },
+            { href: '/blog/amalfi-coast-with-family-private-driver', label: 'Exploring the Amalfi Coast with Family' },
         ],
     },
     {
