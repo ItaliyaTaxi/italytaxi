@@ -112,6 +112,7 @@ export default function BusinessCorporatePageIt() {
           { label: "Trasferimenti Città-Città", href: "/it/servizi/trasferimenti-citta-citta" },
           { label: "Taxi a Milano", href: "/city/milan" },
           { label: "Distretto Aziendale di Roma", href: "/city/rome" },
+          { label: "Transfer Ecomondo 2026 Rimini", href: "/it/blog/transfer-ecomondo-2026" },
         ]}
       />
 

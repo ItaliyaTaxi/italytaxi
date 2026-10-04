@@ -162,6 +162,7 @@ export default function AirportTransfersPage() {
           { label: "TTG Travel Experience Rimini Transfer Guide", href: "/blog/ttg-travel-experience-rimini-transfer" },
           { label: "Turin Airport to the Ski Resorts", href: "/blog/turin-airport-transfers-ski" },
           { label: "EICMA Milan Transfer Guide", href: "/blog/eicma-milan-transfer" },
+          { label: "Ecomondo 2026 Rimini Transfer Guide", href: "/blog/ecomondo-2026-transfers" },
         ]}
       />
 

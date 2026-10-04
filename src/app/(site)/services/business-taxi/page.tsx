@@ -114,6 +114,7 @@ export default function BusinessCorporatePage() {
           { label: "Rome Business District", href: "/city/rome" },
           { label: "CPHI Milan Transfer Guide", href: "/blog/cphi-milan-transfer" },
           { label: "TTG Travel Experience Rimini Transfer Guide", href: "/blog/ttg-travel-experience-rimini-transfer" },
+          { label: "Ecomondo 2026 Rimini Transfer Guide", href: "/blog/ecomondo-2026-transfers" },
         ]}
       />
 
