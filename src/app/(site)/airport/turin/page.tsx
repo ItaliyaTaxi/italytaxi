@@ -256,6 +256,10 @@ export default function TurinAirportPage() {
                         </li>
                         <li className="flex items-start gap-2">
                             <ChevronRight className="w-4 h-4 text-gold mt-1 shrink-0" />
+                            <Link href="/blog/artissima-2026-transfers" className="hover:text-gold hover:underline">Artissima 2026 transfer guide (Oval Lingotto Fiere)</Link>
+                        </li>
+                        <li className="flex items-start gap-2">
+                            <ChevronRight className="w-4 h-4 text-gold mt-1 shrink-0" />
                             <span>Other Piedmont or Italian city routes — let us know your destination and we&apos;ll confirm what can be arranged</span>
                         </li>
                     </ul>

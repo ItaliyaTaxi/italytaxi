@@ -113,6 +113,7 @@ export default function BusinessCorporatePageIt() {
           { label: "Taxi a Milano", href: "/city/milan" },
           { label: "Distretto Aziendale di Roma", href: "/city/rome" },
           { label: "Transfer Ecomondo 2026 Rimini", href: "/it/blog/transfer-ecomondo-2026" },
+          { label: "Transfer Artissima 2026 Torino", href: "/it/blog/transfer-artissima-2026" },
         ]}
       />
 

@@ -135,6 +135,7 @@ export default function AirportTransfersPageIt() {
           { label: "Taxi a Firenze", href: "/city/florence" },
           { label: "Transfer EICMA Milano", href: "/it/blog/transfer-eicma-milano" },
           { label: "Transfer Ecomondo 2026 Rimini", href: "/it/blog/transfer-ecomondo-2026" },
+          { label: "Transfer Artissima 2026 Torino", href: "/it/blog/transfer-artissima-2026" },
         ]}
       />
 
