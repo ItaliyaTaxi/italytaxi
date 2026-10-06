@@ -164,6 +164,7 @@ export default function AirportTransfersPage() {
           { label: "EICMA Milan Transfer Guide", href: "/blog/eicma-milan-transfer" },
           { label: "Ecomondo 2026 Rimini Transfer Guide", href: "/blog/ecomondo-2026-transfers" },
           { label: "Artissima 2026 Turin Transfer Guide", href: "/blog/artissima-2026-transfers" },
+          { label: "Artigiano in Fiera 2026 Transfer Guide", href: "/blog/artigiano-in-fiera-2026-transfers" },
         ]}
       />
 

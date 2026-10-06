@@ -138,6 +138,7 @@ export default function MilanChauffeurServicePage() {
           { label: "CPHI Milan Transfer Guide", href: "/blog/cphi-milan-transfer" },
           { label: "Milano Centrale to Malpensa Guide", href: "/blog/milano-centrale-to-malpensa-transfer" },
           { label: "EICMA Milan Transfer Guide", href: "/blog/eicma-milan-transfer" },
+          { label: "Artigiano in Fiera 2026 Transfer Guide", href: "/blog/artigiano-in-fiera-2026-transfers" },
           { label: "Book Now", href: "/book-now" },
         ]}
       />
