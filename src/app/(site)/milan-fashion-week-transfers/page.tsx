@@ -118,6 +118,7 @@ export default function MilanFashionWeekTransfersPage() {
         routesTitle="Common Fashion Week Journeys"
         routes={routes}
         relatedLinks={[
+          { label: "Getting Around Milan During Fashion Week 2026", href: "/blog/milan-fashion-week-2026-travel-guide" },
           { label: "Milan Fashion Week Airport Transfer Guide", href: "/blog/milan-fashion-week-airport-transfer-guide" },
           { label: "Linate Airport to Milan Fashion Week", href: "/blog/linate-airport-to-milan-fashion-week" },
           { label: "Bergamo Airport to Milan Fashion Week", href: "/blog/bergamo-airport-to-milan-fashion-week" },

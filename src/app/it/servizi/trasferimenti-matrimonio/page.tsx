@@ -109,6 +109,7 @@ export default function WeddingTransfersPageIt() {
         relatedLinks={[
           { label: "Transfer Aeroportuali per Invitati", href: "/it/servizi/trasferimenti-aeroportuali" },
           { label: "Taxi Aziendale e VIP", href: "/it/servizi/taxi-aziendale" },
+          { label: "Eventi Aziendali e Privati", href: "/it/servizi/eventi-aziendali-privati" },
           { label: "Taxi a Ore", href: "/it/servizi/taxi-a-ore" },
           { label: "Trasferimenti Matrimonio in Toscana", href: "/city/florence" },
           { label: "Trasferimenti Matrimonio Costiera Amalfitana", href: "/city/amalfi-coast" },

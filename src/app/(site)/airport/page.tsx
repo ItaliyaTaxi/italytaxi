@@ -3,6 +3,7 @@ import PageHero from '@/components/PageHero';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
 import { Plane, ChevronRight } from 'lucide-react';
+import { airports as airportData } from '@/lib/page-data';
 
 import { Metadata } from 'next';
 
@@ -15,23 +16,35 @@ export const metadata: Metadata = {
 };
 
 export default function AirportTransfersPage() {
-    const airports = [
-        { name: "Rome Fiumicino", link: "/airport/rome-fiumicino" },
-        { name: "Rome Ciampino", link: "/airport/rome-ciampino" },
-        { name: "Milan Malpensa", link: "/airport/milan-malpensa" },
-        { name: "Milan Linate", link: "/airport/milan-linate" },
-        { name: "Venice Marco Polo", link: "/airport/venice" },
-        { name: "Naples International", link: "/airport/naples" },
-        { name: "Florence Peretola", link: "/airport/florence" },
-        { name: "Bologna Marconi", link: "/airport/bologna-marconi" },
-        { name: "Pisa Airport", link: "/airport/pisa" },
-        { name: "Verona Airport", link: "/airport/verona" },
-        { name: "Palermo Airport", link: "/airport/palermo" },
-        { name: "Catania Airport", link: "/airport/catania-fontanarossa" },
-        { name: "Bari Airport", link: "/airport/bari" },
-        { name: "Genoa Airport", link: "/airport/genoa" },
-        { name: "Turin Airport", link: "/airport/turin" }
-    ];
+    // Short display labels for the airports this hub already linked to, so the
+    // existing anchor text and ordering stay unchanged. The list itself is now
+    // derived from the shared `airports` data, so a newly added airport page
+    // cannot end up unlinked from this hub again.
+    const displayName: Record<string, string> = {
+        'rome-fiumicino': 'Rome Fiumicino',
+        'rome-ciampino': 'Rome Ciampino',
+        'milan-malpensa': 'Milan Malpensa',
+        'milan-linate': 'Milan Linate',
+        'venice': 'Venice Marco Polo',
+        'naples': 'Naples International',
+        'florence': 'Florence Peretola',
+        'bologna-marconi': 'Bologna Marconi',
+        'pisa': 'Pisa Airport',
+        'verona': 'Verona Airport',
+        'palermo': 'Palermo Airport',
+        'catania-fontanarossa': 'Catania Airport',
+        'bari': 'Bari Airport',
+        'genoa': 'Genoa Airport',
+        'turin': 'Turin Airport',
+    };
+    const order = Object.keys(displayName);
+    const rank = (slug: string) => {
+        const i = order.indexOf(slug);
+        return i === -1 ? order.length : i;
+    };
+    const airports = [...airportData]
+        .sort((a, b) => rank(a.slug) - rank(b.slug))
+        .map((a) => ({ name: displayName[a.slug] ?? a.name, link: `/airport/${a.slug}` }));
 
     return (
         <main className="min-h-screen bg-[#F8F6F1]">

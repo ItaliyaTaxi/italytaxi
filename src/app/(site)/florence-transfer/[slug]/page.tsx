@@ -7,7 +7,7 @@ import PageHero from '@/components/PageHero';
 import FAQSection from '@/components/FAQSection';
 import ServiceSchema from '@/components/ServiceSchema';
 import MapEmbed from '@/components/MapEmbed';
-import { Clock, MapPin, Euro, CheckCircle, ChevronRight, Plane, ShieldCheck, Car, MessageCircle } from 'lucide-react';
+import { Clock, MapPin, Euro, CheckCircle, ChevronRight, Plane, MessageCircle } from 'lucide-react';
 import {
     getAllFlorenceTransfers,
     findFlorenceTransfer,
@@ -126,7 +126,6 @@ export default async function FlorenceTransferPage({ params }: { params: Promise
             : { '@type': 'Hotel', name: dest.name, address: { '@type': 'PostalAddress', addressLocality: dest.area, addressRegion: 'Tuscany', addressCountry: 'IT' } },
     };
 
-    const cell = 'px-4 py-3 border border-gray-100 text-sm';
 
     return (
         <main className="font-inter bg-white text-navy">
@@ -222,24 +221,6 @@ export default async function FlorenceTransferPage({ params }: { params: Promise
                                 : `Public options from ${airport.short} each have drawbacks: the tram to the centre means managing luggage and a final walk, the taxi rank can queue at peak times, and ride-sharing is limited in Florence. A private transfer removes all of that — one fixed price, a guaranteed driver and a direct ride to ${dest.name}.`}
                     </p>
 
-                    {/* Comparison table */}
-                    <div className="overflow-x-auto my-8">
-                        <table className="w-full border-collapse">
-                            <thead>
-                                <tr className="bg-navy text-white text-left text-xs uppercase tracking-wider">
-                                    <th className={cell}>Option</th><th className={cell}>Convenience</th><th className={cell}>Fixed Cost</th><th className={cell}>Comfort</th><th className={cell}>Wait</th><th className={cell}>Luggage</th><th className={cell}>Direct</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr className="bg-[#FBF8F0]"><td className={`${cell} font-bold`}>Private Transfer</td><td className={cell}>Excellent</td><td className={cell}>Yes</td><td className={cell}>Excellent</td><td className={cell}>{dep ? 'On-time pickup' : 'None — driver waiting'}</td><td className={cell}>Assisted</td><td className={cell}>Yes</td></tr>
-                                <tr><td className={`${cell} font-bold`}>Taxi</td><td className={cell}>Good</td><td className={cell}>Metered</td><td className={cell}>Good</td><td className={cell}>Variable queue</td><td className={cell}>Limited</td><td className={cell}>Yes</td></tr>
-                                <tr><td className={`${cell} font-bold`}>Train</td><td className={cell}>Low</td><td className={cell}>Fixed ticket</td><td className={cell}>Basic</td><td className={cell}>Timetabled</td><td className={cell}>Carry your own</td><td className={cell}>No</td></tr>
-                                <tr><td className={`${cell} font-bold`}>{isPisa ? 'Bus / Coach' : 'Tram / Bus'}</td><td className={cell}>Low</td><td className={cell}>Fixed ticket</td><td className={cell}>Basic</td><td className={cell}>Timetabled</td><td className={cell}>Limited</td><td className={cell}>No</td></tr>
-                                <tr><td className={`${cell} font-bold`}>Ride-sharing</td><td className={cell}>Variable</td><td className={cell}>Surge pricing</td><td className={cell}>Variable</td><td className={cell}>Unpredictable</td><td className={cell}>Limited</td><td className={cell}>Yes</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-
                     {/* Florence ZTL / access note */}
                     {!isCountry && (
                         <>
@@ -330,20 +311,11 @@ export default async function FlorenceTransferPage({ params }: { params: Promise
                         </>
                     )}
 
-                    {/* Map */}
-                    <h2 className="text-2xl font-bold text-navy mt-12 mb-4">Location Map</h2>
-                    <div className="rounded-2xl overflow-hidden mb-4"><MapEmbed /></div>
-
-                    {/* Vehicle options */}
-                    <h2 className="text-2xl font-bold text-navy mt-12 mb-4">Vehicle Options</h2>
-                    <ul className="grid md:grid-cols-2 gap-2 text-gray-700 mb-4">
-                        <li><Car className="w-4 h-4 text-gold inline mr-2" /><strong>Sedan</strong> — 1–3 passengers</li>
-                        <li><Car className="w-4 h-4 text-gold inline mr-2" /><strong>Executive Sedan</strong> — business comfort</li>
-                        <li><Car className="w-4 h-4 text-gold inline mr-2" /><strong>Minivan</strong> — 4–8 passengers &amp; luggage</li>
-                        <li><Car className="w-4 h-4 text-gold inline mr-2" /><strong>Luxury Van</strong> — premium group travel</li>
-                        <li><Car className="w-4 h-4 text-gold inline mr-2" /><strong>Business Class</strong> — VIP transfers</li>
-                        <li><Car className="w-4 h-4 text-gold inline mr-2" /><strong>Group Transfers</strong> — minibus on request</li>
-                    </ul>
+                    {/* Map — centred on this page's own destination */}
+                    <h2 className="text-2xl font-bold text-navy mt-12 mb-4">{dest.name} on the Map</h2>
+                    <div className="rounded-2xl overflow-hidden mb-4">
+                        <MapEmbed query={`${dest.name}, ${dest.area}, Italy`} title={`Map of ${dest.name}`} />
+                    </div>
 
                     {/* Pricing */}
                     <h2 className="text-2xl font-bold text-navy mt-12 mb-4">Fixed Pricing</h2>
@@ -351,12 +323,6 @@ export default async function FlorenceTransferPage({ params }: { params: Promise
                         Your fare is fixed and confirmed before you travel — no meter and no hidden charges. The final price depends on vehicle type, passenger count, luggage, pickup time and season. Request a free quote online or on WhatsApp for an exact, all-inclusive price for your {bookText} transfer.
                     </p>
 
-                    {/* Trust signals */}
-                    <div className="bg-[#0F1C2E] text-white rounded-2xl p-6 my-8 grid sm:grid-cols-2 gap-3 text-sm">
-                        {['Licensed, professional chauffeurs', 'Real-time flight monitoring', 'Meet & greet service', 'ZTL-registered vehicles', '24/7 availability', 'Fixed price — no hidden charges', 'Secure online booking', 'Free cancellation (per terms)'].map((s, i) => (
-                            <p key={i} className="flex items-center gap-2"><ShieldCheck className="w-4 h-4 text-gold" /> {s}</p>
-                        ))}
-                    </div>
                 </div>
             </section>
 

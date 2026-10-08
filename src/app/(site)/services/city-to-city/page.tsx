@@ -128,6 +128,7 @@ export default function CityToCityPage() {
           { label: "Rome to Naples Transfer", href: "/route/rome-to-naples-taxi" },
           { label: "Naples to Amalfi Coast", href: "/route/naples-to-amalfi-coast-taxi" },
           { label: "All Italy Routes", href: "/route" },
+          { label: "How Many Days Do You Need in Italy?", href: "/blog/how-many-days-in-italy" },
           { label: "Airport Transfers", href: "/services/airport-transfers" },
           { label: "Private Tours", href: "/services/private-tours" },
         ]}

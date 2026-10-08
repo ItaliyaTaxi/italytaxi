@@ -17,20 +17,57 @@ import { romeAirports, romeHotels, transferSlug } from '@/lib/airport-hotel-data
 // for a user browsing this page to discover a handful of real hotel-specific
 // transfer pages. See docs/ GSC "crawled, not indexed" audit: this cluster
 // previously had zero inbound links from any page outside its own template.
-const FEATURED_HOTEL_SLUGS = [
-  'hotel-de-russie',
-  'hotel-hassler-roma',
-  'the-rome-edition',
-  'sofitel-roma-villa-borghese',
-  'hotel-splendide-royal',
-  'palazzo-manfredi',
-  'nh-collection-roma-fori-imperiali',
-  'rome-cavalieri-waldorf-astoria',
-  'bvlgari-hotel-rome',
-  'le-meridien-visconti-rome',
-  'hotel-santa-maria',
-  'portrait-roma',
-  'hotel-nazionale',
+// Rome's hotel-transfer pages grouped by the part of the city the hotel sits in,
+// so the list reads as a neighbourhood index rather than one long block of links.
+// Any hotel added to `romeHotels` but not listed here is picked up by the
+// catch-all group below, so a new hotel page cannot end up unlinked.
+const ROME_HOTEL_DISTRICTS: { title: string; note: string; slugParts: string[] }[] = [
+  {
+    title: 'Via Veneto & the Spanish Steps',
+    note: 'The hotel district on the Pincian slope, walkable to the Spanish Steps and the Villa Borghese gardens.',
+    slugParts: [
+      'hotel-eden', 'hotel-hassler-roma', 'hotel-de-la-ville', 'w-rome', 'the-rome-edition',
+      'sofitel-roma-villa-borghese', 'hotel-splendide-royal', 'portrait-roma', 'hotel-barberini',
+    ],
+  },
+  {
+    title: 'Piazza del Popolo & Via del Corso',
+    note: 'The northern end of the centro storico, between the Tridente shopping streets and the Tiber.',
+    slugParts: [
+      'hotel-de-russie', 'hotel-locarno', 'palazzo-ripetta', 'bvlgari-hotel-rome', 'six-senses-rome',
+    ],
+  },
+  {
+    title: 'Pantheon, Trevi & the Historic Centre',
+    note: 'The dense lanes of the old city, where drop-offs depend on which streets are open to traffic.',
+    slugParts: [
+      'hotel-nazionale', 'hotel-fontana', 'hotel-pantheon', 'hotel-indigo-rome-st-george', 'hotel-ponte-sisto',
+      'hotel-campo-de-fiori',
+    ],
+  },
+  {
+    title: 'Termini, Repubblica & Via Nazionale',
+    note: 'Around Rome\'s main station — the quickest side of the centre to reach from either airport.',
+    slugParts: [
+      'hotel-artemide', 'hotel-quirinale', 'the-st-regis-rome', 'anantara-palazzo-naiadi',
+      'nh-collection-roma-palazzo-cinquecento', 'radisson-blu-es-hotel-rome',
+    ],
+  },
+  {
+    title: 'Colosseum, Monti & Celio',
+    note: 'The archaeological quarter east of the Forum, with narrow approach streets near the monuments.',
+    slugParts: [
+      'nh-collection-roma-fori-imperiali', 'palazzo-manfredi', 'mercure-roma-centro-colosseo',
+      'hotel-capo-d-africa',
+    ],
+  },
+  {
+    title: 'Trastevere, Prati & Beyond the Centre',
+    note: 'Across the Tiber and out towards Monte Mario and EUR, where a car saves the most time.',
+    slugParts: [
+      'hotel-santa-maria', 'le-meridien-visconti-rome', 'rome-cavalieri-waldorf-astoria', 'hilton-rome-eur-la-lama',
+    ],
+  },
 ];
 
 export const metadata: Metadata = {
@@ -91,9 +128,19 @@ const routes: RouteItem[] = [
 export default function RomeAirportTransferPage() {
   const url = "https://www.italytaxiservice.com/rome-airport-transfer";
   const fiumicino = romeAirports.find((a) => a.slugPart === 'rome-fiumicino-airport');
-  const featuredHotels = FEATURED_HOTEL_SLUGS
-    .map((slugPart) => romeHotels.find((h) => h.slugPart === slugPart))
-    .filter((h): h is NonNullable<typeof h> => Boolean(h));
+  const grouped = ROME_HOTEL_DISTRICTS.map((g) => ({
+    ...g,
+    hotels: g.slugParts
+      .map((slugPart) => romeHotels.find((h) => h.slugPart === slugPart))
+      .filter((h): h is NonNullable<typeof h> => Boolean(h)),
+  })).filter((g) => g.hotels.length > 0);
+
+  // Anything in the data but not assigned to a district above still gets linked.
+  const assigned = new Set(ROME_HOTEL_DISTRICTS.flatMap((g) => g.slugParts));
+  const ungrouped = romeHotels.filter((h) => !assigned.has(h.slugPart));
+  const hotelGroups = ungrouped.length > 0
+    ? [...grouped, { title: 'Elsewhere in Rome', note: 'Further hotels we transfer to across the city.', slugParts: [], hotels: ungrouped }]
+    : grouped;
 
   return (
     <main className="min-h-screen text-navy-rich font-inter">
@@ -202,24 +249,34 @@ export default function RomeAirportTransferPage() {
               <strong>private transfer in Rome</strong>.
             </p>
           </div>
-          {fiumicino && featuredHotels.length > 0 && (
+          {fiumicino && hotelGroups.length > 0 && (
             <div>
-              <h3 className="text-2xl font-bold text-[#0F1C2E] mb-3">Popular Rome Hotel Transfers</h3>
-              <p className="mb-6">
-                Need a private transfer to a specific Rome hotel? Alongside general airport-to-centre transfers, we
-                run direct, fixed-price routes between Fiumicino and individual Rome hotels — including a return
-                transfer back to the airport for your departure. A few of the hotels we cover most often:
+              <h3 className="text-2xl font-bold text-[#0F1C2E] mb-3">Rome Hotel Transfers by Neighbourhood</h3>
+              <p className="mb-8">
+                Alongside general airport-to-centre transfers, we run direct fixed-price routes between Fiumicino and
+                individual Rome hotels. They are grouped below by the part of the city each hotel sits in, since that is
+                what actually decides the drive — the approach to a hotel in the lanes behind the Pantheon is nothing like
+                the run out to EUR. Each page covers the route in both directions, so the return transfer to the airport
+                for your departure is on the same page.
               </p>
-              <div className="flex flex-wrap gap-3">
-                {featuredHotels.map((hotel) => (
-                  <Link
-                    key={hotel.slugPart}
-                    href={`/${transferSlug(fiumicino, hotel)}`}
-                    className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full border border-gray-200 text-navy font-semibold text-sm bg-white hover:border-gold hover:text-gold hover:shadow-md transition-all"
-                  >
-                    <ChevronRight className="w-4 h-4" />
-                    {hotel.name}
-                  </Link>
+              <div className="space-y-8">
+                {hotelGroups.map((group) => (
+                  <div key={group.title}>
+                    <h4 className="text-lg font-bold text-[#0F1C2E] mb-1">{group.title}</h4>
+                    <p className="text-base text-gray-600 mb-4">{group.note}</p>
+                    <div className="flex flex-wrap gap-3">
+                      {group.hotels.map((hotel) => (
+                        <Link
+                          key={hotel.slugPart}
+                          href={`/${transferSlug(fiumicino, hotel)}`}
+                          className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full border border-gray-200 text-navy font-semibold text-sm bg-white hover:border-gold hover:text-gold hover:shadow-md transition-all"
+                        >
+                          <ChevronRight className="w-4 h-4" />
+                          {hotel.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
                 ))}
               </div>
             </div>

@@ -7,6 +7,8 @@ import ServiceSchema from '@/components/ServiceSchema';
 import ServicePageContent from '@/components/ServicePageContent';
 import type { PricingTier, RouteItem } from '@/components/ServicePageContent';
 import { Metadata } from 'next';
+import Link from 'next/link';
+import { ChevronRight } from 'lucide-react';
 import { enHreflangFor } from '@/lib/i18n/page-registry';
 
 export const metadata: Metadata = {
@@ -132,6 +134,38 @@ export default function CityToCityPageIt() {
           { label: "Tour Privati", href: "/it/servizi/tour-privati" },
         ]}
       />
+
+      {/* Distanze e tempi di percorrenza — queste pagine non hanno una pagina
+          percorso italiana dedicata, e il template /it/distance le collega già a
+          questo servizio: qui il collegamento diventa reciproco. */}
+      <section className="py-16 bg-white font-inter">
+        <div className="container mx-auto px-6 max-w-5xl">
+          <h2 className="text-3xl font-extrabold text-[#0F1C2E] mb-3">Distanze e Tempi di Percorrenza</h2>
+          <p className="text-gray-700 leading-relaxed mb-8">
+            Se stai ancora valutando un itinerario, queste schede riportano chilometraggio, tempi di guida
+            e confronto con il treno per alcuni dei collegamenti più richiesti — utili per capire quanto
+            dura davvero una tratta prima di richiedere un preventivo.
+          </p>
+          <div className="grid sm:grid-cols-2 gap-3">
+            {[
+              { label: "Distanza Roma - Vaticano", href: "/it/distance/distanza-da-roma-al-vaticano" },
+              { label: "Distanza Roma - Tivoli", href: "/it/distance/distanza-da-roma-a-tivoli" },
+              { label: "Distanza Roma - Orvieto", href: "/it/distance/distanza-da-roma-a-orvieto" },
+              { label: "Distanza Fiumicino - Ciampino", href: "/it/distance/distanza-fiumicino-ciampino" },
+              { label: "Distanza Milano - Venezia", href: "/it/distance/distanza-da-milano-a-venezia" },
+              { label: "Distanza Milano - Torino", href: "/it/distance/distanza-da-milano-a-torino" },
+              { label: "Distanza Venezia - Padova", href: "/it/distance/distanza-da-venezia-a-padova" },
+              { label: "Distanza Napoli - Costiera Amalfitana", href: "/it/distance/distanza-da-napoli-alla-costiera-amalfitana" },
+              { label: "Distanza Aeroporto di Bari - Polignano a Mare", href: "/it/distance/distanza-dallaeroporto-di-bari-a-polignano-a-mare" },
+              { label: "Distanza Aeroporto di Palermo - Cefalù", href: "/it/distance/distanza-dallaeroporto-di-palermo-a-cefalu" },
+            ].map((l) => (
+              <Link key={l.href} href={l.href} className="flex items-center gap-2 text-gray-700 hover:text-gold font-medium">
+                <ChevronRight className="w-4 h-4 text-gold shrink-0" /> {l.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <HowItWorks />
 

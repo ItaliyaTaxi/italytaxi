@@ -33,11 +33,11 @@ export const bolognaAirport: BolognaAirport = {
     code: 'BLQ', name: 'Bologna Guglielmo Marconi Airport', short: 'Bologna Marconi', slugPart: 'bologna-airport',
     airportPage: '/airport/bologna-marconi',
     blurb: 'Bologna\'s compact single-terminal airport, about 6 km northwest of the historic centre.',
-    about: 'Bologna Guglielmo Marconi Airport (BLQ) is a single-terminal airport about 6 km northwest of the historic centre, with a compact, easy-to-navigate arrivals hall. A people-mover train, the AerobusTrain, links it to Bologna Centrale station, but it involves a station change and a walk or taxi with luggage at the other end — a private transfer instead takes you directly to your hotel\'s door. BLQ is also a convenient alternative gateway for Modena\'s Ferrari Museum, Parma and Ravenna, all reachable within an hour or so by road.',
+    about: 'Bologna Guglielmo Marconi Airport (BLQ) is a single-terminal airport about 6 km northwest of the historic centre, with a compact, easy-to-navigate arrivals hall. A people-mover train, the Marconi Express, links it to Bologna Centrale station, but it involves a station change and a walk or taxi with luggage at the other end — a private transfer instead takes you directly to your hotel\'s door. BLQ is also a convenient alternative gateway for Modena\'s Ferrari Museum, Parma and Ravenna, all reachable within an hour or so by road.',
     terminals: 'A single passenger terminal with one arrivals hall.',
     meetingPoint: 'the meeting zone just beyond baggage reclaim, between the arrivals gate and the taxi/shuttle rank, with a name sign',
     recommendedArrival: 'Arrive about 2 hours before European departures and 3 hours before long-haul/intercontinental flights.',
-    publicAlt: 'the AerobusTrain people-mover to Bologna Centrale station, then a taxi or walk with your luggage',
+    publicAlt: 'the Marconi Express people-mover to Bologna Centrale station, then a taxi or walk with your luggage',
     distance: '~6 km', duration: '~15–20 min',
 };
 
@@ -273,8 +273,17 @@ export function findBolognaHotelTransfer(slug: string): BolognaHotelTransferComb
     return getAllBolognaHotelTransfers().find((t) => t.slug === slug) || null;
 }
 
+// Rotating sibling window (see the Milan equivalent): a fixed slice only ever
+// surfaced the first few hotels, leaving the rest without sibling links.
 export function relatedBolognaHotels(excludeSlug: string, limit = 6): BolognaHotel[] {
-    return bolognaHotels.filter((h) => h.slug !== excludeSlug).slice(0, limit);
+    const i = bolognaHotels.findIndex((h) => h.slug === excludeSlug);
+    const start = i === -1 ? 0 : i + 1;
+    const out: BolognaHotel[] = [];
+    for (let k = 0; k < bolognaHotels.length && out.length < limit; k++) {
+        const h = bolognaHotels[(start + k) % bolognaHotels.length];
+        if (h.slug !== excludeSlug) out.push(h);
+    }
+    return out;
 }
 
 // ─────────────────────────────────────────────────────────────────────────
@@ -379,5 +388,13 @@ export function findBolognaCruiseTransfer(slug: string): BolognaCruiseCombo | nu
 }
 
 export function relatedBolognaCruiseOrigins(excludeSlug: string, limit = 6): BolognaCruiseOrigin[] {
-    return bolognaCruiseOrigins.filter((o) => o.kind === 'hotel' && o.slug !== excludeSlug).slice(0, limit);
+    const pool = bolognaCruiseOrigins.filter((o) => o.kind === 'hotel');
+    const i = pool.findIndex((o) => o.slug === excludeSlug);
+    const start = i === -1 ? 0 : i + 1;
+    const out: BolognaCruiseOrigin[] = [];
+    for (let k = 0; k < pool.length && out.length < limit; k++) {
+        const o = pool[(start + k) % pool.length];
+        if (o.slug !== excludeSlug) out.push(o);
+    }
+    return out;
 }

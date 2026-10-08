@@ -329,8 +329,19 @@ export function findMilanTransfer(slug: string): MilanTransferCombo | null {
 }
 
 // Other hotels reachable from the same airport (for internal linking).
+// Rotate the sibling window by the current hotel's position in the list. A fixed
+// slice(0, limit) only ever surfaced the first few hotels, so everything past
+// them received no internal links from its own siblings; rotating means each
+// hotel appears in the same number of related lists.
 export function relatedMilanHotels(excludeSlug: string, limit = 6): MilanHotel[] {
-    return milanHotels.filter((h) => h.slug !== excludeSlug).slice(0, limit);
+    const i = milanHotels.findIndex((h) => h.slug === excludeSlug);
+    const start = i === -1 ? 0 : i + 1;
+    const out: MilanHotel[] = [];
+    for (let k = 0; k < milanHotels.length && out.length < limit; k++) {
+        const h = milanHotels[(start + k) % milanHotels.length];
+        if (h.slug !== excludeSlug) out.push(h);
+    }
+    return out;
 }
 
 export function milanAirportByCode(code: string): MilanAirport {

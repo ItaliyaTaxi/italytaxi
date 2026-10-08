@@ -8,6 +8,8 @@ import ServicePageContent from '@/components/ServicePageContent';
 import type { PricingTier, RouteItem } from '@/components/ServicePageContent';
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { ChevronRight } from 'lucide-react';
+import { milanHotels, milanAirports, milanArrivalSlug } from '@/lib/milan-transfer-data';
 
 export const metadata: Metadata = {
   title: "Milan Chauffeur Service | Private Driver, Malpensa & Linate",
@@ -69,8 +71,50 @@ const routes: RouteItem[] = [
   { from: "Milan City Centre", to: "Lake Maggiore (Stresa)", duration: "~55–70 min", price: "From €110" },
 ];
 
+// Milan's hotel-transfer pages, grouped by quarter of the city. The cluster is
+// derived from each hotel's own `district` field rather than a hardcoded list, so
+// a hotel added to `milanHotels` is grouped automatically and cannot end up
+// unlinked from this hub.
+const MILAN_CLUSTERS: { title: string; note: string; match: (d: string) => boolean }[] = [
+  {
+    title: 'Brera & the Quadrilatero della Moda',
+    note: 'The fashion quarter and the artists\' streets beside it — largely pedestrian, so the drop-off point matters.',
+    match: (d) => /Quadrilatero|Brera/i.test(d),
+  },
+  {
+    title: 'Duomo & Missori',
+    note: 'The cathedral core, inside the Area C congestion charge and partly closed to ordinary traffic.',
+    match: (d) => /Duomo|Missori|Crocetta/i.test(d),
+  },
+  {
+    title: 'Centrale & Repubblica',
+    note: 'Around Milano Centrale station — the fastest side of the city to reach from Malpensa or Bergamo.',
+    match: (d) => /Centrale|Repubblica/i.test(d),
+  },
+];
+
+function milanHotelGroups() {
+  const groups = MILAN_CLUSTERS.map((c) => ({
+    title: c.title,
+    note: c.note,
+    hotels: milanHotels.filter((h) => c.match(h.district)),
+  })).filter((g) => g.hotels.length > 0);
+
+  const claimed = new Set(groups.flatMap((g) => g.hotels.map((h) => h.slug)));
+  const rest = milanHotels.filter((h) => !claimed.has(h.slug));
+  if (rest.length > 0) {
+    groups.push({
+      title: 'Porta Venezia, Monumentale & Fiera',
+      note: 'The quarters beyond the centre, including the Fiera and CityLife exhibition district.',
+      hotels: rest,
+    });
+  }
+  return groups;
+}
+
 export default function MilanChauffeurServicePage() {
   const url = "https://www.italytaxiservice.com/milan-chauffeur-service";
+  const malpensa = milanAirports.find((a) => a.code === 'MXP');
 
   return (
     <main className="min-h-screen text-navy-rich font-inter">
@@ -188,6 +232,40 @@ export default function MilanChauffeurServicePage() {
               the lake towns, villas, and gardens at your own pace.
             </p>
           </div>
+          {malpensa && (
+            <div>
+              <h3 className="text-2xl font-bold text-[#0F1C2E] mb-3">
+                Milan Hotel Transfers by Quarter
+              </h3>
+              <p className="mb-8">
+                We run direct fixed-price routes between Milan&apos;s airports and individual hotels. They are grouped
+                below by quarter, because in Milan that is what shapes the arrival: much of the Duomo core sits inside
+                the Area C charge and the Quadrilatero&apos;s streets are largely pedestrian, while the hotels around
+                Centrale are the quickest to reach from Malpensa. Each page covers the route in both directions and
+                links to the Linate and Bergamo versions of the same journey.
+              </p>
+              <div className="space-y-8">
+                {milanHotelGroups().map((group) => (
+                  <div key={group.title}>
+                    <h4 className="text-lg font-bold text-[#0F1C2E] mb-1">{group.title}</h4>
+                    <p className="text-base text-gray-600 mb-4">{group.note}</p>
+                    <div className="flex flex-wrap gap-3">
+                      {group.hotels.map((hotel) => (
+                        <Link
+                          key={hotel.slug}
+                          href={`/${milanArrivalSlug(malpensa, hotel)}`}
+                          className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full border border-gray-200 text-navy font-semibold text-sm bg-white hover:border-[#F4C430] hover:text-[#F4C430] hover:shadow-md transition-all"
+                        >
+                          <ChevronRight className="w-4 h-4" />
+                          {hotel.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
           <div className="text-center pt-6">
             <Link
               href="/book-now"

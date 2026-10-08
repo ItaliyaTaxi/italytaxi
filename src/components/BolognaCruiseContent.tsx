@@ -6,7 +6,7 @@ import FAQSection from '@/components/FAQSection';
 import ServiceSchema from '@/components/ServiceSchema';
 import MapEmbed from '@/components/MapEmbed';
 import BookingForm from '@/components/BookingForm';
-import { Clock, MapPin, Euro, CheckCircle, ChevronRight, Plane, ShieldCheck, Car, Ship, Info } from 'lucide-react';
+import { Clock, MapPin, Euro, CheckCircle, ChevronRight, Plane, Ship, Info } from 'lucide-react';
 import {
     type BolognaCruiseCombo,
     relatedBolognaCruiseOrigins,
@@ -94,7 +94,6 @@ export default function BolognaCruiseContent({ combo }: { combo: BolognaCruiseCo
             : { '@type': 'Place', name: origin.name, address: { '@type': 'PostalAddress', addressLocality: 'Bologna', addressRegion: 'Emilia-Romagna', addressCountry: 'IT' } },
     };
 
-    const cell = 'px-4 py-3 border border-gray-100 text-sm';
 
     return (
         <main className="font-inter bg-white text-navy">
@@ -179,20 +178,6 @@ export default function BolognaCruiseContent({ combo }: { combo: BolognaCruiseCo
                                     ? `Cruise embarkation has a hard deadline — miss the boarding window and the ship leaves without you. A pre-booked car from ${origin.name} removes that risk with a guaranteed pickup, a driver who knows the fastest route to Ravenna, and a fixed price agreed before you travel.`
                                     : `After a cruise, the last thing you want is to manage luggage on public transport. A private transfer from ${port.name} means a driver waiting at the terminal, help with your bags, and one direct ride to ${origin.name} — no coach transfers or train connections.`}
                             </p>
-                            <div className="overflow-x-auto my-6">
-                                <table className="w-full border-collapse">
-                                    <thead><tr className="bg-navy text-white text-left text-xs uppercase tracking-wider">
-                                        <th className={cell}>Option</th><th className={cell}>Door-to-door</th><th className={cell}>Fixed price</th><th className={cell}>Luggage</th><th className={cell}>Wait</th>
-                                    </tr></thead>
-                                    <tbody>
-                                        <tr className="bg-[#FBF8F0]"><td className={`${cell} font-bold`}>Private Transfer</td><td className={cell}>Yes</td><td className={cell}>Yes</td><td className={cell}>Assisted</td><td className={cell}>{dep ? 'On-time pickup' : 'Driver waiting'}</td></tr>
-                                        <tr><td className={`${cell} font-bold`}>Train + Taxi</td><td className={cell}>No</td><td className={cell}>Two fares</td><td className={cell}>Carry your own</td><td className={cell}>Timetabled</td></tr>
-                                        <tr><td className={`${cell} font-bold`}>Shared Shuttle</td><td className={cell}>No</td><td className={cell}>Fixed ticket</td><td className={cell}>Limited</td><td className={cell}>Group timetable</td></tr>
-                                        <tr><td className={`${cell} font-bold`}>Taxi Rank</td><td className={cell}>Yes</td><td className={cell}>Metered</td><td className={cell}>Limited</td><td className={cell}>Variable queue</td></tr>
-                                    </tbody>
-                                </table>
-                            </div>
-
                             {/* Pickup process */}
                             {dep ? (
                                 <>
@@ -264,25 +249,9 @@ export default function BolognaCruiseContent({ combo }: { combo: BolognaCruiseCo
                             )}
 
                             {/* Map */}
-                            <h2 className="text-2xl font-bold text-navy mt-8 mb-4">Location Map</h2>
-                            <div className="rounded-2xl overflow-hidden mb-4"><MapEmbed /></div>
-
-                            {/* Vehicles */}
-                            <h2 className="text-2xl font-bold text-navy mt-8 mb-4">Vehicle Options</h2>
-                            <ul className="grid md:grid-cols-2 gap-2 text-gray-700 mb-4">
-                                <li><Car className="w-4 h-4 text-gold inline mr-2" /><strong>Sedan</strong> — 1–3 passengers</li>
-                                <li><Car className="w-4 h-4 text-gold inline mr-2" /><strong>Executive Sedan</strong> — business comfort</li>
-                                <li><Car className="w-4 h-4 text-gold inline mr-2" /><strong>Minivan</strong> — 4–8 passengers &amp; luggage</li>
-                                <li><Car className="w-4 h-4 text-gold inline mr-2" /><strong>Mercedes V-Class</strong> — premium group travel</li>
-                                <li><Car className="w-4 h-4 text-gold inline mr-2" /><strong>Luxury Van</strong> — VIP transfers</li>
-                                <li><Car className="w-4 h-4 text-gold inline mr-2" /><strong>Group Minibus</strong> — larger parties on request</li>
-                            </ul>
-
-                            {/* Trust signals */}
-                            <div className="bg-[#0F1C2E] text-white rounded-2xl p-6 my-8 grid sm:grid-cols-2 gap-3 text-sm">
-                                {['Licensed professional chauffeurs', 'Embarkation-aware scheduling', 'Meet & greet with name sign', 'English-speaking drivers', '24/7 availability', 'Fixed price — no hidden charges', 'Child seats on request', 'Free cancellation (per terms)'].map((s, i) => (
-                                    <p key={i} className="flex items-center gap-2"><ShieldCheck className="w-4 h-4 text-gold shrink-0" /> {s}</p>
-                                ))}
+                            <h2 className="text-2xl font-bold text-navy mt-8 mb-4">{dep ? origin.name : port.name} on the Map</h2>
+                            <div className="rounded-2xl overflow-hidden mb-4">
+                                <MapEmbed query={dep ? `${origin.name}, Italy` : `${port.name}, Ravenna, Italy`} title={dep ? `Map of ${origin.name}` : `Map of ${port.name}`} />
                             </div>
                         </div>
 
@@ -330,6 +299,7 @@ export default function BolognaCruiseContent({ combo }: { combo: BolognaCruiseCo
 
                     <h3 className="text-xl font-bold text-navy mb-4">Bologna &amp; Ravenna Services</h3>
                     <div className="grid sm:grid-cols-2 gap-3">
+                        <Link href="/bologna-transfer" className="flex items-center gap-2 text-gray-700 hover:text-gold font-medium"><Ship className="w-4 h-4 text-gold" /> All Bologna &amp; Ravenna Transfers</Link>
                         <Link href="/airport/bologna-marconi" className="flex items-center gap-2 text-gray-700 hover:text-gold font-medium"><Plane className="w-4 h-4 text-gold" /> Bologna Marconi Airport Guide</Link>
                         <Link href="/city/bologna" className="flex items-center gap-2 text-gray-700 hover:text-gold font-medium"><ChevronRight className="w-4 h-4 text-gold" /> Bologna City Transfers</Link>
                         <Link href="/services/cruise-port-transfers" className="flex items-center gap-2 text-gray-700 hover:text-gold font-medium"><Ship className="w-4 h-4 text-gold" /> Cruise Port Transfer Service</Link>

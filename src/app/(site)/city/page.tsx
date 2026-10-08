@@ -51,6 +51,7 @@ const regions = [
         name: "Tuscany",
         destinations: [
             { name: "Florence", link: "/city/florence" },
+            { name: "Pisa", link: "/city/pisa-taxi-service" },
             { name: "Lucca", link: "/city/lucca" },
             { name: "San Gimignano", link: "/city/san-gimignano" },
         ],

@@ -108,6 +108,17 @@ export default function FaqPage() {
       <FAQSection faqs={generalFaqs} title="General Booking Questions" badge="Getting Started" includeSchema={false} />
       <FAQSection faqs={airportFaqs} title="Airport Transfer Questions" badge="Airports & Arrivals" includeSchema={false} />
       <FAQSection faqs={vehicleFaqs} title="Vehicle & Comfort Questions" badge="Fleet & Equipment" includeSchema={false} />
+
+      <section className="py-8 bg-white font-inter">
+        <div className="container mx-auto px-6 max-w-4xl">
+          <p className="text-gray-600 leading-relaxed">
+            Travelling with a pet? Rules differ between ordinary street taxis, pre-booked private transfers and trains, so it is worth checking before you arrive — our guide to{' '}
+            <Link href="/blog/traveling-italy-with-a-dog-taxis-transfers" className="text-gold font-semibold hover:underline">travelling in Italy with a dog</Link>{' '}
+            explains what each one allows and what to tell us when booking.
+          </p>
+        </div>
+      </section>
+
       <FAQSection faqs={pricingFaqs} title="Pricing & Payment Questions" badge="Rates & Charges" includeSchema={false} />
 
       {/* Still have questions */}

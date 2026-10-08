@@ -168,6 +168,11 @@ export default function AmalfiCoastPage() {
                             </li>
                         ))}
                     </ul>
+                    <p className="text-gray-600 leading-relaxed mt-6">
+                        A private transfer is not the only way to make this journey. If you are still weighing it against the ferry, the train-and-bus combination or driving yourself, our{' '}
+                        <Link href="/blog/best-way-naples-to-amalfi-coast-2026" className="text-gold font-semibold hover:underline">comparison of the ways to travel from Naples to the Amalfi Coast</Link>{' '}
+                        sets out the trade-offs in time, cost and luggage handling for each.
+                    </p>
                 </div>
             </section>
 
@@ -258,6 +263,11 @@ export default function AmalfiCoastPage() {
                             </li>
                         ))}
                     </ul>
+                    <p className="text-gray-600 leading-relaxed mt-6">
+                        If you are still deciding which town to base yourself in, or when to come, our{' '}
+                        <Link href="/blog/amalfi-coast-travel-guide" className="text-gold font-semibold hover:underline">guide to how the Amalfi Coast actually works</Link>{' '}
+                        covers the SS163, the stair-climbing each town demands, the ferry season and which places suit which travellers.
+                    </p>
                 </div>
             </section>
 

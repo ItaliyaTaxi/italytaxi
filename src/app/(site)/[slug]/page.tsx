@@ -7,11 +7,12 @@ import PageHero from '@/components/PageHero';
 import FAQSection from '@/components/FAQSection';
 import ServiceSchema from '@/components/ServiceSchema';
 import MapEmbed from '@/components/MapEmbed';
-import { Clock, MapPin, Euro, CheckCircle, ChevronRight, Plane, ShieldCheck, Car } from 'lucide-react';
+import { Clock, MapPin, Euro, CheckCircle, ChevronRight, Plane } from 'lucide-react';
 import {
     getAllAirportHotelTransfers,
     findAirportHotelTransfer,
     romeHotels,
+    romeAirports,
 } from '@/lib/airport-hotel-data';
 import { getAllMilanTransfers, findMilanTransfer } from '@/lib/milan-transfer-data';
 import MilanTransferContent from '@/components/MilanTransferContent';
@@ -135,7 +136,19 @@ export default async function AirportHotelTransferPage({ params }: { params: Pro
     const dep = direction === 'hotel-to-airport';
     const airportPageSlug = airport.slugPart.replace('-airport', ''); // rome-fiumicino / rome-ciampino
     const reverseSlug = dep ? `${airport.slugPart}-to-${hotel.slugPart}-transfer` : `${hotel.slugPart}-to-${airport.slugPart}-transfer`;
-    const relatedHotels = romeHotels.filter((h) => h.slugPart !== hotel.slugPart).slice(0, 5);
+    // Rotating sibling window rather than a fixed slice, so every Rome hotel page
+    // appears in the same number of "More transfers" lists instead of only the
+    // first five in the data array.
+    // The other Rome airport's version of the same journey. Without this link the
+    // Ciampino pages were reachable only from each other, with no entry point from
+    // the rest of the site (the Milan template already cross-links this way).
+    const otherAirports = romeAirports.filter((a) => a.slugPart !== airport.slugPart);
+    const hotelIndex = romeHotels.findIndex((h) => h.slugPart === hotel.slugPart);
+    const relatedHotels: typeof romeHotels = [];
+    for (let k = 1; k <= romeHotels.length && relatedHotels.length < 5; k++) {
+        const h = romeHotels[(hotelIndex + k) % romeHotels.length];
+        if (h.slugPart !== hotel.slugPart) relatedHotels.push(h);
+    }
 
     const h1 = dep
         ? `Private Transfer from ${hotel.name} to ${airport.name}`
@@ -175,7 +188,6 @@ export default async function AirportHotelTransferPage({ params }: { params: Pro
         about: { '@type': 'Hotel', name: hotel.name, address: { '@type': 'PostalAddress', addressLocality: 'Rome', addressCountry: 'IT' } },
     };
 
-    const cell = 'px-4 py-3 border border-gray-100 text-sm';
 
     return (
         <main className="font-inter bg-white text-navy">
@@ -267,24 +279,6 @@ export default async function AirportHotelTransferPage({ params }: { params: Pro
                             : `Public options from ${airport.short} each have drawbacks. The taxi rank can mean a long wait at peak times; the train requires you to manage luggage and onward connections to reach ${hotel.area}; buses are slow and crowded; and ride-sharing is limited and unpredictable in Rome. A private transfer removes all of that: one fixed price, a guaranteed driver, and a direct ride to ${hotel.name}.`}
                     </p>
 
-                    {/* Comparison table */}
-                    <div className="overflow-x-auto my-8">
-                        <table className="w-full border-collapse">
-                            <thead>
-                                <tr className="bg-navy text-white text-left text-xs uppercase tracking-wider">
-                                    <th className={cell}>Option</th><th className={cell}>Convenience</th><th className={cell}>Fixed Cost</th><th className={cell}>Comfort</th><th className={cell}>Wait</th><th className={cell}>Luggage</th><th className={cell}>Direct</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr className="bg-[#FBF8F0]"><td className={`${cell} font-bold`}>Private Transfer</td><td className={cell}>Excellent</td><td className={cell}>Yes</td><td className={cell}>Excellent</td><td className={cell}>{dep ? 'On-time pickup' : 'None — driver waiting'}</td><td className={cell}>Assisted</td><td className={cell}>Yes</td></tr>
-                                <tr><td className={`${cell} font-bold`}>Taxi</td><td className={cell}>Good</td><td className={cell}>Metered</td><td className={cell}>Good</td><td className={cell}>Variable queue</td><td className={cell}>Limited</td><td className={cell}>Yes</td></tr>
-                                <tr><td className={`${cell} font-bold`}>Train</td><td className={cell}>Low</td><td className={cell}>Fixed ticket</td><td className={cell}>Basic</td><td className={cell}>Timetabled</td><td className={cell}>Carry your own</td><td className={cell}>No</td></tr>
-                                <tr><td className={`${cell} font-bold`}>Bus</td><td className={cell}>Low</td><td className={cell}>Fixed ticket</td><td className={cell}>Basic</td><td className={cell}>Timetabled</td><td className={cell}>Limited</td><td className={cell}>No</td></tr>
-                                <tr><td className={`${cell} font-bold`}>Ride-sharing</td><td className={cell}>Variable</td><td className={cell}>Surge pricing</td><td className={cell}>Variable</td><td className={cell}>Unpredictable</td><td className={cell}>Limited</td><td className={cell}>Yes</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-
                     {/* Process */}
                     {dep ? (
                         <>
@@ -364,33 +358,17 @@ export default async function AirportHotelTransferPage({ params }: { params: Pro
                         </>
                     )}
 
-                    {/* Map */}
-                    <h2 className="text-2xl font-bold text-navy mt-12 mb-4">Location Map</h2>
-                    <div className="rounded-2xl overflow-hidden mb-4"><MapEmbed /></div>
-
-                    {/* Vehicle options */}
-                    <h2 className="text-2xl font-bold text-navy mt-12 mb-4">Vehicle Options</h2>
-                    <ul className="grid md:grid-cols-2 gap-2 text-gray-700 mb-4">
-                        <li><Car className="w-4 h-4 text-gold inline mr-2" /><strong>Sedan</strong> — 1–3 passengers</li>
-                        <li><Car className="w-4 h-4 text-gold inline mr-2" /><strong>Executive Sedan</strong> — business comfort</li>
-                        <li><Car className="w-4 h-4 text-gold inline mr-2" /><strong>Minivan</strong> — 4–8 passengers &amp; luggage</li>
-                        <li><Car className="w-4 h-4 text-gold inline mr-2" /><strong>Luxury Van</strong> — premium group travel</li>
-                        <li><Car className="w-4 h-4 text-gold inline mr-2" /><strong>Business Class</strong> — VIP departures</li>
-                        <li><Car className="w-4 h-4 text-gold inline mr-2" /><strong>Group Transfers</strong> — minibus on request</li>
-                    </ul>
+                    {/* Map — centred on this page's own hotel */}
+                    <h2 className="text-2xl font-bold text-navy mt-12 mb-4">{hotel.name} on the Map</h2>
+                    <div className="rounded-2xl overflow-hidden mb-4">
+                        <MapEmbed query={`${hotel.name}, ${hotel.area}, Rome, Italy`} title={`Map of ${hotel.name}`} />
+                    </div>
 
                     {/* Pricing */}
                     <h2 className="text-2xl font-bold text-navy mt-12 mb-4">Pricing</h2>
                     <p className="text-gray-700 leading-relaxed mb-4">
                         Your fare is fixed and confirmed before you travel. The final fare depends on vehicle type, passenger count, luggage requirements, pickup time and travel season — request a free quote for an exact, all-inclusive price with no hidden charges.
                     </p>
-
-                    {/* Trust signals */}
-                    <div className="bg-[#0F1C2E] text-white rounded-2xl p-6 my-8 grid sm:grid-cols-2 gap-3 text-sm">
-                        {['Licensed, professional chauffeurs', 'Flight-aware scheduling', 'Meet & greet service', 'Clean, modern vehicles', '24/7 availability', 'Fixed price — no hidden charges', 'Secure online booking', 'Free cancellation (per terms)'].map((s, i) => (
-                            <p key={i} className="flex items-center gap-2"><ShieldCheck className="w-4 h-4 text-gold" /> {s}</p>
-                        ))}
-                    </div>
                 </div>
             </section>
 
@@ -406,6 +384,26 @@ export default async function AirportHotelTransferPage({ params }: { params: Pro
                             {dep ? `${airport.short} Airport to ${hotel.name} Transfer` : `${hotel.name} to ${airport.short} Airport Transfer`} <ChevronRight className="w-4 h-4 inline" />
                         </Link>
                     </div>
+
+                    {otherAirports.length > 0 && (
+                        <div className="mb-10">
+                            <h2 className="text-2xl font-bold text-navy mb-4">
+                                {dep ? `Flying from Rome's other airport?` : `Landing at Rome's other airport?`}
+                            </h2>
+                            <div className="grid sm:grid-cols-2 gap-3">
+                                {otherAirports.map((a) => (
+                                    <Link
+                                        key={a.code}
+                                        href={`/${dep ? `${hotel.slugPart}-to-${a.slugPart}-transfer` : `${a.slugPart}-to-${hotel.slugPart}-transfer`}`}
+                                        className="flex items-center gap-2 text-gray-700 hover:text-gold font-medium"
+                                    >
+                                        <ChevronRight className="w-4 h-4 text-gold shrink-0" />
+                                        {dep ? `${hotel.name} to ${a.short} Airport` : `${a.short} Airport to ${hotel.name}`}
+                                    </Link>
+                                ))}
+                            </div>
+                        </div>
+                    )}
 
                     <h2 className="text-2xl font-bold text-navy mb-6">{dep ? `More ${airport.short} Airport Departures` : `More ${airport.short} Airport Transfers`}</h2>
                     <div className="grid sm:grid-cols-2 gap-3 mb-10">

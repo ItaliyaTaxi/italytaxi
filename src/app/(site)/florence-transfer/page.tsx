@@ -101,7 +101,9 @@ export default function FlorenceTransferHub() {
                         Whether you land at <strong>Florence Airport (FLR)</strong>, minutes from the city, or at <strong>Pisa International (PSA)</strong> on the coast, our private transfers take you directly to your Florence hotel, a Tuscan countryside resort, or a landmark of your choice. Every transfer is a fixed price with a professional English-speaking driver, real-time flight monitoring and meet &amp; greet — and because our fleet is NCC-licensed and ZTL-registered, we reach addresses in the historic centre that ordinary cars cannot.
                     </p>
                     <p className="text-gray-700 leading-relaxed mb-10">
-                        Choose your route below for full details, distance, travel time and pricing.
+                        Choose your route below for full details, distance, travel time and pricing. If you have not booked a hotel yet, our{' '}
+                        <Link href="/blog/where-to-stay-in-florence" className="text-gold font-semibold hover:underline">neighbourhood guide to where to stay in Florence</Link>{' '}
+                        compares the Duomo area, Santa Croce, the Oltrarno and Fiesole — including how easy each one is to reach on arrival.
                     </p>
 
                     <Group title="Florence Airport → Florence Hotels" icon={<Building2 className="w-6 h-6 text-gold" />} airport={flr} items={flrHotels} />

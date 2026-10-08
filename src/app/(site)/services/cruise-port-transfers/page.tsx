@@ -123,6 +123,7 @@ export default function CruisePortTransfersPage() {
           { label: "Rome Shore Excursions", href: "/city/rome" },
           { label: "Florence Shore Excursions", href: "/city/florence" },
           { label: "Naples & Amalfi", href: "/city/naples" },
+          { label: "Ravenna Cruise Port Transfers", href: "/bologna-transfer" },
         ]}
       />
 
