@@ -184,7 +184,8 @@ export async function submitBooking(_prevState: any, formData: FormData) {
                             📧 <a href="mailto:italytaxiservicee@gmail.com" style="color:#C9A84C">italytaxiservicee@gmail.com</a></p>
                         </div>
                         <div style="background:#f9f9f9;padding:20px;text-align:center;border:1px solid #eee;border-top:none;border-radius:0 0 12px 12px">
-                            <p style="color:#999;font-size:11px;margin:0">Italy Taxi Service &middot; italytaxiservice.com</p>
+                            <p style="color:#999;font-size:11px;margin:0 0 6px">Italy Taxi Service &middot; italytaxiservice.com</p>
+                            <p style="color:#999;font-size:11px;margin:0">Cancellation and refund terms: <a href="https://www.italytaxiservice.com/cancellation-refund-policy" style="color:#C9A84C">Cancellation, Refund &amp; Missed Transfer Policy</a></p>
                         </div>
                     </div>
                 `,

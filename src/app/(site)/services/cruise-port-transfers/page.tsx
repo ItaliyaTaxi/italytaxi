@@ -111,7 +111,7 @@ export default function CruisePortTransfersPage() {
           "Available for both disembarkation and embarkation days",
           "English-speaking professional drivers",
           "Child seats available free of charge on request",
-          "Booking cancellation up to 48 hours in advance"
+          "Free cancellation up to 24 hours before pickup"
         ]}
         pricingTitle="Sample Port Transfer Fares"
         pricing={pricing}

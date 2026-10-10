@@ -177,7 +177,8 @@ export function buildInvoiceEmailHtml(invoice: Invoice, customMessage?: string):
             </p>
         </div>
         <div style="background:#f9f9f9;padding:20px;text-align:center;border:1px solid #eee;border-top:none;border-radius:0 0 12px 12px">
-            <p style="color:#999;font-size:11px;margin:0">${COMPANY_NAME} &middot; italytaxiservice.com</p>
+            <p style="color:#999;font-size:11px;margin:0 0 6px">${COMPANY_NAME} &middot; italytaxiservice.com</p>
+            <p style="color:#999;font-size:11px;margin:0">Cancellation and refund terms: <a href="${SITE_URL}/cancellation-refund-policy" style="color:#C9A84C">Cancellation, Refund &amp; Missed Transfer Policy</a></p>
         </div>
     </div>`;
 }

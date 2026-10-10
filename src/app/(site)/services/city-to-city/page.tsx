@@ -113,7 +113,7 @@ export default function CityToCityPage() {
           "Professional English-speaking drivers with route expertise",
           "24/7 availability — early departures and late-night arrivals",
           "Optional scenic stops to photograph landmarks en route",
-          "Free cancellation up to 48 hours before travel",
+          "Free cancellation up to 24 hours before pickup",
           "Suitable for multi-city Italy itineraries",
           "Child seats available free of charge on request"
         ]}

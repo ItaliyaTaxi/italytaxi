@@ -1,6 +1,7 @@
 import Navbar from '@/components/Navbar';
 import PageHero from '@/components/PageHero';
 import Footer from '@/components/Footer';
+import Link from 'next/link';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -136,6 +137,7 @@ export default function TermsAndConditionsPage() {
                 <p>Cancellations must be communicated in writing via email or WhatsApp message. The timestamp of your written cancellation message is used to determine the applicable cancellation policy.</p>
                 <p>For advance-paid bookings, refunds will be processed within 7 business days of the cancellation confirmation. Refunds are issued to the original payment method.</p>
                 <p>Italy Taxi Service reserves the right to cancel a booking in exceptional circumstances beyond our reasonable control (force majeure), including natural disasters, civil unrest, and government-imposed travel restrictions. In such cases, a full refund will be issued.</p>
+                <p>For the full detail of how cancellations, no-shows, delays and refund claims are handled — including the evidence we review and how to submit a request — see our <Link href="/cancellation-refund-policy" className="text-gold font-semibold hover:underline">Cancellation, Refund &amp; Missed Transfer Policy</Link>. The schedule above remains the governing cancellation schedule.</p>
               </section>
 
               {/* Section 5 */}

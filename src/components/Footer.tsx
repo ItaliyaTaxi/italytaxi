@@ -6,9 +6,17 @@ import Image from 'next/image';
 import { Mail, Instagram, Facebook, MapPin, Phone } from 'lucide-react';
 import TaxiButton from './TaxiButton';
 import { useLanguage } from '@/context/LanguageContext';
+import { getItalianPath } from '@/lib/i18n/page-registry';
 
 export default function Footer() {
-    const { t } = useLanguage();
+    const { t, language } = useLanguage();
+
+    // On natively-Italian routes link the Italian policy page; falls back to the
+    // English URL elsewhere, matching the pattern used in Services.tsx.
+    const cancellationHref =
+        (language === 'it' && getItalianPath('/cancellation-refund-policy')) || '/cancellation-refund-policy';
+    const cancellationLabel =
+        language === 'it' ? 'Cancellazioni e Rimborsi' : 'Cancellation & Refunds';
 
     return (
         <footer className="bg-[#0a121d] text-gray-300 py-20 border-t border-navy">
@@ -108,6 +116,7 @@ export default function Footer() {
                             <li><Link href="/faq" className="hover:text-gold transition-colors">FAQs</Link></li>
                             <li><Link href="/privacy-policy" className="hover:text-gold transition-colors">Privacy Policy</Link></li>
                             <li><Link href="/terms-and-conditions" className="hover:text-gold transition-colors">Terms & Conditions</Link></li>
+                            <li><Link href={cancellationHref} className="hover:text-gold transition-colors">{cancellationLabel}</Link></li>
                         </ul>
                     </div>
 

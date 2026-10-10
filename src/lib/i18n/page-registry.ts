@@ -31,6 +31,7 @@ export const PAGE_REGISTRY: PageTranslationEntry[] = [
     { en: '/services/wedding-transfers', it: '/it/servizi/trasferimenti-matrimonio' },
     { en: '/contact', it: '/it/contatti' },
     { en: '/faq', it: '/it/domande-frequenti' },
+    { en: '/cancellation-refund-policy', it: '/it/politica-di-cancellazione-e-rimborso' },
 ];
 
 const SITE_URL = 'https://www.italytaxiservice.com';

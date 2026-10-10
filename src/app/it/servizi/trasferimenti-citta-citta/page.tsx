@@ -115,7 +115,7 @@ export default function CityToCityPageIt() {
           "Autisti professionisti di lingua inglese esperti dei percorsi",
           "Disponibilità 24/7 — partenze mattutine presto e arrivi notturni",
           "Soste panoramiche opzionali per fotografare i luoghi lungo il percorso",
-          "Cancellazione gratuita fino a 48 ore prima del viaggio",
+          "Cancellazione gratuita fino a 24 ore prima del prelievo",
           "Adatto per itinerari multi-città in Italia",
           "Seggiolini per bambini disponibili gratuitamente su richiesta"
         ]}

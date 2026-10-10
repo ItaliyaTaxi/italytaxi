@@ -111,7 +111,7 @@ export default function CruisePortTransfersPageIt() {
           "Disponibile sia per lo sbarco che per l'imbarco",
           "Autisti professionisti di lingua inglese",
           "Seggiolini per bambini disponibili gratuitamente su richiesta",
-          "Cancellazione della prenotazione fino a 48 ore in anticipo"
+          "Cancellazione gratuita fino a 24 ore prima del prelievo"
         ]}
         pricingTitle="Esempi di Tariffe per il Trasferimento dal Porto"
         pricing={pricing}

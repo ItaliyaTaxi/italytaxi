@@ -300,6 +300,8 @@ function buildClientConfirmationEmailHtml(args: ClientConfirmationEmailArgs): st
                 <a href="https://www.italytaxiservice.com" style="color:#C9A84C;text-decoration:none;">Website</a>
                 <span style="color:#3C465C;">&nbsp;&middot;&nbsp;</span>
                 <a href="mailto:${EMAIL_SUPPORT_EMAIL}" style="color:#C9A84C;text-decoration:none;">Contact Us</a>
+                <span style="color:#3C465C;">&nbsp;&middot;&nbsp;</span>
+                <a href="https://www.italytaxiservice.com/cancellation-refund-policy" style="color:#C9A84C;text-decoration:none;">Cancellation &amp; Refunds</a>
               </div>
             </td>
           </tr>
