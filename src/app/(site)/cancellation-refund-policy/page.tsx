@@ -155,7 +155,7 @@ export default function CancellationRefundPolicyPage() {
                 <p><strong>What we ask of you.</strong> Please give us accurate flight or train details when booking, and allow a realistic margin — particularly for a departure, a cruise embarkation, or any journey with a fixed deadline. If you ask for a pickup time that leaves no margin, we will normally say so, but the choice of timing is yours.</p>
                 <p><strong>What we will do.</strong> Where a material delay arises or looks likely, the driver and our team will aim to tell you as promptly as is reasonably possible, and to discuss the options with you. We would rather give you bad news early than let you find out at the terminal.</p>
                 <p><strong>How refund questions are approached.</strong> A delay does not automatically mean a refund is owed, and it does not automatically mean no refund is owed. It depends on what caused the delay, what was agreed, what was communicated, and what could reasonably have been done. We do not treat an external disruption as automatically releasing us or the driver from all responsibility — that is not how we read our obligations, and it is not a position we take.</p>
-                <p>Requests involving a missed flight, a missed connection, or other consequential costs are reviewed individually, on the evidence, under the terms confirmed for your booking and applicable law. We do not offer a blanket promise to cover replacement flights, hotels, replacement tickets or other onward expenses, and we would rather say that plainly than imply a guarantee we have not given. Equally, we do not refuse such requests as a matter of course.</p>
+                <p>Requests involving a missed flight, a missed connection, or other consequential costs are reviewed individually, on the evidence, under the terms confirmed for your booking and applicable law. We do not offer a blanket promise to cover replacement flights, hotels, replacement tickets or other onward expenses, and we would rather say that plainly than imply a guarantee we have not given. Equally, we do not refuse such requests as a matter of course. Note that supporting evidence for these claims must reach us within the deadline set out in <a href="#claims" className="text-gold font-semibold hover:underline">section 6</a>.</p>
                 <p>If strike action is announced for your travel date, it is worth planning around it in advance. Our{' '}
                   <Link href="/blog/italy-train-strike-2026" className="text-gold font-semibold hover:underline">guide to how Italian transport strikes work</Link>{' '}
                   explains guaranteed-service rules and where to verify a strike officially.
@@ -174,9 +174,18 @@ export default function CancellationRefundPolicyPage() {
                   <li>Relevant messages or call records concerning the transfer and any delay</li>
                 </ul>
                 <p>We may request further documentation where it is reasonably necessary to assess the claim, and we may verify relevant information where it is appropriate and lawful to do so.</p>
-                <p>Three commitments about how we handle this:</p>
+
+                <div className="bg-[#FBF8F0] border border-gold/40 rounded-2xl p-6 my-8 not-prose">
+                  <h3 className="text-xl font-bold text-navy mb-3">Seven-Day Deadline for Supporting Evidence</h3>
+                  <p className="text-gray-700 leading-relaxed mb-3">For refund claims involving missed flights, missed connections, driver delays, or other disputed transfer issues, customers must provide all requested supporting evidence, including airline confirmation, replacement flight tickets, receipts, and other relevant documentation, within <strong>7 calendar days of the transfer date</strong>.</p>
+                  <p className="text-gray-700 leading-relaxed mb-3">If the customer fails to provide the required evidence within this 7-day period, the refund claim will be declined due to insufficient supporting documentation, and no refund will be issued on the basis of that unsupported claim.</p>
+                  <p className="text-gray-700 leading-relaxed mb-0">Customers are responsible for ensuring that all required documentation is submitted within the specified deadline. All claims remain subject to applicable mandatory consumer protection laws.</p>
+                </div>
+
+                <p>Note that this seven-day period is counted in <strong>calendar days from the transfer date</strong>, and is separate from the 7-business-day refund-processing time described in section 7.</p>
+                <p>How we handle your claim:</p>
                 <ul>
-                  <li><strong>We will not reject a claim simply because documents arrived a few days later.</strong> People deal with the immediate problem first and the paperwork afterwards, which is reasonable.</li>
+                  <li><strong>Evidence must reach us within the seven-day deadline above.</strong> A claim that remains unsupported after that date will be declined for insufficient documentation. This deadline does not override mandatory legal rights.</li>
                   <li><strong>We will not accuse you of submitting false documents without evidence.</strong> If something does not reconcile, we will tell you what does not match and ask about it.</li>
                   <li><strong>We will give you a reason.</strong> If a claim is declined in whole or in part, we will explain which facts and terms we relied on.</li>
                 </ul>
@@ -247,7 +256,7 @@ export default function CancellationRefundPolicyPage() {
                 <p>Tell us as soon as possible and we will review it individually on the evidence. We do not promise to cover replacement flights, hotels or other onward costs, because that depends on the cause and on the terms of your booking. We also do not decline such requests automatically.</p>
 
                 <h3 className="text-lg font-bold text-navy mt-6 mb-2">What evidence is needed to review a refund request?</h3>
-                <p>Usually your booking reference and confirmation, the agreed pickup time and place, and — where relevant — airline documentation, rebooking receipts and the relevant messages. We may ask for more if it is reasonably necessary.</p>
+                <p>Usually your booking reference and confirmation, the agreed pickup time and place, and — where relevant — airline documentation, rebooking receipts and the relevant messages. We may ask for more if it is reasonably necessary. All requested evidence must reach us within 7 calendar days of the transfer date; a claim left unsupported after that point will be declined for insufficient documentation, subject to mandatory consumer protection law.</p>
 
                 <h3 className="text-lg font-bold text-navy mt-6 mb-2">What happens if I paid the driver directly?</h3>
                 <p>Send your request to us, not to the driver. Italy Taxi Service is the contracting party and handles cancellations and refunds regardless of how payment was made. Where nothing was prepaid there is no prepayment to return, so any applicable fee is confirmed with you and invoiced instead.</p>
