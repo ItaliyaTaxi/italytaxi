@@ -183,6 +183,7 @@ export default function MilanChauffeurServicePage() {
           { label: "Milano Centrale to Malpensa Guide", href: "/blog/milano-centrale-to-malpensa-transfer" },
           { label: "EICMA Milan Transfer Guide", href: "/blog/eicma-milan-transfer" },
           { label: "Artigiano in Fiera 2026 Transfer Guide", href: "/blog/artigiano-in-fiera-2026-transfers" },
+          { label: "Salone del Mobile 2026 Travel Guide", href: "/blog/salone-del-mobile-2026-travel-guide" },
           { label: "Book Now", href: "/book-now" },
         ]}
       />
@@ -203,18 +204,67 @@ export default function MilanChauffeurServicePage() {
               between Milan&apos;s airports, hotels, exhibition venues, and business districts at any hour.
             </p>
           </div>
-          <div>
-            <h3 className="text-2xl font-bold text-[#0F1C2E] mb-3">
-              Milan for Business Travellers — What Our Chauffeur Service Covers
-            </h3>
-            <p>
+          {/* Exhibition & congress venues — the page's Fiera coverage was previously
+              spread across an FAQ, a route-table row and three separate paragraphs.
+              It is consolidated here under stable anchors so the Milan event guides
+              can deep-link to the venue they actually concern. Journey times, fares
+              and routing deliberately live once, in the route table and FAQ above,
+              rather than being restated here. */}
+          <div id="exhibition-venues" className="scroll-mt-28">
+            <h2 className="text-3xl font-extrabold text-[#0F1C2E] mb-4">
+              Milan Exhibition &amp; Congress Venues
+            </h2>
+            <p className="mb-8">
               Milan hosts more than 60 major international trade fairs and exhibitions per year, drawing millions
-              of business visitors. The principal venues — Fiera Milano in Rho-Pero, Fieramilanocity in the
-              city centre, and MiCo Milano Congressi — each require specific routing from the three airports.
-              Our <strong>Milan chauffeur service</strong> is the preferred choice of companies sending executives
-              to Italy&apos;s fashion, design, automotive, and finance sector events. We also provide multi-day
+              of business visitors. Three venues account for most of them, and they sit in different parts of the
+              metropolitan area — which is what decides the journey from each airport. Fares and journey times for
+              the airport runs are set out in the route table and FAQs on this page. Our{' '}
+              <strong>Milan chauffeur service</strong> is the preferred choice of companies sending executives
+              to Italy&apos;s fashion, design, automotive, and finance sector events, and we provide multi-day
               engagement contracts for delegations requiring a dedicated driver throughout their stay.
             </p>
+
+            <div className="space-y-8">
+              <div id="fiera-milano-rho" className="scroll-mt-28">
+                <h3 className="text-2xl font-bold text-[#0F1C2E] mb-3">Fiera Milano, Rho-Pero</h3>
+                <p className="mb-4">
+                  Fiera Milano in Rho-Pero is one of Europe&apos;s largest exhibition centres and the venue for
+                  Salone del Mobile, EICMA, MIDO, Lineapelle and Artigiano in Fiera. It lies north-west of the
+                  city on the same side as Malpensa, which is why we reach it without entering central Milan at
+                  all. It is also the one venue where arrivals cluster into a few heavy days, so we recommend
+                  booking the airport leg early for the opening and closing days of a large fair. Multi-stop
+                  itineraries covering the halls plus a city hotel can be arranged on the same booking.
+                </p>
+                <p className="text-base text-gray-600">
+                  Event guides:{' '}
+                  <Link href="/blog/eicma-milan-transfer" className="text-[#F4C430] font-semibold hover:underline">EICMA</Link>{' · '}
+                  <Link href="/blog/salone-del-mobile-2026-travel-guide" className="text-[#F4C430] font-semibold hover:underline">Salone del Mobile</Link>{' · '}
+                  <Link href="/blog/cphi-milan-transfer" className="text-[#F4C430] font-semibold hover:underline">CPHI Milan</Link>{' · '}
+                  <Link href="/blog/artigiano-in-fiera-2026-transfers" className="text-[#F4C430] font-semibold hover:underline">Artigiano in Fiera</Link>
+                </p>
+              </div>
+
+              <div id="fieramilanocity" className="scroll-mt-28">
+                <h3 className="text-2xl font-bold text-[#0F1C2E] mb-3">Fieramilanocity</h3>
+                <p>
+                  Fieramilanocity is Fiera Milano&apos;s in-city exhibition district, beside the CityLife quarter
+                  on the Portello side of Milan. Because it sits inside the city rather than out at Rho, arrivals
+                  here are shaped by the central traffic restrictions described above, and the drop-off point
+                  matters more than the total distance.
+                </p>
+              </div>
+
+              <div id="mico" className="scroll-mt-28">
+                <h3 className="text-2xl font-bold text-[#0F1C2E] mb-3">MiCo — Milano Congressi</h3>
+                <p>
+                  MiCo Milano Congressi is the city&apos;s congress centre, next to Fieramilanocity in the same
+                  Portello and CityLife district, and it hosts conferences and medical and industry congresses
+                  rather than the large consumer fairs held at Rho. Like Fieramilanocity it is a city-centre
+                  arrival, so it is routed differently from the Rho venue even when the flight lands at the
+                  same airport.
+                </p>
+              </div>
+            </div>
           </div>
           <div>
             <h3 className="text-2xl font-bold text-[#0F1C2E] mb-3">

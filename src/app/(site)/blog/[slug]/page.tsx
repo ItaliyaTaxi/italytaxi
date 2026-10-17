@@ -8,6 +8,8 @@ import Link from 'next/link';
 import { cache } from 'react';
 import Breadcrumb from '@/components/Breadcrumb';
 import TableOfContents from '@/components/TableOfContents';
+import { rankRelated } from '@/lib/related-posts';
+import { normalizeBlogContent } from '@/lib/blog-content';
 import { Calendar, Clock, ArrowLeft, Tag, Phone, MessageCircle, ChevronRight, ShieldCheck, ThumbsUp, Star, HelpCircle } from 'lucide-react';
 
 const getBlog = cache(async (slug: string) => {
@@ -167,7 +169,13 @@ export default async function BlogPostPage({ params }: any) {
     provider: { '@type': 'Organization', name: 'Italy Taxi Service', url: SITE },
   };
 
-  const faqItems = extractFAQItems(blog.content);
+  // Stored bodies are not all HTML: a few records are Markdown and a few are
+  // HTML with a stray Markdown heading. Normalise once, then use the result
+  // everywhere content is rendered or parsed, so the body, the table of
+  // contents and the FAQ schema all see the same markup.
+  const contentHtml = normalizeBlogContent(blog.content);
+
+  const faqItems = extractFAQItems(contentHtml);
   const faqSchema = buildFAQSchema(faqItems, postUrl);
 
   const publishDate = new Date(blog.published_at).toLocaleDateString('en-US', {
@@ -265,7 +273,7 @@ export default async function BlogPostPage({ params }: any) {
             )}
 
             {/* Table of Contents — headings parsed from stored HTML IDs */}
-            <TableOfContents content={blog.content} />
+            <TableOfContents content={contentHtml} />
 
             {/* Featured Image */}
             {blog.featured_image_url && (
@@ -288,7 +296,7 @@ export default async function BlogPostPage({ params }: any) {
             {/* Article body */}
             <div
               className="blog-content"
-              dangerouslySetInnerHTML={{ __html: blog.content }}
+              dangerouslySetInnerHTML={{ __html: contentHtml }}
             />
 
             {/* ── FAQ Section ──────────────────────────────────────────────── */}
@@ -466,7 +474,7 @@ export default async function BlogPostPage({ params }: any) {
               All Articles <ChevronRight className="w-4 h-4" />
             </Link>
           </div>
-          <RelatedPosts currentSlug={slug} category={blog.category} />
+          <RelatedPosts currentSlug={slug} title={blog.title} category={blog.category} focusKeyword={blog.focus_keyword} />
         </div>
       </div>
 
@@ -475,17 +483,26 @@ export default async function BlogPostPage({ params }: any) {
   );
 }
 
-async function RelatedPosts({ currentSlug, category }: { currentSlug: string; category: string }) {
-  const { data: posts } = await supabase
+/** Every published English post, as the candidate pool for related-post
+ *  ranking. One query per render (deduped by `cache`), scored in memory — so
+ *  adding relevance does not add round trips. */
+const getRelatedPool = cache(async () => {
+  const { data } = await supabase
     .from('blogs')
-    .select('id, title, slug, excerpt, featured_image_url, category, published_at, read_time')
+    .select('id, title, slug, excerpt, featured_image_url, category, focus_keyword, published_at, read_time')
     .eq('status', 'published')
-    .eq('language', 'en')
-    .neq('slug', currentSlug)
-    .order('published_at', { ascending: false })
-    .limit(3);
+    .eq('language', 'en');
+  return data || [];
+});
 
-  if (!posts || posts.length === 0) return null;
+async function RelatedPosts(
+  { currentSlug, title, category, focusKeyword }:
+  { currentSlug: string; title: string; category: string; focusKeyword?: string | null },
+) {
+  const pool = await getRelatedPool();
+  const posts = rankRelated({ slug: currentSlug, title, category, focus_keyword: focusKeyword }, pool, 3);
+
+  if (posts.length === 0) return null;
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

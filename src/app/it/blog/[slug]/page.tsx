@@ -7,12 +7,25 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { cache } from 'react';
 import TableOfContents from '@/components/TableOfContents';
+import { rankRelated } from '@/lib/related-posts';
+import { normalizeBlogContent } from '@/lib/blog-content';
 import { Calendar, Clock, ArrowLeft, ChevronRight, MessageCircle } from 'lucide-react';
 
 const SITE = 'https://www.italytaxiservice.com';
 const WHATSAPP = '923148932631';
 
 interface FAQItem { question: string; answer: string; }
+
+/** Every published Italian post, as the candidate pool for related-post
+ *  ranking. One query per render (deduped by `cache`), scored in memory. */
+const getItRelatedPool = cache(async () => {
+  const { data } = await supabase
+    .from('blogs')
+    .select('title, slug, excerpt, featured_image_url, category, focus_keyword, published_at, read_time')
+    .eq('status', 'published')
+    .eq('language', 'it');
+  return data || [];
+});
 
 /** Italian post, looked up by its Italian slug. */
 const getItBlog = cache(async (slug: string) => {
@@ -94,7 +107,10 @@ export default async function ItalianBlogPage({ params }: any) {
   const imageUrl = blog.featured_image_url?.startsWith('http')
     ? blog.featured_image_url
     : `${SITE}${blog.featured_image_url || '/images/hero.png'}`;
-  const faqItems = extractFAQItems(blog.content || '');
+  // See the English route: stored bodies are HTML, Markdown, or HTML with a
+  // stray Markdown heading. Normalise once and reuse for render and parsing.
+  const contentHtml = normalizeBlogContent(blog.content);
+  const faqItems = extractFAQItems(contentHtml);
   const published = blog.published_at ? new Date(blog.published_at) : new Date();
   const dateLabel = published.toLocaleDateString('it-IT', { day: '2-digit', month: 'long', year: 'numeric', timeZone: 'UTC' });
 
@@ -128,14 +144,13 @@ export default async function ItalianBlogPage({ params }: any) {
     })),
   } : null;
 
-  const { data: related } = await supabase
-    .from('blogs')
-    .select('title, slug, excerpt, featured_image_url, read_time')
-    .eq('status', 'published')
-    .eq('language', 'it')
-    .neq('slug', slug)
-    .order('published_at', { ascending: false })
-    .limit(3);
+  // Topically ranked rather than "the three newest Italian posts", which is
+  // what this used to return for every article on the site.
+  const related = rankRelated(
+    { slug, title: blog.title, category: blog.category, focus_keyword: blog.focus_keyword },
+    await getItRelatedPool(),
+    3,
+  );
 
   return (
     <main className="font-inter bg-white text-navy">
@@ -170,9 +185,9 @@ export default async function ItalianBlogPage({ params }: any) {
             </div>
           )}
 
-          <TableOfContents content={blog.content} />
+          <TableOfContents content={contentHtml} />
 
-          <div className="blog-content" dangerouslySetInnerHTML={{ __html: blog.content }} />
+          <div className="blog-content" dangerouslySetInnerHTML={{ __html: contentHtml }} />
 
           {/* CTA */}
           <div style={{ background: '#0F1C2E' }} className="text-white rounded-[2rem] p-8 mt-12 text-center">
