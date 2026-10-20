@@ -31,6 +31,26 @@ function getEffectiveStatus(booking: any, now: Date): 'pending' | 'confirmed' | 
     return 'confirmed';
 }
 
+/** Which website the lead came from. `source_form` stays what it always was —
+ *  which form or channel — so this is a second, narrower signal rather than a
+ *  replacement. Rows created before the multi-site migration have no value and
+ *  are shown as Italy Taxi Service, which is where they all came from. */
+function getSiteBadge(site: string | null | undefined) {
+    const value = (site || 'italytaxiservice').trim().toLowerCase();
+    if (value === 'rometransferservice') {
+        return (
+            <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-[9px] font-black uppercase tracking-wide bg-rose-50 text-rose-700 border border-rose-200">
+                🏛️ Rome
+            </span>
+        );
+    }
+    return (
+        <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-[9px] font-black uppercase tracking-wide bg-indigo-50 text-indigo-700 border border-indigo-200">
+            🇮🇹 Italy Taxi
+        </span>
+    );
+}
+
 function getSourceBadge(source: string | null | undefined) {
     const src = (source || 'Website Form').trim();
     const lower = src.toLowerCase();
@@ -82,6 +102,7 @@ export default function CRMPage() {
     const [activeTab, setActiveTab] = useState<'bookings' | 'contacts' | 'invoices' | 'drivers'>('bookings');
     const [statusFilter, setStatusFilter] = useState<'all' | 'pending' | 'confirmed' | 'completed' | 'cancelled'>('all');
     const [sourceFilter, setSourceFilter] = useState<string>('all');
+    const [siteFilter, setSiteFilter] = useState<string>('all');
     const [isAddLeadOpen, setIsAddLeadOpen] = useState(false);
     const [invoicePrefill, setInvoicePrefill] = useState<InvoicePrefill | null>(null);
     const [dispatchBooking, setDispatchBooking] = useState<any | null>(null);
@@ -311,6 +332,11 @@ export default function CRMPage() {
     const visibleBookings = bookings
         .filter(b => statusFilter === 'all' || getEffectiveStatus(b, now) === statusFilter)
         .filter(b => {
+            if (siteFilter === 'all') return true;
+            // Pre-migration rows have no source_site and are Italy Taxi leads.
+            return (b.source_site || 'italytaxiservice') === siteFilter;
+        })
+        .filter(b => {
             if (sourceFilter === 'all') return true;
             const src = (b.source_form || '').toLowerCase();
             const target = sourceFilter.toLowerCase();
@@ -328,7 +354,10 @@ export default function CRMPage() {
                 b.phone?.toLowerCase().includes(q) ||
                 b.pickup_location?.toLowerCase().includes(q) ||
                 b.dropoff_location?.toLowerCase().includes(q) ||
-                b.source_form?.toLowerCase().includes(q)
+                b.source_form?.toLowerCase().includes(q) ||
+                b.source_site?.toLowerCase().includes(q) ||
+                b.service_type?.toLowerCase().includes(q) ||
+                b.customer_message?.toLowerCase().includes(q)
             );
         })
         .filter(b => {
@@ -412,6 +441,47 @@ export default function CRMPage() {
                                             <p className="text-[9px] font-black uppercase tracking-widest text-gray-400 mb-1">Source Form</p>
                                             <p className="font-semibold text-navy text-sm">{viewItem.data.source_form || '—'}</p>
                                         </div>
+                                        <div className="bg-[#F8FAFC] rounded-2xl p-5 border border-gray-100">
+                                            <p className="text-[9px] font-black uppercase tracking-widest text-gray-400 mb-1">Website</p>
+                                            <div className="mt-1">{getSiteBadge(viewItem.data.source_site)}</div>
+                                        </div>
+                                        {viewItem.data.service_type && (
+                                            <div className="bg-[#F8FAFC] rounded-2xl p-5 border border-gray-100">
+                                                <p className="text-[9px] font-black uppercase tracking-widest text-gray-400 mb-1">Service Type</p>
+                                                <p className="font-semibold text-navy text-sm capitalize">{String(viewItem.data.service_type).replace('-', ' ')}</p>
+                                            </div>
+                                        )}
+                                        {(viewItem.data.adults != null || viewItem.data.children != null) && (
+                                            <div className="bg-[#F8FAFC] rounded-2xl p-5 border border-gray-100">
+                                                <p className="text-[9px] font-black uppercase tracking-widest text-gray-400 mb-1">Passenger Split</p>
+                                                <p className="font-semibold text-navy text-sm">
+                                                    {viewItem.data.adults ?? '—'} adult(s), {viewItem.data.children ?? 0} child(ren)
+                                                </p>
+                                                {viewItem.data.child_ages && (
+                                                    <p className="text-[10px] text-gold font-bold mt-1">Ages: {viewItem.data.child_ages}</p>
+                                                )}
+                                            </div>
+                                        )}
+                                        {(viewItem.data.luggage_hold != null || viewItem.data.luggage_cabin != null) && (
+                                            <div className="bg-[#F8FAFC] rounded-2xl p-5 border border-gray-100">
+                                                <p className="text-[9px] font-black uppercase tracking-widest text-gray-400 mb-1">Luggage Split</p>
+                                                <p className="font-semibold text-navy text-sm">
+                                                    {viewItem.data.luggage_hold ?? 0} hold, {viewItem.data.luggage_cabin ?? 0} cabin
+                                                </p>
+                                            </div>
+                                        )}
+                                        {viewItem.data.locale && (
+                                            <div className="bg-[#F8FAFC] rounded-2xl p-5 border border-gray-100">
+                                                <p className="text-[9px] font-black uppercase tracking-widest text-gray-400 mb-1">Enquiry Language</p>
+                                                <p className="font-semibold text-navy text-sm uppercase">{viewItem.data.locale}</p>
+                                            </div>
+                                        )}
+                                        {viewItem.data.customer_message && (
+                                            <div className="bg-[#F8FAFC] rounded-2xl p-5 border border-gray-100 col-span-2">
+                                                <p className="text-[9px] font-black uppercase tracking-widest text-gray-400 mb-2">Customer Message</p>
+                                                <p className="text-sm text-gray-700 leading-relaxed whitespace-pre-wrap">{viewItem.data.customer_message}</p>
+                                            </div>
+                                        )}
                                         <div className="bg-[#F8FAFC] rounded-2xl p-5 border border-gray-100">
                                             <p className="text-[9px] font-black uppercase tracking-widest text-gray-400 mb-1">Received On</p>
                                             <p className="font-black text-navy text-sm">{new Date(viewItem.data.created_at).toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' })}</p>
@@ -965,6 +1035,18 @@ export default function CRMPage() {
                                     />
                                 </div>
                                 <div className="flex items-center gap-2">
+                                    <label className="text-[9px] font-black uppercase tracking-widest text-gray-400">Website</label>
+                                    <select
+                                        value={siteFilter}
+                                        onChange={(e) => setSiteFilter(e.target.value)}
+                                        className="px-3 py-2 border border-gray-200 rounded-lg text-xs text-navy font-bold bg-white focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all"
+                                    >
+                                        <option value="all">All Websites</option>
+                                        <option value="italytaxiservice">IT Italy Taxi Service</option>
+                                        <option value="rometransferservice">RM Rome Transfer Service</option>
+                                    </select>
+                                </div>
+                                <div className="flex items-center gap-2">
                                     <label className="text-[9px] font-black uppercase tracking-widest text-gray-400">Source</label>
                                     <select
                                         value={sourceFilter}
@@ -989,10 +1071,10 @@ export default function CRMPage() {
                                         className="px-3 py-2 border border-gray-200 rounded-lg text-xs text-navy font-medium focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all"
                                     />
                                 </div>
-                                {(searchQuery || dateFilter || sourceFilter !== 'all') && (
+                                {(searchQuery || dateFilter || sourceFilter !== 'all' || siteFilter !== 'all') && (
                                     <button
                                         type="button"
-                                        onClick={() => { setSearchQuery(''); setDateFilter(''); setSourceFilter('all'); }}
+                                        onClick={() => { setSearchQuery(''); setDateFilter(''); setSourceFilter('all'); setSiteFilter('all'); }}
                                         className="text-[9px] font-bold text-gray-400 uppercase tracking-widest border-b border-gray-300 hover:text-red-500 hover:border-red-500 transition-all"
                                     >
                                         Clear

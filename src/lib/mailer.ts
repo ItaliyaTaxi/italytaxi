@@ -1,6 +1,21 @@
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+/**
+ * The client is built on first use rather than at module load.
+ *
+ * `new Resend(undefined)` throws, and because that used to happen while the
+ * module was being evaluated it took down every route that imported the
+ * mailer — including the lead-capture paths — before `sendEmail`'s own
+ * "key not set, skip" guard could do anything. Deferring it means a missing
+ * key degrades to "no email sent" the way that guard always intended, and a
+ * lead is still captured.
+ */
+let client: Resend | null = null;
+
+function getResend(): Resend {
+    if (!client) client = new Resend(process.env.RESEND_API_KEY);
+    return client;
+}
 
 const FROM_ADDRESS = 'Italy Taxi Service <bookings@italytaxiservice.com>';
 const REPLY_TO = 'italytaxiservicee@gmail.com';
@@ -27,7 +42,7 @@ export async function sendEmail({ to, subject, html, replyTo, text, attachments 
         return;
     }
 
-    const { data, error } = await resend.emails.send({
+    const { data, error } = await getResend().emails.send({
         from: FROM_ADDRESS,
         to,
         subject,

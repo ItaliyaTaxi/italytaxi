@@ -65,6 +65,17 @@ const nextConfig: NextConfig = {
   // from generateStaticParams, since external backlinks/bookmarks persist.
   async redirects() {
     return [
+      // Search Console reported these two as "Not found (404)". Neither URL has
+      // ever existed and nothing on the site links to either (checked across all
+      // source files, all CMS records and the full git history), so they are
+      // almost certainly inferred by crawlers from the clean-slug pattern the
+      // other city pages use: /city/rome, /city/milan, /city/bologna … while
+      // Pisa alone kept its legacy "-taxi-service" URL, and every airport slug
+      // carries its full name (bologna-marconi, catania-fontanarossa).
+      // Each maps to the genuine equivalent page serving the same intent.
+      { source: '/city/pisa', destination: '/city/pisa-taxi-service', permanent: true },
+      { source: '/airport/bologna', destination: '/airport/bologna-marconi', permanent: true },
+
       { source: '/city/rome-taxi-service', destination: '/city/rome', permanent: true },
       { source: '/city/milan-taxi-service', destination: '/city/milan', permanent: true },
       { source: '/city/florence-taxi-service', destination: '/city/florence', permanent: true },
