@@ -76,6 +76,14 @@ const nextConfig: NextConfig = {
       { source: '/city/pisa', destination: '/city/pisa-taxi-service', permanent: true },
       { source: '/airport/bologna', destination: '/airport/bologna-marconi', permanent: true },
 
+      // Indexed by crawlers but never built — neither was ever an entry in
+      // `cities` (checked across all 148 commits), yet both earned Search
+      // Console clicks while returning 404. Each maps to the genuine
+      // equivalent page for that destination. /city/siena is deliberately NOT
+      // redirected: it is handled separately.
+      { source: '/city/agrigento', destination: '/route/catania-airport-to-agrigento-taxi', permanent: true },
+      { source: '/city/alberobello', destination: '/attraction-transfer/trulli-alberobello-taxi-transfer', permanent: true },
+
       { source: '/city/rome-taxi-service', destination: '/city/rome', permanent: true },
       { source: '/city/milan-taxi-service', destination: '/city/milan', permanent: true },
       { source: '/city/florence-taxi-service', destination: '/city/florence', permanent: true },
