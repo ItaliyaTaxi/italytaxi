@@ -129,6 +129,7 @@ export default function HotelTransfersPageIt() {
           "Cancellazione gratuita fino a 24 ore prima del prelievo"
         ]}
         pricingTitle="Panoramica dei Prezzi per il Trasferimento Hotel"
+        pricingNote="Ogni viaggio viene preventivato come tariffa fissa e tutto compreso — pedaggi, carburante e parcheggio inclusi, nessun tassametro e nessun costo aggiunto alla fine. Eventuali supplementi notturni, festivi o per attesa aggiuntiva previsti dalle nostre condizioni sono indicati nel preventivo prima della prenotazione."
         pricing={pricing}
         reviews={reviews}
         relatedLinks={[

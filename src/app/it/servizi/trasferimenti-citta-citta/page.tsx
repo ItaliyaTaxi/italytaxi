@@ -120,6 +120,7 @@ export default function CityToCityPageIt() {
           "Seggiolini per bambini disponibili gratuitamente su richiesta"
         ]}
         pricingTitle="Esempi di Tariffe per Trasferimenti Intercity"
+        pricingNote="Ogni viaggio viene preventivato come tariffa fissa e tutto compreso — pedaggi, carburante e parcheggio inclusi, nessun tassametro e nessun costo aggiunto alla fine. Eventuali supplementi notturni, festivi o per attesa aggiuntiva previsti dalle nostre condizioni sono indicati nel preventivo prima della prenotazione."
         pricing={pricing}
         routesTitle="I Percorsi Città-Città Più Richiesti"
         routes={routes}

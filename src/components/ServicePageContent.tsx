@@ -39,6 +39,11 @@ export interface ServicePageContentProps {
     /** Pricing */
     pricingTitle?: string;
     pricing?: PricingTier[];
+    /** Pricing disclaimer under the heading. Must stay consistent with the
+     *  published Terms, which permit a disclosed surcharge on night, holiday
+     *  and extra-waiting journeys — so this must not claim "no surcharges".
+     *  Italian service pages pass their own translation. */
+    pricingNote?: string;
 
     /** Popular routes */
     routesTitle?: string;
@@ -86,6 +91,7 @@ export default function ServicePageContent({
     benefits,
     pricingTitle = "Transparent Pricing — No Surprises",
     pricing,
+    pricingNote = "Every journey is quoted as a fixed, all-inclusive fare — tolls, fuel and parking included, no meter, and nothing added afterwards. Any night, holiday or extra-waiting charge allowed by our terms is shown in your quote before you book.",
     routesTitle = "Popular Routes",
     routes,
     reviews = defaultReviews,
@@ -168,7 +174,7 @@ export default function ServicePageContent({
                         <div className="text-center mb-14">
                             <p className="text-gold text-sm font-bold uppercase tracking-[0.4em] mb-4">Sample Fares</p>
                             <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight">{pricingTitle}</h2>
-                            <p className="text-gray-400 mt-4 max-w-2xl mx-auto">All prices are fixed and all-inclusive — no meter, no surcharges. You see the total before you book.</p>
+                            <p className="text-gray-400 mt-4 max-w-2xl mx-auto">{pricingNote}</p>
                         </div>
                         <div className={`grid gap-6 ${pricing.length === 3 ? 'md:grid-cols-3' : 'md:grid-cols-2 lg:grid-cols-' + pricing.length}`}>
                             {pricing.map((tier, i) => (

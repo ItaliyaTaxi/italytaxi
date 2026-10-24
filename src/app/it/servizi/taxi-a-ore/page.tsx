@@ -129,6 +129,7 @@ export default function HourlyTaxiPageIt() {
           "Disponibilità 24/7 — mattine presto e serate tarde"
         ]}
         pricingTitle="Tariffe del Servizio a Ore"
+        pricingNote="Ogni viaggio viene preventivato come tariffa fissa e tutto compreso — pedaggi, carburante e parcheggio inclusi, nessun tassametro e nessun costo aggiunto alla fine. Eventuali supplementi notturni, festivi o per attesa aggiuntiva previsti dalle nostre condizioni sono indicati nel preventivo prima della prenotazione."
         pricing={pricing}
         reviews={reviews}
         relatedLinks={[

@@ -123,6 +123,7 @@ export default function AirportTransfersPageIt() {
           "Conferma immediata via email con numero di contatto dell'autista e istruzioni per l'incontro"
         ]}
         pricingTitle="Esempi di Tariffe per il Transfer Aeroportuale"
+        pricingNote="Ogni viaggio viene preventivato come tariffa fissa e tutto compreso — pedaggi, carburante e parcheggio inclusi, nessun tassametro e nessun costo aggiunto alla fine. Eventuali supplementi notturni, festivi o per attesa aggiuntiva previsti dalle nostre condizioni sono indicati nel preventivo prima della prenotazione."
         pricing={pricing}
         routesTitle="I Percorsi di Transfer Aeroportuale Più Richiesti"
         routes={routes}
