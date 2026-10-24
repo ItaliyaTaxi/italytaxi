@@ -5,13 +5,26 @@ import FAQSection from '@/components/FAQSection';
 import Footer from '@/components/Footer';
 import ServiceSchema from '@/components/ServiceSchema';
 import ServicePageContent from '@/components/ServicePageContent';
+import BookingForm from '@/components/BookingForm';
 import type { PricingTier } from '@/components/ServicePageContent';
 import { Metadata } from 'next';
 import { itHreflangFor } from '@/lib/i18n/page-registry';
 
+/* Accuracy note for future edits — these claims were removed because the
+ * business does not offer them: monthly or consolidated billing, corporate
+ * account setup, dedicated account managers, priority booking, 24/7 corporate
+ * account support, expense management, and the "99.2% on-time rate"
+ * punctuality guarantee. `reviews={[]}` is passed deliberately: without it
+ * ServicePageContent renders its own default testimonials and a
+ * "4.9 / 5 across 500+ reviews" line, neither of which is substantiated.
+ * Invoicing is described as it actually works: an invoice for the individual
+ * service where applicable. Flight tracking is kept because it is established
+ * across the site; train tracking is not, so rail arrivals are handled by the
+ * customer supplying the train details. */
+
 export const metadata: Metadata = {
-  title: "Executive Business Taxi in Italy",
-  description: "Professional corporate taxi and taxi service across Italy. Priority booking, executive vehicles, discreet drivers, and invoicing for business accounts.",
+  title: "Business & Executive Transfers in Italy",
+  description: "Private transfers for business travel across Italy — airport pickups, hotel and city-to-city journeys, and event transport. Quoted per journey, with an invoice for the service where applicable.",
   alternates: {
     canonical: "/services/business-taxi",
     languages: itHreflangFor('/services/business-taxi'),
@@ -20,32 +33,32 @@ export const metadata: Metadata = {
 
 const faqs = [
   {
-    q: "Do you provide invoices for corporate accounts?",
-    a: "Yes. We provide full VAT invoices for every journey, making expense reporting straightforward. Corporate accounts can be set up for monthly consolidated billing — contact us directly for business account enquiries."
+    q: "Can I get an invoice for a business transfer?",
+    a: "Yes. We can provide an invoice for the individual transfer or service where applicable, which is what most travellers need for expense reporting. We do not operate monthly or consolidated billing, so each journey is quoted and invoiced on its own rather than accumulated onto a monthly account."
   },
   {
-    q: "Can you guarantee punctuality for client meetings?",
-    a: "Punctuality is our highest priority for business travel. We build in buffer time based on Italian traffic data, and drivers are dispatched early to ensure you arrive with margin to spare. We have a 99.2% on-time rate for corporate bookings."
+    q: "How do I book transport for a business trip?",
+    a: "Send us the journey details — date and time, pickup and drop-off addresses, passenger numbers, and the flight number if you are arriving by air. We come back with a quote for that journey, and the price is confirmed before you travel rather than run on a meter. For several journeys across a trip, send the full schedule in one message and we will quote the whole itinerary."
+  },
+  {
+    q: "How do you handle timing for client meetings?",
+    a: "Pickup times are planned around the meeting rather than the journey length, with margin built in for traffic in the city concerned. For airport arrivals we monitor the flight and adjust to the actual landing time. We don't publish an on-time percentage, because traffic on any given day is outside anyone's control — what we can do is plan the margin and tell you honestly what is realistic."
   },
   {
     q: "Is Wi-Fi available in the vehicles?",
-    a: "Yes, Wi-Fi is available on request in our executive vehicles. Please specify this requirement when booking so we can assign an appropriately equipped vehicle. Water, phone chargers, and newspapers are also available."
+    a: "Wi-Fi is available on request in executive vehicles. Specify it when you book so an appropriately equipped vehicle can be assigned. Phone chargers and bottled water are also available on request."
   },
   {
-    q: "Can you arrange transfers for multiple executives visiting simultaneously?",
-    a: "Absolutely. We handle multi-vehicle coordination for conferences, roadshows, and corporate events of any scale. Assign us your delegate list and arrival schedule and our operations team will manage the entire ground logistics."
+    q: "Can you arrange transfers for several executives arriving separately?",
+    a: "Yes. Multi-vehicle coordination for a single conference or event is something we handle: send the arrival schedule and the pickup points and we will organise the vehicles around it. The more notice you can give for a multi-vehicle booking, the better, since each vehicle has to be arranged individually."
   },
   {
-    q: "Are vehicles discreet for VIP and sensitive business travel?",
-    a: "Our drivers are trained in professional discretion. Vehicles are unmarked and conversations are entirely private. We regularly service government officials, C-suite executives, and high-profile personalities across Italy."
+    q: "Are vehicles suitable for discreet business travel?",
+    a: "Yes. Vehicles are unmarked, drivers are professionally dressed, and conversations in the car are private. If you have specific requirements for a sensitive journey, tell us when you book and we will confirm what is possible."
   },
   {
-    q: "How do I set up a corporate business account?",
-    a: "Contact us via email at italytaxiservicee@gmail.com with your company name, registration details, and expected monthly usage. We'll configure your account within 24 hours and assign a dedicated account manager."
-  },
-  {
-    q: "Do you offer roadshow and multi-city executive itinerary planning?",
-    a: "Yes. Our business travel division specialises in multi-city itineraries including Rome, Milan, Florence, and Bologna. Provide your full schedule and we will ensure consistent, premium transportation across every leg of your trip."
+    q: "Do you cover multi-city business itineraries?",
+    a: "Yes. Multi-city journeys across Rome, Milan, Florence and Bologna are a common request, either as separate transfers or as hourly hire for part of a day. Send the full schedule and we will quote each leg so you can see the cost before committing."
   }
 ];
 
@@ -60,15 +73,15 @@ export default function BusinessCorporatePage() {
 
   return (
     <main className="min-h-screen font-inter">
-      <ServiceSchema name="Executive Business Taxi Italy" description="Professional executive taxi and corporate taxi service across Italy for business meetings, conferences, and VIP travel." url={url} />
+      <ServiceSchema name="Business & Executive Transfers in Italy" description="Private transfers for business travel across Italy — airport pickups, hotel and city-to-city journeys, and event transport, quoted per journey." url={url} />
       <Navbar />
 
       <PageHero
-        titleTop="Executive Corporate"
-        titleBottom="Taxi Services in Italy"
-        description="On-time, discreet, and professional business transportation across Italy. Executive vehicles with Wi-Fi, invoicing, and dedicated corporate account management."
+        titleTop="Business & Executive"
+        titleBottom="Transfers in Italy"
+        description="Pre-booked private transfers for business travel — airport pickups, hotel and city-to-city journeys, and event transport. Quoted per journey, price confirmed before you travel."
         backgroundImage="/images/taxis-1.jpg"
-        buttonText="Open Corporate Account"
+        buttonText="Request a Business Transfer Quote"
         breadcrumbs={[
           { name: "Services", item: "/services" },
           { name: "Business Taxi", item: "/services/business-taxi" }
@@ -76,36 +89,33 @@ export default function BusinessCorporatePage() {
       />
 
       <ServicePageContent
-        introTitle="Italy's Premier Executive Taxi Service"
+        introTitle="Private Transfers for Business Travel in Italy"
         introParagraphs={[
-          "Business travel demands a higher standard of reliability, discretion, and professionalism. Italy Taxi Service provides dedicated corporate transportation solutions that meet the needs of executives, client-facing professionals, conference delegates, and VIP visitors across Italy.",
-          "From a single airport pickup for a managing director to a multi-city roadshow covering Rome, Milan, and Bologna over three days, our business travel division handles every detail — so your team can focus entirely on the work at hand.",
-          "Our executive fleet consists of late-model Mercedes-Benz sedans and Vito minivans with leather interiors, climate control, and Wi-Fi. Drivers are uniformed, discreet, and trained to the highest standards of professional conduct."
+          "Business travel puts a different set of demands on ground transport: the pickup has to fit the meeting, the arrival has to survive a delayed flight, and the cost has to be clear enough to put through expenses. We arrange private transfers across Italy for executives, client-facing teams, conference delegates and visiting colleagues.",
+          "That covers a single airport pickup for one traveller, a run of hotel and office transfers across a two-day visit, or several vehicles meeting a delegation arriving on different flights. Each journey is quoted on its own, so you know the price before anyone travels.",
+          "Executive vehicles used for business bookings are late-model Mercedes-Benz sedans and Vito minivans with leather interiors and climate control. Wi-Fi is available on request — specify it at booking so the right vehicle is assigned."
         ]}
-        detailTitle="What Our Corporate Taxi Service Includes"
+        detailTitle="What a Business Transfer Covers"
         detailParagraphs={[
-          "Every business booking comes with a dedicated point-of-contact who manages your reservation from confirmation to completion. You'll receive your driver's direct mobile number the evening before, so communication is always seamless — even for last-minute changes.",
-          "Our drivers continuously monitor traffic conditions, construction zones, and event-related congestion across Italian cities. If a faster route emerges, they adapt. This proactive approach is why our corporate clients maintain a long-term relationship with us year after year.",
-          "We support all major Italian business hubs: Rome (EUR district, Fiumicino), Milan (CityLife, Porta Nuova, Fiera), Florence (Fortezza da Basso, Palazzo dei Congressi), Bologna (BolognaFiere), and international airports across the country.",
-          "For conference and event logistics, our team can coordinate simultaneous pickups from multiple arrival points. Provide us with your delegate schedule and we will manage the entire operation, delivering real-time updates to your event coordinator.",
-          "Corporate accounts receive consolidated monthly invoices with full transaction details and VAT breakdown, simplifying your finance team's expense reporting and eliminating the need for individual receipts."
+          "Airport pickups are the most common business booking. We monitor the flight and work to the actual landing time rather than the scheduled one, and the driver meets you inside the arrivals hall with a name sign. If you are arriving by rail instead, send the train and arrival time with the booking and the pickup is planned around it.",
+          "Hotel and city-to-city journeys work the same way: give us the full address with street and number at both ends, and the pickup time is set around your schedule rather than ours. For a day with several stops, hourly hire usually works better than separate bookings.",
+          "We cover the main Italian business locations: Rome including the EUR district and Fiumicino, Milan including CityLife, Porta Nuova and the Rho exhibition centre, Florence including Fortezza da Basso and the Palazzo dei Congressi, Bologna including BolognaFiere, and airports across the country.",
+          "For conferences and events, we can coordinate several vehicles around one arrival schedule. Send the delegate list and the arrival times and we will organise the pickups against it. Multi-vehicle bookings need as much notice as you can give, because each vehicle is arranged individually.",
+          "On invoicing: we can issue an invoice for the individual transfer or service where applicable, which is normally what is needed for an expense claim. We do not run monthly or consolidated billing, and there is no corporate account to open — each journey is quoted, booked and invoiced on its own."
         ]}
         benefits={[
-          "Priority booking — always available, even on short notice",
-          "Executive Mercedes-Benz fleet with leather interiors",
-          "Wi-Fi, phone chargers, and bottled water provided",
-          "Professional uniformed drivers with NDA available",
-          "Monthly invoicing with full VAT breakdown",
-          "Multi-vehicle coordination for conferences and events",
-          "Flight and train tracking for arrival pickups",
-          "24/7 corporate account support via phone and WhatsApp",
-          "Punctuality guarantee — 99.2% on-time rate",
-          "Roadshow and multi-city itinerary planning",
-          "Fixed or hourly pricing — transparent from the start",
-          "Dedicated account manager for regular clients"
+          "Executive Mercedes-Benz sedans and Vito minivans",
+          "Wi-Fi, phone chargers and bottled water on request",
+          "Professionally dressed drivers and unmarked vehicles",
+          "Invoice for the individual service where applicable",
+          "Multi-vehicle coordination for a single conference or event",
+          "Flight monitoring for airport arrivals, with meet-and-greet in the arrivals hall",
+          "Multi-city itineraries across Rome, Milan, Florence and Bologna",
+          "Fixed or hourly pricing, confirmed before you travel"
         ]}
         pricingTitle="Executive Taxi Pricing Overview"
         pricing={pricing}
+        reviews={[]}
         relatedLinks={[
           { label: "Airport Transfers", href: "/services/airport-transfers" },
           { label: "Hourly Taxi", href: "/services/hourly-taxi" },
@@ -120,9 +130,20 @@ export default function BusinessCorporatePage() {
         ]}
       />
 
+      {/* Quote form, using the shared BookingForm unmodified. The distinct
+          sourceName is what lets leads from this page be attributed to it. */}
+      <section className="py-20 bg-white" aria-labelledby="business-quote">
+        <div className="container mx-auto px-6 max-w-3xl">
+          <h2 id="business-quote" className="text-3xl md:text-4xl font-bold text-navy mb-8 text-center">
+            Request a business transfer quote
+          </h2>
+          <BookingForm sourceName="Business Taxi Page" />
+        </div>
+      </section>
+
       <HowItWorks />
 
-      <FAQSection faqs={faqs} title="Corporate Travel FAQs" badge="Business Class Service" />
+      <FAQSection faqs={faqs} title="Business Travel FAQs" badge="Business Transfers" />
 
       <Footer />
     </main>
