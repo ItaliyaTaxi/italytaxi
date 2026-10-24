@@ -50,6 +50,14 @@ const faqs = [
   {
     q: "How far in advance should I book my airport taxi in Italy?",
     a: "We recommend booking at least 24 hours in advance to guarantee vehicle availability, although same-day bookings are often possible. For peak travel seasons — July and August, Easter, Christmas, and Italian bank holidays — booking a week or more ahead is strongly advisable, particularly for early morning or late-night flights when driver availability is naturally tighter."
+  },
+  {
+    q: "Can you handle an airport transfer for a large group?",
+    a: "Yes. For families and smaller groups we use Mercedes V-Class minivans, and for larger parties we can arrange a Sprinter-class vehicle or more than one car. Tell us the exact passenger count and the number of suitcases when you book, and we will confirm which vehicle — or how many — is assigned before you travel."
+  },
+  {
+    q: "Are child seats available for airport pickups?",
+    a: "Yes. Infant carriers, forward-facing child seats and booster seats are available free of charge on request, as set out in our terms, and are fitted before your pickup. Italian law requires children to travel in an appropriate restraint, so tell us each child's age when you book and the correct seat will be installed."
   }
 ];
 
@@ -128,7 +136,7 @@ export default function AirportTransfersPage() {
           "Once you reach your vehicle, the driver loads your luggage and you begin the journey to your accommodation. Inside the vehicle, enjoy complimentary bottled water, climate control, and Wi-Fi (on request). Our premium fleet includes Mercedes-Benz saloons for solo or couple travel, executive sedans for business travellers, and spacious minivans for families and groups of up to eight passengers.",
           "All routes, including those with highway tolls like the A90 Rome ring road or the A8 motorway into Milan, are included in your fixed quote. There is nothing extra to pay on arrival. The driver will take the fastest safe route to your destination, navigating traffic intelligently using real-time data. If your accommodation is inside a ZTL (restricted traffic zone), your driver will park at the closest accessible point and guide you to the entrance.",
           "For departures, we pick you up at your accommodation at a pre-agreed time calculated with a comfortable margin before your check-in deadline. Our drivers know Italian traffic patterns, airport terminal layouts, and check-in queue tendencies for every airport we serve. We build in buffer time so you arrive calm and on schedule.",
-          "Corporate travellers booking airport transfers for executives and clients can request our silent ride preference — drivers trained to respect professional privacy, available to assist with luggage, and expert at navigating directly to business districts. Monthly invoicing and corporate account management are available.",
+          "Corporate travellers booking airport transfers for executives and clients can request a quiet journey, assistance with luggage, and a driver routing directly to the business district. An invoice can be provided for the individual transfer where applicable.",
           "Return transfers are handled with the same precision. For a departure from Italy, we collect you at your hotel entrance, assist with luggage, and deliver you to the correct terminal entrance. Departure time is calculated based on your flight's check-in opening time, the journey duration at expected traffic conditions, and a safety margin that ensures you never feel rushed.",
           "Safety is a foundational principle of our service. All drivers hold professional NCC (Noleggio Con Conducente) licences — the Italian standard for private hire vehicles. Vehicles are maintained to manufacturer service schedules, comprehensively insured, and regularly inspected. You travel with confidence, knowing that every aspect of your transfer meets the highest professional standards."
         ]}

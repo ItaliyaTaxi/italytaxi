@@ -130,9 +130,18 @@ const nextConfig: NextConfig = {
       // against these old URLs — redirect rather than leave them 404ing.
       { source: '/city-transfer', destination: '/city', permanent: true },
       { source: '/city-transfer/:path*', destination: '/city', permanent: true },
-      // /airport-transfer itself is a real, current page (src/app/(site)/airport-transfer) —
-      // only its old per-city sub-paths (e.g. /airport-transfer/rome-taxi-service) are gone.
+      // Old per-city sub-paths (e.g. /airport-transfer/rome-taxi-service) are gone.
       { source: '/airport-transfer/:path+', destination: '/airport', permanent: true },
+      // /airport-transfer was a second page competing with
+      // /services/airport-transfers for the same transactional intent. The
+      // service page is canonical: it is the global nav entry, the URL named
+      // in the site-wide Organization JSON-LD, the EN half of the hreflang
+      // pair with /it/servizi/trasferimenti-aeroportuali, and the target of
+      // ~5x more internal source links and ~9x more blog links. The page file
+      // was deleted in the same change, so the filesystem-walked sitemap
+      // drops it automatically. Keep permanently — external backlinks to the
+      // old URL are unknown, not zero.
+      { source: '/airport-transfer', destination: '/services/airport-transfers', permanent: true },
 
       // 301s for consolidated duplicate blog posts (redirecting secondary stubs to primary canonical posts)
       { source: '/blog/do-taxis-in-italy-accept-credit-cards-a-complete-guide', destination: '/blog/do-italian-taxis-accept-credit-cards', permanent: true },
