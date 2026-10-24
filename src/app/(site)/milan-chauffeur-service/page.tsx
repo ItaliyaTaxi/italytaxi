@@ -5,6 +5,7 @@ import FAQSection from '@/components/FAQSection';
 import Footer from '@/components/Footer';
 import ServiceSchema from '@/components/ServiceSchema';
 import ServicePageContent from '@/components/ServicePageContent';
+import BookingForm from '@/components/BookingForm';
 import type { PricingTier, RouteItem } from '@/components/ServicePageContent';
 import type { Metadata } from 'next';
 import Link from 'next/link';
@@ -12,12 +13,12 @@ import { ChevronRight } from 'lucide-react';
 import { milanHotels, milanAirports, milanArrivalSlug } from '@/lib/milan-transfer-data';
 
 export const metadata: Metadata = {
-  title: "Milan Chauffeur Service | Private Driver, Malpensa & Linate",
-  description: "Private chauffeur and driver service in Milan — Malpensa, Linate & Bergamo airport transfers plus city and Lake Como trips. Fixed prices, English-speaking drivers.",
+  title: "Milan Chauffeur & Private Car Service",
+  description: "Private chauffeur and car service in Milan: fixed-price transfers from Malpensa, Linate and Bergamo, Fiera Milano runs, hourly city hire and Lake Como day trips.",
   alternates: { canonical: "/milan-chauffeur-service" },
   openGraph: {
-    title: "Milan Chauffeur Service | Private Driver, Malpensa & Linate",
-    description: "Private chauffeur and driver service in Milan — Malpensa, Linate & Bergamo airport transfers plus city and Lake Como trips. Fixed prices, English-speaking drivers.",
+    title: "Milan Chauffeur & Private Car Service",
+    description: "Private chauffeur and car service in Milan: fixed-price transfers from Malpensa, Linate and Bergamo, Fiera Milano runs, hourly city hire and Lake Como day trips.",
     url: "https://www.italytaxiservice.com/milan-chauffeur-service",
     images: [{ url: '/images/milan airport.jpg', width: 1200, height: 630, alt: 'Milan Chauffeur Service — Private Taxi' }],
   },
@@ -42,11 +43,15 @@ const faqs = [
   },
   {
     q: "What business amenities are available in your Milan chauffeur vehicles?",
-    a: "Our business-class vehicles for Milan include complimentary bottled water, phone chargers, Wi-Fi hotspot on request, a silent/privacy mode for sensitive calls, and a suited professional driver trained in corporate etiquette. Vehicles are either Mercedes E-Class, S-Class, or V-Class. Monthly invoicing and corporate accounts are available for regular business clients."
+    a: "Business-class bookings are assigned a Mercedes E-Class, S-Class or V-Class, with bottled water and phone chargers provided and Wi-Fi available on request — ask for it when you book so a suitably equipped vehicle is assigned. Drivers are professionally dressed and conversations in the car are private. We can issue an invoice for the individual transfer where applicable; we do not offer monthly or consolidated billing, and there is no corporate account to open."
   },
   {
     q: "Is an early morning or late night Milan airport transfer possible?",
-    a: "Yes. Our Milan chauffeur service operates 24 hours a day, 365 days a year. We regularly handle 4am departures from Linate for early morning European business flights, and midnight arrivals at Malpensa for long-haul intercontinental flights. There is no surcharge for unsociable hours on pre-booked transfers."
+    a: "Yes, the service runs around the clock, including 4am departures from Linate for early European flights and late-night arrivals at Malpensa. Our terms allow a surcharge on journeys starting between 22:00 and 06:00 and on Italian public holidays; where one applies it is included in the quote you receive, so the figure you confirm before travelling is the figure you pay."
+  },
+  {
+    q: "Can I hire a car and driver by the hour in Milan?",
+    a: "Yes. As well as single transfers we take hourly and full-day bookings with the driver staying with you — which usually works better than separate bookings for a day of meetings across several districts, a round of showroom visits, or an evening at La Scala followed by dinner in the Navigli. Tell us the hours you need and the stops you have in mind and we will quote the whole day."
   },
   {
     q: "How does hotel pickup work in Milan?",
@@ -119,18 +124,18 @@ export default function MilanChauffeurServicePage() {
   return (
     <main className="min-h-screen text-navy-rich font-inter">
       <ServiceSchema
-        name="Milan Chauffeur Service — Private Taxi from MXP, LIN & BGY"
-        description="Premium private chauffeur service in Milan from all three airports. Business-class vehicles, NCC-licensed drivers, fixed prices, 24/7 availability."
+        name="Milan Chauffeur & Private Car Service"
+        description="Private chauffeur and car service in Milan, with fixed-price transfers from Malpensa, Linate and Bergamo, hourly city hire and day trips to the Italian Lakes."
         url={url}
       />
       <Navbar />
 
       <PageHero
-        titleTop="Milan Chauffeur Service"
-        titleBottom="Private Taxi from MXP, LIN & BGY"
-        description="Premium business-class private transfers from all three Milan airports. Fixed prices, suited NCC-licensed drivers, silent-ride option, and 24/7 corporate availability."
+        titleTop="Milan Chauffeur &"
+        titleBottom="Private Car Service"
+        description="Fixed-price private transfers from Malpensa, Linate and Bergamo, plus hourly city hire, Fiera Milano runs and day trips to the Lakes. Quoted per journey, confirmed before you travel."
         backgroundImage="/images/milan airport.jpg"
-        buttonText="Book Milan Chauffeur Now"
+        buttonText="Request a Milan Quote"
         breadcrumbs={[
           { name: "Home", item: "/" },
           { name: "Milan Chauffeur Service", item: "/milan-chauffeur-service" }
@@ -138,30 +143,30 @@ export default function MilanChauffeurServicePage() {
       />
 
       <ServicePageContent
-        introTitle="Milan's Premier Professional Chauffeur Service"
+        introTitle="Chauffeur and Private Car Service in Milan"
         introParagraphs={[
-          "Milan is Italy's undisputed financial, fashion, and design capital — a city where the quality of your arrival matters. Italy Taxi Service provides a premium chauffeur service in Milan that matches the city's standards: spotless late-model vehicles, professionally dressed and trained drivers, fixed all-inclusive pricing, and the kind of quiet, efficient service that business travellers expect. Whether you are arriving at Malpensa for a board meeting, at Linate for a trade show, or at Bergamo after a long-haul connection, your private driver is waiting.",
+          "A chauffeur service in Milan — also called a private car service, or simply car and driver hire — means a vehicle and driver booked ahead at an agreed price, rather than a metered taxi or a ride hailed on the day. You can book a single airport transfer, a journey across the city, a run out to the Fiera exhibition centre, hourly or full-day hire with the driver staying with you, or a day trip to the Lakes. Every journey is quoted before you book, and the price is confirmed before you travel.",
           "Milan is unique among Italian cities in having three functioning commercial airports: Malpensa International (MXP), the city's primary long-haul hub 50 km north-west; Linate (LIN), the convenient close-in business airport 7 km east of the centre; and Bergamo Orio al Serio (BGY), the low-cost gateway 45 km north-east. Each airport serves a different passenger profile and requires different routing into the city. Our drivers know all three, including the fastest routes at different times of day and the most efficient ways to navigate the A8, A51, and A4 motorways.",
           "Beyond airport transfers, our Milan chauffeur service covers the full range of business and leisure ground transportation needs: hotel-to-hotel transfers, multi-meeting city itineraries, corporate event transportation, and private day trips to the Italian Lakes District, Bergamo Alta, Brescia, and the Piedmont wine region.",
         ]}
         detailTitle="Milan Airport Transfer Service — Malpensa, Linate & Bergamo"
         detailParagraphs={[
           "Milan Malpensa Airport (MXP) is northern Italy's most important international airport, handling routes from North America, the Middle East, Asia, and all major European hubs. It sits 50 km north-west of Milan and 55 km from the city's main exhibition venue, Fiera Milano in Rho-Pero. The private transfer from Malpensa to Milan city centre takes 50–70 minutes via the A8 motorway. Motorway tolls are included in our quoted fare.",
-          "Milan Linate Airport (LIN) is the preferred airport for business travellers on short European routes from London, Paris, Frankfurt, Amsterdam, and other hubs. Located just 7 km east of the city centre, a private transfer from Linate to Milan's Porta Nuova financial district or the fashion quadrangle takes approximately 20–30 minutes — faster and more direct than any train or bus option. Our Linate transfer starts from €45.",
+          "Milan Linate Airport (LIN) is the preferred airport for business travellers on short European routes from London, Paris, Frankfurt, Amsterdam, and other hubs. Located just 7 km east of the city centre, a private transfer from Linate to Milan's Porta Nuova financial district or the fashion quadrangle takes approximately 20–30 minutes, door to door, with no connection to make at the city end. Our Linate transfer starts from €45.",
           "Bergamo Orio al Serio Airport (BGY) serves primarily Ryanair and easyJet routes and is one of Europe's busiest low-cost airports. Despite being branded as a Milan airport, it is 45 km north-east of the city and across a mountain ridge, meaning the journey takes 50–65 minutes in normal traffic. Our private transfer from Bergamo to Milan starts from €90.",
           "For business travellers attending Salone del Mobile, EICMA, MIDO, Lineapelle, and the other major trade fairs held at Fiera Milano, we offer direct airport-to-Fiera transfers. From Malpensa to Fiera Rho-Pero, we route via the direct SS336 connection, avoiding Milan city centre entirely and reaching the exhibition complex in approximately 25–35 minutes.",
-          "Corporate clients requiring regular transfers can arrange monthly invoicing, designated driver preferences, and priority booking access. Our account management team handles volume clients across all three Milan airports with consolidated billing and dedicated support.",
+          "Companies booking more than one journey can send the whole schedule in a single request and have each leg quoted together — useful when a visiting team arrives on different flights across the same week, or when a delegation needs several vehicles at the same terminal. An invoice can be provided for each individual transfer where applicable. We do not operate monthly or consolidated billing and there is no corporate account to open, and because we hold no reserved booking slots, a fixed date and time is best confirmed as early as you can.",
           "Outside of airport transfers, our Milan chauffeur service excels at full-day hire arrangements. Whether you need a driver to accompany you through a day of business meetings across multiple Milan districts, require transportation from hotel to fashion showrooms in the Brera and Montenapoleone quadrangle, or want a private driver for an evening at La Scala and dinner in the Navigli, we provide seamless, discreet support throughout.",
         ]}
         benefits={[
           "Service from all three Milan airports: Malpensa, Linate, and Bergamo",
-          "Business-class Mercedes-Benz fleet — E-Class, S-Class, and V-Class",
-          "Suited, professionally trained English-speaking NCC drivers",
+          "Business-class Mercedes-Benz vehicles — E-Class, S-Class and V-Class",
+          "English-speaking, NCC-licensed, professionally dressed drivers",
           "Fixed all-inclusive prices including A8 motorway toll",
           "Direct transfers to Fiera Milano exhibition centre",
           "Same-day and last-minute bookings accepted (subject to availability)",
-          "Silent/privacy mode available for sensitive business calls",
-          "Corporate accounts with monthly invoicing",
+          "Hourly and full-day hire with the driver staying with you",
+          "Invoice for the individual transfer where applicable",
           "Day trips to Lake Como, Lake Maggiore, and the Italian Lakes",
           "Real-time flight tracking — driver adjusts for delays automatically",
           "24/7 availability including 4am departures and midnight arrivals",
@@ -193,15 +198,21 @@ export default function MilanChauffeurServicePage() {
         <div className="container mx-auto px-6 max-w-4xl space-y-10 text-gray-700 text-lg leading-relaxed">
           <div>
             <h2 className="text-3xl font-extrabold text-[#0F1C2E] mb-4">
-              Why Milan Demands a Professional Chauffeur Service
+              Milan&apos;s Restricted Zones and Where a Car Can Drop You
             </h2>
             <p>
-              Milan&apos;s city centre is a complex grid of one-way streets, restricted zones, and congestion
-              that defies navigation without local knowledge. The Zona A and Zona B traffic restriction areas
-              cover large parts of the central business district and apply at different times of day. The Areas C
-              congestion charge operates on weekdays and requires a paid permit for standard vehicles. Our
-              NCC-licensed drivers are authorised to operate within these zones and know the most efficient routes
-              between Milan&apos;s airports, hotels, exhibition venues, and business districts at any hour.
+              Milan restricts traffic in two overlapping ways, and both affect where a car can actually
+              reach you. <strong>Area C</strong> is the paid congestion charge covering the historic centre
+              inside the Cerchia dei Bastioni, and it operates on weekdays. <strong>Area B</strong> is a far
+              larger low-emission zone covering most of the municipality, which restricts entry by vehicle
+              emissions class rather than by payment. On top of both, much of the Duomo core and the
+              Quadrilatero is pedestrianised or one-way.
+            </p>
+            <p className="mt-4">
+              In practice this matters most for the drop-off. Tell us the full address with the street number
+              and we will plan the route and the nearest point a car can legally stop, rather than leaving you
+              to discover a street is closed on arrival. If your hotel sits inside a pedestrian block, the
+              driver will set you down at the closest accessible corner and help with the luggage from there.
             </p>
           </div>
           {/* Exhibition & congress venues — the page's Fiera coverage was previously
@@ -219,9 +230,9 @@ export default function MilanChauffeurServicePage() {
               of business visitors. Three venues account for most of them, and they sit in different parts of the
               metropolitan area — which is what decides the journey from each airport. Fares and journey times for
               the airport runs are set out in the route table and FAQs on this page. Our{' '}
-              <strong>Milan chauffeur service</strong> is the preferred choice of companies sending executives
-              to Italy&apos;s fashion, design, automotive, and finance sector events, and we provide multi-day
-              engagement contracts for delegations requiring a dedicated driver throughout their stay.
+              <strong>Milan chauffeur service</strong> covers the airport legs, the hotel-to-venue runs and the
+              return for these events. For a delegation attending across several days, send the full schedule in
+              one request and we will quote the journeys together.
             </p>
 
             <div className="space-y-8">
@@ -324,6 +335,15 @@ export default function MilanChauffeurServicePage() {
               Book Your Milan Chauffeur
             </Link>
           </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-white" aria-labelledby="milan-quote">
+        <div className="container mx-auto px-6 max-w-3xl">
+          <h2 id="milan-quote" className="text-3xl md:text-4xl font-bold text-navy mb-8 text-center">
+            Request a Milan chauffeur quote
+          </h2>
+          <BookingForm sourceName="Milan Chauffeur Page" />
         </div>
       </section>
 
