@@ -1,7 +1,7 @@
 /** Bologna & Emilia-Romagna SEO cluster — 10 new blogs, no overlap with existing 155 posts.
  *  Pillar (things to do) + airport guide + 4 day-trip guides (Ravenna, Modena, Parma, Rimini)
  *  + food guide + comparison + road-trip + landmark deep-dive. Cross-links to the new
- *  /bologna-transfer/* cluster, /airport/bologna-marconi, /city/bologna-taxi-service and
+ *  /bologna-transfer/* cluster, /airport/bologna-marconi, /city/bologna and
  *  each other. Run: node seed_bologna_emilia_cluster.js */
 const { createClient } = require('@supabase/supabase-js');
 const fs = require('fs');
@@ -90,7 +90,7 @@ ${related([
   { href: '/blog/bologna-food-guide-what-to-eat', label: 'Bologna Food Guide: What to Eat' },
   { href: '/blog/bologna-vs-florence', label: 'Bologna vs Florence: Which to Visit' },
   { href: '/airport/bologna-marconi', label: 'Bologna Marconi Airport Guide' },
-  { href: '/city/bologna-taxi-service', label: 'Bologna City Transfers' },
+  { href: '/city/bologna', label: 'Bologna City Transfers' },
   { href: '/book-now', label: 'Book a Bologna Airport Transfer' },
 ])}
 `
@@ -234,7 +234,7 @@ ${related([
   { href: '/services/cruise-port-transfers', label: 'Cruise Port Transfer Service' },
   { href: '/blog/emilia-romagna-road-trip', label: 'Emilia-Romagna Road Trip Guide' },
   { href: '/blog/bologna-italy-travel-guide', label: 'Bologna Travel Guide' },
-  { href: '/city/bologna-taxi-service', label: 'Bologna City Transfers' },
+  { href: '/city/bologna', label: 'Bologna City Transfers' },
   { href: '/book-now', label: 'Book a Ravenna Day Trip Transfer' },
 ])}
 `
@@ -301,7 +301,7 @@ ${related([
   { href: '/blog/emilia-romagna-road-trip', label: 'Emilia-Romagna Road Trip Guide' },
   { href: '/blog/bologna-italy-travel-guide', label: 'Bologna Travel Guide' },
   { href: '/services/private-tours', label: 'Private Day Trips & Tours' },
-  { href: '/city/bologna-taxi-service', label: 'Bologna City Transfers' },
+  { href: '/city/bologna', label: 'Bologna City Transfers' },
   { href: '/book-now', label: 'Book a Modena Day Trip Transfer' },
 ])}
 `
@@ -368,7 +368,7 @@ ${related([
   { href: '/blog/bologna-food-guide-what-to-eat', label: 'Bologna Food Guide: What to Eat' },
   { href: '/blog/emilia-romagna-road-trip', label: 'Emilia-Romagna Road Trip Guide' },
   { href: '/services/private-tours', label: 'Private Day Trips & Tours' },
-  { href: '/city/bologna-taxi-service', label: 'Bologna City Transfers' },
+  { href: '/city/bologna', label: 'Bologna City Transfers' },
   { href: '/book-now', label: 'Book a Parma Day Trip Transfer' },
 ])}
 `
@@ -430,7 +430,7 @@ ${related([
   { href: '/blog/modena-day-trip-ferrari-museum', label: 'Modena Day Trip: Ferrari Museum & Food' },
   { href: '/blog/bologna-italy-travel-guide', label: 'Bologna Travel Guide' },
   { href: '/services/private-tours', label: 'Private Day Trips & Tours' },
-  { href: '/city/bologna-taxi-service', label: 'Bologna City Transfers' },
+  { href: '/city/bologna', label: 'Bologna City Transfers' },
   { href: '/book-now', label: 'Book a Bologna Food Tour Transfer' },
 ])}
 `
@@ -693,7 +693,7 @@ ${cta("Book a private transfer to your Bologna hotel near Porta Saragozza and th
 ${related([
   { href: '/blog/bologna-italy-travel-guide', label: 'Bologna Travel Guide' },
   { href: '/bologna-transfer/hotel-porta-san-mamolo-to-bologna-airport', label: 'Hotel Porta San Mamolo Airport Transfer' },
-  { href: '/city/bologna-taxi-service', label: 'Bologna City Transfers' },
+  { href: '/city/bologna', label: 'Bologna City Transfers' },
   { href: '/airport/bologna-marconi', label: 'Bologna Marconi Airport Guide' },
   { href: '/services/hotel-transfers', label: 'Hotel Transfer Service' },
   { href: '/book-now', label: 'Book a Bologna Transfer' },

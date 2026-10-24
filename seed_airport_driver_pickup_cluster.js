@@ -487,7 +487,7 @@ ${related([
   { href: '/services/airport-transfers', label: 'Airport Transfer Services' },
   { href: '/blog/bologna-airport-blq-guide', label: 'Bologna Airport (BLQ): Complete Transfer Guide' },
   { href: '/blog/how-airport-transfers-work-in-italy-for-international-travelers', label: 'How Airport Transfers Work in Italy' },
-  { href: '/city/bologna-taxi-service', label: 'Bologna City Transfers' },
+  { href: '/city/bologna', label: 'Bologna City Transfers' },
   { href: '/book-now', label: 'Book Your Bologna Airport Transfer' },
 ])}
 `
