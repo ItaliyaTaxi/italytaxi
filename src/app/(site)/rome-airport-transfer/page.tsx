@@ -180,7 +180,7 @@ export default function RomeAirportTransferPage() {
           "Our premium Rome airport transfer vehicles include Mercedes-Benz E-Class sedans for individuals and couples, S-Class executive cars for business travellers and VIP guests, and V-Class minivans for families and groups of up to eight passengers. All vehicles are air-conditioned, clean, and include complimentary water bottles.",
         ]}
         benefits={[
-          "Fixed all-inclusive price from FCO confirmed at booking — no meter, no surcharges",
+          "Fixed all-inclusive price from FCO confirmed at booking — no meter, and any applicable night, holiday or extra-waiting charges are disclosed in your quote before you book.",
           "Private taxi from Ciampino (CIA) from just €35",
           "NCC-licensed drivers with full ZTL authorisation for Rome's historic centre",
           "Meet & Greet inside arrivals hall with personalised name sign",
