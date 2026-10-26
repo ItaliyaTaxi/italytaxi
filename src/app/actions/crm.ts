@@ -578,3 +578,138 @@ export async function createManualLeadAction(input: CreateManualLeadInput) {
     }
 }
 
+/* ────────────────────────────────────────────────────────────────────────────
+ * Editing an existing lead.
+ *
+ * Deliberately separate from confirmBookingAction: that one forces
+ * status -> 'confirmed' and emails the client and admin. Editing must be able
+ * to correct a typo on an already-confirmed booking without re-notifying
+ * anyone, so this action sends no email and only changes `status` if the
+ * caller explicitly passes one.
+ *
+ * Only keys present on `input` are written, so a partial edit cannot blank a
+ * field the form did not supply. `id` and `created_at` are never writable.
+ * ──────────────────────────────────────────────────────────────────────────── */
+
+export interface UpdateBookingInput {
+    full_name?: string;
+    email?: string | null;
+    phone?: string | null;
+    pickup_location?: string;
+    dropoff_location?: string;
+    booking_datetime?: string;
+    flight_number?: string | null;
+    passengers?: number | null;
+    luggage?: string | null;
+    trip_selection?: TripSelection;
+    has_return_trip?: boolean;
+    return_pickup_location?: string | null;
+    return_dropoff_location?: string | null;
+    return_datetime?: string | null;
+    return_flight_number?: string | null;
+    admin_notes?: string | null;
+    status?: string;
+    adults?: number | null;
+    children?: number | null;
+    child_ages?: string | null;
+    customer_message?: string | null;
+    locale?: string | null;
+    luggage_cabin?: string | null;
+    luggage_hold?: string | null;
+    service_type?: string | null;
+    source_form?: string | null;
+    source_site?: string | null;
+}
+
+/** Columns a CRM edit is allowed to write. `id`, `created_at` and
+ *  `idempotency_key` are intentionally absent: the first two are identity and
+ *  audit data, and the third is the duplicate-submission guard. */
+const EDITABLE_BOOKING_COLUMNS = [
+    'full_name', 'email', 'phone', 'pickup_location', 'dropoff_location',
+    'booking_datetime', 'flight_number', 'passengers', 'luggage',
+    'trip_selection', 'has_return_trip', 'return_pickup_location',
+    'return_dropoff_location', 'return_datetime', 'return_flight_number',
+    'admin_notes', 'status', 'adults', 'children', 'child_ages',
+    'customer_message', 'locale', 'luggage_cabin', 'luggage_hold',
+    'service_type', 'source_form', 'source_site',
+] as const;
+
+/** Pulls the offending column name out of either error shape Postgres/PostgREST
+ *  can return for an unknown column, so we can drop it and retry. */
+function missingColumnFrom(message: string): string | null {
+    const schemaCache = message.match(/Could not find the '([^']+)' column/i);
+    if (schemaCache) return schemaCache[1];
+    const pgMissing = message.match(/column "?([a-z0-9_]+)"? of relation/i)
+        || message.match(/column "?([a-z0-9_]+)"? does not exist/i);
+    return pgMissing ? pgMissing[1] : null;
+}
+
+export async function updateBookingAction(id: string, input: UpdateBookingInput) {
+    if (!id) throw new Error('A booking id is required.');
+
+    try {
+        const supabase = getServiceSupabase();
+
+        const payload: Record<string, any> = {};
+        for (const col of EDITABLE_BOOKING_COLUMNS) {
+            if (Object.prototype.hasOwnProperty.call(input, col)) {
+                payload[col] = (input as Record<string, any>)[col];
+            }
+        }
+
+        if (Object.keys(payload).length === 0) {
+            return { success: true, data: null, skippedColumns: [] as string[] };
+        }
+
+        // Keep the return-leg fields consistent with the trip type, exactly as
+        // confirmBookingAction does, so a lead switched back to one-way does
+        // not keep stale return details.
+        if (payload.trip_selection !== undefined) {
+            const hasReturn = payload.trip_selection !== 'outbound';
+            payload.has_return_trip = hasReturn;
+            if (!hasReturn) {
+                payload.return_pickup_location = null;
+                payload.return_dropoff_location = null;
+                payload.return_datetime = null;
+                payload.return_flight_number = null;
+            }
+        }
+
+        // Retry past columns this database does not have yet (pre-migration
+        // schemas), rather than failing the whole edit. Mirrors the fallback in
+        // confirmBookingAction but preserves every column that does exist.
+        const skippedColumns: string[] = [];
+        for (let attempt = 0; attempt < EDITABLE_BOOKING_COLUMNS.length + 1; attempt++) {
+            const { data, error } = await supabase
+                .from('bookings')
+                .update(payload)
+                .eq('id', id)
+                .select('*')
+                .single();
+
+            if (!error) {
+                revalidatePath('/crm');
+                return { success: true, data, skippedColumns };
+            }
+
+            const missing = missingColumnFrom(error.message || '');
+            if (missing && Object.prototype.hasOwnProperty.call(payload, missing)) {
+                delete payload[missing];
+                skippedColumns.push(missing);
+                if (Object.keys(payload).length === 0) {
+                    console.warn('[CRM Action] updateBooking: no known columns left to write');
+                    return { success: true, data: null, skippedColumns };
+                }
+                continue;
+            }
+
+            console.error('[CRM Action] Error updating booking:', error);
+            throw new Error(error.message);
+        }
+
+        throw new Error('Could not update booking: too many unknown columns.');
+    } catch (e: any) {
+        console.error('[CRM Action] Exception updating booking:', e);
+        throw new Error(e.message || 'Failed to update booking');
+    }
+}

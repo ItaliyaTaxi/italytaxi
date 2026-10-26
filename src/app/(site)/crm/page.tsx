@@ -9,6 +9,7 @@ import InvoicesPanel, { InvoicePrefill } from '@/components/crm/InvoicesPanel';
 import DriversPanel from '@/components/crm/DriversPanel';
 import DispatchDriversModal from '@/components/crm/DispatchDriversModal';
 import AddLeadModal from '@/components/crm/AddLeadModal';
+import EditLeadModal from '@/components/crm/EditLeadModal';
 
 /** A confirmed booking whose trip date/time has already passed is treated as
  *  "completed" for display purposes — derived live from booking_datetime
@@ -120,6 +121,8 @@ export default function CRMPage() {
     const [confirmForm, setConfirmForm] = useState<any>(null);
     const [confirming, setConfirming] = useState(false);
     const [confirmResult, setConfirmResult] = useState<{ ok: boolean; msg: string } | null>(null);
+    // Full-record editor. Separate from confirmBooking, which also emails the client.
+    const [editBooking, setEditBooking] = useState<any | null>(null);
     const router = useRouter();
 
     useEffect(() => {
@@ -377,6 +380,18 @@ export default function CRMPage() {
                 }}
                 onViewExistingLead={(lead) => {
                     setViewItem({ type: 'booking', data: lead });
+                }}
+            />
+
+            {/* Edit Lead Modal — saves the record only, sends no email */}
+            <EditLeadModal
+                booking={editBooking}
+                onClose={() => setEditBooking(null)}
+                onSaved={(updated) => {
+                    setBookings(prev => prev.map(b => (b.id === updated.id ? { ...b, ...updated } : b)));
+                    setViewItem(prev => (prev && prev.type === 'booking' && prev.data?.id === updated.id
+                        ? { type: 'booking', data: { ...prev.data, ...updated } }
+                        : prev));
                 }}
             />
 
@@ -1189,6 +1204,7 @@ export default function CRMPage() {
                                                     <td className="px-4 py-2.5 align-top">
                                                         <div className="flex gap-1 justify-end flex-wrap">
                                                             <button onClick={() => setViewItem({ type: 'booking', data: booking })} className="h-7 w-7 flex items-center justify-center bg-gray-50 text-gray-400 text-xs rounded-lg hover:bg-navy hover:text-white transition-all border border-transparent hover:border-navy" title="View Details">👁</button>
+                                                            <button onClick={() => setEditBooking(booking)} className="h-7 w-7 flex items-center justify-center bg-gray-50 text-gray-400 text-xs rounded-lg hover:bg-gold hover:text-navy transition-all border border-transparent hover:border-gold" title="Edit Lead">✎</button>
                                                             <button onClick={() => openEmailModal(booking.email, booking.full_name, `Re: Your Italy Taxi Booking`)} className="h-7 w-7 flex items-center justify-center bg-gray-50 text-gray-400 text-xs rounded-lg hover:bg-gold hover:text-navy transition-all border border-transparent hover:border-gold" title="Email Client">✉</button>
                                                             <button onClick={() => setDispatchBooking(booking)} className="h-7 w-7 flex items-center justify-center bg-gray-50 text-gray-400 text-xs rounded-lg hover:bg-[#25D366] hover:text-white transition-all border border-transparent hover:border-[#25D366]" title="Dispatch to Driver (WhatsApp)">🚗</button>
                                                             <button onClick={() => createInvoiceFromBooking(booking)} className="h-7 w-7 flex items-center justify-center bg-gray-50 text-gray-400 text-xs rounded-lg hover:bg-navy hover:text-gold transition-all border border-transparent hover:border-navy" title="Create Invoice">🧾</button>
@@ -1240,6 +1256,7 @@ export default function CRMPage() {
                                                 )}
                                                 <div className="flex gap-1.5 pt-1 flex-wrap">
                                                     <button onClick={() => setViewItem({ type: 'booking', data: booking })} className="h-8 w-8 flex items-center justify-center bg-gray-50 text-gray-500 rounded-lg border border-gray-100" title="View">👁</button>
+                                                    <button onClick={() => setEditBooking(booking)} className="h-8 w-8 flex items-center justify-center bg-gray-50 text-gray-500 rounded-lg border border-gray-100" title="Edit">✎</button>
                                                     <button onClick={() => openEmailModal(booking.email, booking.full_name, `Re: Your Italy Taxi Booking`)} className="h-8 w-8 flex items-center justify-center bg-gray-50 text-gray-500 rounded-lg border border-gray-100" title="Email">✉</button>
                                                     <button onClick={() => setDispatchBooking(booking)} className="h-8 w-8 flex items-center justify-center bg-gray-50 text-gray-500 rounded-lg border border-gray-100" title="Dispatch">🚗</button>
                                                     <button onClick={() => createInvoiceFromBooking(booking)} className="h-8 w-8 flex items-center justify-center bg-gray-50 text-gray-500 rounded-lg border border-gray-100" title="Invoice">🧾</button>
