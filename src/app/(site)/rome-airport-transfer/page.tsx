@@ -85,7 +85,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: "How much does a private taxi from Rome Fiumicino airport cost?",
-    a: "A private taxi transfer from Rome Fiumicino (FCO) to Rome city centre starts from €45 for a standard sedan (up to 3 passengers). Prices are fully fixed at booking and include all tolls, motorway charges, and waiting time within the grace period. There are no metered surcharges or hidden fees."
+    a: "A private taxi transfer from Rome Fiumicino (FCO) to Rome city centre starts from €45 for a standard sedan (up to 3 passengers). Prices are fully fixed at booking and include all tolls, motorway charges, fuel, parking and waiting time within the complimentary period. Nothing is added at the end of the journey without your prior agreement. Journeys starting between 22:00 and 06:00, on Italian public holidays, and over Christmas and New Year can carry a surcharge — where one applies it is shown in your quote before you book, never afterwards."
   },
   {
     q: "How long does it take to get from FCO to Rome city centre?",
@@ -180,7 +180,7 @@ export default function RomeAirportTransferPage() {
           "Our premium Rome airport transfer vehicles include Mercedes-Benz E-Class sedans for individuals and couples, S-Class executive cars for business travellers and VIP guests, and V-Class minivans for families and groups of up to eight passengers. All vehicles are air-conditioned, clean, and include complimentary water bottles.",
         ]}
         benefits={[
-          "Fixed all-inclusive price from FCO confirmed at booking — no meter, and any applicable night, holiday or extra-waiting charges are disclosed in your quote before you book.",
+          "Fixed all-inclusive price confirmed before you book — tolls, parking and fuel included, and the figure you confirm is the figure you pay.",
           "Private taxi from Ciampino (CIA) from just €35",
           "NCC-licensed drivers with full ZTL authorisation for Rome's historic centre",
           "Meet & Greet inside arrivals hall with personalised name sign",

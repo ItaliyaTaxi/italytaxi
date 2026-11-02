@@ -35,6 +35,8 @@ export interface RichDistancePage {
     journeyType: JourneyType;
     journeyTypeLabel: string; // small badge text shown in the hero
     seoTitle: string;
+    // Full <title>, used verbatim — see the note on DistancePage. Opt-in.
+    seoTitleAbsolute?: string;
     metaDescription: string;
     h1: string;
     heroSubtitle: string;
@@ -66,6 +68,7 @@ export const richDistancePages: RichDistancePage[] = [
     // ═══════════════════════════ ROME → SIENA ═══════════════════════════
     {
         slug: 'rome-to-siena-distance',
+        seoTitleAbsolute: 'Rome to Siena Distance & Private Taxi | Get a Quote',
         itSlug: 'distanza-da-roma-a-siena',
         origin: 'Rome',
         dest: 'Siena',
@@ -223,6 +226,7 @@ export const richDistancePages: RichDistancePage[] = [
     // ═══════════════════════════ FLORENCE → LUCCA ═══════════════════════════
     {
         slug: 'florence-to-lucca-distance',
+        seoTitleAbsolute: 'Florence to Lucca Distance & ZTL Access | Book a Taxi',
         itSlug: 'distanza-da-firenze-a-lucca',
         origin: 'Florence',
         dest: 'Lucca',
@@ -300,6 +304,7 @@ export const richDistancePages: RichDistancePage[] = [
     // ═══════════════════════════ FLORENCE → SAN GIMIGNANO ═══════════════════════════
     {
         slug: 'florence-to-san-gimignano-distance',
+        seoTitleAbsolute: 'Florence to San Gimignano Distance & Taxi | Get a Quote',
         itSlug: 'distanza-da-firenze-a-san-gimignano',
         origin: 'Florence',
         dest: 'San Gimignano',
@@ -377,6 +382,7 @@ export const richDistancePages: RichDistancePage[] = [
     // ═══════════════════════════ FLORENCE → MONTEPULCIANO ═══════════════════════════
     {
         slug: 'florence-to-montepulciano-distance',
+        seoTitleAbsolute: 'Florence to Montepulciano Distance & Taxi | Get a Quote',
         itSlug: 'distanza-da-firenze-a-montepulciano',
         origin: 'Florence',
         dest: 'Montepulciano',
@@ -454,6 +460,7 @@ export const richDistancePages: RichDistancePage[] = [
     // ═══════════════════════════ MILAN → PORTOFINO ═══════════════════════════
     {
         slug: 'milan-to-portofino-distance',
+        seoTitleAbsolute: 'Milan to Portofino Distance & Transfer | Get a Quote',
         itSlug: 'distanza-da-milano-a-portofino',
         origin: 'Milan',
         dest: 'Portofino',
@@ -763,6 +770,7 @@ export const richDistancePages: RichDistancePage[] = [
     // ═══════════════════════════ NAPLES → SALERNO ═══════════════════════════
     {
         slug: 'naples-to-salerno-distance',
+        seoTitleAbsolute: 'Naples to Salerno Distance & Transfer | Get a Quote',
         itSlug: 'distanza-da-napoli-a-salerno',
         origin: 'Naples',
         dest: 'Salerno',

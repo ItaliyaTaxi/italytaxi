@@ -21,8 +21,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     const tour = tours.find((t) => t.slug === slug);
     const tourName = tour ? tour.name : slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
 
+    // Every entry in `tours` is already named "... Tour", so appending another
+    // produced "Lake Como Tour Tour". Only add the word when it is missing.
+    const tourTitle = /\btour$/i.test(tourName.trim()) ? tourName.trim() : `${tourName} Tour`;
+
     return {
-        title: `${tourName} Tour | Private Taxi`,
+        title: `${tourTitle} | Private Taxi`,
         description: `Experience ${tourName} with our professional private taxi tours. Luxury transportation, English-speaking taxi drivers, and flexible itineraries across Italy.`,
         alternates: {
             canonical: `/tour/${slug}`,

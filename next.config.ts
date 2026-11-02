@@ -158,6 +158,10 @@ const nextConfig: NextConfig = {
       // Thin attraction-transfer stub consolidated into the richer beach-transfer page.
       // The beach page is canonical for Costa Smeralda taxi traffic.
       { source: '/attraction-transfer/costa-smeralda-taxi-transfer', destination: '/beach-transfer/costa-smeralda-taxi', permanent: true },
+      // Thin 958-word duplicate of the Milan–Lake Como transfer intent, with no
+      // GSC impressions of its own. Consolidated into the route page, which now
+      // carries the full Lake Como content.
+      { source: '/attraction-transfer/lake-como-taxi-transfer', destination: '/route/milan-to-lake-como-taxi', permanent: true },
 
       // Italian route slugs normalized to match the site's established
       // "aeroporto-" airport-origin naming convention (all 22 pre-existing

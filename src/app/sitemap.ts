@@ -351,6 +351,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/blog/private-taxi-vs-public-transport-in-italy-which-is-better',
     // Attraction stub redirected to beach page — must not appear in sitemap
     '/attraction-transfer/costa-smeralda-taxi-transfer',
+    // Consolidated into /route/milan-to-lake-como-taxi (301 in next.config.ts)
+    '/attraction-transfer/lake-como-taxi-transfer',
   ]);
 
   // De-duplicate by URL and filter out non-canonical / redirected / admin URLs.

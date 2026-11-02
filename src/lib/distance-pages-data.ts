@@ -25,6 +25,11 @@ export interface DistancePage {
     origin: string;
     dest: string;
     seoTitle: string;
+    // Full <title>, used verbatim: bypasses the layout's
+    // "%s | Italy Taxi Service" template so the brand is not appended.
+    // Set where a page needs the informational keyword plus a transfer CTA
+    // inside 50–60 chars. Pages that omit it keep seoTitle as before.
+    seoTitleAbsolute?: string;
     metaDescription: string;
     h1: string;
     heroImage: string;
@@ -66,6 +71,7 @@ export interface DistancePage {
 export const distancePages: DistancePage[] = [
     {
         slug: 'florence-to-pisa-distance',
+        seoTitleAbsolute: 'Florence to Pisa Distance & Transfer | Get a Quote',
         itSlug: 'distanza-da-firenze-a-pisa',
         origin: 'Florence',
         dest: 'Pisa',
@@ -135,6 +141,7 @@ export const distancePages: DistancePage[] = [
     },
     {
         slug: 'rome-to-florence-distance',
+        seoTitleAbsolute: 'Rome to Florence Distance & Private Transfer | Get a Quote',
         itSlug: 'distanza-da-roma-a-firenze',
         origin: 'Rome',
         dest: 'Florence',
@@ -266,6 +273,7 @@ export const distancePages: DistancePage[] = [
     },
     {
         slug: 'rome-to-naples-distance',
+        seoTitleAbsolute: 'Rome to Naples Distance & Transfer | Reserve a Car',
         itSlug: 'distanza-da-roma-a-napoli',
         origin: 'Rome',
         dest: 'Naples',
@@ -395,6 +403,7 @@ export const distancePages: DistancePage[] = [
     },
     {
         slug: 'naples-to-amalfi-coast-distance',
+        seoTitleAbsolute: 'Naples to Amalfi Coast Distance & Taxi | Book a Transfer',
         itSlug: 'distanza-da-napoli-alla-costiera-amalfitana',
         origin: 'Naples',
         dest: 'Amalfi Coast',
@@ -652,6 +661,7 @@ export const distancePages: DistancePage[] = [
     },
     {
         slug: 'rome-to-vatican-distance',
+        seoTitleAbsolute: 'Rome to Vatican Distance & Private Taxi | Book Now',
         itSlug: 'distanza-da-roma-al-vaticano',
         origin: 'Rome',
         dest: 'Vatican City',
@@ -781,6 +791,7 @@ export const distancePages: DistancePage[] = [
     },
     {
         slug: 'rome-fiumicino-to-sorrento-distance',
+        seoTitleAbsolute: 'Rome Fiumicino to Sorrento Distance & Taxi | Get a Quote',
         itSlug: 'distanza-dallaeroporto-di-fiumicino-a-sorrento',
         origin: 'Rome Fiumicino Airport',
         dest: 'Sorrento',
@@ -845,6 +856,7 @@ export const distancePages: DistancePage[] = [
     },
     {
         slug: 'rome-fiumicino-to-civitavecchia-distance',
+        seoTitleAbsolute: 'Fiumicino to Civitavecchia Distance | Book a Transfer',
         itSlug: 'distanza-dallaeroporto-di-fiumicino-a-civitavecchia',
         origin: 'Rome Fiumicino Airport',
         dest: 'Civitavecchia',
@@ -1098,6 +1110,7 @@ export const distancePages: DistancePage[] = [
     },
     {
         slug: 'naples-airport-to-pompeii-distance',
+        seoTitleAbsolute: 'Naples Airport to Pompeii Distance & Taxi | Get a Quote',
         itSlug: 'distanza-dallaeroporto-di-napoli-a-pompei',
         origin: 'Naples Airport',
         dest: 'Pompeii',
@@ -1281,6 +1294,7 @@ export const distancePages: DistancePage[] = [
     },
     {
         slug: 'pisa-airport-to-florence-distance',
+        seoTitleAbsolute: 'Pisa Airport to Florence Distance | Book a Transfer',
         itSlug: 'distanza-dallaeroporto-di-pisa-a-firenze',
         origin: 'Pisa Airport',
         dest: 'Florence',
@@ -1405,6 +1419,7 @@ export const distancePages: DistancePage[] = [
     },
     {
         slug: 'catania-airport-to-taormina-distance',
+        seoTitleAbsolute: 'Catania Airport to Taormina Distance | Book a Taxi',
         itSlug: 'distanza-dallaeroporto-di-catania-a-taormina',
         origin: 'Catania Airport',
         dest: 'Taormina',
@@ -1654,6 +1669,7 @@ export const distancePages: DistancePage[] = [
     },
     {
         slug: 'palermo-airport-to-cefalu-distance',
+        seoTitleAbsolute: 'Palermo Airport to Cefalù Distance & Taxi | Get a Quote',
         itSlug: 'distanza-dallaeroporto-di-palermo-a-cefalu',
         origin: 'Palermo Airport',
         dest: 'Cefalù',
@@ -1715,6 +1731,7 @@ export const distancePages: DistancePage[] = [
     },
     {
         slug: 'rome-to-sorrento-distance',
+        seoTitleAbsolute: 'Rome to Sorrento Distance & Transfer | Book Your Ride',
         itSlug: 'distanza-da-roma-a-sorrento',
         origin: 'Rome',
         dest: 'Sorrento',
@@ -1963,6 +1980,7 @@ export const distancePages: DistancePage[] = [
     },
     {
         slug: 'rome-fiumicino-to-ciampino-distance',
+        seoTitleAbsolute: 'Fiumicino to Ciampino Airport Distance | Get a Quote',
         itSlug: 'distanza-fiumicino-ciampino',
         origin: 'Rome Fiumicino Airport',
         dest: 'Rome Ciampino Airport',

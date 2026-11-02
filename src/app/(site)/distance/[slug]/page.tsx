@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
             : undefined;
 
         return {
-            title: dp.seoTitle,
+            title: dp.seoTitleAbsolute ? { absolute: dp.seoTitleAbsolute } : dp.seoTitle,
             description: dp.metaDescription,
             alternates: {
                 canonical: `/distance/${slug}`,
@@ -51,7 +51,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
             : undefined;
 
         return {
-            title: rp.seoTitle,
+            title: rp.seoTitleAbsolute ? { absolute: rp.seoTitleAbsolute } : rp.seoTitle,
             description: rp.metaDescription,
             alternates: {
                 canonical: `/distance/${slug}`,

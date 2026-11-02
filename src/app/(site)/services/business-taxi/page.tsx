@@ -34,7 +34,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: "Can I get an invoice for a business transfer?",
-    a: "Yes. We can provide an invoice for the individual transfer or service where applicable, which is what most travellers need for expense reporting. We do not operate monthly or consolidated billing, so each journey is quoted and invoiced on its own rather than accumulated onto a monthly account."
+    a: "Yes. Each journey is quoted and invoiced on its own, with an invoice for the individual transfer or service where applicable — which is what most expense systems need. There is no account to open and nothing to set up beforehand: send the journey details and a fixed all-inclusive price comes back, covering tolls, parking and fuel."
   },
   {
     q: "How do I book transport for a business trip?",
@@ -101,7 +101,7 @@ export default function BusinessCorporatePage() {
           "Hotel and city-to-city journeys work the same way: give us the full address with street and number at both ends, and the pickup time is set around your schedule rather than ours. For a day with several stops, hourly hire usually works better than separate bookings.",
           "We cover the main Italian business locations: Rome including the EUR district and Fiumicino, Milan including CityLife, Porta Nuova and the Rho exhibition centre, Florence including Fortezza da Basso and the Palazzo dei Congressi, Bologna including BolognaFiere, and airports across the country.",
           "For conferences and events, we can coordinate several vehicles around one arrival schedule. Send the delegate list and the arrival times and we will organise the pickups against it. Multi-vehicle bookings need as much notice as you can give, because each vehicle is arranged individually.",
-          "On invoicing: we can issue an invoice for the individual transfer or service where applicable, which is normally what is needed for an expense claim. We do not run monthly or consolidated billing, and there is no corporate account to open — each journey is quoted, booked and invoiced on its own."
+          "Invoicing is deliberately simple. Each journey is quoted, booked and invoiced on its own, with an invoice for the individual transfer where applicable — normally exactly what an expense claim needs. There is no account to open and nothing to set up: send the schedule and every leg comes back quoted at a fixed all-inclusive price covering tolls, parking and fuel."
         ]}
         benefits={[
           "Executive Mercedes-Benz sedans and Vito minivans",
