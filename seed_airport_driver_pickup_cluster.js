@@ -83,7 +83,7 @@ ${related([
   { href: '/rome-airport-transfer', label: 'Rome Airport Transfer Service' },
   { href: '/blog/driver-pickup-rome-ciampino', label: 'Where Drivers Wait at Rome Ciampino' },
   { href: '/blog/how-airport-transfers-work-in-italy-for-international-travelers', label: 'How Airport Transfers Work in Italy' },
-  { href: '/city/rome-taxi-service', label: 'Rome City Transfers' },
+  { href: '/city/rome', label: 'Rome City Transfers' },
   { href: '/book-now', label: 'Book Your Fiumicino Transfer' },
 ])}
 `
@@ -135,7 +135,7 @@ ${related([
   { href: '/rome-airport-transfer', label: 'Rome Airport Transfer Service' },
   { href: '/blog/where-meet-driver-rome-fiumicino', label: 'Where to Meet Your Driver at Rome Fiumicino' },
   { href: '/blog/how-airport-transfers-work-in-italy-for-international-travelers', label: 'How Airport Transfers Work in Italy' },
-  { href: '/city/rome-taxi-service', label: 'Rome City Transfers' },
+  { href: '/city/rome', label: 'Rome City Transfers' },
   { href: '/book-now', label: 'Book Your Ciampino Transfer' },
 ])}
 `
@@ -195,7 +195,7 @@ ${related([
   { href: '/milan-chauffeur-service', label: 'Milan Chauffeur Service' },
   { href: '/blog/meet-driver-milan-linate', label: 'Where to Meet a Driver at Milan Linate' },
   { href: '/blog/how-airport-transfers-work-in-italy-for-international-travelers', label: 'How Airport Transfers Work in Italy' },
-  { href: '/city/milan-taxi-service', label: 'Milan City Transfers' },
+  { href: '/city/milan', label: 'Milan City Transfers' },
   { href: '/book-now', label: 'Book Your Malpensa Transfer' },
 ])}
 `
@@ -247,7 +247,7 @@ ${related([
   { href: '/milan-chauffeur-service', label: 'Milan Chauffeur Service' },
   { href: '/blog/meet-driver-milan-malpensa', label: 'Where to Meet Your Driver at Milan Malpensa (T1 & T2)' },
   { href: '/blog/how-airport-transfers-work-in-italy-for-international-travelers', label: 'How Airport Transfers Work in Italy' },
-  { href: '/city/milan-taxi-service', label: 'Milan City Transfers' },
+  { href: '/city/milan', label: 'Milan City Transfers' },
   { href: '/book-now', label: 'Book Your Linate Transfer' },
 ])}
 `
@@ -309,7 +309,7 @@ ${cta("Not sure whether your hotel needs a water taxi connection? Tell us your a
 ${related([
   { href: '/airport/venice', label: 'Venice Marco Polo Airport Guide' },
   { href: '/services/airport-transfers', label: 'Airport Transfer Services' },
-  { href: '/city/venice-taxi-service', label: 'Venice City Transfers' },
+  { href: '/city/venice', label: 'Venice City Transfers' },
   { href: '/blog/how-airport-transfers-work-in-italy-for-international-travelers', label: 'How Airport Transfers Work in Italy' },
   { href: '/book-now', label: 'Book Your Venice Airport Transfer' },
 ])}
@@ -362,7 +362,7 @@ ${related([
   { href: '/florence-private-taxi', label: 'Florence Private Taxi Service' },
   { href: '/blog/florence-or-pisa-airport-for-tuscany', label: 'Florence or Pisa Airport for Tuscany?' },
   { href: '/blog/how-airport-transfers-work-in-italy-for-international-travelers', label: 'How Airport Transfers Work in Italy' },
-  { href: '/city/florence-taxi-service', label: 'Florence City Transfers' },
+  { href: '/city/florence', label: 'Florence City Transfers' },
   { href: '/book-now', label: 'Book Your Florence Airport Transfer' },
 ])}
 `
@@ -423,7 +423,7 @@ ${cta("The Amalfi Coast road rewards local knowledge — our drivers know every 
 ${related([
   { href: '/airport/naples', label: 'Naples Capodichino Airport Guide' },
   { href: '/services/airport-transfers', label: 'Airport Transfer Services' },
-  { href: '/city/naples-taxi-service', label: 'Naples City Transfers' },
+  { href: '/city/naples', label: 'Naples City Transfers' },
   { href: '/blog/how-airport-transfers-work-in-italy-for-international-travelers', label: 'How Airport Transfers Work in Italy' },
   { href: '/book-now', label: 'Book Your Naples Airport Transfer' },
 ])}

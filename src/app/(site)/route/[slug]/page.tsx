@@ -39,7 +39,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         ? { 'it-IT': `/it/route/${route.itSlug}`, 'en': `/route/${slug}`, 'x-default': `/route/${slug}` }
         : undefined;
     return {
-        title: route.metaTitle || `${route.title} | Private Transfer Italy`,
+        // `absolute` skips the layout's "%s | Italy Taxi Service" template, so a
+        // route that sets seoTitleAbsolute controls its whole <title>.
+        title: route.seoTitleAbsolute
+            ? { absolute: route.seoTitleAbsolute }
+            : (route.metaTitle || `${route.title} | Private Transfer Italy`),
         description,
         alternates: {
             canonical: `/route/${slug}`,

@@ -8,12 +8,19 @@ import Footer from '@/components/Footer';
 import PageHero from '@/components/PageHero';
 import ServiceSchema from '@/components/ServiceSchema';
 import Image from 'next/image';
+import Link from 'next/link';
 
 // ── Airport-specific unique content ─────────────────────────────────────────
 interface AirportRichData {
     terminalPickup: string;
     travelTimes: { destination: string; duration: string; note?: string }[];
     flightDelayPolicy: string;
+    // Optional onward-route links for this airport. Opt-in: airports that
+    // omit it render exactly as before (the block below is gated on it).
+    relatedRoutes?: { href: string; label: string }[];
+    // Full <title>, used verbatim in place of the generated keyword + brand
+    // title below. Opt-in: airports that omit it keep the existing title.
+    seoTitle?: string;
 }
 
 const airportRichData: Record<string, AirportRichData> = {
@@ -101,6 +108,52 @@ const airportRichData: Record<string, AirportRichData> = {
         flightDelayPolicy:
             'Flight tracking is active for all BLQ arrivals. The first 60 minutes of free waiting apply after actual landing. BLQ is a well-organised airport with typically fast baggage handling — most passengers exit within 20–25 minutes of landing. For significantly delayed flights (2+ hours), our team contacts you proactively via WhatsApp to confirm revised timing. Extended waits beyond the 60-minute grace period are charged at €10 per 30 minutes, with your agreement. In the event of a flight cancellation requiring a same-day alternative arrangement, contact our 24/7 WhatsApp line and we will do our best to accommodate rescheduling.',
     },
+    'palermo': {
+        seoTitle: 'Palermo Falcone Borsellino Airport Taxi | Book Your Transfer', // 60 chars
+        terminalPickup:
+            'Palermo Falcone Borsellino Airport (PMO) sits at Punta Raisi on the coast north-west of the city and operates from a single compact passenger terminal, which makes meeting your driver straightforward. Once you have collected your bags and walked through into the arrivals hall, your driver will be waiting with a sign showing your name, near the ground transport exit. From PMO the drive into central Palermo covers about 35 km and takes roughly 35–40 minutes on the A29 coastal motorway. There is a rail alternative, the Trinacria Express, but it terminates at Palermo Centrale and most hotels then need a further connection — which is why travellers with luggage generally prefer a direct door-to-door car. Western Sicily\'s main destinations are all served straight from the terminal: Monreale sits just above the city, Cefalù lies about an hour east along the coast, and Agrigento and the Valley of the Temples are reached across the island\'s interior.',
+        travelTimes: [
+            { destination: 'Palermo City Centre', duration: '35–40 min', note: 'Via the A29 coastal motorway' },
+            { destination: 'Monreale Cathedral', duration: '~40 min' },
+            { destination: 'Cefalù', duration: '~1 hour', note: 'East along the Tyrrhenian coast' },
+            { destination: 'Agrigento (Valley of the Temples)', duration: '~1 h 50 min' },
+        ],
+        flightDelayPolicy:
+            'Flight tracking is active from departure at your origin airport for every PMO arrival, so a late or early landing is picked up automatically and your driver\'s timing is adjusted before you reach the terminal. The first 60 minutes of waiting after landing are included at no charge. Palermo is a compact single-terminal airport and baggage reclaim is usually quick, so most passengers reach the arrivals hall within about 30 minutes of landing. Any extended wait beyond the included hour is agreed with you in advance rather than added afterwards. We do not cancel a booking because your flight is delayed — if your schedule changes in the air, message us and the pickup is re-planned.',
+        relatedRoutes: [
+            { href: '/route/palermo-airport-to-palermo-city-taxi', label: 'Palermo Airport to the city centre' },
+            { href: '/route/palermo-airport-to-cefalu-taxi', label: 'Transfers to Cefalù' },
+            { href: '/route/palermo-airport-to-agrigento-taxi', label: 'Agrigento and the Valley of the Temples' },
+            { href: '/route/palermo-airport-to-monreale-taxi', label: 'Monreale cathedral transfer' },
+            { href: '/route/cefalu-to-palermo-airport-taxi', label: 'Returning from Cefalù to the airport' },
+            { href: '/city/palermo', label: 'Palermo taxi service' },
+            { href: '/attraction-transfer/valley-of-the-temples-taxi-transfer', label: 'Valley of the Temples transfer' },
+            { href: '/beach-transfer/san-vito-lo-capo-taxi', label: 'San Vito Lo Capo beach transfers' },
+        ],
+    },
+    'catania-fontanarossa': {
+        seoTitle: 'Catania Fontanarossa Airport Taxi Transfer | Reserve Online', // 59 chars
+        terminalPickup:
+            'Catania Fontanarossa (CTA) is Sicily\'s primary airport and sits immediately south of the city, which is why the run into central Catania takes only about 10 minutes. Scheduled arrivals are handled at Terminal A; after baggage reclaim, come through into the arrivals hall and your driver will be waiting with a name sign near the exit. CTA — rather than Palermo — is the practical gateway for eastern Sicily, and all of its main destinations are served directly from the terminal: Taormina on the coast to the north, Mount Etna inland, Syracuse to the south, and the baroque towns of the Val di Noto beyond. If Taormina is your destination, allow about an hour: the drive runs north on the coastal motorway and then climbs to the clifftop town, where the historic centre is pedestrianised, so your driver stops at the nearest permitted access point and helps with your luggage from there.',
+        travelTimes: [
+            { destination: 'Catania City Centre', duration: '~10 min' },
+            { destination: 'Taormina', duration: '~1 hour', note: '~60 km via the coastal motorway' },
+            { destination: 'Mount Etna', duration: '~1 hour', note: '~45 km inland' },
+            { destination: 'Syracuse (Siracusa)', duration: '~1 hour', note: '~65 km south' },
+        ],
+        flightDelayPolicy:
+            'Flight tracking runs from departure at your origin airport for every CTA arrival, so your driver is already adjusting to a delayed or early landing before you reach the terminal. The first 60 minutes of waiting after landing are included at no charge, and any longer wait is agreed with you in advance. We do not cancel a booking because your flight is delayed. One Catania-specific point is worth knowing: Fontanarossa occasionally restricts or suspends operations when ash from Mount Etna affects the runway, and flights are then delayed or diverted. Those closures are outside anyone\'s control, but because we track your actual flight rather than your scheduled time, a diversion or long delay does not leave you without the transfer you booked — contact us and we will re-plan the pickup around your revised arrival.',
+        relatedRoutes: [
+            { href: '/route/catania-airport-to-taormina-taxi', label: 'Catania Airport to Taormina' },
+            { href: '/route/catania-airport-to-syracuse-taxi', label: 'Syracuse transfers' },
+            { href: '/route/catania-airport-to-mount-etna-taxi', label: 'Mount Etna transfer' },
+            { href: '/route/catania-airport-to-ragusa-taxi', label: 'Ragusa and the Val di Noto' },
+            { href: '/route/catania-airport-to-noto-taxi', label: 'Noto transfer service' },
+            { href: '/route/catania-airport-to-agrigento-taxi', label: 'Crossing to Agrigento' },
+            { href: '/city/taormina', label: 'Taormina taxi service' },
+            { href: '/attraction-transfer/mount-etna-taxi-transfer', label: 'Mount Etna excursion transfer' },
+        ],
+    },
 };
 
 export async function generateStaticParams() {
@@ -138,7 +191,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     }
 
     return {
-        title: { absolute: bestTitle + brand },
+        // An airport that sets seoTitle in airportRichData controls its whole
+        // <title>; the rest keep the generated keyword + brand title above.
+        title: { absolute: airportRichData[slug]?.seoTitle ?? bestTitle + brand },
         description: `Book the most reliable and affordable private taxi transfer to or from ${airportName}. 24/7 service, top-rated English-speaking drivers, and fixed pricing.`,
         alternates: {
             canonical: `/airport/${slug}`,
@@ -302,6 +357,55 @@ export default async function AirportPage({ params }: { params: Promise<{ slug: 
                 </section>
             )}
 
+            {/* ── Onward transfers from this airport (opt-in via rich.relatedRoutes) ──── */}
+            {rich?.relatedRoutes && rich.relatedRoutes.length > 0 && (
+                <section className="py-24 bg-gray-50 border-y border-gray-100">
+                    <div className="container mx-auto px-6">
+                        <div className="text-center mb-14">
+                            <p className="text-gold text-sm font-bold uppercase tracking-[0.4em] mb-4">Where Next</p>
+                            <h2 className="text-3xl md:text-4xl font-bold text-navy">Onward Transfers from {airport.name}</h2>
+                            <div className="w-20 h-1 bg-gold mx-auto mt-5" />
+                            <p className="text-gray-500 mt-5 max-w-xl mx-auto">Pick the transfer that matches your destination for route-specific journey details.</p>
+                        </div>
+                        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
+                            {rich.relatedRoutes.map((route, i) => (
+                                <Link
+                                    key={i}
+                                    href={route.href}
+                                    className="group bg-white border border-gray-100 rounded-[1.25rem] px-6 py-5 flex items-center gap-3 hover:border-gold/50 hover:shadow-md transition-all"
+                                >
+                                    <ArrowRight className="w-4 h-4 text-gold shrink-0 group-hover:translate-x-1 transition-transform" />
+                                    <span className="text-navy font-semibold leading-snug">{route.label}</span>
+                                </Link>
+                            ))}
+                        </div>
+                        {/* Contextual enquiry prompt — for destinations not listed above */}
+                        <div className="max-w-3xl mx-auto mt-12 bg-white border border-gray-100 rounded-[1.5rem] p-8 text-center shadow-sm">
+                            <h3 className="text-xl font-bold text-navy mb-2">Destination not listed?</h3>
+                            <p className="text-gray-600 mb-6">Send us your hotel or address and we will confirm a fixed price for the journey before you travel.</p>
+                            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                                <a
+                                    href={`https://wa.me/923148932631?text=${encodeURIComponent(`Hi, I'd like a quote for a transfer from ${airport.name}.`)}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center justify-center gap-2 bg-[#25D366] text-white font-bold py-3 px-7 rounded-xl hover:bg-[#128C7E] transition-colors"
+                                >
+                                    <MessageCircle className="w-5 h-5" />
+                                    Ask on WhatsApp
+                                </a>
+                                <Link
+                                    href="/book-now"
+                                    className="inline-flex items-center justify-center gap-2 bg-navy text-white font-bold py-3 px-7 rounded-xl hover:bg-gold hover:text-navy transition-colors"
+                                >
+                                    Request a Quote
+                                    <ArrowRight className="w-4 h-4" />
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            )}
+
             {/* Get a Quote CTA Section */}
             <section className="py-24 bg-[#0F1C2E] text-white relative overflow-hidden">
                 <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(#F4C430 0.5px, transparent 0.5px)', backgroundSize: '32px 32px' }} />
@@ -332,7 +436,7 @@ export default async function AirportPage({ params }: { params: Promise<{ slug: 
                         </div>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <a
-                                href="https://wa.me/923148932631?text=Hi%2C%20I%27d%20like%20a%20quote%20for%20a%20transfer%20from%20{encodeURIComponent(airport.name)}"
+                                href={`https://wa.me/923148932631?text=${encodeURIComponent(`Hi, I'd like a quote for a transfer from ${airport.name}`)}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="inline-flex items-center gap-3 bg-[#25D366] text-white font-bold py-4 px-8 rounded-2xl hover:bg-[#128C7E] transition-colors text-lg"
@@ -406,33 +510,12 @@ export default async function AirportPage({ params }: { params: Promise<{ slug: 
                 </div>
             </section>
 
-            {/* Customer Reviews Section */}
-            <section className="py-24 bg-white relative overflow-hidden">
-                <div className="container mx-auto px-6 max-w-6xl">
-                    <p className="text-gold text-sm font-bold uppercase tracking-[0.4em] mb-4 text-center">Testimonials</p>
-                    <h2 className="text-4xl md:text-5xl font-bold text-navy text-center mb-16">What Travelers Say</h2>
-                    <div className="grid md:grid-cols-3 gap-8">
-                        <div className="p-8 rounded-[2rem] border border-gray-100 shadow-xl relative mt-4">
-                            <div className="absolute -top-6 left-8 bg-gold text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl">"</div>
-                            <div className="flex gap-1 mb-4 pt-4 text-gold">★★★★★</div>
-                            <p className="text-gray-600 italic mb-6">"Our driver was waiting with a sign right as we exited luggage claim at {airport.name}. The van was spotless and the ride to our hotel was incredibly smooth."</p>
-                            <p className="font-bold text-navy">— Sarah Jenkins, US</p>
-                        </div>
-                        <div className="p-8 rounded-[2rem] border border-gold shadow-xl shadow-gold/10 relative">
-                            <div className="absolute -top-6 left-8 bg-gold text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl">"</div>
-                            <div className="flex gap-1 mb-4 pt-4 text-gold">★★★★★</div>
-                            <p className="text-gray-600 italic mb-6">"Our flight was delayed by 2 hours, but our driver tracked it and was still there waiting with a smile. Perfect start to our vacation!"</p>
-                            <p className="font-bold text-navy">— Mark T., UK</p>
-                        </div>
-                        <div className="p-8 rounded-[2rem] border border-gray-100 shadow-xl relative mt-4">
-                            <div className="absolute -top-6 left-8 bg-gold text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl">"</div>
-                            <div className="flex gap-1 mb-4 pt-4 text-gold">★★★★★</div>
-                            <p className="text-gray-600 italic mb-6">"Cheaper than grabbing two local taxis for our family of six, and way more comfortable. I will use them every time I fly into {airport.name}."</p>
-                            <p className="font-bold text-navy">— The Miller Family</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            {/* Customer reviews: the three hardcoded testimonials that used to sit here
+                were invented (fictional names and 5-star ratings, identical on all 19
+                airport pages) and were removed on request. Real, verified reviews are
+                collected on Trustpilot — the floating Trustpilot button in
+                FloatingContact links to the live profile. Do not reinstate placeholder
+                reviews here; add a Trustpilot TrustBox if an on-page widget is wanted. */}
 
             <FAQSection faqs={airportFaqs} title={`${airport.name.split(' ')[0]} Airport FAQ`} />
 

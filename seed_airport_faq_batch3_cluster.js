@@ -470,12 +470,12 @@ ${cta("Whichever Tuscan airport you land at, book a fixed-price private transfer
 <p>If you're mainly staying in or visiting Florence itself and want the shortest possible transfer, Florence Airport is the clear choice — a private transfer takes just 15 to 20 minutes into the historic centre.</p>
 
 <h2 id="which-pisa">When Pisa Airport Makes More Sense</h2>
-<p>Pisa is generally the better pick if you're chasing the widest flight availability and lowest fares, particularly with budget carriers, or if you're planning to explore Tuscany more broadly — Pisa itself, Lucca, and the wider region are all closer to Pisa Airport than to Florence.</p>
+<p>Pisa is generally the better pick if you're chasing the widest flight availability and lowest fares, particularly with budget carriers, or if you're planning to explore Tuscany more broadly — Pisa itself, Lucca, and the wider region are all closer to Pisa Airport than to Florence. Fixed-price <a href="/florence-transfer">Pisa and Florence airport transfer routes</a> are quoted before you book, so the ground cost is known upfront.</p>
 
 ${cta("Landing at either Tuscan airport? Fixed pricing, professional drivers, door-to-door service.", "/florence-private-taxi", "See Florence Transfer Service")}
 
 <h2 id="cost-tradeoff">The Real Trade-Off: Fare Savings vs Transfer Time</h2>
-<p>Many travellers land at Pisa specifically because the airfare is cheaper than flying directly into Florence, then accept the roughly hour-long transfer as the cost of that saving. Whether that trade makes sense depends on how much you're actually saving versus how much a longer transfer bothers you — for many, it's a straightforward win.</p>
+<p>Many travellers land at Pisa specifically because the airfare is cheaper than flying directly into Florence, then accept the roughly hour-long transfer as the cost of that saving. Whether that trade makes sense depends on how much you're actually saving versus how much a longer transfer bothers you — for many, it's a straightforward win. For a fuller breakdown of flight costs against ground transfer costs, see our <a href="/blog/florence-or-pisa-airport-for-tuscany">full Florence vs Pisa airport comparison</a>.</p>
 
 <h2 id="faqs">Frequently Asked Questions</h2>
 <h3 id="faq-1">Which airport is closer to Florence?</h3>

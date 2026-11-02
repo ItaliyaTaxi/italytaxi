@@ -158,7 +158,11 @@ export const airports: AirportData[] = [
         name: "Catania Fontanarossa Airport",
         code: "CTA",
         city: "Catania",
-        hero_image: "/images/naples airport.jpeg",
+        // Mount Etna above Catania — the landmark CTA is the gateway to.
+        // Unsplash License (free for commercial use, no attribution required);
+        // same remote-image approach already used by the Olbia and Cagliari
+        // entries. Replaced a photo of Naples airport that was showing here.
+        hero_image: "https://images.unsplash.com/photo-1564500585726-43300e18ae74?auto=format&fit=crop&q=60&w=1200",
         description: "Catania Fontanarossa (CTA) is Sicily's primary airport and the closest gateway to Mount Etna, Taormina, and the Baroque towns of Val di Noto. Our private taxi service connects CTA to Catania city centre (10 minutes), Taormina (45 minutes), Syracuse, Ragusa, and Agrigento — destinations where public transport is slow or unreliable. All transfers include a professional English-speaking driver with local Sicilian knowledge.",
         features: [
             "CTA meet & greet — name sign in arrivals hall",
@@ -613,6 +617,11 @@ export interface RouteData {
     // Newer route pages set these to deliver full 1,200–1,800-word articles;
     // existing entries omit them and render the original compact layout.
     metaTitle?: string;        // <=60 chars — overrides the default <title>
+    // Full <title>, used verbatim: it bypasses the root layout's
+    // "%s | Italy Taxi Service" template, so the brand is NOT appended.
+    // Use when a page needs the keyword + CTA format inside 50–60 chars and
+    // the brand will not fit. Routes that omit it keep their existing title.
+    seoTitleAbsolute?: string;
     metaDescription?: string;  // 150–160 chars — overrides the default meta description
     imageAlt?: string;         // descriptive ALT for the hero image
     sections?: { h2: string; p: string[] }[]; // long-form body sections (h2 + paragraphs)
@@ -742,19 +751,68 @@ export const routes: RouteData[] = [
         from: 'Naples',
         to: 'Amalfi Coast',
         title: 'Naples to Amalfi Coast Taxi Transfer',
+        // No published fare on this route, so the CTA asks for a quote rather
+        // than implying a bookable fixed price.
+        seoTitleAbsolute: 'Naples to Amalfi Coast Private Taxi Transfer | Get a Quote', // 58 chars
         hero_image: 'https://images.unsplash.com/photo-1555881400-74d7acaacd8b?auto=format&fit=crop&q=60&w=1200',
         description: 'Travel from Naples to the Amalfi Coast by private taxi and enjoy one of Italy\'s most scenic coastal drives. Our experienced drivers navigate the winding Amalfi roads safely, dropping you at Positano, Amalfi, or Ravello.',
         distance: '~65 km',
         duration: '~1.5 hours',
         highlights: ['Drop-off at Positano, Amalfi, or Ravello', 'Experienced drivers on Amalfi roads', 'Scenic coastal route', 'Transparent pricing on request', 'Free cancellation up to 24h'],
+        vehicleOptions: true,
+        sections: [
+            { h2: 'Which Airport Should You Fly Into for the Amalfi Coast?', p: [
+                'The Amalfi Coast has no airport of its own, so every visitor arrives by road — and the airport you choose decides how much of your first day is spent travelling. Naples International Airport (Capodichino, NAP) is the practical answer for almost everyone. It is the closest major airport to the coast, roughly 65 km from Positano, Amalfi and Ravello, and the transfer takes about an hour and a half.',
+                'The alternatives are considerably further. Rome Fiumicino is a long day\'s travel from the coast — our Rome to Amalfi and Rome to Positano transfers both cover around 270 km and take three and a half to four hours. Salerno has a small regional airport with very limited scheduled flights, so it rarely works as a practical arrival point. If your itinerary allows a choice, flying into Naples will save you several hours in the car.',
+                'One thing worth planning for: there is no direct train or metro to the Amalfi Coast towns from any airport. Whichever airport you land at, the final leg is by road, so the real question is only how long that road journey will be.',
+            ]},
+            { h2: 'Journey Times from Naples to Each Amalfi Coast Town', p: [
+                'The coast is a string of towns along a single road, so journey time depends entirely on how far along it you are staying. From Naples Airport, Sorrento is the closest of the main bases at about 50 km and an hour and a quarter. Positano is around 60 km and an hour and a half, Praiano a similar hour and a half, Amalfi town about 70 km and an hour and three quarters, and Ravello — which sits high above Amalfi — roughly 75 km and the same hour and three quarters.',
+                'Those are realistic door-to-door estimates under normal conditions rather than best-case figures. Add time in July and August, and on summer weekends, when the coastal road carries far more traffic than it was built for.',
+                'If you are staying somewhere not listed here, send us the hotel name when you enquire and we will confirm the journey time for that exact address.',
+            ]},
+            { h2: 'The SS163 Amalfi Drive: What the Journey Is Actually Like', p: [
+                'The final stretch of the drive follows the SS163, the coastal road cut into the cliffs between Sorrento and Salerno. It is genuinely spectacular, and it is also narrow, winding and short of passing places. Coaches and local buses need the full width of the road at many of the bends, which is why progress can be slower than the distance suggests.',
+                'In peak season the road is subject to traffic management, and sections can be restricted or closed at short notice. The inland A3 motorway sometimes offers a faster approach to Amalfi and Ravello depending on the day and the time, so your driver will choose between the coastal and inland routes based on live conditions rather than following a fixed plan.',
+                'This is the main reason travellers book a driver who works the coast regularly rather than hailing a car on arrival. Local knowledge of which approach is moving on a given afternoon makes a material difference to how long you sit in traffic.',
+            ]},
+            { h2: 'Arriving with Luggage on the Amalfi Coast', p: [
+                'The coastal towns were built long before cars, and their centres reflect that. Positano is effectively a staircase down to the sea, Amalfi\'s core is pedestrianised, and Ravello sits above the coast road with restricted vehicle access. In practice this means your driver brings you to the nearest point a car is permitted, which may be a short walk or a flight of steps from your hotel door.',
+                'It is not a limitation of the service — no vehicle can reach some of these addresses — but it is worth knowing before you arrive with heavy cases. Your driver will help with luggage to the permitted drop-off point, and many hotels in Positano and Ravello run a porter service from there if you let them know your arrival time.',
+                'If anyone in your group has limited mobility, tell us when you book. Some hotels have far easier vehicle access than others, and we can advise on the best drop-off point for your specific address.',
+            ]},
+            { h2: 'Seasonal Considerations Worth Planning Around', p: [
+                'The Amalfi Coast has a short, intense high season. From June to early September the SS163 is busy for most of the day, and a transfer that takes ninety minutes in April can take well over two hours in August. Morning transfers generally move faster than late afternoon ones.',
+                'If you are connecting to something time-critical — a ferry to Capri, a restaurant booking, or a return flight — build in a genuine buffer rather than the minimum journey time. Coastal road delays are the single most common cause of missed connections on this route.',
+                'Outside the summer months the drive is markedly quicker and the views are no less good. Spring and autumn are the easiest times to travel this coast by car.',
+            ]},
+            { h2: 'How to Get a Price for Your Transfer', p: [
+                'Because the coast covers a wide spread of destinations and journey times, this route is quoted per booking rather than at a single fixed rate. To get an accurate price first time, include your destination town and hotel name, your arrival flight number if you are coming from the airport, the number of passengers, and how many bags you are bringing.',
+                'We confirm the price before you travel, so the figure you agree is the figure you pay — there is no meter running on the journey. Once confirmed you will have your driver\'s details ahead of arrival.',
+                'If you are still deciding between towns, or weighing a transfer against a full day tour of the coast, say so in your enquiry and we will quote both so you can compare.',
+            ]},
+        ],
         faqs: [
             { q: 'How long is the taxi from Naples to Amalfi Coast?', a: 'The taxi from Naples to the Amalfi Coast takes approximately 1.5 hours (about 65 km), depending on traffic along the famous SS163 coastal road.' },
             { q: 'Which towns on the Amalfi Coast can you drop me off at?', a: 'We serve all Amalfi Coast towns, including Positano, Amalfi town, Ravello, Praiano, Maiori, and Cetara.' },
             { q: 'Is it safe to hire a taxi along the Amalfi Coast roads?', a: 'Yes. Our drivers are experts on the narrow, winding Amalfi Coast roads and hold all required local driving licenses for this unique terrain.' },
             { q: 'Which airport do I fly into for the Amalfi Coast?', a: 'Naples International Airport (Capodichino, IATA: NAP) is the main airport for the Amalfi Coast, about 65km/1.5 hours by road from Positano, Amalfi and Ravello. Salerno\'s small regional airport has very limited flights, so almost all visitors arrive via Naples.' },
+            { q: 'Is it quicker to fly into Rome instead?', a: 'No. Rome is considerably further — our Rome to Amalfi and Rome to Positano transfers cover around 270 km and take three and a half to four hours, against about 1.5 hours from Naples. Fly into Naples if your itinerary allows it.' },
+            { q: 'Can the driver take me right to my hotel door?', a: 'In most cases yes, but several towns have pedestrianised or stepped centres — Positano and Ravello in particular. Where vehicles are not permitted, your driver stops at the nearest legal access point and helps with your luggage from there.' },
+            { q: 'How far in advance should I book an Amalfi Coast transfer?', a: 'As early as you can for July and August travel, when demand on the coast is at its peak. Outside those months there is more flexibility, but booking ahead still guarantees a driver who knows the coastal road.' },
         ],
         relatedLinks: [
             { href: '/distance/naples-to-amalfi-coast-distance', label: 'Naples to Amalfi Coast Distance Guide' },
+            { href: '/airport/naples', label: 'Naples Airport transfer service' },
+            { href: '/route/naples-airport-to-sorrento-taxi', label: 'Naples Airport to Sorrento transfer' },
+            { href: '/route/naples-airport-to-positano-taxi', label: 'Transfers to Positano' },
+            { href: '/route/naples-airport-to-amalfi-taxi', label: 'Amalfi town transfer' },
+            { href: '/route/naples-airport-to-ravello-taxi', label: 'Continue up to Ravello' },
+            { href: '/city/amalfi-coast', label: 'Our Amalfi Coast coverage' },
+            { href: '/city/positano', label: 'Positano taxi service' },
+            { href: '/city/ravello', label: 'Ravello taxi service' },
+            { href: '/tour/amalfi-coast', label: 'A full-day Amalfi Coast tour' },
+            { href: '/day-trips/naples-to-amalfi-coast-tour', label: 'Naples to Amalfi Coast day trip' },
         ],
     },
     {
@@ -888,16 +946,64 @@ export const routes: RouteData[] = [
     {
         slug: 'naples-airport-to-sorrento-taxi', from: 'Naples Airport', to: 'Sorrento',
         title: 'Naples Airport to Sorrento Taxi Transfer', hero_image: '/images/almafi.webp',
+        seoTitleAbsolute: 'Naples Airport to Sorrento Taxi Transfer | Reserve Your Ride', // 60 chars
         description: 'Private transfer from Naples Capodichino Airport (NAP) to Sorrento. The easiest, most comfortable way to reach the Sorrento peninsula, avoiding the crowded Circumvesuviana train with door-to-door service.',
         distance: '~50 km', duration: '~1 hour 15 min', price: '€110',
         highlights: ['Meet & greet at Naples arrivals', 'Door-to-door to your Sorrento hotel', 'Child seats on request', 'Avoid the crowded train', 'Fixed all-inclusive price'],
+        vehicleOptions: true,
+        sections: [
+            { h2: 'Meeting Your Driver at Naples Airport', p: [
+                'Naples Capodichino (NAP) is a single-terminal airport, which makes the meeting point simple. Once you have collected your bags and cleared customs, walk through into the arrivals hall — your driver will be waiting there holding a sign with your name, near the taxi and shuttle bus area.',
+                'Your flight is tracked from departure at your origin airport, so a delay or an early landing is picked up automatically and your driver\'s timing adjusts. The first 60 minutes of waiting after you land are included, and Capodichino is a compact airport where bags usually arrive within 15 to 20 minutes, so most passengers are out well inside that window.',
+                'You will have your driver\'s contact details before you arrive, so if immigration or baggage reclaim takes longer than expected you can message them directly rather than wondering whether anyone is still waiting.',
+            ]},
+            { h2: 'Private Transfer or the Circumvesuviana Train?', p: [
+                'It is worth being straightforward about this: the train is cheaper. The Circumvesuviana line runs from Naples to Sorrento and costs a few euros. If you are travelling light and on a tight budget, it is a reasonable option.',
+                'The practical problem is that it does not start at the airport. You first have to get from Capodichino into the city to reach the line at Napoli Garibaldi, then take a regional service that is frequently crowded, has no luggage racks and no reserved seating, and stops at every station along the bay. With suitcases, in summer heat, after a long flight, it is a demanding end to a travel day.',
+                'The private transfer replaces all of that with one door-to-door journey of about an hour and a quarter, with your luggage in the boot and a fixed price agreed beforehand. Most people booking this route are paying for the absence of connections rather than for speed alone.',
+            ]},
+            { h2: 'Sorrento Drop-off and Hotel Access', p: [
+                'Sorrento is more car-friendly than the Amalfi Coast towns further along the peninsula, but the centre still has restricted-access streets, and several of the best-known hotels sit on the cliff terraces above the marina with narrow approach roads.',
+                'Your driver will take you as close to the entrance as vehicles are permitted and help with your luggage from there. For most Sorrento addresses that means the hotel door; for a handful of properties in the old town it means a short walk along a pedestrian street.',
+                'Giving us the hotel name rather than just "Sorrento" when you book lets the driver plan the right approach, which matters most on summer evenings when the centre is busiest.',
+            ]},
+            { h2: 'Ferry Connections from Sorrento', p: [
+                'Sorrento\'s Marina Piccola is one of the main departure points for ferries and hydrofoils across the Bay of Naples, with Capri the most popular crossing. If your plan is to land at Naples and sail the same day, build in a real buffer between the two.',
+                'The road transfer alone is about an hour and a quarter, and that assumes normal traffic. Add baggage reclaim, and add more time in July and August when the coast road is busy. Sailings can also be cancelled at short notice in poor sea conditions, which is worth knowing before you commit to a same-day connection.',
+                'If Capri is your final destination, we also quote the combined journey — the road leg to the port plus the ferry crossing — so you can compare that against an overnight stop in Sorrento first.',
+            ]},
+            { h2: 'Continuing to Positano, Praiano or Amalfi', p: [
+                'Plenty of guests use Sorrento as a staging point and continue along the coast. From Naples Airport, Positano is about 60 km and an hour and a half, Praiano a similar hour and a half, and Amalfi town roughly 70 km and an hour and three quarters.',
+                'If you are staying beyond Sorrento, book the full journey rather than stopping short — the SS163 coastal road is the slow part, and splitting the trip rarely saves anything. Tell us the final town and hotel and we will quote the whole transfer.',
+                'A short hop from Sorrento to Positano later in your stay is also a common booking, at about 20 km and 40 to 50 minutes depending on the coastal traffic.',
+            ]},
+            { h2: 'Adding a Stop at Pompeii on the Way', p: [
+                'Pompeii sits almost directly between Naples Airport and Sorrento, which makes it the most practical stop-off on this route. The airport-to-Pompeii leg alone is around 30 km and about 40 minutes, so adding the site to your transfer costs far less time than returning to it as a separate day trip.',
+                'This works best for afternoon arrivals with a reasonable amount of daylight left, and it does mean your luggage stays in the vehicle while you visit. Tell us at the time of booking if you want the stop included, so the driver allows for it and we can quote the waiting time properly.',
+                'If your flight lands late, or you would rather see the site unhurried, a dedicated Pompeii transfer from Sorrento on another day is usually the better plan.',
+            ]},
+        ],
         faqs: [
             { q: 'How far is Sorrento from Naples Airport?', a: 'Sorrento is about 50 km from Naples Airport, a drive of roughly 1 hour 15 minutes depending on traffic along the coast road.' },
             { q: 'Is a private transfer better than the train to Sorrento?', a: 'For comfort and luggage, yes. The private transfer is door-to-door with no changes, while the Circumvesuviana train is crowded and requires connections.' },
             { q: 'Can you continue to Positano or Amalfi?', a: 'Absolutely — we cover the whole Amalfi Coast. Just tell us your final destination and we will quote the full transfer.' },
+            { q: 'Where exactly do I meet the driver at Naples Airport?', a: 'Naples Capodichino has a single terminal. After baggage reclaim and customs, your driver waits in the arrivals hall with a sign showing your name, near the taxi and shuttle area. You will have their contact details before you land.' },
+            { q: 'Can we stop at Pompeii on the way to Sorrento?', a: 'Yes, and it is the most practical stop on this route since Pompeii lies between the airport and Sorrento. Ask for it when you book so the driver allows for the visit and we can quote the waiting time.' },
+            { q: 'How much time should I leave before a ferry from Sorrento?', a: 'More than the journey time alone. The road transfer is about 1 hour 15 minutes before you add baggage reclaim, and the coast road is slower in July and August. Ferries can also be cancelled in poor sea conditions, so a same-day connection needs a genuine buffer.' },
+            { q: 'Will the driver wait if my flight is delayed?', a: 'Yes. Your flight is tracked from departure at your origin airport and the first 60 minutes of waiting after landing are included. Any longer wait is agreed with you in advance rather than charged afterwards.' },
         ],
         relatedLinks: [
             { href: '/distance/naples-airport-to-sorrento-distance', label: 'Naples Airport to Sorrento Distance Guide' },
+            { href: '/airport/naples', label: 'Naples Airport transfers' },
+            { href: '/city/sorrento', label: 'Sorrento taxi service' },
+            { href: '/route/naples-airport-to-positano-taxi', label: 'Naples Airport to Positano' },
+            { href: '/route/naples-airport-to-amalfi-taxi', label: 'Onward to Amalfi town' },
+            { href: '/route/naples-airport-to-capri-taxi', label: 'Reaching Capri via the ferry port' },
+            { href: '/route/sorrento-to-positano-taxi', label: 'Sorrento to Positano transfer' },
+            { href: '/route/naples-airport-to-pompeii-taxi', label: 'Add a Pompeii stop en route' },
+            { href: '/attraction-transfer/pompeii-taxi-transfer', label: 'Pompeii transfer service' },
+            { href: '/route/naples-cruise-port-to-sorrento-taxi', label: 'Arriving by cruise ship instead' },
+            { href: '/route/naples-to-amalfi-coast-taxi', label: 'Naples to the wider Amalfi Coast' },
         ],
     },
     {
@@ -1009,16 +1115,61 @@ export const routes: RouteData[] = [
     {
         slug: 'catania-airport-to-taormina-taxi', from: 'Catania Airport', to: 'Taormina',
         title: 'Catania Airport to Taormina Taxi Transfer', hero_image: '/images/beach-transfer.webp',
+        seoTitleAbsolute: 'Catania Airport to Taormina Taxi Transfer | Book Your Driver', // 60 chars
         description: 'Private transfer from Catania Airport (CTA) to the clifftop resort of Taormina. The fastest, most comfortable way to reach Sicily\'s most famous town, with door-to-door service and optional Mount Etna views.',
         distance: '~60 km', duration: '~1 hour', price: '€90',
         highlights: ['Door-to-door to Taormina centre', 'Drop-off near the pedestrian zone', 'Optional Mount Etna add-on', 'English-speaking Sicilian driver', 'Fixed all-inclusive price'],
+        vehicleOptions: true,
+        sections: [
+            { h2: 'Meeting Your Driver at Catania Airport', p: [
+                'Catania Fontanarossa (CTA) handles scheduled arrivals at Terminal A, and the airport sits immediately south of the city, so you are on the road within minutes of clearing the terminal. After baggage reclaim, come through into the arrivals hall where your driver will be waiting with a sign showing your name near the exit.',
+                'The drive to Taormina takes about an hour and covers roughly 60 km, running north along the coastal motorway before the final climb up to the town. Your flight is tracked from departure, so a delay does not cost you the transfer, and the first 60 minutes of waiting after landing are included.',
+                'CTA rather than Palermo is the right arrival airport for Taormina — Palermo is on the opposite side of the island and adds hours to the journey.',
+            ]},
+            { h2: 'Taormina\'s Pedestrian Zone and Where the Driver Can Stop', p: [
+                'Taormina\'s historic centre, the stretch of Corso Umberto between Porta Messina and Porta Catania, is pedestrianised. No vehicle can drive to a hotel door on that street, so the drop-off is at the nearest permitted access point and your driver helps with luggage from there.',
+                'Which access point depends on where you are staying. Hotels towards the northern end of the centre are reached via Porta Messina, while those at the southern end are closer to Porta Catania and the car park below it. The walk is usually short, but Taormina is built on a slope and some of it is stepped.',
+                'Give us the hotel name when you book rather than just "Taormina". It lets the driver approach from the correct side of the town, which is the difference between a two-minute walk and a ten-minute one with cases.',
+            ]},
+            { h2: 'Hillside Hotels and Mazzarò Beach: Two Different Destinations', p: [
+                'This is the single most common source of confusion on this route. Taormina is effectively two places: the historic town on the clifftop, and Mazzarò with its beaches and seafront hotels directly below it. They are linked by a cable car, and they are not interchangeable arrival points.',
+                'If your hotel is at Mazzarò, Spisone or Letojanni on the shoreline, your driver takes the coast road rather than climbing to the town — a different approach entirely. Arriving at the wrong level means either a cable car ride with your luggage or a long walk down a series of hairpins.',
+                'So when you book, say whether you are staying up in the town or down at the beach. It is a one-line detail that determines the whole final stretch of the journey.',
+            ]},
+            { h2: 'Combining Taormina with Mount Etna', p: [
+                'Etna is the other reason most people fly into Catania, and it is close enough to combine with your transfer. From CTA the mountain is about 45 km and roughly an hour inland, so a stop on the way to Taormina is feasible for daytime arrivals with luggage in the vehicle.',
+                'For most visitors a separate excursion works better. You get the time to take the cable car and the mountain roads properly, without a flight day behind you, and you are not carrying suitcases. The volcano is also weather-dependent at altitude, so having a flexible date helps.',
+                'Either way, tell us what you have in mind and we will quote it. Note that conditions on Etna can change quickly and access to the upper areas is controlled locally, so no specific summit access can be promised in advance.',
+            ]},
+            { h2: 'The Return Transfer and Timing Your Departure Flight', p: [
+                'The return leg from Taormina down to Catania Airport is quoted separately and runs about 55 km in roughly 50 minutes — slightly quicker than the inbound trip, since the climb into town is replaced by the descent.',
+                'Build in more time than that figure suggests. You need to get from your hotel to the permitted pickup point first, and if you are staying in the pedestrian centre that may involve the walk and the slope again with luggage. Summer mornings on the coast road are also slower.',
+                'A practical rule for this route: work backwards from your flight, add the 50-minute drive, then add a further half hour for getting out of the town itself. Arrange the pickup time with us and we will confirm what works for your departure.',
+            ]},
+            { h2: 'Vehicles, Luggage and Group Size', p: [
+                'Vehicle choice matters more here than on a flat motorway run, because the approach to Taormina involves narrow streets and tight turns. Telling us your group size and luggage count up front means the right vehicle is assigned rather than the nearest one.',
+                'If you are a larger group, or travelling with oversized items such as golf clubs, skis or a child\'s pushchair, mention it in the enquiry. The same applies to child seats, which we fit on request but need to know about in advance.',
+                'The vehicle options available on this route are listed above. All of them are quoted at a fixed all-inclusive price agreed before you travel, so there is no meter and no surcharge on arrival.',
+            ]},
+        ],
         faqs: [
             { q: 'How long is the transfer from Catania Airport to Taormina?', a: 'About 1 hour (around 60 km) along the coastal motorway, with the dramatic approach up to the clifftop town.' },
             { q: 'Can the driver get close to my Taormina hotel?', a: 'Taormina\'s historic centre is pedestrianised, so the driver drops you as close as legally possible and helps with luggage.' },
             { q: 'Can I add a Mount Etna visit?', a: 'Yes, Etna is a popular combined excursion — ask us about a Taormina-and-Etna day tour.' },
+            { q: 'My hotel is at Mazzarò beach, not in Taormina town. Does that change the transfer?', a: 'Yes, and it is important to tell us. The clifftop town and the Mazzarò seafront below it are reached by different roads. Staying at Mazzarò, Spisone or Letojanni means your driver takes the coast road instead of climbing to the town.' },
+            { q: 'Should I fly into Catania or Palermo for Taormina?', a: 'Catania. It is about 60 km and an hour from Taormina, while Palermo is on the opposite side of Sicily and adds several hours to the journey.' },
+            { q: 'How long is the return trip to the airport?', a: 'The return from Taormina is quoted separately at about 55 km and roughly 50 minutes. Allow extra time to reach the pickup point from a hotel inside the pedestrian zone.' },
+            { q: 'What happens if my flight into Catania is delayed?', a: 'Your flight is tracked from departure at your origin airport, so your driver adjusts automatically. The first 60 minutes of waiting after landing are included, and any longer wait is agreed with you in advance.' },
         ],
         relatedLinks: [
             { href: '/distance/catania-airport-to-taormina-distance', label: 'Catania Airport to Taormina Distance Guide' },
+            { href: '/airport/catania-fontanarossa', label: 'Catania Airport transfer service' },
+            { href: '/city/taormina', label: 'Taormina taxi service' },
+            { href: '/route/taormina-to-catania-airport-taxi', label: 'The return transfer to the airport' },
+            { href: '/route/catania-airport-to-mount-etna-taxi', label: 'Mount Etna transfers' },
+            { href: '/attraction-transfer/mount-etna-taxi-transfer', label: 'A guided Etna excursion' },
+            { href: '/beach-transfer/taormina-beach-transfer', label: 'Taormina beach transfers' },
+            { href: '/route/catania-airport-to-syracuse-taxi', label: 'Continuing south to Syracuse' },
         ],
     },
     {

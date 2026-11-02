@@ -5,6 +5,10 @@ import { MessageCircle, Mail, X, ChevronRight } from 'lucide-react';
 
 const WA_LINK = "https://wa.me/923148932631?text=Hello%2C%20I%20would%20like%20to%20inquire%20about%20a%20transfer%20service.";
 
+// Live Trustpilot profile — the same business URL the TrustBox widget on the
+// homepage points at. These are real, customer-collected reviews.
+const TRUSTPILOT_LINK = "https://www.trustpilot.com/review/italytaxiservice.com";
+
 const emails = [
     { label: "Booking Enquiry", address: "italytaxiservicee@gmail.com", hint: "Reservations & quotes" },
     { label: "General Info", address: "italytaxiservicee@gmail.com", hint: "Support & other queries" },
@@ -96,6 +100,23 @@ export default function FloatingContact() {
                 </div>
             )}
 
+            {/* ── FLOATING TRUSTPILOT BUTTON ─────────────────────
+                Sits directly above the WhatsApp toggle (same flex column, so
+                earlier in the DOM = higher on screen). Hidden while the contact
+                menu is open so the stack stays clear on small screens. */}
+            {view === 'closed' && (
+                <a
+                    href={TRUSTPILOT_LINK}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Read our verified customer reviews on Trustpilot"
+                    title="Read our reviews on Trustpilot"
+                    className="group w-14 h-14 rounded-full bg-white shadow-2xl border border-gray-200 flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 hover:border-[#00B67A]"
+                >
+                    <TrustpilotStarIcon className="w-7 h-7" />
+                </a>
+            )}
+
             {/* ── MAIN TOGGLE BUTTON ────────────────────────────── */}
             <button
                 onClick={toggle}
@@ -113,6 +134,19 @@ export default function FloatingContact() {
                 )}
             </button>
         </div>
+    );
+}
+
+// Trustpilot's star mark: the green rounded square with the white star.
+function TrustpilotStarIcon({ className = "" }: { className?: string }) {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className={className} aria-hidden="true">
+            <rect width="24" height="24" rx="4" fill="#00B67A" />
+            <path
+                fill="#FFFFFF"
+                d="M12 4.2l2.09 4.72 5.13.46-3.87 3.4 1.14 5.02L12 15.15l-4.49 2.65 1.14-5.02-3.87-3.4 5.13-.46L12 4.2z"
+            />
+        </svg>
     );
 }
 
