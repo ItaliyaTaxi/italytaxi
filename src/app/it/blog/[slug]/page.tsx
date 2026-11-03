@@ -8,7 +8,7 @@ import Link from 'next/link';
 import { cache } from 'react';
 import TableOfContents from '@/components/TableOfContents';
 import { rankRelated } from '@/lib/related-posts';
-import { normalizeBlogContent } from '@/lib/blog-content';
+import { normalizeBlogContent, stripFAQBlock } from '@/lib/blog-content';
 import { Calendar, Clock, ArrowLeft, ChevronRight, MessageCircle } from 'lucide-react';
 
 const SITE = 'https://www.italytaxiservice.com';
@@ -110,7 +110,10 @@ export default async function ItalianBlogPage({ params }: any) {
   // See the English route: stored bodies are HTML, Markdown, or HTML with a
   // stray Markdown heading. Normalise once and reuse for render and parsing.
   const contentHtml = normalizeBlogContent(blog.content);
+  // Extract from the FULL body (feeds the FAQ section and FAQPage schema),
+  // then render the body without the pairs so they appear once, not twice.
   const faqItems = extractFAQItems(contentHtml);
+  const bodyHtml = stripFAQBlock(contentHtml, faqItems.length > 0);
   const published = blog.published_at ? new Date(blog.published_at) : new Date();
   const dateLabel = published.toLocaleDateString('it-IT', { day: '2-digit', month: 'long', year: 'numeric', timeZone: 'UTC' });
 
@@ -185,9 +188,9 @@ export default async function ItalianBlogPage({ params }: any) {
             </div>
           )}
 
-          <TableOfContents content={contentHtml} />
+          <TableOfContents content={bodyHtml} />
 
-          <div className="blog-content" dangerouslySetInnerHTML={{ __html: contentHtml }} />
+          <div className="blog-content" dangerouslySetInnerHTML={{ __html: bodyHtml }} />
 
           {/* CTA */}
           <div style={{ background: '#0F1C2E' }} className="text-white rounded-[2rem] p-8 mt-12 text-center">

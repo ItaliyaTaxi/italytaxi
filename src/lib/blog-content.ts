@@ -134,3 +134,39 @@ export function normalizeBlogContent(content: string | null | undefined): string
 
     return content;
 }
+
+/** One stored FAQ pair: `<h3 id="faq-N">question</h3>` + the `<p>` answer. */
+const FAQ_PAIR = /<h3[^>]*\sid="faq-[^"]*"[^>]*>[\s\S]*?<\/h3>\s*<p>[\s\S]*?<\/p>\s*/gi;
+
+/** The heading that introduces the FAQ block. Audited across all 294 published
+ *  records: nine spellings, all of them one of these two phrases, with or
+ *  without an id ("faqs", "faq", "faq-section", "domande-frequenti"). */
+const FAQ_HEADING = /<h2[^>]*>\s*(?:Frequently\s+Asked\s+Questions|Domande\s+Frequenti)\s*<\/h2>\s*/gi;
+
+/**
+ * Removes the FAQ block from a body that is about to be rendered.
+ *
+ * Both blog routes already build a dedicated FAQ section — and the FAQPage
+ * schema — by parsing `<h3 id="faq-*">` pairs out of this same HTML. Rendering
+ * the body verbatim therefore printed every question twice: once inline, once
+ * in the section below it.
+ *
+ * The fix belongs here rather than in the stored content: the extractor reads
+ * the FULL body, so deleting the questions from `blogs.content` would empty the
+ * FAQ section and drop the FAQPage structured data with it. Strip at render
+ * time instead, and pass the untouched HTML to the extractor.
+ *
+ * Deliberately conservative — it removes only `faq-` id'd heading/answer pairs
+ * and the heading above them. Anything that follows the block (the 218 records
+ * ending in a CTA or related-links `<div>`, the 11 that continue with further
+ * `<h2>` sections, the 6 with trailing prose) is left exactly as stored.
+ *
+ * @param html     normalised body HTML
+ * @param hasFaqs  whether the extractor actually found FAQ pairs; when false
+ *                 the heading is left alone, so a post that merely happens to
+ *                 contain the words is never altered.
+ */
+export function stripFAQBlock(html: string, hasFaqs: boolean): string {
+    if (!html || !hasFaqs) return html;
+    return html.replace(FAQ_PAIR, '').replace(FAQ_HEADING, '');
+}

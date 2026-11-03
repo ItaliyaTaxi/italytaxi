@@ -9,7 +9,7 @@ import { cache } from 'react';
 import Breadcrumb from '@/components/Breadcrumb';
 import TableOfContents from '@/components/TableOfContents';
 import { rankRelated } from '@/lib/related-posts';
-import { normalizeBlogContent } from '@/lib/blog-content';
+import { normalizeBlogContent, stripFAQBlock } from '@/lib/blog-content';
 import { Calendar, Clock, ArrowLeft, Tag, Phone, MessageCircle, ChevronRight, ShieldCheck, ThumbsUp, Star, HelpCircle } from 'lucide-react';
 
 const getBlog = cache(async (slug: string) => {
@@ -175,8 +175,14 @@ export default async function BlogPostPage({ params }: any) {
   // contents and the FAQ schema all see the same markup.
   const contentHtml = normalizeBlogContent(blog.content);
 
+  // Extract from the FULL body — the FAQ section and the FAQPage schema below
+  // are both built from these pairs.
   const faqItems = extractFAQItems(contentHtml);
   const faqSchema = buildFAQSchema(faqItems, postUrl);
+
+  // ...then render the body without them, so the questions appear once (in the
+  // FAQ section) instead of twice. Stored content is never modified.
+  const bodyHtml = stripFAQBlock(contentHtml, faqItems.length > 0);
 
   const publishDate = new Date(blog.published_at).toLocaleDateString('en-US', {
     month: 'long', day: 'numeric', year: 'numeric',
@@ -272,8 +278,10 @@ export default async function BlogPostPage({ params }: any) {
               </p>
             )}
 
-            {/* Table of Contents — headings parsed from stored HTML IDs */}
-            <TableOfContents content={contentHtml} />
+            {/* Table of Contents — headings parsed from stored HTML IDs.
+                Uses the stripped body so it matches what is actually rendered
+                and no longer lists the FAQ heading twice. */}
+            <TableOfContents content={bodyHtml} />
 
             {/* Featured Image */}
             {blog.featured_image_url && (
@@ -293,10 +301,10 @@ export default async function BlogPostPage({ params }: any) {
               </figure>
             )}
 
-            {/* Article body */}
+            {/* Article body — FAQ pairs removed; they render in the section below */}
             <div
               className="blog-content"
-              dangerouslySetInnerHTML={{ __html: contentHtml }}
+              dangerouslySetInnerHTML={{ __html: bodyHtml }}
             />
 
             {/* ── FAQ Section ──────────────────────────────────────────────── */}
