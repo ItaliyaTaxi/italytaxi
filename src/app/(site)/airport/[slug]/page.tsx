@@ -131,6 +131,58 @@ const airportRichData: Record<string, AirportRichData> = {
             { href: '/beach-transfer/san-vito-lo-capo-taxi', label: 'San Vito Lo Capo beach transfers' },
         ],
     },
+    'verona': {
+        seoTitle: 'Verona Airport Taxi to Lake Garda | Book Your Transfer', // 54 chars
+        terminalPickup:
+            'Verona Villafranca Airport (VRN) sits about 10 km south-west of Verona and works from a single passenger terminal, which keeps arrivals straightforward. Once you have collected your luggage, your driver will be waiting in the arrivals hall holding a sign with your name. VRN is the closest airport to Lake Garda — the southern lake towns of Peschiera, Lazise, Sirmione and Bardolino are all between 25 and 30 km away, roughly half an hour by road, while Verona city centre is about 15 km and 20 to 25 minutes. The public alternative is the airport shuttle bus to Verona Porta Nuova station, from which lake destinations need a further train or bus connection, so travellers with luggage generally prefer the direct door-to-door car.',
+        travelTimes: [
+            { destination: 'Verona City Centre', duration: '20–25 min', note: '~15 km' },
+            { destination: 'Peschiera del Garda', duration: '~30 min', note: '~25 km, southern lake' },
+            { destination: 'Sirmione', duration: '~35 min', note: '~30 km' },
+            { destination: 'Lazise', duration: '~35 min', note: '~28 km' },
+            { destination: 'Desenzano del Garda', duration: '~40 min', note: '~35 km' },
+            { destination: 'Malcesine', duration: '~1 h 10', note: '~60 km, northern lake' },
+            { destination: 'Riva del Garda', duration: '~1 h 20', note: '~85 km, top of the lake' },
+            { destination: 'Trento', duration: '~1 hour', note: '~90 km' },
+        ],
+        flightDelayPolicy:
+            'Flight tracking is active from departure at your origin airport for every VRN arrival, so a late or early landing is picked up automatically and your driver\'s timing adjusts before you reach the terminal. The first 60 minutes of waiting after landing are included at no charge, and Verona is a compact single-terminal airport where most passengers reach the arrivals hall well inside that window. Any longer wait is agreed with you in advance rather than added afterwards, and we do not cancel a booking because your flight is delayed. For departures in high summer, allow extra time on the return leg — the Lake Garda roads are busy in July and August.',
+        relatedRoutes: [
+            { href: '/route/verona-airport-to-lake-garda-taxi', label: 'Verona Airport to Lake Garda' },
+            { href: '/verona-airport-to-sirmione', label: 'Transfers to Sirmione' },
+            { href: '/verona-airport-to-peschiera-del-garda', label: 'Peschiera del Garda' },
+            { href: '/verona-airport-to-desenzano-del-garda', label: 'Desenzano del Garda' },
+            { href: '/verona-airport-to-malcesine', label: 'Malcesine on the northern lake' },
+            { href: '/verona-airport-to-riva-del-garda', label: 'Riva del Garda' },
+            { href: '/verona-airport-to-verona', label: 'Verona city centre' },
+            { href: '/attraction-transfer/arena-di-verona-taxi-transfer', label: 'Arena di Verona transfers' },
+        ],
+    },
+    'treviso': {
+        seoTitle: 'Treviso Airport Taxi & Venice Transfers | Get a Quote', // 53 chars
+        terminalPickup:
+            'Treviso Airport (TSF, Antonio Canova) is Venice\'s low-cost second airport, about 3 km from Treviso city and roughly 40 km from Venice. It operates from a single compact terminal, and your driver waits in the arrivals hall by the exit with a name sign. There is no direct rail link from the airport, so reaching Venice means either the ATVO airport bus to Piazzale Roma or a private transfer straight to your destination. Note that Venice itself is car-free: a road transfer ends at the vehicle terminus at Piazzale Roma or Tronchetto, from where you continue on foot or by water. Mainland destinations such as Mestre, Treviso and Jesolo are reached door to door.',
+        travelTimes: [
+            { destination: 'Treviso City Centre', duration: '~15 min', note: '~8 km' },
+            { destination: 'Venice (Piazzale Roma)', duration: '45–55 min', note: '~40 km, vehicle terminus' },
+            { destination: 'Mestre', duration: '~40 min', note: '~35 km, door to door' },
+            { destination: 'Jesolo', duration: '~45 min', note: '~40 km' },
+            { destination: 'Padua', duration: '50–60 min', note: '~55 km' },
+            { destination: 'Cortina d\'Ampezzo', duration: '~1 h 50', note: '~130 km, Dolomites' },
+        ],
+        flightDelayPolicy:
+            'Flight tracking runs from departure at your origin airport for every TSF arrival, so your driver is already adjusting to a delayed or early landing before you reach the terminal. The first 60 minutes of waiting after landing are included at no charge, and any longer wait is agreed with you in advance. We do not cancel a booking because your flight is delayed. One Treviso-specific point: this is a low-cost airport and departure gates close strictly on time, so for the return leg allow about two hours before your flight rather than cutting it fine.',
+        relatedRoutes: [
+            { href: '/treviso-airport-to-venice-city-centre', label: 'Treviso Airport to Venice' },
+            { href: '/treviso-airport-to-piazzale-roma', label: 'Piazzale Roma vehicle terminus' },
+            { href: '/treviso-airport-to-mestre', label: 'Transfers to Mestre' },
+            { href: '/treviso-airport-to-jesolo', label: 'Transfers to Jesolo' },
+            { href: '/treviso-airport-to-cortina-dampezzo', label: 'Cortina d\'Ampezzo and the Dolomites' },
+            { href: '/treviso-airport-to-padua', label: 'Padua transfers' },
+            { href: '/treviso-airport-to-venice-cruise-port', label: 'Venice cruise port' },
+            { href: '/airport/venice', label: 'Venice Marco Polo airport transfers' },
+        ],
+    },
     'catania-fontanarossa': {
         seoTitle: 'Catania Fontanarossa Airport Taxi Transfer | Reserve Online', // 59 chars
         terminalPickup:
