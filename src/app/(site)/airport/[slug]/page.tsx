@@ -183,6 +183,26 @@ const airportRichData: Record<string, AirportRichData> = {
             { href: '/airport/venice', label: 'Venice Marco Polo airport transfers' },
         ],
     },
+    'cagliari': {
+        seoTitle: 'Cagliari Airport Taxi & Beach Transfers | Get a Quote', // 54 chars
+        terminalPickup:
+            'Cagliari Elmas Airport (CAG) is southern Sardinia\'s principal gateway and sits only about 7 km from the city, which makes it one of the quickest airport arrivals in Italy — roughly 15 minutes to a Cagliari address. It works from a single passenger terminal, and your driver waits in the arrivals hall with a sign showing your name once you have collected your luggage. CAG is also the practical starting point for the island\'s southern beaches: Villasimius on the south-east coast and Chia on the south-west are both regular onward runs, and the coastal roads to each are slower than the distance suggests, so the journey times below are worth planning around rather than estimating from a map.',
+        travelTimes: [
+            { destination: 'Cagliari City Centre', duration: '~15 min', note: '~7 km' },
+            { destination: 'Villasimius', duration: '~50–55 min', note: '~50 km, south-east coast' },
+            { destination: 'Chia', duration: '~55–60 min', note: '~55 km, south-west coast' },
+        ],
+        flightDelayPolicy:
+            'Flight tracking is active from departure at your origin airport for every CAG arrival, so a delayed or early landing is picked up automatically and your driver\'s timing adjusts before you reach the terminal. The first 60 minutes of waiting after landing are included at no charge, and Cagliari is a compact single-terminal airport where most passengers reach the arrivals hall well inside that window. Any longer wait is agreed with you in advance rather than added afterwards, and we do not cancel a booking because your flight is delayed. In July and August the roads to the southern beaches carry far more traffic than the rest of the year, so allow extra time on the return leg to the airport.',
+        relatedRoutes: [
+            { href: '/route/cagliari-airport-to-villasimius-taxi', label: 'Cagliari Airport to Villasimius' },
+            { href: '/route/cagliari-airport-to-chia-taxi', label: 'Cagliari Airport to Chia' },
+            { href: '/beach-transfer/sardinia-beach-transfers', label: 'Sardinia beach transfers' },
+            { href: '/beach-transfer/costa-smeralda-taxi', label: 'Costa Smeralda transfers' },
+            { href: '/airport/olbia', label: 'Olbia Airport, for northern Sardinia' },
+            { href: '/services/airport-transfers', label: 'How airport transfers work' },
+        ],
+    },
     'catania-fontanarossa': {
         seoTitle: 'Catania Fontanarossa Airport Taxi Transfer | Reserve Online', // 59 chars
         terminalPickup:

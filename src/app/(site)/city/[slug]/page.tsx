@@ -23,8 +23,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     if (!city) return {};
 
     return {
-        title: `Taxi Service in ${city.name} | Private Transfers`,
-        description: `Book the #1 top-rated private taxi transfer in ${city.name}. 24/7 service, English-speaking drivers, and fixed pricing for airport and city rides.`,
+        // A city that sets seoTitleAbsolute controls its whole <title>; the
+        // rest keep the generated one. Same opt-in pattern as the route pages.
+        title: city.seoTitleAbsolute
+            ? { absolute: city.seoTitleAbsolute }
+            : `Taxi Service in ${city.name} | Private Transfers`,
+        description: city.metaDescription
+            ?? `Book the #1 top-rated private taxi transfer in ${city.name}. 24/7 service, English-speaking drivers, and fixed pricing for airport and city rides.`,
         alternates: {
             canonical: `/city/${slug}`,
         }
@@ -396,6 +401,63 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
                     </div>
                 </div>
             </section>
+
+            {/* ── Long-form content (opt-in via `sections` on the city entry) ──── */}
+            {city.sections && city.sections.length > 0 && (
+                <section className="py-24 bg-white">
+                    <div className="container mx-auto px-6">
+                        <div className="max-w-4xl mx-auto space-y-12">
+                            {city.sections.map((sec, i) => (
+                                <div key={i}>
+                                    <h2 className="text-3xl font-bold text-navy mb-5">{sec.h2}</h2>
+                                    {sec.p.map((para, j) => (
+                                        <p key={j} className="text-gray-600 text-lg leading-relaxed mb-4">{para}</p>
+                                    ))}
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            )}
+
+            {city.relatedLinks && city.relatedLinks.length > 0 && (
+                <section className="py-16 bg-[#F8F9FA] border-y border-gray-100">
+                    <div className="container mx-auto px-6">
+                        <div className="max-w-4xl mx-auto">
+                            <h2 className="text-2xl font-bold text-navy mb-6">Related Transfers &amp; Services</h2>
+                            <div className="grid sm:grid-cols-2 gap-3">
+                                {city.relatedLinks.map((l, i) => (
+                                    <Link key={i} href={l.href} className="group bg-white border border-gray-100 rounded-xl px-5 py-4 flex items-center gap-3 hover:border-gold/50 hover:shadow-sm transition-all">
+                                        <ArrowRight className="w-4 h-4 text-gold shrink-0 group-hover:translate-x-1 transition-transform" />
+                                        <span className="text-navy font-semibold">{l.label}</span>
+                                    </Link>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            )}
+
+            {city.faqs && city.faqs.length > 0 && (
+                <>
+                    <script
+                        type="application/ld+json"
+                        dangerouslySetInnerHTML={{
+                            __html: JSON.stringify({
+                                '@context': 'https://schema.org',
+                                '@type': 'FAQPage',
+                                mainEntity: city.faqs.map((f) => ({
+                                    '@type': 'Question',
+                                    name: f.q,
+                                    acceptedAnswer: { '@type': 'Answer', text: f.a },
+                                })),
+                            }),
+                        }}
+                    />
+                    <FAQSection faqs={city.faqs} title={`${city.name} Transfer FAQs`} />
+                </>
+            )}
+
             <Footer />
         </main>
     );

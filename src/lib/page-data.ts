@@ -44,7 +44,19 @@ export interface AirportData {
     features: string[];
 }
 
-export interface CityData {
+/** Optional long-form content shared by the city and tour pages.
+ *  Opt-in: an entry that omits these renders exactly as it did before, so
+ *  adding them to one city or tour cannot affect the other 24 / 4 pages. */
+export interface RichPageContent {
+    sections?: { h2: string; p: string[] }[];
+    faqs?: { q: string; a: string }[];
+    relatedLinks?: { href: string; label: string }[];
+    /** Full <title>, used verbatim — bypasses the layout's brand template. */
+    seoTitleAbsolute?: string;
+    metaDescription?: string;
+}
+
+export interface CityData extends RichPageContent {
     slug: string;
     name: string;
     hero_image: string;
@@ -52,7 +64,7 @@ export interface CityData {
     popular_tours: string[];
 }
 
-export interface TourData {
+export interface TourData extends RichPageContent {
     slug: string;
     name: string;
     city: string;
@@ -60,6 +72,8 @@ export interface TourData {
     alt_text: string;
     highlights: string[];
     description: string;
+    /** Maximum hours the private day covers, when one is published. */
+    maxHours?: number;
 }
 
 export const airports: AirportData[] = [
@@ -430,7 +444,55 @@ export const cities: CityData[] = [
         name: "Como",
         hero_image: "/images/Lake Como.avif",
         description: "Explore the stunning shores of Lake Como with our luxury taxi service.",
-        popular_tours: ["Bellagio Visit", "Villa Carlotta Tour", "Varenna Lakeside Walk"]
+        popular_tours: ["Bellagio Visit", "Villa Carlotta Tour", "Varenna Lakeside Walk"],
+        seoTitleAbsolute: 'Como Taxi Service & Lake Transfers | Book Your Ride', // 51 chars
+        metaDescription: 'Private taxi service in Como and across Lake Como. Transfers from Milan and Malpensa, journey times to every lake town, and fixed all-inclusive prices.',
+        sections: [
+            { h2: 'Getting to Como from Milan and the Airports', p: [
+                'Como sits at the southern tip of the lake, the closest point to Milan, which is why it is the easiest of the lake towns to reach. On this site’s published route figures the run from Milan is about 50 km and roughly 45 minutes.',
+                'If you are flying in, Malpensa is the practical airport: it lies north-west of Milan so the transfer never has to cross the city, and the journey takes about 50 minutes. Linate and Bergamo are both served but sit on the far side of Milan from the lake, which adds time in traffic.',
+                'The rail alternative runs to Como San Giovanni and Como Nord Lago, but most lakeside hotels then need a further connection, so travellers with luggage generally prefer the direct door-to-door car.',
+            ]},
+            { h2: 'Como Town or the Wider Lake?', p: [
+                'It is worth being clear about the distinction, because "Lake Como" covers a great deal more than the town that shares its name. Como town is a working city at the southern tip, with a cathedral, a funicular up to Brunate and a lakeside promenade.',
+                'The towns most visitors picture — Bellagio at the fork in the middle, Varenna facing it across the eastern branch, Tremezzo with Villa Carlotta on the western shore — are considerably further north. Milan to Bellagio is about 80 km and an hour and a half; Milan to Varenna about 90 km and an hour and forty minutes, against roughly 45 minutes to Como.',
+                'That gap matters when you are booking. A transfer to Bellagio is not Como plus a few minutes, because the lakeside roads north are narrow, winding and slow.',
+            ]},
+            { h2: 'Moving Around the Lake Once You Arrive', p: [
+                'Many visitors assume they will drive around the lake. In practice the ferries are often faster and far more pleasant for the central stretch, where the car ferry between Bellagio, Varenna, Menaggio and Cadenabbia crosses in minutes against a long drive around the shoreline.',
+                'That affects which arrival point makes sense. If your hotel is on the eastern branch, being driven directly to Varenna can work better than going to Bellagio and crossing over.',
+                'For a full day on the lake with a car and driver at your disposal, a private day works differently from a transfer — see our Lake Como tour for how that is arranged.',
+            ]},
+            { h2: 'Hotel Access and Restricted Zones', p: [
+                'Como town has a historic centre with limited vehicle access, and several of the lake’s best-known hotels sit on narrow waterfront roads. Your driver takes you as close to the entrance as local rules permit and helps with luggage from there.',
+                'Bellagio is the most common surprise further north: its centre is built on stepped lanes running up from the waterfront, so an address a short distance away on a map can be a flight of steps on foot. Varenna is similar.',
+                'Giving us the hotel name rather than just the town lets the driver plan the correct approach in advance, and identify the nearest permitted drop-off where access is restricted.',
+            ]},
+            { h2: 'Seasonal Considerations', p: [
+                'Lake Como has a short, intense high season. From June to early September the lakeside roads carry far more traffic than they were built for, and a transfer that takes forty-five minutes in April can take noticeably longer on an August weekend.',
+                'Spring and autumn are the easiest times to travel the lake by road, and the gardens and villas are open through much of both. Winter is quietest, though some lakeside hotels and ferry services reduce their schedules.',
+                'If you are connecting to a flight or a timed event, build in a genuine buffer rather than the minimum journey time — the lake road offers very few alternatives if something blocks it.',
+            ]},
+        ],
+        faqs: [
+            { q: 'How far is Como from Milan?', a: 'About 50 km, roughly 45 minutes by private car. From Malpensa Airport the journey takes about 50 minutes, since the airport sits north-west of Milan and the route never crosses the city.' },
+            { q: 'Which Milan airport is best for Lake Como?', a: 'Malpensa. It lies north-west of Milan so the transfer does not have to cross the city. Linate and Bergamo are both served but sit on the far side of Milan from the lake.' },
+            { q: 'Is Como town the same as the lake towns in the photos?', a: 'Usually not. Como is the city at the southern tip. Bellagio, Varenna and Tremezzo — the towns most visitors picture — are considerably further north, between 80 and 90 km from Milan rather than 50.' },
+            { q: 'How long does it take to reach Bellagio or Varenna?', a: 'Longer than Como, because the lakeside roads north are narrow and slow. Milan to Bellagio is about 80 km and roughly an hour and a half; Milan to Varenna about 90 km and an hour and forty minutes.' },
+            { q: 'Can the driver reach my hotel door?', a: 'In most cases yes, though Como has a historic centre with limited vehicle access and some lakeside hotels sit on narrow roads. Where vehicles are not permitted, your driver stops at the nearest legal point and helps with luggage.' },
+            { q: 'Are the ferries worth using?', a: 'For the central stretch of the lake, usually yes. The car ferry between Bellagio, Varenna, Menaggio and Cadenabbia crosses in minutes against a long drive around the shoreline.' },
+            { q: 'Is the price fixed before I travel?', a: 'Yes. Each journey is quoted as a fixed all-inclusive fare covering motorway tolls, fuel and parking, confirmed before you travel. Night and public-holiday surcharges permitted under our terms are shown in the quote before you book.' },
+        ],
+        relatedLinks: [
+            { href: '/route/milan-to-lake-como-taxi', label: 'Milan to Lake Como transfer' },
+            { href: '/route/milan-malpensa-to-como-taxi', label: 'Malpensa Airport to Como' },
+            { href: '/route/milan-to-bellagio-taxi', label: 'Transfers to Bellagio' },
+            { href: '/route/milan-to-varenna-taxi', label: 'Transfers to Varenna' },
+            { href: '/tour/lake-como', label: 'A private day on Lake Como' },
+            { href: '/services/lake-como-wedding-transfers', label: 'Lake Como wedding transfers' },
+            { href: '/day-trips/milan-to-lake-como-day-trip', label: 'Milan to Lake Como day trip' },
+            { href: '/airport/milan-malpensa', label: 'Milan Malpensa airport transfers' },
+        ]
     },
     {
         slug: "ravello",
@@ -515,7 +577,62 @@ export const tours: TourData[] = [
         hero_image: "/images/Lake Como.avif",
         alt_text: "Aerial view of Lake Como and the luxury town of Bellagio",
         highlights: ["Bellagio visit", "Varenna", "Private SUV", "Stunning views"],
-        description: "Take a scenic drive from Milan to the most beautiful lake in the world."
+        description: "Take a scenic drive from Milan to the most beautiful lake in the world.",
+        maxHours: 8,
+        seoTitleAbsolute: 'Lake Como Private Day Tour from Milan | Get a Quote', // 51 chars
+        metaDescription: 'A private Lake Como day from Milan, up to 8 hours with your own driver. You choose the towns — Bellagio, Varenna, Tremezzo — and the pace.',
+        sections: [
+            { h2: 'A Private Day, Not a Fixed Itinerary', p: [
+                'This is a private car and driver for the day rather than a scheduled coach tour, and the practical difference is that nothing is pre-set. The day runs up to a maximum of eight hours, and within that you decide where to go, how long to stay and when to move on.',
+                'There is no group to wait for and no fixed departure from each stop. If Bellagio turns out to be the place you want to spend the afternoon, you stay. If the weather closes in on the upper lake, the day can be rearranged while you are in the car.',
+                'Tell us roughly what you want to see when you enquire and we will suggest a realistic shape for the day. Nothing is locked in — the plan can change on the day itself.',
+            ]},
+            { h2: 'Where the Lake Actually Goes', p: [
+                'Lake Como is an inverted Y of roughly 150 km of shoreline, and understanding its shape is what makes a day here work. Como town sits at the southern tip, closest to Milan. Bellagio sits at the fork in the middle where the two southern branches meet. Varenna faces it across the eastern branch, and Tremezzo sits opposite on the western shore.',
+                'Those three central towns — Bellagio, Varenna and Tremezzo — are only minutes apart by ferry but a long way round by road, which is why a day built around the middle of the lake usually combines driving with at least one crossing.',
+                'On this site’s published route figures, Milan to Como is about 50 km and roughly 45 minutes, Milan to Bellagio about 80 km and an hour and a half, and Milan to Varenna about 90 km and an hour and forty minutes. Those journey times come out of your eight hours, so a day focused on the upper lake has less time on the ground than one spent around Como and Bellagio.',
+            ]},
+            { h2: 'What People Usually Want to See', p: [
+                'Bellagio is the one most visitors have in mind — a steeply stepped village at the fork of the lake, with gardens at Villa Melzi on its southern edge. Varenna across the water is quieter, with a lakeside walkway and the terraced gardens of Villa Monastero.',
+                'Tremezzo on the western shore is where Villa Carlotta sits, a botanical garden and museum that is one of the lake’s best-known houses. Como town itself has the cathedral and the funicular up to Brunate for the view back down the lake.',
+                'Gardens and villas are seasonal and keep their own opening hours, which change through the year. We will flag anything likely to be closed when you tell us your date, but checking the specific opening times before you travel is worth doing.',
+            ]},
+            { h2: 'Driving and Ferries', p: [
+                'The lakeside roads north of Como are narrow, winding and slow, with long stretches where overtaking is not possible. Progress is often slower than the distance suggests, and in July and August considerably so.',
+                'The ferries are frequently the better way to move between the central towns. The car ferry between Bellagio, Varenna, Menaggio and Cadenabbia crosses in minutes against a long drive around the shoreline, and the passenger services connect the same towns.',
+                'A day that uses both — the car for the run up from Milan and between the road-connected towns, a ferry for the central crossings — generally gets more out of eight hours than one spent entirely on the road.',
+            ]},
+            { h2: 'Pickup, Access and Practical Limits', p: [
+                'The day can start from a Milan hotel or address, or directly from Malpensa, Linate or Bergamo if you are arriving by air. Central Milan has restricted-traffic zones, so the pickup point may be a short walk from the lobby for some addresses.',
+                'On the lake, Bellagio and Varenna are both built on slopes with stepped lanes, and vehicles cannot reach every doorway. Your driver parks as close as the local rules allow, which is normal for these towns rather than a limitation of the service.',
+                'Your driver stays with the car and is available for the whole day, but this is a driving service rather than a guided one — there is no commentary or licensed guide included unless you ask us to arrange one separately.',
+            ]},
+            { h2: 'How the Day Is Quoted', p: [
+                'The day is quoted per booking rather than at a single rate, because the distance covered varies with the itinerary you choose. Tell us your pickup point, roughly which part of the lake you want, the number of passengers and your date, and we confirm a fixed all-inclusive price before you book.',
+                'That price covers motorway tolls, fuel and parking, and the figure you confirm is the figure you pay. Journeys starting between 22:00 and 06:00 and on Italian public holidays can carry a surcharge; where one applies it is shown in your quote beforehand.',
+                'Ferry tickets, villa and garden admissions and meals are not included — those are paid on the day, as they depend entirely on where you decide to go. Bookings cancelled more than 24 hours before pickup are refunded in full.',
+            ]},
+        ],
+        faqs: [
+            { q: 'How long is the Lake Como day tour?', a: 'Up to a maximum of eight hours from pickup. Within that the itinerary is yours — you decide which towns to visit, how long to spend at each and when to head back.' },
+            { q: 'Is there a fixed itinerary?', a: 'No. This is a private car and driver rather than a scheduled tour, so there is no set route and no group to keep to. Tell us roughly what you want to see and we will suggest a realistic shape for the day, which can still change as you go.' },
+            { q: 'Where does the day start?', a: 'From a Milan hotel or address, or directly from Malpensa, Linate or Bergamo if you are flying in. Central Milan has restricted-traffic zones, so for some addresses the pickup point is a short walk from the lobby.' },
+            { q: 'Can we visit Bellagio and Varenna in the same day?', a: 'Yes, and it is a common combination. They sit across the water from each other, minutes apart by ferry but a long way round by road, so the day usually pairs driving with at least one crossing.' },
+            { q: 'Is a guide included?', a: 'No. Your driver stays with the car and is available throughout the day, but this is a driving service rather than a guided tour — there is no commentary or licensed guide unless you ask us to arrange one separately.' },
+            { q: 'Are ferry tickets and villa entry included?', a: 'No. Ferry tickets, villa and garden admissions and meals are paid on the day, since they depend on where you choose to go. The transfer price itself covers tolls, fuel and parking.' },
+            { q: 'What happens if the weather is bad?', a: 'The day can be rearranged while you are travelling, which is the advantage of a private car over a fixed tour. If the upper lake is clouded in, more time around Como and Bellagio usually works better.' },
+            { q: 'Can we be dropped somewhere other than Milan at the end?', a: 'Often yes — a one-way day finishing at an airport or a different hotel can be arranged. Mention it when you enquire so the journey is quoted correctly.' },
+        ],
+        relatedLinks: [
+            { href: '/city/como', label: 'Como taxi service' },
+            { href: '/route/milan-to-lake-como-taxi', label: 'Milan to Lake Como transfer' },
+            { href: '/route/milan-to-bellagio-taxi', label: 'Milan to Bellagio transfer' },
+            { href: '/route/milan-to-varenna-taxi', label: 'Milan to Varenna transfer' },
+            { href: '/day-trips/milan-to-lake-como-day-trip', label: 'Milan to Lake Como day trip' },
+            { href: '/services/private-tours', label: 'Private tours with a driver' },
+            { href: '/blog/things-to-do-lake-como', label: 'Things to do on Lake Como' },
+            { href: '/services/lake-como-wedding-transfers', label: 'Lake Como wedding transfers' },
+        ]
     },
     {
         slug: "vatican",

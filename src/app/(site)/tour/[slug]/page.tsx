@@ -9,6 +9,7 @@ import Footer from '@/components/Footer';
 import PageHero from '@/components/PageHero';
 import ServiceSchema from '@/components/ServiceSchema';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export async function generateStaticParams() {
     return tours.map((tour) => ({
@@ -26,8 +27,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     const tourTitle = /\btour$/i.test(tourName.trim()) ? tourName.trim() : `${tourName} Tour`;
 
     return {
-        title: `${tourTitle} | Private Taxi`,
-        description: `Experience ${tourName} with our professional private taxi tours. Luxury transportation, English-speaking taxi drivers, and flexible itineraries across Italy.`,
+        // A tour that sets seoTitleAbsolute controls its whole <title>; the
+        // rest keep the generated one.
+        title: tour?.seoTitleAbsolute
+            ? { absolute: tour.seoTitleAbsolute }
+            : `${tourTitle} | Private Taxi`,
+        description: tour?.metaDescription
+            ?? `Experience ${tourName} with our professional private taxi tours. Luxury transportation, English-speaking taxi drivers, and flexible itineraries across Italy.`,
         alternates: {
             canonical: `/tour/${slug}`,
         }
@@ -220,6 +226,62 @@ export default async function TourPage({ params }: { params: Promise<{ slug: str
                     </div>
                 </div>
             </section>
+
+            {/* ── Long-form content (opt-in via `sections` on the tour entry) ──── */}
+            {tour.sections && tour.sections.length > 0 && (
+                <section className="py-24 bg-white">
+                    <div className="container mx-auto px-6">
+                        <div className="max-w-4xl mx-auto space-y-12">
+                            {tour.sections.map((sec, i) => (
+                                <div key={i}>
+                                    <h2 className="text-3xl font-bold text-navy mb-5">{sec.h2}</h2>
+                                    {sec.p.map((para, j) => (
+                                        <p key={j} className="text-gray-600 text-lg leading-relaxed mb-4">{para}</p>
+                                    ))}
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            )}
+
+            {tour.relatedLinks && tour.relatedLinks.length > 0 && (
+                <section className="py-16 bg-[#F8F9FA] border-y border-gray-100">
+                    <div className="container mx-auto px-6">
+                        <div className="max-w-4xl mx-auto">
+                            <h2 className="text-2xl font-bold text-navy mb-6">Related Transfers &amp; Services</h2>
+                            <div className="grid sm:grid-cols-2 gap-3">
+                                {tour.relatedLinks.map((l, i) => (
+                                    <Link key={i} href={l.href} className="group bg-white border border-gray-100 rounded-xl px-5 py-4 flex items-center gap-3 hover:border-gold/50 hover:shadow-sm transition-all">
+                                        <span className="text-navy font-semibold">{l.label}</span>
+                                    </Link>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            )}
+
+            {tour.faqs && tour.faqs.length > 0 && (
+                <>
+                    <script
+                        type="application/ld+json"
+                        dangerouslySetInnerHTML={{
+                            __html: JSON.stringify({
+                                '@context': 'https://schema.org',
+                                '@type': 'FAQPage',
+                                mainEntity: tour.faqs.map((f) => ({
+                                    '@type': 'Question',
+                                    name: f.q,
+                                    acceptedAnswer: { '@type': 'Answer', text: f.a },
+                                })),
+                            }),
+                        }}
+                    />
+                    <FAQSection faqs={tour.faqs} title={`${tour.name} FAQs`} />
+                </>
+            )}
+
             <Footer />
         </main>
     );
