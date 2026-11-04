@@ -40,7 +40,7 @@ const aboutFaqs = [
     },
     {
         q: "Do you offer service for weddings, corporate events, and group travel?",
-        a: "Yes. We have dedicated divisions for corporate travel (executive sedans, monthly invoicing, account management), destination weddings (multi-vehicle coordination, suited taxi drivers, ZTL venue access), and group transfers (8-seat minivans, convoy logistics). Contact us to discuss your specific requirements."
+        a: "Yes. We have dedicated divisions for corporate travel (executive sedans, an invoice per journey, discreet drivers), destination weddings (multi-vehicle coordination, suited taxi drivers, ZTL venue access), and group transfers (8-seat minivans, convoy logistics). Contact us to discuss your specific requirements."
     },
     {
         q: "Why should I choose Italy Taxi Service over a train or public transport?",
@@ -59,7 +59,7 @@ const aboutFaqs = [
 const services = [
     { icon: <Plane className="w-6 h-6 text-gold" />, title: "Airport Transfers", desc: "Meet & Greet at FCO, MXP, VCE, FLR, NAP and 30+ airports. Flight tracking included.", href: "/services/airport-transfers" },
     { icon: <Car className="w-6 h-6 text-gold" />, title: "City-to-City Transfers", desc: "Rome to Florence, Milan to Venice, Naples to Amalfi. Door-to-door, fixed price.", href: "/services/city-to-city" },
-    { icon: <Award className="w-6 h-6 text-gold" />, title: "Business Taxi", desc: "Executive vehicles, Wi-Fi, monthly invoicing, and NDA-ready discretion.", href: "/services/business-taxi" },
+    { icon: <Award className="w-6 h-6 text-gold" />, title: "Business Taxi", desc: "Executive vehicles, Wi-Fi, per-journey invoicing, and NDA-ready discretion.", href: "/services/business-taxi" },
     { icon: <Anchor className="w-6 h-6 text-gold" />, title: "Cruise Port Transfers", desc: "Pier pickup at Civitavecchia, Livorno, Naples, Venice, and Genoa.", href: "/services/cruise-port-transfers" },
     { icon: <Sparkles className="w-6 h-6 text-gold" />, title: "Private Sightseeing Tours", desc: "Amalfi Coast, Tuscany, Vatican, Pompeii — custom itineraries at your pace.", href: "/services/private-tours" },
     { icon: <HeartHandshake className="w-6 h-6 text-gold" />, title: "Wedding Transfers", desc: "Elegant fleet, suited taxi drivers, multi-vehicle coordination across Italy.", href: "/services/wedding-transfers" },
@@ -131,7 +131,7 @@ export default function AboutUsPage() {
                         {[
                             { icon: <BadgeCheck className="w-8 h-8 text-gold mx-auto" />, heading: "Who We Are", body: "A professional private taxi and transfer company operating across all of Italy since 2013. Every driver is NCC-licensed, every price is fixed, every journey is guaranteed." },
                             { icon: <MapPin className="w-8 h-8 text-gold mx-auto" />, heading: "Where We Operate", body: "Rome, Milan, Florence, Venice, Naples, and 30+ additional cities and airports — plus cruise ports, lake districts, mountain resorts, and cross-border routes." },
-                            { icon: <Users className="w-8 h-8 text-gold mx-auto" />, heading: "Who We Serve", body: "Leisure travellers, families, business executives, wedding parties, cruise passengers, and corporate accounts — anyone who needs a reliable private taxi in Italy." },
+                            { icon: <Users className="w-8 h-8 text-gold mx-auto" />, heading: "Who We Serve", body: "Leisure travellers, families, business executives, wedding parties, cruise passengers, and visiting teams — anyone who needs a reliable private taxi in Italy." },
                         ].map((c, i) => (
                             <div key={i} className="p-6 rounded-2xl bg-[#F8F9FA] hover:border-gold hover:shadow-md border border-transparent transition-all">
                                 <div className="mb-4">{c.icon}</div>

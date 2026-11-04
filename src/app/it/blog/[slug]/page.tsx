@@ -9,7 +9,7 @@ import { cache } from 'react';
 import TableOfContents from '@/components/TableOfContents';
 import { rankRelated } from '@/lib/related-posts';
 import { normalizeBlogContent, stripFAQBlock } from '@/lib/blog-content';
-import { Calendar, Clock, ArrowLeft, ChevronRight, MessageCircle } from 'lucide-react';
+import { Calendar, Clock, ArrowLeft, ChevronRight, MessageCircle, HelpCircle } from 'lucide-react';
 
 const SITE = 'https://www.italytaxiservice.com';
 const WHATSAPP = '923148932631';
@@ -191,6 +191,40 @@ export default async function ItalianBlogPage({ params }: any) {
           <TableOfContents content={bodyHtml} />
 
           <div className="blog-content" dangerouslySetInnerHTML={{ __html: bodyHtml }} />
+
+          {/* ── Sezione FAQ ─ i blocchi faq- sono rimossi dal corpo e resi qui,
+               come nella versione inglese, così da comparire una sola volta. */}
+          {faqItems.length > 0 && (
+            <section className="mt-14 mb-4" aria-label="Domande Frequenti">
+              <div className="flex items-center gap-3 mb-8">
+                <HelpCircle className="w-6 h-6 text-[#F4C430] flex-shrink-0" />
+                <h2 className="text-2xl md:text-3xl font-extrabold text-[#0F1C2E]">
+                  Domande Frequenti
+                </h2>
+              </div>
+              <div className="space-y-4">
+                {faqItems.map((faq, i) => (
+                  <details
+                    key={i}
+                    className="group border border-slate-200 rounded-2xl overflow-hidden open:border-[#F4C430]/40"
+                  >
+                    <summary className="flex items-start justify-between gap-4 px-6 py-5 cursor-pointer list-none bg-white group-open:bg-slate-50 transition-colors">
+                      <span className="font-bold text-[#0F1C2E] text-sm md:text-base leading-snug">
+                        {faq.question}
+                      </span>
+                      <span className="mt-0.5 w-5 h-5 rounded-full border border-[#F4C430] text-[#F4C430] flex-shrink-0 flex items-center justify-center text-lg font-bold leading-none select-none group-open:bg-[#F4C430] group-open:text-white transition-colors">
+                        <span className="group-open:hidden">+</span>
+                        <span className="hidden group-open:inline">−</span>
+                      </span>
+                    </summary>
+                    <div className="px-6 pb-5 pt-1 bg-slate-50 text-gray-600 text-sm leading-relaxed border-t border-slate-100">
+                      {faq.answer}
+                    </div>
+                  </details>
+                ))}
+              </div>
+            </section>
+          )}
 
           {/* CTA */}
           <div style={{ background: '#0F1C2E' }} className="text-white rounded-[2rem] p-8 mt-12 text-center">

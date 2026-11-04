@@ -10,7 +10,7 @@ import { itHreflangFor } from '@/lib/i18n/page-registry';
 
 export const metadata: Metadata = {
   title: "Taxi Service FAQ | Helpful Information",
-  description: "Complete FAQ guide to Italy Taxi Service. Learn about airport transfers, pricing, cancellation, child seats, corporate accounts, and how to book across Italy.",
+  description: "Complete FAQ guide to Italy Taxi Service. Learn about airport transfers, pricing, cancellation, child seats, business travel, and how to book across Italy.",
   alternates: { canonical: "/faq", languages: itHreflangFor('/faq') }
 };
 
@@ -39,7 +39,7 @@ const vehicleFaqs = [
 const pricingFaqs = [
   { q: "Are there any hidden charges like night surcharges or toll fees?", a: "No. Every quote is fully all-inclusive. Tolls, motorway fees, fuel, luggage, and waiting time within the grace period are all included. Night and holiday transfers are quoted transparently — no surprise charges on arrival." },
   { q: "How do I get a price for a route not listed on the website?", a: "Contact us via WhatsApp or the contact form with your exact pickup and drop-off addresses. We'll provide a custom fixed quote within minutes." },
-  { q: "Do you offer group discounts?", a: "For large groups (8+ passengers) and corporate accounts, we offer negotiated rates. Contact our team directly to discuss options." },
+  { q: "Do you offer group discounts?", a: "For large groups (8+ passengers) and multi-vehicle bookings, we offer negotiated rates. Contact our team directly to discuss options." },
   { q: "Can I modify my booking after confirmation?", a: "Yes. Contact us via WhatsApp or email as early as possible. We accommodate modifications to pickup time, vehicle type, and passenger count subject to availability." },
 ];
 

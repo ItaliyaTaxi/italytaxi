@@ -91,6 +91,11 @@ export default function TermsAndConditionsPage() {
                 <p>Booking amendments (change of date, time, address, or vehicle) must be communicated as early as possible. Amendments are accepted free of charge when requested more than 24 hours before the scheduled pickup time, subject to availability.</p>
               </section>
 
+              {/* Accuracy note for future edits — the corporate-account clauses were
+                  removed because the business does not offer them: corporate account
+                  setup and consolidated monthly invoicing on net-30 terms. This now
+                  matches /services/business-taxi, which states there is no account to
+                  open and that each journey is invoiced on its own. */}
               {/* Section 3 */}
               <section id="pricing" className="mb-12 scroll-mt-8">
                 <h2 className="text-2xl font-extrabold text-navy border-b border-gray-100 pb-3 mb-6">3. Pricing & Payment</h2>
@@ -100,9 +105,9 @@ export default function TermsAndConditionsPage() {
                 <ul>
                   <li>Cash payment to the driver on the day of service (standard default method)</li>
                   <li>Credit or debit card payment (Visa, Mastercard) via secure online payment link</li>
-                  <li>Bank transfer for corporate accounts and pre-approved advance bookings</li>
+                  <li>Bank transfer for pre-approved advance bookings</li>
                 </ul>
-                <p>For corporate accounts with monthly invoicing, payment terms are net 30 days from invoice date unless otherwise agreed in writing. Late payments may be subject to statutory interest under applicable Italian commercial law.</p>
+                <p>Each journey is quoted and invoiced on its own. An invoice is issued for the individual transfer or service where applicable, which is normally what expense systems require.</p>
                 <p>Prices may be subject to a surcharge for travel on Italian public holidays, journeys commencing between 22:00 and 06:00, and journeys on 24–26 December, 31 December, and 1 January. Any applicable surcharge will be disclosed at the time of quotation.</p>
               </section>
 
