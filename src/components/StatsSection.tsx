@@ -1,10 +1,10 @@
-import { Award, Users, MapPin, Star } from 'lucide-react';
+import { Award, Users, MapPin, Clock } from 'lucide-react';
 
 const stats = [
     {
-        value: "10,000+",
-        label: "Transfers Completed",
-        context: "Across airports, cities, cruise ports & wedding venues throughout Italy since 2013.",
+        value: "Fixed",
+        label: "All-Inclusive Pricing",
+        context: "Tolls, road charges, fuel and parking sit inside every quote — nothing is added at the end of the journey.",
         icon: <Award className="w-8 h-8" />,
     },
     {
@@ -20,10 +20,10 @@ const stats = [
         icon: <MapPin className="w-8 h-8" />,
     },
     {
-        value: "4.9 ★",
-        label: "Average Rating",
-        context: "Verified across Google, TripAdvisor, and direct feedback — 500+ five-star reviews.",
-        icon: <Star className="w-8 h-8" />,
+        value: "60 min",
+        label: "Free Airport Waiting",
+        context: "Included on international arrivals and measured from actual landing, with flights tracked live.",
+        icon: <Clock className="w-8 h-8" />,
     },
 ];
 

@@ -44,29 +44,15 @@ export default function ServiceSchema({ name, description, url, image }: Service
                     }
                 ]
             }
-        },
-        {
-            "@context": "https://schema.org",
-            "@type": ["LocalBusiness", "AutoRental"],
-            "@id": "https://www.italytaxiservice.com/#organization",
-            "name": "Italy Taxi Service",
-            "url": "https://www.italytaxiservice.com",
-            "logo": "https://www.italytaxiservice.com/images/logo.png",
-            "image": image || "https://www.italytaxiservice.com/images/hero.png",
-            "description": description,
-            "telephone": "+923148932631",
-            "email": "italytaxiservicee@gmail.com",
-            "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "Via della Conciliazione, 1",
-                "addressLocality": "Roma",
-                "addressRegion": "RM",
-                "postalCode": "00193",
-                "addressCountry": "IT"
-            },
-            "priceRange": "$$$",
-            "foundingDate": "2010"
         }
+        /* The second object here re-declared the #organization @id as
+           ["LocalBusiness","AutoRental"], colliding with the Organization that
+           JsonLd.tsx already renders site-wide on these same pages, and adding
+           a wrong entity type (AutoRental is self-drive car rental), a per-page
+           business description, a conflicting logo and priceRange, plus an
+           unverified address and foundingDate. It has been removed. The
+           business identity belongs to JsonLd.tsx; the Service entity above
+           references it correctly through provider.@id. */
     ];
 
     return (

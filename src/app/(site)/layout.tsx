@@ -49,8 +49,9 @@ export const metadata: Metadata = {
     "msvalidate.01": "855d7a6f206b4d3cb0f5120fa3e5bd86", // Bing Validation
     "geo.region": "IT",
     "geo.placename": "Italy",
-    "geo.position": "41.8719;12.5674",
-    "ICBM": "41.8719, 12.5674",
+    // geo.position / ICBM removed: the coordinates (41.8719, 12.5674) were
+    // never verified. region/placename stay — the service genuinely is
+    // Italy-wide. Do not substitute guessed coordinates.
   },
   robots: {
     index: true,

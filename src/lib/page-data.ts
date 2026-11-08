@@ -1345,6 +1345,8 @@ export const routes: RouteData[] = [
     {
         slug: 'verona-airport-to-lake-garda-taxi', from: 'Verona Airport', to: 'Lake Garda',
         title: 'Verona Airport to Lake Garda Taxi Transfer', hero_image: '/images/Lake Como.webp',
+        seoTitleAbsolute: 'Verona Airport to Lake Garda Taxi | Book Now',
+        metaDescription: 'Private Verona Airport to Lake Garda transfers — Peschiera 25 km, Sirmione 30 km, Riva 85 km. Fixed price, flight tracked, door to door.',
         description: 'Private transfer from Verona Villafranca Airport to Lake Garda. Reach Sirmione, Bardolino, Lazise or any lakeside resort quickly with a door-to-door private car.',
         distance: '~35 km', duration: '~40 min', price: '€70',
         highlights: ['Closest airport to Lake Garda', 'Drop-off at any lakeside resort', 'Short, easy transfer', 'Flight tracking included', 'Fixed all-inclusive price'],
@@ -1357,7 +1359,7 @@ export const routes: RouteData[] = [
             ]},
             { h2: 'Meeting Your Driver at Verona Airport', p: [
                 'Verona Villafranca (VRN) sits about 10 km south-west of Verona and works from a single passenger terminal, which keeps the arrival simple. Once you have collected your luggage, your driver will be waiting in the arrivals hall with a sign showing your name.',
-                'Your flight is tracked from departure at your origin airport, so a delayed or early landing is picked up automatically and the pickup time adjusts. The first 60 minutes of waiting after an international landing are included at no charge.',
+                'Your flight is tracked from departure at your origin airport, so a delayed or early landing is picked up automatically and the pickup time adjusts. The first 60 minutes of waiting after an international landing are included at no charge, and domestic arrivals include 30 minutes on the same basis — both measured from actual landing rather than the scheduled time.',
                 'The public alternative is the airport shuttle bus to Verona Porta Nuova station, from which lake destinations need a further train or bus connection. For anyone with luggage or a family, the direct transfer removes both changes.',
             ]},
             { h2: 'Southern Basin or Northern Lake?', p: [
@@ -1374,6 +1376,8 @@ export const routes: RouteData[] = [
                 'Lake Garda is one of the busiest summer destinations in northern Italy, and the lakeside roads carry far more traffic in July and August than they were built for. A transfer that takes thirty-five minutes in April can take considerably longer on a August weekend.',
                 'Our own guidance for departures from Verona in summer is to allow extra time for Lake Garda traffic when planning the return leg to the airport. If you are connecting to a flight, build in a genuine buffer rather than the minimum journey time.',
                 'Spring and autumn are the easiest times to travel the lake by road, and the towns are far quieter.',
+                'Out of season the lakeside roads are clear and a southern-shore transfer runs close to its quickest time. Many lakeside hotels and some lake ferry services operate reduced winter schedules, so it is worth confirming your hotel is open before booking the transfer.',
+                'Journeys on 24–26 December, 31 December and 1 January may carry a surcharge, as may any journey starting between 22:00 and 06:00 or falling on an Italian public holiday. Where one applies it is shown in your quote before you book, never added afterwards. Christmas is one of the busiest booking periods of the year, so reserve further ahead than the 24 hours we normally suggest.',
             ]},
             { h2: 'Booking, Price and Cancellation', p: [
                 'This transfer is quoted as a fixed all-inclusive fare, confirmed before you travel and covering motorway tolls, fuel and parking — the figure you agree is the figure you pay, with nothing added at the end of the journey without your prior agreement.',
@@ -1382,13 +1386,13 @@ export const routes: RouteData[] = [
             ]},
         ],
         faqs: [
-            { q: 'How far is Lake Garda from Verona Airport?', a: 'The southern lake (Sirmione, Peschiera) is about 35 km from Verona Airport, roughly a 40-minute drive — Verona is the closest airport to Garda.' },
+            { q: 'How far is Lake Garda from Verona Airport?', a: 'It depends on your town. On our published route figures, Peschiera del Garda is about 25 km and 30 minutes, Lazise about 28 km and 35 minutes, Sirmione and Bardolino about 30 km and 35 minutes, and Desenzano del Garda about 35 km and 40 minutes. Further north, Malcesine is about 60 km and an hour and ten minutes, and Riva del Garda about 85 km and an hour and twenty. Verona is the closest airport to the lake.' },
             { q: 'Which Lake Garda towns do you serve?', a: 'All of them, including Sirmione, Bardolino, Lazise, Peschiera, Garda, Malcesine and Riva del Garda.' },
             { q: 'Is the transfer suitable for families?', a: 'Yes, with child seats on request and space for luggage, it is ideal for families heading to the lake.' },
             { q: 'How long does it take to reach the northern lake?', a: 'Considerably longer than the southern basin. On our published figures Malcesine is about 60 km and an hour and ten minutes from Verona Airport, and Riva del Garda about 85 km and an hour and twenty, against roughly 30 minutes to Peschiera.' },
             { q: 'Is Verona really the closest airport to Lake Garda?', a: 'Yes, for most of the lake. Verona Villafranca is about 25–35 km from the southern Garda towns. Venice Marco Polo and Bergamo also serve the lake but are substantially further from the southern basin.' },
             { q: 'Can the driver reach my hotel door?', a: 'Usually yes — most Garda hotels are directly car-accessible. The exceptions are historic centres with restricted vehicle access, Sirmione\'s peninsula in particular, where the driver stops at the nearest permitted point and helps with luggage.' },
-            { q: 'What happens if my flight is delayed?', a: 'Your flight is tracked from departure at your origin airport, so the pickup adjusts automatically. The first 60 minutes of waiting after landing are included at no charge, and any longer wait is agreed with you in advance.' },
+            { q: 'What happens if my flight is delayed?', a: 'Your flight is tracked from departure at your origin airport, so the pickup adjusts automatically. The first 60 minutes of waiting after landing are included at no charge, and any longer wait is agreed with you in advance. A journey starting between 22:00 and 06:00 may carry a surcharge; where one applies it is shown in your quote before you book.' },
             { q: 'Should I allow extra time for the return transfer?', a: 'In summer, yes. The lakeside roads are busy in July and August, and our standing guidance for Verona departures is to allow extra time for Lake Garda traffic. Build in a buffer rather than the minimum journey time.' },
         ],
         relatedLinks: [
@@ -1397,6 +1401,8 @@ export const routes: RouteData[] = [
             { href: '/verona-airport-to-sirmione', label: 'Transfers to Sirmione' },
             { href: '/verona-airport-to-peschiera-del-garda', label: 'Peschiera del Garda transfer' },
             { href: '/verona-airport-to-desenzano-del-garda', label: 'Desenzano del Garda transfer' },
+            { href: '/verona-airport-to-lazise', label: 'Transfers to Lazise' },
+            { href: '/verona-airport-to-bardolino', label: 'Bardolino transfer' },
             { href: '/verona-airport-to-malcesine', label: 'Continue north to Malcesine' },
             { href: '/verona-airport-to-riva-del-garda', label: 'Riva del Garda at the top of the lake' },
             { href: '/verona-airport-to-verona', label: 'Verona city centre transfer' },

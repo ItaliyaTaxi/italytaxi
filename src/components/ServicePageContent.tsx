@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import Link from 'next/link';
 import { CheckCircle, Star, MessageCircle, Clock, Shield, CreditCard, MapPin, Users, ChevronRight } from 'lucide-react';
 import TaxiButton from '@/components/TaxiButton';
@@ -49,6 +50,11 @@ export interface ServicePageContentProps {
     routesTitle?: string;
     routes?: RouteItem[];
 
+    /** Opt-in slot rendered between the pricing and routes sections, for pages
+     *  that want a quote form at the point of price comparison. Pages that do
+     *  not pass it render exactly as before — nothing else changes. */
+    afterPricing?: ReactNode;
+
     /** Testimonials */
     reviews?: ReviewItem[];
 
@@ -94,6 +100,7 @@ export default function ServicePageContent({
     pricingNote = "Every journey is quoted as a fixed, all-inclusive fare — tolls, fuel and parking included, no meter, and nothing added afterwards. Any night, holiday or extra-waiting charge allowed by our terms is shown in your quote before you book.",
     routesTitle = "Popular Routes",
     routes,
+    afterPricing,
     reviews = defaultReviews,
     relatedLinks,
     whatsapp = "923148932631",
@@ -194,6 +201,11 @@ export default function ServicePageContent({
                     </div>
                 </section>
             )}
+
+            {/* Opt-in slot: renders right after pricing, so a quote form can sit
+                where the visitor has just read the fares. Nothing renders here
+                on any page that does not pass afterPricing. */}
+            {afterPricing}
 
             {/* ── ROUTES ───────────────────────────────────── */}
             {routes && routes.length > 0 && (

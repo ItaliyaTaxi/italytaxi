@@ -87,11 +87,9 @@ export default function PrivacyPolicyPage() {
                 <p>The data controller responsible for your personal data is:</p>
                 <div className="bg-gray-50 rounded-2xl p-6 my-4 text-sm not-prose">
                   <p className="font-bold text-navy text-base mb-3">Italy Taxi Service</p>
-                  <p className="text-gray-600">Via della Conciliazione, 1</p>
-                  <p className="text-gray-600">00193 Roma RM, Italy</p>
                   <p className="text-gray-600 mt-2">Email: <a href="mailto:italytaxiservicee@gmail.com" className="text-gold hover:underline">italytaxiservicee@gmail.com</a></p>
                 </div>
-                <p>If you have any questions or concerns about how your personal data is processed, you may contact us at the address above at any time.</p>
+                <p>We operate as an online booking service and do not maintain a public office. If you have any questions or concerns about how your personal data is processed, you may contact us by email at any time.</p>
               </section>
 
               {/* Section 3 */}
@@ -259,7 +257,6 @@ export default function PrivacyPolicyPage() {
                   <div className="space-y-2 text-sm text-gray-300">
                     <p>📧 <a href="mailto:italytaxiservicee@gmail.com" className="text-gold hover:underline">italytaxiservicee@gmail.com</a></p>
                     <p>💬 <a href="https://wa.me/923148932631" target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">WhatsApp Chat</a></p>
-                    <p>📍 Via della Conciliazione, 1, 00193 Roma RM, Italy</p>
                   </div>
                   <p className="mt-6 text-xs text-gray-500">
                     If you are not satisfied with our response, you have the right to lodge a complaint with the Italian Data Protection Authority (Garante per la protezione dei dati personali).

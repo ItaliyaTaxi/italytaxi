@@ -7,7 +7,7 @@ import MapEmbed from '@/components/MapEmbed';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
 import { Metadata } from 'next';
-import { CheckCircle, MessageCircle, Star, Clock, ChevronRight, MapPin, ShieldCheck, ThumbsUp, PhoneCall, ArrowRight } from 'lucide-react';
+import { CheckCircle, MessageCircle, Star, Clock, ChevronRight, MapPin, ShieldCheck, ThumbsUp, ArrowRight } from 'lucide-react';
 import TaxiButton from '@/components/TaxiButton';
 import Image from 'next/image';
 import { itHreflangFor } from '@/lib/i18n/page-registry';
@@ -26,18 +26,8 @@ const contactSchema = {
       "@id": "https://www.italytaxiservice.com/#localbusiness",
       "name": "Italy Taxi Service",
       "image": "https://www.italytaxiservice.com/images/hero.png",
-      "telephone": "+923148932631",
       "email": "italytaxiservicee@gmail.com",
       "priceRange": "$$$",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Via dell'Aeroporto, s/n",
-        "addressLocality": "Fiumicino",
-        "addressRegion": "RM",
-        "postalCode": "00054",
-        "addressCountry": "IT"
-      },
-      "geo": { "@type": "GeoCoordinates", "latitude": 41.7999, "longitude": 12.2462 },
       "url": "https://www.italytaxiservice.com",
       "openingHoursSpecification": {
         "@type": "OpeningHoursSpecification",
@@ -47,7 +37,7 @@ const contactSchema = {
       },
       "contactPoint": {
         "@type": "ContactPoint",
-        "telephone": "+923148932631",
+        "email": "italytaxiservicee@gmail.com",
         "contactType": "customer service",
         "areaServed": ["IT", "Rome", "Milan", "Venice", "Florence", "Naples"],
         "availableLanguage": ["English", "Italian"]
@@ -86,9 +76,8 @@ const contactFaqs = [
 ];
 
 const responsePromises = [
-  { icon: <MessageCircle className="w-6 h-6 text-gold" />, channel: "WhatsApp", time: "Under 15 minutes", note: "24/7 · Most recommended" },
+  { icon: <MessageCircle className="w-6 h-6 text-gold" />, channel: "WhatsApp", time: "Under 15 minutes", note: "Most recommended" },
   { icon: <Clock className="w-6 h-6 text-gold" />, channel: "Email", time: "Within 2 hours", note: "italytaxiservicee@gmail.com" },
-  { icon: <PhoneCall className="w-6 h-6 text-gold" />, channel: "Direct Call", time: "Instant Answer" },
 ];
 
 const serviceAreas = [
@@ -137,9 +126,9 @@ export default function ContactPage() {
               className="w-full sm:w-auto inline-flex justify-center items-center gap-3 px-8 py-4 rounded-full bg-[#25D366] text-white font-bold text-lg hover:bg-[#1ebe57] transition-all shadow-xl hover:shadow-green-500/30 hover:-translate-y-1">
               <MessageCircle className="w-6 h-6" /> Chat With Us on WhatsApp
             </a>
-            <a href="tel:+923148932631"
+            <a href="https://wa.me/923148932631?text=Hi%2C+I'd+like+a+quote+for+a+private+transfer+in+Italy." target="_blank" rel="noopener noreferrer"
               className="w-full sm:w-auto inline-flex justify-center items-center gap-3 px-8 py-4 rounded-full bg-navy text-white font-bold text-lg hover:bg-navy/90 transition-all shadow-xl hover:-translate-y-1">
-              <PhoneCall className="w-6 h-6" /> Call Us Directly
+              <MessageCircle className="w-6 h-6" /> Request a Quote on WhatsApp
             </a>
           </div>
         </div>

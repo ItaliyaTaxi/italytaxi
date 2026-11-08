@@ -5,6 +5,7 @@ import FAQSection from '@/components/FAQSection';
 import Footer from '@/components/Footer';
 import ServiceSchema from '@/components/ServiceSchema';
 import ServicePageContent from '@/components/ServicePageContent';
+import BookingForm from '@/components/BookingForm';
 import type { PricingTier, RouteItem } from '@/components/ServicePageContent';
 import type { Metadata } from 'next';
 import Link from 'next/link';
@@ -71,7 +72,9 @@ const ROME_HOTEL_DISTRICTS: { title: string; note: string; slugParts: string[] }
 ];
 
 export const metadata: Metadata = {
-  title: "Rome Airport Transfer | Private Taxi FCO & CIA",
+  // `absolute` skips the layout's "%s | Italy Taxi Service" template; the
+  // previous value rendered at 67 characters and was truncated in results.
+  title: { absolute: "Rome Airport Transfer | FCO & Ciampino Taxi" },
   description: "Book a fixed-price private taxi from Rome Fiumicino (FCO) or Ciampino (CIA). Professional NCC drivers, meet & greet, 24/7 service. From €35.",
   alternates: { canonical: "/rome-airport-transfer" },
   openGraph: {
@@ -85,7 +88,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: "How much does a private taxi from Rome Fiumicino airport cost?",
-    a: "A private taxi transfer from Rome Fiumicino (FCO) to Rome city centre starts from €45 for a standard sedan (up to 3 passengers). Prices are fully fixed at booking and include all tolls, motorway charges, fuel, parking and waiting time within the complimentary period. Nothing is added at the end of the journey without your prior agreement. Journeys starting between 22:00 and 06:00, on Italian public holidays, and over Christmas and New Year can carry a surcharge — where one applies it is shown in your quote before you book, never afterwards."
+    a: "A private taxi transfer from Rome Fiumicino (FCO) to Rome city centre starts from €45 for a standard sedan (up to 3 passengers). Prices are fully fixed at booking and include all tolls, motorway charges, fuel, parking and waiting time within the complimentary period. Nothing is added at the end of the journey without your prior agreement. Journeys starting between 22:00 and 06:00, on Italian public holidays, and over Christmas and New Year can carry a surcharge — where one applies it is shown in your quote before you book, never afterwards. Payment is by cash to the driver on the day of service, which is the standard method; Visa and Mastercard can also be accepted through a secure online payment link, and bank transfer is available for pre-approved advance bookings."
   },
   {
     q: "How long does it take to get from FCO to Rome city centre?",
@@ -97,7 +100,7 @@ const faqs = [
   },
   {
     q: "Do you serve Rome Ciampino Airport (CIA) as well?",
-    a: "Yes, absolutely. Rome Ciampino Airport (CIA) is located 15 km south-east of the city and is served by Ryanair and Wizz Air. Our private taxi from Ciampino to Rome city centre starts from €35 with an average journey time of approximately 30–40 minutes. The same fixed-price and meet-and-greet service applies."
+    a: "Yes, absolutely. Rome Ciampino Airport (CIA) is located 15 km south-east of the city and is served by Ryanair and Wizz Air. Our private taxi from Ciampino to Rome city centre starts from €35 with an average journey time of approximately 30–40 minutes. The same fixed-price and meet-and-greet service applies. Child seats are available free of charge on request at either airport — please ask for one when you book."
   },
   {
     q: "What if my flight to Rome is delayed or cancelled?",
@@ -197,6 +200,17 @@ export default function RomeAirportTransferPage() {
         pricing={pricing}
         routesTitle="Popular Rome Airport Transfer Routes"
         routes={routes}
+        reviews={[]}
+        afterPricing={
+          <section className="py-20 bg-white" aria-labelledby="rome-quote">
+            <div className="container mx-auto px-6 max-w-3xl">
+              <h2 id="rome-quote" className="text-3xl md:text-4xl font-bold text-navy mb-8 text-center">
+                Get your exact Rome transfer quote
+              </h2>
+              <BookingForm sourceName="Rome Airport Transfer Page" />
+            </div>
+          </section>
+        }
         relatedLinks={[
           { label: "Milan Chauffeur Service", href: "/milan-chauffeur-service" },
           { label: "Florence Private Taxi", href: "/florence-private-taxi" },

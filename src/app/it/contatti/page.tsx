@@ -7,7 +7,7 @@ import MapEmbed from '@/components/MapEmbed';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
 import { Metadata } from 'next';
-import { CheckCircle, MessageCircle, Star, Clock, ChevronRight, MapPin, ShieldCheck, ThumbsUp, PhoneCall, ArrowRight } from 'lucide-react';
+import { CheckCircle, MessageCircle, Star, Clock, ChevronRight, MapPin, ShieldCheck, ThumbsUp, ArrowRight } from 'lucide-react';
 import TaxiButton from '@/components/TaxiButton';
 import { enHreflangFor } from '@/lib/i18n/page-registry';
 
@@ -28,18 +28,8 @@ const contactSchema = {
       "@id": "https://www.italytaxiservice.com/#localbusiness",
       "name": "Italy Taxi Service",
       "image": "https://www.italytaxiservice.com/images/hero.png",
-      "telephone": "+923148932631",
       "email": "italytaxiservicee@gmail.com",
       "priceRange": "$$$",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Via dell'Aeroporto, s/n",
-        "addressLocality": "Fiumicino",
-        "addressRegion": "RM",
-        "postalCode": "00054",
-        "addressCountry": "IT"
-      },
-      "geo": { "@type": "GeoCoordinates", "latitude": 41.7999, "longitude": 12.2462 },
       "url": "https://www.italytaxiservice.com",
       "openingHoursSpecification": {
         "@type": "OpeningHoursSpecification",
@@ -49,7 +39,7 @@ const contactSchema = {
       },
       "contactPoint": {
         "@type": "ContactPoint",
-        "telephone": "+923148932631",
+        "email": "italytaxiservicee@gmail.com",
         "contactType": "customer service",
         "areaServed": ["IT", "Rome", "Milan", "Venice", "Florence", "Naples"],
         "availableLanguage": ["English", "Italian"]
@@ -88,9 +78,8 @@ const contactFaqs = [
 ];
 
 const responsePromises = [
-  { icon: <MessageCircle className="w-6 h-6 text-gold" />, channel: "WhatsApp", time: "Meno di 15 minuti", note: "24/7 · Il più consigliato" },
+  { icon: <MessageCircle className="w-6 h-6 text-gold" />, channel: "WhatsApp", time: "Meno di 15 minuti", note: "Il più consigliato" },
   { icon: <Clock className="w-6 h-6 text-gold" />, channel: "Email", time: "Entro 2 ore", note: "italytaxiservicee@gmail.com" },
-  { icon: <PhoneCall className="w-6 h-6 text-gold" />, channel: "Chiamata Diretta", time: "Risposta Immediata" },
 ];
 
 const serviceAreas = [
@@ -139,9 +128,9 @@ export default function ContactPageIt() {
               className="w-full sm:w-auto inline-flex justify-center items-center gap-3 px-8 py-4 rounded-full bg-[#25D366] text-white font-bold text-lg hover:bg-[#1ebe57] transition-all shadow-xl hover:shadow-green-500/30 hover:-translate-y-1">
               <MessageCircle className="w-6 h-6" /> Scrivici su WhatsApp
             </a>
-            <a href="tel:+923148932631"
+            <a href="https://wa.me/923148932631?text=Ciao%2C+vorrei+un+preventivo+per+un+transfer+privato+in+Italia." target="_blank" rel="noopener noreferrer"
               className="w-full sm:w-auto inline-flex justify-center items-center gap-3 px-8 py-4 rounded-full bg-navy text-white font-bold text-lg hover:bg-navy/90 transition-all shadow-xl hover:-translate-y-1">
-              <PhoneCall className="w-6 h-6" /> Chiamaci Direttamente
+              <MessageCircle className="w-6 h-6" /> Richiedi un Preventivo su WhatsApp
             </a>
           </div>
         </div>

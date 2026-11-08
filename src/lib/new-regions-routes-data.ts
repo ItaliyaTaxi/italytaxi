@@ -17,6 +17,12 @@ import type { RouteData } from './page-data';
 export interface ClusterRouteContent {
     title: string;
     metaTitle: string;
+    /** Opt-in. When set, this becomes the ENTIRE <title>, bypassing both the
+     *  "| Transfer Privato Italia" suffix added in /it/route/[slug] and the
+     *  layout's "%s | Italy Taxi Service" template — the Italian mirror of
+     *  seoTitleAbsolute on the English RouteData. Routes that omit it keep the
+     *  existing fallback exactly as before. */
+    metaTitleAbsolute?: string;
     metaDescription: string;
     description: string;
     highlights: string[];

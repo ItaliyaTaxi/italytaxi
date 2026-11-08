@@ -995,19 +995,21 @@ export const existingRouteItTranslations: ExistingRouteItTranslation[] = [
         slugIt: 'trasferimento-aeroporto-verona-lago-di-garda',
         from: 'Verona Airport', to: 'Lake Garda',
         hero_image: '/images/Lake Como.webp',
-        imageAlt: 'Sponde del Lago di Garda con le montagne sullo sfondo',
+        imageAlt: 'Veduta di un lago alpino italiano con le montagne sullo sfondo',
         distance: '~35 km', duration: '~40 min',
         it: {
             title: 'Transfer Privato da Aeroporto di Verona al Lago di Garda',
             metaTitle: 'Trasferimento Aeroporto Verona - Lago di Garda',
-            metaDescription: 'Transfer privato dall\'Aeroporto di Verona Villafranca al Lago di Garda. Raggiungi Sirmione, Bardolino o Lazise rapidamente con un\'auto privata porta a porta.',
+            metaTitleAbsolute: 'Taxi Aeroporto Verona - Lago di Garda | Prenota',
+            metaDescription: 'Transfer privato dall\'Aeroporto di Verona al Lago di Garda: Peschiera 25 km, Sirmione 30 km, Riva 85 km. Prezzo fisso, volo monitorato, porta a porta.',
             description: 'Transfer privato dall\'Aeroporto di Verona Villafranca al Lago di Garda. Raggiungi Sirmione, Bardolino, Lazise o qualsiasi altro resort lacustre rapidamente con un\'auto privata porta a porta.',
             highlights: ['Aeroporto più vicino al Lago di Garda', 'Sbarco in qualsiasi resort lacustre', 'Transfer breve e agevole', 'Monitoraggio del volo incluso', 'Prezzo fisso tutto incluso'],
             sections: [
                 {
                     h2: 'Dettagli del Percorso',
                     p: [
-                        'Il tragitto copre circa 35 km e richiede circa 40 minuti — uno dei transfer più brevi verso una destinazione lacustre in Italia. Il tuo autista ti aspetta all\'arrivo e ti accompagna direttamente al tuo resort sul lago.',
+                        'Non esiste una distanza unica per il Lago di Garda: il lago si estende per circa 50 km da sud a nord e la località scelta cambia sensibilmente il tragitto. Sulle distanze pubblicate per le nostre singole tratte, Peschiera del Garda dista circa 25 km (circa 30 minuti), Lazise circa 28 km (35 minuti), Sirmione e Bardolino circa 30 km (35 minuti) e Desenzano del Garda circa 35 km (40 minuti).',
+                        'Più a nord i tempi crescono: Malcesine è a circa 60 km e un\'ora e dieci, Riva del Garda a circa 85 km e un\'ora e venti, perché la strada si restringe e segue la costa sotto le pareti rocciose. Il tuo autista ti attende all\'arrivo e ti accompagna direttamente al tuo alloggio sul lago.',
                     ],
                 },
                 {
@@ -1016,18 +1018,26 @@ export const existingRouteItTranslations: ExistingRouteItTranslation[] = [
                         'L\'Aeroporto di Verona è geograficamente il più vicino al Lago di Garda tra gli scali del nord Italia, rendendo questo transfer particolarmente rapido rispetto a un arrivo da Milano o Venezia.',
                     ],
                 },
+                {
+                    h2: 'Quando Viaggi: Traffico Estivo e Stagione Invernale',
+                    p: [
+                        'Il Garda è una delle mete estive più frequentate del nord Italia e in luglio e agosto le strade costiere portano molto più traffico di quanto siano state pensate per sostenere. Un transfer che in aprile richiede trentacinque minuti può allungarsi sensibilmente in un fine settimana di agosto: se devi rientrare in aeroporto per un volo, calcola un margine reale e non il tempo minimo.',
+                        'Fuori stagione le strade sono libere e un trasferimento sulla sponda meridionale resta vicino al suo tempo migliore. Molti alberghi sul lago e alcuni servizi di navigazione riducono gli orari in inverno, quindi vale la pena verificare che la struttura sia aperta prima di prenotare il transfer.',
+                        'I viaggi del 24–26 dicembre, del 31 dicembre e del 1º gennaio possono prevedere un supplemento, come quelli che iniziano tra le 22:00 e le 06:00 o che cadono in un giorno festivo italiano. Quando si applica, il supplemento è indicato nel preventivo prima della prenotazione e non viene mai aggiunto dopo. Il periodo natalizio è tra i più richiesti dell\'anno: conviene prenotare con più anticipo delle 24 ore che consigliamo di norma.',
+                    ],
+                },
                 prenotazioneIt('Aeroporto di Verona', 'Lago di Garda'),
             ],
             faqs: [
-                { q: 'Quanto dura il transfer dall\'Aeroporto di Verona al Lago di Garda?', a: 'Circa 40 minuti, uno dei tragitti più brevi verso i laghi italiani.' },
+                { q: 'Quanto dura il transfer dall\'Aeroporto di Verona al Lago di Garda?', a: 'Dipende dalla località. Sulle distanze pubblicate per le nostre tratte, Peschiera del Garda è a circa 25 km e 30 minuti, Lazise a 28 km e 35 minuti, Sirmione e Bardolino a circa 30 km e 35 minuti, Desenzano a 35 km e 40 minuti. Più a nord, Malcesine è a circa 60 km (un\'ora e dieci) e Riva del Garda a circa 85 km (un\'ora e venti).' },
                 { q: 'Posso scegliere Sirmione, Bardolino o Lazise come destinazione?', a: 'Sì, indica il resort esatto sul lago alla prenotazione.' },
-                { q: 'L\'autista monitora il mio volo?', a: 'Sì, automaticamente.' },
+                { q: 'L\'autista monitora il mio volo?', a: 'Sì. Il volo è monitorato dalla partenza e l\'orario di ritiro si adegua automaticamente in caso di ritardo, senza costi aggiuntivi. Sono inclusi 60 minuti di attesa gratuita sui voli internazionali e 30 minuti su quelli nazionali, calcolati dall\'atterraggio effettivo e non dall\'orario previsto. I viaggi che iniziano tra le 22:00 e le 06:00 possono prevedere un supplemento: quando si applica è indicato nel preventivo prima della prenotazione.' },
                 { q: 'È l\'aeroporto più conveniente per il Lago di Garda?', a: 'Sì, geograficamente è il più vicino tra gli scali del nord Italia.' },
             ],
             relatedLinks: [
                 { href: '/it/distance/distanza-dallaeroporto-di-verona-al-lago-di-garda', label: 'Distanza Aeroporto di Verona - Lago di Garda' },
                 { href: '/it/route/trasferimento-venezia-verona', label: 'Transfer Venezia - Verona' },
-                { href: '/route/venice-to-verona-taxi', label: 'Coming from Venice? Venice to Verona Transfer' },
+                { href: '/route/venice-to-verona-taxi', label: 'Arrivi da Venezia? Transfer Venezia - Verona' },
             ],
         },
     },

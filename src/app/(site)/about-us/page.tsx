@@ -17,7 +17,7 @@ import TaxiButton from '@/components/TaxiButton';
 
 export const metadata: Metadata = {
     title: "About Our Taxi Service in Italy | Private Transfers",
-    description: "Italy Taxi Service — Italy's private taxi and transfer company since 2013. NCC-licensed drivers, fixed prices, 10,000+ rides across Rome, Milan, Florence, Venice & 30+ cities.",
+    description: "Private taxi and transfer company covering Italy. NCC-licensed drivers, fixed prices and door-to-door transfers in Rome, Milan, Florence, Venice and 30+ cities.",
     alternates: { canonical: "/about-us" }
 };
 
@@ -32,7 +32,7 @@ const aboutFaqs = [
     },
     {
         q: "How long has Italy Taxi Service been operating?",
-        a: "We have been providing premium private transfers since 2013 — over a decade of service. In that time we have completed more than 10,000 private journeys and maintained a 4.9-star average rating across all review platforms."
+        a: "We are an established private transfer operator working across the whole of Italy. Rather than publish service figures we cannot evidence on this page, we point you to our Trustpilot profile, where reviews are public and independently verified, and to our terms, which set out exactly what every booking includes."
     },
     {
         q: "Which cities and airports in Italy do you cover?",
@@ -87,7 +87,7 @@ export default function AboutUsPage() {
                             "@type": "AboutPage",
                             "name": "About Italy Taxi Service",
                             "url": "https://www.italytaxiservice.com/about-us",
-                            "description": "Italy Taxi Service is Italy's premier private taxi and transfer company, operating since 2013 with NCC-licensed drivers covering all major Italian cities, airports, and cruise ports."
+                            "description": "Italy Taxi Service is a private taxi and transfer company with NCC-licensed drivers covering all major Italian cities, airports, and cruise ports."
                         },
                         {
                             "@context": "https://schema.org",
@@ -95,9 +95,8 @@ export default function AboutUsPage() {
                             "name": "Italy Taxi Service",
                             "url": "https://www.italytaxiservice.com",
                             "logo": "https://www.italytaxiservice.com/images/logo.png",
-                            "foundingDate": "2013",
                             "areaServed": "IT",
-                            "description": "Professional private taxi and transfer service across Italy since 2013.",
+                            "description": "Professional private taxi and transfer service across Italy.",
                             "contactPoint": {
                                 "@type": "ContactPoint",
                                 "contactType": "customer service",
@@ -119,7 +118,7 @@ export default function AboutUsPage() {
             <PageHero
                 titleTop="About Italy"
                 titleBottom="Taxi & Transfer Service"
-                description="NCC-licensed drivers, fixed prices, and nationwide coverage — trusted by thousands of travellers across Rome, Milan, Florence, Venice, and beyond since 2013."
+                description="NCC-licensed drivers, fixed prices, and nationwide coverage across Rome, Milan, Florence, Venice, and beyond."
                 backgroundImage="/images/hero.png"
                 breadcrumbs={[{ name: "About Us", item: "/about-us" }]}
             />
@@ -129,7 +128,7 @@ export default function AboutUsPage() {
                 <div className="container mx-auto px-6 max-w-6xl">
                     <div className="grid md:grid-cols-3 gap-8 text-center">
                         {[
-                            { icon: <BadgeCheck className="w-8 h-8 text-gold mx-auto" />, heading: "Who We Are", body: "A professional private taxi and transfer company operating across all of Italy since 2013. Every driver is NCC-licensed, every price is fixed, every journey is guaranteed." },
+                            { icon: <BadgeCheck className="w-8 h-8 text-gold mx-auto" />, heading: "Who We Are", body: "A professional private taxi and transfer company operating across all of Italy. Every driver is NCC-licensed, every price is fixed, every journey is guaranteed." },
                             { icon: <MapPin className="w-8 h-8 text-gold mx-auto" />, heading: "Where We Operate", body: "Rome, Milan, Florence, Venice, Naples, and 30+ additional cities and airports — plus cruise ports, lake districts, mountain resorts, and cross-border routes." },
                             { icon: <Users className="w-8 h-8 text-gold mx-auto" />, heading: "Who We Serve", body: "Leisure travellers, families, business executives, wedding parties, cruise passengers, and visiting teams — anyone who needs a reliable private taxi in Italy." },
                         ].map((c, i) => (
@@ -336,8 +335,8 @@ export default function AboutUsPage() {
                             },
                             {
                                 icon: <Award className="w-8 h-8 text-gold" />,
-                                title: "10+ Years of Verified Service",
-                                body: "Launched in 2013, Italy Taxi Service has been building its reputation for over a decade. Our 4.9-star average rating is not a snapshot — it is sustained across more than 500 individual verified reviews on Google, TripAdvisor, and our direct booking platform. We have not survived 10 years by being average."
+                                title: "Flight Tracking on Every Airport Pickup",
+                                body: "Every airport booking is matched to your flight number and tracked live, so a delayed arrival moves your pickup automatically and at no extra charge. Complimentary waiting is 60 minutes on international arrivals and 30 minutes on domestic flights, measured from actual landing rather than the scheduled time."
                             },
                             {
                                 icon: <Clock className="w-8 h-8 text-gold" />,
@@ -372,10 +371,6 @@ export default function AboutUsPage() {
                     <div className="text-center mb-14">
                         <p className="text-gold text-sm font-bold uppercase tracking-[0.4em] mb-4">Real Passengers, Real Experiences</p>
                         <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight">What Clients Say About Our Taxi Service</h2>
-                        <div className="flex items-center justify-center gap-1 mt-5">
-                            {[...Array(5)].map((_, i) => <Star key={i} className="w-5 h-5 fill-gold text-gold" />)}
-                            <span className="text-gray-400 text-sm ml-2">4.9 / 5 — 500+ verified reviews</span>
-                        </div>
                     </div>
                     <div className="grid md:grid-cols-3 gap-8">
                         {[

@@ -3,7 +3,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { Mail, Instagram, Facebook, MapPin, Phone } from 'lucide-react';
+import { Mail, Instagram, Facebook, Phone } from 'lucide-react';
 import TaxiButton from './TaxiButton';
 import { useLanguage } from '@/context/LanguageContext';
 import { getItalianPath } from '@/lib/i18n/page-registry';
@@ -35,11 +35,10 @@ export default function Footer() {
                         <p className="text-xs leading-relaxed mb-8">
                             {t.footer.description}
                         </p>
+                        {/* The displayed street address was removed: it was never
+                            verified. Restore a line here only once a genuine
+                            business address is confirmed. */}
                         <ul className="space-y-4 text-xs mb-8">
-                            <li className="flex items-center gap-3">
-                                <MapPin className="w-4 h-4 text-gold shrink-0" />
-                                <span>Via della Conciliazione, 1, 00193 Roma RM, Italy</span>
-                            </li>
                             <li className="flex items-center gap-3">
                                 <Phone className="w-4 h-4 text-gold shrink-0" />
                                 <a href="https://wa.me/923148932631" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors">WhatsApp Chat</a>

@@ -102,7 +102,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         'x-default': `/route/${route.slugEn}`,
     };
     return {
-        title: `${route.it.metaTitle} | Transfer Privato Italia`,
+        // A route that sets metaTitleAbsolute controls its whole <title>;
+        // every other route keeps the previous suffix behaviour untouched.
+        title: route.it.metaTitleAbsolute
+            ? { absolute: route.it.metaTitleAbsolute }
+            : `${route.it.metaTitle} | Transfer Privato Italia`,
         description,
         alternates: {
             canonical: `/it/route/${slug}`,

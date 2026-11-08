@@ -138,7 +138,6 @@ export const translations = {
             headingLine2: 'in Absolute Comfort?',
             description: 'Book your taxi transfer today and experience the difference of a professional taxi service.',
             bookBtn: 'Book Your Italian Taxi Transfer',
-            callUs: 'Or Call Us: +92 314 8932631',
         },
         footer: {
             description:
@@ -299,7 +298,6 @@ export const translations = {
             headingLine2: 'in Assoluto Comfort?',
             description: 'Prenota il tuo trasferimento taxi oggi e scopri la differenza di un servizio taxi professionale.',
             bookBtn: 'Prenota il Tuo Trasferimento Taxi Italiano',
-            callUs: 'O Chiamaci: +92 314 8932631',
         },
         footer: {
             description:

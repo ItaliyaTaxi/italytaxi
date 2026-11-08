@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { ShieldCheck, CalendarCheck, MapPin } from 'lucide-react';
+import { ShieldCheck, MapPin } from 'lucide-react';
 
 export default function StorySection() {
     return (
@@ -18,12 +18,12 @@ export default function StorySection() {
 
                         <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-6">
                             Italy's Private Taxi Service —<br />
-                            <span className="text-gold italic font-serif">Built on a Decade of Trust</span>
+                            <span className="text-gold italic font-serif">Built on Licensed Drivers and Fixed Prices</span>
                         </h2>
 
                         <div className="space-y-5 text-gray-300 text-base leading-relaxed">
                             <p>
-                                Italy Taxi Service was founded in 2013 with one clear purpose: to give every international traveller arriving in Italy the same seamless, stress-free ground transport experience that was previously reserved for luxury tour groups and corporate executives.
+                                Italy Taxi Service was founded with one clear purpose: to give every international traveller arriving in Italy the same seamless, stress-free ground transport experience that was previously reserved for luxury tour groups and corporate executives.
                             </p>
                             <p>
                                 Our founders had experienced first-hand the chaos of Italian taxi stands — the aggressive haggling, the hidden surcharges, the language barriers, the uncertainty of not knowing if a driver would actually show up. They knew there was a better way, and they built it.
@@ -32,14 +32,13 @@ export default function StorySection() {
                                 Starting with a single vehicle and a handful of airport routes, we grew — journey by journey, review by review — into a nationwide network of professional NCC-licensed drivers covering every major airport, city, cruise port, and tourist destination in Italy.
                             </p>
                             <p className="font-bold text-white text-lg">
-                                Today, Italy Taxi Service has completed over 10,000 private transfers across Rome, Milan, Florence, Venice, Naples, and beyond — and our mission has never changed.
+                                Today, Italy Taxi Service covers Rome, Milan, Florence, Venice, Naples and beyond — and our mission has never changed.
                             </p>
                         </div>
 
                         {/* Credential pills */}
                         <div className="flex flex-wrap gap-3 mt-8">
                             {[
-                                { icon: <CalendarCheck className="w-4 h-4" />, text: "Operating since 2013" },
                                 { icon: <ShieldCheck className="w-4 h-4" />, text: "NCC Licensed & Insured" },
                                 { icon: <MapPin className="w-4 h-4" />, text: "Nationwide coverage" },
                             ].map((p, i) => (

@@ -15,7 +15,7 @@ const JsonLd = () => {
     },
     "contactPoint": {
       "@type": "ContactPoint",
-      "telephone": "+923148932631",
+      "email": "italytaxiservicee@gmail.com",
       "contactType": "customer service",
       "areaServed": "IT",
       "availableLanguage": ["English", "Italian"]
@@ -34,7 +34,6 @@ const JsonLd = () => {
     "name": "Italy Taxi Service",
     "description": "Professional private taxi and transfer service across Italy. NCC-licensed drivers, fixed prices, airport transfers, city-to-city rides, and private tours.",
     "url": "https://www.italytaxiservice.com",
-    "telephone": "+923148932631",
     "email": "italytaxiservicee@gmail.com",
     "logo": "https://www.italytaxiservice.com/icon.svg",
     "image": "https://www.italytaxiservice.com/images/hero.webp",
@@ -53,27 +52,16 @@ const JsonLd = () => {
       "@type": "Country",
       "name": "Italy"
     },
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Via della Conciliazione, 1",
-      "addressLocality": "Roma",
-      "addressRegion": "RM",
-      "postalCode": "00193",
-      "addressCountry": "IT"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 41.8719,
-      "longitude": 12.5674
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "reviewCount": "500",
-      "bestRating": "5",
-      "worstRating": "1"
-    },
-    "foundingDate": "2013",
+    /* Accuracy note for future edits — the following were removed because the
+       values were never verified: aggregateRating (4.9 / 500 reviews), the
+       street address, locality, region and postal code, the geo coordinates,
+       and foundingDate (2013). A self-serving aggregateRating on your own
+       organisation is also outside Google's review-snippet policy and risks a
+       structured-data manual action. Do not reinstate any of them, and do not
+       copy Trustpilot's score in here — the genuine rating belongs in the
+       Trustpilot widget and the floating Trustpilot button, which own it.
+       addressCountry stays because areaServed already states Italy on its own
+       and that is independently true. */
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "Italy Private Transfer Services",

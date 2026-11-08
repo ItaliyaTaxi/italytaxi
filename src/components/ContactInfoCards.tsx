@@ -1,39 +1,36 @@
-import { Phone, Mail, MapPin, MessageCircle } from 'lucide-react';
+import { CalendarCheck, Mail, MessageCircle } from 'lucide-react';
 
 export default function ContactInfoCards() {
     const cards = [
         {
-            title: "Phone Support",
-            sub: "Available 24/7",
-            icon: <Phone className="w-8 h-8 text-gold" />,
-            link: "tel:+923148932631"
+            title: "Book Online",
+            sub: "Send your journey details",
+            icon: <CalendarCheck className="w-8 h-8 text-gold" />,
+            link: "/book-now"
         },
         {
             title: "Email Us",
-            info: "info@italiaride.it",
+            info: "italytaxiservicee@gmail.com",
             sub: "Average response: 2h",
             icon: <Mail className="w-8 h-8 text-gold" />,
-            link: "mailto:info@italiaride.it"
+            link: "mailto:italytaxiservicee@gmail.com"
         },
         {
             title: "WhatsApp",
             sub: "Fastest response",
             icon: <MessageCircle className="w-8 h-8 text-gold" />,
             link: "https://wa.me/+923148932631"
-        },
-        {
-            title: "Registered Office",
-            info: "Via del Corso, Rome",
-            sub: "Italy, 00186",
-            icon: <MapPin className="w-8 h-8 text-gold" />,
-            link: "#"
         }
+        /* The "Registered Office" card was removed: it asserted a physical
+           Italian office (Via del Corso, Rome 00186) that the business does
+           not have. Do not reinstate an address card unless a genuine,
+           confirmed business address is supplied. */
     ];
 
     return (
         <section className="py-20 font-inter">
             <div className="container mx-auto px-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {cards.map((card, index) => (
                         <div
                             key={index}
