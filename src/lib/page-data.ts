@@ -866,7 +866,7 @@ export const routes: RouteData[] = [
         to: 'Naples',
         title: 'Rome to Naples Taxi Transfer',
         hero_image: 'https://images.unsplash.com/photo-1534430480872-3498386e7856?auto=format&fit=crop&q=60&w=1200',
-        description: 'Travel from Rome to Naples with our private taxi service. Skip the crowded trains and enjoy a stress-free, direct door-to-door transfer with a professional driver and on-time pickup guarantee.',
+        description: 'Travel from Rome to Naples with our private taxi service. Skip the crowded trains and enjoy a stress-free, direct door-to-door transfer with a professional driver and on-time pickups with flight tracking.',
         distance: '~226 km',
         duration: '~2.5 hours',
         highlights: ['Direct door-to-door service', 'Optional Pompeii stop available', 'No hidden fees', 'English-speaking local driver', 'Free cancellation up to 24h'],
@@ -970,7 +970,7 @@ export const routes: RouteData[] = [
             { q: 'Which airport do I fly into for the Amalfi Coast?', a: 'Naples International Airport (Capodichino, IATA: NAP) is the main airport for the Amalfi Coast, about 65km/1.5 hours by road from Positano, Amalfi and Ravello. Salerno\'s small regional airport has very limited flights, so almost all visitors arrive via Naples.' },
             { q: 'Is it quicker to fly into Rome instead?', a: 'No. Rome is considerably further — our Rome to Amalfi and Rome to Positano transfers cover around 270 km and take three and a half to four hours, against about 1.5 hours from Naples. Fly into Naples if your itinerary allows it.' },
             { q: 'Can the driver take me right to my hotel door?', a: 'In most cases yes, but several towns have pedestrianised or stepped centres — Positano and Ravello in particular. Where vehicles are not permitted, your driver stops at the nearest legal access point and helps with your luggage from there.' },
-            { q: 'How far in advance should I book an Amalfi Coast transfer?', a: 'As early as you can for July and August travel, when demand on the coast is at its peak. Outside those months there is more flexibility, but booking ahead still guarantees a driver who knows the coastal road.' },
+            { q: 'How far in advance should I book an Amalfi Coast transfer?', a: 'As early as you can for July and August travel, when demand on the coast is at its peak. Outside those months there is more flexibility, but booking ahead still means a driver who knows the coastal road is confirmed.' },
         ],
         relatedLinks: [
             { href: '/distance/naples-to-amalfi-coast-distance', label: 'Naples to Amalfi Coast Distance Guide' },
@@ -1760,7 +1760,7 @@ export const routes: RouteData[] = [
                 'There is no direct train between the two airports, so the public alternative means heading into central Rome and back out again with your luggage. A private transfer from Ciampino to Fiumicino replaces that with a single, direct, door-to-door ride in a comfortable vehicle.',
             ]},
             { h2: 'Why Pre-Book This Direction', p: [
-                'Arriving at Ciampino, you want to clear the terminal and get moving quickly, especially if a connecting flight is waiting at Fiumicino. Pre-booking guarantees a driver is ready and holding a name sign the moment you exit, rather than joining a taxi queue or working out bus and train connections after a late-night landing.',
+                'Arriving at Ciampino, you want to clear the terminal and get moving quickly, especially if a connecting flight is waiting at Fiumicino. Pre-booking means a driver is confirmed, ready and holding a name sign the moment you exit, rather than joining a taxi queue or working out bus and train connections after a late-night landing.',
                 'Because Ciampino handles a high share of early and late low-cost flights, this transfer is frequently needed at hours when public transport between the airports barely runs — another reason a pre-arranged car is the dependable choice.',
             ]},
             { h2: 'How Much Time to Allow', p: [

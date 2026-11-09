@@ -356,7 +356,7 @@ export const clusterRoutes: ClusterRoute[] = [
                 {
                     h2: 'Why Choose a Private Transfer',
                     p: [
-                        'The SITA bus connecting Sorrento and Positano is affordable but often standing-room-only in peak season, with strict luggage limits. A private transfer gives you a fixed departure time, a seat guaranteed, and space for your bags — worth it for a scenic but slow-moving road.',
+                        'The SITA bus connecting Sorrento and Positano is affordable but often standing-room-only in peak season, with strict luggage limits. A private transfer gives you a fixed departure time, a reserved seat, and space for your bags — worth it for a scenic but slow-moving road.',
                     ],
                 },
                 bookingSectionEn('Sorrento', 'Positano'),
@@ -1590,7 +1590,7 @@ export const clusterRoutes: ClusterRoute[] = [
                 {
                     h2: 'Why Choose a Private Transfer',
                     p: [
-                        'With no meaningful public transport link and taxi availability unpredictable in peak season, a pre-booked private transfer guarantees your driver is waiting and tracking your specific flight.',
+                        'With no meaningful public transport link and taxi availability unpredictable in peak season, a pre-booked private transfer means your driver is confirmed, waiting and tracking your specific flight.',
                     ],
                 },
                 bookingSectionEn('Olbia Airport', 'Porto Rotondo'),

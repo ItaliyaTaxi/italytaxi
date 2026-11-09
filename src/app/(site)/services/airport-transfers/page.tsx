@@ -111,7 +111,7 @@ export default function AirportTransfersPage() {
       <PageHero
         titleTop="Reliable Private Airport"
         titleBottom="Transfers Across Italy"
-        description="Fixed-price airport pickups and drop-offs at every major Italian airport. Professional drivers, flight tracking, and 60 minutes of free waiting time — guaranteed."
+        description="Fixed-price airport pickups and drop-offs at every major Italian airport. Professional drivers, flight tracking, and 60 minutes of free waiting time."
         backgroundImage="/images/hero.png"
         buttonText="Book Airport Transfer Now"
         breadcrumbs={[

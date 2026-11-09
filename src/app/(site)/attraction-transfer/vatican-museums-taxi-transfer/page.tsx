@@ -112,7 +112,7 @@ export default function VaticanMuseumsPage() {
 
       <ServiceIntro
         title="Arrive Ready for the Sistine Chapel"
-        content="The Vatican Museums host some of the most important artistic masterpieces in the world. Navigating Rome's public transport to get there can be exhausting, especially during peak hours. Our private taxi service ensures you arrive at the museum entrance fresh and ready for your tour. Whether you have early access tickets or a mid-day booking, we guarantee punctual and professional service."
+        content="The Vatican Museums host some of the most important artistic masterpieces in the world. Navigating Rome's public transport to get there can be exhausting, especially during peak hours. Our private taxi service ensures you arrive at the museum entrance fresh and ready for your tour. Whether you have early access tickets or a mid-day booking, we focus on punctual, professional service."
       />
 
       <ServiceFeatures

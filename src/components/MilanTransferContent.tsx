@@ -168,7 +168,7 @@ export default function MilanTransferContent({ combo }: { combo: MilanTransferCo
                             <p className="text-gray-700 leading-relaxed mb-4">
                                 {pick(whyOpener, seed)} {dep
                                     ? `On departure day, a fixed-price car from the ${hotel.name} gives you a confirmed pickup time and a driver who knows the fastest route to ${airport.short}, so you avoid dragging luggage through ${airport.publicAlt}.`
-                                    : `A private transfer replaces ${airport.publicAlt} with one direct ride: a guaranteed driver waiting for your flight, help with your bags, and a fixed price agreed before you travel.`}
+                                    : `A private transfer replaces ${airport.publicAlt} with one direct ride: a confirmed driver waiting for your flight, help with your bags, and a fixed price agreed before you travel.`}
                             </p>
 
                             {/* Route information + pickup */}

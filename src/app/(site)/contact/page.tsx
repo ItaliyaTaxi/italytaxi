@@ -148,7 +148,7 @@ export default function ContactPage() {
             </div>
             <div className="flex flex-col items-center gap-2">
               <div className="bg-white p-3 rounded-full shadow-sm"><Clock className="w-6 h-6 text-gold" /></div>
-              <p className="font-bold text-navy text-sm">Punctuality Guarantee</p>
+              <p className="font-bold text-navy text-sm">Punctual, Tracked Pickups</p>
             </div>
             <div className="flex flex-col items-center gap-2">
               <div className="bg-white p-3 rounded-full shadow-sm"><CheckCircle className="w-6 h-6 text-gold" /></div>

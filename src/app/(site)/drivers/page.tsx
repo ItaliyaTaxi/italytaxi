@@ -31,7 +31,7 @@ const driverFaqs = [
   },
   {
     q: "Do all your drivers speak English?",
-    a: "Yes, we guarantee English-speaking drivers for all international clients. Many of our drivers also speak French, German, and Spanish. Clear communication is considered a core service standard, not an optional extra."
+    a: "Yes, our drivers speak English. Many of our drivers also speak French, German, and Spanish. Clear communication is considered a core service standard, not an optional extra."
   },
   {
     q: "Can I request a specific driver if I've travelled with them before?",
@@ -63,7 +63,7 @@ const qualities = [
   },
   {
     icon: <Globe className="w-7 h-7 text-gold" />,
-    title: "English-Speaking — Guaranteed",
+    title: "English-Speaking Drivers",
     body: "Clear communication is a service standard, not an afterthought. All drivers in our network speak English fluently. Many also speak French, German, or Spanish. You will always be understood and kept informed throughout your journey.",
   },
   {

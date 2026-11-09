@@ -580,7 +580,7 @@ export const extraRoutesRome: RouteData[] = [
         "h2": "Why a Private Transfer Beats the Leonardo Express, Taxi or Bus",
         "p": [
           "The Leonardo Express train is quick to Termini station, but it leaves you a further ride or walk from Piazza Navona, often with heavy bags and a change onto a bus or metro. Shuttle buses are cheaper still, yet they follow fixed schedules and shared stops that rarely suit a tired arrival.",
-          "A private transfer gives you a guaranteed seat, a fixed price confirmed at booking and a driver who takes you all the way to your hotel door. There is no need to queue at the taxi rank or negotiate a fare, and because the cost is agreed in advance you avoid the uncertainty that can come with a metered ride into central Rome."
+          "A private transfer gives you a reserved seat, a fixed price confirmed at booking and a driver who takes you all the way to your hotel door. There is no need to queue at the taxi rank or negotiate a fare, and because the cost is agreed in advance you avoid the uncertainty that can come with a metered ride into central Rome."
         ]
       },
       {

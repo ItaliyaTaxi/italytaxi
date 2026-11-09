@@ -276,7 +276,7 @@ export default async function AirportHotelTransferPage({ params }: { params: Pro
                     <p className="text-gray-700 leading-relaxed mb-4">
                         {dep
                             ? `On departure day, certainty matters. A pre-booked transfer from ${hotel.name} gives you a confirmed pickup time, a fixed price with no surprises, and a professional chauffeur who knows the fastest route to ${airport.short} — so you avoid the hotel taxi-rank wait, the luggage struggle on the train, and any risk of missing check-in. It is the stress-free way to start your journey home.`
-                            : `Public options from ${airport.short} each have drawbacks. The taxi rank can mean a long wait at peak times; the train requires you to manage luggage and onward connections to reach ${hotel.area}; buses are slow and crowded; and ride-sharing is limited and unpredictable in Rome. A private transfer removes all of that: one fixed price, a guaranteed driver, and a direct ride to ${hotel.name}.`}
+                            : `Public options from ${airport.short} each have drawbacks. The taxi rank can mean a long wait at peak times; the train requires you to manage luggage and onward connections to reach ${hotel.area}; buses are slow and crowded; and ride-sharing is limited and unpredictable in Rome. A private transfer removes all of that: one fixed price, a confirmed driver, and a direct ride to ${hotel.name}.`}
                     </p>
 
                     {/* Process */}

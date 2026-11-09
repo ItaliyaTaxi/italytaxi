@@ -218,7 +218,7 @@ export default async function FlorenceTransferPage({ params }: { params: Promise
                             ? `On departure day, certainty matters. A pre-booked transfer from ${dest.name} gives you a confirmed pickup time, a fixed price with no surprises and a chauffeur who knows the fastest route to ${airport.short} — so you avoid the wait for a taxi, the luggage struggle on public transport and any risk of missing check-in.`
                             : isPisa
                                 ? `From Pisa, the alternatives are slow: the train involves a walk or shuttle to Pisa Centrale, a change and a further ride to Florence's Santa Maria Novella, then a taxi or walk to ${dest.name} with your bags. A private transfer removes every step — one fixed price, a driver waiting for your flight and a direct ${leg.distance} ride to ${dest.name}.`
-                                : `Public options from ${airport.short} each have drawbacks: the tram to the centre means managing luggage and a final walk, the taxi rank can queue at peak times, and ride-sharing is limited in Florence. A private transfer removes all of that — one fixed price, a guaranteed driver and a direct ride to ${dest.name}.`}
+                                : `Public options from ${airport.short} each have drawbacks: the tram to the centre means managing luggage and a final walk, the taxi rank can queue at peak times, and ride-sharing is limited in Florence. A private transfer removes all of that — one fixed price, a confirmed driver and a direct ride to ${dest.name}.`}
                     </p>
 
                     {/* Florence ZTL / access note */}

@@ -25,7 +25,7 @@ const faqs = [
   },
   {
     q: "Potete garantire la puntualità per gli appuntamenti con i clienti?",
-    a: "La puntualità è la nostra massima priorità per i viaggi di lavoro. Includiamo un margine di sicurezza basato sui dati del traffico italiano e gli autisti vengono inviati in anticipo per garantire un arrivo con margine di tempo. Abbiamo un tasso di puntualità del 99,2% per le prenotazioni aziendali."
+    a: "La puntualità è la nostra massima priorità per i viaggi di lavoro. Includiamo un margine di sicurezza basato sui dati del traffico italiano e gli autisti vengono inviati in anticipo per garantire un arrivo con margine di tempo."
   },
   {
     q: "È disponibile il Wi-Fi nei veicoli?",

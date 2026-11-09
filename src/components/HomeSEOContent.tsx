@@ -83,7 +83,7 @@ export default function HomeSEOContent() {
               <p className="text-gray-600 text-sm leading-relaxed">
                 Premium <strong>chauffeur service Italy</strong> for business executives, corporate delegations,
                 and high-net-worth travellers. Mercedes-Benz S-Class, E-Class, and V-Class vehicles with suited
-                professional drivers. Discretion, punctuality, and first-class comfort guaranteed.
+                professional drivers. Discretion, punctuality and first-class comfort.
               </p>
             </div>
 
@@ -214,7 +214,7 @@ export default function HomeSEOContent() {
           <div className="grid md:grid-cols-2 gap-6">
             {[
               { title: "NCC-Licensed Professional Drivers", body: "All our drivers hold the Italian NCC (Noleggio Con Conducente) professional licence, the licence for professional private hire with a driver in Italy. You are in safe, qualified, and fully insured hands." },
-              { title: "Fixed Prices — No Surprises", body: "Every quote is fixed and all-inclusive. The price confirmed at booking is the price you pay on arrival — regardless of traffic or tolls. Any extended waiting or night and holiday surcharge is shown in your quote before you book. Metered taxis and unregulated apps cannot offer this guarantee." },
+              { title: "Fixed Prices — No Surprises", body: "Every quote is fixed and all-inclusive. The price confirmed at booking is the price you pay on arrival — regardless of traffic or tolls. Any extended waiting or night and holiday surcharge is shown in your quote before you book. Metered taxis and ride apps work differently." },
               { title: "24/7 Availability", body: "Our dispatch team and driver network operate around the clock, every day of the year. Whether your flight lands at 3am on Christmas Day or you need a last-minute transfer at midnight, we are available." },
               { title: "Flight Tracking Included", body: "Every airport pickup automatically includes real-time flight monitoring. If your flight is delayed or lands early, your driver adjusts without any action on your part. If your flight changes, we contact you to adjust the pickup." },
               { title: "Premium Fleet", body: "Our vehicles are exclusively late-model, well-maintained, and cleaned between every journey. The fleet includes Mercedes-Benz E-Class and S-Class sedans for individual and couple travel, V-Class minivans for families and small groups, and, in some areas, larger Sprinter-class vehicles for group transfers." },

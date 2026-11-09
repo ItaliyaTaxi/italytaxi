@@ -34,7 +34,7 @@ const faqs = [
   },
   {
     q: "Posso prenotare un tour privato dalla mia nave da crociera in Italia?",
-    a: "Sì. Siamo esperti di escursioni dai porti crocieristici di Civitavecchia (Roma), Livorno (Firenze/Toscana), Napoli (Pompei/Amalfi), Venezia e Genova. Pianifichiamo il tour con precisione intorno alla partenza della tua nave e garantiamo il rientro prima dell'orario di reimbarco."
+    a: "Sì. Siamo esperti di escursioni dai porti crocieristici di Civitavecchia (Roma), Livorno (Firenze/Toscana), Napoli (Pompei/Amalfi), Venezia e Genova. Pianifichiamo il tour con precisione intorno alla partenza della tua nave, con un rientro pianificato con ampio anticipo sull'orario di imbarco."
   },
   {
     q: "Il prezzo del tour è a persona o per veicolo?",
@@ -101,7 +101,7 @@ export default function PrivateToursPageIt() {
           "La differenza fondamentale tra un tour privato in taxi e un'escursione di gruppo è l'assenza di compromessi. In un tour di gruppo, visiti ciò che ha votato la maggioranza, ti muovi quando lo dice la guida e trascorri il tuo tempo in compagnia di persone che potrebbero non condividere i tuoi interessi. In un tour privato, ogni decisione è tua.",
           "Vuoi trascorrere due ore in una singola cantina toscana invece di visitarne frettolosamente tre? Fatto. Vuoi fermarti a un punto panoramico che non fa parte di nessun itinerario standard perché l'hai notato su una rivista? Assolutamente sì. Vuoi saltare le sezioni affollate di Pompei e concentrarti esclusivamente sulle terme meno visitate? Il tuo autista saprà esattamente dove andare.",
           "I nostri autisti non sono semplici conducenti passivi — sono compagni coinvolti e competenti che amano condividere la loro conoscenza dell'Italia. Sanno quali punti panoramici sono migliori con la luce del mattino, quali ristoranti sono davvero locali e quali visite è meglio programmare per evitare la folla peggiore.",
-          "Le escursioni dai porti crocieristici sono una delle nostre specialità più richieste. Ti preleviamo dal molo di Civitavecchia, Livorno, Napoli o Venezia e costruiamo l'intera giornata intorno all'orario di reimbarco della tua nave — con un rientro garantito che ti lascia un margine comodo prima della partenza.",
+          "Le escursioni dai porti crocieristici sono una delle nostre specialità più richieste. Ti preleviamo dal molo di Civitavecchia, Livorno, Napoli o Venezia e costruiamo l'intera giornata intorno all'orario di reimbarco della tua nave — con un rientro pianificato con ampio anticipo sull'orario di imbarco.",
           "Per le famiglie, i nostri tour eliminano tutta la pressione logistica che deriva dal viaggiare con bambini. Non ci sono bagagli da trascinare nelle stazioni della metro, nessuna coincidenza persa con un autobus e nessun ritmo affrettato. I bambini si godono il viaggio, i genitori si godono l'esperienza."
         ]}
         benefits={[
