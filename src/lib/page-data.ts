@@ -1102,7 +1102,7 @@ export const routes: RouteData[] = [
     {
         slug: 'rome-fiumicino-to-civitavecchia-taxi', from: 'Rome Fiumicino Airport', to: 'Civitavecchia Port',
         title: 'Rome Fiumicino to Civitavecchia Port Taxi Transfer', hero_image: '/images/cruise-port-transfer.webp',
-        description: 'Direct private transfer from Rome Fiumicino Airport to Civitavecchia cruise port. Ideal for cruise passengers who need to reach their ship quickly and reliably, with flight tracking and a guaranteed pickup.',
+        description: 'Direct private transfer from Rome Fiumicino Airport to Civitavecchia cruise port. Ideal for cruise passengers who need to reach their ship quickly and reliably, with flight tracking and a confirmed pickup time.',
         distance: '~70 km', duration: '~1 hour', price: '€110',
         highlights: ['Airport-to-ship direct transfer', 'Flight tracking for cruise embarkation', 'Help with luggage', 'No train changes', 'Fixed all-inclusive price'],
         faqs: [

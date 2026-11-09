@@ -172,7 +172,7 @@ export default function VenetoTransferContent({ combo }: { combo: VenetoTransfer
                             <h2 className="text-2xl font-bold text-navy mt-8 mb-4">Why Choose Our Private Transfer</h2>
                             <p className="text-gray-700 leading-relaxed mb-4">
                                 {dep
-                                    ? `A pre-booked car from ${dest.name} guarantees a pickup at a set time and a fixed price, so you avoid dragging luggage through ${airport.publicAlt} on the way to ${airport.short}.`
+                                    ? `A pre-booked car from ${dest.name} gives you a confirmed pickup time and a fixed price, so you avoid dragging luggage through ${airport.publicAlt} on the way to ${airport.short}.`
                                     : `A private transfer replaces ${airport.publicAlt} with one direct ride: a driver waiting for your flight, help with your bags and a fixed price agreed before you travel.`}
                             </p>
                             <div className="overflow-x-auto my-6">

@@ -175,7 +175,7 @@ export default function BolognaCruiseContent({ combo }: { combo: BolognaCruiseCo
                             <h2 className="text-2xl font-bold text-navy mt-8 mb-4">Why Choose Our Private Transfer</h2>
                             <p className="text-gray-700 leading-relaxed mb-4">
                                 {dep
-                                    ? `Cruise embarkation has a hard deadline — miss the boarding window and the ship leaves without you. A pre-booked car from ${origin.name} removes that risk with a guaranteed pickup, a driver who knows the fastest route to Ravenna, and a fixed price agreed before you travel.`
+                                    ? `Cruise embarkation has a hard deadline — miss the boarding window and the ship leaves without you. A pre-booked car from ${origin.name} removes that risk with a confirmed pickup time, a driver who knows the fastest route to Ravenna, and a fixed price agreed before you travel.`
                                     : `After a cruise, the last thing you want is to manage luggage on public transport. A private transfer from ${port.name} means a driver waiting at the terminal, help with your bags, and one direct ride to ${origin.name} — no coach transfers or train connections.`}
                             </p>
                             {/* Pickup process */}
