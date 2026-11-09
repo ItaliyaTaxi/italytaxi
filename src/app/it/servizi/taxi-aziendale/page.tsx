@@ -106,6 +106,8 @@ export default function BusinessCorporatePageIt() {
         ]}
         pricingTitle="Panoramica dei Prezzi Taxi Executive"
         pricingNote="Ogni viaggio viene preventivato come tariffa fissa e tutto compreso — pedaggi, carburante e parcheggio inclusi, nessun tassametro e nessun costo aggiunto alla fine. Eventuali supplementi notturni, festivi o per attesa aggiuntiva previsti dalle nostre condizioni sono indicati nel preventivo prima della prenotazione."
+        pricingFootnote="Richiedi un preventivo esatto tramite il nostro modulo."
+        ctaButtonText="Richiedi un preventivo"
         pricing={pricing}
         relatedLinks={[
           { label: "Transfer Aeroportuali", href: "/it/servizi/trasferimenti-aeroportuali" },

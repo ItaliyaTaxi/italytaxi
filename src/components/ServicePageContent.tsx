@@ -45,6 +45,9 @@ export interface ServicePageContentProps {
      *  and extra-waiting journeys — so this must not claim "no surcharges".
      *  Italian service pages pass their own translation. */
     pricingNote?: string;
+    /** Small print under the price cards. Italian service pages pass their
+     *  own translation; other pages keep the English default. */
+    pricingFootnote?: string;
 
     /** Popular routes */
     routesTitle?: string;
@@ -63,6 +66,10 @@ export interface ServicePageContentProps {
 
     /** WhatsApp CTA number */
     whatsapp?: string;
+
+    /** Text of the main button in the bottom CTA. Italian service pages pass
+     *  their own translation; other pages keep the English default. */
+    ctaButtonText?: string;
 }
 
 /* There are deliberately no default testimonials. The three hardcoded
@@ -86,6 +93,8 @@ export default function ServicePageContent({
     reviews = [],
     relatedLinks,
     whatsapp = "923148932631",
+    pricingFootnote = "* Prices vary by vehicle type and pick-up location. Request an exact quote via our booking form.",
+    ctaButtonText = "Request Your Quote",
 }: ServicePageContentProps) {
     return (
         <>
@@ -179,7 +188,7 @@ export default function ServicePageContent({
                                 </div>
                             ))}
                         </div>
-                        <p className="text-center text-gray-500 text-sm mt-8">* Prices vary by vehicle type and pick-up location. Request an exact quote via our booking form.</p>
+                        <p className="text-center text-gray-500 text-sm mt-8">{pricingFootnote}</p>
                     </div>
                 </section>
             )}
@@ -270,7 +279,7 @@ export default function ServicePageContent({
                     <p className="text-gray-400 text-lg mb-10 max-w-2xl mx-auto">Secure your private taxi in minutes. Fixed prices, professional drivers, and 24/7 customer support.</p>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                         <TaxiButton href="/book-now" className="md:scale-110">
-                            Request Your Quote
+                            {ctaButtonText}
                         </TaxiButton>
                         <a
                             href={`https://wa.me/${whatsapp}?text=Hi%2C%20I'd%20like%20to%20book%20a%20private%20taxi%20in%20Italy.`}

@@ -115,6 +115,8 @@ export default function CruisePortTransfersPageIt() {
         ]}
         pricingTitle="Esempi di Tariffe per il Trasferimento dal Porto"
         pricingNote="Ogni viaggio viene preventivato come tariffa fissa e tutto compreso — pedaggi, carburante e parcheggio inclusi, nessun tassametro e nessun costo aggiunto alla fine. Eventuali supplementi notturni, festivi o per attesa aggiuntiva previsti dalle nostre condizioni sono indicati nel preventivo prima della prenotazione."
+        pricingFootnote="Richiedi un preventivo esatto tramite il nostro modulo."
+        ctaButtonText="Richiedi un preventivo"
         pricing={pricing}
         routesTitle="I Percorsi di Trasferimento dal Porto Più Richiesti"
         routes={routes}

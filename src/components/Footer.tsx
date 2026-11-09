@@ -78,7 +78,7 @@ export default function Footer() {
                             <li><Link href="/about-us" className="hover:text-gold transition-colors">About Us</Link></li>
                             <li><Link href="/drivers" className="hover:text-gold transition-colors">Our Drivers</Link></li>
                             <li><Link href="/contact" className="hover:text-gold transition-colors">Contact Us</Link></li>
-                            <li><Link href="/book-now" className="hover:text-gold transition-colors">Instant Booking Page</Link></li>
+                            <li><Link href="/book-now" className="hover:text-gold transition-colors">Request a Quote</Link></li>
                         </ul>
                     </div>
 
