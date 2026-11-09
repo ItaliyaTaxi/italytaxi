@@ -1,11 +1,33 @@
 "use client";
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { ChevronDown } from 'lucide-react';
 
 interface FAQ {
     q: string;
     a: string;
+    /** Optional internal link. The first occurrence of `text` inside `a` is
+     *  rendered as a link to `href`; the visible wording is unchanged, and the
+     *  FAQPage schema always uses the plain `a` string, so the two stay
+     *  identical. FAQs without this field render exactly as before. */
+    link?: { text: string; href: string };
+}
+
+function renderAnswer(faq: FAQ) {
+    if (!faq.link) return faq.a;
+    const start = faq.a.indexOf(faq.link.text);
+    if (start === -1) return faq.a;
+    const end = start + faq.link.text.length;
+    return (
+        <>
+            {faq.a.slice(0, start)}
+            <Link href={faq.link.href} className="text-gold font-semibold hover:underline">
+                {faq.link.text}
+            </Link>
+            {faq.a.slice(end)}
+        </>
+    );
 }
 
 interface FAQSectionProps {
@@ -107,7 +129,7 @@ export default function FAQSection({
                                 >
                                     <div className="overflow-hidden">
                                         <p className={`${isDark ? 'text-gray-400' : 'text-gray-500'} leading-relaxed text-sm px-8 pb-6 pt-0`}>
-                                            {faq.a}
+                                            {renderAnswer(faq)}
                                         </p>
                                     </div>
                                 </div>

@@ -65,29 +65,11 @@ export interface ServicePageContentProps {
     whatsapp?: string;
 }
 
-const defaultReviews: ReviewItem[] = [
-    {
-        name: "James T.",
-        country: "🇬🇧 United Kingdom",
-        rating: 5,
-        text: "Absolutely seamless airport pickup from Fiumicino. Driver was professional, vehicle was immaculate. Will use Italy Taxi Service every visit.",
-        date: "March 2025"
-    },
-    {
-        name: "Sofia M.",
-        country: "🇺🇸 United States",
-        rating: 5,
-        text: "Booked for our family trip from Rome to Florence. Comfortable van, friendly driver, and the price was completely transparent. Highly recommend.",
-        date: "February 2025"
-    },
-    {
-        name: "Marco R.",
-        country: "🇩🇪 Germany",
-        rating: 5,
-        text: "Used their business taxi service for a week of meetings across Milan. Punctual every single time, discreet and very professional drivers.",
-        date: "January 2025"
-    }
-];
+/* There are deliberately no default testimonials. The three hardcoded
+ * reviews and the "4.9 / 5 across 500+ reviews" line that used to render
+ * here on every page that omitted `reviews` were not substantiated, so they
+ * have been removed. The reviews section now renders only on a page that
+ * passes its own `reviews`. */
 
 export default function ServicePageContent({
     introTitle,
@@ -101,7 +83,7 @@ export default function ServicePageContent({
     routesTitle = "Popular Routes",
     routes,
     afterPricing,
-    reviews = defaultReviews,
+    reviews = [],
     relatedLinks,
     whatsapp = "923148932631",
 }: ServicePageContentProps) {
@@ -197,7 +179,7 @@ export default function ServicePageContent({
                                 </div>
                             ))}
                         </div>
-                        <p className="text-center text-gray-500 text-sm mt-8">* Prices vary by vehicle type and pick-up location. Get an exact quote instantly via our booking form.</p>
+                        <p className="text-center text-gray-500 text-sm mt-8">* Prices vary by vehicle type and pick-up location. Request an exact quote via our booking form.</p>
                     </div>
                 </section>
             )}
@@ -239,10 +221,6 @@ export default function ServicePageContent({
                         <div className="text-center mb-14">
                             <p className="text-gold text-sm font-bold uppercase tracking-[0.4em] mb-4">Customer Stories</p>
                             <h2 className="text-4xl md:text-5xl font-extrabold text-navy leading-tight">Trusted by Thousands of Travelers</h2>
-                            <div className="flex items-center justify-center gap-1 mt-6">
-                                {[...Array(5)].map((_, i) => <Star key={i} className="w-5 h-5 fill-gold text-gold" />)}
-                                <span className="text-gray-500 text-sm ml-2">4.9 / 5 across 500+ reviews</span>
-                            </div>
                         </div>
                         <div className="grid md:grid-cols-3 gap-8">
                             {reviews.map((r, i) => (
@@ -292,7 +270,7 @@ export default function ServicePageContent({
                     <p className="text-gray-400 text-lg mb-10 max-w-2xl mx-auto">Secure your private taxi in minutes. Fixed prices, professional drivers, and 24/7 customer support.</p>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                         <TaxiButton href="/book-now" className="md:scale-110">
-                            Book Now — Instant Confirmation
+                            Request Your Quote
                         </TaxiButton>
                         <a
                             href={`https://wa.me/${whatsapp}?text=Hi%2C%20I'd%20like%20to%20book%20a%20private%20taxi%20in%20Italy.`}

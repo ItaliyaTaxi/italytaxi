@@ -88,7 +88,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: "How much does a private taxi from Rome Fiumicino airport cost?",
-    a: "A private taxi transfer from Rome Fiumicino (FCO) to Rome city centre starts from €45 for a standard sedan (up to 3 passengers). Prices are fully fixed at booking and include all tolls, motorway charges, fuel, parking and waiting time within the complimentary period. Nothing is added at the end of the journey without your prior agreement. Journeys starting between 22:00 and 06:00, on Italian public holidays, and over Christmas and New Year can carry a surcharge — where one applies it is shown in your quote before you book, never afterwards. Payment is by cash to the driver on the day of service, which is the standard method; Visa and Mastercard can also be accepted through a secure online payment link, and bank transfer is available for pre-approved advance bookings."
+    a: "A private taxi transfer from Rome Fiumicino (FCO) to Rome city centre starts from €45 for a standard sedan (up to 3 passengers). Prices are fully fixed at booking and include all tolls, motorway charges, fuel, parking and waiting time within the complimentary period. Nothing is added at the end of the journey without your prior agreement. Journeys starting between 22:00 and 06:00, on Italian public holidays, and over Christmas and New Year can carry a surcharge — where one applies it is shown in your quote before you book, never afterwards. You can pay by card, through a secure online payment link, or in cash to the driver on the day of your transfer."
   },
   {
     q: "How long does it take to get from FCO to Rome city centre?",
@@ -96,7 +96,7 @@ const faqs = [
   },
   {
     q: "Can your drivers enter the Rome ZTL (restricted traffic zone)?",
-    a: "Yes. All our drivers hold professional NCC (Noleggio Con Conducente) licences, which legally authorise them to enter Rome's Zona a Traffico Limitato (ZTL) and drive directly to hotels in the historic centre, Trastevere, Parioli, and other restricted areas. Standard taxis and private cars without this authorisation cannot legally enter these zones."
+    a: "Often, yes, but it depends on the exact address. We check ZTL access for your hotel or apartment when we confirm your booking. Where a car can't enter, the driver stops at the nearest point a car can legally reach and helps with your luggage from there. Fully pedestrian streets can't be reached by any vehicle."
   },
   {
     q: "Do you serve Rome Ciampino Airport (CIA) as well?",
@@ -109,6 +109,18 @@ const faqs = [
   {
     q: "Can I book a transfer from Rome to other cities like Florence or Naples?",
     a: "Yes. In addition to airport transfers, we offer private city-to-city transfers from Rome. Popular routes include Rome to Florence (approx. 3 hours), Rome to Naples (approx. 2.5 hours), Rome to Pompeii (approx. 3 hours), and Rome to the Amalfi Coast. These can be booked as one-way or return journeys."
+  },
+  {
+    q: "How does a pre-booked transfer compare with an official Rome taxi?",
+    a: "Licensed Rome taxis charge a fixed €55 from Fiumicino and €40 from Ciampino to anywhere inside the Aurelian Walls; outside the walls — EUR, Parioli, Ostia — they run on the meter. Our transfers are quoted per journey on request: send your flight, address, passengers and luggage, and you receive a fixed, all-inclusive price before you confirm. Your driver tracks the flight and waits in arrivals with a name sign."
+  },
+  {
+    q: "Where do I meet my driver at Fiumicino?",
+    a: "Your driver waits in the arrivals hall of your terminal — T1 or T3 — at the meet-and-greet point just outside the baggage claim exit, holding a sign with your name. Your driver's phone number is sent to you within 24 hours before your transfer."
+  },
+  {
+    q: "Can I pay by card?",
+    a: "Yes. You can pay by card, through a secure online payment link, or in cash to the driver on the day of your transfer."
   }
 ];
 
@@ -157,7 +169,7 @@ export default function RomeAirportTransferPage() {
       <PageHero
         titleTop="Rome Airport Transfer"
         titleBottom="Private Taxi FCO & CIA"
-        description="Fixed-price private transfers from Fiumicino and Ciampino airports to any Rome address. Professional NCC drivers, meet & greet inside arrivals, 60 minutes free waiting time."
+        description="Fixed-price private transfers from Fiumicino and Ciampino airports to any Rome address. Professional NCC drivers, meet & greet inside arrivals, 60 minutes free waiting time for international arrivals."
         backgroundImage="/images/rome airport.webp"
         buttonText="Book Rome Transfer Now"
         breadcrumbs={[
@@ -167,25 +179,25 @@ export default function RomeAirportTransferPage() {
       />
 
       <ServicePageContent
-        introTitle="Rome's Most Reliable Private Airport Transfer Service"
+        introTitle="Private Airport Transfers from Fiumicino and Ciampino"
         introParagraphs={[
-          "Arriving at Rome Fiumicino International Airport — Leonardo da Vinci, Italy's busiest airport — you face a choice: join the metered taxi queue, risk an unlicensed tout, navigate the train to Termini, or step directly into a pre-arranged private vehicle with a professional driver waiting at arrivals with your name. Italy Taxi Service makes that choice easy. Our private airport transfer from Rome FCO is fixed-price, fully pre-booked, and handled by NCC-licensed professional drivers who are legally authorised to deliver you directly to your accommodation — even inside Rome's ZTL restricted historic centre.",
-          "Rome Fiumicino Airport (IATA: FCO) serves over 40 million passengers annually across four terminals and is located 32 km south-west of the city. The standard taxi queue at FCO carries an official fixed tariff for licensed Rome taxis — but this only applies to four-door taxis registered in Rome. Unlicensed touts quoting flat fares outside the terminal are unregulated and frequently overcharge. Our private transfer eliminates this uncertainty completely: a named, professional driver, in a named, insured vehicle, at a confirmed, all-inclusive price.",
+          "Arriving at Rome Fiumicino International Airport — Leonardo da Vinci, Italy's busiest airport — you face a choice: join the metered taxi queue, risk an unlicensed tout, navigate the train to Termini, or step directly into a pre-arranged private vehicle with a professional driver waiting at arrivals with your name. Italy Taxi Service makes that choice easy. Our private airport transfer from Rome FCO is fixed-price, fully pre-booked, and handled by NCC-licensed professional drivers, and if your accommodation is inside Rome's ZTL restricted historic centre, we check ZTL access for your exact address when we confirm your booking.",
+          "Rome Fiumicino Airport (IATA: FCO) serves over 40 million passengers annually across its terminals and is located 32 km south-west of the city. The standard taxi queue at FCO carries an official fixed tariff for licensed Rome taxis — but this only applies to four-door taxis registered in Rome. Unlicensed touts quoting flat fares outside the terminal are unregulated and frequently overcharge. Our private transfer eliminates this uncertainty completely: a named, professional driver, in a named, insured vehicle, at a confirmed, all-inclusive price.",
           "For travellers arriving at Rome Ciampino Airport (CIA) — the city's second airport serving Ryanair, Wizz Air, and other low-cost carriers — the situation is even more challenging. Ciampino has no direct rail connection to Rome city centre and the licensed taxi supply is limited, meaning queues can be extremely long during peak arrivals. Our private taxi from Ciampino to Rome starts from just €35 and is available around the clock.",
         ]}
         detailTitle="How Your Rome Airport Transfer Works"
         detailParagraphs={[
-          "Book your Rome airport transfer online in under two minutes. Enter your flight number, pickup airport (FCO or CIA), your accommodation address in Rome, the number of passengers, and your preferred vehicle class. You will receive instant email confirmation with your driver's mobile number and full meeting instructions.",
+          "Send your request through the booking form or WhatsApp with your flight number, airport (FCO or CIA), address, passengers and luggage. We usually reply within 2–3 hours with a fixed, all-inclusive quote. Once you accept, you receive a written confirmation with meeting instructions.",
           "On the day of travel, our system tracks your flight in real-time. Your driver departs for the airport timed to your actual landing — not just your scheduled arrival. After landing, clear immigration and customs at your own pace. Your driver is waiting in the arrivals hall with a personalised name board, positioned at the standard meet-and-greet point outside the baggage claim exit.",
-          "Once you reach your driver, luggage is loaded and you depart directly for your destination. For hotels and apartments inside Rome's ZTL (the historic pedestrian zone covering most of the city centre), our NCC licence authorises entry at any time, delivering you to the door of your accommodation without the need to park, walk, or navigate Rome's complex restricted zones.",
+          "Once you reach your driver, luggage is loaded and you depart directly for your destination. For hotels and apartments inside Rome's ZTL (the historic pedestrian zone covering most of the city centre), we check ZTL access for your exact address when we confirm your booking, and where a car can't enter, the driver stops at the nearest point a car can legally reach and helps with your luggage from there.",
           "The journey from FCO to central Rome takes approximately 40–55 minutes via the direct A91 motorway, which your driver navigates using real-time traffic data to choose the fastest route. All motorway tolls are included in your quoted price — there is nothing to pay on arrival beyond the confirmed fare.",
           "For travellers staying in the EUR business district, Ostia, Parioli, or Trastevere, our drivers know every neighbourhood intimately and will take the most efficient route given current conditions. For the Vatican area and Prati district, FCO is actually closer than most visitors realise — often just 30–35 minutes with light traffic.",
-          "Our premium Rome airport transfer vehicles include Mercedes-Benz E-Class sedans for individuals and couples, S-Class executive cars for business travellers and VIP guests, and V-Class minivans for families and groups of up to eight passengers. All vehicles are air-conditioned, clean, and include complimentary water bottles.",
+          "Our premium Rome airport transfer vehicles include Mercedes-Benz E-Class sedans for individuals and couples, S-Class executive cars for business travellers and VIP guests, and V-Class minivans for families and groups of up to seven passengers. All vehicles are air-conditioned, clean, and include complimentary water bottles.",
         ]}
         benefits={[
           "Fixed all-inclusive price confirmed before you book — tolls, parking and fuel included, and the figure you confirm is the figure you pay.",
           "Private taxi from Ciampino (CIA) from just €35",
-          "NCC-licensed drivers with full ZTL authorisation for Rome's historic centre",
+          "ZTL access checked for your exact address when you book",
           "Meet & Greet inside arrivals hall with personalised name sign",
           "Real-time flight tracking — driver adjusts automatically for delays",
           "60 minutes free waiting time for international arrivals",
@@ -194,7 +206,7 @@ export default function RomeAirportTransferPage() {
           "English-speaking professional drivers",
           "Onward transfers available to Florence, Naples, and other Italian cities",
           "Free cancellation up to 24 hours before travel",
-          "Instant booking confirmation with driver contact details",
+          "Written confirmation once you accept your quote",
         ]}
         pricingTitle="Rome Airport Transfer Prices"
         pricing={pricing}
@@ -230,11 +242,11 @@ export default function RomeAirportTransferPage() {
             </h2>
             <p>
               Leonardo da Vinci International Airport — universally known as Fiumicino — is Italy&apos;s largest
-              airport and one of the busiest in Europe, handling more than 40 million passengers annually across
-              four active terminals (T1, T2, T3 international, and T5 for US pre-clearance flights). The airport is
+              airport and one of the busiest in Europe, handling more than 40 million passengers a year through two
+              passenger terminals: T1 for Schengen flights and T3 for non-Schengen and long-haul flights. The airport is
               located 32 km south-west of Rome&apos;s historic centre via the A91 motorway. Our{' '}
-              <strong>private taxi from Rome Fiumicino</strong> covers all four terminals with individual meetingpoints
-              in each arrivals hall, and we serve all destinations within Rome and the surrounding Lazio region.
+              <strong>private taxi from Rome Fiumicino</strong> covers both arrivals halls, T1 and T3, with a meeting point
+              in each, and we serve all destinations within Rome and the surrounding Lazio region.
             </p>
           </div>
           <div>
@@ -243,8 +255,8 @@ export default function RomeAirportTransferPage() {
             </h3>
             <p>
               Rome Ciampino Airport is the city&apos;s second airport, located 15 km south-east of the city centre
-              and primarily serving low-cost airlines. Despite its smaller size, Ciampino consistently has the
-              longest taxi queues in Italy relative to passenger volume — particularly on Friday evenings and Sunday
+              and primarily serving low-cost airlines. Despite its smaller size, Ciampino often has long taxi
+              queues — particularly on Friday evenings and Sunday
               nights when Ryanair and Wizz Air flights arrive in clusters. A pre-booked{' '}
               <strong>private taxi from Ciampino to Rome centre</strong> bypasses this entirely. Our drivers wait
               inside the terminal, assist with luggage, and have you en route within minutes of clearing arrivals.
@@ -254,11 +266,12 @@ export default function RomeAirportTransferPage() {
             <h3 className="text-2xl font-bold text-[#0F1C2E] mb-3">Rome ZTL — Why You Need an NCC Driver</h3>
             <p>
               Rome&apos;s ZTL system covers almost the entire historic city centre — including Piazza Navona,
-              Campo de&apos; Fiori, the Colosseum area, Trastevere, and large parts of the centro storico. Standard
-              cars and non-authorised taxis cannot enter these zones at most hours. Tourists who attempt to use
+              Campo de&apos; Fiori, the Colosseum area, Trastevere, and large parts of the centro storico. Private
+              cars and unauthorised vehicles cannot enter these zones during restricted hours. Tourists who attempt to use
               rideshare apps or standard rental cars to reach hotels in the historic centre frequently receive
-              large fines and find their accommodation is physically unreachable by road. Our NCC-licensed drivers
-              are specifically authorised to enter ZTL zones and drive to any address within them. This is one of
+              large fines or find that their accommodation sits on a street closed to traffic. We check ZTL access
+              for your exact address when we confirm your booking, and where a car can&apos;t enter, the driver stops at
+              the nearest point a car can legally reach and helps with your luggage from there. This is one of
               the most significant practical advantages of booking a professional{' '}
               <strong>private transfer in Rome</strong>.
             </p>

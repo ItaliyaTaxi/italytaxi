@@ -95,7 +95,7 @@ export const translations = {
             steps: [
                 {
                     title: 'Book Online',
-                    desc: 'Choose your destination and vehicle type. Get instant fixed pricing with no hidden fees.',
+                    desc: 'Choose your destination and vehicle type. Get a fixed, all-inclusive quote with no hidden fees.',
                 },
                 {
                     title: 'Meet Your Driver',
@@ -255,7 +255,7 @@ export const translations = {
             steps: [
                 {
                     title: 'Prenota Online',
-                    desc: 'Scegli la tua destinazione e il tipo di veicolo. Ottieni prezzi fissi istantanei senza costi nascosti.',
+                    desc: 'Scegli la tua destinazione e il tipo di veicolo. Ricevi un preventivo fisso e tutto incluso, senza costi nascosti.',
                 },
                 {
                     title: 'Incontra il Tuo Autista',

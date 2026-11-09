@@ -59,6 +59,19 @@ const faqs = [
   {
     q: "Do you cover multi-city business itineraries?",
     a: "Yes. Multi-city journeys across Rome, Milan, Florence and Bologna are a common request, either as separate transfers or as hourly hire for part of a day. Send the full schedule and we will quote each leg so you can see the cost before committing."
+  },
+  {
+    q: "Do you offer corporate taxi accounts with monthly invoicing?",
+    a: "No. We don't run corporate accounts or consolidated monthly invoices. Instead, each transfer is quoted at a fixed, all-inclusive price and invoiced individually where applicable, which is usually what an expense claim needs. Companies can send a whole travel schedule in one request, and every leg comes back quoted together."
+  },
+  {
+    q: "Can I pre-book several cars for an event at Fiera Milano?",
+    a: "Yes. We run airport-to-Fiera and hotel-to-Fiera transfers for Rho-Pero, Fieramilanocity and MiCo. For the opening and closing days of large fairs like Salone del Mobile or EICMA, book early, because arrivals cluster on those days.",
+    link: { text: "Rho-Pero, Fieramilanocity and MiCo", href: "/milan-chauffeur-service#exhibition-venues" }
+  },
+  {
+    q: "Is your service suitable for executives travelling late at night?",
+    a: "Yes. We operate 24/7 with licensed, insured NCC drivers in unmarked vehicles. For airport arrivals we track the flight and the driver meets you inside the arrivals hall with a name sign, so there's no waiting outside or searching for a car."
   }
 ];
 
@@ -91,7 +104,7 @@ export default function BusinessCorporatePage() {
       <ServicePageContent
         introTitle="Private Transfers for Business Travel in Italy"
         introParagraphs={[
-          "Business travel puts a different set of demands on ground transport: the pickup has to fit the meeting, the arrival has to survive a delayed flight, and the cost has to be clear enough to put through expenses. We arrange private transfers across Italy for executives, client-facing teams, conference delegates and visiting colleagues.",
+          "Business travel puts a different set of demands on ground transport: the pickup has to fit the meeting, the arrival has to survive a delayed flight, and the cost has to be clear enough to put through expenses. We arrange private transfers across Italy for corporate and business travel — executives, client-facing teams, conference delegates and visiting colleagues.",
           "That covers a single airport pickup for one traveller, a run of hotel and office transfers across a two-day visit, or several vehicles meeting a delegation arriving on different flights. Each journey is quoted on its own, so you know the price before anyone travels.",
           "Executive vehicles used for business bookings are late-model Mercedes-Benz sedans and Vito minivans with leather interiors and climate control. Wi-Fi is available on request — specify it at booking so the right vehicle is assigned."
         ]}
