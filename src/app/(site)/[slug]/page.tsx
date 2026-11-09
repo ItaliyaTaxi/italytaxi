@@ -174,7 +174,7 @@ export default async function AirportHotelTransferPage({ params }: { params: Pro
         { q: `Can I pay online and is the price fixed?`, a: `Yes — the fare is fixed and agreed before travel with no meter, and secure online payment is available.` },
         { q: `Do you provide child seats?`, a: `Yes, infant, toddler and booster seats are available on request — just add your children's ages when booking.` },
         { q: `How much luggage is included?`, a: `Tell us the number of passengers and bags and we'll assign the right vehicle, from a sedan up to a minivan or larger, so everything fits comfortably.` },
-        { q: `Can the driver reach ${hotel.name} in ${hotel.area}?`, a: `Yes — as a licensed service we reach ${hotel.name} door-to-door, including streets within Rome's limited-traffic (ZTL) zones that rental cars cannot enter without fines.` },
+        { q: `Can the driver reach ${hotel.name} in ${hotel.area}?`, a: `We check ZTL access for ${hotel.name}'s address when we confirm your booking. Where a car can't enter, the driver stops at the nearest point a car can legally reach and helps with your luggage.` },
         { q: `Is the ${airport.short} to ${hotel.name} transfer available 24/7?`, a: `Yes, transfers run around the clock, including very early and late arrivals when trains and public transport at ${airport.short} are limited.` },
     ];
 
