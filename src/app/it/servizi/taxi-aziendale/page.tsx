@@ -11,7 +11,7 @@ import { enHreflangFor } from '@/lib/i18n/page-registry';
 
 export const metadata: Metadata = {
   title: "Taxi Aziendale Executive in Italia",
-  description: "Taxi aziendale e noleggio con conducente professionale in tutta Italia. Prenotazione prioritaria, veicoli executive, autisti discreti e fatturazione per conti aziendali.",
+  description: "Taxi aziendale e noleggio con conducente in tutta Italia: veicoli executive, autisti discreti, preventivo fisso per ogni viaggio e fattura per il singolo servizio ove applicabile.",
   alternates: {
     canonical: "/it/servizi/taxi-aziendale",
     languages: enHreflangFor('/it/servizi/taxi-aziendale'),
@@ -20,8 +20,8 @@ export const metadata: Metadata = {
 
 const faqs = [
   {
-    q: "Fornite fatture per i conti aziendali?",
-    a: "Sì. Forniamo fatture con IVA complete per ogni viaggio, semplificando la rendicontazione delle spese. È possibile attivare conti aziendali per la fatturazione mensile consolidata — contattaci direttamente per richieste relative agli account aziendali."
+    q: "Fornite fatture per i trasferimenti aziendali?",
+    a: "Sì. Ogni viaggio viene preventivato e fatturato singolarmente, con una fattura per il singolo trasferimento ove applicabile: di solito è quanto serve per una nota spese. Non c'è nessun conto da aprire né nulla da configurare in anticipo: inviaci i dettagli del viaggio e ricevi un prezzo fisso e tutto incluso, comprensivo di pedaggi, parcheggi e carburante."
   },
   {
     q: "Potete garantire la puntualità per gli appuntamenti con i clienti?",
@@ -40,8 +40,8 @@ const faqs = [
     a: "I nostri autisti sono formati alla discrezione professionale. I veicoli non sono contrassegnati e le conversazioni sono completamente private. Serviamo regolarmente funzionari governativi, dirigenti C-suite e personalità di alto profilo in tutta Italia."
   },
   {
-    q: "Come posso attivare un conto aziendale?",
-    a: "Contattaci via email a italytaxiservicee@gmail.com con il nome della tua azienda, i dati di registrazione e l'utilizzo mensile previsto. Configureremo il tuo account entro 24 ore e ti assegneremo un account manager dedicato."
+    q: "Offrite conti aziendali con fatturazione mensile?",
+    a: "No. Non gestiamo conti aziendali né fatture mensili consolidate. Ogni trasferimento viene preventivato a un prezzo fisso e tutto incluso e fatturato singolarmente ove applicabile, che di solito è quanto serve per una nota spese. Le aziende possono inviare l'intero programma di viaggio in un'unica richiesta e ricevere il preventivo di ogni tratta."
   },
   {
     q: "Offrite pianificazione di roadshow ed itinerari executive multi-città?",
@@ -66,9 +66,9 @@ export default function BusinessCorporatePageIt() {
       <PageHero
         titleTop="Servizi Taxi Aziendali"
         titleBottom="Executive in Italia"
-        description="Trasporto aziendale puntuale, discreto e professionale in tutta Italia. Veicoli executive con Wi-Fi, fatturazione e gestione dedicata degli account aziendali."
+        description="Trasporto aziendale puntuale, discreto e professionale in tutta Italia. Veicoli executive con Wi-Fi su richiesta, preventivo fisso per ogni viaggio e fattura per il singolo servizio ove applicabile."
         backgroundImage="/images/taxis-1.jpg"
-        buttonText="Apri un Conto Aziendale"
+        buttonText="Richiedi un preventivo aziendale"
         breadcrumbs={[
           { name: "Servizi", item: "/it/servizi" },
           { name: "Taxi Aziendale", item: "/it/servizi/taxi-aziendale" }
@@ -88,21 +88,21 @@ export default function BusinessCorporatePageIt() {
           "I nostri autisti monitorano costantemente le condizioni del traffico, le zone di cantiere e la congestione legata agli eventi nelle città italiane. Se emerge un percorso più veloce, si adattano. Questo approccio proattivo è il motivo per cui i nostri clienti aziendali mantengono una relazione a lungo termine con noi anno dopo anno.",
           "Supportiamo tutti i principali distretti d'affari italiani: Roma (quartiere EUR, Fiumicino), Milano (CityLife, Porta Nuova, Fiera), Firenze (Fortezza da Basso, Palazzo dei Congressi), Bologna (BolognaFiere) e gli aeroporti internazionali in tutto il Paese.",
           "Per la logistica di conferenze ed eventi, il nostro team può coordinare prelievi simultanei da più punti di arrivo. Forniscici il programma dei tuoi delegati e gestiremo l'intera operazione, fornendo aggiornamenti in tempo reale al tuo coordinatore evento.",
-          "I conti aziendali ricevono fatture mensili consolidate con dettagli completi delle transazioni e scorporo IVA, semplificando la rendicontazione delle spese per il tuo team finanziario ed eliminando la necessità di ricevute individuali."
+          "La fatturazione è volutamente semplice. Ogni viaggio viene preventivato, prenotato e fatturato singolarmente, con una fattura per il singolo trasferimento ove applicabile: di solito è quanto serve per una nota spese. Non c'è nessun conto da aprire: le aziende possono inviare l'intero programma di viaggio in un'unica richiesta e ricevere il preventivo di ogni tratta a un prezzo fisso e tutto incluso."
         ]}
         benefits={[
-          "Prenotazione prioritaria — sempre disponibile, anche con breve preavviso",
+          "Veicoli non contrassegnati e massima riservatezza",
           "Flotta executive Mercedes-Benz con interni in pelle",
           "Wi-Fi, caricabatterie e acqua in bottiglia forniti",
           "Autisti professionisti in uniforme, con NDA disponibile",
-          "Fatturazione mensile con scorporo IVA completo",
+          "Fattura per il singolo servizio ove applicabile",
           "Coordinamento multi-veicolo per conferenze ed eventi",
           "Monitoraggio dei voli per i prelievi all'arrivo",
           "Assistenza 24/7",
           "Pickup pianificati con margine e monitoraggio del volo",
           "Pianificazione di roadshow e itinerari multi-città",
           "Prezzi fissi o orari — trasparenti fin dall'inizio",
-          "Account manager dedicato per i clienti abituali"
+          "Un'unica richiesta per l'intero programma di viaggio"
         ]}
         pricingTitle="Panoramica dei Prezzi Taxi Executive"
         pricingNote="Ogni viaggio viene preventivato come tariffa fissa e tutto compreso — pedaggi, carburante e parcheggio inclusi, nessun tassametro e nessun costo aggiunto alla fine. Eventuali supplementi notturni, festivi o per attesa aggiuntiva previsti dalle nostre condizioni sono indicati nel preventivo prima della prenotazione."
