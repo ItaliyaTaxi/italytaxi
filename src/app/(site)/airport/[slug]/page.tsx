@@ -18,9 +18,28 @@ interface AirportRichData {
     // Optional onward-route links for this airport. Opt-in: airports that
     // omit it render exactly as before (the block below is gated on it).
     relatedRoutes?: { href: string; label: string }[];
-    // Full <title>, used verbatim in place of the generated keyword + brand
-    // title below. Opt-in: airports that omit it keep the existing title.
+    // Full <title>, used verbatim in place of the generated
+    // "{name} Transfer & Taxi | Italy Taxi Service" title below.
     seoTitle?: string;
+    // Airport-specific FAQs appended after the generic ones. Opt-in: airports
+    // that omit it render exactly the generic list. FAQSection builds the
+    // FAQPage schema from the same combined array.
+    extraFaqs?: { q: string; a: string; link?: { text: string; href: string } }[];
+}
+
+// Shorter display names used in the H1 and generated <title> where the full
+// official name would read awkwardly or run long. Airports not listed here use
+// `airport.name` from page-data unchanged.
+const AIRPORT_DISPLAY_NAMES: Record<string, string> = {
+    'bergamo': 'Milan Bergamo (Orio al Serio) Airport',
+    'treviso': 'Treviso Canova Airport',
+    'bologna-marconi': 'Bologna Airport',
+    'genoa': 'Genoa Airport',
+    'palermo': 'Palermo Airport',
+};
+
+function airportDisplayName(airport: { slug: string; name: string }): string {
+    return AIRPORT_DISPLAY_NAMES[airport.slug] ?? airport.name;
 }
 
 const airportRichData: Record<string, AirportRichData> = {
@@ -40,17 +59,40 @@ const airportRichData: Record<string, AirportRichData> = {
     },
     'milan-malpensa': {
         terminalPickup:
-            'Milan Malpensa Airport (MXP) has two terminals: Terminal 1 handles most airlines (Alitalia/ITA, major carriers) and Terminal 2 is used exclusively by EasyJet and Wizz Air. Confirm your terminal when booking — the terminals are 3km apart and not walkable. Your driver will meet you in the arrivals hall of your correct terminal, name sign displayed, immediately after you clear customs. Terminal 1: exit via Arrivals Gate 5 for the designated meet-and-greet area. Terminal 2: exit directly from the single arrivals gate — the meeting area is just outside. From MXP, the drive to Milan city centre takes approximately 50 minutes under normal conditions. If you are connecting to Lake Como (60–80 min) or Bergamo (55–70 min), confirm at booking so the driver is positioned correctly.',
+            'Milan Malpensa Airport (MXP) has two terminals: Terminal 2 is used only by easyJet; every other airline — including ITA Airways, Ryanair and Wizz Air — uses Terminal 1. Confirm your terminal when booking — the terminals are 3km apart and not walkable. Your driver will meet you in the arrivals hall of your correct terminal, name sign displayed, immediately after you clear customs. Terminal 1: exit into the arrivals hall, where your driver waits with a name sign. Terminal 2: exit directly from the single arrivals gate — the meeting area is just outside. From MXP, the drive to Milan city centre takes about 50–65 minutes under normal conditions. If you are connecting to Lake Como (about 50 min) or Bergamo (55–70 min), confirm at booking so the driver is positioned correctly.',
         travelTimes: [
-            { destination: 'Milan City Centre (Duomo)', duration: '50–65 min', note: 'Via A8-A9 motorway' },
+            { destination: 'Milan City Centre (Duomo)', duration: '50–65 min', note: 'Via SS336 and A8 motorway' },
             { destination: 'Milan Centrale Train Station', duration: '55–70 min' },
-            { destination: 'Lake Como (Como city)', duration: '55–70 min', note: 'Scenic route available' },
+            { destination: 'Lake Como (Como city)', duration: '45–60 min', note: 'Scenic route available' },
             { destination: 'Bergamo City Centre', duration: '55–70 min', note: 'Via A36 Pedemontana' },
             { destination: 'Lugano, Switzerland', duration: '70–85 min', note: 'Cross-border transfer available' },
             { destination: 'Turin City Centre', duration: '1h 45min' },
         ],
         flightDelayPolicy:
-            'For all Milan Malpensa arrivals, we monitor your flight via live tracking from the moment it departs its origin airport. The first 60 minutes of waiting after landing are complimentary and included in your booking price. For flights significantly delayed (over 2 hours), our team will proactively contact you via WhatsApp to confirm the updated itinerary. Extended waiting beyond 60 minutes is charged at €10 per 30-minute increment with your advance agreement. We never cancel a booking due to a delay — your driver remains available until you are ready. For pre-dawn arrivals (00:00–05:00), our drivers remain on standby at the airport to ensure minimal waiting on exit from customs.',
+            'For all Milan Malpensa arrivals, we monitor your flight via live tracking from the moment it departs its origin airport. The first 60 minutes of waiting after landing are complimentary and included in your booking price. For flights significantly delayed (over 2 hours), our team will proactively contact you via WhatsApp to confirm the updated itinerary. Extended waiting beyond 60 minutes is quoted in advance and only charged with your agreement. We never cancel a booking due to a delay — your driver remains available until you are ready.',
+        extraFaqs: [
+            {
+                q: 'How much is a taxi from Malpensa to Milan?',
+                a: 'Official taxis charge a fixed €114 from Malpensa to any address in the city of Milan, €94 to Fiera Milano in Rho and €128 to Linate airport, set by Regione Lombardia. Our private transfers are quoted per journey on request: send your flight, address, passengers and luggage, and you receive a fixed, all-inclusive price before you confirm, usually within 2–3 hours.',
+            },
+            {
+                q: 'Which Malpensa terminal will I arrive at?',
+                a: 'Terminal 2 is used only by easyJet; every other airline, including Ryanair and Wizz Air, uses Terminal 1. The terminals are about 3 km apart, so tell us your airline and flight number when booking and your driver will wait at the right terminal.',
+            },
+            {
+                q: 'Can you take me from Malpensa straight to Fiera Milano in Rho?',
+                a: 'Yes. Fiera Milano is on the same side of Milan as Malpensa, so the transfer avoids the city centre and takes about 25–35 minutes in normal traffic. For the opening and closing days of large fairs, book early.',
+                link: { text: 'Fiera Milano', href: '/milan-chauffeur-service#exhibition-venues' },
+            },
+            {
+                q: 'Can you drive me from Malpensa to my hotel in central Milan?',
+                a: 'Yes, door to door wherever a car can legally stop. Much of central Milan is inside the Area C charge zone and parts of the Duomo and fashion quarter are pedestrian, so send your full hotel address and we plan the route to the nearest accessible point; the driver helps with luggage from there.',
+            },
+            {
+                q: 'How long does it take from Malpensa to Lake Como?',
+                a: 'About 50 minutes to Como town in normal traffic. Bellagio takes about 1 h 35 and Varenna about 1 h 50 from Malpensa, because the lakeside roads beyond Como are slow. Tell us your exact lakeside address when booking.',
+            },
+        ],
     },
     'venice': {
         terminalPickup:
@@ -240,32 +282,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     if (!airport) return {};
     const airportName = airport.name;
 
-    const brand = " | Italy Taxi Service";
-    const templates = [
-        `${airportName} Taxi`, 
-        `Taxi from ${airportName}`,
-        `${airportName} Airport Taxi`,
-        `${airportName} Taxi Transfer`,
-        `${airportName} Airport Transfer`,
-        `${airportName} Private Taxi`,
-        `Taxi from ${airportName} Airport`,
-        `${airportName} Airport Taxi Transfer`,
-        `Private Taxi from ${airportName} Airport`,
-        `${airportName} Airport Private Transfer`,
-        `${airportName} Private Airport Taxi Transfer`
-    ].sort((a, b) => a.length - b.length);
-
-    let bestTitle = templates.find(t => (t.length + brand.length) >= 55 && (t.length + brand.length) <= 60);
-    if (!bestTitle) {
-        bestTitle = templates.reduce((prev, curr) => 
-            Math.abs((curr.length + brand.length) - 57) < Math.abs((prev.length + brand.length) - 57) ? curr : prev
-        );
-    }
-
     return {
         // An airport that sets seoTitle in airportRichData controls its whole
-        // <title>; the rest keep the generated keyword + brand title above.
-        title: { absolute: airportRichData[slug]?.seoTitle ?? bestTitle + brand },
+        // <title>; the rest use "{display name} Transfer & Taxi | Italy Taxi Service".
+        title: { absolute: airportRichData[slug]?.seoTitle ?? `${airportDisplayName(airport)} Transfer & Taxi | Italy Taxi Service` },
         description: `Book the most reliable and affordable private taxi transfer to or from ${airportName}. 24/7 service, top-rated English-speaking drivers, and fixed pricing.`,
         alternates: {
             canonical: `/airport/${slug}`,
@@ -307,7 +327,7 @@ export default async function AirportPage({ params }: { params: Promise<{ slug: 
       },
       {
         q: "What type of vehicles do you use for airport transfers?",
-        a: "We operate a premium fleet including standard sedans (Mercedes E-Class or similar), luxury minivans (Mercedes V-Class), and spacious premium vans to comfortably accommodate any group size and luggage requirement."
+        a: "We operate a premium fleet including standard sedans (Mercedes E-Class or similar) and luxury minivans (Mercedes V-Class) for up to 7 passengers; larger groups use more than one vehicle."
       }
     ];
 
@@ -324,8 +344,8 @@ export default async function AirportPage({ params }: { params: Promise<{ slug: 
             <Navbar />
 
             <PageHero
-                titleTop="Private Airport"
-                titleBottom={airport.name}
+                titleTop={airportDisplayName(airport)}
+                titleBottom="Transfer & Taxi"
                 description={`Reliable, luxury transfer service to and from ${airport.name} with professional English-speaking drivers.`}
                 backgroundImage={airport.hero_image}
                 buttonText="Book Your Airport Transfer"
@@ -488,7 +508,7 @@ export default async function AirportPage({ params }: { params: Promise<{ slug: 
                         <p className="text-gray-300 text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
                             Every airport transfer is priced individually based on your destination, vehicle type, and travel date — all fully fixed and confirmed before you land. No meters, no surprises.
                         </p>
-                        <div className="grid sm:grid-cols-3 gap-6 mb-12">
+                        <div className="grid sm:grid-cols-2 gap-6 mb-12">
                             <div className="bg-white/5 border border-white/10 rounded-[1.5rem] p-6 text-center">
                                 <div className="text-3xl mb-3">🚗</div>
                                 <h3 className="text-white font-bold mb-1">Standard Sedan</h3>
@@ -499,11 +519,6 @@ export default async function AirportPage({ params }: { params: Promise<{ slug: 
                                 <div className="text-3xl mb-3">🚐</div>
                                 <h3 className="font-bold mb-1">Luxury Minivan</h3>
                                 <p className="text-navy/70 text-sm">Up to 7 passengers + 7 bags</p>
-                            </div>
-                            <div className="bg-white/5 border border-white/10 rounded-[1.5rem] p-6 text-center">
-                                <div className="text-3xl mb-3">🚌</div>
-                                <h3 className="text-white font-bold mb-1">Premium Van</h3>
-                                <p className="text-gray-400 text-sm">Up to 8 passengers + 8 bags</p>
                             </div>
                         </div>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -589,7 +604,7 @@ export default async function AirportPage({ params }: { params: Promise<{ slug: 
                 FloatingContact links to the live profile. Do not reinstate placeholder
                 reviews here; add a Trustpilot TrustBox if an on-page widget is wanted. */}
 
-            <FAQSection faqs={airportFaqs} title={`${airport.name.split(' ')[0]} Airport FAQ`} />
+            <FAQSection faqs={[...airportFaqs, ...(rich?.extraFaqs ?? [])]} title={`${airport.name.split(' ')[0]} Airport FAQ`} />
 
             {/* Booking & CTA Section */}
             <section className="py-24 bg-[#0F1C2E] relative overflow-hidden">
@@ -604,7 +619,7 @@ export default async function AirportPage({ params }: { params: Promise<{ slug: 
                                 Book your <span className="text-gold">{airport.name}</span> transfer today!
                             </h2>
                             <p className="text-gray-400 text-lg leading-relaxed mb-10 max-w-xl">
-                                Secure your luxury airport transfer in less than 2 minutes. Get instant confirmation and travel with peace of mind.
+                                Send your flight details and receive a fixed, all-inclusive quote, usually within 2–3 hours.
                             </p>
                             <div className="space-y-6">
                                 <div className="flex items-center gap-4 group">
