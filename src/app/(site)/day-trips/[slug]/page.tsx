@@ -14,8 +14,6 @@ const STANDARD_VEHICLES: { name: string; desc: string }[] = [
     { name: 'Executive Sedan', desc: 'Business-class comfort (Mercedes E-Class or similar)' },
     { name: 'Minivan', desc: 'up to 7 passengers with luggage' },
     { name: 'Mercedes V-Class', desc: 'Premium van for groups & families' },
-    { name: 'Luxury Van', desc: 'VIP group travel in full comfort' },
-    { name: 'Group Minibus', desc: 'larger parties on request, depending on the area' },
 ];
 
 export async function generateStaticParams() {

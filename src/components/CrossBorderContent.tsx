@@ -50,7 +50,7 @@ export default function CrossBorderContent({ combo }: { combo: CrossBorderCombo 
         { q: `How long does the border crossing take?`, a: `Usually only a few minutes. ${route.countryCode === 'HR' ? 'Since Croatia joined the Schengen Area in 2023, the crossings are check-free in normal conditions.' : route.countryCode === 'CH' ? 'Switzerland is in Schengen, so it is typically a smooth pass-through with only occasional customs spot-checks.' : 'Both countries are in the Schengen Area, so it is normally a seamless pass-through.'} Your driver knows the ${route.crossing} crossing well.` },
         { q: `Is a private transfer better than the train for this route?`, a: `For international routes with luggage, groups or families it usually is: one door-to-door ride, no changes, no platform rushes, and the freedom to stop along the way. The train can be cheaper for solo travellers, but the private transfer wins on comfort and directness.` },
         { q: `Can we stop along the way?`, a: `Yes — many travellers add a short stop${route.scenic.length ? ` to enjoy ${route.scenic[0]}` : ''} or for photos and refreshments. Just let us know when booking and we can build it into your itinerary.` },
-        { q: `What vehicles are available and do you have child seats?`, a: `Choose from a sedan, executive sedan, business SUV, luxury van, Mercedes V-Class or Sprinter for larger groups. Infant, toddler and booster seats are available free on request — add your children's ages when booking.` },
+        { q: `What vehicles are available and do you have child seats?`, a: `Choose from a sedan, executive sedan, business SUV, luxury van or Mercedes V-Class; larger groups use more than one vehicle. Infant, toddler and booster seats are available free on request — add your children's ages when booking.` },
         { q: originIsAirport ? `Do you monitor my flight into ${origin}?` : `Can you collect me from a hotel, station or address?`, a: originIsAirport
             ? `Yes — we track your flight in real time and adjust the pickup automatically, with meet & greet in the arrivals hall and free waiting time after landing.`
             : `Yes — we collect you door-to-door from any hotel, home, train station, cruise port or city-centre address in ${origin}, and drop you at the exact address you need in ${dest}.` },
@@ -155,7 +155,6 @@ export default function CrossBorderContent({ combo }: { combo: CrossBorderCombo 
                                 <li><Car className="w-4 h-4 text-gold inline mr-2" /><strong>Business SUV</strong> — extra space &amp; style</li>
                                 <li><Car className="w-4 h-4 text-gold inline mr-2" /><strong>Mercedes V-Class</strong> — premium group travel</li>
                                 <li><Car className="w-4 h-4 text-gold inline mr-2" /><strong>Luxury Van</strong> — up to 7 in comfort</li>
-                                <li><Car className="w-4 h-4 text-gold inline mr-2" /><strong>Sprinter</strong> — larger groups &amp; luggage</li>
                             </ul>
 
                             {/* What's included */}

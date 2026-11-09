@@ -327,7 +327,7 @@ export const extraRoutes: RouteData[] = [
       "Fixed price agreed before you travel, with no surprises",
       "Professional English-speaking drivers, available 24/7",
       "Optional stops in Florence, Lucca or the Tuscan countryside",
-      "Sedans, minivans, Mercedes V-Class and, depending on the area, minibuses for every group size"
+      "Sedans, minivans and Mercedes V-Class — larger groups use more than one vehicle"
     ],
     "faqs": [
       {

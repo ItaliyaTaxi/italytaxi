@@ -54,7 +54,7 @@ export interface DayTrip {
     it: DayTripContent;
 }
 
-const STANDARD_VEHICLES_NOTE_EN = 'Every day trip is available in a comfortable sedan (1–3 guests), an executive Mercedes E-Class for a touch more refinement, a minivan or Mercedes V-Class for families and small groups (4–7 guests with luggage), or a larger minibus for bigger parties — all air-conditioned, all with a professional English-speaking driver-guide.';
+const STANDARD_VEHICLES_NOTE_EN = 'Every day trip is available in a comfortable sedan (1–3 guests), an executive Mercedes E-Class for a touch more refinement, a minivan or Mercedes V-Class for families and small groups (4–7 guests with luggage); larger groups use more than one vehicle — all air-conditioned, all with a professional English-speaking driver-guide.';
 const STANDARD_VEHICLES_NOTE_IT = 'Ogni gita giornaliera è disponibile con una comoda berlina (1–3 ospiti), una Mercedes Classe E executive per un tocco di raffinatezza in più, un minivan o una Mercedes Classe V per famiglie e piccoli gruppi (4–8 ospiti con bagagli), oppure un minibus più grande per comitive numerose — tutti climatizzati, tutti con un autista-guida professionista di lingua inglese.';
 
 export const dayTrips: DayTrip[] = [

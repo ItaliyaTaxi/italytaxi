@@ -59,7 +59,7 @@ export default function Home() {
     },
     {
       q: "What types of vehicles are available in your fleet?",
-      a: "We offer a range of luxury vehicles including Mercedes E-Class/S-Class sedans for up to 3 passengers, V-Class minivans for up to 7 passengers, and, in some areas, larger Sprinter vehicles for group travel."
+      a: "We offer a range of luxury vehicles including Mercedes E-Class/S-Class sedans for up to 3 passengers and V-Class minivans for up to 7 passengers; larger groups use more than one vehicle."
     },
     {
       q: "Are your drivers licensed to enter restricted traffic zones (ZTL)?",
@@ -79,7 +79,7 @@ export default function Home() {
     },
     {
       q: "How can I pay?",
-      a: "You can pay by card, through a secure online payment link, or in cash to the driver on the day of your transfer."
+      a: "Payment options are confirmed with your quote. In Rome, for example, you can pay by card, through a secure online payment link, or in cash to the driver."
     }
   ];
 
