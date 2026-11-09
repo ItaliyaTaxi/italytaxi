@@ -12,7 +12,9 @@ const HERO_IMAGE = 'https://www.italia.it/content/dam/tdh/en/destinations/puglia
 const CANONICAL = '/beach-transfer/otranto-beach-taxi';
 
 export const metadata: Metadata = {
-  title: "Otranto Beach Private Taxi Transfers | Italy Taxi Service",
+  // Absolute: the title already carries the brand, so skip the layout's
+  // "%s | Italy Taxi Service" template, which doubled it.
+  title: { absolute: "Otranto Beach Private Taxi Transfers | Italy Taxi Service" },
   description: "Private taxi transfers to Otranto and the Salento coast from Brindisi Airport, Bari Airport or Otranto itself — direct to your hotel, resort, lido or agreed address.",
   alternates: { canonical: CANONICAL },
 };

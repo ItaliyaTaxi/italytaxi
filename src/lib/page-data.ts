@@ -1617,7 +1617,7 @@ export const routes: RouteData[] = [
         highlights: ['Door-to-door Naples to Sorrento', 'Avoid the crowded local train', 'Cruise port pickup available', 'Child seats on request', 'Fixed all-inclusive price'],
         faqs: [
             { q: 'How far is Sorrento from Naples?', a: 'About 50 km, a drive of roughly 1 hour 15 minutes depending on traffic.' },
-            { q: 'Can you pick up from the Naples cruise port?', a: 'Yes, we offer cruise-port pickups to Sorrento with a guaranteed timed return for shore excursions.' },
+            { q: 'Can you pick up from the Naples cruise port?', a: 'Yes, we offer cruise-port pickups to Sorrento with a return planned well before all-aboard time, with live traffic monitoring, for shore excursions.' },
             { q: 'Is a transfer better than the Circumvesuviana?', a: 'For comfort and luggage, yes — the local train is crowded and basic, while a transfer is door-to-door.' },
         ],
         relatedLinks: [

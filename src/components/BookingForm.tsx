@@ -3,6 +3,7 @@
 import { useActionState, useState } from 'react';
 import { submitBooking } from '@/app/actions/booking';
 import TaxiButton from './TaxiButton';
+import { useLanguage } from '@/context/LanguageContext';
 
 const initialState = {
     success: false,
@@ -11,6 +12,8 @@ const initialState = {
 
 export default function BookingForm({ sourceName = 'Book Now Page' }: { sourceName?: string }) {
     const [state, formAction, isPending] = useActionState(submitBooking, initialState);
+    // URL-based, so server and client render the same label on /it/ pages.
+    const { isNativeItalianRoute } = useLanguage();
 
     const [pickup, setPickup] = useState('');
     const [dropoff, setDropoff] = useState('');
@@ -160,7 +163,7 @@ export default function BookingForm({ sourceName = 'Book Now Page' }: { sourceNa
                                 <option value="5">5 Passengers</option>
                                 <option value="6">6 Passengers</option>
                                 <option value="7">7 Passengers</option>
-                                <option value="8">8+ (more than one vehicle)</option>
+                                <option value="8">{isNativeItalianRoute ? '8+ (più di un veicolo)' : '8+ (more than one vehicle)'}</option>
                             </select>
                         </div>
                         <div className="space-y-1">

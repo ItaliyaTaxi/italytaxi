@@ -102,7 +102,7 @@ export default function CruisePortTransfersPage() {
         benefits={[
           "Port-permited drivers — pier pickup right at the gangway",
           "Real-time ship tracking — we adjust if your vessel is late",
-          "Shore excursions with all-aboard time guarantee",
+          "Shore excursions with a return planned well before all-aboard time",
           "Fixed prices confirmed at booking — no meters, no surprises",
           "All major Italian cruise ports covered",
           "Luggage assistance from ship to vehicle",

@@ -34,7 +34,7 @@ const faqs = [
   },
   {
     q: "Can I book a private tour from my cruise ship in Italy?",
-    a: "Yes. We are experts in cruise port excursions from Civitavecchia (Rome), Livorno (Florence/Tuscany), Naples (Pompeii/Amalfi), Venice, and Genoa. We time the tour precisely around your ship's departure and guarantee a return before all-aboard time."
+    a: "Yes. We are experts in cruise port excursions from Civitavecchia (Rome), Livorno (Florence/Tuscany), Naples (Pompeii/Amalfi), Venice, and Genoa. We time the tour precisely around your ship's departure and plan your return well before all-aboard time, with live traffic monitoring."
   },
   {
     q: "Is the tour price per person or per vehicle?",
@@ -101,7 +101,7 @@ export default function PrivateToursPage() {
           "The fundamental difference between a private taxi tour and a group excursion is the absence of compromise. On a group tour, you visit what the majority voted for, move when the guide says, and spend your time in the company of people who may not share your interests. On a private tour, every decision is yours.",
           "Want to spend two hours at a single Tuscan winery rather than rushing through three? Done. Want to stop at a viewpoint that isn't on any standard itinerary because you spotted it in a magazine? Absolutely. Want to skip the crowded sections of Pompeii and focus exclusively on the lesser-visited thermal baths? Your driver will know exactly where to go.",
           "Our taxi drivers are not passive drivers — they are engaged, knowledgeable companions who love sharing their knowledge of Italy. They know which viewpoints are best in the morning light, which restaurants are genuinely local, and which visits are best timed to avoid the worst crowds.",
-          "Cruise port excursions are one of our most requested specialties. We collect you from the dock at Civitavecchia, Livorno, Naples, or Venice and build your entire day around your ship's all-aboard time — with a guaranteed return that gives you a comfortable margin before departure.",
+          "Cruise port excursions are one of our most requested specialties. We collect you from the dock at Civitavecchia, Livorno, Naples, or Venice and build your entire day around your ship's all-aboard time — with a return planned well before all-aboard time, with live traffic monitoring.",
           "For families, our tours remove all the logistical pressure that comes with travelling with children. There's no luggage to wrestle through metro stations, no missing a bus connection, and no rushing pace. Children enjoy the journey, parents enjoy the experience."
         ]}
         benefits={[
@@ -111,7 +111,7 @@ export default function PrivateToursPage() {
           "Expert local drivers with deep destination knowledge",
           "Flexible pace — stop as long or as briefly as you choose",
           "Lunch and wine stops included and encouraged",
-          "Cruise port excursions with all-aboard time guarantee",
+          "Cruise port excursions with a return planned well before all-aboard time",
           "Photography stops at the best viewpoints",
           "Licensed guide booking assistance for museum interiors",
           "Perfect for families, couples, and small groups up to 7",

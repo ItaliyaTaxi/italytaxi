@@ -13,7 +13,9 @@ const CANONICAL = '/city/amalfi-coast';
 const WHATSAPP = 'https://wa.me/923148932631?text=Hi%2C%20I%27d%20like%20a%20quote%20for%20a%20private%20transfer%20on%20the%20Amalfi%20Coast.';
 
 export const metadata: Metadata = {
-    title: 'Amalfi Coast Taxi & Private Transfers | Italy Taxi Service',
+    // Absolute: the title already carries the brand, so skip the layout's
+    // "%s | Italy Taxi Service" template, which doubled it.
+    title: { absolute: 'Amalfi Coast Taxi & Private Transfers | Italy Taxi Service' },
     description: 'Book private transfers across the Amalfi Coast, including Naples Airport, cruise ports, hotels, Amalfi, Positano, Ravello and Sorrento.',
     alternates: { canonical: CANONICAL },
     openGraph: {

@@ -7,7 +7,9 @@ import { ChevronRight, Plane, Building2, TrainFront, Ship, MapPinned, Camera, Ro
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: "Private Taxi Transfers Across Italy | Italy Taxi Service",
+    // Absolute: the title already carries the brand, so skip the layout's
+    // "%s | Italy Taxi Service" template, which doubled it.
+    title: { absolute: "Private Taxi Transfers Across Italy | Italy Taxi Service" },
     description: "Book private taxi and transfer services across Italy, including Rome, Milan, Florence, Venice, Naples, the Amalfi Coast and other destinations.",
     alternates: {
         canonical: "/city",

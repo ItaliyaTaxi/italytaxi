@@ -12,7 +12,9 @@ const HERO_IMAGE = '/images/almafi.webp';
 const CANONICAL = '/route/naples-cruise-port-to-amalfi-taxi';
 
 export const metadata: Metadata = {
-    title: 'Naples Cruise Port to Amalfi Private Transfer | Italy Taxi Service',
+    // Absolute: the title already carries the brand, so skip the layout's
+    // "%s | Italy Taxi Service" template, which doubled it.
+    title: { absolute: 'Naples Cruise Port to Amalfi Private Transfer | Italy Taxi Service' },
     description: "Private transfer from Naples' Stazione Marittima cruise terminal to Amalfi, planned around your ship's arrival and all-aboard time. Approx. 70 km, around 1h45 depending on traffic.",
     alternates: { canonical: CANONICAL },
     openGraph: {

@@ -78,7 +78,7 @@ export default function LeaningTowerPisaPage() {
               Navigating Pisa's city center can be tricky for newcomers, especially with the strict ZTL (Restricted Traffic Zones) around the historic monuments. Our licensed taxis have authorized access, allowing us to drop you off and pick you up much closer than private cars or public buses.
             </p>
             <p className="text-gray-600 text-lg leading-relaxed">
-              For cruise passengers, we guarantee a 'worry-free' return to your ship. Our drivers are well-acquainted with the port schedules and traffic patterns, ensuring you have plenty of time to enjoy the sites without stressing about the time.
+              For cruise passengers, we plan your return to the ship well before all-aboard time, with live traffic monitoring. Our drivers are well-acquainted with the port schedules and traffic patterns, ensuring you have plenty of time to enjoy the sites without stressing about the time.
             </p>
           </div>
         </div>

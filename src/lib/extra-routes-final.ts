@@ -263,7 +263,7 @@ export const extraRoutesFinal: RouteData[] = [
         "a": "Yes. Your driver meets you at your Rome hotel or address, assists with luggage and provides door-to-door service. Our drivers speak English, and the service is available 24/7 with advance booking."
       }
     ],
-    "metaTitle": "Rome to Positano Private Transfer | Italy Taxi Service",
+    "seoTitleAbsolute": "Rome to Positano Private Transfer | Italy Taxi Service",
     "metaDescription": "Book a private Rome to Positano transfer with a fixed price, English-speaking driver and door-to-door service. Comfortable ride to the Amalfi Coast",
     "imageAlt": "Pastel cliffside houses of Positano tumbling down to the sea on the Amalfi Coast",
     "sections": [
@@ -373,7 +373,7 @@ export const extraRoutesFinal: RouteData[] = [
         "a": "Absolutely. You can book one-way to Amalfi or arrange a return trip back to Rome, its airports or another destination. Service is available 24/7, so early departures and late arrivals are both easy to accommodate."
       }
     ],
-    "metaTitle": "Rome to Amalfi Private Transfer | Italy Taxi Service",
+    "seoTitleAbsolute": "Rome to Amalfi Private Transfer | Italy Taxi Service",
     "metaDescription": "Book a private Rome to Amalfi transfer with a fixed price, English-speaking driver and door-to-door service. Comfortable ride to Amalfi town, around 3.5-4",
     "imageAlt": "Private transfer vehicle on the coastal road approaching Amalfi town and its seafront",
     "sections": [
@@ -778,7 +778,7 @@ export const extraRoutesFinal: RouteData[] = [
     "highlights": [
       "Driver meets you right at the Civitavecchia cruise terminal with a name sign",
       "Direct door-to-door service to any Rome hotel or address, no changes",
-      "Wait-and-return shore excursion option with a guaranteed return before all-aboard",
+      "Wait-and-return shore excursion option with a return planned well before all-aboard time",
       "Fixed price agreed at booking, with no meters and no surprise surcharges",
       "English-speaking drivers who know the port procedures and Rome traffic",
       "Comfortable sedans, minivans, Mercedes V-Class and minibuses for any group"
@@ -793,7 +793,7 @@ export const extraRoutesFinal: RouteData[] = [
         "a": "The drive covers roughly 80 km and usually takes about one hour and fifteen minutes to one and a half hours. The exact time depends on traffic and your destination within Rome, and it can be longer during busy periods."
       },
       {
-        "q": "Can you guarantee we get back before the ship departs?",
+        "q": "Will we get back before the ship departs?",
         "a": "Returning you before the all-aboard time is our priority on day trips. We agree a firm return time before setting off and keep to it throughout the day, allowing extra margin for Rome traffic so you are back in good time."
       },
       {
@@ -1212,7 +1212,7 @@ export const extraRoutesFinal: RouteData[] = [
     "duration": "~1 h 20 – 1 h 30 min",
     "highlights": [
       "Private terminal meet-up at Livorno cruise port with your name on a sign",
-      "Guaranteed return to the ship well before the all-aboard time",
+      "A return to the ship planned well before all-aboard time, with live traffic monitoring",
       "English-speaking, licensed drivers who know the Florence area",
       "Fixed price agreed at booking with no meters or surprise surcharges",
       "Comfortable door-to-door service including Florence ZTL access",
@@ -1224,7 +1224,7 @@ export const extraRoutesFinal: RouteData[] = [
         "a": "Yes. Your driver waits at the agreed meeting point at the cruise terminal with a sign showing your name. We send clear meeting instructions with your confirmation, since port access is controlled, so the connection is simple even on a busy morning."
       },
       {
-        "q": "Can you guarantee I will be back before all-aboard?",
+        "q": "Will I be back before all-aboard?",
         "a": "We plan the day backwards from your ship's departure and agree a return time with a buffer for traffic. While no transfer can control every road condition, our drivers prioritise a timely return and build in margin so you reach the port before boarding closes."
       },
       {
@@ -1249,7 +1249,7 @@ export const extraRoutesFinal: RouteData[] = [
       }
     ],
     "metaTitle": "Livorno Cruise Port to Florence Taxi | Private Transfer",
-    "metaDescription": "Private Livorno cruise port to Florence transfer with English-speaking drivers, terminal meet-up and a guaranteed return before all-aboard. Fixed price, 24/7",
+    "metaDescription": "Private Livorno cruise port to Florence transfer with English-speaking drivers, terminal meet-up and a return planned well before all-aboard. Fixed price, 24/7",
     "imageAlt": "Private transfer vehicle waiting at Livorno cruise terminal for a Florence shore excursion",
     "sections": [
       {

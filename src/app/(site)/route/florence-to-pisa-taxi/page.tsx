@@ -12,7 +12,9 @@ const HERO_IMAGE = 'https://images.unsplash.com/photo-1467269204594-9661b134dd2b
 const CANONICAL = '/route/florence-to-pisa-taxi';
 
 export const metadata: Metadata = {
-    title: 'Florence to Pisa Private Taxi | Italy Taxi Service',
+    // Absolute: the title already carries the brand, so skip the layout's
+    // "%s | Italy Taxi Service" template, which doubled it.
+    title: { absolute: 'Florence to Pisa Private Taxi | Italy Taxi Service' },
     description: 'Private door-to-door transfer from Florence to Pisa — around 80 km and 1 hour by road. Pickup from your Florence hotel, apartment or the airport, drop-off anywhere in Pisa.',
     alternates: {
         canonical: CANONICAL,
