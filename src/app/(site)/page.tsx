@@ -28,14 +28,14 @@ const Footer = dynamic(() => import('@/components/Footer'));
 
 export const metadata: Metadata = {
   title: "Italy Taxi Service | Private Transfers & Airport Taxis",
-  description: "Book Italy's top-rated private taxi service. Airport transfers, city-to-city rides & private tours. Fixed prices, professional NCC drivers, instant confirmation.",
+  description: "Private taxis and airport transfers across Italy. Fixed, all-inclusive quote before you travel, NCC-licensed drivers and meet & greet in arrivals.",
   alternates: {
     canonical: "/",
     languages: itHreflangFor('/'),
   },
   openGraph: {
     title: "Italy Taxi Service | Private Transfers & Airport Taxis",
-    description: "Book Italy's top-rated private taxi service. Airport transfers, city-to-city rides & private tours. Fixed prices, professional NCC drivers, instant confirmation.",
+    description: "Private taxis and airport transfers across Italy. Fixed, all-inclusive quote before you travel, NCC-licensed drivers and meet & greet in arrivals.",
     url: "https://www.italytaxiservice.com",
     images: [{ url: '/images/hero.webp', width: 1200, height: 630, alt: 'Italy Taxi Service' }],
   },
@@ -51,7 +51,7 @@ export default function Home() {
   const homeFaqs = [
     {
       q: "Why choose your private transfer over a standard Italian taxi?",
-      a: "Our service offers fixed, transparent pricing with no hidden fees, professional multi-lingual drivers, and pre-booked guaranteed pickups. Unlike standard taxis, we provide a premium 'Meet & Greet' service and luxury vehicles suited for comfort."
+      a: "Our service offers fixed, transparent pricing with no hidden fees, professional multi-lingual drivers, and pre-booked reliable pickups with flight tracking. Unlike standard taxis, we provide a premium 'Meet & Greet' service and luxury vehicles suited for comfort."
     },
     {
       q: "Do you provide airport transfers from any city in Italy?",
@@ -63,11 +63,19 @@ export default function Home() {
     },
     {
       q: "Are your drivers licensed to enter restricted traffic zones (ZTL)?",
-      a: "Yes, all our drivers are professionally licensed (N.C.C.) which allows them to enter restricted city centers (ZTL) and bus/taxi lanes, ensuring a direct and efficient door-to-door service."
+      a: "Often, but it depends on the exact address. We check ZTL access when you book; where a car can't enter, the driver stops at the nearest legal point and helps with your luggage."
     },
     {
       q: "How far in advance should I book my Italian transfer?",
       a: "We recommend booking at least 24 hours in advance to guarantee availability. For last-minute requests, you can contact our 24/7 WhatsApp support team for immediate assistance."
+    },
+    {
+      q: "Is a private transfer the same as a taxi in Italy?",
+      a: "Not quite. Italian taxis are licensed by each city, wait at ranks or are called by phone or app, and usually run on the meter or a city's fixed airport fare. A private transfer uses an NCC (private hire with driver) vehicle booked in advance: you receive a fixed, all-inclusive quote before you travel and the driver meets you with a name sign."
+    },
+    {
+      q: "How do I get a price for my transfer?",
+      a: "Send your pickup point, destination, date and time, flight number if you're flying in, and the number of passengers and bags. We usually reply within 2–3 hours with a fixed, all-inclusive quote. Once you accept, you receive a written confirmation, and your driver's phone number follows within 24 hours before the transfer."
     }
   ];
 

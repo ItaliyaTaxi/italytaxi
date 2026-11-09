@@ -19,7 +19,7 @@ export default function PopularRoutes() {
                 <div className="text-center mb-16">
                     <p className="text-[#F4C430] text-sm font-bold uppercase tracking-[0.4em] mb-4">City-to-City Transfers</p>
                     <h2 className="text-4xl md:text-5xl font-bold text-[#0F1C2E]">Popular Routes in Italy</h2>
-                    <p className="text-gray-500 mt-4 max-w-xl mx-auto">Private taxi transfers between Italy's top destinations. Door-to-door service, professional drivers, instant booking.</p>
+                    <p className="text-gray-500 mt-4 max-w-xl mx-auto">Private taxi transfers between Italy's top destinations. Door-to-door service, professional drivers, fixed quote before you travel.</p>
                     <div className="w-20 h-1 bg-[#F4C430] mx-auto mt-6" />
                 </div>
 

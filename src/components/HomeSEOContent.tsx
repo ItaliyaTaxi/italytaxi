@@ -24,14 +24,14 @@ export default function HomeSEOContent() {
             exploring the historic streets of Rome, conducting business in Milan, or discovering the art cities
             of Tuscany — <strong>Italy Taxi Service</strong> provides the most reliable, comfortable, and
             professionally operated private transportation available. As a dedicated <strong>taxi service Italy</strong>{' '}
-            provider, we combine decades of local driving expertise with a modern booking platform that puts your
+            provider, we combine local driving expertise with a modern booking platform that puts your
             journey under control from the very first click.
           </p>
           <p>
             Unlike standard metered taxis that queue outside arrivals terminals or unregulated rideshare apps
             that surge-price during peak hours, our <strong>private driver Italy</strong> network operates on
-            transparent, fixed pricing confirmed at the moment of booking. No surprises. No hidden extras. The
-            price you see is the price you pay — including all motorway tolls, ZTL access fees, and luggage handling.
+            fixed, all-inclusive quotes confirmed before you travel. No surprises. No hidden extras. The
+            price you are quoted is the price you pay, including motorway tolls and luggage.
           </p>
         </div>
 
@@ -55,7 +55,7 @@ export default function HomeSEOContent() {
                 </Link>
               </h3>
               <p className="text-gray-600 text-sm leading-relaxed">
-                Fixed-price private <Link href="/services/airport-transfers" className="text-[#F4C430] font-semibold hover:underline">airport transfer Italy</Link> from all 30+ Italian airports including
+                Fixed-price private <Link href="/services/airport-transfers" className="text-[#F4C430] font-semibold hover:underline">airport transfer Italy</Link> from all major Italian airports including
                 Rome Fiumicino (FCO), Milan Malpensa (MXP), Venice Marco Polo (VCE), Florence (FLR), and Naples (NAP).
                 Flight tracking included, 60 minutes free waiting time, meet-and-greet inside arrivals hall.
               </p>
@@ -148,16 +148,15 @@ export default function HomeSEOContent() {
               </h3>
               <p className="text-gray-700 leading-relaxed">
                 Rome is Italy&apos;s most visited destination and one of the most challenging cities in the world
-                for independent ground transport. The city&apos;s ZTL (Zona a Traffico Limitato) restrictions
-                block ordinary vehicles from entering the historic centre — but our NCC-licensed drivers have
-                full authorisation to access these restricted zones, delivering you directly to your hotel or
-                apartment regardless of location. We serve both Leonardo da Vinci International Airport (FCO,
+                for independent ground transport. Rome&apos;s ZTL restricts traffic across most of the
+                historic centre; we check access for your exact address when you book, and where a car
+                can&apos;t enter, the driver stops at the nearest legal point and helps with your luggage. We serve both Leonardo da Vinci International Airport (FCO,
                 32 km from the city) and Rome Ciampino Airport (CIA, 15 km), with transfers into the historic
-                centre, Trastevere, Parioli, Testaccio, and all other districts. Our{' '}
+                centre, Trastevere, Parioli, Testaccio, and all other districts. See our{' '}
                 <Link href="/rome-airport-transfer" className="text-[#F4C430] font-semibold hover:underline">
                   Rome airport transfer service
                 </Link>{' '}
-                starts from €45 for a private sedan.
+                for Fiumicino and Ciampino.
               </p>
             </div>
 
@@ -189,9 +188,9 @@ export default function HomeSEOContent() {
               </h3>
               <p className="text-gray-700 leading-relaxed">
                 Florence, the cradle of the Renaissance, presents its own unique transport challenges. The
-                historic city centre is almost entirely pedestrianised and ZTL-restricted. Standard taxis and
-                private cars cannot legally drive to most hotels within the walls of old Florence — but our
-                NCC-licensed drivers can. Our{' '}
+                historic city centre is almost entirely pedestrianised and ZTL-restricted. Many hotels inside the old city
+                can&apos;t be reached by car at all, so we plan the drop-off at the nearest point a car can
+                legally stop. Our{' '}
                 <Link href="/florence-private-taxi" className="text-[#F4C430] font-semibold hover:underline">
                   Florence private taxi service
                 </Link>{' '}
@@ -208,16 +207,16 @@ export default function HomeSEOContent() {
             Why Choose Italy Taxi Service?
           </h2>
           <p className="text-gray-300 text-center mb-10 max-w-2xl mx-auto">
-            Thousands of travellers choose us every year for airport transfers, business travel, and private
+            Travellers choose us for airport transfers, business travel, and private
             tours across Italy. Here is why our <strong className="text-[#F4C430]">taxi service Italy</strong> stands
             apart from the competition.
           </p>
           <div className="grid md:grid-cols-2 gap-6">
             {[
-              { title: "NCC-Licensed Professional Drivers", body: "All our drivers hold the Italian NCC (Noleggio Con Conducente) professional licence, legally authorising them to enter ZTL zones, use bus lanes, and operate as private hire vehicles across Italy. You are in safe, qualified, and fully insured hands." },
-              { title: "Fixed Prices — No Surprises", body: "Every quote is fixed and all-inclusive. The price confirmed at booking is the price you pay on arrival — regardless of traffic conditions, toll roads, flight delays, or extra luggage. Metered taxis and unregulated apps cannot offer this guarantee." },
-              { title: "24/7 Availability", body: "Our dispatch team and driver network operate around the clock, every day of the year. Whether your flight lands at 3am on Christmas Day or you need a last-minute transfer at midnight, we are available. No service gaps, no reduced overnight capacity." },
-              { title: "Flight Tracking Included", body: "Every airport pickup automatically includes real-time flight monitoring. If your flight is delayed or lands early, your driver adjusts without any action on your part. You will never arrive to find no vehicle, regardless of disruptions." },
+              { title: "NCC-Licensed Professional Drivers", body: "All our drivers hold the Italian NCC (Noleggio Con Conducente) professional licence, the licence for professional private hire with a driver in Italy. You are in safe, qualified, and fully insured hands." },
+              { title: "Fixed Prices — No Surprises", body: "Every quote is fixed and all-inclusive. The price confirmed at booking is the price you pay on arrival — regardless of traffic or tolls. Any extended waiting or night and holiday surcharge is shown in your quote before you book. Metered taxis and unregulated apps cannot offer this guarantee." },
+              { title: "24/7 Availability", body: "Our dispatch team and driver network operate around the clock, every day of the year. Whether your flight lands at 3am on Christmas Day or you need a last-minute transfer at midnight, we are available." },
+              { title: "Flight Tracking Included", body: "Every airport pickup automatically includes real-time flight monitoring. If your flight is delayed or lands early, your driver adjusts without any action on your part. If your flight changes, we contact you to adjust the pickup." },
               { title: "Premium Fleet", body: "Our vehicles are exclusively late-model, well-maintained, and cleaned between every journey. The fleet includes Mercedes-Benz E-Class and S-Class sedans for individual and couple travel, V-Class minivans for families and small groups, and larger Sprinter-class vehicles for group transfers." },
               { title: "English-Speaking Drivers", body: "All drivers are vetted for professional English language communication. For international travellers, this removes the language barrier entirely — your driver can answer questions about local customs, recommend restaurants, advise on routes, and assist throughout your journey." },
             ].map((item, i) => (

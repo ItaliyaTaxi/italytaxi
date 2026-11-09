@@ -17,7 +17,7 @@ export const translations = {
             getQuoteShort: 'Quote',
             viewAllServices: 'View All Services →',
             viewAllAirports: 'View All Airports →',
-            viewAllCities: 'View All 100+ Cities →',
+            viewAllCities: 'View All Cities →',
             topItalianAirports: 'Top Italian Airports',
             topItalianCities: 'Top Italian Cities',
             bookNow: 'Book Now',
@@ -25,8 +25,8 @@ export const translations = {
         hero: {
             line1: 'Experience the Finest',
             line2: 'Italian Taxi Service',
-            tagline1: 'Reliable travel, redefined.',
-            tagline2: 'Professional taxi drivers, reliable fleet.',
+            tagline1: 'Private taxis and airport transfers across Italy,',
+            tagline2: 'with a fixed quote before you travel and your driver waiting in arrivals.',
             cta: 'RESERVE YOUR RIDE',
         },
         whyChooseUs: {
@@ -112,7 +112,7 @@ export const translations = {
             heading: 'Popular Destinations',
             readAbout: 'Read about',
             taxiServices: 'taxi services',
-            exploreAll: 'Explore All 100+ Destinations',
+            exploreAll: 'Explore All Destinations',
         },
         coverage: {
             badge: 'Widespread Coverage',
@@ -120,16 +120,16 @@ export const translations = {
             headingLine2: 'Airports & Cities',
             description:
                 'Our taxi network spans across the entire Italian peninsula. From the busy streets of Rome to the serene shores of Lake Como, we ensure you travel in absolute comfort.',
-            airports: '30+ Airports',
-            cities: '100+ Cities',
-            drivers: '500+ Drivers',
+            airports: 'All major airports',
+            cities: 'Cities across Italy',
+            drivers: 'NCC-licensed drivers',
             support: '24/7 Support',
             types: { airports: 'Airports', city: 'City', ports: 'Ports' },
         },
         testimonials: {
             badge: 'Client Feedback',
             heading: 'What Our Travelers Say',
-            trusted: 'Trusted by 10,000+ travelers',
+            trusted: 'What travellers say',
             verified: 'Verified Review',
         },
         cta: {
