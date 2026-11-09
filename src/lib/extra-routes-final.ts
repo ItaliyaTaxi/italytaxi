@@ -1112,7 +1112,7 @@ export const extraRoutesFinal: RouteData[] = [
       "Fixed price agreed at booking, with no surge on cruise days",
       "English-speaking drivers who know the Livorno port layout",
       "Departure timed around your ship's boarding cut-off",
-      "Sedans, minivans, Mercedes V-Class and minibuses for every group",
+      "Sedans, minivans, Mercedes V-Class and, depending on the area, minibuses for every group",
       "Available 24/7 for early sailings and late Florence arrivals"
     ],
     "faqs": [

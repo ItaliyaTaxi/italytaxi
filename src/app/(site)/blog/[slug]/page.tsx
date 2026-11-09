@@ -10,7 +10,7 @@ import Breadcrumb from '@/components/Breadcrumb';
 import TableOfContents from '@/components/TableOfContents';
 import { rankRelated } from '@/lib/related-posts';
 import { normalizeBlogContent, stripFAQBlock } from '@/lib/blog-content';
-import { Calendar, Clock, ArrowLeft, Tag, Phone, MessageCircle, ChevronRight, ShieldCheck, ThumbsUp, Star, HelpCircle } from 'lucide-react';
+import { Calendar, Clock, ArrowLeft, Tag, Phone, MessageCircle, ChevronRight, ShieldCheck, ThumbsUp, HelpCircle } from 'lucide-react';
 
 const getBlog = cache(async (slug: string) => {
   const { data } = await supabase
@@ -134,9 +134,12 @@ export default async function BlogPostPage({ params }: any) {
     image: imageSchema,
     datePublished: blog.published_at,
     dateModified: blog.updated_at || blog.published_at,
+    // The byline is a team, not a named individual, so the author is the
+    // business itself rather than a Person.
     author: {
-      '@type': 'Person',
-      name: blog.bloggers?.full_name || 'Italy Taxi Service Editorial Team',
+      '@type': 'Organization',
+      name: 'Italy Taxi Service',
+      url: SITE,
     },
     publisher: {
       '@type': 'Organization',
@@ -240,10 +243,6 @@ export default async function BlogPostPage({ params }: any) {
             <span className="flex items-center gap-2">
               <ShieldCheck className="w-5 h-5 text-[#F4C430]" />
               Professional NCC-Licensed Drivers
-            </span>
-            <span className="flex items-center gap-2">
-              <Star className="w-5 h-5 text-[#F4C430]" />
-              Top Rated Taxi Service
             </span>
             <span className="flex items-center gap-2">
               <ThumbsUp className="w-5 h-5 text-[#F4C430]" />
@@ -408,7 +407,7 @@ export default async function BlogPostPage({ params }: any) {
                 <ul className="text-gray-400 text-sm space-y-2 mb-6">
                   <li className="flex items-start gap-2"><span className="text-[#F4C430] mt-0.5">✓</span> Fixed prices, no surprises</li>
                   <li className="flex items-start gap-2"><span className="text-[#F4C430] mt-0.5">✓</span> NCC-licensed professional drivers</li>
-                  <li className="flex items-start gap-2"><span className="text-[#F4C430] mt-0.5">✓</span> ZTL access — historic centres</li>
+                  <li className="flex items-start gap-2"><span className="text-[#F4C430] mt-0.5">✓</span> ZTL access checked for your address</li>
                   <li className="flex items-start gap-2"><span className="text-[#F4C430] mt-0.5">✓</span> 24/7 availability</li>
                 </ul>
                 <Link

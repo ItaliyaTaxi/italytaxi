@@ -155,6 +155,24 @@ const nextConfig: NextConfig = {
       { source: '/blog/how-to-plan-comfortable-city-to-city-travel-italy', destination: '/blog/how-to-plan-comfortable-citytocity-travel-in-italy', permanent: true },
       { source: '/blog/private-taxi-vs-public-transport-in-italy-which-is-better', destination: '/blog/private-taxi-vs-public-transport-in-italy-which-is-better-for-travelers', permanent: true },
 
+      // Index cleanup: thin, overlapping March 2026 posts consolidated into the
+      // strongest post on the same topic; two blog posts that targeted the same
+      // commercial query as a service page are folded into that page. The
+      // retired posts are set to draft in Supabase so they leave the sitemap.
+      { source: '/blog/best-ways-to-travel-between-cities-in-italy', destination: '/blog/comprehensive-transportation-guide-for-traveling-across-italy', permanent: true },
+      { source: '/blog/how-tourists-can-travel-comfortably-across-italy', destination: '/blog/comprehensive-transportation-guide-for-traveling-across-italy', permanent: true },
+      { source: '/blog/how-taxi-services-work-in-italy-a-beginners-guide', destination: '/blog/complete-guide-to-taxi-services-in-italy-for-tourists', permanent: true },
+      { source: '/blog/tips-for-using-taxi-services-safely-in-italy', destination: '/blog/complete-guide-to-taxi-services-in-italy-for-tourists', permanent: true },
+      { source: '/blog/best-ways-to-travel-from-italian-airports-to-city-centers', destination: '/blog/navigating-italian-airports-complete-guide', permanent: true },
+      { source: '/blog/how-airport-transfers-work-in-italy-for-international-travelers', destination: '/blog/navigating-italian-airports-complete-guide', permanent: true },
+      { source: '/blog/best-time-to-travel-around-italy-without-traffic', destination: '/blog/best-time-to-visit-italy', permanent: true },
+      { source: '/blog/private-transfers-rome-fiumicino-airport-2026', destination: '/rome-airport-transfer', permanent: true },
+      { source: '/blog/italy-cruise-port-transfers-guide-2026', destination: '/services/cruise-port-transfers', permanent: true },
+      // City URLs Google still crawls that have no page of their own.
+      { source: '/city/lake-como-taxi-service', destination: '/city/como', permanent: true },
+      { source: '/city/verona', destination: '/airport/verona', permanent: true },
+      { source: '/city/verona-taxi-service', destination: '/airport/verona', permanent: true },
+
       // Thin attraction-transfer stub consolidated into the richer beach-transfer page.
       // The beach page is canonical for Costa Smeralda taxi traffic.
       { source: '/attraction-transfer/costa-smeralda-taxi-transfer', destination: '/beach-transfer/costa-smeralda-taxi', permanent: true },

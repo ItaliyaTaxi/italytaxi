@@ -160,7 +160,7 @@ export default function BookingForm({ sourceName = 'Book Now Page' }: { sourceNa
                                 <option value="5">5 Passengers</option>
                                 <option value="6">6 Passengers</option>
                                 <option value="7">7 Passengers</option>
-                                <option value="8">8 Passengers</option>
+                                <option value="8">8+ (more than one vehicle)</option>
                             </select>
                         </div>
                         <div className="space-y-1">

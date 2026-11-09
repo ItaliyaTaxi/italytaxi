@@ -246,7 +246,7 @@ export default async function AirportHotelTransferPage({ params }: { params: Pro
                     </div>
                     <div className="flex flex-wrap gap-4 mb-4">
                         <Link href="/book-now" className="inline-block bg-[#0F1C2E] text-white font-bold px-8 py-4 rounded-full hover:bg-gold hover:text-navy transition-all">Book Your Transfer</Link>
-                        <Link href="/book-now" className="inline-block bg-gold text-navy font-bold px-8 py-4 rounded-full hover:bg-[#0F1C2E] hover:text-white transition-all">Get Instant Quote</Link>
+                        <Link href="/book-now" className="inline-block bg-gold text-navy font-bold px-8 py-4 rounded-full hover:bg-[#0F1C2E] hover:text-white transition-all">Request a Quote</Link>
                     </div>
 
                     {/* Overview */}
@@ -275,7 +275,7 @@ export default async function AirportHotelTransferPage({ params }: { params: Pro
                     <h2 className="text-2xl font-bold text-navy mt-12 mb-4">{dep ? 'Why Book a Hotel-to-Airport Transfer?' : 'Why Choose a Private Transfer'}</h2>
                     <p className="text-gray-700 leading-relaxed mb-4">
                         {dep
-                            ? `On departure day, certainty matters. A pre-booked transfer from ${hotel.name} gives you a guaranteed pickup at a set time, a fixed price with no surprises, and a professional chauffeur who knows the fastest route to ${airport.short} — so you avoid the hotel taxi-rank wait, the luggage struggle on the train, and any risk of missing check-in. It is the stress-free way to start your journey home.`
+                            ? `On departure day, certainty matters. A pre-booked transfer from ${hotel.name} gives you a confirmed pickup time, a fixed price with no surprises, and a professional chauffeur who knows the fastest route to ${airport.short} — so you avoid the hotel taxi-rank wait, the luggage struggle on the train, and any risk of missing check-in. It is the stress-free way to start your journey home.`
                             : `Public options from ${airport.short} each have drawbacks. The taxi rank can mean a long wait at peak times; the train requires you to manage luggage and onward connections to reach ${hotel.area}; buses are slow and crowded; and ride-sharing is limited and unpredictable in Rome. A private transfer removes all of that: one fixed price, a guaranteed driver, and a direct ride to ${hotel.name}.`}
                     </p>
 

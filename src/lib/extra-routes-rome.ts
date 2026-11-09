@@ -224,7 +224,7 @@ export const extraRoutesRome: RouteData[] = [
       "Free flight monitoring and complimentary waiting time if you land late",
       "Fixed, all-inclusive price agreed when you book, with no meter and no surprises",
       "English-speaking, licensed drivers who know central Rome and the ZTL rules",
-      "Sedans, minivans, Mercedes V-Class and minibuses for every group and luggage size"
+      "Sedans, minivans, Mercedes V-Class and, depending on the area, minibuses for every group and luggage size"
     ],
     "faqs": [
       {

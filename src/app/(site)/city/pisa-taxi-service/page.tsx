@@ -12,7 +12,9 @@ const HERO_IMAGE = 'https://images.unsplash.com/photo-1467269204594-9661b134dd2b
 const CANONICAL = '/city/pisa-taxi-service';
 
 export const metadata: Metadata = {
-    title: 'Pisa Taxi Service & Private Transfers | Italy Taxi Service',
+    // Absolute: the title already carries the brand, so skip the layout's
+    // "%s | Italy Taxi Service" template, which doubled it.
+    title: { absolute: 'Pisa Taxi Service & Private Transfers | Italy Taxi Service' },
     description: 'Book private taxi transfers in Pisa, including Pisa Airport, Pisa Centrale, hotels and journeys to Florence and destinations across Tuscany.',
     alternates: { canonical: CANONICAL },
     openGraph: {
