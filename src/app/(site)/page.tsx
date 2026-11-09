@@ -59,7 +59,7 @@ export default function Home() {
     },
     {
       q: "What types of vehicles are available in your fleet?",
-      a: "We offer a range of luxury vehicles including Mercedes E-Class/S-Class sedans for up to 3 passengers, V-Class minivans for up to 7 passengers, and larger Sprinter buses for group travel."
+      a: "We offer a range of luxury vehicles including Mercedes E-Class/S-Class sedans for up to 3 passengers, V-Class minivans for up to 7 passengers, and, in some areas, larger Sprinter vehicles for group travel."
     },
     {
       q: "Are your drivers licensed to enter restricted traffic zones (ZTL)?",
@@ -76,6 +76,10 @@ export default function Home() {
     {
       q: "How do I get a price for my transfer?",
       a: "Send your pickup point, destination, date and time, flight number if you're flying in, and the number of passengers and bags. We usually reply within 2–3 hours with a fixed, all-inclusive quote. Once you accept, you receive a written confirmation, and your driver's phone number follows within 24 hours before the transfer."
+    },
+    {
+      q: "How can I pay?",
+      a: "You can pay by card, through a secure online payment link, or in cash to the driver on the day of your transfer."
     }
   ];
 

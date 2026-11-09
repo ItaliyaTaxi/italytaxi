@@ -327,7 +327,7 @@ export default async function AirportPage({ params }: { params: Promise<{ slug: 
       },
       {
         q: "What type of vehicles do you use for airport transfers?",
-        a: "We operate a premium fleet including standard sedans (Mercedes E-Class or similar) and luxury minivans (Mercedes V-Class) for up to 7 passengers; larger groups use more than one vehicle."
+        a: "We operate a premium fleet including standard sedans (Mercedes E-Class or similar) and luxury minivans (Mercedes V-Class) for up to 7 passengers; larger groups use more than one vehicle, or a larger vehicle where available."
       }
     ];
 

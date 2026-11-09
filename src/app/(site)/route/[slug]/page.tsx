@@ -15,7 +15,7 @@ const STANDARD_VEHICLES: { name: string; desc: string }[] = [
     { name: 'Minivan', desc: 'up to 7 passengers with luggage' },
     { name: 'Mercedes V-Class', desc: 'Premium van for groups & families' },
     { name: 'Luxury Van', desc: 'VIP group travel in full comfort' },
-    { name: 'Group Minibus', desc: 'Larger parties on request' },
+    { name: 'Group Minibus', desc: 'larger parties on request, depending on the area' },
 ];
 
 /** Returns a /city/{slug} href only if that city page exists; else null. */
