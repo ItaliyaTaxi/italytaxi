@@ -63,7 +63,7 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
       },
       {
         q: `What is the best vehicle for a large group traveling in ${city.name}?`,
-        a: "For groups of 4 to 8 people, we recommend our luxury Mercedes V-Class minivans. They offer ample space for both passengers and luggage, ensuring a comfortable ride for everyone."
+        a: "For groups of 4 to 7 people, we recommend our luxury Mercedes V-Class minivans. They offer ample space for both passengers and luggage, ensuring a comfortable ride for everyone."
       },
       {
         q: `What if my schedule changes while I have a taxi in ${city.name}?`,
@@ -212,7 +212,7 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
                         <p className="text-gray-300 text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
                             Every transfer is priced individually based on your pickup, destination, vehicle, and travel date. Get your personal fixed-price quote in minutes — no meters, no surprises.
                         </p>
-                        <div className="grid sm:grid-cols-3 gap-6 mb-12">
+                        <div className="grid sm:grid-cols-2 gap-6 mb-12">
                             <div className="bg-white/5 border border-white/10 rounded-[1.5rem] p-6 text-center">
                                 <div className="text-3xl mb-3">🚗</div>
                                 <h3 className="text-white font-bold mb-1">Standard Sedan</h3>
@@ -223,11 +223,6 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
                                 <div className="text-3xl mb-3">🚐</div>
                                 <h3 className="font-bold mb-1">Luxury Minivan</h3>
                                 <p className="text-navy/70 text-sm">Up to 7 passengers + 7 bags</p>
-                            </div>
-                            <div className="bg-white/5 border border-white/10 rounded-[1.5rem] p-6 text-center">
-                                <div className="text-3xl mb-3">🚌</div>
-                                <h3 className="text-white font-bold mb-1">Premium Van</h3>
-                                <p className="text-gray-400 text-sm">Up to 8 passengers + 8 bags</p>
                             </div>
                         </div>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">

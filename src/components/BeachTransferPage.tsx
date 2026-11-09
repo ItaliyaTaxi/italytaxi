@@ -115,11 +115,10 @@ export default function BeachTransferPage({ data }: BeachTransferPageProps) {
         <div className="container mx-auto px-6 max-w-5xl text-center">
           <p className="text-gold text-sm font-bold uppercase tracking-[0.4em] mb-4">Transparent Pricing</p>
           <h2 className="text-3xl font-extrabold text-white mb-12">Fixed Transfer Rates</h2>
-          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {[
               { label: "Standard Sedan", capacity: "Up to 3 passengers", price: "From €50*" },
               { label: "Luxury Minivan", capacity: "Up to 7 passengers", price: "From €80*", popular: true },
-              { label: "Premium Van", capacity: "Up to 8 passengers", price: "From €100*" },
             ].map((tier, i) => (
               <div key={i} className={`p-7 rounded-2xl ${tier.popular ? 'bg-gold text-navy transform md:-translate-y-2 shadow-2xl' : 'bg-white/5 border border-white/10 text-white hover:border-gold'} transition-all`}>
                 {tier.popular && <p className="text-xs font-bold uppercase tracking-widest mb-2 text-navy/70">Most Popular</p>}

@@ -74,7 +74,7 @@ export default function RoyalPalaceCasertaPage() {
               Our professional drivers are experts in navigating the routes between Naples, Rome, and Caserta. We monitor traffic in real-time to ensure you arrive promptly. Whether you are visiting for a few hours or a full day, our flexible booking options cater to your specific itinerary.
             </p>
             <p className="text-gray-600 text-lg leading-relaxed">
-              Traveling with a group? Our fleet includes spacious Mercedes-Benz vans that can accommodate up to 8 passengers with ample room for strollers or specialized equipment.
+              Traveling with a group? Our fleet includes spacious Mercedes-Benz vans that can accommodate up to 7 passengers with ample room for strollers or specialized equipment.
             </p>
           </div>
         </div>

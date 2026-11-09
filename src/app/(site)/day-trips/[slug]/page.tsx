@@ -12,7 +12,7 @@ import { MapPin, Clock, ChevronRight, MessageCircle, CheckCircle, Car, Camera, U
 const STANDARD_VEHICLES: { name: string; desc: string }[] = [
     { name: 'Sedan', desc: '1–3 passengers · comfortable saloon car' },
     { name: 'Executive Sedan', desc: 'Business-class comfort (Mercedes E-Class or similar)' },
-    { name: 'Minivan', desc: '4–8 passengers with luggage' },
+    { name: 'Minivan', desc: 'up to 7 passengers with luggage' },
     { name: 'Mercedes V-Class', desc: 'Premium van for groups & families' },
     { name: 'Luxury Van', desc: 'VIP group travel in full comfort' },
     { name: 'Group Minibus', desc: 'Larger parties on request' },
@@ -113,7 +113,7 @@ export default async function DayTripPage({ params }: { params: Promise<{ slug: 
 
                         <div className="bg-[#0F1C2E] p-10 rounded-[3rem] shadow-2xl lg:sticky lg:top-24">
                             <h2 className="text-2xl font-bold text-white mb-2">Book This Day Trip</h2>
-                            <p className="text-gray-400 text-sm mb-8">Instant confirmation · Professional drivers · Free cancellation</p>
+                            <p className="text-gray-400 text-sm mb-8">Fixed quote before you travel · Professional drivers · Free cancellation</p>
                             <BookingForm sourceName="Day Trip Page" />
                             <div className="mt-8 flex flex-col items-center gap-4">
                                 <p className="text-gray-400 text-xs text-center">Need help planning? Contact us 24/7</p>

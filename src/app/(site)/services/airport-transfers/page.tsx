@@ -45,7 +45,7 @@ const faqs = [
   },
   {
     q: "What type of vehicles are available for airport transfers?",
-    a: "Our fleet ranges from standard sedans (up to 3 passengers with luggage) to premium Mercedes-Benz E-Class executive saloons and spacious 8-seat minivans — perfect for families and groups. All vehicles are air-conditioned, clean, and equipped with charging ports. Business-class vehicles include leather interiors and complimentary Wi-Fi on request."
+    a: "Our fleet ranges from standard sedans (up to 3 passengers with luggage) to premium Mercedes-Benz E-Class executive saloons and spacious 7-seat minivans — perfect for families and groups. All vehicles are air-conditioned, clean, and equipped with charging ports. Business-class vehicles include leather interiors and complimentary Wi-Fi on request."
   },
   {
     q: "How far in advance should I book my airport taxi in Italy?",
@@ -133,7 +133,7 @@ export default function AirportTransfersPage() {
         detailParagraphs={[
           "Booking your airport transfer with Italy Taxi Service is entirely online and takes less than two minutes. Select your pickup airport, enter your flight number, choose your destination and vehicle class, and confirm. You'll receive an instant email with full booking details, your driver's contact number, and a clear description of exactly where to meet.",
           "On the day of travel, our dispatch team tracks your flight in real-time. Your designated driver departs to the airport timed to your actual landing — not your scheduled arrival — and waits in the designated meet-and-greet zone inside the arrivals hall, clearly visible with your name sign.",
-          "Once you reach your vehicle, the driver loads your luggage and you begin the journey to your accommodation. Inside the vehicle, enjoy complimentary bottled water, climate control, and Wi-Fi (on request). Our premium fleet includes Mercedes-Benz saloons for solo or couple travel, executive sedans for business travellers, and spacious minivans for families and groups of up to eight passengers.",
+          "Once you reach your vehicle, the driver loads your luggage and you begin the journey to your accommodation. Inside the vehicle, enjoy complimentary bottled water, climate control, and Wi-Fi (on request). Our premium fleet includes Mercedes-Benz saloons for solo or couple travel, executive sedans for business travellers, and spacious minivans for families and groups of up to seven passengers.",
           "All routes, including those with highway tolls like the A90 Rome ring road or the A8 motorway into Milan, are included in your fixed quote. There is nothing extra to pay on arrival. The driver will take the fastest safe route to your destination, navigating traffic intelligently using real-time data. If your accommodation is inside a ZTL (restricted traffic zone), your driver will park at the closest accessible point and guide you to the entrance.",
           "For departures, we pick you up at your accommodation at a pre-agreed time calculated with a comfortable margin before your check-in deadline. Our drivers know Italian traffic patterns, airport terminal layouts, and check-in queue tendencies for every airport we serve. We build in buffer time so you arrive calm and on schedule.",
           "Corporate travellers booking airport transfers for executives and clients can request a quiet journey, assistance with luggage, and a driver routing directly to the business district. An invoice can be provided for the individual transfer where applicable.",

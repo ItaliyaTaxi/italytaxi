@@ -36,7 +36,7 @@ export default function LakeGardaPage() {
     },
     {
       q: "Can we book a taxi for a group with lots of luggage?",
-      a: "Certainly. Our Mercedes V-Class vans are perfect for groups of up to 8 people with significant luggage or sports gear."
+      a: "Certainly. Our Mercedes V-Class vans are perfect for groups of up to 7 people with significant luggage or sports gear."
     },
     {
       q: "Is the service available at night?",

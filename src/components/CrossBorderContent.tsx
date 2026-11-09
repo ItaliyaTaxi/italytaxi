@@ -154,7 +154,7 @@ export default function CrossBorderContent({ combo }: { combo: CrossBorderCombo 
                                 <li><Car className="w-4 h-4 text-gold inline mr-2" /><strong>Executive Sedan</strong> — business comfort</li>
                                 <li><Car className="w-4 h-4 text-gold inline mr-2" /><strong>Business SUV</strong> — extra space &amp; style</li>
                                 <li><Car className="w-4 h-4 text-gold inline mr-2" /><strong>Mercedes V-Class</strong> — premium group travel</li>
-                                <li><Car className="w-4 h-4 text-gold inline mr-2" /><strong>Luxury Van</strong> — up to 8 in comfort</li>
+                                <li><Car className="w-4 h-4 text-gold inline mr-2" /><strong>Luxury Van</strong> — up to 7 in comfort</li>
                                 <li><Car className="w-4 h-4 text-gold inline mr-2" /><strong>Sprinter</strong> — larger groups &amp; luggage</li>
                             </ul>
 
@@ -199,7 +199,7 @@ export default function CrossBorderContent({ combo }: { combo: CrossBorderCombo 
                             {/* Why book with us */}
                             <h2 className="text-2xl font-bold text-navy mt-8 mb-4">Why Book With Us</h2>
                             <div className="bg-[#0F1C2E] text-white rounded-2xl p-6 my-4 grid sm:grid-cols-2 gap-3 text-sm">
-                                {['Licensed, professional chauffeurs', 'Fixed rates — no hidden charges', 'English-speaking drivers', 'Modern luxury vehicles', '24/7 customer support', 'Experienced on cross-border routes', 'Meet & greet & flight monitoring', 'Secure online booking'].map((s, i) => (
+                                {['Licensed, professional chauffeurs', 'Fixed rates — no hidden charges', 'English-speaking drivers', 'Modern luxury vehicles', '24/7 customer support', 'Experienced on cross-border routes', 'Meet & greet & flight monitoring', 'Quote confirmed before you travel'].map((s, i) => (
                                     <p key={i} className="flex items-center gap-2"><ShieldCheck className="w-4 h-4 text-gold shrink-0" /> {s}</p>
                                 ))}
                             </div>

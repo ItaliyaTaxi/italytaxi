@@ -59,7 +59,7 @@ export default function Home() {
     },
     {
       q: "What types of vehicles are available in your fleet?",
-      a: "We offer a range of luxury vehicles including Mercedes E-Class/S-Class sedans for up to 3 passengers, V-Class minivans for up to 8 passengers, and larger Sprinter buses for group travel."
+      a: "We offer a range of luxury vehicles including Mercedes E-Class/S-Class sedans for up to 3 passengers, V-Class minivans for up to 7 passengers, and larger Sprinter buses for group travel."
     },
     {
       q: "Are your drivers licensed to enter restricted traffic zones (ZTL)?",

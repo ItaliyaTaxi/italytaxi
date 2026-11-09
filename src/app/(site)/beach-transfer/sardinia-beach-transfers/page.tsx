@@ -32,7 +32,7 @@ export default function SardiniaBeachPage() {
     },
     {
       q: "Can you provide transfers for large groups with beach gear?",
-      a: "Yes, our Mercedes V-Class vans are perfect for groups of up to 8 people with plenty of room for umbrellas, coolers, and luggage."
+      a: "Yes, our Mercedes V-Class vans are perfect for groups of up to 7 people with plenty of room for umbrellas, coolers, and luggage."
     },
     {
       q: "Do you offer airport meet and greet?",

@@ -40,7 +40,7 @@ export default function CostaSmeraldaBeachPage() {
     },
     {
       q: "Are your vehicles suitable for large families?",
-      a: "Yes, we have luxury minivans (Mercedes V-Class) that can comfortably accommodate up to 7-8 passengers with significant luggage."
+      a: "Yes, we have luxury minivans (Mercedes V-Class) that can comfortably accommodate up to 7 passengers with significant luggage."
     }
   ];
 

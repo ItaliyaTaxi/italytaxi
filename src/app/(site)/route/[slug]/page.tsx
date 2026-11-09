@@ -12,7 +12,7 @@ import { MapPin, Clock, ChevronRight, MessageCircle, CheckCircle, Euro, Car, Shi
 const STANDARD_VEHICLES: { name: string; desc: string }[] = [
     { name: 'Sedan', desc: '1–3 passengers · comfortable saloon car' },
     { name: 'Executive Sedan', desc: 'Business-class comfort (Mercedes E-Class or similar)' },
-    { name: 'Minivan', desc: '4–8 passengers with luggage' },
+    { name: 'Minivan', desc: 'up to 7 passengers with luggage' },
     { name: 'Mercedes V-Class', desc: 'Premium van for groups & families' },
     { name: 'Luxury Van', desc: 'VIP group travel in full comfort' },
     { name: 'Group Minibus', desc: 'Larger parties on request' },
@@ -135,7 +135,7 @@ export default async function RoutePage({ params }: { params: Promise<{ slug: st
                         {/* Booking Form */}
                         <div className="bg-[#0F1C2E] p-10 rounded-[3rem] shadow-2xl">
                             <h2 className="text-2xl font-bold text-white mb-2">Book This Transfer</h2>
-                            <p className="text-gray-400 text-sm mb-8">Instant confirmation · Professional drivers · Free cancellation</p>
+                            <p className="text-gray-400 text-sm mb-8">Fixed quote before you travel · Professional drivers · Free cancellation</p>
                             <BookingForm sourceName="Route Page" />
                             <div className="mt-8 flex flex-col items-center gap-4">
                                 <p className="text-gray-400 text-xs text-center">Need help? Contact us 24/7</p>
@@ -182,7 +182,7 @@ export default async function RoutePage({ params }: { params: Promise<{ slug: st
                         )}
 
                         <div className="bg-[#0F1C2E] text-white rounded-2xl p-6 grid sm:grid-cols-2 gap-3 text-sm">
-                            {['Fixed price — agreed before you travel', 'Real-time flight monitoring', 'Meet & greet with name sign', 'Professional English-speaking drivers', '24/7 availability', 'Free waiting time after landing', 'Clean, modern vehicles', 'Secure online booking'].map((s, i) => (
+                            {['Fixed price — agreed before you travel', 'Real-time flight monitoring', 'Meet & greet with name sign', 'Professional English-speaking drivers', '24/7 availability', 'Free waiting time after landing', 'Clean, modern vehicles', 'Quote confirmed before you travel'].map((s, i) => (
                                 <p key={i} className="flex items-center gap-2"><ShieldCheck className="w-4 h-4 text-gold shrink-0" /> {s}</p>
                             ))}
                         </div>

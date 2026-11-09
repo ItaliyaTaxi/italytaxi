@@ -415,7 +415,7 @@ export default async function BlogPostPage({ params }: any) {
                   href="/book-now"
                   className="block w-full text-center bg-[#F4C430] hover:bg-yellow-400 text-[#0F1C2E] py-3.5 rounded-xl font-bold text-sm transition-colors"
                 >
-                  Book Now — Instant Confirmation
+                  Request Your Quote
                 </Link>
                 <a
                   href="https://wa.me/923148932631"

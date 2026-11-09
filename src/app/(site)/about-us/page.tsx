@@ -40,7 +40,7 @@ const aboutFaqs = [
     },
     {
         q: "Do you offer service for weddings, corporate events, and group travel?",
-        a: "Yes. We have dedicated divisions for corporate travel (executive sedans, an invoice per journey, discreet drivers), destination weddings (multi-vehicle coordination, suited taxi drivers, ZTL venue access), and group transfers (8-seat minivans, convoy logistics). Contact us to discuss your specific requirements."
+        a: "Yes. We have dedicated divisions for corporate travel (executive sedans, an invoice per journey, discreet drivers), destination weddings (multi-vehicle coordination, suited taxi drivers, ZTL venue access), and group transfers (7-seat minivans, convoy logistics). Contact us to discuss your specific requirements."
     },
     {
         q: "Why should I choose Italy Taxi Service over a train or public transport?",

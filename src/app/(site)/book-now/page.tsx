@@ -61,7 +61,7 @@ export default function BookNowPage() {
               "Free cancellation up to 24 hours before pickup",
               "All tolls, motorway fees, and road taxes included",
               "Child seats available free on request",
-              "Premium Mercedes-Benz fleet — sedans to 8-seat minivans",
+              "Premium Mercedes-Benz fleet — sedans to 7-seat minivans",
               "Invoice and corporate billing available on request",
               "Secure online payment or cash to driver on arrival",
               "24/7 customer support via WhatsApp, email, and phone",

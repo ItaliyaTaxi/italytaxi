@@ -114,7 +114,7 @@ export default function PrivateToursPage() {
           "Cruise port excursions with all-aboard time guarantee",
           "Photography stops at the best viewpoints",
           "Licensed guide booking assistance for museum interiors",
-          "Perfect for families, couples, and small groups up to 8",
+          "Perfect for families, couples, and small groups up to 7",
           "Child-friendly pacing and child seat availability",
           "Multi-day Italy grand tour planning available"
         ]}

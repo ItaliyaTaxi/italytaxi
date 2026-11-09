@@ -36,7 +36,7 @@ export default function CinqueTerrePage() {
     },
     {
       q: "How many people can fit in one taxi?",
-      a: "We have sedans for up to 3 passengers and minivans for up to 8 passengers, all with ample luggage space."
+      a: "We have sedans for up to 3 passengers and minivans for up to 7 passengers, all with ample luggage space."
     },
     {
       q: "Can we do a day trip to Cinque Terre from Florence?",

@@ -31,7 +31,7 @@ const airportFaqs = [
 
 const vehicleFaqs = [
   { q: "Are child seats available?", a: "Yes. Infant carriers, forward-facing child seats, and booster seats are provided free of charge on request. Specify the age and weight of each child when booking and the correct equipment will be pre-installed." },
-  { q: "What vehicles are available?", a: "Our fleet includes: Economy Sedans (up to 3 passengers), Business Sedans (up to 3 passengers, higher spec), Minivans (up to 7–8 passengers), and SUVs. We match the vehicle to your group size and luggage count automatically." },
+  { q: "What vehicles are available?", a: "Our fleet includes: Economy Sedans (up to 3 passengers), Business Sedans (up to 3 passengers, higher spec), Minivans (up to 7 passengers), and SUVs. We match the vehicle to your group size and luggage count automatically." },
   { q: "Is Wi-Fi available in the vehicles?", a: "Wi-Fi is available in our executive and business-class vehicles on request. Please note this requirement in your booking and we'll assign an appropriately equipped car." },
   { q: "Can you accommodate large amounts of luggage?", a: "Yes. Our sedans fit 2 large suitcases plus cabin bags. Minivans accommodate full cruise or ski luggage. Let us know your bag count when booking and we'll ensure the right vehicle is assigned." },
 ];

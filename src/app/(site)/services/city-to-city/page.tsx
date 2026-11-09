@@ -41,7 +41,7 @@ const faqs = [
   },
   {
     q: "How much luggage can I bring on a city-to-city transfer?",
-    a: "Our sedans comfortably accommodate 2 large suitcases plus cabin bags. For larger groups or those with significant luggage, we recommend booking our spacious minivan, which fits up to 8 passengers and their full luggage."
+    a: "Our sedans comfortably accommodate 2 large suitcases plus cabin bags. For larger groups or those with significant luggage, we recommend booking our spacious minivan, which fits up to 7 passengers and their full luggage."
   },
   {
     q: "Can I book a one-way or return intercity transfer?",
@@ -100,7 +100,7 @@ export default function CityToCityPage() {
           "The freedom of private intercity travel is unmatched. Unlike trains and buses, your driver departs when you're ready. If you want to leave at 6am to avoid traffic, or prefer a leisurely 10am start, the choice is entirely yours. This flexibility is particularly valuable for families with young children, elderly travellers, or business professionals on tight schedules.",
           "Our drivers are experts in Italian roads and use the fastest Autostrada routes, always factoring in real-time traffic to arrive on time. Highway toll fees are pre-calculated and included in your quote — there will never be a surprise charge when you reach your destination.",
           "For longer routes, such as Rome to Milan (approximately 5.5 hours), your driver will include a 20-minute comfort stop at a service area midway. For shorter routes like Rome to Naples (2 hours), the journey is direct unless you request otherwise.",
-          "Groups and families travelling together almost always find private intercity transfers better value than multiple train tickets combined with taxi costs at both ends. Our minivans accommodate up to 8 passengers and their full luggage, keeping the whole group together.",
+          "Groups and families travelling together almost always find private intercity transfers better value than multiple train tickets combined with taxi costs at both ends. Our minivans accommodate up to 7 passengers and their full luggage, keeping the whole group together.",
           "We also specialize in multi-day itinerary transfers — perfect for curated Italy tours. Book Rome Day 1, Florence Day 3, Venice Day 5, and we'll coordinate the entire ground transportation for your trip."
         ]}
         benefits={[
@@ -109,7 +109,7 @@ export default function CityToCityPage() {
           "Depart at your preferred time, not the train schedule",
           "Spacious luggage capacity — no baggage restrictions",
           "Comfort stops included on routes over 3 hours",
-          "Premium vehicle fleet including 8-seat minivans for groups",
+          "Premium vehicle fleet including 7-seat minivans for groups",
           "Professional English-speaking drivers with route expertise",
           "24/7 availability — early departures and late-night arrivals",
           "Optional scenic stops to photograph landmarks en route",

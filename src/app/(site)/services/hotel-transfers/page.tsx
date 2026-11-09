@@ -147,7 +147,7 @@ export default function HotelTransfersPage() {
           "ZTL zone knowledge — drop-off always as close as possible",
           "24/7 availability for early check-outs and late arrivals",
           "Flight and train tracking for airport and station pickups",
-          "Vehicles available from compact sedans to 8-seat minivans",
+          "Vehicles available from compact sedans to 7-seat minivans",
           "Hotel-to-hotel transfers within cities and between cities",
           "Free bottled water and climate control in all vehicles",
           "Free cancellation up to 24 hours before pickup"

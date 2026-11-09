@@ -238,7 +238,7 @@ export default function VenetoTransferContent({ combo }: { combo: VenetoTransfer
                             <ul className="grid md:grid-cols-2 gap-2 text-gray-700 mb-4">
                                 <li><Car className="w-4 h-4 text-gold inline mr-2" /><strong>Sedan</strong> — 1–3 passengers</li>
                                 <li><Car className="w-4 h-4 text-gold inline mr-2" /><strong>Executive Sedan</strong> — business comfort</li>
-                                <li><Car className="w-4 h-4 text-gold inline mr-2" /><strong>Minivan</strong> — 4–8 passengers &amp; luggage</li>
+                                <li><Car className="w-4 h-4 text-gold inline mr-2" /><strong>Minivan</strong> — up to 7 passengers &amp; luggage</li>
                                 <li><Car className="w-4 h-4 text-gold inline mr-2" /><strong>Mercedes V-Class</strong> — premium group travel</li>
                                 <li><Car className="w-4 h-4 text-gold inline mr-2" /><strong>Luxury Van</strong> — VIP transfers</li>
                                 <li><Car className="w-4 h-4 text-gold inline mr-2" /><strong>Group Minibus</strong> — larger parties on request</li>
