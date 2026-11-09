@@ -35,11 +35,11 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: 'Which airport should wedding guests fly into for Lake Como?',
-    a: 'Malpensa. It sits north-west of Milan, so transfers to the lake never have to cross the city — our published Malpensa to Como route takes about 50 minutes. Linate and Bergamo are both served but sit on the far side of Milan from the lake, which adds time in traffic.',
+    a: 'Malpensa. It sits north-west of Milan, so transfers to the lake never have to cross the city — the Malpensa to Como transfer takes about 50 minutes. Linate and Bergamo are both served but sit on the far side of Milan from the lake, which adds time in traffic.',
   },
   {
     q: 'How long does the transfer take to each lake town?',
-    a: 'It depends heavily on the town. On our published route figures, Milan to Como is about 50 km and roughly 45 minutes, Milan to Bellagio about 80 km and 1 hour 30 minutes, and Milan to Varenna about 90 km and 1 hour 40 minutes. The lakeside roads north of Como are narrow and slow, so the extra time is not distance alone.',
+    a: 'It depends heavily on the town. Milan to Como is about 50 km and roughly 45 minutes, Milan to Bellagio about 80 km and 1 hour 30 minutes, and Milan to Varenna about 90 km and 1 hour 40 minutes. The lakeside roads north of Como are narrow and slow, so the extra time is not distance alone.',
   },
   {
     q: 'Can you collect guests arriving on different flights?',
@@ -100,7 +100,7 @@ export default function LakeComoWeddingTransfersPage() {
         ]}
         detailTitle="How Wedding Transport on the Lake Actually Works"
         detailParagraphs={[
-          'Journey times vary sharply by town. Using this site’s own published route figures, Milan to Como is about 50 km and roughly 45 minutes; Milan to Bellagio about 80 km and 1 hour 30 minutes; Milan to Varenna about 90 km and 1 hour 40 minutes. From Malpensa, Como is about 50 minutes, Bellagio around 1 hour 35 minutes and Varenna around 1 hour 50 minutes. The additional time going north is the road itself — single carriageway, winding, and with very few opportunities to overtake.',
+          'Journey times vary sharply by town. Milan to Como is about 50 km and roughly 45 minutes; Milan to Bellagio about 80 km and 1 hour 30 minutes; Milan to Varenna about 90 km and 1 hour 40 minutes. From Malpensa, Como is about 50 minutes, Bellagio around 1 hour 35 minutes and Varenna around 1 hour 50 minutes. The additional time going north is the road itself — single carriageway, winding, and with very few opportunities to overtake.',
           'For guests flying in, Malpensa is the practical airport. It lies north-west of Milan, so the transfer never crosses the city. Linate and Bergamo are both served, but both sit on the far side of Milan from the lake. Flights are tracked from departure at the origin airport, so a late arrival moves the pickup automatically rather than forfeiting it, and the first sixty minutes of waiting after an international landing are included at no charge.',
           'Venue and hotel access is the detail most worth getting right in advance. Several of the lake’s best-known properties sit on narrow waterfront roads or inside restricted-traffic zones. Bellagio is the common surprise, with a centre built on stepped lanes running up from the water, and Varenna is similar. Where vehicles are not permitted to the door, the driver stops at the nearest legitimate point and helps with luggage from there — which is far easier to plan for when we know the venue name at the quoting stage.',
           'Once guests are on the lake, the ferries are often faster than the road for moving between the central towns — Bellagio, Varenna, Menaggio and Tremezzo are minutes apart by water against a long drive around the shoreline. That can change which arrival point makes sense: a guest staying on the eastern branch may be better taken directly to Varenna than driven to Bellagio and crossed over.',

@@ -39,7 +39,7 @@ const faqs = [
   },
   {
     q: "Can you take me from Milan to Lake Como or Lake Maggiore?",
-    a: "Yes, day trips and one-way transfers to Italy's Lakes District are a speciality. From Milan city centre to Como takes approximately 45 minutes, to Bellagio on Lake Como approximately 75 minutes, and to Stresa on Lake Maggiore approximately 60 minutes. We offer both one-way transfers and full-day hire with driver."
+    a: "Yes, day trips and one-way transfers to Italy's Lakes District are a speciality. From Milan city centre to Como takes approximately 45 minutes, to Bellagio on Lake Como about 1 hour 30 minutes, and to Stresa on Lake Maggiore approximately 60 minutes. We offer both one-way transfers and full-day hire with driver."
   },
   {
     q: "What business amenities are available in your Milan chauffeur vehicles?",
@@ -288,7 +288,7 @@ export default function MilanChauffeurServicePage() {
               <Link href="/route/milan-to-lake-como-taxi" className="text-[#F4C430] font-semibold hover:underline">
                 Milan to Lake Como
               </Link>{' '}
-              — a 45-minute transfer to the town of Como, or a 75-minute drive to the famous lakeside town of
+              — a 45-minute transfer to the town of Como, or a drive of about 1 hour 30 minutes to the famous lakeside town of
               Bellagio. Full-day hire includes a return journey at your preferred time, allowing you to explore
               the lake towns, villas, and gardens at your own pace.
             </p>

@@ -449,7 +449,7 @@ export const cities: CityData[] = [
         metaDescription: 'Private taxi service in Como and across Lake Como. Transfers from Milan and Malpensa, journey times to every lake town, and fixed all-inclusive prices.',
         sections: [
             { h2: 'Getting to Como from Milan and the Airports', p: [
-                'Como sits at the southern tip of the lake, the closest point to Milan, which is why it is the easiest of the lake towns to reach. On this site’s published route figures the run from Milan is about 50 km and roughly 45 minutes.',
+                'Como sits at the southern tip of the lake, the closest point to Milan, which is why it is the easiest of the lake towns to reach. The run from Milan is about 50 km and roughly 45 minutes.',
                 'If you are flying in, Malpensa is the practical airport: it lies north-west of Milan so the transfer never has to cross the city, and the journey takes about 50 minutes. Linate and Bergamo are both served but sit on the far side of Milan from the lake, which adds time in traffic.',
                 'The rail alternative runs to Como San Giovanni and Como Nord Lago, but most lakeside hotels then need a further connection, so travellers with luggage generally prefer the direct door-to-door car.',
             ]},
@@ -590,7 +590,7 @@ export const tours: TourData[] = [
             { h2: 'Where the Lake Actually Goes', p: [
                 'Lake Como is an inverted Y of roughly 150 km of shoreline, and understanding its shape is what makes a day here work. Como town sits at the southern tip, closest to Milan. Bellagio sits at the fork in the middle where the two southern branches meet. Varenna faces it across the eastern branch, and Tremezzo sits opposite on the western shore.',
                 'Those three central towns — Bellagio, Varenna and Tremezzo — are only minutes apart by ferry but a long way round by road, which is why a day built around the middle of the lake usually combines driving with at least one crossing.',
-                'On this site’s published route figures, Milan to Como is about 50 km and roughly 45 minutes, Milan to Bellagio about 80 km and an hour and a half, and Milan to Varenna about 90 km and an hour and forty minutes. Those journey times come out of your eight hours, so a day focused on the upper lake has less time on the ground than one spent around Como and Bellagio.',
+                'Milan to Como is about 50 km and roughly 45 minutes, Milan to Bellagio about 80 km and an hour and a half, and Milan to Varenna about 90 km and an hour and forty minutes. Those journey times come out of your eight hours, so a day focused on the upper lake has less time on the ground than one spent around Como and Bellagio.',
             ]},
             { h2: 'What People Usually Want to See', p: [
                 'Bellagio is the one most visitors have in mind — a steeply stepped village at the fork of the lake, with gardens at Villa Melzi on its southern edge. Varenna across the water is quieter, with a lakeside walkway and the terraced gardens of Villa Monastero.',
@@ -800,12 +800,12 @@ export const routes: RouteData[] = [
         sections: [
             { h2: 'Where on Lake Como Are You Actually Going?', p: [
                 'Lake Como is not one destination. It is an inverted-Y of roughly 150 km of shoreline, and the town you are staying in changes the journey far more than most visitors expect. Como town sits at the southern tip closest to Milan; Bellagio sits at the fork in the middle of the lake; Varenna faces it from the eastern branch.',
-                'Using this site\'s published figures for each route: Como is about 50 km from Milan and takes roughly 45 minutes. Bellagio is about 80 km and around an hour and a half. Varenna is about 90 km and around an hour and forty minutes. The extra time is not extra distance alone — the lakeside roads north of Como are narrow, winding and slow, with long stretches where overtaking is impossible.',
+                'Como is about 50 km from Milan and takes roughly 45 minutes. Bellagio is about 80 km and around an hour and a half. Varenna is about 90 km and around an hour and forty minutes. The extra time is not extra distance alone — the lakeside roads north of Como are narrow, winding and slow, with long stretches where overtaking is impossible.',
                 'So a transfer to Bellagio is not "Como plus a few minutes". Tell us the town and the hotel when you enquire and the quote reflects the real journey rather than a lake-wide average.',
             ]},
             { h2: 'Milan City Centre or Malpensa Airport?', p: [
                 'Both work, and we run the transfer from either. The practical difference is where your day starts. If you are already in Milan — after a stay, a meeting or a Fiera event — the pickup is from your hotel or address and the run north is straightforward.',
-                'If you are flying in, Malpensa is the more convenient airport for the lake: it sits north-west of the city, so you do not have to cross Milan at all. Our published Malpensa to Como route runs about 50 minutes door to door. Linate and Bergamo are also served, but both sit on the far side of the city from the lake, which adds time in traffic.',
+                'If you are flying in, Malpensa is the more convenient airport for the lake: it sits north-west of the city, so you do not have to cross Milan at all. The Malpensa to Como transfer takes about 50 minutes door to door. Linate and Bergamo are also served, but both sit on the far side of the city from the lake, which adds time in traffic.',
                 'If your flight lands late or you have an early departure, say so when booking. The lakeside roads are materially quieter outside peak hours, and the same journey can differ by half an hour depending on when it runs.',
             ]},
             { h2: 'Hotel Access, ZTL Zones and Where the Car Can Stop', p: [
@@ -835,14 +835,15 @@ export const routes: RouteData[] = [
             ]},
         ],
         faqs: [
-            { q: 'How far is Lake Como from Milan by taxi?', a: 'Lake Como is approximately 50 km from Milan city centre, a journey of about 45 minutes by private taxi. From Malpensa Airport, the drive is around 60 km and takes about 50 minutes.' },
+            { q: 'How far is Lake Como from Milan by taxi?', a: 'Lake Como is approximately 50 km from Milan city centre, a journey of about 45 minutes by private taxi. From Malpensa Airport, the drive is around 50 km and takes about 50 minutes.' },
             { q: 'Can I get a taxi from Malpensa Airport directly to Lake Como?', a: 'Yes, we provide direct private transfers from Milan Malpensa Airport (MXP) to any town on Lake Como, including Como, Bellagio, Varenna, and Menaggio.' },
             { q: 'Can I book a return taxi from Lake Como to Milan?', a: 'Yes, we offer both single and return transfer bookings. Simply select a return trip when booking and specify your preferred pickup time.' },
-            { q: 'How long does it take to reach Bellagio or Varenna?', a: 'Longer than Como town, because the lakeside roads north are narrow and slow. On our published figures Milan to Bellagio is about 80 km and roughly 1 hour 30 minutes, and Milan to Varenna about 90 km and roughly 1 hour 40 minutes, against about 45 minutes to Como.' },
-            { q: 'Which Milan airport is best for Lake Como?', a: 'Malpensa. It sits north-west of the city, so the transfer does not have to cross Milan at all — our published Malpensa to Como route takes about 50 minutes. Linate and Bergamo are both served but sit on the far side of the city from the lake.' },
+            { q: 'How long does it take to reach Bellagio or Varenna?', a: 'Longer than Como town, because the lakeside roads north are narrow and slow. Milan to Bellagio is about 80 km and roughly 1 hour 30 minutes, and Milan to Varenna about 90 km and roughly 1 hour 40 minutes, against about 45 minutes to Como.' },
+            { q: 'Which Milan airport is best for Lake Como?', a: 'Malpensa. It is the most convenient airport for the lake because it sits north-west of Milan, so the transfer never crosses the city: about 50 minutes to Como town. Linate and Bergamo are also served but take longer in traffic. Send your flight number and hotel and we track the flight and quote the exact journey.' },
             { q: 'Can the driver reach my hotel door?', a: 'In most cases yes, but parts of the lake have restricted-traffic zones and stepped lanes — Bellagio and Varenna in particular. Where vehicles are not permitted, your driver stops at the nearest legal point and helps with your luggage. Give us the hotel name when booking so the approach is planned in advance.' },
             { q: 'Do you cover wedding and group transport on Lake Como?', a: 'Yes. Each leg is quoted and confirmed in advance. For a group, send the whole schedule in a single enquiry rather than booking legs separately, so timings stay consistent and suitable vehicles are assigned across the programme.' },
             { q: 'Is a surcharge ever added to this transfer?', a: 'Journeys starting between 22:00 and 06:00 and on Italian public holidays can carry a surcharge. Where one applies it is calculated into the quote you receive before you book, so the figure you confirm is the figure you pay. Tolls, fuel and parking are already included.' },
+            { q: 'Is there a train to Bellagio?', a: 'No. Bellagio has no railway station. By public transport you take a train to Como or Varenna and continue by ferry or bus, which usually means at least one change with luggage. A private transfer takes you from Milan or Malpensa to your Bellagio hotel in one journey, to the nearest point a car can reach.' },
         ],
         relatedLinks: [
             { href: '/distance/milan-to-lake-como-distance', label: 'Milan to Lake Como Distance Guide' },
@@ -1235,6 +1236,7 @@ export const routes: RouteData[] = [
         ],
         relatedLinks: [
             { href: '/distance/milan-malpensa-to-como-distance', label: 'Milan Malpensa to Como Distance Guide' },
+            { href: '/route/milan-to-lake-como-taxi', label: 'Milan to Lake Como transfer' },
         ],
     },
     {

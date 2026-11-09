@@ -634,6 +634,7 @@ export const routeExpansion2026: RouteData[] = [
             { href: '/route/milan-to-varenna-taxi', label: 'Milan to Varenna Transfer' },
             { href: '/route/milan-malpensa-to-como-taxi', label: 'Milan Malpensa to Como Transfer' },
             { href: '/tour/lake-como', label: 'Lake Como Tour' },
+            { href: '/route/milan-to-lake-como-taxi', label: 'Milan to Lake Como transfer' },
         ],
     },
     {
@@ -682,6 +683,7 @@ export const routeExpansion2026: RouteData[] = [
             { href: '/route/milan-to-bellagio-taxi', label: 'Starting from Milan city instead? Milan to Bellagio' },
             { href: '/route/malpensa-to-varenna-taxi', label: 'Malpensa to Varenna Transfer' },
             { href: '/route/milan-malpensa-to-como-taxi', label: 'Milan Malpensa to Como Transfer' },
+            { href: '/route/milan-to-lake-como-taxi', label: 'Milan to Lake Como transfer' },
         ],
     },
     {
@@ -730,6 +732,7 @@ export const routeExpansion2026: RouteData[] = [
             { href: '/city/como', label: 'Como Taxi Service' },
             { href: '/route/malpensa-to-varenna-taxi', label: 'Flying into Malpensa instead? Malpensa to Varenna' },
             { href: '/route/milan-to-bellagio-taxi', label: 'Milan to Bellagio Transfer' },
+            { href: '/route/milan-to-lake-como-taxi', label: 'Milan to Lake Como transfer' },
         ],
     },
     {
@@ -777,6 +780,7 @@ export const routeExpansion2026: RouteData[] = [
             { href: '/city/como', label: 'Como Taxi Service' },
             { href: '/route/milan-to-varenna-taxi', label: 'Starting from Milan city instead? Milan to Varenna' },
             { href: '/route/malpensa-to-bellagio-taxi', label: 'Malpensa to Bellagio Transfer' },
+            { href: '/route/milan-to-lake-como-taxi', label: 'Milan to Lake Como transfer' },
         ],
     },
 
