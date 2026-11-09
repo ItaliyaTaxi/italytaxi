@@ -99,7 +99,7 @@ export default function BusinessCorporatePageIt() {
           "Coordinamento multi-veicolo per conferenze ed eventi",
           "Monitoraggio di volo e treno per i prelievi all'arrivo",
           "Supporto conti aziendali 24/7 via telefono e WhatsApp",
-          "Garanzia di puntualità — tasso di puntualità del 99,2%",
+          "Pickup pianificati con margine e monitoraggio del volo",
           "Pianificazione di roadshow e itinerari multi-città",
           "Prezzi fissi o orari — trasparenti fin dall'inizio",
           "Account manager dedicato per i clienti abituali"
