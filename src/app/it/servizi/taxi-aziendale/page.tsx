@@ -84,7 +84,7 @@ export default function BusinessCorporatePageIt() {
         ]}
         detailTitle="Cosa Include il Nostro Servizio Taxi Aziendale"
         detailParagraphs={[
-          "Ogni prenotazione aziendale include un punto di contatto dedicato che gestisce la tua prenotazione dalla conferma al completamento. Riceverai il numero di cellulare diretto del tuo autista la sera prima, così la comunicazione è sempre fluida — anche per modifiche dell'ultimo minuto.",
+          "Per ogni prenotazione puoi contattare il nostro team via WhatsApp o email. Riceverai il numero di cellulare diretto del tuo autista entro le 24 ore precedenti il trasferimento, così la comunicazione è sempre fluida — anche per modifiche dell'ultimo minuto.",
           "I nostri autisti monitorano costantemente le condizioni del traffico, le zone di cantiere e la congestione legata agli eventi nelle città italiane. Se emerge un percorso più veloce, si adattano. Questo approccio proattivo è il motivo per cui i nostri clienti aziendali mantengono una relazione a lungo termine con noi anno dopo anno.",
           "Supportiamo tutti i principali distretti d'affari italiani: Roma (quartiere EUR, Fiumicino), Milano (CityLife, Porta Nuova, Fiera), Firenze (Fortezza da Basso, Palazzo dei Congressi), Bologna (BolognaFiere) e gli aeroporti internazionali in tutto il Paese.",
           "Per la logistica di conferenze ed eventi, il nostro team può coordinare prelievi simultanei da più punti di arrivo. Forniscici il programma dei tuoi delegati e gestiremo l'intera operazione, fornendo aggiornamenti in tempo reale al tuo coordinatore evento.",
@@ -93,8 +93,8 @@ export default function BusinessCorporatePageIt() {
         benefits={[
           "Veicoli non contrassegnati e massima riservatezza",
           "Flotta executive Mercedes-Benz con interni in pelle",
-          "Wi-Fi, caricabatterie e acqua in bottiglia forniti",
-          "Autisti professionisti in uniforme, con NDA disponibile",
+          "Wi-Fi, caricabatterie e acqua in bottiglia su richiesta",
+          "Autisti professionisti in abito formale",
           "Fattura per il singolo servizio ove applicabile",
           "Coordinamento multi-veicolo per conferenze ed eventi",
           "Monitoraggio dei voli per i prelievi all'arrivo",
