@@ -388,7 +388,17 @@ export const cities: CityData[] = [
         name: "Florence",
         hero_image: "https://images.unsplash.com/photo-1543429776-2782fc8e1acd?auto=format&fit=crop&q=60&w=1200",
         description: "The cradle of the Renaissance. Travel between museums and piazzas in total elegance.",
-        popular_tours: ["Uffizi Gallery Tour", "Wine Tasting in Chianti", "Pisa Half-Day Trip"]
+        popular_tours: ["Uffizi Gallery Tour", "Wine Tasting in Chianti", "Pisa Half-Day Trip"],
+        // Florence hub-and-spoke links. The marathon post is seasonal: remove
+        // it after race weekend (29 Nov 2026) or swap in the next edition.
+        relatedLinks: [
+            { href: '/florence-private-taxi', label: 'Florence private taxi & transfers' },
+            { href: '/airport/florence', label: 'Florence Airport (FLR) transfers' },
+            { href: '/route/pisa-airport-to-florence-taxi', label: 'Pisa Airport to Florence transfer' },
+            { href: '/florence-transfer', label: 'Florence hotel transfers' },
+            { href: '/route/rome-to-florence-taxi', label: 'Rome to Florence transfer' },
+            { href: '/blog/florence-marathon-2026-transfers', label: 'Florence Marathon 2026 transfers' },
+        ]
     },
     {
         slug: "venice",
