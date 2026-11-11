@@ -12,6 +12,8 @@ import { findRichDistancePage } from '@/lib/rich-distance-pages-data';
 import { getAllRichDistancePagesIt, findRichDistancePageIt } from '@/lib/rich-distance-pages-it-data';
 import RichDistancePageContentIt from '@/components/RichDistancePageContentIt';
 
+import { DISTANCE_GUIDES_LAST_REVIEWED, formatReviewDate, distanceArticleSchema } from '@/lib/distance-review';
+
 const SITE = 'https://www.italytaxiservice.com';
 
 type ItDistanceView = {
@@ -119,6 +121,7 @@ export default async function ItalianDistancePage({ params }: { params: Promise<
     return (
         <main className="font-inter bg-white text-navy">
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(distanceArticleSchema({ url: `${SITE}/it/distance/${slug}`, headline: c.h1, description: c.metaDescription, image: facts.heroImage, lang: 'it' })) }} />
             <Navbar />
 
             <PageHero
@@ -137,6 +140,7 @@ export default async function ItalianDistancePage({ params }: { params: Promise<
             <section className="py-16">
                 <div className="container mx-auto px-6 max-w-4xl">
                     <h1 className="text-3xl md:text-4xl font-extrabold text-navy mb-6 leading-tight">{c.h1}</h1>
+                    <p className="text-sm text-gray-500 -mt-3 mb-6">Ultima revisione: <time dateTime={DISTANCE_GUIDES_LAST_REVIEWED}>{formatReviewDate(DISTANCE_GUIDES_LAST_REVIEWED, 'it')}</time></p>
 
                     {c.intro.map((p, i) => (
                         <p key={i} className="text-gray-700 leading-relaxed mb-4">{p}</p>

@@ -7,6 +7,8 @@ import { ArrowRight, MapPin, Route as RouteIcon, Clock, Info, ChevronRight } fro
 import type { RichDistancePage } from '@/lib/rich-distance-pages-data';
 import type { RichDistancePageIt } from '@/lib/rich-distance-pages-it-data';
 
+import { DISTANCE_GUIDES_LAST_REVIEWED, formatReviewDate, distanceArticleSchema } from '@/lib/distance-review';
+
 const SITE = 'https://www.italytaxiservice.com';
 
 const JOURNEY_TYPE_COLOR: Record<string, string> = {
@@ -39,6 +41,7 @@ export default function RichDistancePageContentIt({ page, facts }: { page: RichD
     return (
         <main className="font-inter bg-[#FAF7F1] text-[#1E2A22]">
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(distanceArticleSchema({ url: `${SITE}/it/distance/${page.slugIt}`, headline: h1, description: page.metaDescription, lang: 'it' })) }} />
             <Navbar />
 
             {/* ── Hero: route strip + framing text, no banner image ─────────── */}
@@ -63,7 +66,8 @@ export default function RichDistancePageContentIt({ page, facts }: { page: RichD
                         <h2 className="text-4xl md:text-6xl font-extrabold tracking-tight text-[#1E2A22]">{dest}</h2>
                     </div>
 
-                    <p className="text-lg text-[#5B5744] max-w-2xl leading-relaxed mb-8">{page.heroSubtitle}</p>
+                    <p className="text-lg text-[#5B5744] max-w-2xl leading-relaxed mb-3">{page.heroSubtitle}</p>
+                    <p className="text-xs text-[#8A8067] mb-8">Ultima revisione: <time dateTime={DISTANCE_GUIDES_LAST_REVIEWED}>{formatReviewDate(DISTANCE_GUIDES_LAST_REVIEWED, 'it')}</time></p>
 
                     <div className="flex flex-wrap gap-8">
                         <div>

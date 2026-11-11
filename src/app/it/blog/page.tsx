@@ -9,7 +9,9 @@ import { Clock, ChevronRight } from 'lucide-react';
 const SITE = 'https://www.italytaxiservice.com';
 
 export const metadata: Metadata = {
-  title: 'Blog di Viaggio in Italia | Italy Taxi Service',
+  // Absolute: the title already carries the brand, so skip the layout's
+  // "%s | Italy Taxi Service" template, which doubled it.
+  title: { absolute: 'Blog di Viaggio in Italia | Italy Taxi Service' },
   description: 'Guide, consigli e informazioni pratiche per viaggiare in Italia: transfer aeroportuali, città, itinerari e molto altro, in italiano.',
   alternates: { canonical: '/it/blog', languages: { 'it-IT': '/it/blog', 'en': '/blog', 'x-default': '/blog' } },
   openGraph: {
@@ -31,8 +33,28 @@ export default async function ItalianBlogIndex() {
     .eq('language', 'it')
     .order('published_at', { ascending: false });
 
+  // A listing page: CollectionPage with the posts as an ItemList (not Article).
+  const collectionSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Guide di Viaggio in Italia',
+    url: `${SITE}/it/blog`,
+    inLanguage: 'it-IT',
+    isPartOf: { '@type': 'WebSite', name: 'Italy Taxi Service', url: SITE },
+    mainEntity: {
+      '@type': 'ItemList',
+      itemListElement: (blogs ?? []).map((p: { slug: string; title: string }, i: number) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        url: `${SITE}/it/blog/${p.slug}`,
+        name: p.title,
+      })),
+    },
+  };
+
   return (
     <main className="font-inter bg-white text-navy">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }} />
       <Navbar />
 
       <section className="pt-32 pb-12">

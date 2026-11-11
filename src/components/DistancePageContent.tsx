@@ -6,6 +6,8 @@ import FAQSection from '@/components/FAQSection';
 import { Ruler, Car, TrainFront, Clock, ChevronRight } from 'lucide-react';
 import type { DistancePage } from '@/lib/distance-pages-data';
 
+import { DISTANCE_GUIDES_LAST_REVIEWED, formatReviewDate, distanceArticleSchema } from '@/lib/distance-review';
+
 const SITE = 'https://www.italytaxiservice.com';
 
 export default function DistancePageContent({ page }: { page: DistancePage }) {
@@ -14,7 +16,7 @@ export default function DistancePageContent({ page }: { page: DistancePage }) {
 
     const webPageSchema = {
         '@context': 'https://schema.org', '@type': 'WebPage',
-        name: page.h1, url: `${SITE}/${slug}`,
+        name: page.h1, url: `${SITE}/distance/${slug}`,
         description: page.metaDescription,
         isPartOf: { '@type': 'WebSite', name: 'Italy Taxi Service', url: SITE },
     };
@@ -22,6 +24,7 @@ export default function DistancePageContent({ page }: { page: DistancePage }) {
     return (
         <main className="font-inter bg-white text-navy">
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(distanceArticleSchema({ url: `${SITE}/distance/${slug}`, headline: h1, description: page.metaDescription, image: page.heroImage, lang: 'en' })) }} />
             <Navbar />
 
             <PageHero
@@ -33,13 +36,14 @@ export default function DistancePageContent({ page }: { page: DistancePage }) {
                 buttonLink="/book-now"
                 breadcrumbs={[
                     { name: 'Home', item: '/' },
-                    { name: h1, item: `/${slug}` },
+                    { name: h1, item: `/distance/${slug}` },
                 ]}
             />
 
             <section className="py-16">
                 <div className="container mx-auto px-6 max-w-4xl">
                     <h1 className="text-3xl md:text-4xl font-extrabold text-navy mb-6 leading-tight">{h1}</h1>
+                    <p className="text-sm text-gray-500 -mt-3 mb-6">Last reviewed: <time dateTime={DISTANCE_GUIDES_LAST_REVIEWED}>{formatReviewDate(DISTANCE_GUIDES_LAST_REVIEWED, 'en')}</time></p>
 
                     {page.intro.map((p, i) => (
                         <p key={i} className="text-gray-700 leading-relaxed mb-4">{p}</p>
