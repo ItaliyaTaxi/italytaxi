@@ -353,6 +353,24 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/attraction-transfer/costa-smeralda-taxi-transfer',
     // Consolidated into /route/milan-to-lake-como-taxi (301 in next.config.ts)
     '/attraction-transfer/lake-como-taxi-transfer',
+    // Beach/attraction duplicates now redirected, and thin stubs set to noindex
+    '/beach-transfer/capri-island-taxi',
+    '/attraction-transfer/amalfi-coast-taxi-transfer',
+    '/attraction-transfer/elba-island-taxi-transfer',
+    '/beach-transfer/sirolo-beach-taxi',
+    '/attraction-transfer/dolomites-taxi-transfer',
+    '/attraction-transfer/florence-cathedral-taxi-transfer',
+    '/attraction-transfer/lake-maggiore-taxi-transfer',
+    '/attraction-transfer/mount-etna-taxi-transfer',
+    '/attraction-transfer/rialto-bridge-taxi-transfer',
+    '/attraction-transfer/sassi-matera-taxi-transfer',
+    '/attraction-transfer/trulli-alberobello-taxi-transfer',
+    '/attraction-transfer/valley-of-the-temples-taxi-transfer',
+    '/beach-transfer/ischia-beach-taxi',
+    '/beach-transfer/rimini-beach-taxi',
+    '/beach-transfer/tropea-beach-taxi',
+    '/beach-transfer/polignano-a-mare-beach-taxi',
+    '/beach-transfer/san-vito-lo-capo-taxi',
   ]);
 
   // De-duplicate by URL and filter out non-canonical / redirected / admin URLs.

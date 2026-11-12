@@ -7,6 +7,7 @@ import ServiceSchema from '@/components/ServiceSchema';
 import BookingForm from '@/components/BookingForm';
 import FAQSection from '@/components/FAQSection';
 import Link from 'next/link';
+import { routesForPlace, dayTripsForPlace } from '@/lib/related-routes';
 import { MapPin, Clock, ChevronRight, MessageCircle, CheckCircle, Car, Camera, Utensils, ShoppingBag, Wine, Sun, Luggage, Sparkles, Users, Info } from 'lucide-react';
 
 const STANDARD_VEHICLES: { name: string; desc: string }[] = [
@@ -305,6 +306,34 @@ export default async function DayTripPage({ params }: { params: Promise<{ slug: 
                     </div>
                 </div>
             </section>
+
+            {/* Transfers and other day trips from the same city. Day-trip pages
+                previously linked out only to their hand-picked related pages,
+                and most had a single inbound link. */}
+            {(() => {
+                const fromRoutes = routesForPlace(trip.from, 6, trip.slugEn);
+                const otherTrips = dayTripsForPlace(trip.from, trip.slugEn);
+                if (!fromRoutes.length && !otherTrips.length) return null;
+                return (
+                    <section className="py-16 bg-white">
+                        <div className="container mx-auto px-6 max-w-5xl">
+                            <h2 className="text-2xl font-bold text-navy mb-6">Private Transfers from {trip.from}</h2>
+                            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+                                {fromRoutes.map((r) => (
+                                    <Link key={r.slug} href={`/route/${r.slug}`} className="flex items-center gap-2 p-4 bg-white rounded-xl text-gray-700 hover:text-gold hover:shadow-md border border-gray-100 transition-all font-medium">
+                                        <ChevronRight className="w-4 h-4 text-gold shrink-0" /> {r.from} → {r.to}
+                                    </Link>
+                                ))}
+                                {otherTrips.map((t) => (
+                                    <Link key={t.slugEn} href={`/day-trips/${t.slugEn}`} className="flex items-center gap-2 p-4 bg-white rounded-xl text-gray-700 hover:text-gold hover:shadow-md border border-gray-100 transition-all font-medium">
+                                        <ChevronRight className="w-4 h-4 text-gold shrink-0" /> {t.from} to {t.to} Day Trip
+                                    </Link>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+                );
+            })()}
 
             {/* Final CTA */}
             <section className="py-20 bg-[#0F1C2E]">

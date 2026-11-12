@@ -4,8 +4,8 @@ import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Taxi for Lido Venezia Beach Visits",
-  description: "Book a professional private transfer to Lido Venezia Beach Taxi. Avoid the crowds of public transport and enjoy a comfortable ride directly to one of Italy's most iconic locations.",
+  title: "Taxi for Lido di Venezia Beach Visits",
+  description: "Book a professional private transfer to Lido di Venezia Beach. Avoid the crowds of public transport and enjoy a comfortable ride directly to one of Italy's most iconic locations.",
   alternates: {
     canonical: "/beach-transfer/lido-venezia-beach-taxi",
   }
@@ -16,15 +16,15 @@ export default function Page() {
     <main className="min-h-screen">
       <Navbar />
       <div className="container mx-auto py-24 px-6 md:px-32">
-        <h1 className="text-4xl md:text-6xl font-bold text-navy mb-12">Private Transfer to Lido Venezia Beach Taxi</h1>
+        <h1 className="text-4xl md:text-6xl font-bold text-navy mb-12">Private Transfer to Lido di Venezia Beach</h1>
         
         <section className="mb-12">
-          <h2 className="text-2xl font-semibold text-navy mb-6">Visit Lido Venezia Beach Taxi with Ease</h2>
-          <p className="text-gray-600 text-lg leading-relaxed">Book a professional private transfer to Lido Venezia Beach Taxi. Avoid the crowds of public transport and enjoy a comfortable ride directly to one of Italy's most iconic locations.</p>
+          <h2 className="text-2xl font-semibold text-navy mb-6">Visit Lido di Venezia Beach with Ease</h2>
+          <p className="text-gray-600 text-lg leading-relaxed">Book a professional private transfer to Lido di Venezia Beach. Avoid the crowds of public transport and enjoy a comfortable ride directly to one of Italy's most iconic locations.</p>
         </section>
 
         <section className="mb-12 p-8 bg-gray-50 border border-gold/10 rounded-[2.5rem] shadow-sm">
-          <h2 className="text-2xl font-semibold text-navy mb-6">Transfer Services to Lido Venezia Beach Taxi</h2>
+          <h2 className="text-2xl font-semibold text-navy mb-6">Transfer Services to Lido di Venezia Beach</h2>
           <ul className="grid md:grid-cols-2 gap-4 list-none">
             <li className="flex items-center gap-3 font-medium text-navy">
                <span className="text-gold">✅</span> Door-to-door service
@@ -43,7 +43,7 @@ export default function Page() {
 
         <section className="mb-12">
           <h2 className="text-2xl font-semibold text-navy mb-6">Plan Your Trip</h2>
-          <p className="text-gray-600 text-lg leading-relaxed">Our drivers are locals who know the best routes and can provide tips for your visit to Lido Venezia Beach Taxi. Whether you're traveling solo or in a group, we have the right vehicle for your needs.</p>
+          <p className="text-gray-600 text-lg leading-relaxed">Our drivers are locals who know the best routes and can provide tips for your visit to Lido di Venezia Beach. Whether you're traveling solo or in a group, we have the right vehicle for your needs.</p>
         </section>
 
         <section className="mt-16 pt-16 border-t border-gray-100">

@@ -62,7 +62,7 @@ const pricing: PricingTier[] = [
 
 const popularTours = [
   { name: "Rome Colosseum & Vatican Day Tour", path: "/attraction-transfer/vatican-museums-taxi-transfer" },
-  { name: "Amalfi Coast Scenic Drive", path: "/attraction-transfer/amalfi-coast-taxi-transfer" },
+  { name: "Amalfi Coast Scenic Drive", path: "/beach-transfer/amalfi-coast-taxi" },
   { name: "Tuscany Wine & Countryside", path: "/city/florence" },
   { name: "Lake Como & Bellagio Day Trip", path: "/attraction-transfer/lake-como-taxi-transfer" },
   { name: "Pompeii & Herculaneum from Naples", path: "/attraction-transfer/pompeii-taxi-transfer" },

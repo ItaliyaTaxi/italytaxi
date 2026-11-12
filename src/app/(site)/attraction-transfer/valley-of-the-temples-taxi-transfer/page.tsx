@@ -4,7 +4,10 @@ import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Taxi for Valley Of The Temples Visits",
+  // Thin stub (~160 unique words, no impressions in 3 months): kept live but out of
+  // Google's index until it is rewritten with destination-specific content.
+  robots: { index: false, follow: true },
+  title: "Taxi for Valley of the Temples Visits",
   description: "Book a professional private transfer to Valley of the Temples. Avoid the crowds of public transport and enjoy a comfortable ride directly to one of Italy's most iconic locations.",
   alternates: {
     canonical: "/attraction-transfer/valley-of-the-temples-taxi-transfer",

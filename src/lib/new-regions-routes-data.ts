@@ -289,7 +289,7 @@ export const clusterRoutes: ClusterRoute[] = [
                 { href: '/city/naples', label: 'Naples City Transfers' },
                 { href: '/city/sorrento', label: 'Sorrento Taxi Service' },
                 { href: '/tour/amalfi-coast', label: 'Amalfi Coast Tour' },
-                { href: '/beach-transfer/capri-island-taxi', label: 'Capri Island Beach Transfer' },
+                { href: '/attraction-transfer/capri-island-taxi-transfer', label: 'Capri Island Beach Transfer' },
             ],
         },
         it: {
@@ -325,7 +325,7 @@ export const clusterRoutes: ClusterRoute[] = [
                 { href: '/city/naples', label: 'Transfer Città di Napoli' },
                 { href: '/city/sorrento', label: 'Servizio Taxi Sorrento' },
                 { href: '/tour/amalfi-coast', label: 'Tour della Costiera Amalfitana' },
-                { href: '/beach-transfer/capri-island-taxi', label: 'Transfer Spiaggia Isola di Capri' },
+                { href: '/attraction-transfer/capri-island-taxi-transfer', label: 'Transfer Spiaggia Isola di Capri' },
             ],
         },
     },

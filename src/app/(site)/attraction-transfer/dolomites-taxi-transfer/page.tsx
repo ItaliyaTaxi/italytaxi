@@ -4,7 +4,10 @@ import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Private Taxi to Dolomites | Italy",
+  // Thin stub (~160 unique words, no impressions in 3 months): kept live but out of
+  // Google's index until it is rewritten with destination-specific content.
+  robots: { index: false, follow: true },
+  title: "Private Taxi to Dolomites",
   description: "Book a professional private transfer to Dolomites. Avoid the crowds of public transport and enjoy a comfortable ride directly to one of Italy's most iconic locations.",
   alternates: {
     canonical: "/attraction-transfer/dolomites-taxi-transfer",

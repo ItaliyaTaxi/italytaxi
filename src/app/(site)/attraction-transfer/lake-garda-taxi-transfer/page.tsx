@@ -8,7 +8,7 @@ import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Private Taxi to Lake Garda | Italy",
+  title: "Private Taxi to Lake Garda",
   description: "Book a professional private transfer to Lake Garda. Reliable taxi services to Sirmione, Malcesine, Riva del Garda, and all lake resorts from Milan, Verona, or Venice airports.",
   alternates: {
     canonical: "/attraction-transfer/lake-garda-taxi-transfer",

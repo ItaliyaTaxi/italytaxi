@@ -46,9 +46,8 @@ const data: BeachTransferData = {
   ],
   relatedLinks: [
     { label: "Positano Taxi", href: "/beach-transfer/positano-beach-taxi" },
-    { label: "Capri Island Taxi", href: "/beach-transfer/capri-island-taxi" },
+    { label: "Capri Island Taxi", href: "/attraction-transfer/capri-island-taxi-transfer" },
     { label: "Naples Airport Transfer", href: "/airport/naples" },
-    { label: "Amalfi Coast Attraction Transfer", href: "/attraction-transfer/amalfi-coast-taxi-transfer" },
     { label: "All Beach Transfers", href: "/beach-transfer" },
     { label: "Book Now", href: "/book-now" },
   ],

@@ -4,7 +4,7 @@ import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Taxi for Arena Di Verona Visits",
+  title: "Taxi for Arena di Verona Visits",
   description: "Book a professional private transfer to Arena di Verona. Avoid the crowds of public transport and enjoy a comfortable ride directly to one of Italy's most iconic locations.",
   alternates: {
     canonical: "/attraction-transfer/arena-di-verona-taxi-transfer",

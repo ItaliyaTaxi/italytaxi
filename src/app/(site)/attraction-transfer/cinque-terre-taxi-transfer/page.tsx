@@ -8,7 +8,7 @@ import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Private Taxi to Cinque Terre | Italy",
+  title: "Private Taxi to Cinque Terre",
   description: "Arrive at the stunning villages of Cinque Terre in comfort. Private taxi transfers to Riomaggiore, Manarola, Corniglia, Vernazza, and Monterosso from Florence, Pisa, or Genoa.",
   alternates: {
     canonical: "/attraction-transfer/cinque-terre-taxi-transfer",

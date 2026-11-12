@@ -62,7 +62,7 @@ const pricing: PricingTier[] = [
 
 const popularTours = [
   { name: "Tour di un Giorno: Colosseo e Vaticano", path: "/attraction-transfer/vatican-museums-taxi-transfer" },
-  { name: "Giro Panoramico sulla Costiera Amalfitana", path: "/attraction-transfer/amalfi-coast-taxi-transfer" },
+  { name: "Giro Panoramico sulla Costiera Amalfitana", path: "/beach-transfer/amalfi-coast-taxi" },
   { name: "Vino e Campagna in Toscana", path: "/city/florence" },
   { name: "Gita di un Giorno al Lago di Como e Bellagio", path: "/attraction-transfer/lake-como-taxi-transfer" },
   { name: "Pompei ed Ercolano da Napoli", path: "/attraction-transfer/pompeii-taxi-transfer" },

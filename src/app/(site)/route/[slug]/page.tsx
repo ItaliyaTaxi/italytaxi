@@ -8,6 +8,7 @@ import BookingForm from '@/components/BookingForm';
 import FAQSection from '@/components/FAQSection';
 import Link from 'next/link';
 import { MapPin, Clock, ChevronRight, MessageCircle, CheckCircle, Euro, Car, ShieldCheck } from 'lucide-react';
+import { relatedRoutesFor, dayTripsForPlace } from '@/lib/related-routes';
 
 const STANDARD_VEHICLES: { name: string; desc: string }[] = [
     { name: 'Sedan', desc: '1–3 passengers · comfortable saloon car' },
@@ -54,9 +55,6 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         },
     };
 }
-
-// Related popular routes to cross-link
-const relatedRoutes = routes.slice(0, 6);
 
 export default async function RoutePage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
@@ -210,17 +208,18 @@ export default async function RoutePage({ params }: { params: Promise<{ slug: st
 
             <FAQSection faqs={route.faqs} title={`${route.from} to ${route.to} Transfer — FAQ`} />
 
-            {/* Internal Linking: Other Popular Routes */}
+            {/* Internal linking: related routes (return journey, same origin,
+                same destination, onward). The selection rotates per page so
+                every route is linked from several siblings, instead of the
+                same first six routes appearing on every route page. */}
             <section className="py-16 bg-[#F8F9FA] border-y border-gray-100">
                 <div className="container mx-auto px-6 max-w-5xl">
                     <div className="text-center mb-10">
                         <p className="text-gold text-sm font-bold uppercase tracking-[0.4em] mb-3">More Transfers</p>
-                        <h2 className="text-3xl font-bold text-navy">Other Popular Italy Routes</h2>
+                        <h2 className="text-3xl font-bold text-navy">Related Transfers from {route.from} and {route.to}</h2>
                     </div>
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                        {routes
-                            .filter((r) => r.slug !== slug)
-                            .slice(0, 6)
+                        {relatedRoutesFor(route)
                             .map((r, idx) => (
                                 <Link
                                     key={idx}
@@ -254,6 +253,13 @@ export default async function RoutePage({ params }: { params: Promise<{ slug: st
                                         </Link>
                                     </li>
                                 )}
+                                {dayTripsForPlace(route.from).slice(0, 2).map((t) => (
+                                    <li key={t.slugEn}>
+                                        <Link href={`/day-trips/${t.slugEn}`} className="flex items-center gap-2 text-gray-700 hover:text-gold transition-colors font-medium">
+                                            <ChevronRight className="w-4 h-4 text-gold" /> {t.from} to {t.to} Day Trip
+                                        </Link>
+                                    </li>
+                                ))}
                                 <li>
                                     <Link href="/services/airport-transfers" className="flex items-center gap-2 text-gray-700 hover:text-gold transition-colors font-medium">
                                         <ChevronRight className="w-4 h-4 text-gold" /> Airport Transfers in Italy
@@ -281,6 +287,13 @@ export default async function RoutePage({ params }: { params: Promise<{ slug: st
                                         </Link>
                                     </li>
                                 )}
+                                {dayTripsForPlace(route.to).filter((t) => !dayTripsForPlace(route.from).slice(0, 2).includes(t)).slice(0, 2).map((t) => (
+                                    <li key={t.slugEn}>
+                                        <Link href={`/day-trips/${t.slugEn}`} className="flex items-center gap-2 text-gray-700 hover:text-gold transition-colors font-medium">
+                                            <ChevronRight className="w-4 h-4 text-gold" /> {t.from} to {t.to} Day Trip
+                                        </Link>
+                                    </li>
+                                ))}
                                 <li>
                                     <Link href="/services/hotel-transfers" className="flex items-center gap-2 text-gray-700 hover:text-gold transition-colors font-medium">
                                         <ChevronRight className="w-4 h-4 text-gold" /> Hotel Transfer Service

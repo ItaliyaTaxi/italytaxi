@@ -644,7 +644,7 @@ export const dayTrips: DayTrip[] = [
                 { q: 'What should we wear if visiting religious sites on Capri?', a: 'Shoulders and knees covered is a good general rule for the island\'s churches, consistent with most of Italy.' },
             ],
             relatedLinks: [
-                { href: '/beach-transfer/capri-island-taxi', label: 'Capri Island Beach Transfer' },
+                { href: '/attraction-transfer/capri-island-taxi-transfer', label: 'Capri Island Beach Transfer' },
                 { href: '/day-trips/rome-to-amalfi-coast-day-trip', label: 'Rome to Amalfi Coast Day Trip' },
                 { href: '/day-trips/rome-to-positano-day-trip', label: 'Rome to Positano Day Trip' },
                 { href: '/city/naples', label: 'Naples City Transfers' },
@@ -724,7 +724,7 @@ export const dayTrips: DayTrip[] = [
                 { q: 'Cosa dovremmo indossare per visitare i siti religiosi a Capri?', a: 'Spalle e ginocchia coperte è una buona regola generale per le chiese dell\'isola, coerente con la maggior parte dell\'Italia.' },
             ],
             relatedLinks: [
-                { href: '/beach-transfer/capri-island-taxi', label: 'Transfer Spiaggia Isola di Capri' },
+                { href: '/attraction-transfer/capri-island-taxi-transfer', label: 'Transfer Spiaggia Isola di Capri' },
                 { href: '/it/day-trips/gita-da-roma-alla-costiera-amalfitana', label: 'Gita da Roma alla Costiera Amalfitana' },
                 { href: '/it/day-trips/gita-da-roma-a-positano', label: 'Gita da Roma a Positano' },
                 { href: '/city/naples', label: 'Transfer Città di Napoli' },
@@ -1658,7 +1658,7 @@ export const dayTrips: DayTrip[] = [
                 { q: 'What should we wear if visiting Capri\'s churches?', a: 'Shoulders and knees covered is a good general rule, consistent with most religious sites in Italy.' },
             ],
             relatedLinks: [
-                { href: '/beach-transfer/capri-island-taxi', label: 'Capri Island Beach Transfer' },
+                { href: '/attraction-transfer/capri-island-taxi-transfer', label: 'Capri Island Beach Transfer' },
                 { href: '/day-trips/naples-to-amalfi-coast-tour', label: 'Naples to Amalfi Coast Tour' },
                 { href: '/city/naples', label: 'Naples City Transfers' },
                 { href: '/day-trips/rome-to-capri-day-trip', label: 'Rome to Capri Day Trip' },
@@ -1738,7 +1738,7 @@ export const dayTrips: DayTrip[] = [
                 { q: 'Cosa dovremmo indossare per visitare le chiese di Capri?', a: 'Spalle e ginocchia coperte è una buona regola generale, coerente con la maggior parte dei siti religiosi in Italia.' },
             ],
             relatedLinks: [
-                { href: '/beach-transfer/capri-island-taxi', label: 'Transfer Spiaggia Isola di Capri' },
+                { href: '/attraction-transfer/capri-island-taxi-transfer', label: 'Transfer Spiaggia Isola di Capri' },
                 { href: '/it/day-trips/tour-da-napoli-alla-costiera-amalfitana', label: 'Tour da Napoli alla Costiera Amalfitana' },
                 { href: '/city/naples', label: 'Transfer Città di Napoli' },
                 { href: '/it/day-trips/gita-da-roma-a-capri', label: 'Gita da Roma a Capri' },

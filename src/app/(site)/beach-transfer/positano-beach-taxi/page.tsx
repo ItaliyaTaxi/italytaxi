@@ -46,7 +46,7 @@ const data: BeachTransferData = {
   ],
   relatedLinks: [
     { label: "Amalfi Coast Taxi", href: "/beach-transfer/amalfi-coast-taxi" },
-    { label: "Capri Island Taxi", href: "/beach-transfer/capri-island-taxi" },
+    { label: "Capri Island Taxi", href: "/attraction-transfer/capri-island-taxi-transfer" },
     { label: "Naples Airport Taxi", href: "/airport/naples" },
     { label: "Naples City Transfers", href: "/city/naples" },
     { label: "All Beach Transfers", href: "/beach-transfer" },

@@ -10,6 +10,7 @@ import PageHero from '@/components/PageHero';
 import ServiceSchema from '@/components/ServiceSchema';
 import Image from 'next/image';
 import Link from 'next/link';
+import { routesForPlace, dayTripsForPlace } from '@/lib/related-routes';
 
 export async function generateStaticParams() {
     return cities.map((city) => ({
@@ -43,6 +44,11 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
 
     // Pull unique rich content for this city (keyed by city name)
     const richData = getCityData(city.name);
+
+    // Routes and day trips that start or end in this city. City pages used to
+    // link to no route pages at all, leaving most routes nearly orphaned.
+    const cityRoutes = routesForPlace(city.name, 12);
+    const cityDayTrips = dayTripsForPlace(city.name);
 
     const cityFaqs = [
       {
@@ -410,6 +416,31 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
                                     ))}
                                 </div>
                             ))}
+                        </div>
+                    </div>
+                </section>
+            )}
+
+            {(cityRoutes.length > 0 || cityDayTrips.length > 0) && (
+                <section className="py-16 bg-white">
+                    <div className="container mx-auto px-6">
+                        <div className="max-w-4xl mx-auto">
+                            <h2 className="text-2xl font-bold text-navy mb-6">Private Transfers from {city.name}</h2>
+                            <div className="grid sm:grid-cols-2 gap-3">
+                                {cityRoutes.map((r) => (
+                                    <Link key={r.slug} href={`/route/${r.slug}`} className="group bg-white border border-gray-100 rounded-xl px-5 py-4 flex items-center gap-3 hover:border-gold/50 hover:shadow-sm transition-all">
+                                        <ArrowRight className="w-4 h-4 text-gold shrink-0 group-hover:translate-x-1 transition-transform" />
+                                        <span className="text-navy font-semibold">{r.from} → {r.to}</span>
+                                        <span className="ml-auto text-xs text-gray-400 whitespace-nowrap">{r.duration}</span>
+                                    </Link>
+                                ))}
+                                {cityDayTrips.map((t) => (
+                                    <Link key={t.slugEn} href={`/day-trips/${t.slugEn}`} className="group bg-white border border-gray-100 rounded-xl px-5 py-4 flex items-center gap-3 hover:border-gold/50 hover:shadow-sm transition-all">
+                                        <ArrowRight className="w-4 h-4 text-gold shrink-0 group-hover:translate-x-1 transition-transform" />
+                                        <span className="text-navy font-semibold">{t.from} to {t.to} Day Trip</span>
+                                    </Link>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </section>

@@ -173,6 +173,13 @@ const nextConfig: NextConfig = {
       { source: '/city/verona', destination: '/airport/verona', permanent: true },
       { source: '/city/verona-taxi-service', destination: '/airport/verona', permanent: true },
 
+      // Beach/attraction duplicates merged into the page Google already shows
+      // (or the richer one): one page per destination.
+      { source: '/beach-transfer/capri-island-taxi', destination: '/attraction-transfer/capri-island-taxi-transfer', permanent: true },
+      { source: '/attraction-transfer/amalfi-coast-taxi-transfer', destination: '/beach-transfer/amalfi-coast-taxi', permanent: true },
+      { source: '/attraction-transfer/elba-island-taxi-transfer', destination: '/beach-transfer/elba-beach-taxi', permanent: true },
+      { source: '/beach-transfer/sirolo-beach-taxi', destination: '/beach-transfer/conero-beach-taxi', permanent: true },
+
       // Thin attraction-transfer stub consolidated into the richer beach-transfer page.
       // The beach page is canonical for Costa Smeralda taxi traffic.
       { source: '/attraction-transfer/costa-smeralda-taxi-transfer', destination: '/beach-transfer/costa-smeralda-taxi', permanent: true },

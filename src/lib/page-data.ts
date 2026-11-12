@@ -654,7 +654,6 @@ export const tours: TourData[] = [
     }
 ];
 export const attractionTransfers = [
-    'amalfi-coast-taxi-transfer',
     'arena-di-verona-taxi-transfer',
     'capri-island-taxi-transfer',
     'castel-dell-ovo-taxi-transfer',
@@ -662,7 +661,6 @@ export const attractionTransfers = [
     'colosseum-taxi-transfer',
     'costa-smeralda-taxi-transfer',
     'dolomites-taxi-transfer',
-    'elba-island-taxi-transfer',
     'florence-cathedral-taxi-transfer',
     'lake-como-taxi-transfer',
     'lake-garda-taxi-transfer',
@@ -690,7 +688,6 @@ export const beachTransfers = [
     'amalfi-coast-taxi',
     'cala-luna-beach-transfer',
     'camogli-taxi-transfer',
-    'capri-island-taxi',
     'conero-beach-taxi',
     'costa-smeralda-taxi',
     'elba-beach-taxi',
@@ -703,7 +700,6 @@ export const beachTransfers = [
     'rimini-beach-taxi',
     'san-vito-lo-capo-taxi',
     'sardinia-beach-transfers',
-    'sirolo-beach-taxi',
     'sperlonga-taxi-transfer',
     'taormina-beach-transfer',
     'tropea-beach-taxi',
