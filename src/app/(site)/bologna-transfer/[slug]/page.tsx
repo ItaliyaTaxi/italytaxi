@@ -8,6 +8,7 @@ import {
 } from '@/lib/bologna-transfer-data';
 import BolognaTransferContent from '@/components/BolognaTransferContent';
 import BolognaCruiseContent from '@/components/BolognaCruiseContent';
+import { canonicalPath } from '@/lib/direction-canonicals';
 
 const SITE = 'https://www.italytaxiservice.com';
 const HERO_IMG = '/images/Bologna.webp';
@@ -40,7 +41,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         return {
             title: title.length > 60 ? shortTitle : title,
             description: description.slice(0, 160),
-            alternates: { canonical: `/bologna-transfer/${slug}` },
+            alternates: { canonical: canonicalPath(`/bologna-transfer/${slug}`) },
             openGraph: { title, description, url, type: 'website', images: [{ url: `${SITE}${HERO_IMG}`, width: 1200, height: 630, alt }] },
             twitter: { card: 'summary_large_image', title, description },
         };
@@ -58,7 +59,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         return {
             title: title.length > 60 ? shortTitle : title,
             description: description.slice(0, 160),
-            alternates: { canonical: `/bologna-transfer/${slug}` },
+            alternates: { canonical: canonicalPath(`/bologna-transfer/${slug}`) },
             openGraph: { title, description, url, type: 'website', images: [{ url: `${SITE}${HERO_IMG}`, width: 1200, height: 630, alt }] },
             twitter: { card: 'summary_large_image', title, description },
         };

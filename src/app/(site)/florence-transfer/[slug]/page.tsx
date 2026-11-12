@@ -16,6 +16,7 @@ import {
     departureSlug,
     flAirports,
 } from '@/lib/florence-transfer-data';
+import { canonicalPath } from '@/lib/direction-canonicals';
 
 const SITE = 'https://www.italytaxiservice.com';
 const HERO_IMG = '/images/florence airport.webp';
@@ -51,7 +52,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     return {
         title: title.length > 60 ? shortTitle : title,
         description: description.slice(0, 160),
-        alternates: { canonical: `/florence-transfer/${slug}` },
+        alternates: { canonical: canonicalPath(`/florence-transfer/${slug}`) },
         openGraph: {
             title, description, url, type: 'website',
             images: [{ url: `${SITE}${HERO_IMG}`, width: 1200, height: 630, alt }],

@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
             ? { absolute: city.seoTitleAbsolute }
             : `Taxi Service in ${city.name} | Private Transfers`,
         description: city.metaDescription
-            ?? `Book the #1 top-rated private taxi transfer in ${city.name}. 24/7 service, English-speaking drivers, and fixed pricing for airport and city rides.`,
+            ?? `Private taxi and transfers in ${city.name}: airport pickups, hotel and city-to-city rides with English-speaking NCC drivers. Fixed quote before you travel.`,
         alternates: {
             canonical: `/city/${slug}`,
         }

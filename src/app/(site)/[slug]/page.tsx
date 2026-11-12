@@ -20,6 +20,7 @@ import { getAllVenetoTransfers, findVenetoTransfer } from '@/lib/veneto-transfer
 import VenetoTransferContent from '@/components/VenetoTransferContent';
 import { getAllCrossBorderTransfers, findCrossBorderTransfer, countries } from '@/lib/cross-border-data';
 import CrossBorderContent from '@/components/CrossBorderContent';
+import { canonicalPath } from '@/lib/direction-canonicals';
 
 const SITE = 'https://www.italytaxiservice.com';
 
@@ -52,7 +53,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
             return {
                 title: title.length > 60 ? shortTitle : title,
                 description: description.slice(0, 160),
-                alternates: { canonical: `/${slug}` },
+                alternates: { canonical: canonicalPath(`/${slug}`) },
                 openGraph: {
                     title, description, url: `${SITE}/${slug}`, type: 'website',
                     images: [{ url: `${SITE}/images/milan airport.jpg`, width: 1200, height: 630, alt: `${m.hotel.name} ${m.airport.name} private transfer` }],
@@ -73,7 +74,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
             return {
                 title: vtitle.length > 60 ? vshortTitle : vtitle,
                 description: vdescription.slice(0, 160),
-                alternates: { canonical: `/${slug}` },
+                alternates: { canonical: canonicalPath(`/${slug}`) },
                 openGraph: {
                     title: vtitle, description: vdescription, url: `${SITE}/${slug}`, type: 'website',
                     images: [{ url: `${SITE}/images/venice airport.webp`, width: 1200, height: 630, alt: `${v.dest.name} ${v.airport.name} private transfer` }],
@@ -89,7 +90,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
             return {
                 title: cbtitle.length > 60 ? `${cb.origin} to ${cb.dest} Transfer` : cbtitle,
                 description: cbdescription.slice(0, 160),
-                alternates: { canonical: `/${slug}` },
+                alternates: { canonical: canonicalPath(`/${slug}`) },
                 openGraph: {
                     title: cbtitle, description: cbdescription, url: `${SITE}/${slug}`, type: 'website',
                     images: [{ url: `${SITE}/images/hero.webp`, width: 1200, height: 630, alt: `${cb.origin} to ${cb.dest} private cross-border transfer` }],
@@ -110,7 +111,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     return {
         title: title.length > 60 ? (dep ? `${t.hotel.name} to ${t.airport.short} Transfer` : `${t.airport.short} to ${t.hotel.name} Transfer`) : title,
         description: description.slice(0, 160),
-        alternates: { canonical: `/${slug}` },
+        alternates: { canonical: canonicalPath(`/${slug}`) },
         openGraph: {
             title, description, url, type: 'website',
             images: [{ url: `${SITE}/images/rome airport.webp`, width: 1200, height: 630, alt: `${t.hotel.name} ${t.airport.name} private transfer` }],

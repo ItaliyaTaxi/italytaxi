@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next';
+import { DIRECTION_CANONICALS } from '@/lib/direction-canonicals';
 import { supabase } from '@/lib/supabase/client';
 import { getAllAirportHotelTransfers } from '@/lib/airport-hotel-data';
 import { getAllFlorenceTransfers } from '@/lib/florence-transfer-data';
@@ -377,6 +378,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const seen = new Set<string>();
   return combined.filter((e) => {
     const pathOnly = e.url.replace(BASE_URL, '');
+    // The non-canonical direction of a consolidated arrival/departure pair.
+    if (pathOnly in DIRECTION_CANONICALS) return false;
     if (EXCLUDED_PATHS.has(pathOnly) || pathOnly.startsWith('/crm')) return false;
     if (seen.has(e.url)) return false;
     seen.add(e.url);
