@@ -67,6 +67,17 @@ const schema = {
         place('Casa del Jazz', 'Roma', 'Viale di Porta Ardeatina'),
         place('Alcazar', 'Roma'),
       ],
+      image: [`${SITE}/images/rome%20airport.webp`],
+      // Performers from the remaining concerts (13–24 Nov), as listed on the
+      // festival's concert pages. Ensembles → PerformingGroup, artists → Person.
+      performer: [
+        ...['Eleonora Strino Trio', 'Nexus Quartet', 'Rieti Jazz Orchestra', 'CDJO Casa del Jazz Orchestra', 'Jeremy Pelt Quintet', 'I Musicanti di Brema Swing Band', 'Priverno Jazz Orchestra']
+          .map((name) => ({ '@type': 'PerformingGroup', name })),
+        ...['Enzo Favata', 'Erik Truffaz', 'Antonio Lizana', 'Gregory Hutchinson', 'Rosa Brunello', 'Chiara Civello', 'Jason Miles']
+          .map((name) => ({ '@type': 'Person', name })),
+      ],
+      // No `offers`: tickets are sold by the festival (TicketOne), not by us,
+      // and we don't publish prices we haven't verified.
       url: 'https://romajazzfestival.it/',
     },
     {
