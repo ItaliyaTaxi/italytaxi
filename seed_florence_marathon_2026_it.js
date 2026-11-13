@@ -48,7 +48,10 @@ const schema = {
       name: 'Estra Firenze Marathon 2026',
       sport: 'Maratona',
       inLanguage: 'it-IT',
+      description: 'Estra Firenze Marathon 2026: 42,195 km per le strade di Firenze, con partenza da Piazza del Duomo domenica 29 novembre.',
       startDate: '2026-11-29T08:30:00+01:00',
+      endDate: '2026-11-29',
+      image: [`${SITE}/images/florence%20airport.webp`],
       eventStatus: 'https://schema.org/EventScheduled',
       eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
       location: {

@@ -65,7 +65,10 @@ const schema = {
       '@id': `${SITE}/blog/${SLUG}#event`,
       name: 'Estra Firenze Marathon 2026',
       sport: 'Marathon',
+      description: 'The Estra Firenze Marathon 2026: 42.195 km through the streets of Florence, starting from Piazza del Duomo on Sunday 29 November.',
       startDate: '2026-11-29T08:30:00+01:00',
+      endDate: '2026-11-29',
+      image: [`${SITE}/images/florence%20airport.webp`],
       eventStatus: 'https://schema.org/EventScheduled',
       eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
       location: {
