@@ -139,7 +139,7 @@ export default function CancellationRefundPolicyPage() {
                 <ul>
                   <li><strong>International flights:</strong> 60 minutes from actual landing time</li>
                   <li><strong>Domestic flights:</strong> 30 minutes from actual landing time</li>
-                  <li><strong>Train station pickups:</strong> 20 minutes from scheduled arrival time</li>
+                  <li><strong>Train station pickups:</strong> 60 minutes from your train's arrival</li>
                   <li><strong>Hotel or address pickups:</strong> 15 minutes from the scheduled pickup time</li>
                 </ul>
                 <p>For airport pickups the clock starts when your aircraft actually lands, not at its scheduled time, because we monitor flights and adjust the pickup automatically.</p>

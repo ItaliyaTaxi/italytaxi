@@ -152,7 +152,7 @@ export default function TermsAndConditionsPage() {
                 <ul>
                   <li><strong>International flights:</strong> 60 minutes from actual landing time</li>
                   <li><strong>Domestic flights:</strong> 30 minutes from actual landing time</li>
-                  <li><strong>Train station pickups:</strong> 20 minutes from scheduled arrival time</li>
+                  <li><strong>Train station pickups:</strong> 60 minutes from your train's arrival</li>
                   <li><strong>Hotel / address pickups:</strong> 15 minutes from the scheduled pickup time</li>
                 </ul>
                 <p>We monitor all flights in real-time using live flight tracking data. If your flight is delayed, your driver's pickup time adjusts automatically at no charge. You will not be penalised for delays caused by airlines, air traffic control, or weather events.</p>

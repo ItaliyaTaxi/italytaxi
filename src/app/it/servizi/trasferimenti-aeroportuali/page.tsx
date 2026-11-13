@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: "Dove incontrerò il mio autista in aeroporto?",
-    a: "Il tuo autista ti aspetterà all'interno della sala arrivi, con un cartello personalizzato con il tuo nome, subito dopo l'uscita del ritiro bagagli. Riceverai il numero di cellulare dell'autista prima dell'atterraggio del tuo volo, così potrai contattarlo direttamente. Nei principali aeroporti come Roma Fiumicino e Milano Malpensa, i nostri autisti si posizionano nei punti d'incontro designati nel terminal arrivi internazionali, così sarai facile da individuare anche nei momenti di maggiore affluenza."
+    a: "Il tuo autista ti aspetterà all'interno della sala arrivi, con un cartello personalizzato con il tuo nome, subito dopo l'uscita del ritiro bagagli. Riceverai il numero di cellulare dell'autista entro le 24 ore precedenti il transfer, così potrai contattarlo direttamente. Nei principali aeroporti come Roma Fiumicino e Milano Malpensa, i nostri autisti si posizionano nei punti d'incontro designati nel terminal arrivi internazionali, così sarai facile da individuare anche nei momenti di maggiore affluenza."
   },
   {
     q: "Cosa succede se il mio volo per l'Italia è in ritardo?",

@@ -136,7 +136,7 @@ const airportRichData: Record<string, AirportRichData> = {
             { destination: 'Chianti wine country (Greve)', duration: '40–50 min', note: 'Day trip option' },
         ],
         flightDelayPolicy:
-            'We monitor all FLR arrivals in real-time. The first 60 minutes of waiting after landing are complimentary. FLR\'s compact size means baggage is typically on the belt within 10–15 minutes of landing — most passengers exit within 25 minutes of touchdown. For longer delays beyond the 60-minute free period, extended waiting is quoted in advance and only charged with your agreement. For early-morning arrivals (pre-06:00), our drivers are positioned at the airport from 30 minutes before scheduled landing. We maintain contact via WhatsApp throughout your journey — simply message your driver if you encounter any delays at immigration or baggage reclaim.',
+            'We monitor all FLR arrivals in real-time. The first 60 minutes of waiting after landing are complimentary. FLR\'s compact size means baggage is typically on the belt within 10–15 minutes of landing — most passengers exit within 25 minutes of touchdown. For longer delays beyond the 60-minute free period, extended waiting is quoted in advance and only charged with your agreement. We maintain contact via WhatsApp throughout your journey — simply message your driver if you encounter any delays at immigration or baggage reclaim.',
     },
     'bologna-marconi': {
         terminalPickup:
