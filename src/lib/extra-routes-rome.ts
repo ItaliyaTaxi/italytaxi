@@ -30,24 +30,20 @@ export const extraRoutesRome: RouteData[] = [
         "a": "The historic centre around the Colosseum lies within Rome's ZTL, a limited-traffic zone that restricts private vehicles. Licensed transfers respect these rules and do not drive into restricted streets, so we stop at the nearest permitted point instead. This keeps your arrival legal and safe. In most cases the drop-off is only a short walk from the amphitheatre or your hotel."
       },
       {
-        "q": "What happens if my flight to Fiumicino is delayed?",
-        "a": "We monitor your flight in real time, so your driver always knows the updated landing time. If your arrival is delayed, the pickup is adjusted automatically and there is no extra charge for the wait. We also include free waiting time after you land to cover passport control and baggage reclaim. Your car will be ready whenever you actually clear the airport."
-      },
-      {
         "q": "How long does the transfer from Fiumicino to the Colosseum take?",
         "a": "The Colosseum is roughly 32 kilometres from Fiumicino Airport, and the drive usually takes about 45 to 60 minutes. Actual times depend on traffic, the time of day and any events in the city. Your driver chooses the smoothest route on the day to keep the journey comfortable. Because the price is fixed, traffic never changes what you pay."
       },
       {
-        "q": "Where will the driver meet me at Fiumicino Airport?",
-        "a": "Your driver waits inside the arrivals area holding a clear sign with your name, so you are easy to spot after you exit. There is no need to search for a rank or a stop, as we come to you. Once you meet, the driver helps with your luggage and walks you to the vehicle. It is a simple, welcoming way to begin your visit to Rome."
+        "q": "What happens if my flight to Fiumicino is delayed?",
+        "a": "Your driver tracks your flight and adjusts to the actual landing time. Waiting is free for 60 minutes after landing on international flights and 30 minutes on domestic flights; extended waiting is quoted in advance and only charged with your agreement."
       },
       {
-        "q": "Is the price fixed and what does it include?",
-        "a": "Yes, the fare is fixed and fully inclusive, agreed in advance with no meters running. It covers the vehicle, the professional driver, meet & greet and the free waiting period after landing. Whatever the traffic, the price you agreed is the price you pay. This makes it easy to plan your travel budget with confidence."
+        "q": "Is the price to the Colosseum fixed, and is there a night surcharge?",
+        "a": "Yes. You receive a fixed, all-inclusive quote before you book, covering fuel, tolls and parking. Journeys starting between 22:00 and 06:00 or on public holidays can carry a surcharge; where one applies, it is shown in your quote before you book."
       },
       {
-        "q": "Which vehicle should I choose for my group and luggage?",
-        "a": "A sedan is ideal for solo travellers and couples, while a minivan suits small families with more bags. For larger groups we offer a comfortable Mercedes V-Class, and a minibus is available when there are more passengers. Just tell us your party size and how much luggage you have when you book. We will match you with the right vehicle for a comfortable ride."
+        "q": "Can you take a family or a larger group?",
+        "a": "Mercedes V-Class minivans take up to 7 passengers with luggage, and larger groups travel in more than one vehicle. Tell us your passenger and bag numbers, and any child seats you need, when you book."
       }
     ],
     "metaTitle": "Fiumicino to Colosseum Taxi | FCO Private Transfer",
@@ -69,13 +65,6 @@ export const extraRoutesRome: RouteData[] = [
         ]
       },
       {
-        "h2": "Meet & Greet and Flight Monitoring at Fiumicino",
-        "p": [
-          "From the moment you book, we track your flight in real time so your driver knows exactly when you will land. If your arrival is early or delayed, the pickup time is adjusted automatically at no extra cost. This means your car is ready when you clear the airport, even after a long or disrupted journey. You never have to phone ahead or worry about timing.",
-          "Your driver waits inside the arrivals area holding a clear name sign, so you are easy to find in the crowd. We include a generous period of free waiting after you land, giving you time for passport control and baggage reclaim. Once you meet, the driver helps with your luggage and walks you to the vehicle. It is a calm, welcoming start to your time in Rome."
-        ]
-      },
-      {
         "h2": "The Journey to the Colosseum",
         "p": [
           "Leaving Fiumicino, your driver typically follows the main roads toward central Rome, choosing the smoothest route based on current traffic. The drive usually takes about 45 to 60 minutes, though this can vary at peak times or during major events. You can relax in a clean, air-conditioned vehicle and enjoy your first glimpse of the city. Feel free to ask your driver about neighbourhoods and landmarks along the way.",
@@ -90,17 +79,11 @@ export const extraRoutesRome: RouteData[] = [
         ]
       },
       {
-        "h2": "Vehicles, Luggage & Groups",
+        "h2": "Meeting Your Driver, Waiting Time, Vehicles & Price",
         "p": [
-          "We match the vehicle to your party size and the amount of luggage you are carrying. A comfortable sedan suits solo travellers and couples, while a spacious minivan works well for small families. Larger groups can choose a Mercedes V-Class for extra comfort or a minibus when there are more passengers. Every car is clean, well maintained and driven by a professional.",
-          "Luggage is always part of the plan, so let us know how many cases and bags you have when you book. Your driver handles the loading and unloading, so you do not have to lift heavy suitcases yourself. If you are travelling with child seats, extra bags or special items, just tell us in advance. We will make sure the right vehicle and space are ready for you."
-        ]
-      },
-      {
-        "h2": "Fixed Pricing & 24/7 Service",
-        "p": [
-          "Your fare is fixed and fully inclusive, agreed before you travel so there are no meters and no surprises at the end. The price covers the vehicle, the driver, meet & greet and the free waiting time after you land. Whatever the traffic on the day, the amount you agreed is the amount you pay. This makes budgeting your trip simple and stress-free.",
-          "We operate around the clock, every day of the year, so we can cover early-morning landings and late-night arrivals alike. Whether your flight comes in at dawn or close to midnight, a driver will be ready for you. Booking in advance secures your car and your price for the date you need. From FCO to the Colosseum, we take care of every step door to door."
+          "Your driver tracks your flight and waits for you in the Fiumicino arrivals hall with a name sign, then helps with your luggage to the car. Waiting is free for 60 minutes after the actual landing time on international flights and 30 minutes on domestic flights. If you need longer, extended waiting is quoted in advance and only charged with your agreement. Your driver's phone number is sent to you within 24 hours before the transfer.",
+          "Sedans suit couples and small families, and Mercedes V-Class minivans take up to 7 passengers with luggage; larger groups travel in more than one vehicle. Tell us how many passengers and bags you have, and request child seats, when you book.",
+          "You receive a fixed, all-inclusive quote for your transfer to the Colosseum, usually within 2–3 hours, covering fuel, motorway tolls and airport parking. Journeys starting between 22:00 and 06:00, on Italian public holidays and over Christmas and New Year can carry a surcharge; where one applies, it is shown in your quote before you book, never afterwards. Transfers run 24/7 on pre-booking."
         ]
       }
     ],
@@ -133,24 +116,20 @@ export const extraRoutesRome: RouteData[] = [
         "a": "Yes. If you have a timed or early Vatican Museums entry, share your slot when booking and we will plan the pickup so you arrive in good time. The museum entrance is on the northern side of the city-state, a short walk from St Peter's Basilica."
       },
       {
-        "q": "What happens if my flight to Fiumicino is delayed?",
-        "a": "We monitor your flight in real time and adjust the pickup to your actual landing time at no extra cost. Complimentary waiting time is included, so a delay does not mean losing your transfer or paying more."
-      },
-      {
         "q": "How long does the transfer from Fiumicino to the Vatican take?",
         "a": "The distance is roughly 30 km and the drive usually takes about 45 to 55 minutes. Actual times depend on traffic, weather and the time of day, so peak periods can take a little longer."
       },
       {
-        "q": "Will the driver help with my luggage?",
-        "a": "Yes. Luggage assistance is part of the service. Your driver loads and unloads your bags and walks you to the vehicle. Please tell us the number of suitcases when booking so we assign a vehicle with enough space."
+        "q": "What happens if my flight to Fiumicino is delayed?",
+        "a": "Your driver tracks your flight and adjusts to the actual landing time. Waiting is free for 60 minutes after landing on international flights and 30 minutes on domestic flights; extended waiting is quoted in advance and only charged with your agreement."
       },
       {
-        "q": "Do you offer larger vehicles for families or groups?",
-        "a": "We have sedans, minivans, the Mercedes V-Class and minibuses to suit different group sizes. Let us know your passenger and luggage count and we will match you with a suitable vehicle for a comfortable ride."
+        "q": "Is the price to Vatican City fixed, and is there a night surcharge?",
+        "a": "Yes. You receive a fixed, all-inclusive quote before you book, covering fuel, tolls and parking. Journeys starting between 22:00 and 06:00 or on public holidays can carry a surcharge; where one applies, it is shown in your quote before you book."
       },
       {
-        "q": "Is the price fixed and can I book for a very early or late flight?",
-        "a": "Yes to both. Your fare is a fixed price agreed before travel with no meter, and we operate 24/7. Whether your flight arrives early in the morning or late at night, a driver will be there to meet you."
+        "q": "Can you take a family or a larger group?",
+        "a": "Mercedes V-Class minivans take up to 7 passengers with luggage, and larger groups travel in more than one vehicle. Tell us your passenger and bag numbers, and any child seats you need, when you book."
       }
     ],
     "metaTitle": "Rome Fiumicino to Vatican Taxi | Private Transfer",
@@ -172,13 +151,6 @@ export const extraRoutesRome: RouteData[] = [
         ]
       },
       {
-        "h2": "Meet & Greet and Flight Monitoring at Fiumicino",
-        "p": [
-          "Your driver tracks your flight in real time, so an early landing or a delay does not leave you stranded or paying extra. We adjust the pickup automatically to match your actual arrival time. This flight monitoring is included at no additional cost.",
-          "After you collect your bags and clear the arrivals area, your driver will be waiting with a name sign. Complimentary waiting time is included to allow for passport control and baggage reclaim. Your driver helps load the luggage and walks you to the vehicle, so there is no confusion in a busy terminal."
-        ]
-      },
-      {
         "h2": "The Journey to the Vatican",
         "p": [
           "From Fiumicino the route typically follows the motorway toward Rome before heading into the city along the Tiber toward the Vatican, a drive of around 45 to 55 minutes in normal conditions. Travel times can be longer during morning and evening peaks or around major events.",
@@ -193,17 +165,11 @@ export const extraRoutesRome: RouteData[] = [
         ]
       },
       {
-        "h2": "Vehicles, Luggage & Groups",
+        "h2": "Meeting Your Driver, Waiting Time, Vehicles & Price",
         "p": [
-          "We offer a range of vehicles to match your party size, from comfortable sedans for couples to spacious minivans, the Mercedes V-Class and larger minibuses for bigger groups. When booking, tell us how many passengers and suitcases you have so we can assign the right vehicle.",
-          "Luggage help is part of the service, and your driver will load and unload your bags for you. If you are travelling with children, extra cases, sports equipment or special requirements, mention it in advance so we can prepare appropriately and make sure everyone travels comfortably."
-        ]
-      },
-      {
-        "h2": "Fixed Pricing & 24/7 Service",
-        "p": [
-          "Your fare is agreed in advance as a clear fixed price, so there are no meters ticking in traffic and no unexpected charges at the end of the ride. The quote reflects a private, direct transfer with all the included extras such as meet & greet and waiting time.",
-          "We operate 24 hours a day, seven days a week, covering early-morning and late-night flights alike. Whether you land at dawn or close to midnight, an English-speaking driver will be ready to take you door-to-door to the Vatican with the same reliable service."
+          "Your driver tracks your flight and waits for you in the Fiumicino arrivals hall with a name sign, then helps with your luggage to the car. Waiting is free for 60 minutes after the actual landing time on international flights and 30 minutes on domestic flights. If you need longer, extended waiting is quoted in advance and only charged with your agreement. Your driver's phone number is sent to you within 24 hours before the transfer.",
+          "Sedans suit couples and small families, and Mercedes V-Class minivans take up to 7 passengers with luggage; larger groups travel in more than one vehicle. Tell us how many passengers and bags you have, and request child seats, when you book.",
+          "You receive a fixed, all-inclusive quote for your transfer to Vatican City, usually within 2–3 hours, covering fuel, motorway tolls and airport parking. Journeys starting between 22:00 and 06:00, on Italian public holidays and over Christmas and New Year can carry a surcharge; where one applies, it is shown in your quote before you book, never afterwards. Transfers run 24/7 on pre-booking."
         ]
       }
     ],
@@ -236,24 +202,20 @@ export const extraRoutesRome: RouteData[] = [
         "a": "It is usually only a few minutes on foot from the nearest permitted street. The exact walk depends on where your driver is allowed to stop and where you are staying, but it is generally a short, easy stroll through the pedestrian lanes. Your driver will point you in the right direction before you set off."
       },
       {
-        "q": "What happens if my flight to Fiumicino is delayed?",
-        "a": "We monitor your flight using its number, so we always see the updated arrival time. If your plane is late, your driver simply adjusts and waits, and complimentary waiting time is included. There is no need to contact us or worry about extra charges caused by a delay outside your control."
-      },
-      {
         "q": "How long does the transfer from Fiumicino to the Trevi Fountain take?",
         "a": "The distance is around 32 kilometres and the drive typically takes about 45 to 60 minutes. Actual times vary with traffic and the time of day, so allow a little extra during busy periods. Because the price is fixed, a slower journey never changes what you pay."
       },
       {
-        "q": "Where exactly will my driver meet me at the airport?",
-        "a": "Your driver waits in the arrivals area holding a sign with your name after you have collected your luggage and cleared customs. Simply look for your name, and the driver will help with your bags and guide you to the vehicle. It is a straightforward, personal meet and greet inside the terminal."
+        "q": "What happens if my flight to Fiumicino is delayed?",
+        "a": "Your driver tracks your flight and adjusts to the actual landing time. Waiting is free for 60 minutes after landing on international flights and 30 minutes on domestic flights; extended waiting is quoted in advance and only charged with your agreement."
       },
       {
-        "q": "Can you take a large group or a lot of luggage?",
-        "a": "Yes. We offer sedans, minivans, the Mercedes V-Class and minibuses, so we can match the right vehicle to your group and luggage. When booking, tell us how many passengers and bags you have, along with any special items, and we will make sure there is enough space for everyone and everything."
+        "q": "Is the price to the Trevi Fountain fixed, and is there a night surcharge?",
+        "a": "Yes. You receive a fixed, all-inclusive quote before you book, covering fuel, tolls and parking. Journeys starting between 22:00 and 06:00 or on public holidays can carry a surcharge; where one applies, it is shown in your quote before you book."
       },
       {
-        "q": "Is the price fixed, and can I book at any hour?",
-        "a": "The price is fixed and all-inclusive, confirmed when you book, with no meter and no hidden extras. Our service runs 24 hours a day, seven days a week, so we cover early morning and late night arrivals as well as weekends and holidays. Booking in advance secures your vehicle and driver."
+        "q": "Can you take a family or a larger group?",
+        "a": "Mercedes V-Class minivans take up to 7 passengers with luggage, and larger groups travel in more than one vehicle. Tell us your passenger and bag numbers, and any child seats you need, when you book."
       }
     ],
     "metaTitle": "Fiumicino Airport to Trevi Fountain Taxi Transfer",
@@ -275,13 +237,6 @@ export const extraRoutesRome: RouteData[] = [
         ]
       },
       {
-        "h2": "Meet and Greet and Flight Monitoring at Fiumicino",
-        "p": [
-          "After you book, we track your flight so we always know your real arrival time. If your plane is early, late or diverted, your driver adjusts accordingly and there is no need to send a message or make a call. This flight monitoring is included, and complimentary waiting time is built in so you are never rushed at passport control or the baggage belt.",
-          "Your driver waits for you in the arrivals area holding a clear sign with your name, so there is no confusion about where to go. Once you have collected your luggage and cleared customs, simply look for your name and the driver will help you with your bags and walk you to the vehicle. It is a warm, personal welcome to Rome, especially reassuring after a long flight."
-        ]
-      },
-      {
         "h2": "The Journey to the Trevi Fountain",
         "p": [
           "From Fiumicino the route generally follows the motorway towards Rome before joining the roads that lead into the historic centre. Along the way you may catch glimpses of the city as the modern outskirts give way to the older neighbourhoods around the Quirinal. Your driver knows the quieter approaches and the current one-way systems, which helps keep the ride smooth and steady.",
@@ -296,17 +251,11 @@ export const extraRoutesRome: RouteData[] = [
         ]
       },
       {
-        "h2": "Vehicles, Luggage and Groups",
+        "h2": "Meeting Your Driver, Waiting Time, Vehicles & Price",
         "p": [
-          "We match the vehicle to your party and your bags. A comfortable sedan suits couples and solo travellers, while a minivan gives families extra room to spread out. For larger groups or those with plenty of luggage, the Mercedes V-Class offers premium space, and a minibus can carry bigger parties together in one vehicle. Every car is clean, air-conditioned and well maintained.",
-          "Luggage is never an afterthought. When you book, let us know how many cases and any special items such as strollers, sports equipment or musical instruments, and we will make sure there is enough room. Child seats can be arranged on request. Your driver helps load and unload everything, so you can arrive at the Trevi Fountain area relaxed and ready to explore."
-        ]
-      },
-      {
-        "h2": "Fixed Pricing and 24/7 Service",
-        "p": [
-          "Every Fiumicino to Trevi Fountain transfer comes with a fixed, all-inclusive price confirmed at the time of booking. There is no meter ticking in traffic and no hidden extras added at the end, so you can plan your budget with confidence. What we quote is what you pay, whatever the roads decide to do on the day.",
-          "Flights arrive at Fiumicino around the clock, so our service runs 24 hours a day, seven days a week, including early mornings, late nights, weekends and holidays. Whether you touch down at dawn or close to midnight, your driver and vehicle will be ready. Booking ahead secures your car and lets us prepare the smoothest possible door-to-door journey into central Rome."
+          "Your driver tracks your flight and waits for you in the Fiumicino arrivals hall with a name sign, then helps with your luggage to the car. Waiting is free for 60 minutes after the actual landing time on international flights and 30 minutes on domestic flights. If you need longer, extended waiting is quoted in advance and only charged with your agreement. Your driver's phone number is sent to you within 24 hours before the transfer.",
+          "Sedans suit couples and small families, and Mercedes V-Class minivans take up to 7 passengers with luggage; larger groups travel in more than one vehicle. Tell us how many passengers and bags you have, and request child seats, when you book.",
+          "You receive a fixed, all-inclusive quote for your transfer to the Trevi Fountain, usually within 2–3 hours, covering fuel, motorway tolls and airport parking. Journeys starting between 22:00 and 06:00, on Italian public holidays and over Christmas and New Year can carry a surcharge; where one applies, it is shown in your quote before you book, never afterwards. Transfers run 24/7 on pre-booking."
         ]
       }
     ],
@@ -335,28 +284,20 @@ export const extraRoutesRome: RouteData[] = [
         "a": "The journey covers roughly 32 kilometres and usually takes around 45 to 60 minutes. The exact time depends on traffic, the time of day and road conditions, so during rush hour it can take longer. Your driver chooses the most sensible route on the day."
       },
       {
-        "q": "Where exactly will the driver meet me at Fiumicino?",
-        "a": "Your driver waits in the arrivals area holding a sign showing your name, typically near the exit of the baggage reclaim hall. After you meet, they help with your luggage and walk you to the vehicle. Contact details are provided at booking in case you need to reach them."
-      },
-      {
-        "q": "What happens if my flight is delayed?",
-        "a": "We monitor your flight using the number you provide at booking, so we know your real arrival time and adjust the pickup accordingly. A period of free waiting time is included after you land, which means a delay will not leave you without your driver."
-      },
-      {
         "q": "Can the vehicle drop me right at the Spanish Steps?",
         "a": "Much of the area around Piazza di Spagna is pedestrian or within a limited traffic zone, so vehicles cannot always reach the steps directly. Your driver drops you at the nearest permitted point or at your hotel door where access is allowed, keeping the final walk as short as possible."
       },
       {
-        "q": "What types of vehicles are available for this transfer?",
-        "a": "We offer sedans for smaller parties, minivans for families, and larger options such as a Mercedes V-Class or a minibus for bigger groups or extra luggage. You select the category that suits your group when booking, and we confirm luggage capacity in advance."
+        "q": "What happens if my flight to Fiumicino is delayed?",
+        "a": "Your driver tracks your flight and adjusts to the actual landing time. Waiting is free for 60 minutes after landing on international flights and 30 minutes on domestic flights; extended waiting is quoted in advance and only charged with your agreement."
       },
       {
-        "q": "Is the price fixed or based on a meter?",
-        "a": "The price is fixed and agreed when you book, with no meter involved. It does not change due to traffic or waiting time within the included allowance, and there are no hidden surcharges. You know the full cost before you travel."
+        "q": "Is the price to the Spanish Steps fixed, and is there a night surcharge?",
+        "a": "Yes. You receive a fixed, all-inclusive quote before you book, covering fuel, tolls and parking. Journeys starting between 22:00 and 06:00 or on public holidays can carry a surcharge; where one applies, it is shown in your quote before you book."
       },
       {
-        "q": "Do you operate transfers for very early or late flights?",
-        "a": "Yes, our service runs 24 hours a day, seven days a week, including early-morning and late-night arrivals. As long as you book in advance, a driver can be scheduled to meet you whatever time your flight lands at Fiumicino."
+        "q": "Can you take a family or a larger group?",
+        "a": "Mercedes V-Class minivans take up to 7 passengers with luggage, and larger groups travel in more than one vehicle. Tell us your passenger and bag numbers, and any child seats you need, when you book."
       }
     ],
     "metaTitle": "Fiumicino to Spanish Steps Transfer | Private Taxi",
@@ -378,13 +319,6 @@ export const extraRoutesRome: RouteData[] = [
         ]
       },
       {
-        "h2": "Meet & Greet and Flight Monitoring at Fiumicino",
-        "p": [
-          "When you book, we record your flight number and monitor its status so we know your real arrival time. If your flight is early or delayed, your driver adjusts accordingly, and a period of free waiting time is included after you land. This means you are never left stranded because of circumstances beyond your control.",
-          "Your driver waits in the arrivals area holding a sign with your name, usually near the exit of the baggage reclaim hall. Once you meet, they help with your luggage and walk you to the vehicle. If you cannot immediately find your driver, the contact details provided at booking let you reach them quickly so the pickup stays stress-free."
-        ]
-      },
-      {
         "h2": "The Journey to the Spanish Steps",
         "p": [
           "After leaving Fiumicino, the drive into the city usually follows the motorway before joining the roads that lead toward central Rome. Depending on traffic, you may catch glimpses of the city as you approach the historic core around Piazza di Spagna. The vehicle is air-conditioned and comfortable, so you can relax or take in the surroundings.",
@@ -399,17 +333,11 @@ export const extraRoutesRome: RouteData[] = [
         ]
       },
       {
-        "h2": "Vehicles, Luggage and Group Sizes",
+        "h2": "Meeting Your Driver, Waiting Time, Vehicles & Price",
         "p": [
-          "We offer a range of vehicles to suit different party sizes, from comfortable sedans for couples and solo travellers to spacious minivans for families. For larger groups or those with more luggage, options such as a Mercedes V-Class or a minibus provide extra room and comfort. You choose the vehicle category that fits your group when you book.",
-          "Luggage space is confirmed at the time of booking, so please tell us how many cases and any oversized items you are carrying, such as strollers, sports equipment or musical instruments. This ensures the right vehicle is assigned and everything fits comfortably. Child seats can usually be arranged on request if you let us know in advance."
-        ]
-      },
-      {
-        "h2": "Fixed Pricing and 24/7 Availability",
-        "p": [
-          "The price for your Fiumicino to Spanish Steps transfer is agreed when you book and does not change with traffic or waiting time within the included allowance. There are no meters and no surprise surcharges, so you know the full cost before you travel. This makes budgeting for your trip straightforward.",
-          "Our service runs 24 hours a day, seven days a week, covering early-morning departures, late-night landings and connecting flights. Whether you arrive at dawn or close to midnight, a driver can be scheduled to meet you. Booking in advance secures your vehicle and lets us prepare the meet and greet around your exact flight."
+          "Your driver tracks your flight and waits for you in the Fiumicino arrivals hall with a name sign, then helps with your luggage to the car. Waiting is free for 60 minutes after the actual landing time on international flights and 30 minutes on domestic flights. If you need longer, extended waiting is quoted in advance and only charged with your agreement. Your driver's phone number is sent to you within 24 hours before the transfer.",
+          "Sedans suit couples and small families, and Mercedes V-Class minivans take up to 7 passengers with luggage; larger groups travel in more than one vehicle. Tell us how many passengers and bags you have, and request child seats, when you book.",
+          "You receive a fixed, all-inclusive quote for your transfer to the Spanish Steps, usually within 2–3 hours, covering fuel, motorway tolls and airport parking. Journeys starting between 22:00 and 06:00, on Italian public holidays and over Christmas and New Year can carry a surcharge; where one applies, it is shown in your quote before you book, never afterwards. Transfers run 24/7 on pre-booking."
         ]
       }
     ],
@@ -442,24 +370,16 @@ export const extraRoutesRome: RouteData[] = [
         "a": "The streets immediately around the Pantheon are pedestrian and lie within Rome's ZTL, so vehicles cannot always reach the exact spot. Your driver drops you at the nearest permitted access point or directly at your hotel door nearby where entry is allowed."
       },
       {
-        "q": "What happens if my flight is delayed or arrives early?",
-        "a": "We monitor your flight in real time, so the pickup adjusts automatically to your actual landing time. There is no penalty for delays, and free waiting time is included so your driver will still be there when you reach arrivals."
+        "q": "What happens if my flight to Fiumicino is delayed?",
+        "a": "Your driver tracks your flight and adjusts to the actual landing time. Waiting is free for 60 minutes after landing on international flights and 30 minutes on domestic flights; extended waiting is quoted in advance and only charged with your agreement."
       },
       {
-        "q": "Where will I meet my driver at Fiumicino?",
-        "a": "After you collect your luggage and clear customs, your English-speaking driver will be waiting in the arrivals hall holding a sign with your name. If you have any trouble locating them, our contact details are provided in your booking confirmation."
+        "q": "Is the price to the Pantheon fixed, and is there a night surcharge?",
+        "a": "Yes. You receive a fixed, all-inclusive quote before you book, covering fuel, tolls and parking. Journeys starting between 22:00 and 06:00 or on public holidays can carry a surcharge; where one applies, it is shown in your quote before you book."
       },
       {
-        "q": "Is the price fixed or based on a meter?",
-        "a": "The price is fixed and confirmed when you book, with no meter. It covers the private vehicle, meet and greet, flight monitoring and free waiting time, so there are no surprise charges when you arrive in Rome."
-      },
-      {
-        "q": "What kind of vehicle will I travel in and how much luggage can I bring?",
-        "a": "Depending on your group size we offer sedans, minivans, premium Mercedes V-Class vehicles and minibuses. Please tell us your passenger and luggage numbers when booking so we can assign a vehicle with enough space for everyone and their bags."
-      },
-      {
-        "q": "Is the transfer available late at night or very early in the morning?",
-        "a": "Yes, our transfers run 24 hours a day, seven days a week, including nights, weekends and public holidays. Whatever time your flight lands at Fiumicino, a driver can be scheduled to take you door-to-door to the Pantheon area."
+        "q": "Can you take a family or a larger group?",
+        "a": "Mercedes V-Class minivans take up to 7 passengers with luggage, and larger groups travel in more than one vehicle. Tell us your passenger and bag numbers, and any child seats you need, when you book."
       }
     ],
     "metaTitle": "Fiumicino to Pantheon Taxi | Private FCO Transfer",
@@ -481,13 +401,6 @@ export const extraRoutesRome: RouteData[] = [
         ]
       },
       {
-        "h2": "Meet & Greet and Flight Monitoring at Fiumicino",
-        "p": [
-          "When you book with us, your driver tracks your flight in real time, so if you land early or your arrival is delayed, the pickup time adjusts automatically at no extra cost. There is no need to send anxious messages from the runway or worry about a missed connection.",
-          "Once you clear baggage reclaim and customs, your English-speaking driver will be waiting in the arrivals hall holding a sign with your name. Free waiting time is included, which is especially welcome after a long-haul flight or when passport control takes longer than expected."
-        ]
-      },
-      {
         "h2": "The Journey to the Pantheon",
         "p": [
           "From Fiumicino, the route typically follows the motorway towards Rome before threading into the streets of the historic centre. Travel time is generally 45 to 60 minutes, though this can vary with rush hour, weekends and seasonal traffic, so we always build in a comfortable margin.",
@@ -502,17 +415,11 @@ export const extraRoutesRome: RouteData[] = [
         ]
       },
       {
-        "h2": "Vehicles, Luggage and Group Sizes",
+        "h2": "Meeting Your Driver, Waiting Time, Vehicles & Price",
         "p": [
-          "We offer a range of vehicles to suit different party sizes and amounts of luggage. Solo travellers and couples usually travel by comfortable sedan, while families and small groups may prefer a spacious minivan or a premium Mercedes V-Class, and larger parties can be accommodated in a minibus.",
-          "When you book, let us know how many passengers and bags you have so we can assign the most suitable vehicle with room to spare. Child seats and extra luggage space can generally be arranged in advance, helping everyone travel comfortably from the airport into the centre."
-        ]
-      },
-      {
-        "h2": "Fixed Pricing and 24/7 Availability",
-        "p": [
-          "The price you see when you book is the price you pay, agreed in advance with no meters ticking and no unexpected surcharges for luggage or late-night arrivals. This makes budgeting simple and removes the uncertainty that can come with hailing a cab on arrival.",
-          "Flights arrive at Fiumicino around the clock, so our transfers operate 24 hours a day, seven days a week, including early mornings, late nights and public holidays. Whatever time you land, a driver can be ready to take you door-to-door to the Pantheon area."
+          "Your driver tracks your flight and waits for you in the Fiumicino arrivals hall with a name sign, then helps with your luggage to the car. Waiting is free for 60 minutes after the actual landing time on international flights and 30 minutes on domestic flights. If you need longer, extended waiting is quoted in advance and only charged with your agreement. Your driver's phone number is sent to you within 24 hours before the transfer.",
+          "Sedans suit couples and small families, and Mercedes V-Class minivans take up to 7 passengers with luggage; larger groups travel in more than one vehicle. Tell us how many passengers and bags you have, and request child seats, when you book.",
+          "You receive a fixed, all-inclusive quote for your transfer to the Pantheon, usually within 2–3 hours, covering fuel, motorway tolls and airport parking. Journeys starting between 22:00 and 06:00, on Italian public holidays and over Christmas and New Year can carry a surcharge; where one applies, it is shown in your quote before you book, never afterwards. Transfers run 24/7 on pre-booking."
         ]
       }
     ],
@@ -545,24 +452,16 @@ export const extraRoutesRome: RouteData[] = [
         "a": "Piazza Navona and its surrounding lanes sit inside a limited traffic zone and are pedestrian, so vehicles cannot reach the fountains directly. Your driver drops you at the nearest permitted street or, where access allows, at your hotel door close by, and helps with your luggage."
       },
       {
-        "q": "Where will I meet my driver at Fiumicino?",
-        "a": "Your driver waits in the arrivals hall with a sign showing your name. After you collect your bags and pass through, simply look for the sign; if you have any trouble, the contact details provided at booking let you reach the driver quickly."
+        "q": "What happens if my flight to Fiumicino is delayed?",
+        "a": "Your driver tracks your flight and adjusts to the actual landing time. Waiting is free for 60 minutes after landing on international flights and 30 minutes on domestic flights; extended waiting is quoted in advance and only charged with your agreement."
       },
       {
-        "q": "What happens if my flight is delayed?",
-        "a": "We monitor your flight from departure, so your driver adjusts the pickup time to match your actual landing. A period of complimentary waiting is typically included, giving you time to clear immigration and baggage claim without worrying about extra fees."
+        "q": "Is the price to Piazza Navona fixed, and is there a night surcharge?",
+        "a": "Yes. You receive a fixed, all-inclusive quote before you book, covering fuel, tolls and parking. Journeys starting between 22:00 and 06:00 or on public holidays can carry a surcharge; where one applies, it is shown in your quote before you book."
       },
       {
-        "q": "Is the price fixed or based on a meter?",
-        "a": "The price is fixed and confirmed when you book, covering the full journey door to door. There is no meter, so traffic or a longer route will not increase what you pay on arrival."
-      },
-      {
-        "q": "What type of vehicle will I travel in and can it fit my luggage?",
-        "a": "We offer sedans, minivans, Mercedes V-Class vehicles and minibuses, matched to your group size and number of bags. Please tell us your passenger and luggage count when booking so we can assign a vehicle with ample space."
-      },
-      {
-        "q": "Is the service available late at night or very early in the morning?",
-        "a": "Yes, the transfer operates 24 hours a day, seven days a week, including holidays. Whenever your flight arrives at Fiumicino, a driver can be scheduled to meet you and take you to Piazza Navona."
+        "q": "Can you take a family or a larger group?",
+        "a": "Mercedes V-Class minivans take up to 7 passengers with luggage, and larger groups travel in more than one vehicle. Tell us your passenger and bag numbers, and any child seats you need, when you book."
       }
     ],
     "metaTitle": "Fiumicino Airport to Piazza Navona Taxi | Private Transfer",
@@ -584,13 +483,6 @@ export const extraRoutesRome: RouteData[] = [
         ]
       },
       {
-        "h2": "Meet & Greet and Flight Monitoring at Fiumicino",
-        "p": [
-          "After you collect your luggage and walk through into the arrivals hall, your driver will be waiting with a clearly printed sign showing your name. This personal meet and greet means you never have to search for a pickup point or worry about language, as our drivers speak English and are happy to help with directions and local tips.",
-          "We monitor your flight from the moment it departs, so if you land early or your arrival is delayed, your driver adjusts the pickup time accordingly. A period of complimentary waiting time is typically included, which gives you room to clear passport control and baggage claim without feeling rushed or fearing extra charges."
-        ]
-      },
-      {
         "h2": "The Journey to Piazza Navona and the ZTL Note",
         "p": [
           "Once you are settled in the vehicle, the route generally follows the motorway link from the airport before heading into the city and towards the Tiber and the historic core. Your driver knows the quieter approaches into central Rome and will choose a sensible path based on the traffic at that hour.",
@@ -605,17 +497,11 @@ export const extraRoutesRome: RouteData[] = [
         ]
       },
       {
-        "h2": "Vehicles, Luggage and Groups",
+        "h2": "Meeting Your Driver, Waiting Time, Vehicles & Price",
         "p": [
-          "We match the vehicle to your party and bags. Solo travellers and couples usually travel in a comfortable sedan, while families and small groups prefer a spacious minivan or a Mercedes V-Class with generous luggage room. Larger parties can be accommodated in a minibus so everyone stays together in one vehicle.",
-          "When you book, let us know how many passengers and suitcases you have, along with any child seats, sports gear or oversized items. This helps us assign the right vehicle and ensures there is ample space for everyone and their luggage on the ride into the centre."
-        ]
-      },
-      {
-        "h2": "Fixed Pricing and 24/7 Availability",
-        "p": [
-          "Every Fiumicino to Piazza Navona transfer is offered at a fixed, all-inclusive price that you confirm before you travel. There is no meter ticking during traffic and no surprise supplements on arrival, which makes budgeting for your trip straightforward and stress-free.",
-          "Because flights arrive at all hours, our service operates around the clock, including early mornings, late nights, weekends and public holidays. Whenever your plane touches down at Fiumicino, a driver can be there to meet you and take you comfortably to the heart of Baroque Rome."
+          "Your driver tracks your flight and waits for you in the Fiumicino arrivals hall with a name sign, then helps with your luggage to the car. Waiting is free for 60 minutes after the actual landing time on international flights and 30 minutes on domestic flights. If you need longer, extended waiting is quoted in advance and only charged with your agreement. Your driver's phone number is sent to you within 24 hours before the transfer.",
+          "Sedans suit couples and small families, and Mercedes V-Class minivans take up to 7 passengers with luggage; larger groups travel in more than one vehicle. Tell us how many passengers and bags you have, and request child seats, when you book.",
+          "You receive a fixed, all-inclusive quote for your transfer to Piazza Navona, usually within 2–3 hours, covering fuel, motorway tolls and airport parking. Journeys starting between 22:00 and 06:00, on Italian public holidays and over Christmas and New Year can carry a surcharge; where one applies, it is shown in your quote before you book, never afterwards. Transfers run 24/7 on pre-booking."
         ]
       }
     ],
@@ -648,14 +534,6 @@ export const extraRoutesRome: RouteData[] = [
         "a": "It depends on your priorities. The Leonardo Express is direct and usually cheaper, so on price it often wins. A private car wins on door-to-door comfort: no ticket queues, no hauling luggage across platforms and no crowded carriages after a long flight. For families, groups, heavy luggage or late arrivals, the convenience often outweighs the fare difference."
       },
       {
-        "q": "Where exactly will my driver meet me at Fiumicino?",
-        "a": "Your driver waits inside the terminal near the arrivals area, holding a sign with your name. We monitor your flight so the pickup time adjusts to your actual landing, and we include complimentary waiting time so you are not rushed while collecting bags. Our support team can usually help if you have any trouble locating your driver."
-      },
-      {
-        "q": "What happens if my flight is delayed?",
-        "a": "Flight monitoring is included with every booking, so if your arrival is early or delayed your driver adjusts accordingly. There is no need to contact us from the plane. We also build in free waiting time on arrivals to cover the normal delays of baggage claim and passport control."
-      },
-      {
         "q": "How long does the transfer from Fiumicino to Roma Termini take?",
         "a": "The distance is roughly 32 kilometres and the journey typically takes about 45 to 60 minutes. Travel time varies with traffic and the time of day, and rush-hour conditions can add a little more. Your driver knows the local roads and will take a sensible route into the city."
       },
@@ -664,8 +542,16 @@ export const extraRoutesRome: RouteData[] = [
         "a": "Drop-off is normally at the station forecourt or entrance, or at a nearby hotel if that is your final destination. Because the area around Termini can be busy, your driver will stop at the most practical and accessible point and help you with your luggage before you continue on foot."
       },
       {
-        "q": "Can you carry large groups and lots of luggage?",
-        "a": "Yes. We offer sedans for smaller parties and minivans, a Mercedes V-Class or a minibus for families and groups with more luggage. Please tell us your party size, number of bags and any special items such as child seats when you book, so we can assign the right vehicle for a comfortable ride."
+        "q": "What happens if my flight to Fiumicino is delayed?",
+        "a": "Your driver tracks your flight and adjusts to the actual landing time. Waiting is free for 60 minutes after landing on international flights and 30 minutes on domestic flights; extended waiting is quoted in advance and only charged with your agreement."
+      },
+      {
+        "q": "Is the price to Roma Termini Station fixed, and is there a night surcharge?",
+        "a": "Yes. You receive a fixed, all-inclusive quote before you book, covering fuel, tolls and parking. Journeys starting between 22:00 and 06:00 or on public holidays can carry a surcharge; where one applies, it is shown in your quote before you book."
+      },
+      {
+        "q": "Can you take a family or a larger group?",
+        "a": "Mercedes V-Class minivans take up to 7 passengers with luggage, and larger groups travel in more than one vehicle. Tell us your passenger and bag numbers, and any child seats you need, when you book."
       }
     ],
     "metaTitle": "Fiumicino to Roma Termini Taxi | Private FCO Transfer",
@@ -687,13 +573,6 @@ export const extraRoutesRome: RouteData[] = [
         ]
       },
       {
-        "h2": "Meet and Greet and Flight Monitoring at Fiumicino",
-        "p": [
-          "Your driver tracks your flight in advance, so if you land early or your arrival is delayed the pickup time is adjusted automatically. There is no need to send updates from the plane or worry that your car has left without you. This monitoring is included as standard with every booking.",
-          "When you clear the arrivals area, your driver will be waiting inside the terminal holding a sign with your name. We include a generous window of complimentary waiting time so you have room to collect baggage and pass through the arrivals hall without pressure. If anything is unclear, our support team can usually be reached to help you connect with your driver."
-        ]
-      },
-      {
         "h2": "The Journey to Termini",
         "p": [
           "Once you are settled in the vehicle, the drive into the city usually follows the main routes linking the airport with central Rome. Depending on the hour, this can take anywhere from around 45 minutes to an hour, with rush-hour traffic sometimes adding a little more time. Your driver knows the local roads and will choose a sensible way in.",
@@ -708,17 +587,11 @@ export const extraRoutesRome: RouteData[] = [
         ]
       },
       {
-        "h2": "Vehicles, Luggage and Groups",
+        "h2": "Meeting Your Driver, Waiting Time, Vehicles & Price",
         "p": [
-          "We offer a range of vehicles to match your party size and luggage. A standard sedan suits couples and solo travellers, while a minivan or Mercedes V-Class gives more space for families and small groups with several suitcases. For larger parties, a minibus can carry everyone together in one vehicle.",
-          "Luggage is handled with care and your driver will help load and unload your bags. If you are travelling with bulky items, sports equipment, a child seat or other special requirements, let us know when you book so we can assign the right vehicle. Getting the size right in advance means a smoother, more comfortable ride to the station."
-        ]
-      },
-      {
-        "h2": "Fixed Pricing and 24/7 Availability",
-        "p": [
-          "The price for your transfer is agreed at the time of booking and stays fixed, so there are no meters ticking in traffic and no unexpected additions on arrival. You know the cost before you travel, which makes budgeting simple whether you are booking for yourself or for a group.",
-          "Rome's airport never really sleeps, and neither does our service. Transfers are available around the clock, including for very early departures and late-night landings when public transport options may be limited. Booking in advance secures your car and your driver for the exact time you need, day or night."
+          "Your driver tracks your flight and waits for you in the Fiumicino arrivals hall with a name sign, then helps with your luggage to the car. Waiting is free for 60 minutes after the actual landing time on international flights and 30 minutes on domestic flights. If you need longer, extended waiting is quoted in advance and only charged with your agreement. Your driver's phone number is sent to you within 24 hours before the transfer.",
+          "Sedans suit couples and small families, and Mercedes V-Class minivans take up to 7 passengers with luggage; larger groups travel in more than one vehicle. Tell us how many passengers and bags you have, and request child seats, when you book.",
+          "You receive a fixed, all-inclusive quote for your transfer to Roma Termini Station, usually within 2–3 hours, covering fuel, motorway tolls and airport parking. Journeys starting between 22:00 and 06:00, on Italian public holidays and over Christmas and New Year can carry a surcharge; where one applies, it is shown in your quote before you book, never afterwards. Transfers run 24/7 on pre-booking."
         ]
       }
     ],
@@ -751,24 +624,16 @@ export const extraRoutesRome: RouteData[] = [
         "a": "Where vehicle access is permitted, your driver takes you to the door and helps with your bags. Many Trastevere lanes are narrow, pedestrian or within a ZTL zone, so if driving to the door is not allowed they will stop at the nearest permitted point, as close as possible, and assist with your luggage from there."
       },
       {
-        "q": "Where will I meet my driver at Fiumicino Airport?",
-        "a": "After you collect your baggage and pass through customs, your driver waits in the arrivals hall holding a sign with your name. Your booking confirmation includes contact details so you can reach them easily if you need any help locating them."
+        "q": "What happens if my flight to Fiumicino is delayed?",
+        "a": "Your driver tracks your flight and adjusts to the actual landing time. Waiting is free for 60 minutes after landing on international flights and 30 minutes on domestic flights; extended waiting is quoted in advance and only charged with your agreement."
       },
       {
-        "q": "What happens if my flight is delayed?",
-        "a": "We monitor your flight, so your driver adjusts to earlier or later arrival times automatically. A period of free waiting after landing is normally included to cover passport queues and baggage collection, meaning delays outside your control do not leave you stranded."
+        "q": "Is the price to Trastevere fixed, and is there a night surcharge?",
+        "a": "Yes. You receive a fixed, all-inclusive quote before you book, covering fuel, tolls and parking. Journeys starting between 22:00 and 06:00 or on public holidays can carry a surcharge; where one applies, it is shown in your quote before you book."
       },
       {
-        "q": "Is the price fixed or does it change with traffic?",
-        "a": "The price is fixed and agreed when you book. There are no meters and no surge or late-night surcharges, so heavy traffic or a slow journey does not increase what you pay. The quoted fare is the final amount."
-      },
-      {
-        "q": "What type of vehicle will I travel in and can it fit my group?",
-        "a": "We offer sedans for smaller parties and minivans, a Mercedes V-Class or a minibus for families and larger groups. Please share your passenger and luggage numbers when booking so we can assign a vehicle with enough space for everyone and their bags."
-      },
-      {
-        "q": "Do your drivers speak English and is the service available at night?",
-        "a": "Yes, our drivers are English-speaking and licensed, and they are familiar with Trastevere's streets. Transfers operate 24 hours a day, every day, so early morning and late night arrivals at Fiumicino are covered as long as you book in advance."
+        "q": "Can you take a family or a larger group?",
+        "a": "Mercedes V-Class minivans take up to 7 passengers with luggage, and larger groups travel in more than one vehicle. Tell us your passenger and bag numbers, and any child seats you need, when you book."
       }
     ],
     "metaTitle": "Fiumicino to Trastevere Taxi | Private FCO Transfer",
@@ -790,13 +655,6 @@ export const extraRoutesRome: RouteData[] = [
         ]
       },
       {
-        "h2": "Meet & Greet and Flight Monitoring at Fiumicino",
-        "p": [
-          "Once you clear passport control and collect your baggage, your driver will be waiting in the arrivals hall holding a sign with your name. There is no need to search for a taxi rank or work out which exit to use. If you cannot spot your driver straight away, the contact details in your booking confirmation let you connect quickly.",
-          "We monitor your flight from the moment it departs, so if you land early or late the driver adjusts accordingly. A period of free waiting time is normally included after landing, allowing for immigration queues and baggage delays. This means you are never rushed and never charged extra simply because a flight ran behind schedule."
-        ]
-      },
-      {
         "h2": "The Journey to Trastevere",
         "p": [
           "Leaving Fiumicino, the route generally follows the fast roads towards central Rome before crossing to the west bank of the Tiber where Trastevere sits. Your driver chooses the most sensible way in based on live traffic conditions, aiming to keep the ride smooth and efficient. Journey times of 45 to 55 minutes are typical, though this can vary at peak periods.",
@@ -811,17 +669,11 @@ export const extraRoutesRome: RouteData[] = [
         ]
       },
       {
-        "h2": "Vehicles, Luggage & Groups",
+        "h2": "Meeting Your Driver, Waiting Time, Vehicles & Price",
         "p": [
-          "We offer a range of vehicles to suit different party sizes and luggage loads. A sedan is ideal for one or two passengers travelling light, while a minivan or a Mercedes V-Class gives couples and small families extra room to spread out. For larger groups, a minibus can carry everyone together along with their cases.",
-          "When booking, please tell us how many travellers and how many bags you have, including any oversized items such as sports equipment or musical instruments. This lets us assign a vehicle with enough space so nothing is left behind. Child seats can usually be arranged on request if you let us know the ages in advance."
-        ]
-      },
-      {
-        "h2": "Fixed Pricing & 24/7 Availability",
-        "p": [
-          "Your fare is agreed at the time of booking and does not change afterwards. There are no meters ticking in traffic and no late-night or surge surcharges added on arrival. The price you see is the price you pay, which makes budgeting for your trip straightforward and removes any worry about the final total.",
-          "Transfers run around the clock, every day of the year, so early departures and late arrivals are covered. Whatever time your flight touches down at Fiumicino, a driver can be waiting for you. Booking in advance secures your vehicle and gives you one less thing to think about as you plan your journey to Rome."
+          "Your driver tracks your flight and waits for you in the Fiumicino arrivals hall with a name sign, then helps with your luggage to the car. Waiting is free for 60 minutes after the actual landing time on international flights and 30 minutes on domestic flights. If you need longer, extended waiting is quoted in advance and only charged with your agreement. Your driver's phone number is sent to you within 24 hours before the transfer.",
+          "Sedans suit couples and small families, and Mercedes V-Class minivans take up to 7 passengers with luggage; larger groups travel in more than one vehicle. Tell us how many passengers and bags you have, and request child seats, when you book.",
+          "You receive a fixed, all-inclusive quote for your transfer to Trastevere, usually within 2–3 hours, covering fuel, motorway tolls and airport parking. Journeys starting between 22:00 and 06:00, on Italian public holidays and over Christmas and New Year can carry a surcharge; where one applies, it is shown in your quote before you book, never afterwards. Transfers run 24/7 on pre-booking."
         ]
       }
     ],
@@ -850,28 +702,20 @@ export const extraRoutesRome: RouteData[] = [
         "a": "The journey covers around 32 kilometres and usually takes about 45 to 60 minutes. The exact time depends on traffic and the time of day, so allow a little extra during peak periods. Your driver takes the most suitable route on the day of travel."
       },
       {
-        "q": "Where will the driver meet me at Fiumicino?",
-        "a": "Your driver waits in the arrivals hall holding a sign with your name after you have collected your luggage. We monitor your flight, so if you arrive early or late the driver will still be there. Free waiting time is included to give you room to clear the airport."
-      },
-      {
         "q": "Can the taxi drop me directly at Campo de' Fiori square?",
         "a": "Campo de' Fiori and the surrounding lanes are pedestrian and within a restricted traffic zone (ZTL), so vehicles cannot drive right into the square. Your driver will drop you at the nearest permitted street or as close to your hotel door as the rules allow. From there it is a short walk to the square."
       },
       {
-        "q": "What happens if my flight is delayed?",
-        "a": "We track your flight in advance, so a delay is not a problem. Your driver adjusts the pickup time to match your actual landing, and free waiting time is included. You do not need to contact us or pay extra simply because your flight arrives late."
+        "q": "What happens if my flight to Fiumicino is delayed?",
+        "a": "Your driver tracks your flight and adjusts to the actual landing time. Waiting is free for 60 minutes after landing on international flights and 30 minutes on domestic flights; extended waiting is quoted in advance and only charged with your agreement."
       },
       {
-        "q": "Do your drivers speak English?",
-        "a": "Yes, English-speaking drivers are available for this transfer. This makes communication easy when arranging your meeting point, discussing your drop-off and asking questions about the area. Please let us know if you have any specific language needs when you book."
+        "q": "Is the price to Campo de' Fiori fixed, and is there a night surcharge?",
+        "a": "Yes. You receive a fixed, all-inclusive quote before you book, covering fuel, tolls and parking. Journeys starting between 22:00 and 06:00 or on public holidays can carry a surcharge; where one applies, it is shown in your quote before you book."
       },
       {
-        "q": "Is the price fixed or does it change with traffic?",
-        "a": "The price is fixed and agreed at the time of booking. It does not change due to traffic, waiting time or the hour of your arrival, and there is no meter. You will know the full cost before you travel, which keeps things simple and transparent."
-      },
-      {
-        "q": "What size vehicle should I book for my group?",
-        "a": "It depends on your number of passengers and bags. Sedans suit couples and solo travellers, minivans and the Mercedes V-Class work well for families and small groups, and minibuses are available for larger parties. Tell us your group size and luggage when booking so we can assign the right vehicle."
+        "q": "Can you take a family or a larger group?",
+        "a": "Mercedes V-Class minivans take up to 7 passengers with luggage, and larger groups travel in more than one vehicle. Tell us your passenger and bag numbers, and any child seats you need, when you book."
       }
     ],
     "metaTitle": "Fiumicino to Campo de' Fiori Taxi | Private Transfer",
@@ -893,13 +737,6 @@ export const extraRoutesRome: RouteData[] = [
         ]
       },
       {
-        "h2": "Meet & Greet and Flight Monitoring at Fiumicino",
-        "p": [
-          "Your driver tracks your flight before leaving for the airport, so a delayed or early arrival is not a problem. There is no need to phone ahead or worry about missing your ride if your schedule changes. We adjust the pickup time to match your actual landing.",
-          "Once you collect your bags, look for your driver in the arrivals hall holding a sign with your name. Free waiting time is included, giving you room to clear passport control and baggage reclaim without rushing. Your driver will then help with your luggage and lead you to the vehicle."
-        ]
-      },
-      {
         "h2": "The Journey to Campo de' Fiori and the ZTL Zone",
         "p": [
           "After leaving Fiumicino, the drive follows the main routes toward central Rome, typically via the ring road and riverside roads. You can relax in an air-conditioned vehicle while your driver handles the traffic. Many guests enjoy the first glimpses of the city as you approach the historic centre.",
@@ -914,17 +751,11 @@ export const extraRoutesRome: RouteData[] = [
         ]
       },
       {
-        "h2": "Vehicles, Luggage and Group Sizes",
+        "h2": "Meeting Your Driver, Waiting Time, Vehicles & Price",
         "p": [
-          "We offer a range of vehicles to suit different party sizes and amounts of luggage. Couples and solo travellers often choose a comfortable sedan, while families and small groups prefer a minivan or a Mercedes V-Class for extra space. Larger parties can be accommodated in a minibus.",
-          "Let us know your number of passengers and bags when you book, and we will assign a suitable vehicle. If you are travelling with bulky items, sports equipment or child seats, please mention this in advance so we can prepare. Our aim is that everyone and everything fits comfortably for the ride into the city."
-        ]
-      },
-      {
-        "h2": "Fixed Pricing and 24/7 Availability",
-        "p": [
-          "The price for your transfer is agreed when you book and does not change with traffic or the time of your arrival. There are no meters running and no surprise surcharges, so you know the cost before you travel. This makes budgeting simple, especially after a long journey.",
-          "Flights arrive at Fiumicino at all hours, so our service operates around the clock, including early mornings, late nights, weekends and holidays. Whenever your flight is scheduled, a driver can be ready to meet you. Just share your flight details at booking and we will handle the timing."
+          "Your driver tracks your flight and waits for you in the Fiumicino arrivals hall with a name sign, then helps with your luggage to the car. Waiting is free for 60 minutes after the actual landing time on international flights and 30 minutes on domestic flights. If you need longer, extended waiting is quoted in advance and only charged with your agreement. Your driver's phone number is sent to you within 24 hours before the transfer.",
+          "Sedans suit couples and small families, and Mercedes V-Class minivans take up to 7 passengers with luggage; larger groups travel in more than one vehicle. Tell us how many passengers and bags you have, and request child seats, when you book.",
+          "You receive a fixed, all-inclusive quote for your transfer to Campo de' Fiori, usually within 2–3 hours, covering fuel, motorway tolls and airport parking. Journeys starting between 22:00 and 06:00, on Italian public holidays and over Christmas and New Year can carry a surcharge; where one applies, it is shown in your quote before you book, never afterwards. Transfers run 24/7 on pre-booking."
         ]
       }
     ],
@@ -961,20 +792,16 @@ export const extraRoutesRome: RouteData[] = [
         "a": "Yes. Castel Sant'Angelo is only a short walk from St Peter's Square, so it makes an ideal starting point for a Vatican visit. If you would like the driver to drop you closer to St Peter's or your Vatican-area hotel instead, just mention it when booking."
       },
       {
-        "q": "What happens if my flight is delayed or arrives early?",
-        "a": "We monitor your flight in real time using its number, so your driver adjusts the pickup to your actual arrival. Generous free waiting time is included, and you are not charged extra for delays outside your control. There is no need to rebook if your schedule shifts."
+        "q": "What happens if my flight to Fiumicino is delayed?",
+        "a": "Your driver tracks your flight and adjusts to the actual landing time. Waiting is free for 60 minutes after landing on international flights and 30 minutes on domestic flights; extended waiting is quoted in advance and only charged with your agreement."
       },
       {
-        "q": "Where will I meet my driver at Fiumicino Airport?",
-        "a": "Your driver waits in the arrivals hall holding a sign showing your name, ready to help with your luggage. This meet and greet means you avoid the taxi queues and go straight to your vehicle. If you have trouble finding them, our support team can connect you quickly."
+        "q": "Is the price to Castel Sant'Angelo fixed, and is there a night surcharge?",
+        "a": "Yes. You receive a fixed, all-inclusive quote before you book, covering fuel, tolls and parking. Journeys starting between 22:00 and 06:00 or on public holidays can carry a surcharge; where one applies, it is shown in your quote before you book."
       },
       {
-        "q": "What type of vehicle will I travel in, and can you fit large luggage?",
-        "a": "We offer sedans, minivans, Mercedes V-Class vehicles and minibuses depending on your group size. Tell us your passenger and bag numbers when booking, including oversized items, and we assign a suitable vehicle so everyone travels comfortably with luggage safely stowed."
-      },
-      {
-        "q": "Is the price fixed, and is the service available at night?",
-        "a": "Yes, the price is fixed and confirmed at booking, with no meters, surge fares or hidden extras. Our transfers run 24 hours a day, every day of the year, so a driver will be ready to meet you whether your flight lands early in the morning or late at night."
+        "q": "Can you take a family or a larger group?",
+        "a": "Mercedes V-Class minivans take up to 7 passengers with luggage, and larger groups travel in more than one vehicle. Tell us your passenger and bag numbers, and any child seats you need, when you book."
       }
     ],
     "metaTitle": "Fiumicino to Castel Sant'Angelo Taxi | FCO Transfer",
@@ -996,13 +823,6 @@ export const extraRoutesRome: RouteData[] = [
         ]
       },
       {
-        "h2": "Meet & Greet and Flight Monitoring at Fiumicino",
-        "p": [
-          "We monitor your flight in real time using its number, so your driver knows if you land early or late and adjusts the pickup accordingly. This means you are never left waiting because of a schedule change, and you are not charged for delays outside your control.",
-          "Your driver waits in the arrivals hall holding a sign with your name, ready to help with luggage and guide you to the vehicle. Generous free waiting time is included, allowing for passport control and baggage reclaim at your own pace. If you cannot find your driver, our support team is reachable to connect you quickly."
-        ]
-      },
-      {
         "h2": "The Journey to Castel Sant'Angelo",
         "p": [
           "Leaving Fiumicino, the route typically follows the motorway toward central Rome before heading in along the Tiber toward the historic centre. Your driver knows the quieter approaches and the traffic patterns that can affect arrival, choosing the smoothest way in on the day.",
@@ -1017,17 +837,11 @@ export const extraRoutesRome: RouteData[] = [
         ]
       },
       {
-        "h2": "Vehicles, Luggage & Groups",
+        "h2": "Meeting Your Driver, Waiting Time, Vehicles & Price",
         "p": [
-          "Our fleet suits every party size. Couples and solo travellers can choose a comfortable sedan, while families and small groups may prefer a spacious minivan. For larger groups or those with extra luggage, a Mercedes V-Class or a minibus offers generous room for people and cases alike.",
-          "When you book, let us know your number of passengers and bags, including oversized items such as strollers, ski gear or sports equipment, so we assign the right vehicle. Child seats can usually be arranged on request. This way everyone travels comfortably with luggage safely stowed rather than squeezed in."
-        ]
-      },
-      {
-        "h2": "Fixed Pricing & 24/7 Availability",
-        "p": [
-          "The price you see when booking is the price you pay. It is fixed and agreed in advance, with no meters, no surge charges during busy periods and no surprise additions at the end of the ride. This makes budgeting simple and gives you peace of mind before you even land.",
-          "Flights arrive at all hours, so our transfers operate around the clock, every day of the year, including early mornings, late nights and public holidays. Whether your flight touches down at dawn or near midnight, a driver will be ready to meet you and take you straight to Castel Sant'Angelo."
+          "Your driver tracks your flight and waits for you in the Fiumicino arrivals hall with a name sign, then helps with your luggage to the car. Waiting is free for 60 minutes after the actual landing time on international flights and 30 minutes on domestic flights. If you need longer, extended waiting is quoted in advance and only charged with your agreement. Your driver's phone number is sent to you within 24 hours before the transfer.",
+          "Sedans suit couples and small families, and Mercedes V-Class minivans take up to 7 passengers with luggage; larger groups travel in more than one vehicle. Tell us how many passengers and bags you have, and request child seats, when you book.",
+          "You receive a fixed, all-inclusive quote for your transfer to Castel Sant'Angelo, usually within 2–3 hours, covering fuel, motorway tolls and airport parking. Journeys starting between 22:00 and 06:00, on Italian public holidays and over Christmas and New Year can carry a surcharge; where one applies, it is shown in your quote before you book, never afterwards. Transfers run 24/7 on pre-booking."
         ]
       }
     ],

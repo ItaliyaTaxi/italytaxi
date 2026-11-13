@@ -9,6 +9,7 @@ import PageHero from '@/components/PageHero';
 import ServiceSchema from '@/components/ServiceSchema';
 import Image from 'next/image';
 import Link from 'next/link';
+import { extraRoutesRome } from '@/lib/extra-routes-rome';
 
 // ── Airport-specific unique content ─────────────────────────────────────────
 interface AirportRichData {
@@ -55,7 +56,8 @@ const airportRichData: Record<string, AirportRichData> = {
             { destination: 'Naples', duration: '2h 30min', note: 'Via A1 motorway' },
         ],
         flightDelayPolicy:
-            'We include 60 minutes of complimentary waiting time from your actual landing time — not the scheduled arrival. We track your flight in real-time via FlightAware and FlightRadar24, so we know your exact landing time the moment the aircraft touches down. If your delay extends beyond 60 minutes (e.g. due to lost luggage or prolonged immigration queues), contact your driver directly via WhatsApp to update your expected exit time. Extended waiting beyond 60 minutes is charged at €10 per 30-minute block, billed only if agreed in advance. We never abandon a booking due to a flight delay — your driver stays until you arrive.',
+            'We include 60 minutes of complimentary waiting time from your actual landing time — not the scheduled arrival. We track your flight in real-time via FlightAware and FlightRadar24, so we know your exact landing time the moment the aircraft touches down. If your delay extends beyond 60 minutes (e.g. due to lost luggage or prolonged immigration queues), contact your driver directly via WhatsApp to update your expected exit time. Extended waiting beyond 60 minutes is quoted in advance and only charged with your agreement. We never abandon a booking due to a flight delay — your driver stays until you arrive.',
+        relatedRoutes: extraRoutesRome.map((r) => ({ href: `/route/${r.slug}`, label: `Fiumicino to ${r.to}` })),
     },
     'milan-malpensa': {
         terminalPickup:

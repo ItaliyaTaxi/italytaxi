@@ -11,6 +11,7 @@ import ServiceSchema from '@/components/ServiceSchema';
 import Image from 'next/image';
 import Link from 'next/link';
 import { routesForPlace, dayTripsForPlace } from '@/lib/related-routes';
+import { extraRoutesRome } from '@/lib/extra-routes-rome';
 
 export async function generateStaticParams() {
     return cities.map((city) => ({
@@ -47,7 +48,13 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
 
     // Routes and day trips that start or end in this city. City pages used to
     // link to no route pages at all, leaving most routes nearly orphaned.
-    const cityRoutes = routesForPlace(city.name, 12);
+    // Rome: always list the ten Fiumicino → district pages first (they are the
+    // Rome pages that rank), then fill with the rotating selection.
+    const romeDistricts = slug === 'rome' ? extraRoutesRome : [];
+    const cityRoutes = [
+        ...romeDistricts,
+        ...routesForPlace(city.name, 12 + romeDistricts.length).filter((r) => !romeDistricts.some((d) => d.slug === r.slug)),
+    ].slice(0, romeDistricts.length ? romeDistricts.length + 8 : 12);
     const cityDayTrips = dayTripsForPlace(city.name);
 
     const cityFaqs = [

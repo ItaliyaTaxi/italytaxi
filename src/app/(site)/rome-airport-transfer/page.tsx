@@ -11,6 +11,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
 import { romeAirports, romeHotels, transferSlug } from '@/lib/airport-hotel-data';
+import { extraRoutesRome } from '@/lib/extra-routes-rome';
 
 // A curated, geographically diverse subset of the full Rome hotel-transfer
 // inventory (35 hotels x 2 airports x 2 directions = 140 pages in
@@ -275,6 +276,27 @@ export default function RomeAirportTransferPage() {
               the most significant practical advantages of booking a professional{' '}
               <strong>private transfer in Rome</strong>.
             </p>
+          </div>
+          <div>
+            <h3 className="text-2xl font-bold text-[#0F1C2E] mb-3">Fiumicino to Rome&apos;s Districts and Landmarks</h3>
+            <p className="mb-6">
+              Most of central Rome sits inside the ZTL, so where you are dropped off depends on the district. Each page
+              below covers one destination: the drive from Fiumicino, the usual journey time, and how close a car can
+              get.
+            </p>
+            <ul className="grid sm:grid-cols-2 gap-3 list-none p-0">
+              {extraRoutesRome.map((r) => (
+                <li key={r.slug}>
+                  <Link
+                    href={`/route/${r.slug}`}
+                    className="flex items-center justify-between gap-3 px-5 py-3 rounded-xl border border-gray-200 bg-white hover:border-gold hover:shadow-md transition-all"
+                  >
+                    <span className="font-semibold text-navy text-base">Fiumicino to {r.to}</span>
+                    <span className="text-sm text-gray-500 whitespace-nowrap">{r.duration}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
           {fiumicino && hotelGroups.length > 0 && (
             <div>
