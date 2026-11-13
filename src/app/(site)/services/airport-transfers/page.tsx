@@ -29,7 +29,7 @@ const faqs = [
   },
   {
     q: "Is there free waiting time included in the airport transfer price?",
-    a: "Yes. We include 60 minutes of complimentary waiting time after your scheduled landing time for international flights, and 30 minutes for domestic flights. This gives you ample time to clear immigration queues, collect baggage, and pass through customs without any rush. If you need additional waiting time beyond this, a small supplementary charge applies, which we will always communicate in advance."
+    a: "Yes. We include 60 minutes of complimentary waiting time after your actual landing time for international flights, and 30 minutes for domestic flights. This gives you ample time to clear immigration queues, collect baggage, and pass through customs without any rush. If you need additional waiting time beyond this, a small supplementary charge applies, which we will always communicate in advance."
   },
   {
     q: "Do you service all Italian airports, including smaller regional ones?",

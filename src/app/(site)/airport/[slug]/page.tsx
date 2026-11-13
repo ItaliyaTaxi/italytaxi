@@ -108,7 +108,7 @@ const airportRichData: Record<string, AirportRichData> = {
             { destination: 'Cortina d\'Ampezzo (Dolomites)', duration: '2h 30min', note: 'Seasonal mountain access' },
         ],
         flightDelayPolicy:
-            'We provide real-time flight tracking for all VCE arrivals. The first 60 minutes of waiting after your actual landing time are included free of charge. For VCE-specific considerations: water-high (acqua alta) events between November and April can affect Piazzale Roma accessibility — our team monitors flood alerts proactively and will communicate any impact to your transfer plan before you land. If significant flooding affects Piazzale Roma, we will coordinate an alternative drop-off and water taxi arrangement at no extra cost. For delayed flights, your driver updates their position in real-time. Extended waits beyond 60 minutes are charged at €10 per 30-min block with advance confirmation.',
+            'We provide real-time flight tracking for all VCE arrivals. The first 60 minutes of waiting after your actual landing time are included free of charge. For VCE-specific considerations: water-high (acqua alta) events between November and April can affect Piazzale Roma accessibility — our team monitors flood alerts proactively and will communicate any impact to your transfer plan before you land. If significant flooding affects Piazzale Roma, we will coordinate an alternative drop-off and water taxi arrangement at no extra cost. For delayed flights, your driver updates their position in real-time. Extended waiting beyond 60 minutes is quoted in advance and only charged with your agreement.',
     },
     'naples': {
         terminalPickup:
@@ -122,7 +122,7 @@ const airportRichData: Record<string, AirportRichData> = {
             { destination: 'Ravello', duration: '100–130 min' },
         ],
         flightDelayPolicy:
-            'Flight tracking is active from departure at origin for all NAP arrivals. The first 60 minutes of waiting after landing are included at no charge. Naples Capodichino is a compact airport — baggage claim is typically fast (15–20 minutes), so most passengers exit within 30 minutes of landing. For Amalfi Coast-bound transfers delayed significantly (over 1.5 hours), we proactively check SS163 coastal road conditions to plan the optimal departure timing — the coastal road is subject to traffic controls and closures in peak season. Extended waits beyond 60 minutes are €10 per 30-min block, agreed in advance. We never cancel for flight delays.',
+            'Flight tracking is active from departure at origin for all NAP arrivals. The first 60 minutes of waiting after landing are included at no charge. Naples Capodichino is a compact airport — baggage claim is typically fast (15–20 minutes), so most passengers exit within 30 minutes of landing. For Amalfi Coast-bound transfers delayed significantly (over 1.5 hours), we proactively check SS163 coastal road conditions to plan the optimal departure timing — the coastal road is subject to traffic controls and closures in peak season. Extended waiting beyond 60 minutes is quoted in advance and only charged with your agreement. We never cancel for flight delays.',
     },
     'florence': {
         terminalPickup:
@@ -136,7 +136,7 @@ const airportRichData: Record<string, AirportRichData> = {
             { destination: 'Chianti wine country (Greve)', duration: '40–50 min', note: 'Day trip option' },
         ],
         flightDelayPolicy:
-            'We monitor all FLR arrivals in real-time. The first 60 minutes of waiting after landing are complimentary. FLR\'s compact size means baggage is typically on the belt within 10–15 minutes of landing — most passengers exit within 25 minutes of touchdown. For extended delays beyond the 60-minute free period, a charge of €10 per 30 minutes applies (agreed in advance). For early-morning arrivals (pre-06:00), our drivers are positioned at the airport from 30 minutes before scheduled landing. We maintain contact via WhatsApp throughout your journey — simply message your driver if you encounter any delays at immigration or baggage reclaim.',
+            'We monitor all FLR arrivals in real-time. The first 60 minutes of waiting after landing are complimentary. FLR\'s compact size means baggage is typically on the belt within 10–15 minutes of landing — most passengers exit within 25 minutes of touchdown. For longer delays beyond the 60-minute free period, extended waiting is quoted in advance and only charged with your agreement. For early-morning arrivals (pre-06:00), our drivers are positioned at the airport from 30 minutes before scheduled landing. We maintain contact via WhatsApp throughout your journey — simply message your driver if you encounter any delays at immigration or baggage reclaim.',
     },
     'bologna-marconi': {
         terminalPickup:
@@ -150,7 +150,7 @@ const airportRichData: Record<string, AirportRichData> = {
             { destination: 'Florence City Centre', duration: '1h 30min' },
         ],
         flightDelayPolicy:
-            'Flight tracking is active for all BLQ arrivals. The first 60 minutes of free waiting apply after actual landing. BLQ is a well-organised airport with typically fast baggage handling — most passengers exit within 20–25 minutes of landing. For significantly delayed flights (2+ hours), our team contacts you proactively via WhatsApp to confirm revised timing. Extended waits beyond the 60-minute grace period are charged at €10 per 30 minutes, with your agreement. In the event of a flight cancellation requiring a same-day alternative arrangement, contact our 24/7 WhatsApp line and we will do our best to accommodate rescheduling.',
+            'Flight tracking is active for all BLQ arrivals. The first 60 minutes of free waiting apply after actual landing. BLQ is a well-organised airport with typically fast baggage handling — most passengers exit within 20–25 minutes of landing. For significantly delayed flights (2+ hours), our team contacts you proactively via WhatsApp to confirm revised timing. Extended waiting beyond the 60-minute free period is quoted in advance and only charged with your agreement. In the event of a flight cancellation requiring a same-day alternative arrangement, contact our 24/7 WhatsApp line and we will do our best to accommodate rescheduling.',
     },
     'palermo': {
         seoTitle: 'Palermo Falcone Borsellino Airport Taxi | Book Your Transfer', // 60 chars
