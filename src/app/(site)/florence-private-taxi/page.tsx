@@ -128,6 +128,8 @@ export default function FlorencePrivateTaxiPage() {
           { label: "Private Tours Italy", href: "/services/private-tours" },
           { label: "Florence City Taxi", href: "/city/florence" },
           { label: "Rome to Florence Transfer", href: "/route/rome-to-florence-taxi" },
+          // Seasonal: remove after the Florence Marathon (29 Nov 2026).
+          { label: "Florence Marathon 2026 Transfers", href: "/blog/florence-marathon-2026-transfers" },
           { label: "Book Now", href: "/book-now" },
         ]}
       />
