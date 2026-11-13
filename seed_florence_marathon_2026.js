@@ -68,7 +68,7 @@ const schema = {
       description: 'The Estra Firenze Marathon 2026: 42.195 km through the streets of Florence, starting from Piazza del Duomo on Sunday 29 November.',
       startDate: '2026-11-29T08:30:00+01:00',
       endDate: '2026-11-29',
-      image: [`${SITE}/images/florence%20airport.webp`],
+      image: ['', '-4x3', '-1x1'].map((r) => `${SITE}/images/blog/florence-duomo${r}.webp`),
       eventStatus: 'https://schema.org/EventScheduled',
       eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
       location: {
@@ -115,7 +115,7 @@ const enPost = {
   seo_description: 'Running the Florence Marathon on 29 Nov 2026? Private transfers for your airport arrival, the Expo, race morning and return. Fixed quote before you travel.',
   focus_keyword: 'florence marathon transfer',
   excerpt: 'Private transfers for the Florence Marathon weekend (27–29 November 2026): airport and station arrivals, the Expo, race morning, the ride back after the finish and your departure, with a fixed quote before you travel.',
-  featured_image_url: '/images/florence airport.webp',
+  featured_image_url: '/images/blog/florence-duomo.webp',
   language: 'en',
   content: `
 <script type="application/ld+json">${JSON.stringify(schema)}</script>

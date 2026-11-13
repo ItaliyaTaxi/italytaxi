@@ -51,7 +51,7 @@ const schema = {
       description: 'Estra Firenze Marathon 2026: 42,195 km per le strade di Firenze, con partenza da Piazza del Duomo domenica 29 novembre.',
       startDate: '2026-11-29T08:30:00+01:00',
       endDate: '2026-11-29',
-      image: [`${SITE}/images/florence%20airport.webp`],
+      image: ['', '-4x3', '-1x1'].map((r) => `${SITE}/images/blog/florence-duomo${r}.webp`),
       eventStatus: 'https://schema.org/EventScheduled',
       eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
       location: {
@@ -100,7 +100,7 @@ const itPost = {
   seo_description: "Corri la Maratona di Firenze il 29 novembre 2026? Transfer privati dalla tua città o dall'aeroporto, Expo e giorno di gara. Preventivo fisso prima del viaggio.",
   focus_keyword: 'transfer maratona di firenze',
   excerpt: "Transfer privati per il weekend della Maratona di Firenze (27–29 novembre 2026): dalla tua città o dall'aeroporto all'hotel, all'Expo, la mattina della gara e dopo l'arrivo, con un preventivo fisso prima del viaggio.",
-  featured_image_url: '/images/florence airport.webp',
+  featured_image_url: '/images/blog/florence-duomo.webp',
   content: `
 <script type="application/ld+json">${JSON.stringify(schema)}</script>
 
