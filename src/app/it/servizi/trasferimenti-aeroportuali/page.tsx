@@ -29,7 +29,7 @@ const faqs = [
   },
   {
     q: "È inclusa l'attesa gratuita nel prezzo del transfer aeroportuale?",
-    a: "Sì. Includiamo 60 minuti di attesa gratuita dopo l'orario di atterraggio previsto per i voli internazionali e 30 minuti per i voli nazionali. Questo ti dà tempo sufficiente per superare i controlli di immigrazione, ritirare i bagagli e passare la dogana senza fretta. Se hai bisogno di ulteriore tempo di attesa, si applica un piccolo supplemento, che comunicheremo sempre in anticipo."
+    a: "Sì. Includiamo 60 minuti di attesa gratuita dall'orario di atterraggio effettivo per i voli internazionali e 30 minuti per i voli nazionali: se il volo è in ritardo lo monitoriamo, e l'attesa parte da quando l'aereo atterra. Questo ti dà tempo sufficiente per superare i controlli di immigrazione, ritirare i bagagli e passare la dogana senza fretta. L'eventuale attesa aggiuntiva viene indicata nel preventivo e concordata con te in anticipo."
   },
   {
     q: "Servite tutti gli aeroporti italiani, compresi quelli regionali più piccoli?",

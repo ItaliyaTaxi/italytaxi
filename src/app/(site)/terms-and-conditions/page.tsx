@@ -157,7 +157,7 @@ export default function TermsAndConditionsPage() {
                 </ul>
                 <p>We monitor all flights in real-time using live flight tracking data. If your flight is delayed, your driver's pickup time adjusts automatically at no charge. You will not be penalised for delays caused by airlines, air traffic control, or weather events.</p>
                 <p>If you have not appeared or made contact within the complimentary waiting period, the driver may leave. In this event, the booking will be treated as a no-show and the full fare will be charged. To avoid this, please save your driver's mobile number and make contact if you are delayed.</p>
-                <p>Additional waiting time beyond the complimentary period, at the passenger's request, may be charged at a waiting rate of €10 per 15 minutes. This will always be agreed with the passenger before the meter begins.</p>
+                <p>Additional waiting time beyond the complimentary period, at the passenger's request, is set out in your quotation and agreed with you in advance. It is never charged without your agreement.</p>
               </section>
 
               {/* Section 6 */}
