@@ -197,7 +197,7 @@ export const venetoDestinations: VenetoDestination[] = [
         nearby: [{ place: 'Sottomarina beach', note: 'adjacent' }, { place: 'Venice', note: '~1 h' }, { place: 'Padua', note: '~50 min' }],
         thingsToKnow: ['Chioggia is road-accessible, delivered door-to-door.', 'Known for its fish market and the Sottomarina beach strip.', 'A quieter, working alternative to central Venice.'],
         attractions: ['Corso del Popolo', 'Fish market', 'Sottomarina beach'],
-        legs: { vce: VCE('~40 km', '~50–60 min'), tsf: VCE('~55 km', '~1 h 5') },
+        legs: { vce: VCE('~55 km', '~50–60 min'), tsf: VCE('~55 km', '~1 h 5') },
     },
 
     // ─────────────────────────── VENETO CITIES & SPA ───────────────────────
