@@ -738,8 +738,8 @@ export const extraRoutesTuscany: RouteData[] = [
     "title": "Florence to Castello Banfi Taxi Transfer",
     "hero_image": "/images/Tuscany Wine.webp",
     "description": "Travel in comfort from Florence to Castello Banfi, the celebrated Brunello estate near Montalcino in southern Tuscany. Our private transfer offers a fixed price, an English-speaking driver and door-to-estate service, so you can relax through the Val d'Orcia and enjoy your tasting without worrying about the road.",
-    "distance": "~130 km",
-    "duration": "~1 h 50 min",
+    "distance": "~150 km",
+    "duration": "~2 h 05 min",
     "highlights": [
       "Fixed, agreed price with no hidden extras or meter surprises",
       "Meet and greet at your Florence hotel, including ZTL pickup points",
