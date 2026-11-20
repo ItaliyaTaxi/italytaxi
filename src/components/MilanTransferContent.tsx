@@ -6,7 +6,7 @@ import FAQSection from '@/components/FAQSection';
 import ServiceSchema from '@/components/ServiceSchema';
 import MapEmbed from '@/components/MapEmbed';
 import BookingForm from '@/components/BookingForm';
-import { Clock, MapPin, Euro, CheckCircle, ChevronRight, Plane, Star } from 'lucide-react';
+import { Clock, MapPin, Euro, CheckCircle, ChevronRight, Plane } from 'lucide-react';
 import {
     type MilanTransferCombo,
     milanAirports,
@@ -40,18 +40,17 @@ export default function MilanTransferContent({ combo }: { combo: MilanTransferCo
         ? `Private Transfer from ${hotel.name} to ${airport.name}`
         : `Private Transfer from ${airport.name} to ${hotel.name}`;
     const bookText = dep ? `${hotel.name} to ${airport.short} Airport` : `${airport.short} Airport to ${hotel.name}`;
-    const stars = '★'.repeat(hotel.stars);
 
     // ── Content-block variations (selected by seed) ─────────────────────────
     const introArrival = [
-        `Landing at ${airport.name} and heading to the ${hotel.name}? A private transfer is the smoothest way to start your stay in Milan. Instead of ${airport.publicAlt}, a professional English-speaking driver meets you in arrivals, helps with your luggage and takes you directly to the hotel door in ${hotel.district}.`,
+        `Landing at ${airport.name} and heading to the ${hotel.name}? A private transfer is the smoothest way to start your stay in Milan. Instead of ${airport.publicAlt}, a professional English-speaking driver meets you in arrivals, can help with your bags and takes you directly to the hotel door in ${hotel.district}.`,
         `Arriving at ${airport.name} bound for the ${hotel.name} in ${hotel.district}? Skip ${airport.publicAlt}. Our driver greets you by name in the arrivals hall and drives you straight to the hotel in one comfortable, fixed-price journey.`,
         `A private car from ${airport.name} to the ${hotel.name} takes the stress out of arriving in Milan. Rather than ${airport.publicAlt}, you are met on arrival, your bags are handled for you, and you travel door-to-door to ${hotel.district}.`,
     ];
     const introDeparture = [
-        `On departure day, a private transfer from the ${hotel.name} to ${airport.name} keeps things simple. Your driver arrives at the hotel in ${hotel.district} on time, loads your luggage and takes you directly to the correct terminal — no ${airport.publicAlt}.`,
+        `On departure day, a private transfer from the ${hotel.name} to ${airport.name} keeps things simple. Your driver arrives at the hotel in ${hotel.district} at the agreed time, helps with your bags and takes you directly to the correct terminal — no ${airport.publicAlt}.`,
         `Leaving the ${hotel.name} for ${airport.name}? A pre-booked car means a punctual pickup from the lobby in ${hotel.district} and a direct, fixed-price ride to your terminal, instead of ${airport.publicAlt}.`,
-        `A private departure transfer from the ${hotel.name} to ${airport.name} is the reliable way to catch your flight. The driver meets you at the hotel in ${hotel.district} and drives you straight to the airport, luggage handled throughout.`,
+        `A private departure transfer from the ${hotel.name} to ${airport.name} is the reliable way to catch your flight. The driver meets you at the hotel in ${hotel.district} and drives you straight to the airport.`,
     ];
     const whyOpener = [
         `Milan's public options each have trade-offs.`,
@@ -62,22 +61,22 @@ export default function MilanTransferContent({ combo }: { combo: MilanTransferCo
 
     const faqs = dep ? [
         { q: `How early should I leave the ${hotel.name} for ${airport.short} Airport?`, a: `${airport.recommendedArrival} The transfer itself takes about ${leg.duration} (${leg.distance}), so your driver recommends a hotel pickup time that comfortably covers the drive and check-in.` },
-        { q: `Where does the driver pick me up at the ${hotel.name}?`, a: `Your driver arrives at the reception/entrance of the ${hotel.name} in ${hotel.district} at the agreed time, helps with your luggage and drives you directly to your departure terminal at ${airport.name}.` },
+        { q: `Where does the driver pick me up at the ${hotel.name}?`, a: `Your driver arrives at the reception/entrance of the ${hotel.name} in ${hotel.district} at the agreed time, can help with your bags and drives you directly to your departure terminal at ${airport.name}.` },
         { q: `Is the price fixed?`, a: `Yes — the fare is agreed in advance with no meter and no hidden charges. The final price depends on vehicle type, passenger count, luggage and pickup time.` },
-        { q: `Can you collect me very early or late at night?`, a: `Yes, departure transfers run 24/7 — useful for the early and late flights common at ${airport.short}, when ${airport.publicAlt} may be limited or not running.` },
+        { q: `Can you collect me very early or late at night?`, a: `Yes. Early-morning and late-night departures are arranged as pre-booked transfers — useful for the early and late flights common at ${airport.short}, when ${airport.publicAlt} may be limited or not running.` },
         { q: `What if my flight time changes?`, a: `Just let us know the new time and we re-schedule your hotel pickup accordingly — straightforward when arranged in advance.` },
-        { q: `Will the driver help with my luggage?`, a: `Yes, the driver loads and unloads your bags at both the hotel and the terminal, so departure day is hands-free.` },
-        { q: `Can you reach the ${hotel.name} in central Milan?`, a: `Yes. As a licensed NCC service we reach the hotel door in ${hotel.district}, including the central Area C restricted zone that private cars are charged to enter.` },
+        { q: `Will the driver help with my luggage?`, a: `Drivers will normally help you load and unload your bags at the hotel and at the terminal. If you have unusually heavy, bulky or oversized items, say so when you book so the right vehicle is assigned.` },
+        { q: `Can you reach the ${hotel.name} in central Milan?`, a: `Yes, we collect from the hotel address. Milan operates restricted-traffic and low-emission zones in and around the centre; any applicable road charges are included in your quoted fare, so nothing is added on the day.` },
         { q: `Which terminal will I be dropped at?`, a: `You'll be taken to the correct departure terminal for your airline. ${airport.terminals} Tell us your flight when booking.` },
     ] : [
-        { q: `How long is the transfer from ${airport.name} to the ${hotel.name}?`, a: `The private transfer takes approximately ${leg.duration} (about ${leg.distance}), depending on traffic. Your driver always takes the fastest route.` },
-        { q: `Where will the driver meet me at ${airport.short} Airport?`, a: `Your driver waits at ${airport.meetingPoint}, helps with your luggage and walks you to the vehicle. ${airport.terminals}` },
+        { q: `How long is the transfer from ${airport.name} to the ${hotel.name}?`, a: `The private transfer takes approximately ${leg.duration} (about ${leg.distance}), depending on traffic. Your driver takes the most direct and appropriate route for the conditions.` },
+        { q: `Where will the driver meet me at ${airport.short} Airport?`, a: `Your driver waits at ${airport.meetingPoint}, can help with your bags and walks you to the vehicle. ${airport.terminals}` },
         { q: `Will the driver wait if my flight is delayed?`, a: `Yes. We monitor your flight in real time, so if it lands early or late the pickup is adjusted automatically, with free waiting time after landing.` },
         { q: `Is this a private transfer or a shared shuttle?`, a: `It is a fully private, door-to-door transfer for your party only — no other passengers and no extra stops between ${airport.short} and the ${hotel.name}.` },
-        { q: `Can you drop me at the hotel door in central Milan?`, a: `Yes — as a licensed NCC service we reach the ${hotel.name} in ${hotel.district}, including Milan's central Area C zone where private cars pay a charge to enter.` },
+        { q: `Can you drop me at the hotel door in central Milan?`, a: `Yes, we drop at the ${hotel.name} address in ${hotel.district}. Milan operates restricted-traffic and low-emission zones in and around the centre; any applicable road charges are included in your quoted fare.` },
         { q: `Is the price fixed and can I pay online?`, a: `Yes — the fare is fixed and agreed before travel with no meter, and secure online payment is available.` },
         { q: `Do you provide child seats?`, a: `Yes, infant, toddler and booster seats are available on request — just add your children's ages when booking.` },
-        { q: `Is the ${airport.short} to ${hotel.name} transfer available 24/7?`, a: `Yes, transfers run around the clock, including the early and late arrivals when ${airport.publicAlt} is limited.` },
+        { q: `Can you cover early-morning and late-night flights at ${airport.short}?`, a: `Yes. Pre-booked transfers are arranged for early and late arrivals, including times when ${airport.publicAlt} is limited.` },
     ];
 
     const webPageSchema = {
@@ -89,8 +88,7 @@ export default function MilanTransferContent({ combo }: { combo: MilanTransferCo
         isPartOf: { '@type': 'WebSite', name: 'Italy Taxi Service', url: SITE },
         about: {
             '@type': 'Hotel', name: hotel.name, starRating: { '@type': 'Rating', ratingValue: hotel.stars },
-            image: `${SITE}${hotel.image}`,
-            address: { '@type': 'PostalAddress', streetAddress: hotel.address, addressLocality: 'Milan', addressRegion: 'Lombardy', addressCountry: 'IT' },
+            address: { '@type': 'PostalAddress', streetAddress: hotel.address, ...(hotel.postalCode ? { postalCode: hotel.postalCode } : {}), addressLocality: 'Milan', addressRegion: 'Lombardy', addressCountry: 'IT' },
             geo: { '@type': 'GeoCoordinates', latitude: hotel.lat, longitude: hotel.lng },
         },
     };
@@ -101,7 +99,7 @@ export default function MilanTransferContent({ combo }: { combo: MilanTransferCo
             <ServiceSchema
                 name={h1}
                 description={dep
-                    ? `Fixed-price private departure transfer from the ${hotel.name}, ${hotel.district}, to ${airport.name}. On-time hotel pickup, luggage assistance and door-to-door service.`
+                    ? `Fixed-price private departure transfer from the ${hotel.name}, ${hotel.district}, to ${airport.name}. Confirmed pickup time and door-to-door service.`
                     : `Fixed-price private transfer from ${airport.name} to the ${hotel.name}, ${hotel.district}, Milan. Meet & greet, flight monitoring and door-to-door service.`}
                 url={`${SITE}/${combo.slug}`}
                 image={`${SITE}${HERO_IMG}`}
@@ -113,7 +111,7 @@ export default function MilanTransferContent({ combo }: { combo: MilanTransferCo
                 titleTop={dep ? `Private Transfer from ${hotel.name} to` : `Private Transfer from ${airport.short} Airport to`}
                 titleBottom={dep ? `${airport.short} Airport` : hotel.name}
                 description={dep
-                    ? `Fixed-price, on-time private transfer from the ${hotel.name} in ${hotel.district} to ${airport.name}. ${leg.distance} · ${leg.duration} · luggage assistance included.`
+                    ? `Fixed-price private transfer from the ${hotel.name} in ${hotel.district} to ${airport.name}. ${leg.distance} · ${leg.duration}.`
                     : `Fixed-price, door-to-door private transfer from ${airport.name} to the ${hotel.name} in ${hotel.district}. ${leg.distance} · ${leg.duration} · meet & greet included.`}
                 backgroundImage={HERO_IMG}
                 buttonText="Book Your Transfer"
@@ -135,7 +133,7 @@ export default function MilanTransferContent({ combo }: { combo: MilanTransferCo
                         {/* Main column */}
                         <div className="lg:col-span-2">
                             <h2 className="text-3xl md:text-4xl font-extrabold text-navy mb-4 leading-tight">{h1}</h2>
-                            <p className="text-gold font-semibold mb-6">{stars} · {hotel.district}, Milan</p>
+                            <p className="text-gold font-semibold mb-6">{hotel.stars}-star hotel · {hotel.district}, Milan</p>
 
                             {/* Transfer overview stats */}
                             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
@@ -160,14 +158,14 @@ export default function MilanTransferContent({ combo }: { combo: MilanTransferCo
                             <h2 className="text-2xl font-bold text-navy mt-4 mb-4">Overview</h2>
                             <p className="text-gray-700 leading-relaxed mb-4">{intro}</p>
                             <p className="text-gray-700 leading-relaxed mb-4">
-                                Every transfer includes {dep ? 'an on-time hotel pickup' : 'real-time flight monitoring, meet & greet'}, luggage assistance, a professional English-speaking driver and a fixed, all-inclusive fare — a genuine door-to-door service with no meter and no hidden charges.
+                                Every transfer includes {dep ? 'a confirmed pickup time' : 'real-time flight monitoring and meet & greet'}, a professional English-speaking driver and a fixed, all-inclusive fare — a door-to-door service with no meter and no hidden charges.
                             </p>
 
                             {/* Why choose us */}
                             <h2 className="text-2xl font-bold text-navy mt-10 mb-4">Why Choose Our Private Transfer</h2>
                             <p className="text-gray-700 leading-relaxed mb-4">
                                 {pick(whyOpener, seed)} {dep
-                                    ? `On departure day, a fixed-price car from the ${hotel.name} gives you a confirmed pickup time and a driver who knows the fastest route to ${airport.short}, so you avoid dragging luggage through ${airport.publicAlt}.`
+                                    ? `On departure day, a fixed-price car from the ${hotel.name} gives you a confirmed pickup time and a driver who takes the most direct and appropriate route to ${airport.short}, so you avoid moving bags through ${airport.publicAlt}.`
                                     : `A private transfer replaces ${airport.publicAlt} with one direct ride: a confirmed driver waiting for your flight, help with your bags, and a fixed price agreed before you travel.`}
                             </p>
 
@@ -177,7 +175,7 @@ export default function MilanTransferContent({ combo }: { combo: MilanTransferCo
                                     <h2 className="text-2xl font-bold text-navy mt-10 mb-4">Pickup at the {hotel.name}</h2>
                                     <ol className="space-y-2 text-gray-700 mb-4 list-decimal list-inside">
                                         <li><strong>Confirmed pickup time</strong> that covers the drive plus airport check-in.</li>
-                                        <li><strong>Driver at reception</strong> of the {hotel.name} in {hotel.district}, ready to help with luggage.</li>
+                                        <li><strong>Driver at reception</strong> of the {hotel.name} in {hotel.district}, ready to help with your bags.</li>
                                         <li><strong>Direct, non-stop ride</strong> to the correct departure terminal at {airport.name}.</li>
                                         <li><strong>Flight-aware scheduling</strong> — tell us your flight and we time the pickup for a comfortable margin.</li>
                                     </ol>
@@ -200,7 +198,7 @@ export default function MilanTransferContent({ combo }: { combo: MilanTransferCo
                                 <li><strong>Estimated duration:</strong> {leg.duration}</li>
                                 <li><strong>Distance:</strong> {leg.distance} between {airport.short} Airport and {hotel.district}</li>
                                 <li><strong>Route:</strong> {airport.code === 'LIN' ? 'a short run in from the east of the city' : airport.code === 'BGY' ? 'the A4 motorway from the northeast toward central Milan' : 'the motorway in from the northwest via the A8/A4'}, then into {hotel.district}</li>
-                                <li><strong>Milan Area C:</strong> the central congestion zone charges private cars to enter; our licensed NCC vehicles handle access so we reach the hotel door.</li>
+                                <li><strong>Milan traffic zones:</strong> the city operates restricted-traffic and low-emission zones; any applicable road charges are included in your quoted fare.</li>
                                 {dep
                                     ? <li><strong>Recommended departure:</strong> {airport.recommendedArrival}</li>
                                     : <li><strong>Meeting point:</strong> {airport.meetingPoint}.</li>}
@@ -222,7 +220,7 @@ export default function MilanTransferContent({ combo }: { combo: MilanTransferCo
                                     <ul className="space-y-1 text-sm text-gray-700">
                                         <li><strong>District:</strong> {hotel.district}</li>
                                         <li><strong>Address:</strong> {hotel.address}</li>
-                                        <li><strong>Rating:</strong> <span className="inline-flex items-center gap-1">{Array.from({ length: hotel.stars }).map((_, i) => <Star key={i} className="w-3.5 h-3.5 text-gold fill-gold" />)}</span></li>
+                                        <li><strong>Hotel class:</strong> {hotel.stars}-star (the hotel&rsquo;s own classification)</li>
                                         <li><strong>From {airport.short}:</strong> {leg.distance} · {leg.duration}</li>
                                     </ul>
                                 </div>
@@ -245,7 +243,7 @@ export default function MilanTransferContent({ combo }: { combo: MilanTransferCo
                         <div className="lg:col-span-1">
                             <div className="bg-[#0F1C2E] p-8 rounded-[2rem] shadow-2xl lg:sticky lg:top-24">
                                 <h2 className="text-xl font-bold text-white mb-1">Book This Transfer</h2>
-                                <p className="text-gray-400 text-xs mb-6">Fixed price · Meet &amp; greet · Free cancellation (per terms)</p>
+                                <p className="text-gray-400 text-xs mb-6">Fixed price · {dep ? 'Confirmed pickup time' : 'Meet & greet'} · Free cancellation (per terms)</p>
                                 <BookingForm sourceName={`Milan Transfer: ${bookText}`} />
                             </div>
                         </div>

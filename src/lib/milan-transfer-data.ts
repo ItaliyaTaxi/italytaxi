@@ -30,6 +30,7 @@ export interface MilanHotel {
     slug: string;            // e.g. "excelsior-hotel-gallia"
     name: string;
     address: string;         // street/area (confident, district-level)
+    postalCode?: string;     // only where independently verified
     district: string;
     lat: number;             // approximate (district-level)
     lng: number;
@@ -73,11 +74,11 @@ export const milanAirports: MilanAirport[] = [
         code: 'BGY', name: 'Milan Bergamo Airport', short: 'Bergamo', slugPart: 'milan-bergamo-airport',
         airportPage: '/airport/bergamo',
         blurb: 'Orio al Serio, Milan\'s low-cost hub, about 50 km northeast near Bergamo.',
-        about: 'Milan Bergamo (BGY), officially Orio al Serio, is a major low-cost hub about 50 km northeast of Milan beside the city of Bergamo, used heavily by Ryanair and other budget carriers. There is no direct rail link into central Milan, so travellers rely on coaches or a private transfer — the latter being the only true door-to-door option with luggage.',
+        about: 'Milan Bergamo (BGY), officially Orio al Serio, is a major low-cost hub about 50 km northeast of Milan beside the city of Bergamo, used heavily by Ryanair and other budget carriers. The airport does not yet have its own railway station, so public transport into Milan means a shuttle coach to Milano Centrale, or a local bus to Bergamo station and a train onward. A private transfer is the door-to-door alternative.',
         terminals: 'A single passenger terminal serving low-cost carriers.',
         meetingPoint: 'the arrivals hall after baggage reclaim, with a name sign',
         recommendedArrival: 'Arrive about 2 hours before departure; low-cost boarding gates can close strictly on time.',
-        publicAlt: 'a coach to Milano Centrale (then onward transport) — there is no direct train',
+        publicAlt: 'a shuttle coach to Milano Centrale, then onward transport',
         distance: '~50 km', duration: '~55–65 min',
     },
 ];
@@ -180,7 +181,7 @@ export const milanHotels: MilanHotel[] = [
         suitedFor: 'couples and design lovers wanting something romantic near Porta Venezia',
     },
     {
-        slug: 'me-milan-il-duca', name: 'ME Milan Il Duca', address: 'Piazza della Repubblica', district: 'Repubblica', lat: 45.4795, lng: 9.1958, stars: 5, image: IMG,
+        slug: 'me-milan-il-duca', name: 'ME Milan Il Duca', address: 'Piazza della Repubblica 13', postalCode: '20124', district: 'Repubblica', lat: 45.4795, lng: 9.1958, stars: 5, image: IMG,
         landmarks: ['Piazza della Repubblica', 'Porta Nuova', 'Corso Como'],
         nearby: [{ place: 'Piazza della Repubblica', note: '1 min walk' }, { place: 'Corso Como nightlife', note: '8 min walk' }, { place: 'Porta Nuova', note: '7 min walk' }],
         description: 'ME Milan Il Duca is a contemporary lifestyle hotel on Piazza della Repubblica, known for its rooftop bar overlooking the Porta Nuova skyline. Its modern design and social scene appeal to a younger luxury crowd.',
