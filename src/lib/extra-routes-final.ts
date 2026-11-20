@@ -1864,112 +1864,130 @@ export const extraRoutesFinal: RouteData[] = [
     "vehicleOptions": true
   },
   {
-    "slug": "campo-di-marte-to-florence-airport-taxi",
-    "from": "Campo di Marte Station",
-    "to": "Florence Airport",
-    "title": "Campo di Marte Station to Florence Airport Taxi Transfer",
-    "hero_image": "/images/florence airport.webp",
-    "description": "Arriving at Firenze Campo di Marte and flying out of Florence Airport? Our private transfer meets you at the secondary station and drives you straight to the FLR terminal, door-to-door. Enjoy a fixed price, a friendly English-speaking driver, luggage assistance and a short, stress-free ride so you reach your gate on time.",
-    "distance": "~7 km",
-    "duration": "~20–30 min",
-    "highlights": [
-      "Direct door-to-door transfer from Campo di Marte station to Florence Airport (FLR)",
-      "Short journey of roughly 7 km, usually around 20 to 30 minutes",
-      "Fixed price agreed at booking with no hidden surcharges",
-      "English-speaking drivers who help with your luggage",
-      "Available 24/7 to match early departures and late-night flights",
-      "Comfortable vehicles from sedans to minivans, Mercedes V-Class and minibuses"
-    ],
-    "faqs": [
-      {
-        "q": "Where will the driver meet me at Campo di Marte station?",
-        "a": "Your driver will meet you at Firenze Campo di Marte at your chosen time. When you book you can share your train details and any preferences, and we will confirm a clear pickup point so it is easy to find each other on arrival."
-      },
-      {
-        "q": "How long does the transfer to Florence Airport take?",
-        "a": "The airport is only about 7 kilometres away, so the drive is typically short, often in the region of 20 to 30 minutes. Actual times can vary with traffic and the time of day, so your driver will choose a sensible route."
-      },
-      {
-        "q": "Is there a direct train from Campo di Marte to the airport?",
-        "a": "There is no dedicated direct train from Campo di Marte to Florence Airport, so travellers usually need to change stations or switch to the tram. A private transfer avoids those steps by taking you door-to-door in one ride."
-      },
-      {
-        "q": "Do you help with luggage?",
-        "a": "Yes. Your driver will help load and unload your bags. When booking, you can note the number and size of your cases so the right vehicle is assigned and everything fits comfortably for the trip."
-      },
-      {
-        "q": "What kind of vehicle will I travel in?",
-        "a": "We offer sedans for smaller parties and minivans, a Mercedes V-Class or minibuses for larger groups. Let us know your party size and luggage when booking so we can match you with a suitable vehicle."
-      },
-      {
-        "q": "Is the price fixed?",
-        "a": "Yes, the fare is a fixed price agreed at the time of booking. There are no meters and no hidden surcharges added during the journey, so you know the cost before you travel."
-      },
-      {
-        "q": "Can I book for an early or late flight?",
-        "a": "Yes. Booking is available 24/7, so you can arrange a pickup for very early departures or late-night flights. Reserving in advance secures your driver and vehicle for the time slot you need."
-      }
-    ],
-    "metaTitle": "Campo di Marte to Florence Airport Taxi Transfer",
-    "metaDescription": "Private transfer from Firenze Campo di Marte station to Florence Airport (FLR). Fixed price, English-speaking drivers, 24/7 booking and a quick door-to-door",
-    "imageAlt": "Private transfer vehicle waiting outside Firenze Campo di Marte station for the ride to Florence Airport",
-    "sections": [
-      {
-        "h2": "Overview",
-        "p": [
-          "This private transfer connects Firenze Campo di Marte, Florence's busy secondary railway station, with Florence Airport (Peretola, FLR). It is designed for travellers who step off a train at Campo di Marte and then need to catch a flight out of the city. Instead of piecing together buses, trams and taxis, you ride in one continuous journey from the platform area to the terminal.",
-          "The distance is only about 7 kilometres, so the trip is normally short. Your driver waits for you at the station, handles the drive and drops you right outside the departures area. The whole point is simplicity: a single fixed price, a familiar face waiting for you and a smooth handover from rail to air without the guesswork."
-        ]
-      },
-      {
-        "h2": "Why a Private Transfer From Campo di Marte",
-        "p": [
-          "Campo di Marte sits east of the city centre near the Artemio Franchi stadium, and it is a secondary station rather than the main Santa Maria Novella hub. There is no dedicated direct train from Campo di Marte to the airport, so travellers usually have to change stations or switch to the tram, which can eat into your schedule when you are carrying bags.",
-          "A private transfer removes those extra steps. You are collected at the station and taken straight to the terminal, door-to-door, with your luggage staying in the same vehicle the whole way. That matters most when you have suitcases, a tight connection or you are simply unfamiliar with the local network.",
-          "It is also predictable. You know the price before you travel, you know a driver will be there, and you avoid queuing at a rank or working out ticket machines. For anyone who wants a calm start to their airport journey, this is the easiest option from Campo di Marte."
-        ]
-      },
-      {
-        "h2": "Meeting You at Campo di Marte",
-        "p": [
-          "Your driver will be ready for you at Firenze Campo di Marte at the time you choose. When you book, you can share your train details and any notes about where you would like to meet, and we will confirm a clear pickup point so there is no confusion on arrival.",
-          "English-speaking drivers make the meet-up straightforward, so you can ask questions and get help without a language barrier. If you are running a little early or late off the train, keeping in touch through the booking contact helps everyone stay coordinated.",
-          "Once you have found each other, the driver will help load your luggage and get you settled. From there it is a quick step into the vehicle and straight onto the road toward the airport, with no waiting around at a taxi queue."
-        ]
-      },
-      {
-        "h2": "The Short Journey to the Airport",
-        "p": [
-          "Florence Airport lies only around 7 kilometres from Campo di Marte, on the north-western edge of the city. Because the distance is so modest, the drive is typically one of the shorter airport transfers you can take in Florence.",
-          "In normal conditions the ride tends to take somewhere in the region of 20 to 30 minutes, though this can vary with traffic and the time of day. City congestion, roadworks or peak-hour flow may add a little time, so your driver will pick a sensible route on the day.",
-          "You can simply relax during the hop. There are no changes, no platforms and no dragging bags between connections, just a single ride from the station forecourt to the terminal entrance."
-        ]
-      },
-      {
-        "h2": "Timing for Your Flight",
-        "p": [
-          "It is always wise to allow enough time to reach the airport, check in and clear security before your flight. We recommend building in a comfortable buffer rather than aiming for the last possible moment, especially during busier travel periods.",
-          "When you book, choose a pickup time that leaves room for the drive plus your airline's check-in and boarding requirements. If you are unsure how early to leave, share your flight time and we can help you settle on a sensible pickup slot.",
-          "Because traffic in and around Florence can be unpredictable, a small margin makes a real difference. Planning ahead means you arrive at the terminal calm and with time to spare, rather than rushing to your gate."
-        ]
-      },
-      {
-        "h2": "Vehicles, Luggage & Groups",
-        "p": [
-          "We offer a range of vehicles to match your party size and the amount of luggage you are carrying. Solo travellers and couples are usually well served by a comfortable sedan, while larger groups can choose a minivan, a Mercedes V-Class or a minibus for extra room.",
-          "Luggage is part of the plan, not an afterthought. Your driver helps load and unload your bags, and you can note the number and size of your cases when booking so the right vehicle is assigned to you.",
-          "If you are travelling with family, colleagues or a tour group, letting us know the headcount in advance means everyone rides together in a single vehicle. That keeps the group organised and avoids splitting across multiple cars on the way to the airport."
-        ]
-      },
-      {
-        "h2": "Fixed Pricing & 24/7 Booking",
-        "p": [
-          "The transfer is offered at a fixed price that is agreed when you book, so you know the cost up front. There are no meters ticking and no surprise surcharges added along the way, which makes budgeting for your trip simple.",
-          "Booking is available around the clock, which suits the reality of air travel where flights leave at all hours. Whether you have a very early departure or a late-evening flight, you can arrange a pickup time that fits your schedule.",
-          "Reserving in advance also secures your driver and vehicle for the slot you need. With the price set, the meet-up arranged and English-speaking help on hand, all that is left is to enjoy the short ride from Campo di Marte to Florence Airport."
-        ]
-      }
-    ],
-    "vehicleOptions": true
-  }
+        "slug": "campo-di-marte-to-florence-airport-taxi",
+        "from": "Campo di Marte Station",
+        "to": "Florence Airport",
+        "title": "Campo di Marte Station to Florence Airport Taxi Transfer",
+        "hero_image": "/images/florence airport.webp",
+        "imageAlt": "Florence Airport (FLR), the destination for private transfers from Firenze Campo di Marte station",
+        "description": "A private car from Firenze Campo di Marte to Florence Airport (FLR): about 7 km across the city, usually 20 to 30 minutes. The pickup point is agreed with you in advance, and station pickups include 60 minutes of complimentary waiting from your train's arrival.",
+        "distance": "~7 km",
+        "duration": "~20–30 min",
+        "seoTitleAbsolute": "Campo di Marte to Florence Airport | Book a Taxi",
+        "metaTitle": "Campo di Marte to Florence Airport Taxi Transfer",
+        "metaDescription": "Private transfer from Firenze Campo di Marte to Florence Airport (FLR) — 7 km, 20 to 30 minutes, with 60 minutes of free waiting from your train's arrival.",
+        "highlights": [
+            "Door to door from the station forecourt to the FLR terminal, with no change of vehicle",
+            "About 7 km, normally 20 to 30 minutes depending on traffic across the city",
+            "Station pickups include 60 minutes of complimentary waiting from your train's arrival",
+            "Pickup point agreed with you before the day, not left to chance on the forecourt",
+            "Fixed all-inclusive fare confirmed before you travel",
+            "Child seats free of charge on request"
+        ],
+        "sections": [
+            {
+                "h2": "Where Campo di Marte is, and why the drive takes longer than the map suggests",
+                "p": [
+                    "Firenze Campo di Marte is Florence's secondary railway station, east of the centre beside the Stadio Artemio Franchi. It takes regional services and a share of longer-distance trains that do not call at Santa Maria Novella, which is why travellers often find themselves arriving here rather than at the main station.",
+                    "Florence Airport sits on the opposite side of the city, on the north-western edge at Peretola. The two are barely 7 km apart, but that distance is measured across Florence rather than around it: the drive has to work through or past the city rather than along a bypass. That is why the journey is quoted at 20 to 30 minutes rather than the ten the map implies."
+                ]
+            },
+            {
+                "h2": "Agreeing the pickup point before your train arrives",
+                "p": [
+                    "Campo di Marte has a forecourt, a taxi rank and parking on more than one side of the building, so the station name alone is not a precise instruction. We confirm the meeting point with you when the booking is made, rather than leaving you to work it out with your cases on the pavement.",
+                    "What helps most is your train: give us the service and its scheduled arrival time, and the pickup is planned against it. Our terms ask that passengers are ready at the agreed point at the booked time, so a specific spot agreed in advance is worth more than a general one."
+                ]
+            },
+            {
+                "h2": "If your train is late",
+                "p": [
+                    "Station pickups include 60 minutes of complimentary waiting measured from your train's arrival, not from the time you booked. That is the published policy and it is the main reason to give us the train details rather than only a clock time: a delayed train moves the reference point with it.",
+                    "Beyond that hour, any additional waiting is set out in your quotation and agreed with you in advance. If you know early that a connection has gone wrong, telling us is better than hoping — it lets the pickup be re-planned rather than absorbed."
+                ]
+            },
+            {
+                "h2": "Rail and tram alternatives, and the change they involve",
+                "p": [
+                    "There is no direct rail service from Campo di Marte to Florence Airport. The public route means first reaching Santa Maria Novella or another interchange, then continuing by tram or bus to the terminal — so at least one change, with your bags, before the airport leg even begins.",
+                    "That is a reasonable option with one bag and time in hand, and a poor one with suitcases or a tight check-in. The honest comparison is not comfort but the number of times you move your luggage: once into a car, or three or four times across platforms and stops. We do not publish tram and train fares or timetables here, because they change; check the operator directly before relying on them."
+                ]
+            },
+            {
+                "h2": "Timing the departure around your flight",
+                "p": [
+                    "Work backwards from the flight rather than from the drive. Allow the full transfer time, then your airline's check-in and bag-drop deadline, then a margin for traffic — and let your airline's instruction govern, because deadlines vary by carrier and ticket.",
+                    "Two local factors are worth weighing. Crossing Florence at commuter times is slower than the same journey at midday, so an afternoon flight can need a bigger buffer than an early one. And because the distance is short, a delay costs you proportionally more here than on a long transfer: there is no motorway stretch in which to make up time."
+                ]
+            },
+            {
+                "h2": "Vehicles, luggage and groups",
+                "p": [
+                    "Vehicle choice on this route is usually decided by the bags rather than the seats, so count the cases as well as the passengers. A sedan suits one to three people with normal cases; a minivan takes up to seven with their cases and is the usual choice for families or anyone with bulky bags. Mention anything oversized — a pushchair, skis, golf clubs — at quote stage so the vehicle is matched rather than assumed.",
+                    "Child seats are available free of charge on request. Ask when you book and give the child's age, since that determines the restraint needed; a seat cannot reliably be produced on the morning of travel if it was not requested in advance."
+                ]
+            },
+            {
+                "h2": "Price, booking and cancellation",
+                "p": [
+                    "Every quote is a fixed, all-inclusive fare confirmed before you travel, and nothing is added at the end of the journey without your prior agreement. A surcharge can apply on Italian public holidays, on journeys starting between 22:00 and 06:00, and on 24 to 26 December, 31 December and 1 January; where one applies it is shown in the quote rather than afterwards.",
+                    "To be quoted first time, send the pickup point at Campo di Marte, your train details, the travel date and time, the number of passengers and the number of bags. Payment is by cash to the driver on the day as standard, by Visa or Mastercard through a secure payment link, or by bank transfer for pre-approved advance bookings.",
+                    "Amendments to the date, time or vehicle are free more than 24 hours before the pickup, subject to availability, and cancelling more than 24 hours ahead is refunded in full. We recommend booking at least 24 hours in advance. A quote request is not yet a reservation — the booking is confirmed once you accept the price and the pickup arrangements."
+                ]
+            }
+        ],
+        "faqs": [
+            {
+                "q": "How far is Campo di Marte station from Florence Airport, and how long does it take?",
+                "a": "Roughly 7 km, and normally 20 to 30 minutes. The gap between those two figures is the point: the route crosses Florence from the eastern side to the north-western edge rather than skirting it. Both are planning estimates rather than guaranteed times."
+            },
+            {
+                "q": "Where exactly does the driver meet me at Campo di Marte?",
+                "a": "At a point agreed with you when you book. Campo di Marte has a forecourt, a taxi rank and parking on more than one side, so the station name on its own is not precise enough. Tell us which exit or side you will come out of and it is confirmed in advance."
+            },
+            {
+                "q": "What happens if my train into Campo di Marte is delayed?",
+                "a": "Station pickups include 60 minutes of complimentary waiting measured from your train's actual arrival rather than the booked time, so a late train moves the reference point with it. Any waiting beyond that is set out in your quotation and agreed in advance. Give us the train service when you book so this can be applied."
+            },
+            {
+                "q": "Is there a direct train or tram from Campo di Marte to the airport?",
+                "a": "No. There is no direct rail service from Campo di Marte to Florence Airport. You would first reach Santa Maria Novella or another interchange and then continue by tram or bus, which means at least one change with your bags before the airport leg begins."
+            },
+            {
+                "q": "Can I travel with several suitcases or a group?",
+                "a": "Yes, provided the vehicle is matched to the load at booking. A sedan suits one to three passengers with standard cases; a minivan takes up to seven with theirs. Say how many cases you have and flag anything oversized, so the right vehicle is assigned rather than assumed."
+            },
+            {
+                "q": "Can I book an early-morning or late-night pickup from the station?",
+                "a": "Yes. Pre-booked transfers are arranged around the clock, which matters for the first and last flights of the day. Journeys starting between 22:00 and 06:00 may carry a surcharge; where one applies it appears in your quote before you book, never afterwards."
+            },
+            {
+                "q": "How do I get a quote, and is it the same as a booking?",
+                "a": "Send the pickup point, your train details, the date and time, and the number of passengers and bags, and a fixed all-inclusive price comes back. A quote request is not yet a reservation: the booking is confirmed once you accept the price and the pickup arrangements."
+            }
+        ],
+        "relatedLinks": [
+            {
+                "href": "/route/florence-airport-to-campo-di-marte-taxi",
+                "label": "Florence Airport to Campo di Marte, the same route on arrival"
+            },
+            {
+                "href": "/route/santa-maria-novella-to-florence-airport-taxi",
+                "label": "Santa Maria Novella to Florence Airport transfer"
+            },
+            {
+                "href": "/airport/florence",
+                "label": "Florence Airport (FLR) transfer service"
+            },
+            {
+                "href": "/florence-private-taxi",
+                "label": "Private taxi service in Florence"
+            },
+            {
+                "href": "/blog/meet-driver-florence-airport",
+                "label": "Where to meet your driver at Florence Airport"
+            }
+        ],
+        "vehicleOptions": true
+    }
 ];
