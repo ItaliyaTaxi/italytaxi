@@ -71,13 +71,19 @@ export async function submitBooking(_prevState: unknown, formData: FormData) {
     // 2. Turnstile — proof the submission came from a real browser session.
     const requestHeaders = await headers();
     const ip = clientIpFrom(requestHeaders);
-    const verdict = await verifyTurnstile(
-        formData.get(TURNSTILE_FIELD),
-        ip,
-        TURNSTILE_ACTIONS.booking,
-    );
+    const rawToken = formData.get(TURNSTILE_FIELD);
+    const verdict = await verifyTurnstile(rawToken, ip, TURNSTILE_ACTIONS.booking);
     if (!verdict.ok) {
-        console.warn('[BOOKING] rejected: turnstile —', verdict.reason, '| form:', sourceForm);
+        // Token length only, never the token itself: enough to tell "the field
+        // never arrived" apart from "it arrived and Cloudflare refused it",
+        // which is the difference between a front-end wiring fault and a real
+        // rejection.
+        const tokenLen = typeof rawToken === 'string' ? rawToken.length : -1;
+        console.warn(
+            '[BOOKING] rejected: turnstile —', verdict.reason,
+            '| tokenChars:', tokenLen,
+            '| form:', sourceForm,
+        );
         return REJECTED(
             'We could not verify that this request came from a browser. Please refresh the page and try again.',
         );

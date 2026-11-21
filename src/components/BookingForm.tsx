@@ -1,6 +1,6 @@
 'use client';
 
-import { useActionState, useState } from 'react';
+import { useActionState, useEffect, useState } from 'react';
 import { submitBooking } from '@/app/actions/booking';
 import TaxiButton from './TaxiButton';
 import TurnstileWidget from './TurnstileWidget';
@@ -32,13 +32,30 @@ export default function BookingForm({ sourceName = 'Book Now Page' }: { sourceNa
     const [returnDatetime, setReturnDatetime] = useState('');
     const [returnFlight, setReturnFlight] = useState('');
 
-    // A Turnstile token is redeemed exactly once at siteverify, so each
-    // attempt needs its own challenge. The counter is bumped from the submit
-    // event rather than from an effect: the form's FormData is collected
-    // synchronously during that event, so the token now in the hidden input is
-    // the one that gets sent, and the fresh challenge is for the next attempt.
+    // A Turnstile token is redeemed exactly once at siteverify, so a rejected
+    // attempt needs a fresh challenge before the visitor can retry.
+    //
+    // This must happen *after* the server responds, never during submission.
+    // Bumping `attempt` remounts the widget, which resets its hidden input to
+    // an empty string; doing that from the submit event raced React's
+    // serialisation of the form and sent an empty token to the server, which
+    // then correctly refused it. The widget showed "Success!" throughout,
+    // because the replacement widget solved its own challenge immediately.
     const [token, setToken] = useState('');
     const [attempt, setAttempt] = useState(0);
+
+    // Syncing with Cloudflare's widget, which is an external system: a new
+    // challenge can only be requested once the server's verdict is known. The
+    // rule guards against cascading renders, which a single bump per failed
+    // submission does not cause.
+    /* eslint-disable react-hooks/set-state-in-effect */
+    useEffect(() => {
+        if (state.message && !state.success) {
+            setAttempt((n) => n + 1);
+            setToken('');
+        }
+    }, [state]);
+    /* eslint-enable react-hooks/set-state-in-effect */
 
     const handleSwapToReturn = () => {
         setReturnPickup(dropoff);
@@ -94,16 +111,7 @@ export default function BookingForm({ sourceName = 'Book Now Page' }: { sourceNa
                     <h3 className="form-main-title uppercase">GET QUOTE</h3>
                 </header>
 
-                <form
-                    action={formAction}
-                    onSubmit={() => {
-                        // FormData is already collected for this submission, so
-                        // clearing the token here only affects the next attempt.
-                        setAttempt((n) => n + 1);
-                        setToken('');
-                    }}
-                    className="space-y-6"
-                >
+                <form action={formAction} className="space-y-6">
                     <input type="hidden" name="source_form" value={sourceName} />
 
                     {/* Honeypot. Off-screen rather than display:none, which some
