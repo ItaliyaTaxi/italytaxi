@@ -3,11 +3,21 @@
 import { useState } from 'react';
 import TaxiButton from './TaxiButton';
 import Image from 'next/image';
+import TurnstileWidget from './TurnstileWidget';
+import { HONEYPOT_FIELD } from '@/lib/security/antiSpam';
+
+// Must match TURNSTILE_ACTIONS.contact in lib/security/turnstile.ts.
+const TURNSTILE_ACTION = 'contact-message';
 
 export default function ContactFormSection() {
     const [form, setForm] = useState({ name: '', email: '', phone: '', subject: '', message: '' });
     const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
     const [responseMsg, setResponseMsg] = useState('');
+    const [honeypot, setHoneypot] = useState('');
+    const [token, setToken] = useState('');
+    // Bumped after each attempt: remounting the widget yields a fresh
+    // challenge, since the previous token has already been redeemed.
+    const [attempt, setAttempt] = useState(0);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
@@ -21,7 +31,12 @@ export default function ContactFormSection() {
             const res = await fetch('/api/contact', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ ...form, source_form: 'Contact Page' }),
+                body: JSON.stringify({
+                    ...form,
+                    source_form: 'Contact Page',
+                    'cf-turnstile-response': token,
+                    [HONEYPOT_FIELD]: honeypot,
+                }),
             });
             const data = await res.json();
 
@@ -32,10 +47,15 @@ export default function ContactFormSection() {
             } else {
                 setStatus('error');
                 setResponseMsg(data.error || 'Something went wrong.');
+                // The token has been spent; a retry needs a fresh challenge.
+                setAttempt((n) => n + 1);
+                setToken('');
             }
         } catch {
             setStatus('error');
             setResponseMsg('Failed to send. Please try again.');
+            setAttempt((n) => n + 1);
+            setToken('');
         }
     };
 
@@ -90,10 +110,33 @@ export default function ContactFormSection() {
                                     <label className="taxi-form-label">Message</label>
                                     <textarea name="message" rows={4} placeholder="Write your message here..." value={form.message} onChange={handleChange} required className="taxi-form-input resize-none h-32" />
                                 </div>
+                                {/* Honeypot: off-screen, out of the tab order and the
+                                    accessibility tree, so only a bot fills it. */}
+                                <div aria-hidden="true" className="absolute -left-[9999px] top-auto h-px w-px overflow-hidden">
+                                    <label htmlFor={HONEYPOT_FIELD}>Company website</label>
+                                    <input
+                                        id={HONEYPOT_FIELD}
+                                        name={HONEYPOT_FIELD}
+                                        type="text"
+                                        tabIndex={-1}
+                                        autoComplete="off"
+                                        value={honeypot}
+                                        onChange={(e) => setHoneypot(e.target.value)}
+                                    />
+                                </div>
+
+                                <div className="md:col-span-2">
+                                    <TurnstileWidget
+                                        key={attempt}
+                                        action={TURNSTILE_ACTION}
+                                        onToken={setToken}
+                                    />
+                                </div>
+
                                 <div className="md:col-span-2 mt-4">
-                                    <TaxiButton type="submit" disabled={status === 'loading'} className="w-full py-5 text-base relative overflow-hidden group">
+                                    <TaxiButton type="submit" disabled={status === 'loading' || !token} className="w-full py-5 text-base relative overflow-hidden group">
                                         <span className="relative z-10">
-                                            {status === 'loading' ? 'Sending...' : 'Send Message'}
+                                            {status === 'loading' ? 'Sending...' : !token ? 'Verifying...' : 'Send Message'}
                                         </span>
                                         <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 skew-x-[-20deg]"></div>
                                     </TaxiButton>

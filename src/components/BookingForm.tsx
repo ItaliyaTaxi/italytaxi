@@ -3,7 +3,13 @@
 import { useActionState, useState } from 'react';
 import { submitBooking } from '@/app/actions/booking';
 import TaxiButton from './TaxiButton';
+import TurnstileWidget from './TurnstileWidget';
 import { useLanguage } from '@/context/LanguageContext';
+import { HONEYPOT_FIELD } from '@/lib/security/antiSpam';
+
+// Must match TURNSTILE_ACTIONS.booking in lib/security/turnstile.ts. Kept as a
+// literal so the server-only verifier is not pulled into the client bundle.
+const TURNSTILE_ACTION = 'booking-quote';
 
 const initialState = {
     success: false,
@@ -25,6 +31,14 @@ export default function BookingForm({ sourceName = 'Book Now Page' }: { sourceNa
     const [returnDropoff, setReturnDropoff] = useState('');
     const [returnDatetime, setReturnDatetime] = useState('');
     const [returnFlight, setReturnFlight] = useState('');
+
+    // A Turnstile token is redeemed exactly once at siteverify, so each
+    // attempt needs its own challenge. The counter is bumped from the submit
+    // event rather than from an effect: the form's FormData is collected
+    // synchronously during that event, so the token now in the hidden input is
+    // the one that gets sent, and the fresh challenge is for the next attempt.
+    const [token, setToken] = useState('');
+    const [attempt, setAttempt] = useState(0);
 
     const handleSwapToReturn = () => {
         setReturnPickup(dropoff);
@@ -80,8 +94,33 @@ export default function BookingForm({ sourceName = 'Book Now Page' }: { sourceNa
                     <h3 className="form-main-title uppercase">GET QUOTE</h3>
                 </header>
 
-                <form action={formAction} className="space-y-6">
+                <form
+                    action={formAction}
+                    onSubmit={() => {
+                        // FormData is already collected for this submission, so
+                        // clearing the token here only affects the next attempt.
+                        setAttempt((n) => n + 1);
+                        setToken('');
+                    }}
+                    className="space-y-6"
+                >
                     <input type="hidden" name="source_form" value={sourceName} />
+
+                    {/* Honeypot. Off-screen rather than display:none, which some
+                        bots skip, and excluded from the tab order and the
+                        accessibility tree so no real visitor ever reaches it. */}
+                    <div aria-hidden="true" className="absolute -left-[9999px] top-auto h-px w-px overflow-hidden">
+                        <label htmlFor={HONEYPOT_FIELD}>Company website</label>
+                        <input
+                            id={HONEYPOT_FIELD}
+                            name={HONEYPOT_FIELD}
+                            type="text"
+                            tabIndex={-1}
+                            autoComplete="off"
+                            defaultValue=""
+                        />
+                    </div>
+
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div className="space-y-1">
                             <label className="taxi-form-label">Full Name</label>
@@ -265,14 +304,21 @@ export default function BookingForm({ sourceName = 'Book Now Page' }: { sourceNa
                         </div>
                     )}
 
+                    <TurnstileWidget
+                        key={attempt}
+                        action={TURNSTILE_ACTION}
+                        onToken={setToken}
+                        className="pt-2"
+                    />
+
                     <div className="mt-8">
                         <TaxiButton
                             type="submit"
-                            disabled={isPending}
-                            className={`w-full py-5 text-base relative overflow-hidden group ${isPending ? 'opacity-70 cursor-not-allowed' : ''}`}
+                            disabled={isPending || !token}
+                            className={`w-full py-5 text-base relative overflow-hidden group ${isPending || !token ? 'opacity-70 cursor-not-allowed' : ''}`}
                         >
                             <span className="relative z-10">
-                                {isPending ? 'PROCESSING...' : 'Request Quotation'}
+                                {isPending ? 'PROCESSING...' : !token ? 'VERIFYING...' : 'Request Quotation'}
                             </span>
                             {!isPending && (
                                 <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 skew-x-[-20deg]"></div>

@@ -1,8 +1,25 @@
 'use server';
 
+import { headers } from 'next/headers';
 import { createLead } from '@/lib/leads/createLead';
 import { leadBrands, sendLeadNotifications } from '@/lib/leads/notify';
 import type { LeadInput } from '@/lib/leads/types';
+import { getServiceSupabase } from '@/lib/supabase/server';
+import {
+    clientIpFrom,
+    TURNSTILE_ACTIONS,
+    TURNSTILE_FIELD,
+    verifyTurnstile,
+} from '@/lib/security/turnstile';
+import {
+    checkBooking,
+    HONEYPOT_FIELD,
+    honeypotTripped,
+    isDuplicateBooking,
+} from '@/lib/security/antiSpam';
+
+/** What a rejected submission tells the sender: enough to fix a mistake, no more. */
+const REJECTED = (message: string) => ({ success: false, message });
 
 /**
  * The public booking form's submit handler.
@@ -41,6 +58,65 @@ export async function submitBooking(_prevState: unknown, formData: FormData) {
     const returnDatetime = ((formData.get('return_datetime') as string) || '').trim();
     const returnFlightNumber = ((formData.get('return_flight_number') as string) || '').trim();
 
+    /* ─────────── Gate: nothing below this reaches the CRM or email ───────────
+     *
+     * This form posts to a public Server Action, so the browser's `required`
+     * and `type="email"` attributes are not a control — a direct POST never
+     * sees them. Every check here runs on the server, in this order:
+     * Turnstile, honeypot, field and date validation, duplicate. A submission
+     * that fails any of them returns before `createLead()` is called, so it
+     * creates no record and sends no notification.
+     */
+
+    // 2. Turnstile — proof the submission came from a real browser session.
+    const requestHeaders = await headers();
+    const ip = clientIpFrom(requestHeaders);
+    const verdict = await verifyTurnstile(
+        formData.get(TURNSTILE_FIELD),
+        ip,
+        TURNSTILE_ACTIONS.booking,
+    );
+    if (!verdict.ok) {
+        console.warn('[BOOKING] rejected: turnstile —', verdict.reason, '| form:', sourceForm);
+        return REJECTED(
+            'We could not verify that this request came from a browser. Please refresh the page and try again.',
+        );
+    }
+
+    // 3. Honeypot — a field no human sees, so anything in it is automated.
+    if (honeypotTripped(formData.get(HONEYPOT_FIELD))) {
+        console.warn('[BOOKING] rejected: honeypot | form:', sourceForm, '| ip:', ip);
+        return REJECTED('We could not process this request. Please contact us directly.');
+    }
+
+    // 5. Field, date and time validation, in Europe/Rome.
+    const { rejections, flags } = checkBooking({
+        name,
+        email,
+        phone,
+        pickup,
+        dropoff,
+        datetime,
+        sourceForm,
+    });
+    if (rejections.length > 0) {
+        console.warn(
+            '[BOOKING] rejected: validation —',
+            rejections.map((r) => `${r.field}: ${r.reason}`).join('; '),
+            '| form:',
+            sourceForm,
+        );
+        return REJECTED(rejections[0].reason);
+    }
+
+    // 6. Duplicate — the same journey from the same person, minutes apart.
+    if (await isDuplicateBooking(getServiceSupabase(), { email, phone, pickup, dropoff, datetime })) {
+        console.warn('[BOOKING] rejected: duplicate | form:', sourceForm);
+        return REJECTED(
+            'We already have this request. We will be in touch shortly — no need to send it again.',
+        );
+    }
+
     const lead: LeadInput = {
         sourceSite: 'italytaxiservice',
         sourceForm,
@@ -63,6 +139,13 @@ export async function submitBooking(_prevState: unknown, formData: FormData) {
         passengers,
         luggage: luggage || undefined,
     };
+
+    // Soft signals are recorded in the logs, not written to the lead: the CRM
+    // field mapping is deliberately left exactly as it was, and none of these
+    // is a reason to refuse a booking on its own.
+    if (flags.length > 0) {
+        console.info('[BOOKING] accepted with flags —', flags.join('; '), '| form:', sourceForm);
+    }
 
     try {
         await createLead(lead);
