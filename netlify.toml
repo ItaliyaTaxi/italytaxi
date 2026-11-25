@@ -1,0 +1,30 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  # Netlify scans the build output for the values of environment variables and
+  # fails the build when it finds them. Four of ours are public by design and
+  # are therefore expected to appear in the output:
+  #
+  #   NEXT_PUBLIC_SUPABASE_ANON_KEY   The NEXT_PUBLIC_ prefix means Next.js
+  #                                   inlines it into the browser bundle
+  #                                   deliberately. Supabase anon keys are
+  #                                   meant to be public; access is controlled
+  #                                   by row level security on the tables, not
+  #                                   by hiding the key.
+  #   NEXT_PUBLIC_TURNSTILE_SITE_KEY  A Turnstile *site* key. It is rendered
+  #                                   into the page of every deployment that
+  #                                   uses the widget. Only the secret key is
+  #                                   sensitive, and that is read server-side.
+  #   ADMIN_EMAIL                     Already printed on the contact, FAQ,
+  #                                   privacy, terms and cancellation pages.
+  #                                   It is the published contact address.
+  #   FROM_EMAIL                      The published sending address shown to
+  #                                   customers in every confirmation email.
+  #
+  # Deliberately NOT listed, so they stay scanned: SUPABASE_SERVICE_ROLE_KEY,
+  # TURNSTILE_SECRET_KEY and RESEND_API_KEY. If the scanner ever reports one of
+  # those, it means a genuine secret has reached the client bundle and the
+  # build should fail. Do not add them here to make a build pass.
+  SECRETS_SCAN_OMIT_KEYS = "NEXT_PUBLIC_SUPABASE_ANON_KEY,NEXT_PUBLIC_TURNSTILE_SITE_KEY,ADMIN_EMAIL,FROM_EMAIL"
