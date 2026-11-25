@@ -27,11 +27,34 @@ export const TURNSTILE_FIELD = 'cf-turnstile-response';
  * localhost in its hostname allowlist, because doing so re-opens the replay
  * hole the check exists to close.
  */
-const ALLOWED_HOSTNAMES = new Set(
-    process.env.NODE_ENV === 'production'
-        ? ['italytaxiservice.com', 'www.italytaxiservice.com']
-        : ['italytaxiservice.com', 'www.italytaxiservice.com', 'localhost', '127.0.0.1'],
-);
+/** Always allowed, on every platform and in every environment. */
+const DEFAULT_HOSTNAMES = ['italytaxiservice.com', 'www.italytaxiservice.com'];
+
+/** Added only outside production, so the form stays testable locally. */
+const DEV_HOSTNAMES = ['localhost', '127.0.0.1'];
+
+/** Hostnames are case-insensitive, so compare them in one canonical form. */
+const normaliseHost = (value: string) => value.trim().toLowerCase();
+
+/**
+ * The allowlist, read at call time rather than at module load so a change of
+ * environment takes effect without a rebuild.
+ *
+ * TURNSTILE_ALLOWED_HOSTNAMES is a comma-separated list that is *added* to the
+ * defaults, never a replacement for them: a typo in the variable can widen the
+ * list by accident but can never silently drop the real domains. It exists so
+ * that moving the site to a new host — a netlify.app address, a staging
+ * domain — needs an environment change rather than a code deploy.
+ */
+function allowedHostnames(): Set<string> {
+    const list = [...DEFAULT_HOSTNAMES];
+    if (process.env.NODE_ENV !== 'production') list.push(...DEV_HOSTNAMES);
+    for (const entry of (process.env.TURNSTILE_ALLOWED_HOSTNAMES || '').split(',')) {
+        const host = normaliseHost(entry);
+        if (host) list.push(host);
+    }
+    return new Set(list.map(normaliseHost));
+}
 
 /**
  * Vercel preview deployments build with NODE_ENV=production but are served
@@ -44,8 +67,9 @@ const ALLOWED_HOSTNAMES = new Set(
  * exactly as strict as before — this cannot widen production.
  */
 function hostnameAllowed(hostname: string): boolean {
-    if (ALLOWED_HOSTNAMES.has(hostname)) return true;
-    if (process.env.VERCEL_ENV === 'preview' && hostname.endsWith('.vercel.app')) return true;
+    const host = normaliseHost(hostname);
+    if (allowedHostnames().has(host)) return true;
+    if (process.env.VERCEL_ENV === 'preview' && host.endsWith('.vercel.app')) return true;
     return false;
 }
 
