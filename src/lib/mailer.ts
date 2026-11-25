@@ -17,8 +17,23 @@ function getResend(): Resend {
     return client;
 }
 
-const FROM_ADDRESS = 'Italy Taxi Service <bookings@italytaxiservice.com>';
-const REPLY_TO = 'italytaxiservicee@gmail.com';
+/**
+ * The sender address, which must be a domain/address verified in Resend or
+ * the send is rejected. Configurable via FROM_EMAIL so it can be changed
+ * without a code change; the fallback is the address actually verified for
+ * this account.
+ *
+ * FROM_EMAIL may be either a bare address ("booking@italytaxiservice.com") or
+ * an already-formatted sender ("Italy Taxi Service <booking@...>"); a bare
+ * address gets the display name added here.
+ */
+const FROM_ADDRESS = (() => {
+    const configured = (process.env.FROM_EMAIL || '').trim();
+    if (!configured) return 'Italy Taxi Service <booking@italytaxiservice.com>';
+    return configured.includes('<') ? configured : `Italy Taxi Service <${configured}>`;
+})();
+
+const REPLY_TO = process.env.ADMIN_EMAIL || 'italytaxiservicee@gmail.com';
 
 interface EmailAttachment {
     filename: string;
