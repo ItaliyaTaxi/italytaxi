@@ -7,6 +7,9 @@
   # fails the build when it finds them. Four of ours are public by design and
   # are therefore expected to appear in the output:
   #
+  #   NEXT_PUBLIC_SUPABASE_URL        The project endpoint. The browser has to
+  #                                   know where to send its queries, so this
+  #                                   is in every client request by design.
   #   NEXT_PUBLIC_SUPABASE_ANON_KEY   The NEXT_PUBLIC_ prefix means Next.js
   #                                   inlines it into the browser bundle
   #                                   deliberately. Supabase anon keys are
@@ -27,4 +30,7 @@
   # TURNSTILE_SECRET_KEY and RESEND_API_KEY. If the scanner ever reports one of
   # those, it means a genuine secret has reached the client bundle and the
   # build should fail. Do not add them here to make a build pass.
-  SECRETS_SCAN_OMIT_KEYS = "NEXT_PUBLIC_SUPABASE_ANON_KEY,NEXT_PUBLIC_TURNSTILE_SITE_KEY,ADMIN_EMAIL,FROM_EMAIL"
+  # This covers every NEXT_PUBLIC_ variable the codebase uses. If another one
+  # is ever added, it belongs here too: the prefix is an explicit instruction
+  # to publish the value to the browser.
+  SECRETS_SCAN_OMIT_KEYS = "NEXT_PUBLIC_SUPABASE_URL,NEXT_PUBLIC_SUPABASE_ANON_KEY,NEXT_PUBLIC_TURNSTILE_SITE_KEY,ADMIN_EMAIL,FROM_EMAIL"
