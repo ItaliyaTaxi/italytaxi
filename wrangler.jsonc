@@ -1,0 +1,46 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "italytaxi",
+  "main": ".open-next/worker.js",
+
+  // Must be 2024-09-23 or later for the adapter. nodejs_compat is required:
+  // the app runs the Node.js runtime, including the /api/leads route that
+  // pins `export const runtime = 'nodejs'`.
+  "compatibility_date": "2024-12-30",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+
+  // The prerendered pages and everything in public/ are served from here
+  // rather than from the Worker, which keeps the Worker bundle small.
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+
+  // The Worker calls itself for cache revalidation. The service value must
+  // match "name" above.
+  "services": [
+    {
+      "binding": "WORKER_SELF_REFERENCE",
+      "service": "italytaxi"
+    }
+  ],
+
+  // Backs the incremental cache configured in open-next.config.ts.
+  // Create once:  npx wrangler r2 bucket create italytaxi-next-cache
+  "r2_buckets": [
+    {
+      "binding": "NEXT_INC_CACHE_R2_BUCKET",
+      "bucket_name": "italytaxi-next-cache"
+    }
+  ],
+
+  // Cloudflare Images handles next/image optimisation. sharp does not run on
+  // Workers, so this binding replaces it.
+  "images": {
+    "binding": "IMAGES"
+  },
+
+  "observability": {
+    "enabled": true
+  }
+}

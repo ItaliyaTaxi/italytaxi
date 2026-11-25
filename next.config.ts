@@ -285,3 +285,9 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
+
+// Cloudflare bindings (R2 cache, Images) in `next dev`. Build and deploy are
+// unaffected by this call; it only wires the local dev server to the same
+// bindings the Worker gets in production.
+import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
+initOpenNextCloudflareForDev();

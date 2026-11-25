@@ -47,3 +47,6 @@ bing-index.mjs
 bing-index-state.json
 bing_indexing_guide.md
 f79e85d0d94847cdb66fca223884c8d8.txt
+# Cloudflare / OpenNext build output
+.open-next
+.wrangler
