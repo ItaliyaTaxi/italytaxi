@@ -1,0 +1,38 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "italytaxi",
+  "main": ".open-next/worker.js",
+
+  // Must be 2024-09-23 or later for the OpenNext adapter. nodejs_compat is
+  // required: the app runs the Node.js runtime, including /api/leads, which
+  // pins `export const runtime = 'nodejs'`.
+  "compatibility_date": "2024-12-30",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+
+  // Three things are served from here: everything in public/, the Next.js
+  // client bundles under _next/static, and the prerendered page cache under
+  // cdn-cgi/_next_cache (which the asset server exposes only to the Worker).
+  //
+  // Static assets do not count toward the Worker size limit, have no
+  // per-request cost, and have no write limit. The Free plan allows 20,000
+  // files per version; this build produces about 2,050.
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+
+  // No KV, R2, D1 or Durable Object binding is declared on purpose. The
+  // incremental cache is read-only and backed by the assets above, so nothing
+  // here needs a billable or payment-method-gated resource. See
+  // open-next.config.ts for why, and for how to add R2 later.
+  //
+  // Nor is an "images" binding declared. That binding is Cloudflare Images,
+  // which is metered. Without it the adapter passes images through at their
+  // original size instead of resizing them: /_next/image still answers and
+  // every <Image> still renders, it just stops producing AVIF/WebP variants.
+  // Adding it later is one block here plus nothing else in the code.
+
+  "observability": {
+    "enabled": true
+  }
+}

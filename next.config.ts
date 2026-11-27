@@ -1,4 +1,9 @@
 import type { NextConfig } from "next";
+import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
+
+// Wires `next dev` to the same Cloudflare bindings the deployed Worker gets
+// (R2 cache, Images). It is a no-op during `next build` and in production.
+initOpenNextCloudflareForDev();
 
 const nextConfig: NextConfig = {
   experimental: {
