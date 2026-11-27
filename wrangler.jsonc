@@ -21,12 +21,22 @@
     "binding": "ASSETS"
   },
 
-  // No KV, R2, D1 or Durable Object binding is declared on purpose. The
+  // No KV, R2, D1 or Durable Object binding is declared, on purpose. The
   // incremental cache is read-only and backed by the assets above, so nothing
   // here needs a billable or payment-method-gated resource. See
   // open-next.config.ts for why, and for how to add R2 later.
   //
-  // Nor is an "images" binding declared. That binding is Cloudflare Images,
+  // Lets server-side Turnstile verification accept tokens minted on the
+  // workers.dev hostname, which is how this deployment is reached until DNS
+  // moves. src/lib/security/turnstile.ts adds these to its built-in defaults
+  // rather than replacing them, so italytaxiservice.com and its www form keep
+  // working with or without this value, and no wildcard is involved: only the
+  // exact hostnames listed here are accepted.
+  "vars": {
+    "TURNSTILE_ALLOWED_HOSTNAMES": "italytaxi.italytaxiservicee.workers.dev"
+  },
+
+  // No "images" binding is declared either. That binding is Cloudflare Images,
   // which is metered. Without it the adapter passes images through at their
   // original size instead of resizing them: /_next/image still answers and
   // every <Image> still renders, it just stops producing AVIF/WebP variants.
