@@ -1,0 +1,86 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "italytaxi",
+  "main": ".open-next/worker.js",
+
+  // Must be 2024-09-23 or later for the OpenNext adapter. nodejs_compat is
+  // required: the app runs the Node.js runtime, including /api/leads, which
+  // pins `export const runtime = 'nodejs'`.
+  "compatibility_date": "2024-12-30",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+
+  // Three things are served from here: everything in public/, the Next.js
+  // client bundles under _next/static, and the prerendered page cache under
+  // cdn-cgi/_next_cache (which the asset server exposes only to the Worker).
+  //
+  // Static assets do not count toward the Worker size limit, have no
+  // per-request cost, and have no write limit. The Free plan allows 20,000
+  // files per version; this build produces about 2,050.
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+
+  // The live site. Attaching these as custom domains makes Cloudflare create
+  // and manage the DNS records for both hostnames and point them at this
+  // Worker, replacing the records that pointed at Netlify:
+  //
+  //   italytaxiservice.com      A      75.2.60.5, 99.83.231.61
+  //   www.italytaxiservice.com  CNAME  italytaxi.netlify.app
+  //
+  // Those are recorded here so a rollback is a known quantity: remove the two
+  // custom domains and recreate the records above.
+  //
+  // Both hostnames belong here on purpose. Every canonical tag on the site
+  // points at the www form, but the apex answers as well, so leaving the apex
+  // pointed at Netlify would split the site across two hosts.
+  //
+  // Left commented out: wrangler cannot attach a custom domain over a DNS
+  // record it did not create. It fails with
+  //
+  //   Hostname 'italytaxiservice.com' already has externally managed DNS
+  //   records (A, CNAME, etc). Delete them first.   [code: 100117]
+  //
+  // and the failure is not atomic — the trigger update is applied in part and
+  // is not rolled back, which on the first attempt silently turned off the
+  // workers.dev route. So the two Netlify records have to go first, and the
+  // dashboard's "Add Custom Domain" flow is the right tool because it offers
+  // to replace a conflicting record in one step instead of refusing.
+  //
+  // Uncomment once the records are gone, then deploy.
+  // "routes": [
+  //   { "pattern": "italytaxiservice.com", "custom_domain": true },
+  //   { "pattern": "www.italytaxiservice.com", "custom_domain": true }
+  // ],
+
+  // Keeps the italytaxi.italytaxiservicee.workers.dev route alive. This has to
+  // be explicit: wrangler turns workers.dev off by default as soon as a
+  // "routes" entry is present, so adding a custom domain silently removes the
+  // only working URL unless this is set.
+  "workers_dev": true,
+
+  // No KV, R2, D1 or Durable Object binding is declared, on purpose. The
+  // incremental cache is read-only and backed by the assets above, so nothing
+  // here needs a billable or payment-method-gated resource. See
+  // open-next.config.ts for why, and for how to add R2 later.
+  //
+  // Lets server-side Turnstile verification accept tokens minted on the
+  // workers.dev hostname, which is how this deployment is reached until DNS
+  // moves. src/lib/security/turnstile.ts adds these to its built-in defaults
+  // rather than replacing them, so italytaxiservice.com and its www form keep
+  // working with or without this value, and no wildcard is involved: only the
+  // exact hostnames listed here are accepted.
+  "vars": {
+    "TURNSTILE_ALLOWED_HOSTNAMES": "italytaxi.italytaxiservicee.workers.dev"
+  },
+
+  // No "images" binding is declared either. That binding is Cloudflare Images,
+  // which is metered. Without it the adapter passes images through at their
+  // original size instead of resizing them: /_next/image still answers and
+  // every <Image> still renders, it just stops producing AVIF/WebP variants.
+  // Adding it later is one block here plus nothing else in the code.
+
+  "observability": {
+    "enabled": true
+  }
+}
