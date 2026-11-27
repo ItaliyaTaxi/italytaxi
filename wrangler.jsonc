@@ -35,23 +35,23 @@
   // points at the www form, but the apex answers as well, so leaving the apex
   // pointed at Netlify would split the site across two hosts.
   //
-  // Left commented out: wrangler cannot attach a custom domain over a DNS
-  // record it did not create. It fails with
+  // These MUST stay listed here. A deploy replaces the Worker's remote
+  // trigger configuration with whatever this file says, so if these two are
+  // missing, the next deploy detaches both custom domains and takes the live
+  // site down. They were attached through the dashboard rather than wrangler,
+  // which cannot create a custom domain over a DNS record it did not make:
   //
   //   Hostname 'italytaxiservice.com' already has externally managed DNS
   //   records (A, CNAME, etc). Delete them first.   [code: 100117]
   //
-  // and the failure is not atomic — the trigger update is applied in part and
-  // is not rolled back, which on the first attempt silently turned off the
-  // workers.dev route. So the two Netlify records have to go first, and the
-  // dashboard's "Add Custom Domain" flow is the right tool because it offers
-  // to replace a conflicting record in one step instead of refusing.
-  //
-  // Uncomment once the records are gone, then deploy.
-  // "routes": [
-  //   { "pattern": "italytaxiservice.com", "custom_domain": true },
-  //   { "pattern": "www.italytaxiservice.com", "custom_domain": true }
-  // ],
+  // That failure is also not atomic — the trigger update applies in part and
+  // is not rolled back — which on the first attempt removed the workers.dev
+  // route while attaching nothing. Listing the domains that already exist is
+  // a no-op; omitting them is destructive.
+  "routes": [
+    { "pattern": "italytaxiservice.com", "custom_domain": true },
+    { "pattern": "www.italytaxiservice.com", "custom_domain": true }
+  ],
 
   // Keeps the italytaxi.italytaxiservicee.workers.dev route alive. This has to
   // be explicit: wrangler turns workers.dev off by default as soon as a
